@@ -111,34 +111,3 @@ function renderWeekday() {
     element.innerText = date;
   });
 }
-
-// ====== 已读状态管理 ======
-function markAsRead() {
-  // 点击文章时切换状态
-  document.querySelectorAll('.article-summary-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault(); // 阻止默认跳转（如果是链接）
-      const isRead = this.getAttribute('data-read') === 'true';
-      this.setAttribute('data-read', !isRead);
-      
-      // 存储状态到 localStorage（可选）
-      const articleId = this.closest('[data-accordion-key]').getAttribute('data-accordion-key');
-      const readList = JSON.parse(localStorage.getItem('readArticles') || '[]');
-      if (isRead) {
-        localStorage.setItem('readArticles', JSON.stringify(readList.filter(id => id !== articleId)));
-      } else {
-        localStorage.setItem('readArticles', JSON.stringify([...readList, articleId]));
-      }
-    });
-  });
-
-  // 页面加载时恢复已读状态
-  const readArticles = JSON.parse(localStorage.getItem('readArticles') || '[]');
-  readArticles.forEach(id => {
-    const article = document.querySelector(`[data-accordion-key="${id}"] .article-summary-link`);
-    if (article) article.setAttribute('data-read', 'true');
-  });
-}
-
-// 初始化
-markAsRead();
