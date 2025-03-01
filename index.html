@@ -51,11 +51,337 @@
             data-action="toggle-accordions"
             title="Click to toggle the day, Ctrl + click to toggle all."
           >
-            <time class="daily-heading-toggle__weekday js-offset-weekday" data-offset-date=2025-03-01 datetime="2025-03-01T12:00:00.000Z">2025-03-01</time>
-            <time class="daily-heading-toggle__date js-offset-date" data-offset-date=2025-03-01 datetime="2025-03-01T12:00:00.000Z"></time>
+            <time class="daily-heading-toggle__weekday js-offset-weekday" data-offset-date=2025-03-02 datetime="2025-03-01T16:17:57.176Z">2025-03-02</time>
+            <time class="daily-heading-toggle__date js-offset-date" data-offset-date=2025-03-02 datetime="2025-03-01T16:17:57.176Z"></time>
           </button>
         </h2>
         <ul class="sources card">
+            <li class="card__section">
+              <section class="js-toggle-accordions-scope">
+                <h3 class="source-heading">
+                  <button
+                    class="source-heading__name"
+                    data-action="toggle-accordions"
+                    title="Click to toggle the source, Ctrl + click to toggle all."
+                  >知乎日报</button>
+                  <a class="source-heading__link" href="https://daily.zhihu.com">Open</a>
+                </h3>
+                <section class="articles-per-source">
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://daily.zhihu.com/story/9779525"
+                        open
+                      >
+                        <summary class="article-expander__title">DeepSeek-V3 / R1 推理系统概览</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://daily.zhihu.com/story/9779525">
+                          <div class="article-summary-box-inner media-object">
+                            <span class="media-object__text">
+                              <span>DeepSeek
+
+
+
+DeepSeek-V3 / R1 推理系统的优化目标是：更大的吞吐，更低的延迟。
+为了实现这两个目标，我们的方案是使用大规模跨节点专家并行（Expert Parallelism / EP）。首先 EP 使得 batch size 大大增加，从而提高 GPU 矩阵乘法的效率，提高吞吐。其次 EP 使得专家分散在不同的 GPU 上，每个 GPU 只需要计算很少的专家（因此更少的访存需求），从而降低延迟。
+但 EP 同时也增加了系统的复杂性。复杂性主要体现在两个方面：
+EP 引入跨节点的传输。为了优化吞吐，需要设计合适的计算流程使得传输和计算可以同步进行。
+EP 涉及多个节点，因此天然需要 Data Parallelism（DP），不同的 DP 之间需要进行负载均衡。
+因此，本文的主要内容是如何使用 EP 增大 batch size，如何隐藏传输的耗时，如何进行负载均衡。
+大规模跨节点专家并行（Expert Parallelism / EP）
+由于 DeepSeek-V3 / R1 的专家数量众多，并且每层 256 个专家中仅激活其中 8 个。模型的高度稀疏性决定了我们必须采用很大的 overall batch size，才能给每个专家提供足够的 expert batch size，从而实现更大的吞吐、更低的延时。需要大规模跨节点专家并行（Expert Parallelism / EP）。
+我们采用多机多卡间的专家并行策略来达到以下目的：
+Prefill：路由专家 EP32、MLA 和共享专家 DP32，一个部署单元是 4 节点，32 个冗余路由专家，每张卡 9 个路由专家和 1 个共享专家
+Decode：路由专家 EP144、MLA 和共享专家 DP144，一个部署单元是 18 节点，32 个冗余路由专家，每张卡 2 个路由专家和 1 个共享专家
+计算通…</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;2
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                </section>
+              </section>
+            </li>
+        </ul>
+      </section>
+      <section class="daily-content js-toggle-accordions-scope">
+        <h2 class="daily-heading">
+          <button
+            class="daily-heading-toggle"
+            data-action="toggle-accordions"
+            title="Click to toggle the day, Ctrl + click to toggle all."
+          >
+            <time class="daily-heading-toggle__weekday js-offset-weekday" data-offset-date=2025-03-01 datetime="2025-03-01T14:00:38.000Z">2025-03-01</time>
+            <time class="daily-heading-toggle__date js-offset-date" data-offset-date=2025-03-01 datetime="2025-03-01T14:00:38.000Z"></time>
+          </button>
+        </h2>
+        <ul class="sources card">
+            <li class="card__section">
+              <section class="js-toggle-accordions-scope">
+                <h3 class="source-heading">
+                  <button
+                    class="source-heading__name"
+                    data-action="toggle-accordions"
+                    title="Click to toggle the source, Ctrl + click to toggle all."
+                  >瓦斯阅读</button>
+                  <a class="source-heading__link" href="https://qnmlgb.tech/">Open</a>
+                </h3>
+                <section class="articles-per-source">
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="1286118"
+                        open
+                      >
+                        <summary class="article-expander__title">听说一二线城市房价都在涨，我给中介打了电话</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="http://mp.weixin.qq.com/s?__biz&#x3D;MzIxODgyOTA5NA&#x3D;&#x3D;&amp;mid&#x3D;2247792174&amp;idx&#x3D;2&amp;sn&#x3D;fc053691c5b2d3d76f77c44999e364b1&amp;chksm&#x3D;96098760fb7fca8d7063e40359be4857c14542d629fe4d29c6b82f4a974aafd793b6ce21afc7">
+                          <div class="article-summary-box-inner media-object">
+                            <span class="media-object__text">
+                              <span>最近刷手机的时候不知道大家有没有发现，新房涨价的消息又开始多起来如果单从数据层面来说确实如此根据国家统计局发布的2025年1月房价数据可以看出，全国多数城市的新房价格确实开始出现上升趋势70个大中城市中，24个城市新房价格环比上涨，比去年12月还要增加1个尤为引人注目的是二线城市开始表现出更强劲的反超趋势数据来自于国家统计局从上涨程度的排名来看， 一线城市只有上海进入前10名，剩下都是二线城市南京、成都0.7%的涨幅并列第一，宁波、武汉、无锡紧跟上海的步伐然而在现实的市场环境中，新房价格是否真的如数据显示的那样，出现上涨趋势呢或许最有资格回答这个问题的还是忙于各大楼盘的中介们于是我花了一整天的时间与北京、上海、广州、深圳、南京、武汉、无锡、苏州这些城市的中介们聊了一下虽说通过一两位中介的观点去分析整个城市的市场不够全面但我也看到了楼市的一线现场到底是怎么样的而这，我觉得也是挺值得拿出来跟各位分享的01新房回暖最明显的还是强二线城市在和中介沟通的过程中，发现市场反馈中强二线城市的回暖程度是要远超一线城市的第一，成交量在持续走高在和中介交谈过程中，我发现武汉的中介对于成交量上涨这件事感触是比较深的回顾去年武汉新房的成交情况也可以明显看出，从去年11月开始，成交量出现了大幅度的增长数据主要采集自大汉口房产在线，仅供参考2024年11月的成交量达到了16767套，同比增长189%，12月的成交量达到了28331套，同比增长146%并且仅11月和12月两个月的销售量就占了全年的42%而这种增长趋势也并未停下2025年1月的成交量达到了6900套，同比增长28.3%截至到2月25日，2月的成交量达到了4075套，同比增长45.7%中介告诉我虽说是淡季，但武汉多家门店的日成交量都能突破两位数成交量的增长幅度也让中介开始期待武汉楼市全年的市场表现第二，也有一些城市的价格开始反弹虽然之前楼市…</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;1
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="1286117"
+                        open
+                      >
+                        <summary class="article-expander__title">三位00后，估值145亿</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="http://mp.weixin.qq.com/s?__biz&#x3D;MzI5ODk1NjY1MA&#x3D;&#x3D;&amp;mid&#x3D;2247678088&amp;idx&#x3D;1&amp;sn&#x3D;726c42f6ad277a9413cd5ccc2006030a&amp;chksm&#x3D;edf8499e5e487da8003c028cca53736738de16f7912574f868312fc416900e621b86d8ee1748">
+                          <div class="article-summary-box-inner media-object">
+                            <span class="media-object__text">
+                              <span>警惕AI泡沫。作者 I 王露报道 I 投资界PEdaily又见AI造富潮。日前，成立刚满两年的AI招聘网站Mercor宣布，完成1亿美元B轮融资，估值达到20亿美元（约合人民币145亿元），是五个月前估值的8倍，成长速度令人咋舌。公司创始人却是三个退学的00后，用了24个月，一跃成为百亿级别独角兽——AI造富的疯狂，跃然纸上。你方唱罢我登场。融资竞赛还在AI江湖里不停上演。但争议随之而来：这会是有史以来最大的一场估值泡沫吗？三个00后，退学创业故事要从三位00后说起。出生于2004年的Brendan Foody，年纪虽小却是一位连续创业者，早在高中时期就创立一家数字咨询公司。期间，他在学校辩论队结识了Adarsh Hiremath和Surya Midha，三人曾组队赢得一场美国政策辩论赛冠军。2021年，Foody和Midha顺利考入美国乔治敦大学，分别就读经济学和外交专业。Hiremath则进入哈佛大学攻读计算机专业。大二那年，三位大学生一拍即合，在宿舍里创立Mercor。最初，Mercor只是简单地为印度工程师和需要编程的初创公司牵线搭桥。仅仅几个月，在没有任何外部资金支持的情况下，营收达到了100万美元，净赚8万美元。19岁的他们雄心勃勃，决定退学全职创业。彼时ChatGPT已横空出世，Mercor顺势利用人工智能大模型收集数据并简化招聘流程。在Foody看来，招聘是最被低估的职能——不同人才的流入流出等同于每家公司的资金去向，可以从中收集到行业所需的一切。Mercor上的求职过程与传统招聘网站不同之处在于，应聘者上传简历后，需与AI进行20分钟的视频面试，才能进行职位匹配。招聘方上传职位描述后，系统自动推荐最佳候选人。公司官网显示，Mercor人才库里有超过46万求职者，职位多是远程短期类工作，包括研发、设计、运营和分析师等。商业模式很简单，向企业方收取招聘费用以及…</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;1
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="1285048"
+                        open
+                      >
+                        <summary class="article-expander__title">无人在意的iPhone 16e，用起来到底咋样？</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="http://mp.weixin.qq.com/s?__biz&#x3D;MzA5NDc1NzQ4MA&#x3D;&#x3D;&amp;mid&#x3D;2654585278&amp;idx&#x3D;2&amp;sn&#x3D;a4f9b168c8eeaa81178d12759966e967&amp;chksm&#x3D;8a8abc3b86a7fd0f9cbfd6fe8c05f9890143f8d0485252ccbe0091c57058ba208aa3c1c012f2">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://mmbiz.qpic.cn/mmbiz_jpg/yZPTcMGWibvtKNCWNTg0tBHFpAiajRXkCADFAajJ7GibogK8QGjzicsNGY9ENI5ViamUyfqHb9JmzKiazSAicEricpn0NA/0?wx_fmt&#x3D;jpeg" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>差友们， iPhone 16e 的测评给大家端上来了 ~ 在这款设备正式发布之前，新 SE 的爆料已经满天飞了，甚至在去年七八月份就已经开始有一些比较准确的爆料了，但托尼身边还是有一些坚定的果粉，当时根本不信苹果会出这么一款设备，还在等他们的小屏、 LCD 、高刷。 结果 iPhone 16e 一上来， 6.1 英寸刘海屏、 OLED 、 60Hz 。很多小屏党直接破防了： “ 我拿着 SE3 等了三年，就等来了这个玩意？ ” 是的，与其说苹果给小屏党们发布了个 iPhone SE4 ，还不如说是给那些还在用 iPhone 11 的钉子户们准备了个 iPhone 11s —— 外观基本不变，摄像头只有一颗主摄；但是处理器是最新的 A18 、内存是能用上苹果 AI 的 8GB ，而且售价比如今还在卖的 iPhone 15 还便宜几百块钱，只要 4499 元起步，叠加完国补之后更是香甜。虽然说我们编辑部左思右想一圈下来，还是感觉买个 iPhone 15 性价比更高一点，但无论你对 iPhone 16e 失望与否，它依旧是苹果做足功课、向全球推出的新产品。就像我们上一篇文章说的， iPhone 16e 也许压根儿就不是冲着中国市场来的， 16e 的配置放在海外依旧足够 “ 嘎嘎乱杀 ” 。好了～背景故事讲完了，最近我们也终于是拿到了这台手机，接下来就让托尼带着大家通过实测来看一看这次的 iPhone 16e 有没有什么不为人知的惊喜。 # 性能 首先来给大家唠唠性能，相信大家最关心的肯定是这颗 “ 残血 A18 ” 的实际表现了。虽然名字跟 iPhone 16 上的那个 A18 处理器一样，但 iPhone 16e 上这块还是挨了一刀，少了一颗 GPU 核心。 少了一个核心，能比 iPhone 16 、 iPhone 16 Pro 差多少？我们直接跑个分儿看看到底是骡子是马。CP…</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;202
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="1285039"
+                        open
+                      >
+                        <summary class="article-expander__title">20年“痴心不改”！奇瑞冲刺港股IPO ！去年前三季度净利润超百亿</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="http://mp.weixin.qq.com/s?__biz&#x3D;MzA3MTAwMDkxNg&#x3D;&#x3D;&amp;mid&#x3D;2657503489&amp;idx&#x3D;1&amp;sn&#x3D;3db3b87d44a99deeec127964d33a4dde&amp;chksm&#x3D;8538b852a7637d38ac342129c165134c3833c2a721c70b75f2010257a909b5ef41c3f9b094ab">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://mmbiz.qpic.cn/sz_mmbiz_jpg/TCC57Jgxdzm1r5s4icGNxUtbpjV5ztUNDOpKY0rsE4bB1BIJyOxkgqe6tk6hblG5C5kwjrs9VF7vckxibDuwU8xA/0?wx_fmt&#x3D;jpeg" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>记者丨黄辛旭奇瑞汽车的上市之路有了新进展！2月28日，港交所文件显示，奇瑞汽车提交上市申请书，中金、华泰及广发为联席保荐人。此次启动港股IPO，奇瑞汽车计划将募集资金用于研发不同车型和版本的乘用车以进一步扩大产品组合、研发下一代汽车及先进技术以提升核心技术能力、拓展海外市场及执行全球化策略、提升生产设施以及用于营运资金补充。图片来源：每经记者 李星 摄值得一提的是，奇瑞汽车是为数不多的几家未上市的主流车企，过去已多次谋求上市。《每日经济新闻》记者向奇瑞汽车方面进行联系求证，相关负责人表示不便做官方回应。不过，一位奇瑞汽车内部员工不久前告诉《每日经济新闻》记者：“奇瑞汽车一直在推进上市的相关工作，此举可以为我们的研发创新提供长期资金支持。”1去年前三季度净利润超百亿对于此次奇瑞汽车计划在港股上市。一位不愿具名的业内人士向记者分析称，“中国香港资本市场具备高度开放性与成熟度，市场投资者的国际化程度极高，且IPO审核流程短，成为众多IPO企业的首选。”虽然中国香港资本市场的上市要求相对较低，但按照公开资料，其对于企业仍有一定的财务、经营要求等。从奇瑞的销量走势、财务状况和技术积累来看，奇瑞近年来一直在作上市准备。奇瑞汽车招股说明书的信息显示，2022年、2023年、2024年1-9月，公司营收分别为926.18亿元人民币、1632.05亿元人民币、1821.54亿元人民币。2024年1-9月，公司净利润为113.12亿元人民币，同比增长58.5%。图片来源：视觉中国VCG111509798759销量层面，2024年全年奇瑞汽车销量约为260.39万辆，同比增长38.4%；其中，出海销量约为114.46万辆，同比增长21.4%。2023年，奇瑞汽车累计销售约188.1万辆，2022年累计销售约123.3万辆。按照奇瑞汽车的计划，此次启动港股IPO募集的资金将用于研发产品、技术以及海外市场等方面。上述不愿具名的业内人士表示，借助上市，资本市场可以为奇瑞汽车研发创新提供长期资金支持，构建“研发投入-技术突破-市场增长-资本溢价”的正向循环。事实上，在2024年9月举行的“瑶光2025奇瑞科技DAY”发布会上，奇瑞汽车董事长尹同跃也明确提出：“希望在2025年之前完成IPO计划。登陆资本市场既有利于奇瑞建立长期资本补充通道，又有利于激活奇瑞股权激励机制。”2上市之路一波三折奇瑞痴心不改奇瑞是目前国内为数不多没有上市的汽车集团公司，却它一直有着“上市梦”，其冲击IPO的消息每隔一段时间就会传出。回顾来看，奇瑞冲击IPO之路已历经20年。其最早的上市计划在2004年就被传出，但后来由于奇瑞与上汽集团之间的复杂股权关系，上市计划被搁置。2009年，奇瑞以29亿元出售20%的股份，一度被市场认为是在为上市作准备。但是2011年，奇瑞控股集团董事长尹同跃开始“改口”，表示由于存在一些关联交易等问题，暂不考虑上市。图片来源：每经记者 孔泽思 摄（摄）2016年，奇瑞旗下子公司奇瑞新能源尝试通过海螺型材借壳上市，但这一计划最终也因奇瑞新能源尚未取得新能源汽车生产资质告吹。2019年，奇瑞汽车启动混改，并于当年12月完成奇瑞控股集团有限公司与奇瑞汽车股份有限公司的增资扩股项目，投资方青岛五道口新能源汽车产业基金企业（有限合伙）合计出资144.5亿元。彼时，奇瑞相关负责人就告诉《每日经济新闻》记者，青岛五道口团队的到来，既可以将其拥有的丰富产业和客户资源引入奇瑞，又可以在产业投资和资本运作方面帮助奇瑞。不过，从外界看来，其后续仍没有进一步的发展。尽管上市之路一波三折，奇瑞汽车一直从未放弃。今年1月，天眼查显示，奇瑞汽车母公司奇瑞控股集团有限公司（以下简称奇瑞控股）近期获得了股权融资，投资方为青岛城投集团、IDG资本、火眼投资。这也被认为是在为上市做冲击准备。据记者了解，港股上市流程较为复杂，在企业提交了上市申请书之后，还需经历上市申请审核、上市委员会聆讯、路演与投资者推介、定价与配售等多个步骤，才能最终实现上市。如今，奇瑞汽车又一次向IPO迈出了实质性的一步，这次能否成功？业内将拭目以待。NBD汽车互动你如何看待2025年车市的发展？后台回复“进群”加入NBD汽车互动群更多精彩内容效率为先！奔驰展开“史上最强产品攻势”！在华开启相应调整DeepSeek开源第四弹：一口气放出“三剑客”，有梁文锋参与项目！黄仁勋：DeepSeek引爆芯片需求迈巴赫车主称爱车被尊界官方暴力测试 江汽集团回应……新闻在身边我在你左右无 微信号：NBD-AUTO）你还可以在以下平台看到NBD汽车每经网|今日头条|一点资讯企鹅号|搜狐号丨新浪看点空·</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;201
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="1285038"
+                        open
+                      >
+                        <summary class="article-expander__title">实测 GPT-4.5！全网都在喷的 OpenAI 最贵模型，我发现了一个惊喜的点</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="http://mp.weixin.qq.com/s?__biz&#x3D;MjM5MjAyNDUyMA&#x3D;&#x3D;&amp;mid&#x3D;2651042052&amp;idx&#x3D;1&amp;sn&#x3D;c141a4cd146b8e02fc70cc82854d3bdb&amp;chksm&#x3D;bc9946903e419fe2451b58a895174c9c48c933f275fc1c14845b00f64b50e72f5b1bf2379655">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://mmbiz.qpic.cn/sz_mmbiz_jpg/ePTzepwoNWOmWO9BxLcxejyz95HGnpjrLibcH8YOylhBJFG1NvibWOfpib45s0avzVwxXBSrSs7ibJFic2OOrrbeA3g/0?wx_fmt&#x3D;jpeg" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>在 OpenAI 的预热和众人的望眼欲穿中，GPT-4.5 终于来了，然后只听骂声一片。APPSO 第一时间体验到了 GPT-4.5，但不是订阅 Pro 会员，而是以 api 的形式尝鲜，暂时没有联网功能。那么，OpenAI 最后一个非思维链式大模型，到底表现如何？情商还行，但读不懂人情OpenAI 在内部测试中发现，与 GPT-4o 相比，测试人员更喜欢 GPT-4.5 的回答，认为它更自然、更温暖、更符合人类的交流习惯。甚至，它能够理解言外之意，捕捉我们微妙的情绪变化。总之，情商更高，几乎是 GPT-4.5 最突出的特点。那么我们就来试一下，输入提示词——「我头发剪得好难看，想暴打 Tony」。GPT-4.5 的安慰，语气是挺友好的，但内容让我更生气了，这时候它应该像个闺蜜和我一起骂，而不是说，下次带个图片去或许就好了。我怒而追问，GPT-4.5 油盐不进，还想让我自己补救发型，活脱脱像个没用的中央空调。再让 GPT-4.5 讲个最好笑的笑话，还是和以前一样，比杀鱼的刀还要冷。我直言不讳，提出批评，GPT-4.5 让我讲个笑话给它听，领教下我的「高端笑点」，怎么感觉像在阴阳我呢？之前在小红书刷到过一个情商测试题，可能只有山东网友可以答对——「下乡只带了一把伞，给镇长还是给我的分管副镇长」。评论区最高赞的回答是，「那不是你的伞，是副镇长给镇长带的伞，恰巧放在你包里而已」。来看看 GPT-4.5 怎么回答？它啰嗦了一大堆，但是不够一针见血，不懂人情世故，不明白为人处事的学问。虽然情商是一个很难定量的特质，但从目前的个例来看，GPT-4.5 还是不太擅长理解人类的内心，并且讲话直接，不拐弯，对于内心戏很多的老油条来说，显得有些蠢萌。一个可以佐证的例子是，让它模仿写海龟汤。海龟汤通常涉及一个非常奇怪的情景，然后由玩家推理，还原整个故事。我给的参考案例，留有恰到好处的怪异，逻辑又…</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;201
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="1285037"
+                        open
+                      >
+                        <summary class="article-expander__title">重庆、武汉、南昌⋯⋯越来越多城市加入“物业费降价大军”，最高降幅超50%</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="http://mp.weixin.qq.com/s?__biz&#x3D;Mzg3MDc1MTM3MA&#x3D;&#x3D;&amp;mid&#x3D;2247516057&amp;idx&#x3D;1&amp;sn&#x3D;2033850b6334f88879fc4aaa2c3be9bd&amp;chksm&#x3D;cf71e498ff7e2185a2c573bf93c1016280eed0975721fbd1e64bf92d8124cb8f84fb9edac5ec">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://mmbiz.qpic.cn/sz_mmbiz_jpg/tZx4BVnRAQe4dNDlzSxo9Z0TQqGKicrjibaFQjuN9BOQONBGHkriaZUbtf7a1w8cEjYvJLL73JWpo265vI3sWXkBQ/0?wx_fmt&#x3D;jpeg" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>去年重庆有小区拉横幅要求降物业费 每日经济新闻资料图物业费下调依然牵动着各方关注。近段时间，重庆、武汉、南昌、银川等多个城市均有项目实现了物业费下调，降幅在20%～35%。不仅如此，从去年2月起，青岛就开始实施空置房物业费打六折政策，如今这一趋势正向甘肃、江苏等地蔓延。多位业内人士在接受《每日经济新闻》记者采访时表示，适度调价是为顺应局部市场趋势、提升项目竞争力，缓解矛盾调节压力，但同时也可能导致部分物业公司面临收入减少与服务标准维持的冲突。详见此前报道《全部1.9元/平方米？重庆数百个小区要求降物业费，业主“摆摊”搞签字，也有物业主动调价》01物业费最高降幅50%“小区1、2、3栋住宅区物业收费标准调整是去年9月就已明确并发出通知，今年1月1日开始正式实施的。”日前，每经记者以业主身份致电武汉江山如画八期物业管理公司，相关工作人员表示，一次性缴纳全年物业费的业主按优惠价1.6元/平方米·月收取，按月缴纳的则按2元/平方米·月收取。据记者了解，在此之前，该小区物业收费标准为3元/平方米·月，但若一次性缴纳全年物业费，可享受八折优惠即2.4元/平方米·月。据此计算，其物业费下调幅度达33.3%，若按每户100平方米来看，每年可节约物业费近1000元。至于物业费下调原因，则是“超三分之二业主向公司提出了加大小区住宅物业费优惠幅度申请”。该工作人员表示，公司也希望通过此举“减轻业主经济负担，并能获得业主的继续支持”。每经记者了解到，仅在武汉，自2024年下半年以来，就有包括中海光谷锦城、招商依云华府、武汉天地云廷等在内的近百个小区物业费下调成功，涵盖高端改善以及刚需项目，下调幅度均超过10%，最高超过50%。比如，武汉绿地海珀御观原物业收费标准为7.6元/平方米·月，调整后为3.84元/平方米·月；金地格林东郡、联想江城雅居均从3.5元/平方米·月降至1.7元/平方米·月，朗诗里…</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;200
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                </section>
+              </section>
+            </li>
+            <li class="card__section">
+              <section class="js-toggle-accordions-scope">
+                <h3 class="source-heading">
+                  <button
+                    class="source-heading__name"
+                    data-action="toggle-accordions"
+                    title="Click to toggle the source, Ctrl + click to toggle all."
+                  >极客公园</button>
+                  <a class="source-heading__link" href="http://mainssl.geekpark.net/rss.rss">Open</a>
+                </h3>
+                <section class="articles-per-source">
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="http://www.geekpark.net/news/346450"
+                        open
+                      >
+                        <summary class="article-expander__title">DeepSeek 再次震惊全球：价格只有 OpenAI 1/25，利润率却超过 500%</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="http://www.geekpark.net/news/346450">
+                          <div class="article-summary-box-inner media-object">
+                            <span class="media-object__text">
+                              <span>过去一周，DeepSeek 连续开放了 5 个 Infra 项目的源代码，正当大家以为这场开源盛宴已经结束。
+刚刚，DeepSeek 的彩蛋来了！开源周 Day6，DeepSeek 官方团队在 Github 和知乎给出了 DeepSeek-V3 / R1 推理系统的技术解读。
+先说结论：通过优化吞吐和延迟，DeepSeek「理论上一天的总收入为 $562,027，成本利润率 545%。」
+敏锐的网友——如 MenloVentures 投资人 Deedy 翻译了这意味着什么：「理论 ARR 2 亿美金、利润率超过 500%，这样的商业效率理应是一家值 100 亿美金的公司。」
+
+从 2024 年 5 月发布 DeepSeekV2 以来，DeepSeek 模型服务就以「价格屠夫」示众，总是比行业其他模型便宜 1/10 左右，质疑 DeepSeek 亏本打价格战的声音也一直有。
+通过这 5 天开放源代码以及今天的推理系统概述，这一疑虑也被打消，可以预见，模型推理价格越来越负担得起，且服务提供方也有得赚。这一事件的影响也可以通过 X 平台网友展现出刷屏的惊喜得以一窥，「成本利润率 545%，等于说你是在告诉我，我被 Open AI 抢劫了？开源周 Day7 的彩蛋是 AGI？」
+但更大的信号指向生态伙伴，部署 DeepSeek 有得赚。
+一位 AI 领域的投资人向极客公园阐述，「官方技术解读表明，云平台和上下游通过部署 DeepSeek 的服务，理论上收益和利润率可以达到很高」。无论是对于提供在线推理、还是私有化部署等服务的供应商，都是利好。
+在这波 DeepSeek 热中受益的云平台硅基流动创始人袁进辉也在第一时间发表了自己的感受，「DeepSeek 官方披露大规模部署成本和收益，又一次颠覆了很多人认知。」
+但需要时间适配 DeepSeek V3/R1 模型架构，他表示「现在很多…</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;3
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="http://www.geekpark.net/news/346446"
+                        open
+                      >
+                        <summary class="article-expander__title">特斯拉暴跌 40%，失去万亿市值头衔；自如：「合租限制 45 岁以下」；蓝色起源发「全女性太空计划」｜极客早知道</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="http://www.geekpark.net/news/346446">
+                          <div class="article-summary-box-inner media-object">
+                            <span class="media-object__text">
+                              <span>股价崩跌 40%，特斯拉跌出万亿俱乐部
+2 月 28 日，据报道，特斯拉 (TSLA.US) 股价在 2 月份经历了历史上第二差的表现，不过在周五终于止住连跌势头，股价上涨 3.9%，收于 292.98 美元。标普 500 指数和道琼斯工业平均指数分别上涨 1.6% 和 1.4%。
+整个 2 月份，特斯拉股价累计下跌近 28%。在本月的 20 个交易日中，有 14 天股价出现下跌，仅次于 2022 年 12 月创下的最差单月记录 (当月跌幅约为 37%)。尽管特斯拉股价自 2024 年 11 月 5 日大选以来上涨了约 40 美元，市场对于该公司未来走势仍充满不确定性。
+
+特斯拉股价的大幅下跌与马斯克的个人动向密切相关。这次是因为他在华盛顿特区的频繁活动，以及他与美国总统特朗普的密切关系。部分投资者担忧，这种政治关联可能会疏远特斯拉的传统消费者群体——即那些倾向于环保、政治立场偏向自由派的消费者。（来源：智通财经）
+
+谷歌 Gemini 向免费版用户开放「全局记忆」功能，可令 AI 回忆曾经所有对话
+3 月 1 日，谷歌宣布旗下 Gemini AI 免费用户现也已支持「全局记忆」功能，也就是 AI 目前记得用户曾经与其进行过的所有对话，号称可以为用户提供更加私人化的回复，此前该功能仅向 Gemini Advanced 付费用户提供。
+
+谷歌表示，免费用户目前不再需要通过「跳转到此前进行的对话历史记录」即可承接上一次对话，与 AI 交流，AI 将会记得用户与其进行的每一次对话。此外，用户还可以要求 Gemini 总结此前所有的对话内容，并在此前的分析基础上进行进一步的讨论。
+除此之外，谷歌 Gemini AI 最近还向免费版用户开放文件上传和分析功能，此前该功能也同样仅向 Gemini Advanced 付费用户提供。（来源：IT 之家）
+ 
+微软宣布 5 月起 Skype …</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;3
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                </section>
+              </section>
+            </li>
+            <li class="card__section">
+              <section class="js-toggle-accordions-scope">
+                <h3 class="source-heading">
+                  <button
+                    class="source-heading__name"
+                    data-action="toggle-accordions"
+                    title="Click to toggle the source, Ctrl + click to toggle all."
+                  >晚点LatePost</button>
+                  <a class="source-heading__link" href="https://new.qq.com/omn/author/8QMc3Hhc74cevD%2FR">Open</a>
+                </h3>
+                <section class="articles-per-source">
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://view.inews.qq.com/a/20250301A07KQL00"
+                        open
+                      >
+                        <summary class="article-expander__title">宁德时代如何做车企的技术合伙人</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://view.inews.qq.com/a/20250301A07KQL00">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://inews.gtimg.com/om_ls/OCpodDLk0UCDq-nGxeomcE7o2o2R8USbJ6CDjnsOwMqZMAA_640330/0" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>宁德时代做底层技术框架，车企做上层产品创新。
+
+
+
+雷军 2 月 27 日发布了他认为小米创业十五年来最高端的产品 SU7 Ultra，开启预定两小时后，订单量就突破 1 万台。SU7 Ultra 已经是目前最快的电动车，零百加速不到 2 秒，马力超过 1500 匹。
+
+宁德时代和小米共同开发了能够匹配这些性能的二代麒麟电池。SU7 Ultra 电池放电功率达到 1330kW，在仅剩 20% 电量时，电池的放电功率依旧可以保持在 800kW 以上，且支持 5.2C 的高倍率快充。小米在发布会后邀请宁德时代 “一起打造更强的性能”。
+
+SU7 Ultra 之外，量产电动车的充电速度和能量密度还在不断进步，充电速度从 4C 进化到 6C，续航里程早已超过 1000 公里。
+
+这些进步都指向宁德时代与其研发的麒麟电池，以及具备极限制造能力的电池工厂。这些车企给出更高的产品要求和具体的定义，宁德时代的工程师研发电池技术、优化工厂，每年投入百亿元和数千名工程师，让进步真正发生。
+
+过去十余年间，车企与宁德时代等动力电池制造商通过持续提升电池技术性能、优化电动车产品设计，共同构建了一个自我强化的商业闭环，推动了新能源产业的迭代升级。有追求的车企想要更好的电池——宁德时代实现他们的设想——电动车变好，更多人愿意为电动车买单。这一循环让锂电池成本在过去十多年下降 70% ，能力密度提升 50%。
+
+直到现在，循环也依然在发生作用。
+
+
+车企给好的定义，宁德时代造好的电池
+
+
+电池始终是电动车最关键的零部件，也是车企着力塑造用户认知、打造差异化竞争优势的重要突破口。
+
+从跌落实验到在发布会上用枪射击电池包，从 1000 公里续航测试到连续 24 小时的行驶测试，车企对电池的要求在过去几年急速膨胀。电池不光得扛得住刀砍，还要经得住从低温到高温的各种测试。最后还得有个说出去响亮的名字。
+
+但只有…</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;9
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                </section>
+              </section>
+            </li>
             <li class="card__section">
               <section class="js-toggle-accordions-scope">
                 <h3 class="source-heading">
@@ -98,6 +424,60 @@
                               <img src="https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/14-01-2025-UNNews-Danat-Pearling-Bahrain.jpg/image560x340cropped.jpg" loading="lazy" class="media-object__media article-image" />
                             <span class="media-object__text">
                               <span>Bahrain, with its shallow waters and rich oyster beds, has long been synonymous with pearls, which formed the backbone of the island nation’s economy for thousands of years. Diving for pearls, otherwise known as pearling, remains part of the country’s cultural DNA.</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                </section>
+              </section>
+            </li>
+            <li class="card__section">
+              <section class="js-toggle-accordions-scope">
+                <h3 class="source-heading">
+                  <button
+                    class="source-heading__name"
+                    data-action="toggle-accordions"
+                    title="Click to toggle the source, Ctrl + click to toggle all."
+                  >瞭望智库</button>
+                  <a class="source-heading__link" href="/feeds/MP_WXS_2398545994.atom">Open</a>
+                </h3>
+                <section class="articles-per-source">
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://mp.weixin.qq.com/s/c6tlEXwUjBwvGPaoKZhX-Q"
+                        open
+                      >
+                        <summary class="article-expander__title">“二月二，龙抬头”，都有啥讲究？</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://mp.weixin.qq.com/s/c6tlEXwUjBwvGPaoKZhX-Q">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://mmbiz.qpic.cn/mmbiz_jpg/p1VfGFTkFsIWFbiatrwjkrVzURZ3NuA3JAGmKsPlEUKMRTw7icdyy6SV2icLEkRb7B6X8Zt1MicI8PKZJyicl44KNBA/0?wx_fmt&#x3D;jpeg" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>时间并非一成不变。</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;201
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://mp.weixin.qq.com/s/oOSg7OyXfAIcH5rFqiJHhQ"
+                        open
+                      >
+                        <summary class="article-expander__title">瞭望·治国理政纪事｜勇挑大梁 走在前列</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://mp.weixin.qq.com/s/oOSg7OyXfAIcH5rFqiJHhQ">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://mmbiz.qpic.cn/mmbiz_jpg/p1VfGFTkFsIWFbiatrwjkrVzURZ3NuA3J3C5icicUlDBYic84bqDc9wpHd1FibYkjdVc2yU4UgjBSQZDeTiaxtKuJeIQ/0?wx_fmt&#x3D;jpeg" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>No content preview</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;202
+                                  min&hairsp;)</span>
                             </span>
                           </div>
                         </a>
@@ -207,6 +587,120 @@
                     class="source-heading__name"
                     data-action="toggle-accordions"
                     title="Click to toggle the source, Ctrl + click to toggle all."
+                  >三联生活周刊</button>
+                  <a class="source-heading__link" href="/feeds/MP_WXS_1791575621.atom">Open</a>
+                </h3>
+                <section class="articles-per-source">
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://mp.weixin.qq.com/s/rXAfzUwcq_dFcoP0FA1jJA"
+                        open
+                      >
+                        <summary class="article-expander__title">方大同去世：“请相信总会有人为了你掉眼泪”</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://mp.weixin.qq.com/s/rXAfzUwcq_dFcoP0FA1jJA">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://mmbiz.qpic.cn/mmbiz_jpg/c2Sib3Mp7pOOUatayJXMBbKRn0YibcfrZGeV9nicGBwPa0gIeYPxMHMx3kIzYVNbKwbFDyZAIBYUk3Xic6Xv13zicmQ/0?wx_fmt&#x3D;jpeg" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>“已经有那么多让人流泪的情歌了，我就不要再去增加了。”</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;201
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://mp.weixin.qq.com/s/Nd3_sBQ9kYML1XHJy1BYXQ"
+                        open
+                      >
+                        <summary class="article-expander__title">一群技术狂人和鬼才程序员如何改变世界？</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://mp.weixin.qq.com/s/Nd3_sBQ9kYML1XHJy1BYXQ">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://mmbiz.qpic.cn/mmbiz_jpg/c2Sib3Mp7pOOUatayJXMBbKRn0YibcfrZGnagohwgHfJokLfKKMulSFvOyKhwLFvtpnSex22Cay1L6SSq4tM4efQ/0?wx_fmt&#x3D;jpeg" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>一部恢弘的人类创新史，全景展现数字时代200年。</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;200
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://mp.weixin.qq.com/s/PG3tbnUER0txOFD0hePuZQ"
+                        open
+                      >
+                        <summary class="article-expander__title">年度高分悬疑电影：一个母亲会不爱女儿，甚至杀死她吗</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://mp.weixin.qq.com/s/PG3tbnUER0txOFD0hePuZQ">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://mmbiz.qpic.cn/mmbiz_jpg/c2Sib3Mp7pOOUatayJXMBbKRn0YibcfrZG8Xh3Q7VAObQXkdPFaZIhSoWndkKGZTRJ3qyHBwQKPqZP0KNrJAXHxQ/0?wx_fmt&#x3D;jpeg" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>把人和人连结到一起的到底是什么，答案也许并不美丽。</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;201
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://mp.weixin.qq.com/s/Q9_Pw3zMfoPcuD4lLAspRQ"
+                        open
+                      >
+                        <summary class="article-expander__title">这个海边小城，藏着生蚝天花板</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://mp.weixin.qq.com/s/Q9_Pw3zMfoPcuD4lLAspRQ">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://mmbiz.qpic.cn/mmbiz_jpg/c2Sib3Mp7pOOUatayJXMBbKRn0YibcfrZGDodAEl291A39EMLhLglU5MEaFNWmdiaK1QQtZdCtXsEbIBsqFHWZgXw/0?wx_fmt&#x3D;jpeg" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>当地人亲切地将生蚝称为“海蛎子”，这种壳厚肉肥的贝类，是胶州湾畔的珍宝。</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;201
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://mp.weixin.qq.com/s/mk3hBam55oA33fkrbMVg3Q"
+                        open
+                      >
+                        <summary class="article-expander__title">春天来了，是时候唤醒身体里的千山万水了</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://mp.weixin.qq.com/s/mk3hBam55oA33fkrbMVg3Q">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://mmbiz.qpic.cn/mmbiz_jpg/c2Sib3Mp7pOOUatayJXMBbKRn0YibcfrZGcLZNUXaKSwNyImwxWrSDHM8g3gL6XRVS6u8rQJvBwFvXtwBx0mRm0w/0?wx_fmt&#x3D;jpeg" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>在家就能解放身心，与津子共舞。</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;200
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                </section>
+              </section>
+            </li>
+            <li class="card__section">
+              <section class="js-toggle-accordions-scope">
+                <h3 class="source-heading">
+                  <button
+                    class="source-heading__name"
+                    data-action="toggle-accordions"
+                    title="Click to toggle the source, Ctrl + click to toggle all."
                   >少数派</button>
                   <a class="source-heading__link" href="https://sspai.com">Open</a>
                 </h3>
@@ -245,6 +739,40 @@
                             <span class="media-object__text">
                               <span>你永远无法把同一片晚霞拍两遍，但可以反复忆起那天的黄昏。时间是最苛刻的摄影师，它拒绝倒带重拍，却将每一刻都凝聚成不可复制的底片：童年和家人的第一次合影，高考前最后一天的操场，第一次面试后独自等待公交车 ...查看全文</span>
                                 &ensp;<span class="article-reading-time">(&hairsp;2
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                </section>
+              </section>
+            </li>
+            <li class="card__section">
+              <section class="js-toggle-accordions-scope">
+                <h3 class="source-heading">
+                  <button
+                    class="source-heading__name"
+                    data-action="toggle-accordions"
+                    title="Click to toggle the source, Ctrl + click to toggle all."
+                  >科学大院</button>
+                  <a class="source-heading__link" href="/feeds/MP_WXS_3273179243.atom">Open</a>
+                </h3>
+                <section class="articles-per-source">
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://mp.weixin.qq.com/s/PU-QSEICgsXKMbBeoEZieg"
+                        open
+                      >
+                        <summary class="article-expander__title">养娃能防老？科学家：是真的！| 一周趣科学vol.51</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://mp.weixin.qq.com/s/PU-QSEICgsXKMbBeoEZieg">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://mmbiz.qpic.cn/mmbiz_jpg/dhIUoaayW83TdmLgnib4aq9dgTibExIsN4wXfQ4ebHhW4nkkwPXEMVZtLrCPF1PGRDMjhvp4GnTXkphGTPYS7w3Q/0?wx_fmt&#x3D;jpeg" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>本周科学榨菜已送达~</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;201
                                   min&hairsp;)</span>
                             </span>
                           </div>
@@ -518,6 +1046,40 @@ Euarchontoglires 的内部关系，自上而下：灵长类、皮翼目、树鼩
                     class="source-heading__name"
                     data-action="toggle-accordions"
                     title="Click to toggle the source, Ctrl + click to toggle all."
+                  >剥洋葱people</button>
+                  <a class="source-heading__link" href="/feeds/MP_WXS_3268117899.atom">Open</a>
+                </h3>
+                <section class="articles-per-source">
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://mp.weixin.qq.com/s/WS12GGln0vvHdEMNo-Jyxw"
+                        open
+                      >
+                        <summary class="article-expander__title">《玉盘》词曲作者谭淇尹：童声不必是糖纸，它有包裹星辰的力量</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://mp.weixin.qq.com/s/WS12GGln0vvHdEMNo-Jyxw">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://mmbiz.qpic.cn/mmbiz_jpg/epkMDZIvyNDgeU7lYyiaXrxTzAzA27Gcr1eiabyicrFibhLYVThF1ZDGsTlYicdic6RbX9rTjpicd9sfcqgdicYib2lQF6A/0?wx_fmt&#x3D;jpeg" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>小孩可以从中听见星河冒险，大人则能听见生命寓言。</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;200
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                </section>
+              </section>
+            </li>
+            <li class="card__section">
+              <section class="js-toggle-accordions-scope">
+                <h3 class="source-heading">
+                  <button
+                    class="source-heading__name"
+                    data-action="toggle-accordions"
+                    title="Click to toggle the source, Ctrl + click to toggle all."
                   >人物</button>
                   <a class="source-heading__link" href="https://new.qq.com/omn/author/8QMf33ZY5YwduT%2FQ">Open</a>
                 </h3>
@@ -582,51 +1144,6 @@ Euarchontoglires 的内部关系，自上而下：灵长类、皮翼目、树鼩
                     class="source-heading__name"
                     data-action="toggle-accordions"
                     title="Click to toggle the source, Ctrl + click to toggle all."
-                  >极客公园</button>
-                  <a class="source-heading__link" href="http://mainssl.geekpark.net/rss.rss">Open</a>
-                </h3>
-                <section class="articles-per-source">
-                    <article>
-                      <details
-                        class="article-expander"
-                        data-action="toggle-native-accordion"
-                        data-accordion-key="http://www.geekpark.net/news/346446"
-                        open
-                      >
-                        <summary class="article-expander__title">特斯拉暴跌 40%，失去万亿市值头衔；自如：「合租限制 45 岁以下」；蓝色起源发「全女性太空计划」｜极客早知道</summary>
-                        <a class="article-summary-link article-summary-box-outer" href="http://www.geekpark.net/news/346446">
-                          <div class="article-summary-box-inner media-object">
-                            <span class="media-object__text">
-                              <span>股价崩跌 40%，特斯拉跌出万亿俱乐部
-2 月 28 日，据报道，特斯拉 (TSLA.US) 股价在 2 月份经历了历史上第二差的表现，不过在周五终于止住连跌势头，股价上涨 3.9%，收于 292.98 美元。标普 500 指数和道琼斯工业平均指数分别上涨 1.6% 和 1.4%。
-整个 2 月份，特斯拉股价累计下跌近 28%。在本月的 20 个交易日中，有 14 天股价出现下跌，仅次于 2022 年 12 月创下的最差单月记录 (当月跌幅约为 37%)。尽管特斯拉股价自 2024 年 11 月 5 日大选以来上涨了约 40 美元，市场对于该公司未来走势仍充满不确定性。
-
-特斯拉股价的大幅下跌与马斯克的个人动向密切相关。这次是因为他在华盛顿特区的频繁活动，以及他与美国总统特朗普的密切关系。部分投资者担忧，这种政治关联可能会疏远特斯拉的传统消费者群体——即那些倾向于环保、政治立场偏向自由派的消费者。（来源：智通财经）
-
-谷歌 Gemini 向免费版用户开放「全局记忆」功能，可令 AI 回忆曾经所有对话
-3 月 1 日，谷歌宣布旗下 Gemini AI 免费用户现也已支持「全局记忆」功能，也就是 AI 目前记得用户曾经与其进行过的所有对话，号称可以为用户提供更加私人化的回复，此前该功能仅向 Gemini Advanced 付费用户提供。
-
-谷歌表示，免费用户目前不再需要通过「跳转到此前进行的对话历史记录」即可承接上一次对话，与 AI 交流，AI 将会记得用户与其进行的每一次对话。此外，用户还可以要求 Gemini 总结此前所有的对话内容，并在此前的分析基础上进行进一步的讨论。
-除此之外，谷歌 Gemini AI 最近还向免费版用户开放文件上传和分析功能，此前该功能也同样仅向 Gemini Advanced 付费用户提供。（来源：IT 之家）
- 
-微软宣布 5 月起 Skype …</span>
-                                &ensp;<span class="article-reading-time">(&hairsp;3
-                                  min&hairsp;)</span>
-                            </span>
-                          </div>
-                        </a>
-                      </details>
-                    </article>
-                </section>
-              </section>
-            </li>
-            <li class="card__section">
-              <section class="js-toggle-accordions-scope">
-                <h3 class="source-heading">
-                  <button
-                    class="source-heading__name"
-                    data-action="toggle-accordions"
-                    title="Click to toggle the source, Ctrl + click to toggle all."
                   >走进日本 - culture</button>
                   <a class="source-heading__link" href="https://www.nippon.com/cn/economy/">Open</a>
                 </h3>
@@ -664,100 +1181,6 @@ Euarchontoglires 的内部关系，自上而下：灵长类、皮翼目、树鼩
 （原文英文）
 标题图片：雄伟壮观的姬路城 ©PIXTA
 版权声明：本网站的所有文字内容及图表图片，nippon.com日本网版权所有。未经事先授权，禁止任何形式的转载或部分复制使用。</span>
-                            </span>
-                          </div>
-                        </a>
-                      </details>
-                    </article>
-                </section>
-              </section>
-            </li>
-            <li class="card__section">
-              <section class="js-toggle-accordions-scope">
-                <h3 class="source-heading">
-                  <button
-                    class="source-heading__name"
-                    data-action="toggle-accordions"
-                    title="Click to toggle the source, Ctrl + click to toggle all."
-                  >瓦斯阅读</button>
-                  <a class="source-heading__link" href="https://qnmlgb.tech/">Open</a>
-                </h3>
-                <section class="articles-per-source">
-                    <article>
-                      <details
-                        class="article-expander"
-                        data-action="toggle-native-accordion"
-                        data-accordion-key="1285048"
-                        open
-                      >
-                        <summary class="article-expander__title">无人在意的iPhone 16e，用起来到底咋样？</summary>
-                        <a class="article-summary-link article-summary-box-outer" href="http://mp.weixin.qq.com/s?__biz&#x3D;MzA5NDc1NzQ4MA&#x3D;&#x3D;&amp;mid&#x3D;2654585278&amp;idx&#x3D;2&amp;sn&#x3D;a4f9b168c8eeaa81178d12759966e967&amp;chksm&#x3D;8a8abc3b86a7fd0f9cbfd6fe8c05f9890143f8d0485252ccbe0091c57058ba208aa3c1c012f2">
-                          <div class="article-summary-box-inner media-object">
-                              <img src="https://mmbiz.qpic.cn/mmbiz_jpg/yZPTcMGWibvtKNCWNTg0tBHFpAiajRXkCADFAajJ7GibogK8QGjzicsNGY9ENI5ViamUyfqHb9JmzKiazSAicEricpn0NA/0?wx_fmt&#x3D;jpeg" loading="lazy" class="media-object__media article-image" />
-                            <span class="media-object__text">
-                              <span>差友们， iPhone 16e 的测评给大家端上来了 ~ 在这款设备正式发布之前，新 SE 的爆料已经满天飞了，甚至在去年七八月份就已经开始有一些比较准确的爆料了，但托尼身边还是有一些坚定的果粉，当时根本不信苹果会出这么一款设备，还在等他们的小屏、 LCD 、高刷。 结果 iPhone 16e 一上来， 6.1 英寸刘海屏、 OLED 、 60Hz 。很多小屏党直接破防了： “ 我拿着 SE3 等了三年，就等来了这个玩意？ ” 是的，与其说苹果给小屏党们发布了个 iPhone SE4 ，还不如说是给那些还在用 iPhone 11 的钉子户们准备了个 iPhone 11s —— 外观基本不变，摄像头只有一颗主摄；但是处理器是最新的 A18 、内存是能用上苹果 AI 的 8GB ，而且售价比如今还在卖的 iPhone 15 还便宜几百块钱，只要 4499 元起步，叠加完国补之后更是香甜。虽然说我们编辑部左思右想一圈下来，还是感觉买个 iPhone 15 性价比更高一点，但无论你对 iPhone 16e 失望与否，它依旧是苹果做足功课、向全球推出的新产品。就像我们上一篇文章说的， iPhone 16e 也许压根儿就不是冲着中国市场来的， 16e 的配置放在海外依旧足够 “ 嘎嘎乱杀 ” 。好了～背景故事讲完了，最近我们也终于是拿到了这台手机，接下来就让托尼带着大家通过实测来看一看这次的 iPhone 16e 有没有什么不为人知的惊喜。 # 性能 首先来给大家唠唠性能，相信大家最关心的肯定是这颗 “ 残血 A18 ” 的实际表现了。虽然名字跟 iPhone 16 上的那个 A18 处理器一样，但 iPhone 16e 上这块还是挨了一刀，少了一颗 GPU 核心。 少了一个核心，能比 iPhone 16 、 iPhone 16 Pro 差多少？我们直接跑个分儿看看到底是骡子是马。CP…</span>
-                                &ensp;<span class="article-reading-time">(&hairsp;202
-                                  min&hairsp;)</span>
-                            </span>
-                          </div>
-                        </a>
-                      </details>
-                    </article>
-                    <article>
-                      <details
-                        class="article-expander"
-                        data-action="toggle-native-accordion"
-                        data-accordion-key="1285039"
-                        open
-                      >
-                        <summary class="article-expander__title">20年“痴心不改”！奇瑞冲刺港股IPO ！去年前三季度净利润超百亿</summary>
-                        <a class="article-summary-link article-summary-box-outer" href="http://mp.weixin.qq.com/s?__biz&#x3D;MzA3MTAwMDkxNg&#x3D;&#x3D;&amp;mid&#x3D;2657503489&amp;idx&#x3D;1&amp;sn&#x3D;3db3b87d44a99deeec127964d33a4dde&amp;chksm&#x3D;8538b852a7637d38ac342129c165134c3833c2a721c70b75f2010257a909b5ef41c3f9b094ab">
-                          <div class="article-summary-box-inner media-object">
-                              <img src="https://mmbiz.qpic.cn/sz_mmbiz_jpg/TCC57Jgxdzm1r5s4icGNxUtbpjV5ztUNDOpKY0rsE4bB1BIJyOxkgqe6tk6hblG5C5kwjrs9VF7vckxibDuwU8xA/0?wx_fmt&#x3D;jpeg" loading="lazy" class="media-object__media article-image" />
-                            <span class="media-object__text">
-                              <span>记者丨黄辛旭奇瑞汽车的上市之路有了新进展！2月28日，港交所文件显示，奇瑞汽车提交上市申请书，中金、华泰及广发为联席保荐人。此次启动港股IPO，奇瑞汽车计划将募集资金用于研发不同车型和版本的乘用车以进一步扩大产品组合、研发下一代汽车及先进技术以提升核心技术能力、拓展海外市场及执行全球化策略、提升生产设施以及用于营运资金补充。图片来源：每经记者 李星 摄值得一提的是，奇瑞汽车是为数不多的几家未上市的主流车企，过去已多次谋求上市。《每日经济新闻》记者向奇瑞汽车方面进行联系求证，相关负责人表示不便做官方回应。不过，一位奇瑞汽车内部员工不久前告诉《每日经济新闻》记者：“奇瑞汽车一直在推进上市的相关工作，此举可以为我们的研发创新提供长期资金支持。”1去年前三季度净利润超百亿对于此次奇瑞汽车计划在港股上市。一位不愿具名的业内人士向记者分析称，“中国香港资本市场具备高度开放性与成熟度，市场投资者的国际化程度极高，且IPO审核流程短，成为众多IPO企业的首选。”虽然中国香港资本市场的上市要求相对较低，但按照公开资料，其对于企业仍有一定的财务、经营要求等。从奇瑞的销量走势、财务状况和技术积累来看，奇瑞近年来一直在作上市准备。奇瑞汽车招股说明书的信息显示，2022年、2023年、2024年1-9月，公司营收分别为926.18亿元人民币、1632.05亿元人民币、1821.54亿元人民币。2024年1-9月，公司净利润为113.12亿元人民币，同比增长58.5%。图片来源：视觉中国VCG111509798759销量层面，2024年全年奇瑞汽车销量约为260.39万辆，同比增长38.4%；其中，出海销量约为114.46万辆，同比增长21.4%。2023年，奇瑞汽车累计销售约188.1万辆，2022年累计销售约123.3万辆。按照奇瑞汽车的计划，此次启动港股IPO募集的资金将用于研发产品、技术以及海外市场等方面。上述不愿具名的业内人士表示，借助上市，资本市场可以为奇瑞汽车研发创新提供长期资金支持，构建“研发投入-技术突破-市场增长-资本溢价”的正向循环。事实上，在2024年9月举行的“瑶光2025奇瑞科技DAY”发布会上，奇瑞汽车董事长尹同跃也明确提出：“希望在2025年之前完成IPO计划。登陆资本市场既有利于奇瑞建立长期资本补充通道，又有利于激活奇瑞股权激励机制。”2上市之路一波三折奇瑞痴心不改奇瑞是目前国内为数不多没有上市的汽车集团公司，却它一直有着“上市梦”，其冲击IPO的消息每隔一段时间就会传出。回顾来看，奇瑞冲击IPO之路已历经20年。其最早的上市计划在2004年就被传出，但后来由于奇瑞与上汽集团之间的复杂股权关系，上市计划被搁置。2009年，奇瑞以29亿元出售20%的股份，一度被市场认为是在为上市作准备。但是2011年，奇瑞控股集团董事长尹同跃开始“改口”，表示由于存在一些关联交易等问题，暂不考虑上市。图片来源：每经记者 孔泽思 摄（摄）2016年，奇瑞旗下子公司奇瑞新能源尝试通过海螺型材借壳上市，但这一计划最终也因奇瑞新能源尚未取得新能源汽车生产资质告吹。2019年，奇瑞汽车启动混改，并于当年12月完成奇瑞控股集团有限公司与奇瑞汽车股份有限公司的增资扩股项目，投资方青岛五道口新能源汽车产业基金企业（有限合伙）合计出资144.5亿元。彼时，奇瑞相关负责人就告诉《每日经济新闻》记者，青岛五道口团队的到来，既可以将其拥有的丰富产业和客户资源引入奇瑞，又可以在产业投资和资本运作方面帮助奇瑞。不过，从外界看来，其后续仍没有进一步的发展。尽管上市之路一波三折，奇瑞汽车一直从未放弃。今年1月，天眼查显示，奇瑞汽车母公司奇瑞控股集团有限公司（以下简称奇瑞控股）近期获得了股权融资，投资方为青岛城投集团、IDG资本、火眼投资。这也被认为是在为上市做冲击准备。据记者了解，港股上市流程较为复杂，在企业提交了上市申请书之后，还需经历上市申请审核、上市委员会聆讯、路演与投资者推介、定价与配售等多个步骤，才能最终实现上市。如今，奇瑞汽车又一次向IPO迈出了实质性的一步，这次能否成功？业内将拭目以待。NBD汽车互动你如何看待2025年车市的发展？后台回复“进群”加入NBD汽车互动群更多精彩内容效率为先！奔驰展开“史上最强产品攻势”！在华开启相应调整DeepSeek开源第四弹：一口气放出“三剑客”，有梁文锋参与项目！黄仁勋：DeepSeek引爆芯片需求迈巴赫车主称爱车被尊界官方暴力测试 江汽集团回应……新闻在身边我在你左右无 微信号：NBD-AUTO）你还可以在以下平台看到NBD汽车每经网|今日头条|一点资讯企鹅号|搜狐号丨新浪看点空·</span>
-                                &ensp;<span class="article-reading-time">(&hairsp;201
-                                  min&hairsp;)</span>
-                            </span>
-                          </div>
-                        </a>
-                      </details>
-                    </article>
-                    <article>
-                      <details
-                        class="article-expander"
-                        data-action="toggle-native-accordion"
-                        data-accordion-key="1285038"
-                        open
-                      >
-                        <summary class="article-expander__title">实测 GPT-4.5！全网都在喷的 OpenAI 最贵模型，我发现了一个惊喜的点</summary>
-                        <a class="article-summary-link article-summary-box-outer" href="http://mp.weixin.qq.com/s?__biz&#x3D;MjM5MjAyNDUyMA&#x3D;&#x3D;&amp;mid&#x3D;2651042052&amp;idx&#x3D;1&amp;sn&#x3D;c141a4cd146b8e02fc70cc82854d3bdb&amp;chksm&#x3D;bc9946903e419fe2451b58a895174c9c48c933f275fc1c14845b00f64b50e72f5b1bf2379655">
-                          <div class="article-summary-box-inner media-object">
-                              <img src="https://mmbiz.qpic.cn/sz_mmbiz_jpg/ePTzepwoNWOmWO9BxLcxejyz95HGnpjrLibcH8YOylhBJFG1NvibWOfpib45s0avzVwxXBSrSs7ibJFic2OOrrbeA3g/0?wx_fmt&#x3D;jpeg" loading="lazy" class="media-object__media article-image" />
-                            <span class="media-object__text">
-                              <span>在 OpenAI 的预热和众人的望眼欲穿中，GPT-4.5 终于来了，然后只听骂声一片。APPSO 第一时间体验到了 GPT-4.5，但不是订阅 Pro 会员，而是以 api 的形式尝鲜，暂时没有联网功能。那么，OpenAI 最后一个非思维链式大模型，到底表现如何？情商还行，但读不懂人情OpenAI 在内部测试中发现，与 GPT-4o 相比，测试人员更喜欢 GPT-4.5 的回答，认为它更自然、更温暖、更符合人类的交流习惯。甚至，它能够理解言外之意，捕捉我们微妙的情绪变化。总之，情商更高，几乎是 GPT-4.5 最突出的特点。那么我们就来试一下，输入提示词——「我头发剪得好难看，想暴打 Tony」。GPT-4.5 的安慰，语气是挺友好的，但内容让我更生气了，这时候它应该像个闺蜜和我一起骂，而不是说，下次带个图片去或许就好了。我怒而追问，GPT-4.5 油盐不进，还想让我自己补救发型，活脱脱像个没用的中央空调。再让 GPT-4.5 讲个最好笑的笑话，还是和以前一样，比杀鱼的刀还要冷。我直言不讳，提出批评，GPT-4.5 让我讲个笑话给它听，领教下我的「高端笑点」，怎么感觉像在阴阳我呢？之前在小红书刷到过一个情商测试题，可能只有山东网友可以答对——「下乡只带了一把伞，给镇长还是给我的分管副镇长」。评论区最高赞的回答是，「那不是你的伞，是副镇长给镇长带的伞，恰巧放在你包里而已」。来看看 GPT-4.5 怎么回答？它啰嗦了一大堆，但是不够一针见血，不懂人情世故，不明白为人处事的学问。虽然情商是一个很难定量的特质，但从目前的个例来看，GPT-4.5 还是不太擅长理解人类的内心，并且讲话直接，不拐弯，对于内心戏很多的老油条来说，显得有些蠢萌。一个可以佐证的例子是，让它模仿写海龟汤。海龟汤通常涉及一个非常奇怪的情景，然后由玩家推理，还原整个故事。我给的参考案例，留有恰到好处的怪异，逻辑又…</span>
-                                &ensp;<span class="article-reading-time">(&hairsp;201
-                                  min&hairsp;)</span>
-                            </span>
-                          </div>
-                        </a>
-                      </details>
-                    </article>
-                    <article>
-                      <details
-                        class="article-expander"
-                        data-action="toggle-native-accordion"
-                        data-accordion-key="1285037"
-                        open
-                      >
-                        <summary class="article-expander__title">重庆、武汉、南昌⋯⋯越来越多城市加入“物业费降价大军”，最高降幅超50%</summary>
-                        <a class="article-summary-link article-summary-box-outer" href="http://mp.weixin.qq.com/s?__biz&#x3D;Mzg3MDc1MTM3MA&#x3D;&#x3D;&amp;mid&#x3D;2247516057&amp;idx&#x3D;1&amp;sn&#x3D;2033850b6334f88879fc4aaa2c3be9bd&amp;chksm&#x3D;cf71e498ff7e2185a2c573bf93c1016280eed0975721fbd1e64bf92d8124cb8f84fb9edac5ec">
-                          <div class="article-summary-box-inner media-object">
-                              <img src="https://mmbiz.qpic.cn/sz_mmbiz_jpg/tZx4BVnRAQe4dNDlzSxo9Z0TQqGKicrjibaFQjuN9BOQONBGHkriaZUbtf7a1w8cEjYvJLL73JWpo265vI3sWXkBQ/0?wx_fmt&#x3D;jpeg" loading="lazy" class="media-object__media article-image" />
-                            <span class="media-object__text">
-                              <span>去年重庆有小区拉横幅要求降物业费 每日经济新闻资料图物业费下调依然牵动着各方关注。近段时间，重庆、武汉、南昌、银川等多个城市均有项目实现了物业费下调，降幅在20%～35%。不仅如此，从去年2月起，青岛就开始实施空置房物业费打六折政策，如今这一趋势正向甘肃、江苏等地蔓延。多位业内人士在接受《每日经济新闻》记者采访时表示，适度调价是为顺应局部市场趋势、提升项目竞争力，缓解矛盾调节压力，但同时也可能导致部分物业公司面临收入减少与服务标准维持的冲突。详见此前报道《全部1.9元/平方米？重庆数百个小区要求降物业费，业主“摆摊”搞签字，也有物业主动调价》01物业费最高降幅50%“小区1、2、3栋住宅区物业收费标准调整是去年9月就已明确并发出通知，今年1月1日开始正式实施的。”日前，每经记者以业主身份致电武汉江山如画八期物业管理公司，相关工作人员表示，一次性缴纳全年物业费的业主按优惠价1.6元/平方米·月收取，按月缴纳的则按2元/平方米·月收取。据记者了解，在此之前，该小区物业收费标准为3元/平方米·月，但若一次性缴纳全年物业费，可享受八折优惠即2.4元/平方米·月。据此计算，其物业费下调幅度达33.3%，若按每户100平方米来看，每年可节约物业费近1000元。至于物业费下调原因，则是“超三分之二业主向公司提出了加大小区住宅物业费优惠幅度申请”。该工作人员表示，公司也希望通过此举“减轻业主经济负担，并能获得业主的继续支持”。每经记者了解到，仅在武汉，自2024年下半年以来，就有包括中海光谷锦城、招商依云华府、武汉天地云廷等在内的近百个小区物业费下调成功，涵盖高端改善以及刚需项目，下调幅度均超过10%，最高超过50%。比如，武汉绿地海珀御观原物业收费标准为7.6元/平方米·月，调整后为3.84元/平方米·月；金地格林东郡、联想江城雅居均从3.5元/平方米·月降至1.7元/平方米·月，朗诗里…</span>
-                                &ensp;<span class="article-reading-time">(&hairsp;200
-                                  min&hairsp;)</span>
                             </span>
                           </div>
                         </a>
@@ -909,11 +1332,65 @@ Euarchontoglires 的内部关系，自上而下：灵长类、皮翼目、树鼩
             data-action="toggle-accordions"
             title="Click to toggle the day, Ctrl + click to toggle all."
           >
-            <time class="daily-heading-toggle__weekday js-offset-weekday" data-offset-date=2025-02-28 datetime="2025-02-28T14:23:03.000Z">2025-02-28</time>
-            <time class="daily-heading-toggle__date js-offset-date" data-offset-date=2025-02-28 datetime="2025-02-28T14:23:03.000Z"></time>
+            <time class="daily-heading-toggle__weekday js-offset-weekday" data-offset-date=2025-02-28 datetime="2025-02-28T14:56:27.000Z">2025-02-28</time>
+            <time class="daily-heading-toggle__date js-offset-date" data-offset-date=2025-02-28 datetime="2025-02-28T14:56:27.000Z"></time>
           </button>
         </h2>
         <ul class="sources card">
+            <li class="card__section">
+              <section class="js-toggle-accordions-scope">
+                <h3 class="source-heading">
+                  <button
+                    class="source-heading__name"
+                    data-action="toggle-accordions"
+                    title="Click to toggle the source, Ctrl + click to toggle all."
+                  >科学大院</button>
+                  <a class="source-heading__link" href="/feeds/MP_WXS_3273179243.atom">Open</a>
+                </h3>
+                <section class="articles-per-source">
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://mp.weixin.qq.com/s/NxpnwASPA5Z4A12sFg8V_A"
+                        open
+                      >
+                        <summary class="article-expander__title">科幻小说中的硅基生命，就要实现了吗？</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://mp.weixin.qq.com/s/NxpnwASPA5Z4A12sFg8V_A">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://mmbiz.qpic.cn/mmbiz_jpg/dhIUoaayW80zlr3s4yztw9wpic1viaQ1n3YmxG1xpkULicwWU274YU8nvkWjABqF7ahwVwNASDJMIqK5g91v6RCAA/0?wx_fmt&#x3D;jpeg" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>硅基智能是否会超越碳基智能？</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;201
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://mp.weixin.qq.com/s/fii8yhOwdkPc0qTlf8nofg"
+                        open
+                      >
+                        <summary class="article-expander__title">曹文宣院士：我有三个愿望，都和“水”有关系…</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://mp.weixin.qq.com/s/fii8yhOwdkPc0qTlf8nofg">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://mmbiz.qpic.cn/mmbiz_jpg/dhIUoaayW83TdmLgnib4aq9dgTibExIsN4Vd2bLQiaIejY7kg7Bxgt1wxDbuUEFG7LzzKoYviaonobqjmXdLdCAwVA/0?wx_fmt&#x3D;jpeg" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>遇见科学，遇见先生。</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;200
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                </section>
+              </section>
+            </li>
             <li class="card__section">
               <section class="js-toggle-accordions-scope">
                 <h3 class="source-heading">
@@ -1999,23 +2476,23 @@ Tags: game, Maya Claire, museum, VR, Wikipedia</span>
                     class="source-heading__name"
                     data-action="toggle-accordions"
                     title="Click to toggle the source, Ctrl + click to toggle all."
-                  >科学大院</button>
-                  <a class="source-heading__link" href="/feeds/MP_WXS_3273179243.atom">Open</a>
+                  >瞭望智库</button>
+                  <a class="source-heading__link" href="/feeds/MP_WXS_2398545994.atom">Open</a>
                 </h3>
                 <section class="articles-per-source">
                     <article>
                       <details
                         class="article-expander"
                         data-action="toggle-native-accordion"
-                        data-accordion-key="https://mp.weixin.qq.com/s/fii8yhOwdkPc0qTlf8nofg"
+                        data-accordion-key="https://mp.weixin.qq.com/s/1kLUBe4BckLqaYphqUSpvA"
                         open
                       >
-                        <summary class="article-expander__title">曹文宣院士：我有三个愿望，都和“水”有关系…</summary>
-                        <a class="article-summary-link article-summary-box-outer" href="https://mp.weixin.qq.com/s/fii8yhOwdkPc0qTlf8nofg">
+                        <summary class="article-expander__title">中国经济第十城之争，争的是什么？</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://mp.weixin.qq.com/s/1kLUBe4BckLqaYphqUSpvA">
                           <div class="article-summary-box-inner media-object">
-                              <img src="https://mmbiz.qpic.cn/mmbiz_jpg/dhIUoaayW83TdmLgnib4aq9dgTibExIsN4Vd2bLQiaIejY7kg7Bxgt1wxDbuUEFG7LzzKoYviaonobqjmXdLdCAwVA/0?wx_fmt&#x3D;jpeg" loading="lazy" class="media-object__media article-image" />
+                              <img src="https://mmbiz.qpic.cn/mmbiz_jpg/p1VfGFTkFsJib1aqazp4j0bjmr23lMlic1SQzLe5KClvyvH1nTreGXk9mBpljm3GfgQKicFysDIZwyeT7iaFSW7erQ/0?wx_fmt&#x3D;jpeg" loading="lazy" class="media-object__media article-image" />
                             <span class="media-object__text">
-                              <span>遇见科学，遇见先生。</span>
+                              <span>宁波突进，南京守位。</span>
                                 &ensp;<span class="article-reading-time">(&hairsp;200
                                   min&hairsp;)</span>
                             </span>
@@ -2023,20 +2500,6 @@ Tags: game, Maya Claire, museum, VR, Wikipedia</span>
                         </a>
                       </details>
                     </article>
-                </section>
-              </section>
-            </li>
-            <li class="card__section">
-              <section class="js-toggle-accordions-scope">
-                <h3 class="source-heading">
-                  <button
-                    class="source-heading__name"
-                    data-action="toggle-accordions"
-                    title="Click to toggle the source, Ctrl + click to toggle all."
-                  >瞭望智库</button>
-                  <a class="source-heading__link" href="/feeds/MP_WXS_2398545994.atom">Open</a>
-                </h3>
-                <section class="articles-per-source">
                     <article>
                       <details
                         class="article-expander"
@@ -28715,221 +29178,12 @@ iMedia Research（艾媒咨询）提供的数据显示，2024年中国AI大模�
                 </section>
               </section>
             </li>
-            <li class="card__section">
-              <section class="js-toggle-accordions-scope">
-                <h3 class="source-heading">
-                  <button
-                    class="source-heading__name"
-                    data-action="toggle-accordions"
-                    title="Click to toggle the source, Ctrl + click to toggle all."
-                  >地球知识局</button>
-                  <a class="source-heading__link" href="https://new.qq.com/omn/author/8QMf3nhc5YEasD%2FQ">Open</a>
-                </h3>
-                <section class="articles-per-source">
-                    <article>
-                      <details
-                        class="article-expander"
-                        data-action="toggle-native-accordion"
-                        data-accordion-key="https://view.inews.qq.com/a/20250210A0399C00"
-                        open
-                      >
-                        <summary class="article-expander__title">最新消息，日产自救失败，日本支柱即将衰退？| 地球知识局</summary>
-                        <a class="article-summary-link article-summary-box-outer" href="https://view.inews.qq.com/a/20250210A0399C00">
-                          <div class="article-summary-box-inner media-object">
-                              <img src="https://inews.gtimg.com/om_ls/OWIp0WeHEHDeyrZKDwjpw0rgeUpPgjcIYLNdNDe56FNG4AA_640330/0" loading="lazy" class="media-object__media article-image" />
-                            <span class="media-object__text">
-                              <span>地球知识局
-文字 | 绯红之猪
-校对 | 辜汉膺 编辑 | 同同
-
-前段时间，日本汽车巨头日产爆出大瓜，现金流只够支撑12到14个月，不赶紧搞钱就要破产。
-
-2月5日又爆出最新消息，日产决定停止与本田谈判合并事宜，背后的主要原因是不想被本田收购，成为别人的小弟。
-
-日产本来的盘算是与本田合并组建新汽车集团，三菱汽车也加入。三家的产量一加，便能形成世界第三大汽车集团，想得还挺好。
-   
-▲图注：2024年底，日产、本田与三菱签署谅解备忘录
-日产和本田同意计划成立联合控股公司
-三菱也或将参与业务整合
-
-而丰田这边，2023年交出了1123万辆的销量答卷，再创新高。似乎日本汽车工业离衰退还很远，尤其对于广大欠发达地区，日本汽车“一车传三代，人走车还在”的属性还很吸引人。
-
-不过，日产的困境正是今日日本汽车工业的缩影，看似强大却隐藏危机：电动车没赶上趟、氢能源又没铺开、发展上限被锁死，日本汽车工业或将迎来系统性衰退。
-   
-铁索连环难掉头
-
-说起日本汽车工业的危机，还要从其成功秘诀入手。日本企业的爱抱团是出了名的，汽车产业更是如此，几十年来已经形成了一个错综复杂的堪比“百万漕工”的利益集团。
-
-以丰田为例：丰田通过投资、持股等手段，制造了一个核心供应商集团——“协丰会”，包括做变速箱的爱信、做电器配件的电装、做轴承的捷太格特等等。这些企业要么是丰田的子公司，要么丰田有持股。
-   
-▲图注：丰田集团一共包含17家公司
-其中光是涉及汽车零部件与设备制造业务的就不少
-（图：toyota-tsusho.com）
-
-这种“抱团”可以避免低效内卷，有钱大家一起赚，但手心手背都是肉，自己的子公司或者持股公司，你咋砍？
-
-而丰田要全面推进新能源战略，就势必打破旧有的供应链“抱团”体系。新能源汽车不需要变速箱，那做变速箱的爱信咋整？要知道爱信的最大股东正是丰田自己。
-
-“百万漕工衣食所系”并不…</span>
-                                &ensp;<span class="article-reading-time">(&hairsp;19
-                                  min&hairsp;)</span>
-                            </span>
-                          </div>
-                        </a>
-                      </details>
-                    </article>
-                </section>
-              </section>
-            </li>
-            <li class="card__section">
-              <section class="js-toggle-accordions-scope">
-                <h3 class="source-heading">
-                  <button
-                    class="source-heading__name"
-                    data-action="toggle-accordions"
-                    title="Click to toggle the source, Ctrl + click to toggle all."
-                  >谷雨实验室</button>
-                  <a class="source-heading__link" href="https://new.qq.com/omn/author/5505476">Open</a>
-                </h3>
-                <section class="articles-per-source">
-                    <article>
-                      <details
-                        class="article-expander"
-                        data-action="toggle-native-accordion"
-                        data-accordion-key="https://view.inews.qq.com/a/20250210A01LP600"
-                        open
-                      >
-                        <summary class="article-expander__title">一年30万！极限鸡娃家长为孩子兜底</summary>
-                        <a class="article-summary-link article-summary-box-outer" href="https://view.inews.qq.com/a/20250210A01LP600">
-                          <div class="article-summary-box-inner media-object">
-                              <img src="https://inews.gtimg.com/news_ls/OfjoCapSMVjS02hU-7k8x4Xx7iNty5bwox3gtyg_4h-GsAA_640330/0" loading="lazy" class="media-object__media article-image" />
-                            <span class="media-object__text">
-                              <span>对于这些诞生于野外和街头的极限运动，入奥是一把双刃剑。“更普及了，但也不那么自由了”，“燃烧冰”老板杨子告诉我，滑板入奥后，不同于家长们的满怀期待，圈内不看好的声音更多。在我接触的几位滑板教练同时也是老滑手看来，“自由”，这一滑板文化的核心，正在被消解。
-
-
-
-
-
-作者 | 乔雨萌 
-
-编辑 |  荆欣雨
-
-出品 | 腾讯新闻 谷雨工作室
-
-
-
-
-
-
-
-   
-“我不鸡就难受”
-一圈玻璃，划开两个世界。
-玻璃内，五六岁的女孩男孩们踩滑板冲上坡道，荡进碗池，翻飞在空中，落地时擦出清脆的尾音。这样的恣意显然无法抵达玻璃另一侧。场地外的椅子上逐渐坐满了家长，两个妈妈热聊着最近孩子上了哪些课、拿了第几名，几个沉默的爸爸埋头在手机里，间或接起一个工作电话。
-成年人的焦虑却可以轻易穿透玻璃，将孩子们的笑闹声打破。有个爸爸放下手机，起身贴近玻璃，他的眉头逐渐皱起来，拍着玻璃示意自家孩子，喊道：“这个动作你不是学会了吗？做呀！”在这家名为“燃烧冰”的老牌滑板店，老板杨子目睹过许多动怒的家长。事实上，之所以在训练场地外设一圈玻璃，就是防止家长一时上头冲进去——现在看来，这是必要的。
-场外忙碌的家长里，孙月一直敲着电脑，头发整齐地梳到耳后，桌上放着给女儿准备好的热水壶和饼干。冬日她常穿一件冲锋衣出门，这样无论是在哪里等孩子上课，她都能安然坐上好几个小时。毕竟，她刚过六岁生日的女儿有着同样忙碌的日程表：每周两到三小时滑板训练，此外还有英语（“英语肯定要有”）、数学（“数学肯定要有”）、钢琴（“得有一门乐器”）、拉丁舞（“女孩怎么着也得学个艺术点的，不能老是极限运动”）、围棋，以及编程（“我们三岁就上网课学编程了”）。而这已经是她在女儿上小学后经过百般纠结砍掉三门以后的结果，“精简半天觉得哪个都不能放，实在是减不下去了”。 
-
-   
-孙月女儿练滑板
-
-滑板得以通过孙月“严选”跻身七分之一，和近年…</span>
-                                &ensp;<span class="article-reading-time">(&hairsp;33
-                                  min&hairsp;)</span>
-                            </span>
-                          </div>
-                        </a>
-                      </details>
-                    </article>
-                </section>
-              </section>
-            </li>
-            <li class="card__section">
-              <section class="js-toggle-accordions-scope">
-                <h3 class="source-heading">
-                  <button
-                    class="source-heading__name"
-                    data-action="toggle-accordions"
-                    title="Click to toggle the source, Ctrl + click to toggle all."
-                  >人物</button>
-                  <a class="source-heading__link" href="https://new.qq.com/omn/author/8QMf33ZY5YwduT%2FQ">Open</a>
-                </h3>
-                <section class="articles-per-source">
-                    <article>
-                      <details
-                        class="article-expander"
-                        data-action="toggle-native-accordion"
-                        data-accordion-key="https://view.inews.qq.com/a/20250209A06JAP00"
-                        open
-                      >
-                        <summary class="article-expander__title">陈冲 局外人</summary>
-                        <a class="article-summary-link article-summary-box-outer" href="https://view.inews.qq.com/a/20250209A06JAP00">
-                          <div class="article-summary-box-inner media-object">
-                            <span class="media-object__text">
-                              <span>直到时代轰然向前，许多人和事物都烟消云散了，她才发现，人需要的不是抗争，而是去认得命运。
-
-
-
-2024年，对陈冲来说，是拿起笔，面对自己的一年。她写下一个女人的生命跋涉，也记录下几代人的命运沉浮。她相信写作是抵御失去的力量，是我们通向彼此的桥梁。为了她袒露的勇气，为了那些不虚此行的生命故事，《人物》评选她为2024年年度作家。
-
-
-
-
-
-
-
-
-
-
-
-
-
-文｜王青
-
-编辑｜槐杨
-
-摄影｜邵迪
-
-妆发｜王靖
-
-造型｜GCK
-
-制片｜#1105
-
-美术｜勺子
-
-
-
-
-
-
-
-「一天早晨，格里高尔·萨姆沙从不安的睡梦中醒来，发现自己躺在床上变成了一只巨大的甲虫。」
-
-30多年前，当陈冲第一次读到格里高尔·萨姆沙的故事，她感到内心中的某种体验被命名了。
-
-在那个书籍还很难获得的年代，这是她从未想象过的世界：「只要这样一句话，不需要给你解释为什么，这个世界就出现了。」那天晚上，陈冲在格里高尔的故事里游荡，一夜无眠，「我从来没有想象过这样离奇、荒诞和悲哀的叙事，但是本能地认同其中的异化、疏离、内疚和孤立的感觉」。
-
-2024年冬天，陈冲坐在《人物》对面，再次讲起被这本书打动的时刻。这一次，她不再是阅读者，而是写作者。她体会到一种新的触动：「原来你也可以用语言去创造一个世界，一个完全失去了的世界。」
-
-写作发生于2021年。在金宇澄的邀请下，她开始为《上海文学》写专栏文章，从最初的6万字到最终的33万字，她写下一个家族的往事。金宇澄将这系列文章比作「纸上王国」，不是单独一代人的记忆，而是一个人勾连起了上几代人的历史。在他看来，就像宿命般的，这家人的历史，注定要由陈冲来完成书写。
-
-对陈冲来说，那是一段无比自由的时光。没有很多作家的「启动」仪式，她的写作往往起始于一个思绪，「碰到一件事情，受到触动了，我就写一写」，有时候是在手机上，有时候是在一张纸边。
-
-也有写不出来的时候。她跟金宇澄通电话…</span>
-                            </span>
-                          </div>
-                        </a>
-                      </details>
-                    </article>
-                </section>
-              </section>
-            </li>
         </ul>
       </section>
 
     <footer>
-      <a class="footer-link" href="https://github.com/YeWeihong/myrss/actions/runs/13604773064">
-        <time id="build-timestamp" datetime="2025-03-01T12:30:28.192Z">2025-03-01T12:30:28.192Z</time>
+      <a class="footer-link" href="https://github.com/YeWeihong/myrss/actions/runs/13606602698">
+        <time id="build-timestamp" datetime="2025-03-01T16:18:48.729Z">2025-03-01T16:18:48.729Z</time>
       </a>
       <a class="footer-link" href="https://github.com/osmoscraft/osmosfeed">osmosfeed 1.15.1</a>
     </footer>
