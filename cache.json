@@ -6,6 +6,46 @@
       "siteUrl": "https://bestblogs.dev/zh/feeds",
       "articles": [
         {
+          "id": "6536b6",
+          "author": "机器之心",
+          "description": "📌 一句话摘要\n            \nDeepSeek 开源 V3/R1 推理系统架构，展示关键技术，并揭示在线服务成本与潜在收益。\n📝 详细摘要\n            \n文章揭秘了 DeepSeek V3/R1 大语言模型的推理系统，重点介绍了其在吞吐量和延迟优化方面的设计原则和实现方法。文章详细阐述了跨节点专家并行（EP）策略，以及如何通过扩展 batch 大小、隐藏通信延迟和实现负载平衡来应对 EP 带来的挑战。此外，文章还公开了 DeepSeek 在线服务的统计数据，包括每个 H800 节点的 token 处理能力、成本利润率以及推理服务节点的使用情况。DeepSeek 针对预填充和解码阶段，以及专家并行，分别设计了负载平衡器。最后，文章分析了 DeepSeek 实际收入与理论收入之间的差异，并解释了定价策略和非高峰时段折扣等因素的影响。通过这些信息的披露，DeepSeek 旨在为社区带来价值，并推动 AGI 的发展。\n💡 主要观点\n            \n专家并行（EP）提升吞吐量和降低延迟\n                         通过将专家分布到多个 GPU 上，并扩展 batch 大小，EP 策略能够提高 GPU 的计算效率，并降低内存访问需求，从而提升整体性能。\n                    \n\n                        计算 - 通信重叠技术有效缓解大规模并行化带来的通信开销\n                         DeepSeek 采用 dual-batch 重叠策略和流水线技术，将通信成本隐藏在计算过程中，从而提高整体吞吐量。\n                    \n\n                        实现最优负载平衡是最大限度提高资源利用率的关键\n                         DeepSeek 针对预填充和解码阶段，以及专家并行，分别设计了负载平衡器，确保所有 GPU 上的计算和通信负载均衡，避免出现性能瓶颈。\n                    \n\n                        DeepSeek 通过 FP8 和 BF16 混合精度计算优化服务性能\n                         矩阵乘法和分发传输采用与训练一致的 FP8 格式，而核心 MLA 计算和组合传输使用 BF16 格式，确保最佳服务性能。\n                    \n💬 文章金句\n            \n我们希望本周的洞见能够为社区带来价值，并为我们共同的 AGI 目标做出贡献。\n每个 H800 节点实现了 73.7k/14.8k 个每秒输入 / 输出 token；\n（理论）成本利润率高达 545%。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：机器之心\n作者：机器之心\n分类：人工智能\n语言：中文\n阅读时间：12 分钟\n字数：2800\n标签：\n                    \n                        大语言模型, 推理系统, DeepSeek, 专家并行, 性能优化",
+          "link": "https://www.bestblogs.dev/zh/article/6536b6",
+          "publishedOn": "2025-03-01T13:10:01.000Z",
+          "wordCount": 311,
+          "title": "DeepSeek 一天能赚多少钱？官方突然揭秘 V3/R1 推理系统，成本全透明",
+          "enclosure": {
+            "url": "https://image.jiqizhixin.com/uploads/article/cover_image/ad2769c0-58e0-4760-8e85-24ea4f51394e/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202503012059463.png",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://image.jiqizhixin.com/uploads/article/cover_image/ad2769c0-58e0-4760-8e85-24ea4f51394e/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202503012059463.png"
+        },
+        {
+          "id": "8f34e0",
+          "author": "Emore Ogheneyoma Lawrence",
+          "description": "📌 一句话摘要\n            \n本文讲解如何利用 Zod 进行 React API 响应验证，提升代码质量和应用可靠性。\n📝 详细摘要\n            \n本文详细介绍了如何在 React 应用程序中使用 Zod 库进行 API 响应验证。文章阐述了 Zod 的基本概念和优势，如 Schema 定义清晰、数据验证高效、错误检测及时及开发者体验优化。通过创建新的 TypeScript React 项目并安装 Zod 库，本文提供了详细的代码示例和步骤，指导读者在 React 项目中使用 Zod 进行 API 响应验证。探讨了 Zod 的核心概念，包括构建 Schema、添加验证规则以及使用 `parse` 和 `safeParse` 方法进行验证和解析。此外，展示了如何为 API 响应构建 Zod Schema 并将其集成到 React API 调用中。最后，阐述了如何在 React 中渲染用户界面 (UI) 和处理错误。通过遵循本指南，读者可以学习如何使用 Zod 有效地管理 API 数据验证，从而构建更强大、更可靠的 React 应用程序。\n💡 主要观点\n            \nZod 是一个以 TypeScript 为基础的数据验证库，支持定义清晰的 Schema 来验证 API 响应。\n                         Zod 使开发人员能够定义显式数据类型和验证规则，确保 API 返回的数据符合预期，从而减少运行时错误。\n                    \n\n                        推荐使用 `safeParse` 方法进行验证，该方法在验证失败时返回包含成功状态和错误信息的对象，避免抛出异常。\n                         使用 `safeParse` 可以更优雅地处理验证错误，防止程序崩溃，并提供详细的错误信息，以便更轻松地进行调试。\n                    \n\n                        将 Zod 集成到 React 组件中，能有效验证 API 数据，并在 UI 上展示验证结果和错误信息，提升用户体验。\n                         将 Zod 集成到 React 组件中可以有效地验证 API 返回的数据，并在 UI 上显示验证结果和错误消息，从而改善用户体验。\n                    \n💬 文章金句\n            \nZod 是一个强大的 TypeScript 优先的库，可以简化数据验证。\n使用 Zod，您可以将不可预测的 API 响应转换为干净、结构化的数据，从而为 React 应用程序带来更顺畅、更高效的开发体验。\n通过将 Zod 纳入您的 React 开发工作流程，您可以构建更强大、更可靠的应用程序。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：freeCodeCamp.org\n作者：Emore Ogheneyoma Lawrence\n分类：软件编程\n语言：英文\n阅读时间：8 分钟\n字数：1872\n标签：\n                    \n                        数据验证, React, Zod, TypeScript, API",
+          "link": "https://www.bestblogs.dev/zh/article/8f34e0",
+          "publishedOn": "2025-02-28T17:59:48.000Z",
+          "wordCount": 327,
+          "title": "利用 Zod 提升 React API 验证的效率与可靠性",
+          "enclosure": {
+            "url": "https://cdn.hashnode.com/res/hashnode/image/upload/v1740756200896/a57c4e95-b13e-412a-828e-09e97f22a6c4.png",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://cdn.hashnode.com/res/hashnode/image/upload/v1740756200896/a57c4e95-b13e-412a-828e-09e97f22a6c4.png"
+        },
+        {
+          "id": "8398df",
+          "author": "Founder Park",
+          "description": "📌 一句话摘要\n            \n谷歌两位 AI 领军人物 Jeff Dean 和 Noam Shazeer 四万字长文回顾谷歌 AI 25 年，深度剖析技术演进与 AGI 未来。\n📝 详细摘要\n            \n本次深度访谈中，谷歌首席科学家 Jeff Dean 和 Transformer 发明者之一 Noam Shazeer 回顾了他们在谷歌并肩走过的 25 年，从早期的 PageRank、MapReduce，到如今的 Transformer、MoE，直至最新的 Gemini，并展望了通往通用人工智能（AGI）的未来图景。他们不仅分享了对摩尔定律、TPU 发展趋势的独到见解，更揭示了谷歌在硬件与算法协同设计上的宏大布局 ------ Pathways 架构。Noam Shazeer 还预言 “世界 GDP 将在不久的将来增长百倍”，并憧憬着 “在谷歌数据中心运行百万 AI 研究员，活到 3000 年”。访谈涵盖了谷歌早期往事、算力与算法的共舞、Transformer 的诞生、AI 研究的突破、AI 硬件的演进以及 AGI 研发的挑战与机遇等多个方面，展现了两位 AI 领军人物对技术演进与 AGI 未来的深刻思考和预判。\n💡 主要观点\n            \n算力与算法的协同发展是 AI 进步的关键\n                         随着硬件算力的提升，算法也在不断演进，深度学习的兴起正是算术运算廉价和数据移动相对昂贵的体现。\n                    \n\n                        量化是 AI 硬件发展的重要趋势\n                         通过降低精度，可以在芯片上塞进更多的乘法器单元，从而大大提高吞吐量与成本比率。\n                    \n\n                        扩展上下文是构建更强大的 AI 模型的重要方向\n                         让模型能够关注数万亿 token，可以使其更好地理解和利用信息，从而解决更复杂的问题。\n                    \n\n                        AI 驱动的芯片设计将加速硬件迭代\n                         通过自动化搜索流程和反馈机制，可以缩短芯片设计周期，更快地设计出满足 AI 需求的硬件。\n                    \n💬 文章金句\n            \n组织信息，并根据你给出的指导创建新信息。\n我们的目标一直都是那种需要非常先进的 AI 才能实现的事情。\n算术运算非常非常廉价，而移动数据则相对昂贵得多。\n酷的是万万亿美元。显然，我们的目标不仅仅是积累一大堆钱，而是要在世界上创造价值。\n世界上的任何信息都应该可以被任何人使用，无论他们说什么语言。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：Founder Park\n作者：Founder Park\n分类：商业科技\n语言：中文\n阅读时间：152 分钟\n字数：37866\n标签：\n                    \n                        AI历史, 通用人工智能, Jeff Dean, Noam Shazeer, Transformer",
+          "link": "https://www.bestblogs.dev/zh/article/8398df",
+          "publishedOn": "2025-02-28T15:43:18.000Z",
+          "wordCount": 378,
+          "title": "谷歌最重磅的两位 AI 学者：Jeff Dean 与 Noam Shazeer 四万字畅谈谷歌 25 年 AI 历史",
+          "imageUrl": "https://www.bestblogs.dev/zh/article/8398df/opengraph-image?c5b4e9f48bc65b64"
+        },
+        {
           "id": "49b783",
           "author": "宝玉",
           "description": "📌 一句话摘要\n            \n本文探讨如何通过强调技术流程与社交属性并重的代码审查方法，实现更人性化、更高效的代码审查。\n📝 详细摘要\n            \n文章着重讨论了如何使代码审查过程更加人性化和高效。作者批评了当前许多代码审查文章只关注技术漏洞，而忽略了沟通和人际关系的重要性。文章提出了八个实用技巧，包括利用自动化工具处理重复性任务、通过风格指南解决风格争议、尽快开始审查、关注高层次问题、提供代码示例、避免使用“你” 字、将反馈表达为请求而非命令，以及将意见与原则挂钩。这些技巧旨在减少作者的抵触情绪，促进知识共享和团队协作，最终提升代码质量和开发效率。文章的创新之处在于将人际沟通原则融入代码审查，强调了代码审查在构建积极协作的团队文化中的作用。\n💡 主要观点\n            \n自动化工具能显著减少代码审查中的重复性劳动。\n                         通过自动化代码格式化、静态检查等任务，审查者可以将精力集中在更重要的功能性和逻辑性问题上，提升审查效率。\n                    \n\n                        风格指南有助于消除代码风格争议，保持代码一致性。\n                         团队应事先制定风格指南，并在代码审查中严格遵守，避免在风格问题上浪费时间，从而提升代码可读性和可维护性。\n                    \n\n                        及时的代码审查可以激励作者提交更小、更精的变更集。\n                         快速响应能形成良性循环，促使作者将大型功能拆分为更小的可管理单元，降低审查难度，加快合并速度。\n                    \n\n                        沟通方式应友好，降低作者抵触。\n                         避免使用指责性语言，将反馈表达为请求或建议，并提供代码示例，有助于建立积极的审查氛围，提升代码质量。\n                    \n\n                        将审查意见与原则挂钩能增强说服力，提升代码质量。\n                         解释修改建议背后的原因，引用设计原则或最佳实践，能使作者更容易理解并接受建议，从而提升代码质量。\n                    \n💬 文章金句\n            \n代码审查是共享知识和达成更佳工程决策的机会。但如果作者把这当作人身攻击，那一切就无从谈起了。\n在代码审查里，尽量不要用 '你' 这个词（英文中的 'you'）。\n当你给作者提出修改建议时，尽量同时说明建议的改动和背后的原因。\n把意见写成请求或建议，而不是命令。\n软件开发既是一门科学，也是一门艺术。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：宝玉的分享\n作者：宝玉\n分类：商业科技\n语言：中文\n阅读时间：28 分钟\n字数：6972\n标签：\n                    \n                        代码审查, 代码质量, 团队协作, 软件工程, 自动化",
@@ -2319,6 +2359,16 @@
       "feedUrl": "https://www.geekpark.net/rss",
       "siteUrl": "http://mainssl.geekpark.net/rss.rss",
       "articles": [
+        {
+          "id": "http://www.geekpark.net/news/346451",
+          "author": null,
+          "description": "英伟达股价大跌 8%，市值一夜蒸发近 2 万亿\n近日，美国科技界传来重磅消息，多家科技巨头股价遭遇滑铁卢，其中 AI 芯片领域的领头羊英伟达更是经历了股价的大幅震荡。据最新数据显示，2 月 27 日，英伟达股价暴跌 8.48%，这一跌幅不仅刷新了近一个月的记录，也让其市值瞬间蒸发了约 2716 亿美元，折合人民币约为 1.98 万亿元。尽管如此，英伟达的最新市值仍然保持在 2.93 万亿美元的高位。\n令人惊讶的是，这次股价的大幅波动发生在英伟达刚刚发布了一份超出市场预期的财报之后。财报显示，英伟达在 2025 财年第四财季的营收达到了 393.31 亿美元，同比增长了惊人的 78%，净利润也实现了 72% 的增长，达到了 220.66 亿美元。然而，尽管财报数据亮眼，市场对于英伟达未来的增长前景却持谨慎态度。（来源：ITBEAR）\n \nDeepSeek 再次震惊全球：价格只有 OpenAI 1/25，利润率却超过 500%\n过去一周，DeepSeek 连续开放了 5 个 Infra 项目的源代码，正当大家以为这场开源盛宴已经结束。\n刚刚，DeepSeek 的彩蛋来了！开源周 Day6，DeepSeek 官方团队在 Github 和知乎给出了 DeepSeek-V3 / R1 推理系统的技术解读。\n先说结论：通过优化吞吐和延迟，DeepSeek「理论上一天的总收入为 $562,027，成本利润率 545%。」\n敏锐的网友——如 MenloVentures 投资人 Deedy 翻译了这意味着什么：「理论 ARR 2 亿美金、利润率超过 500%，这样的商业效率理应是一家值 100 亿美金的公司。」（来源：极客公园）\n\n软银在 AI 投资方面推进战略行动，洽谈从银行融资 160 亿美元\nThe Information 援引知情人士报道称，日本软银集团多名高管上周告知多家银行机构，…",
+          "link": "http://www.geekpark.net/news/346451",
+          "publishedOn": "2025-03-02T00:43:34.000Z",
+          "wordCount": 1063,
+          "title": "英伟达市值一夜蒸发 2 万亿；雷军入手鹦鹉绿小米 SU7 Ultra；蚂蚁集团新 CEO 上任",
+          "imageUrl": null
+        },
         {
           "id": "http://www.geekpark.net/news/346450",
           "author": null,
@@ -6516,6 +6566,26 @@
       "siteUrl": "https://chinadigitaltimes.net/chinese",
       "articles": [
         {
+          "id": "https://chinadigitaltimes.net/chinese/?p=716217",
+          "author": "不忘初心",
+          "description": "春节档动画电影《哪吒之魔童闹海》（下称《哪吒》）百亿票房的成功，再次证明动画已成为一种具有巨大经济效益的文化产品。然而，与一般工业产品不同，生产这类产品的劳动者的处境更鲜为人知。月入两千块并非罕见。百亿票房的分红、影片成功的光环更是与ta们毫无关系。",
+          "link": "https://chinadigitaltimes.net/chinese/716217.html",
+          "publishedOn": "2025-03-02T01:00:16.000Z",
+          "wordCount": 13415,
+          "title": "工劳小报｜百亿票房背后的超负荷劳动",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/02/哪吒2.jpeg"
+        },
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=716213",
+          "author": "不忘初心",
+          "description": "但当她们冷静下来后才发现，社会除了“女儿”“妻子”“母亲”的角色外，并没有为她们提供新的身份，她们只能走入婚姻。但尽管她们走入的是所谓自由结合的新式婚姻，社会旧有的性别观与家庭秩序却并未发生改变，加上女性没有经济权，所以女性被压迫的现状没有改变，依旧无法拥有主体性，走上的竟仍是那条旧路。",
+          "link": "https://chinadigitaltimes.net/chinese/716213.html",
+          "publishedOn": "2025-03-01T22:42:16.000Z",
+          "wordCount": 13273,
+          "title": "Kongfu Girls｜《娜拉在中国》：娜拉背后的性别政治权力",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/03/fe1e3e1b.jpeg"
+        },
+        {
           "id": "https://chinadigitaltimes.net/chinese/?p=716211",
           "author": "不忘初心",
           "description": "有专家测算，仅仅是给达达骑手群体缴纳社保就要花掉京东2024年几乎全部利润。许多已全职工作四五年的骑手的社保梦，可能仍需等待。",
@@ -7982,26 +8052,6 @@
           "wordCount": 12101,
           "title": "So many unmarried men",
           "imageUrl": "https://images.aeonmedia.co/images/6d85bfb4-568a-44fb-a372-53ca087ccd75/essay-v1-par157775.jpg?width=1200&quality=75&format=auto"
-        },
-        {
-          "id": "urn:id:7722",
-          "author": "Aeon Video",
-          "description": "A ceramicist puts a playful twist on Italian Renaissance pottery with dirty jokes, emojis and colourful commentary on menopause \n - by Aeon Video\n Watch at Aeon",
-          "link": "https://aeon.co/videos/a-ceramicist-puts-her-own-bawdy-spin-on-the-folk-language-of-pottery?utm_source=rss-feed",
-          "publishedOn": "2025-02-10T11:01:00.000Z",
-          "wordCount": 3550,
-          "title": "The cheekiest potter",
-          "imageUrl": "https://images.aeonmedia.co/images/ae9c5dab-91ac-4751-a399-2574dab0ac62/the-cheekiest-potter-landscape-1-v2.jpg?width=1200&quality=75&format=auto"
-        },
-        {
-          "id": "urn:id:7778",
-          "author": "Anirudh Krishna &amp; Dirk Philipsen",
-          "description": "By understanding the pernicious myths surrounding poverty, we can make progress towards a lofty goal: dignity for all \n - by Anirudh Krishna & Dirk Philipsen\n Read at Aeon",
-          "link": "https://aeon.co/essays/what-makes-a-person-poor-and-what-should-we-do-about-it?utm_source=rss-feed",
-          "publishedOn": "2025-02-10T11:00:00.000Z",
-          "wordCount": 16832,
-          "title": "Poverty is not permanent",
-          "imageUrl": "https://images.aeonmedia.co/images/c2cd40fb-ad36-41d2-b809-dce0324e3315/essay-panos_00315126.jpg?width=1200&quality=75&format=auto"
         }
       ]
     },
