@@ -36,6 +36,21 @@
           "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/2b7b711c-27e5-41f1-d01d-8754dd9e1900/cover"
         },
         {
+          "id": "695b7a",
+          "author": "InfoQ 中文",
+          "description": "📌 一句话摘要\n            \n京东通过引入 AutoMQ 云原生计算存储分离架构，并结合 CubeFS 存储优化，显著降低了 Kafka 集群的存储和带宽成本，并提升了在 Kubernetes 上的扩容效率。\n📝 详细摘要\n            \n文章详细介绍了京东在万亿级 Kafka 消息规模下，如何通过引入 AutoMQ 这一云原生架构，并结合 CubeFS 存储进行优化，实现降本增效的实践。文章首先分析了传统 Kafka 架构在云原生环境下面临的挑战，包括存储和网络带宽的浪费，以及在 Kubernetes 上扩缩容的复杂性。随后，重点介绍了 AutoMQ 的架构优势，如与 S3 协议兼容、完全兼容 Kafka 接口、基于 WAL 和对象存储的共享存储架构等，以及 AutoMQ 如何解决京东在云原生化过程中遇到的挑战。最后，分享了 AutoMQ 在京东生产环境中的优化实践和取得的显著成效，包括存储成本降低 50%，带宽成本降低 33%，以及扩容效率提升到分钟级别。这些实践为其他大规模 Kafka 集群的云原生化改造提供了有益的参考。\n💡 主要观点\n            \n传统 Kafka 架构在云原生环境下面临存储和扩容挑战。\n                         传统 Kafka 的存算一体架构在 Kubernetes 上难以实现灵活扩缩容，且多副本机制在云存储上造成额外存储和带宽浪费。\n                    \n\n                        AutoMQ 通过计算存储分离和兼容 S3 协议实现降本增效。\n                         AutoMQ 将数据持久性委托给对象存储服务，减少了数据冗余，并通过兼容 S3 协议与现有云基础设施集成。\n                    \n\n                        AutoMQ 的极速弹性和自动平衡机制提升了 Kubernetes 上的资源利用率。\n                         AutoMQ 架构无需像 Kafka 那样迁移分区数据就能完成扩缩容，内置的 Self-Balancing 组件能实时进行业务无感知的分区迁移和调度，确保集群流量和 QPS 始终保持均衡，从而提升 Kubernetes 资源利用率。\n                    \n💬 文章金句\n            \nAutoMQ 采用计算与存储分离的共享存储架构，在确保与 Apache Kafka 完全兼容的同时，可将数据存储到兼容 S3 协议的对象存储之上，从而显著降低成本并提升效率。\nAutoMQ 架构无需像 Kafka 那样迁移分区数据就能完成扩缩容。迁移分区只需更新元数据，在 1 秒左右即可完成。\n我们将 CubeFS 本身作为了 WAL，不再依赖本地存储，整体的架构变得十分的简洁、高效。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：InfoQ 中文\n作者：InfoQ 中文\n分类：软件编程\n语言：中文\n阅读时间：14 分钟\n字数：3491\n标签：\n                    \n                        Kafka, AutoMQ, 云原生, Kubernetes, CubeFS",
+          "link": "https://www.bestblogs.dev/zh/article/695b7a",
+          "publishedOn": "2025-03-06T04:55:20.000Z",
+          "wordCount": 323,
+          "title": "万亿级 Kafka 消息规模下的降本增效之旅",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/18c27d21-4027-4769-f6b8-5b750475c400/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/18c27d21-4027-4769-f6b8-5b750475c400/cover"
+        },
+        {
           "id": "f616ad",
           "author": "机器之心",
           "description": "📌 一句话摘要\n            \n阿里开源 QwQ-32B 推理模型，通过强化学习实现媲美更大模型的性能，有望降低端侧部署门槛。\n📝 详细摘要\n            \n阿里开源了新的推理模型 QwQ-32B，该模型参数量为 320 亿，但性能可与 6710 亿参数的 DeepSeek-R1 满血版相媲美，实现了模型压缩。该模型基于 Qwen2.5-32B，通过扩展强化学习（RL）方法，采用冷启动和两阶段训练，在数学和编码任务上取得了显著的性能提升。QwQ-32B 已在 Hugging Face 和 ModelScope 开源，并集成了与 Agent 相关的能力，使其能够在使用工具的同时进行批判性思考和根据环境反馈调整推理过程。该模型在 LiveBench、IFEval 和 BFCL 等基准测试中表现出色，甚至略微超过了 DeepSeek-R1-671B。千问团队通过校验生成答案的正确性和代码执行服务器评估来提供反馈，从而在数学和编程任务上持续提升性能。QwQ-32B 的开源有助于促进 AI 研究和应用。未来，千问团队计划将更强大的基础模型与依托规模化计算资源的 RL 相结合，以实现人工通用智能（AGI）。\n💡 主要观点\n            \nQwQ-32B 通过强化学习显著提升了模型性能\n                         通过 RL 训练，特别是在数学和编程任务上，QwQ-32B 实现了与更大模型相媲美的性能，展示了强化学习在提升模型推理能力方面的潜力。\n                    \n\n                        模型通过集成 Agent 能力，实现了批判性思考和环境反馈调整，提升了通用智能\n                         QwQ-32B 集成了与 Agent 相关的能力，使其能够在使用工具的同时进行批判性思考，并根据环境反馈调整推理过程，更接近通用人工智能。\n                    \n\n                        QwQ-32B 在多个基准测试中表现出色\n                         在 LiveBench、IFEval 和 BFCL 等基准测试中，QwQ-32B 的表现非常出色，甚至略微超过了 DeepSeek-R1-671B，验证了其卓越的性能。\n                    \n💬 文章金句\n            \n这次，我们研究了扩展 RL 的方法，并基于我们的 Qwen2.5-32B 取得了一些令人印象深刻的成果。\n这一成果突显了将强化学习应用于经过大规模预训练的强大基础模型的有效性。\n我们希望我们的一点努力能够证明强大的基础模型叠加大规模强化学习也许是一条通往通用人工智能的可行之路。\n在致力于开发下一代 Qwen 的过程中，我们相信将更强大的基础模型与依托规模化计算资源的 RL 相结合，将会使我们更接近实现人工通用智能（AGI）。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：机器之心\n作者：机器之心\n分类：人工智能\n语言：中文\n阅读时间：8 分钟\n字数：1755\n标签：\n                    \n                        大语言模型, 强化学习, 推理模型, Qwen, QwQ-32B",
@@ -49,6 +64,21 @@
             "length": "0"
           },
           "imageUrl": "https://image.jiqizhixin.com/uploads/article/cover_image/b65f45cf-f99d-4cce-9df9-5fe9220ea0ca/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202503061042532.png"
+        },
+        {
+          "id": "dcca10",
+          "author": "Jason Stephen, Luciano Martins",
+          "description": "📌 一句话摘要\n            \nGemini 2.0 通过代码执行工具，增强了复杂数据分析、实时可视化和智能决策的效率与精度。\n📝 详细摘要\n            \nGoogle Gemini 2.0 引入代码执行功能，使模型能够访问 Python 沙箱以执行代码并学习。通过 Google AI Studio 和 Gemini API，Gemini 模型可以执行计算、分析复杂数据集并创建可视化图表，从而提供更优质的答案。该功能支持文件输入和 Matplotlib 图表输出，扩展了其在金融分析、科学研究等领域实现更高效数据处理的应用场景。\n💡 主要观点\n            \nGemini 2.0 的代码执行功能赋予模型更强大的计算和推理能力，极大地增强了数据分析和可视化能力。\n                         通过访问 Python 沙箱和 Matplotlib 库，Gemini 模型能够实时处理数据、生成图表，为用户提供更直观的结果。\n                    \n\n                        结合 Multimodal Live API，Gemini 模型可进行实时交互和数据分析。\n                         用户可以通过语音输入与 Gemini 模型进行实时对话，并利用代码执行功能动态更新图表，实现更自然的人机交互。\n                    \n\n                        Gemini 2.0 通过 Thinking Mode 和代码执行的结合，能够以更智能的方式解决复杂优化问题，为各行业提供更高效的解决方案。\n                         Gemini 2.0 Flash Thinking Experimental 模型能够生成、调试 Python 代码，并可视化结果，从而解决如旅行商问题等复杂挑战。\n                    \n💬 文章金句\n            \nCode execution gives Gemini models access to a Python sandbox， allowing them to run code and learn from the results.\nWith Gemini 2.0， we've updated our code execution tool to allow file input into the code execution sandbox， as well as graphs & chart output using Matplotlib.\nCode execution enabled， Gemini models can perform calculations， analyze complex data sets， and create visualizations on the fly - ultimately providing better answers to user queries.\nWe welcome you to join the Gemini API Developer forum to share your use cases and feedback on how we can improve code execution for you.\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：Google Developers Blog\n作者：Jason Stephen, Luciano Martins\n分类：软件编程\n语言：英文\n阅读时间：3 分钟\n字数：615\n标签：\n                    \n                        大语言模型, AI工具, 数据可视化, 代码执行, Gemini 2.0",
+          "link": "https://www.bestblogs.dev/zh/article/dcca10",
+          "publishedOn": "2025-03-06T00:00:00.000Z",
+          "wordCount": 308,
+          "title": "Gemini 2.0 代码执行功能详解",
+          "enclosure": {
+            "url": "https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/code-execution-gemini-api.2e16d0ba.fill-1200x600.png",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/code-execution-gemini-api.2e16d0ba.fill-1200x600.png"
         },
         {
           "id": "f2d7be",
@@ -5014,16 +5044,6 @@
           "wordCount": 61218,
           "title": "《福布斯》澄清美国流传很广的虚假信息",
           "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/rLQHEE6z0lt7t0w6VrnBSVF3cgTmVACTnKfYc5GyVjk2aQulUAkSfneoKsUPtU47R5XO9xAdWpWaIkJZwaXIOg/0?wx_fmt=jpeg"
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzUzMzkxOTc4NA==&mid=2247489245&idx=1&sn=8c4d16636aefcc9d5ecfc9db13ed1cbf&chksm=fa9df79acdea7e8c63e2175b50ce3b620ca8fef66dd6f38ec06012f62431b1e8b8d38d0aa033&scene=58&subscene=0#rd",
-          "author": null,
-          "description": "作者曾获诺贝尔奖",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzUzMzkxOTc4NA==&mid=2247489245&idx=1&sn=8c4d16636aefcc9d5ecfc9db13ed1cbf&chksm=fa9df79acdea7e8c63e2175b50ce3b620ca8fef66dd6f38ec06012f62431b1e8b8d38d0aa033&scene=58&subscene=0#rd",
-          "publishedOn": "2025-02-15T16:02:00.000Z",
-          "wordCount": 61200,
-          "title": "我曾领导美国NIH，如今我最担心的是什么？",
-          "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/rLQHEE6z0luBC3SXrVGt4McfECiaxicvM7wxXPglzibk4fclfnYRdWI8LKzzic7QsUb9au3cVBRUhQUVPkJLTQ9q5A/0?wx_fmt=jpeg"
         }
       ]
     },
@@ -9422,6 +9442,16 @@
       "feedUrl": "http://feeds.feedburner.com/ruanyifeng",
       "siteUrl": "http://www.ruanyifeng.com/blog/",
       "articles": [
+        {
+          "id": "http://www.ruanyifeng.com/blog/2025/03/weekly-issue-340.html",
+          "author": null,
+          "description": "这里记录每周值得分享的科技内容，周五发布。\n本杂志开源，欢迎投稿。另有《谁在招人》服务，发布程序员招聘信息。合作请邮件联系（yifeng.ruan@gmail.com）。\n封面图\n\n成都建筑师刘家琨，本周获得号称\"建筑界诺贝尔奖\"的普利兹克奖，上图是他的作品苏州御窑金砖博物馆。（via）\n技术炒作三十年\n大家有没有发现，每隔一段时间，媒体就会大肆炒作一种新技术，宣扬它将对人类产生巨大影响，全社会都在关注，人人都在谈论。\n\n这种炒作就是大家常说的\"风口\"吧。突然之间，风就起来了，如果正好站在风口，猪也能飞起来。\n你能举出多少个这种炒作的例子？\n一个国外程序员根据回忆，列出了过去三十年主要的几次技术炒作。\n1998-2001 年：互联网 WWW\n1999-2006 年：Java\n2004-2007 年：Web 2.0\n2007-2010：云计算\n2010-2015：社交媒体\n2012-2015：物联网\n2013-2015：大数据\n2017-2021：区块链\n2021 年至今：人工智能\n大家觉得，这个时间列表是否准确？\n\n我的亲身感受是差不多。这是主要的几次技术炒作，而且这些技术都成功了，所以炒作的时间才会持续这么久，两年到五年，然后被下一个热点取代。\n当中，还有许多次小的技术炒作，但都没有那么成功，持续时间就没有这么久，很快退潮了，比如元宇宙、Web 3、AR/VR 眼镜、3D 打印、自动驾驶等等。\n一种新技术能够带来大规模、长时间的炒作，有一个前提条件，那就是它有真东西，确实能对社会经济带来非常有感的变化。\n上面列表的每一种新技术，确实都是大的突破，改变了技术方向，没有一个是虚的。如果再加上智能手机、短视频、加密货币，可能就把最近三十年大的技术\"风口\"都包括了。\n我以前有一个误区，看不起技术炒作，认为那只是一窝蜂的音浪，跟娱乐版的明星炒作没什么不同。\n人到中年，我才意识到，这…",
+          "link": "http://www.ruanyifeng.com/blog/2025/03/weekly-issue-340.html",
+          "publishedOn": "2025-03-07T00:11:36.000Z",
+          "wordCount": null,
+          "title": "科技爱好者周刊（第 340 期）：技术炒作三十年",
+          "imageUrl": null
+        },
         {
           "id": "http://www.ruanyifeng.com/blog/2025/03/trae.html",
           "author": null,
