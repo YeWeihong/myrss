@@ -6,6 +6,141 @@
       "siteUrl": "https://bestblogs.dev/zh/feeds",
       "articles": [
         {
+          "id": "0242ab",
+          "author": "Taylor Blau",
+          "description": "📌 一句话摘要\n            \nGit 2.49 发布，重点改进包括更快的打包速度、部分克隆的历史数据块 (blob) 回填、zlib-ng 支持和 Rust 集成等。\n📝 详细摘要\n            \n本文总结了 Git 2.49 版本中一些最有趣的新特性和改进。主要包括：1) 首次引入 Rust 代码，为 Git 的库化发展打下基础；2) 引入名称哈希 v2 (Name-hash v2) 提升打包速度和压缩率，特别是在包含大量同名但内容不同的文件时；3) 引入 `git backfill` 命令，优化部分克隆中历史数据块 (blob) 的回填，提升 `git blame` 等操作的性能；4) 支持使用 zlib-ng 提升压缩性能；5) `git gc` 命令支持 `--expire-to` 选项；6) 优化 `help.autocorrect` 配置；7) `git clone` 新增 `--revision` 选项；8) 移除对旧 remote 配置方式的支持，简化代码库，为未来功能铺路；9) 介绍了两位 Outreachy 实习生的贡献。\n💡 主要观点\n            \nGit 项目首次引入 Rust 代码。\n                         引入了 libgit-sys 和 libgit 两个 Rust crates，为 Git 的库化发展打下基础。\n                    \n\n                        名称哈希 v2 (Name-hash v2) 通过改进哈希算法显著提升 Git 的打包速度和压缩率。\n                         通过更全面地考虑目录结构，新的哈希函数能更有效地识别相似文件，从而更好地进行增量 (delta) 压缩，减少存储空间。\n                    \n\n                        `git backfill` 命令优化了部分克隆的历史数据块 (blob) 回填。\n                         通过批量请求和新的路径遍历 API (path-walk API)，`git backfill` 大大减少了回填缺失历史数据块 (blob) 所需的请求次数，提升了性能。\n                    \n\n                        Git 2.49 支持使用 zlib-ng 提升压缩性能。\n                         zlib-ng 包含多种优化，并支持 SIMD 指令集，能显著提升 Git 的压缩和解压缩速度。\n                    \n\n                        Git 2.49 移除对旧 remote 配置方式的支持，为 Git 3.0 的发布做准备。\n                         移除对旧 remote 配置方式的支持，简化了代码库，为未来功能铺平了道路。\n                    \n💬 文章金句\n            \nGit 2.49 引入了一个新工具 `git backfill`，它可以通过少量的批处理，从 `--filter=blob:none` 克隆中填补任何缺失的历史数据块 (blob)。\n在 Git 2.49 中，您现在可以通过在使用 GNU Make 构建时传递 `ZLIB_NG`，或者在使用 Meson 构建时使用 `zlib_backend` 选项来使用 zlib-ng 构建 Git。\n此版本标志着 Git 项目的一个重要里程碑，首个 Rust 代码已检入。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：The GitHub Blog\n作者：Taylor Blau\n分类：软件编程\n语言：英文\n阅读时间：10 分钟\n字数：2470\n标签：\n                    \n                        Git, 版本控制, 性能优化, 代码压缩, 部分克隆",
+          "link": "https://www.bestblogs.dev/zh/article/0242ab",
+          "publishedOn": "2025-03-14T17:19:46.000Z",
+          "wordCount": 320,
+          "title": "Git 2.49 版本亮点",
+          "enclosure": {
+            "url": "https://github.blog/wp-content/uploads/2025/03/Git-249.png",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://github.blog/wp-content/uploads/2025/03/Git-249.png"
+        },
+        {
+          "id": "d54ea2",
+          "author": "lencx",
+          "description": "📌 一句话摘要\n            \n本文介绍了 Gemini 2.0 Flash 的图文混合生成能力，重点在于利用 Gemini API 结合 Python 和 FFmpeg 实现自动化 GIF 动画生成，并提供了详细教程。\n📝 详细摘要\n            \n文章详细介绍了 Google Gemini 2.0 Flash 的图文混合生成功能，包括其在图文协作、对话式图像编辑、世界知识理解和文字渲染等方面的应用。文章还强调使用 Gemini API 可以避免水印问题，并提供了一个使用 Python 脚本结合 FFmpeg 自动化生成 GIF 动画的完整教程，提供详细步骤和代码示例，方便读者复现。教程包括环境准备、代码编写、运行步骤和效果演示，旨在帮助开发者快速上手并扩展 Gemini 在图像生成领域的应用，例如编辑原图、原型生成、Logo 定制等。\n💡 主要观点\n            \nGemini 2.0 Flash 具备强大的图文混合生成能力，尤其在生成一致性方面表现出色。\n                         Gemini 2.0 Flash 融合了多模态输入、增强的推理能力和自然语言理解，可以根据用户输入的文字和图像生成高质量的图像内容，并保持内容的一致性。\n                    \n\n                        通过 Gemini API，结合 Python 和 FFmpeg，可以实现无水印 GIF 动画的自动化生成。\n                         通过调用 Gemini API，开发者可以绕过 Google AI Studio 的水印限制，并结合 Python 脚本和 FFmpeg 工具，实现 GIF 动画的自动化生成。\n                    \n💬 文章金句\n            \nGemini 2.0 Flash 融合了多模态输入、增强的推理能力和自然语言理解，能生成更为精细的图像。\nGemini 2.0 Flash 在文字渲染方面的表现强于主要竞争模型\n有了 FFmpeg，音视频处理的各种难题几乎都能迎刃而解。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：浮之静\n作者：lencx\n分类：软件编程\n语言：中文\n阅读时间：16 分钟\n字数：3864\n标签：\n                    \n                        Gemini API, 图像生成, Gemini 2.0 Flash, AI 产品, Google AI Studio",
+          "link": "https://www.bestblogs.dev/zh/article/d54ea2",
+          "publishedOn": "2025-03-14T15:45:49.000Z",
+          "wordCount": 357,
+          "title": "探索 Gemini 2.0 Flash 图文混合生成",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/02332042-5093-4608-5a07-3a13b150cb00/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/02332042-5093-4608-5a07-3a13b150cb00/cover"
+        },
+        {
+          "id": "349932",
+          "author": "魔搭开发者",
+          "description": "📌 一句话摘要\n            \n本文介绍了基于 MATH-500 数据集，使用 EvalScope 框架及其 EvalThink 组件，对多个主流推理模型的推理效率进行评测，分析了模型思考能力与性能表现的关系，并探讨了 Reasoning 效率评测的指标定义和实现。\n📝 详细摘要\n            \n文章深入探讨了大语言模型在推理过程中存在的“思考不足 (Underthinking)”和“过度思考 (Overthinking)”问题，并介绍了 EvalScope 框架及其 EvalThink 组件，用于评估不同模型的思考效率。文章以 MATH-500 数据集为例，对包括 DeepSeek-R1-Distill-Qwen-7B 在内的多个推理模型进行了评测，从模型推理 token 数、首次正确 token 数、token 效率、子思维链数量和准确率六个维度评估了模型的表现。通过对比不同模型的表现，文章得出了一些有趣的结论，例如问题难度与模型表现之间的关系，以及 O1/R1 类推理模型和非推理模型的差异。文章重点提出了 token 效率指标，并展望了未来基于评测结果优化模型训练的研究方向。\n💡 主要观点\n            \n问题难度与模型性能表现密切相关\n                         随着问题难度的增加，大多数模型的正确率呈现下降趋势，但 QwQ-32B 和 DeepSeek-R1 表现出色，表明模型的深入思考能力与性能表现密切相关。\n                    \n\n                        推理模型在复杂问题上 token 消耗更有效率\n                         O1/R1 推理模型在问题难度提升时，token 效率也有所提高，表明推理模型在更复杂的问题上 token 消耗更有效率，但在简单问题上可能存在不必要的 token 浪费。\n                    \n\n                        非推理模型存在明显的天花板效应\n                         非推理模型 Qwen2.5-Math-7B-Instruct 在处理高难度数学问题时准确率显著下降，表明缺乏深入的思考过程会导致模型性能下降，存在明显的天花板效应。\n                    \n\n                        模型 Reasoning 效率评测对模型训练有重要参考意义\n                         模型 Reasoning 效率的评测，对 GRPO 和 SFT 训练过程有非常重要的参考意义，有助于开发出“更高效”且能根据问题难度“自适应推理”的模型。\n                    \n💬 文章金句\n            \n模型 Reasoning 效率的评测，对 GRPO 和 SFT 训练过程有非常重要的参考意义，有助于开发出“更高效”且能根据问题难度“自适应推理”的模型\nUnderthinking（思考不足）现象指的是模型在推理过程中频繁地进行思路跳转，反复使用 'alternatively'、'but wait'、'let me reconsider' 等词。\nOverthinking（过度思考）现象则表现为模型在不必要的情况下生成过长的思维链，浪费了大量的计算资源。\n📊 文章信息\n            \nAI 评分：90\n精选文章：是\n来源：魔搭ModelScope社区\n作者：魔搭开发者\n分类：人工智能\n语言：中文\n阅读时间：21 分钟\n字数：5212\n标签：\n                    \n                        大语言模型, 推理效率, 思考效率, 模型评测, MATH-500",
+          "link": "https://www.bestblogs.dev/zh/article/349932",
+          "publishedOn": "2025-03-14T11:37:20.000Z",
+          "wordCount": 314,
+          "title": "有效的思考：模型思考效率评测",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/05c76b0e-806c-4a97-ace2-f77173b9b600/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/05c76b0e-806c-4a97-ace2-f77173b9b600/cover"
+        },
+        {
+          "id": "44f4cd",
+          "author": "Founder Park",
+          "description": "📌 一句话摘要\n            \nLOOI 团队将硬件视为内容，像设计生命一样设计机器人，并对 AI 硬件的未来趋势进行思考。\n📝 详细摘要\n            \n本文是对 LOOI 团队的一次深度访谈，探讨了 LOOI 这款 AI 硬件产品的设计理念、人机交互模式以及对未来 AI 硬件趋势的思考。LOOI 团队秉持“硬件即内容”的核心理念，拒绝用户自定义性格，致力于创造与用户产生情感连接的硅基生命。他们认为，在这种甜品级的 100 多美元定价下，LOOI 能提供溢出的交互体验，具有独特的市场生态位。文章深入浅出地介绍了 LOOI 的设计理念与实践，为读者理解 AI 硬件的发展趋势提供了有益的参考。\n💡 主要观点\n            \n硬件即内容，强调物理形态与交互形式的高度统一\n                         LOOI 团队认为硬件不应仅是终端，而应作为内容本身，其物理形态和交互方式应紧密结合，为用户提供独特的体验。\n                    \n\n                        拒绝用户自定义性格，追求 LOOI 的真实感与独特性\n                         LOOI 团队不希望用户过多干预 LOOI 的性格设定，而是希望通过互动逐渐养成其独特性格，如同与真实宠物建立情感连接。\n                    \n\n                        重视用户的情感连接，将 LOOI 打造为有生命的朋友\n                         LOOI 团队强调产品的情感价值，希望 LOOI 不仅是一个工具，更能成为用户生活中的伙伴，提供情感上的支持和陪伴。\n                    \n\n                        AI 硬件的未来在于构建比特、原子与人之间的接口\n                         AI 硬件的发展应注重连接虚拟与现实世界，通过物理形态的创新，加强 AI 与人的互动，从而创造更具沉浸感和情感价值的体验。\n                    \n💬 文章金句\n            \n对 LOOI 来说，硬件就是内容本身\n我们首先要让它成为一个成功的消费品。\n在这种甜品级的 100 多美元的价格，能提供溢出的交互体验，一定有非常适合 LOOI 的生态位。\n有些人说「给用户他们想要的」，但这不是我的方式。我们的工作是在他们意识到之前就弄清楚他们将来会想要什么。\n我们是机器，我们只是通过生物方式制造的。大多数做 AI 的人对这一点毫不怀疑。我们只是特别精密的机器。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：Founder Park\n作者：Founder Park\n分类：商业科技\n语言：中文\n阅读时间：88 分钟\n字数：21894\n标签：\n                    \n                        AI硬件, 人机交互, 机器人, 情感机器人, 桌面机器人",
+          "link": "https://www.bestblogs.dev/zh/article/44f4cd",
+          "publishedOn": "2025-03-14T10:47:01.000Z",
+          "wordCount": 304,
+          "title": "对话 LOOI：硬件作为内容，像设计生命一样设计机器人",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/0aaeff1b-0ef4-425e-bfdc-042af2c99b00/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/0aaeff1b-0ef4-425e-bfdc-042af2c99b00/cover"
+        },
+        {
+          "id": "4e4fb7",
+          "author": "克雷西",
+          "description": "📌 一句话摘要\n            \nChatGPT 的 o1 和 o3-mini 模型集成 Python，显著提升了数据分析和可视化能力，使其成为更强大的数据分析工具。\n📝 详细摘要\n            \n文章介绍了 ChatGPT 的 o1 和 o3-mini 模型新增的 Python 数据分析功能。通过对飞机航班记录的分析，展示了 o1 在数据处理、时区转换和复杂计算方面的强大能力和准确性。同时，文章还测试了各模型的数据可视化能力，对比了 o1、GPT-4o 和 Claude 在生成折线图方面的表现。结果显示，o1 和 GPT-4o 能够生成准确的图表，但 o1 的图表在可读性方面略有不足，Claude 虽然生成了交互式网页，但在时区转换上出现了错误。此外，OpenAI 还将 Mac 客户端的 Work with Apps 功能开放给所有用户，进一步提升了用户体验，方便用户在不同应用之间共享数据。\n💡 主要观点\n            \nChatGPT o1 模型通过 Python 集成，显著提升了数据分析能力，成为更强大的数据分析工具。\n                         o1 模型能够处理复杂的数据分析任务，包括数据提取、时区转换和统计计算，为用户提供准确的结果。例如，在分析航班记录时，o1 能够准确计算航班延误，并进行时区转换。\n                    \n\n                        不同 AI 模型在数据分析和可视化方面各有优劣，o1 在数据准确性方面表现出色。\n                         GPT-4o 在输出格式上更胜一筹，Claude 在可视化方面更具创新性，但存在准确性问题，o1 在准确性方面表现出色，保证了数据分析结果的可靠性。\n                    \n\n                        Work with Apps 功能提升了 ChatGPT 的易用性，简化了用户工作流程。\n                         该功能允许用户直接从其他应用程序导入数据，无需手动复制粘贴，简化了编程等任务的工作流程，提升了用户体验。\n                    \n💬 文章金句\n            \no1 已经从一个助理，进化成全能的数据分析 Copilot 了。\n最终，这四个问题，o1 在调用了 Python 之后全都分析对了。\nClaude 这边则是闹出了一些乌龙，一开始表示自己无法打开上传的文件（可能是文件名包含中文的缘故），反复自动重试多次后，竟然自己编了一套答案出来。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：量子位\n作者：克雷西\n分类：人工智能\n语言：中文\n阅读时间：6 分钟\n字数：1393\n标签：\n                    \n                        AI工具, ChatGPT, OpenAI, 数据分析能力, Python",
+          "link": "https://www.bestblogs.dev/zh/article/4e4fb7",
+          "publishedOn": "2025-03-14T06:53:49.000Z",
+          "wordCount": 332,
+          "title": "ChatGPT 再进化：o1 支持调 Python 分析数据，网友：进化成 Copilot 了",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/b6908963-f490-4f44-94fd-7e88dc0d2200/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/b6908963-f490-4f44-94fd-7e88dc0d2200/cover"
+        },
+        {
+          "id": "a75d53",
+          "author": "直播技术团队",
+          "description": "📌 一句话摘要\n            \n本文总结了淘宝直播团队在服务端、前端、数据科学、测试和数据研发等职能中，通过任务拆分、人机交互等方式，探索 AI 技术进行工程提效的实践经验和心得。\n📝 详细摘要\n            \n文章围绕淘宝直播团队在过去半年中基于 AI 技术在工程侧提效的探索展开，详细介绍了服务端、前端、数据科学、测试和数据研发等职能团队如何结合 AI 能力进行创新尝试，例如服务端生成基础平台或中间件调用代码，前端生成简易 UI 样式代码等。文章分析了 AI 能力的优势与局限性，例如文本生成的涌现能力、固定思维过程以及对世界的有限理解等。通过任务拆分、输入提炼和人 \"机\" 交互设计等具体案例，作者分享了如何合理设计 AI 能力与现有研发链路的适配方案，以实现更高效的解决方案。此外，文章还探讨了 RAG 实践、FT 调优等技术的应用，并表达了对未来进一步探索和合作的期待，例如探索更深层次的自动化代码生成。\n💡 主要观点\n            \n任务拆分是提升 AI 生成质量的关键\n                         将复杂任务拆解为多个小任务，并针对每个任务设计 Prompt，可以有效避免大模型在长序列输入中丢失上下文，提升生成结果的质量。\n                    \n\n                        输入提炼提升 AI 理解能力\n                         通过对需求文档、技术文档和视觉稿等输入进行精简、多模态内容理解和关联信息聚合等预处理，可以显著提升 AI 的理解能力和输出质量。\n                    \n\n                        人机交互在 AI 能力缺口上起到了粘合作用\n                         在 AI 生成结果的基础上，通过人为的低成本辅助，例如实时修改和渲染 UI 布局、问答交互等，可以大大提升最终交付的结果。\n                    \n\n                        约束模型生成结果长度可降低错误信息输出\n                         通过限制模型生成结果的长度，能够在可判断范围内降低模型因回答长度增加而产生“幻觉”的可能性，产出更高质量的回答。\n                    \n\n                        结合 AI 与非 AI 方案能更有效地解决问题\n                         找到最适合 AI 做的事情让 AI 去完成，对于不适合 AI 做的事情，寻找非 AI 的解决方案，然后将两者串联起来，往往能更有效地解决问题。\n                    \n💬 文章金句\n            \n合理设计 AI 能力和链路拆解任务的适配，是最终解决方案是否有效和方案是否可以长期演进迭代的关键。\n人和 AI 的区别在于，人在阅读或听到一段文字时，他们不仅仅是在处理词语，而是将这些词语与对世界的更广泛理解联系起来，从中汲取个人经历、文化背景以及深刻内化的因果关系和逻辑\n不要迷信大模型能力，找到最适合 AI 能做的事情，让 AI 去做，以及不适合 AI 做的事情，我们可以找到非 AI 的解决方案去做，然后做方案的串联，这可能是更有效的方式。\n如果在过程中有人为的低成本介入的辅助能大大提升最终交付的结果，这样的设计个人认为还是非常关键的。\n在可判断范围内去约束模型生成的结果长度，来降低无效信息或是错误信息输出的可能。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：大淘宝技术\n作者：直播技术团队\n分类：软件编程\n语言：中文\n阅读时间：27 分钟\n字数：6535\n标签：\n                    \n                        AI提效, AIGC, LLM, Prompt Engineering, 代码生成",
+          "link": "https://www.bestblogs.dev/zh/article/a75d53",
+          "publishedOn": "2025-03-14T06:49:46.000Z",
+          "wordCount": 306,
+          "title": "淘宝直播 AI 提效探索的一些心得",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/ae9873f1-62af-4f6f-a5f1-90293408bb00/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/ae9873f1-62af-4f6f-a5f1-90293408bb00/cover"
+        },
+        {
+          "id": "24de1a",
+          "author": "svtrai",
+          "description": "📌 一句话摘要\n            \n基于 PostgreSQL 的开源 BaaS 平台 Supabase，正在引领后端开发的范式转变，为开发者提供 Firebase 的替代方案。\n📝 详细摘要\n            \n本文全面剖析了 Supabase，一个基于 PostgreSQL 的云原生开源 BaaS 平台。文章从 Supabase 的创立故事讲起，阐述了其如何解决 Firebase 的局限性，以及早期通过“开源 Firebase 替代品”的定位迅速获得市场关注。详细介绍了 Supabase 的核心产品，包括数据库、身份认证、存储、无服务器计算、实时功能以及 AI 工具，特别强调了其基于 PostgreSQL 的云原生特性和在 AI 应用方面的潜力，例如开源向量数据库 pgvector。分析了 Supabase 在市场中的竞争地位，包括与 Firebase 等平台的对比，并指出其差异化竞争策略在于开源、灵活性和对 PostgreSQL 生态的深度集成。同时，文章还探讨了 Supabase 的商业模式、融资情况、面临的机遇与风险，以及其在 Postgres 生态系统中的发展潜力。最后，总结了 Supabase 作为开源 BaaS 平台，在简化后端开发、降低开发成本、提高开发效率、提供灵活可扩展的应用支持方面的价值，并指出了其在市场竞争中需要持续创新和优化开发者体验的重要性。\n💡 主要观点\n            \nSupabase 通过开源模式和 PostgreSQL 数据库，为开发者提供了 Firebase 的替代方案。\n                         Supabase 的开源特性避免了供应商锁定，PostgreSQL 的强大功能提供了更大的灵活性和控制力，满足了开发者对定制化和可扩展性的需求。\n                    \n\n                        Supabase 提供了一整套后端服务，简化了应用开发流程。\n                         包括数据库管理、身份验证、文件存储和实时更新等，使开发者能够专注于前端开发和用户体验，加速应用交付。\n                    \n\n                        Supabase 面临着来自 Firebase 等 BaaS 平台的激烈竞争。\n                         Firebase 拥有更完善的生态系统和丰富的功能，Supabase 需要持续创新和优化开发者体验，以增强市场竞争力。\n                    \n\n                        Supabase 通过开源向量数据库，为开发者构建 AI 应用提供了便利。\n                         Supabase 提供的 AI & Vectors 工具包，基于 Postgres + pgvector，支持语义搜索等 AI 应用场景，降低了 AI 应用开发的门槛。\n                    \n💬 文章金句\n            \nSupabase 的成功离不开其活跃的开源社区。\nSupabase 旨在成为 Firebase 的开源替代方案，构建一个云原生的 Postgres 平台，使开发者能够快速搭建应用，并轻松扩展至大规模生产环境。\nSupabase 通过免费增值模式 + 弹性计费，确保不同用户群体（个人开发者、小型团队、大型企业）都能以合适的价格获得相应的资源和支持。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：硅谷科技评论\n作者：svtrai\n分类：商业科技\n语言：中文\n阅读时间：36 分钟\n字数：8869\n标签：\n                    \n                        BaaS, Supabase, PostgreSQL, 开源, 后端开发",
+          "link": "https://www.bestblogs.dev/zh/article/24de1a",
+          "publishedOn": "2025-03-14T04:55:03.000Z",
+          "wordCount": 311,
+          "title": "Supabase：引领后端开发的范式转变",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/e6402d48-84c9-43c0-63b6-88754dc1f600/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/e6402d48-84c9-43c0-63b6-88754dc1f600/cover"
+        },
+        {
+          "id": "f668d2",
+          "author": "Z Potentials",
+          "description": "📌 一句话摘要\n            \n文章介绍了 3 月 3 日至 3 月 9 日 Product Hunt 排名前十的产品，其中华人团队开发的多智能体 AI 平台 MGX 登顶。\n📝 详细摘要\n            \n本文盘点了 2024 年 3 月 3 日至 3 月 9 日期间 Product Hunt 上最受欢迎的十款产品，涵盖 AI 多智能体开发、员工反馈、视频优化、代码辅助、简历生成等领域。特别值得关注的是，华人团队在多智能体 AI 开发领域取得了显著成就，其产品 MGX 荣登榜首，该平台通过模拟软件开发团队的协作流程，将自然语言需求转化为可执行的代码和文档，适用于快速原型开发和辅助软件工程师提高效率。文章还介绍了其他几款热门产品，如 Teamble AI、Supergrid by Depict、OpusClip ReframeAnything 和 Fynix 等，它们都利用 AI 技术解决了特定领域的问题，提高了用户效率，例如 Teamble AI 解决了传统反馈机制中信息不及时的痛点。\n💡 主要观点\n            \nMGX 作为全球首个多智能体 AI 开发团队，展示了多智能体技术在软件开发领域的巨大潜力，能够显著降低开发门槛并提高效率。\n                         MGX 通过模拟软件开发团队的协作流程，将自然语言需求转化为可执行代码和文档，适用于快速原型开发和辅助软件工程师提高效率，预示着软件开发模式的革新。\n                    \n\n                        AI 技术在各领域应用广泛，解决了传统方式的痛点，提升用户效率，并带来创新可能性。\n                         文章介绍的多个产品都利用了 AI 技术，如视频优化、代码辅助、简历生成等，解决了传统方式的耗时耗力问题，提供了便捷高效的用户体验，同时也为各行业带来了新的创新机会。\n                    \n\n                        Product Hunt 是发现创新 AI 产品的重要平台。\n                         Product Hunt 提供了一个展示和发现新产品的平台，用户可以在上面找到各种创新性的 AI 应用，了解最新的技术趋势。\n                    \n💬 文章金句\n            \nMGX 是全球首款多智能体 AI 开发团队，可以完成创建网站、博客、商城、数据分析、游戏等各类需求。\nTeamble AI 是一款利用人工智能提供持续、可行的员工反馈工具。\nOpusClip ReframeAnything 是一款为任何社交平台优化视频尺寸的工具。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：Z Potentials\n作者：Z Potentials\n分类：商业科技\n语言：中文\n阅读时间：16 分钟\n字数：3874\n标签：\n                    \n                        Product Hunt, AI 产品, 多智能体, MGX, AI 开发平台",
+          "link": "https://www.bestblogs.dev/zh/article/f668d2",
+          "publishedOn": "2025-03-14T03:30:42.000Z",
+          "wordCount": 362,
+          "title": "Z Product｜Product Hunt 最佳产品（3.3-9），华人多智能体 Agent 登顶！",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/d707d726-5b42-4c34-c956-7478ba44c600/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/d707d726-5b42-4c34-c956-7478ba44c600/cover"
+        },
+        {
+          "id": "325672",
+          "author": "纪玄",
+          "description": "📌 一句话摘要\n            \n本文以 PPT 形式解读 AI Agent，重点分析了 Manus 这款产品，并分享了作者对 AI Agent 未来发展的思考和案例。\n📝 详细摘要\n            \n本文以 70 页 PPT 的形式，对 AI Agent 进行了深度解读，重点分析了 Manus 这款将 Agent 概念具体化的产品，探讨了 AI Agent 的定义、实现逻辑和使用案例，并分享了作者的个人观点。文章首先介绍了 Manus，一个将 Agent 概念具体化的产品，接着，通过时间线的方式，逐步深入地分析了 AI Agent 的核心思想、用户体验和周期循环。随后，文章概述了 AI Agent 的整体应用。最后，文章通过案例分析，展示了 AI Agent 的实际应用和效果，并对 AI Agent 的未来发展方向提出了独到见解。\n💡 主要观点\n            \nManus 的出现，让 Agent 概念从抽象变为具象，降低了理解和使用的门槛。\n                         Manus 的出现让人们能够更直观地理解和体验 AI Agent，降低了理解门槛，促进了 AI Agent 的普及。\n                    \n\n                        AI Agent 的应用应注重实际效果和用户价值，避免盲目追求技术噱头。\n                         文章通过案例分析，展示了 AI Agent 在不同场景下的应用效果，强调了理性看待 AI Agent 的重要性。\n                    \n\n                        AI Agent 的未来发展需要在成本控制、用户信任和持续创新上取得平衡。\n                         文章讨论了 token 消耗、营销、信任等问题，并提出了对 AI Agent 未来发展的思考和建议。\n                    \n💬 文章金句\n            \nManus 吹散了人与 Agent 之间的迷雾\nAgent 时代真的要来了么？\n模型即产品？\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：赛博禅心\n作者：纪玄\n分类：人工智能\n语言：中文\n阅读时间：4 分钟\n字数：941\n标签：\n                    \n                        AI Agent, Manus, AI产品, 应用案例, 用户体验",
+          "link": "https://www.bestblogs.dev/zh/article/325672",
+          "publishedOn": "2025-03-14T02:13:28.000Z",
+          "wordCount": 343,
+          "title": "Manus 没有秘密：70 页 PPT 深入解读 AI Agent",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/1f9c142f-ceb0-4bf2-6daf-20de7f44f700/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/1f9c142f-ceb0-4bf2-6daf-20de7f44f700/cover"
+        },
+        {
           "id": "28d6d5",
           "author": "LLM SPACE",
           "description": "📌 一句话摘要\n            \nMCP 协议作为 AI Agent 生态的统一连接方案，通过标准化接口，简化了 AI 模型与外部数据源和工具的集成，加速了 AI 万物互联的进程。\n📝 详细摘要\n            \n文章详细解读了由 Anthropic 推出的 MCP (模型上下文协议)，旨在解决 AI 模型与外部数据源和工具之间通信的难题。通过类比 USB-C 接口，生动地解释了 MCP 如何实现 AI 系统与各类外部资源的标准化连接，降低了开发和维护成本，促进了 AI Agent 生态的繁荣。文章深入分析了 MCP 的客户端 - 服务器架构，阐述了其简化开发、增强灵活性、实现实时互动等优势，并对比了 MCP 与传统 API 和 Function Calling 的区别与联系。此外，文章还探讨了 MCP 在旅行规划助手、智能 IDE 和复杂数据分析等场景中的应用，展示了 MCP 如何简化开发流程，并展望了其在构建 AI 万物互联生态中的巨大潜力，以及接口商业化的前景。\n💡 主要观点\n            \nMCP 协议通过标准化接口，简化 AI 模型与外部工具的集成\n                         MCP 定义了统一的通信标准，使得 AI 模型无需为每个 API 单独开发，降低了开发复杂度和维护成本。\n                    \n\n                        MCP 的客户端 - 服务器模型，实现了 AI 模型与外部资源的解耦\n                         MCP 服务器作为桥梁，负责处理 AI 模型的请求，并与外部资源交互，使得 AI 模型可以专注于核心智能和推理能力。\n                    \n\n                        MCP 通过动态发现和双向通信，增强了 AI 应用的灵活性和实时性\n                         AI 模型可以自动识别并使用可用的工具，并且能够实时查询数据和触发操作，从而实现更智能的应用。\n                    \n\n                        MCP 协议是构建繁荣 AI Agent 生态的关键，降低了开发者接入成本，促进了生态系统的发展\n                         MCP 作为一个开放标准，降低了开发者集成 AI 模型与外部工具的门槛，促进了更多创新应用和服务的涌现，从而推动整个 AI Agent 生态的繁荣。\n                    \n💬 文章金句\n            \nMCP 就像给 AI 量身定制的\" USB-C 接口\"。\nMCP 协议也许 dominate，接口商业化也是极有可能的，这一点利好卖接口服务的中间商。\nMCP 是解锁 Claude 潜力，使其成为真正 Agent 的关键 ------一个不仅能理解和生成文本，还能与世界互动、访问信息并执行操作来解决问题和实现目标的 Al。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：LLM SPACE\n作者：LLM SPACE\n分类：人工智能\n语言：中文\n阅读时间：21 分钟\n字数：5228\n标签：\n                    \n                        MCP协议, 开放标准, API, AI Agent, 大语言模型",
@@ -3824,8 +3959,23 @@
     {
       "title": "北青深一度 via zmonster on Inoreader",
       "feedUrl": "https://feedpress.me/bqs",
-      "siteUrl": "https://www.inoreader.com/stream/user/1005939773/tag/%E5%8C%97%E9%9D%92%E6%B7%B1%E4%B8%80%E5%BA%A6?ae84=1741598340/view/html",
+      "siteUrl": "https://www.inoreader.com/stream/user/1005939773/tag/%E5%8C%97%E9%9D%92%E6%B7%B1%E4%B8%80%E5%BA%A6?ff99=1742012313/view/html",
       "articles": [
+        {
+          "id": "http://www.inoreader.com/article/3a9c6e77e2e73718",
+          "author": null,
+          "description": "采写/王涓婷\n编辑/宋建华\n     受骗人提供的“无货源跨境电商店铺”宣传页面截图 \n 搭建一个属于自己的跨境电商店铺，需要哪些条件？在这场骗局里，运营导师会告诉你，不需要任何执照、资质、货源，这些公司都可以搞定，你只需要提供真实信息，以及按时处理好每一笔订单。\n多位受害者告诉深一度，在自己下载的第三方软件里，跨境店铺、订单进度、利润数据都是虚构的，只有自己的一笔笔转账是真金白银，金额从小到几十元，到高达数十万。让他们陷入骗局的，是在一些直播间或社交平台上，这样的店铺从一开始就被天花乱坠地说成了只需“花一杯奶茶钱”，就可以试一试的“低成本创业”，甚至是零成本。\n入局的人并不是没有怀疑过，可对方很快发来可以查证的营业执照、信息匹配的身份证照片、标有正规跨境电商平台名称的“授权书”，甚至还有证明授权属实的线下视频，以及伪造的和国家反诈中心签订的“宣传协议”，反复强调着这份工作的正规和透明。\n出于对平台和资质的信任，又或是对已投入资金的不甘心，一些人选择继续做下去。也有人从中尝到“甜头”，成功提现部分金额，直到无力承担运营成本，又无法取现时，才彻底意识到这是一场打着跨境电商名义的骗局。\n     “运营导师”发给许丹用来核实资质的部分材料 \n  \n    \n 一份副业\n2025年除夕这天，按照约定，顾一彬的店铺会有大概60万元的本金和利润提现到账。在一个独立的聊天软件上，通过运营导师发来的网址，顾一彬可以看到自己“搭建”好的店铺情况和盈利数据。导师告诉他，如果订单来了，他的工作是先垫钱提货，等客户签收后就能提现，赚取其中的差价，最晚7天会自动签收回款，“就像网购一样”。\n从半个多月前开始运营，顾一彬先后一共提现了1万多元，每次到账都很快。这一次，他在前一天发起申请，但直到当天下午，账户里还没有任何动静。\n他心里着急，这笔提款是打算用来还账的。在此之前，顾一彬已经往里垫了约40万…",
+          "link": "https://c.m.163.com/news/a/JQMGMS1U0512BN99.html?from=subscribe",
+          "publishedOn": "2025-03-15T04:01:10.000Z",
+          "wordCount": 1274,
+          "title": "零元开店、无需货源，跨境电商骗局从这里开始 | 深度聚焦",
+          "enclosure": {
+            "length": "1337",
+            "type": "image/png",
+            "url": "https://static.ws.126.net/163/frontend/images/logo-netease-114.png"
+          },
+          "imageUrl": "https://static.ws.126.net/163/frontend/images/logo-netease-114.png"
+        },
         {
           "id": "http://www.inoreader.com/article/3a9c6e77ed60885e",
           "author": null,
@@ -8622,66 +8772,6 @@
           "wordCount": 61168,
           "title": "京东承担骑手五险一金所有成本，传三星与长江存储合作，知情人士回应阿维塔注册塔界，格力高管谈董明珠健康家，这就是今天的其他大新闻！",
           "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/yZPTcMGWibvvDxhFs1Lu1jFlVcWicVB80sZgRNOEUicIhzXdWUBT36o1PEGZuL9wjmbw3Rg9IDPlibvUiaeo3DwfYnA/0?wx_fmt=jpeg"
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654584629&idx=1&sn=fd2f326ea82bacb6be0a0fd061852e60&chksm=8b84a832bcf32124571dd92c071647fe72d0e661f5984322420cbabe194b3d3123f0f66c40d8&scene=58&subscene=0#rd",
-          "author": null,
-          "description": "谁又赚了",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654584629&idx=1&sn=fd2f326ea82bacb6be0a0fd061852e60&chksm=8b84a832bcf32124571dd92c071647fe72d0e661f5984322420cbabe194b3d3123f0f66c40d8&scene=58&subscene=0#rd",
-          "publishedOn": "2025-02-23T16:00:00.000Z",
-          "wordCount": 61209,
-          "title": "骚扰你的影院按摩椅，9个月赚了1个亿。",
-          "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/yZPTcMGWibvs5CqoXVHx9f705TJAubE4dib0Q1ruWSFLNQ9hHA7zD6IbssGvDGUUn4GySW2oA6eEic1lqtQeL4hTQ/0?wx_fmt=jpeg"
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654584629&idx=2&sn=f7b812f1489913a4b7dee724dab6a207&chksm=8b84a832bcf32124ff031981de6cfa1daf19e85a0e680842aa45189b48575113495be073590f&scene=58&subscene=0#rd",
-          "author": null,
-          "description": "DEBUG THE WORLD 想要打造一个能解决穿搭难题的「胶囊衣橱」：像胶囊般浓缩你的衣柜，留下一些经典必备单品，来组合出更多的搭配。适用于各种场合，可以随时出门。",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654584629&idx=2&sn=f7b812f1489913a4b7dee724dab6a207&chksm=8b84a832bcf32124ff031981de6cfa1daf19e85a0e680842aa45189b48575113495be073590f&scene=58&subscene=0#rd",
-          "publishedOn": "2025-02-23T16:00:00.000Z",
-          "wordCount": 61509,
-          "title": "把成本的75%都花在面料上，我们想用经典款承包你的整年穿搭。",
-          "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/yZPTcMGWibvviceAb5vMo4ZzQCzfJNyZBzShr4m3n6D9SkFVsPCmFOviaGXF0DUw9TxDbC6FoVO7mrNNd8xFGjawQ/0?wx_fmt=jpeg"
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654584629&idx=3&sn=9fe3ab1ba1d9e25eedf5f925cbdf53bf&chksm=8b84a832bcf32124b501c69a1dfa0d075f56f45983f2fcee8c5ce3a4f4988b15cb5d84fb73e1&scene=58&subscene=0#rd",
-          "author": null,
-          "description": "以后买车可能不需要讨价还价了？",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654584629&idx=3&sn=9fe3ab1ba1d9e25eedf5f925cbdf53bf&chksm=8b84a832bcf32124b501c69a1dfa0d075f56f45983f2fcee8c5ce3a4f4988b15cb5d84fb73e1&scene=58&subscene=0#rd",
-          "publishedOn": "2025-02-23T16:00:00.000Z",
-          "wordCount": 61268,
-          "title": "合资车企开始搞\"一口价\"，是诚心还是黑心？",
-          "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/yZPTcMGWibvviceAb5vMo4ZzQCzfJNyZBz0vWavLd9UPt31J83W6Zpa0b6qqCicwn6KOIHDicx4iaKxZ7avWiad3ecRw/0?wx_fmt=jpeg"
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654584629&idx=4&sn=a1eb49242a6b702325a90875b71f8942&chksm=8b84a832bcf32124f1d735c823e35f6b3e891eba2b2d6e6a9c33084a02f6601527abedfef708&scene=58&subscene=0#rd",
-          "author": null,
-          "description": "​谢谢爸爸，我觉得上班也挺好的。",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654584629&idx=4&sn=a1eb49242a6b702325a90875b71f8942&chksm=8b84a832bcf32124f1d735c823e35f6b3e891eba2b2d6e6a9c33084a02f6601527abedfef708&scene=58&subscene=0#rd",
-          "publishedOn": "2025-02-23T16:00:00.000Z",
-          "wordCount": 61053,
-          "title": "今日最佳：妈妈好，爸爸...够意思。",
-          "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/yZPTcMGWibvvYX1DrH542V09Gj3oIYDP5mNo4WI0a2W4iavCH4MpVAdEzFAovQvnd6iaasN5ehRY7VGLldBsO1SBg/0?wx_fmt=jpeg"
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654584629&idx=5&sn=a65f10e98c37daf641281695949d60a6&chksm=8b84a832bcf321240c1235a9c1306f97dfaf2c887da968641261f621db83a79ecd446f36a2c5&scene=58&subscene=0#rd",
-          "author": null,
-          "description": "聊一聊",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654584629&idx=5&sn=a65f10e98c37daf641281695949d60a6&chksm=8b84a832bcf321240c1235a9c1306f97dfaf2c887da968641261f621db83a79ecd446f36a2c5&scene=58&subscene=0#rd",
-          "publishedOn": "2025-02-23T16:00:00.000Z",
-          "wordCount": 61052,
-          "title": "聊一聊：你今年有计划入手的电子产品？",
-          "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/yZPTcMGWibvuL10U2hLZjiaxblDkV7o0df25vWpYMia5YeibrpWbp47KicxUjwSE8Kgxky6plrx5uTu8rswTDoAxkWQ/0?wx_fmt=jpeg"
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654584629&idx=6&sn=e317511be126259ba8907e4778bfdb14&chksm=8b84a832bcf321248800250fd7a8ccd52e7993ad36326f5ea7c46464082358be672083b5dacf&scene=58&subscene=0#rd",
-          "author": null,
-          "description": "今天是2月23日，农历正月廿六。",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654584629&idx=6&sn=e317511be126259ba8907e4778bfdb14&chksm=8b84a832bcf321248800250fd7a8ccd52e7993ad36326f5ea7c46464082358be672083b5dacf&scene=58&subscene=0#rd",
-          "publishedOn": "2025-02-23T16:00:00.000Z",
-          "wordCount": 61177,
-          "title": "小米15 Ultra下周发布，意大利调查比亚迪等车企，Grok3语音功能上线，星舰第八次试飞确定，这就是今天的其他大新闻！",
-          "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/yZPTcMGWibvviceAb5vMo4ZzQCzfJNyZBzicYfbRUfYnCwibsUW02JuP6DI2TLDALic2GQlKI63oHHhcIvGsF3Y4CLg/0?wx_fmt=jpeg"
         }
       ]
     },
@@ -10292,34 +10382,6 @@
             "type": "image/jpeg"
           },
           "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/17926/2025022578491881.jpg"
-        },
-        {
-          "id": "https://www.natgeomedia.com/environment/article/content-17925.html",
-          "author": null,
-          "description": "好幾個世紀以來，當地人一直在說「魔克拉姆邊貝」的故事，那是一種傳說中的生物，據說就潛藏在剛果盆地中。但隨著森林消失，出現愈來愈多目擊紀錄──也讓我們有機會看見民間傳說如何隨著地景的改變而改變。\n樹木開始晃動、猴子尖叫、群鳥驚飛。\n在奧札拉．科科瓦國家公園（Odzala-Kokoua National Park）深處，瑟拉．阿邦奧（Selah Abong’o）呆住了，深信她即將遇見某種從傳說中走出來的生物：魔克拉姆邊貝（mokele-mbembe），剛果傳說中的恐龍。\n2003年，這位年輕的剛果保育學家深入濃密的森林，去探勘一個毀滅性的伊波拉病毒爆發處，那裡曾造成超過5000隻西部低地大猩猩死亡。但在那天，碰上了她奔馳的想像力，這種傳染病也只能閃邊了。\n「結果只是一隻真的很大隻的森林象，」她笑著說：「我們這裡沒有恐龍啦，不過是真的很容易誤把大象或河馬當成恐龍，我就是這樣。那時候我還很菜。」\n20年後，魔克拉姆邊貝的傳說依舊活躍，村落裡流傳著耳語，並隨著每次的新「目擊事件」而加油添醋，而阿邦奧說，森林砍伐就是背後的原因。\n剛果盆地是地球第二大雨林，也是非常重要的生態系，而自從阿邦奧那次所謂的恐龍目擊事件之後，剛果盆地已經失去了2300萬公頃的森林，這片區域大小相當於整個英國。\n隨著人類聚落逐漸深入棲地，當地人也愈來愈常遇到野生動物。魔克拉姆邊貝也從神祕動物學愛好者和神創論傳教士的西方偽科學執迷，轉移回到了出生地、成為早就知道這個故事的居民之間共享的非洲當地傳說。\n「在那些深入動物棲地、居民又不習慣看到大型動物的較大聚落，他們突然間就開始整天遇到動物，」捷克籍的保育學家勞拉．維拉秋瓦（Laura Vlachova）說：「就是這些人跟我說他們看過魔克拉姆邊貝。我認為，這顯示的其實是民間傳說也開始反映出生態系縮小的實際狀況。」\n\n.g_AD_970_250_InArticle_res…",
-          "link": "https://www.natgeomedia.com/environment/article/content-17925.html",
-          "publishedOn": "2025-02-23T16:00:00.000Z",
-          "wordCount": 504,
-          "title": "剛果奇怪的「恐龍」目擊潮到底是怎麼回事？ - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權",
-          "enclosure": {
-            "url": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/17925/2025022480049241.jpg",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/17925/2025022480049241.jpg"
-        },
-        {
-          "id": "https://www.natgeomedia.com/environment/article/content-17924.html",
-          "author": null,
-          "description": "草鴞是臺灣唯一棲息在平原草地、非森林性的貓頭鷹，棲地離人類居住空間很近，但由於晝伏夜出的習性不易觀察，早期保育人士推估全臺僅有100隻或300～500隻，為臺灣第一級瀕臨絕種的保育類。\n然而草鴞的實際數量有多少，又分布在哪裡？數量稀少而瀕危的原因為何？需有基礎科學數據才能提出相應的保育措施。嘉義大學、屏東科技大學學者經過10年調查研究，對草鴞在臺灣的生存樣貌和風險逐漸有了清楚的描繪。而南部地區的魚塭、農地等面臨光電和工業區的開發侵蝕，致使草鴞棲地更破碎與劣化，學者也對此提出警示。\n\n                    \n全臺估有158對草鴞  棲息地由中部移往南部 \n「草鴞離我們人類非常近，但某種程度也可以說離我們很遠。」嘉義大學生態資源學系助理教授蔡若詩16日在林保署屏東分署舉辦的「深入淺山國土綠網特展」講座活動上指出，因為夜行性、隱密性，草鴞這種鳥很難調查，不知道牠就在我們身邊。\n從歷史紀錄中可明確知道全臺灣都有草鴞分布，只是數量不多。早期草鴞主要出現在中部地區，但近年的調查發現，中部已較少看到，南部的淺山平原、河川高灘地成為草鴞主要的棲息環境。中部地區的草鴞數量變少，是否因為環境變化所造成？值得更多關注。\n為了解草鴞的分布和生殖習性，蔡若詩表示，自2015～2021年間分別以人工監測和衛星追蹤等方法，進行南部和中部地區草鴞族群監測，評估結果全臺約有158對，約300多隻草鴞，這個數據符合過往保育人士的推測。2025年也將再次進行全臺草鴞的評估，了解數據是否有變化。\n此外，為進一步了解草鴞白天在哪裡睡覺？又晚上到哪裡覓食，使用什麼樣的棲地？蔡若詩透過衛星發報器的定位資訊，發現草鴞日棲地經常選在軍事基地、廢耕農地等草生環境，而且會頻繁移動，尤其在非繁殖季時，草鴞成鳥的移動距離很大。\n蔡若詩說，很可能是為了尋找配偶而移動，一旦配對成功，就會停下來進行繁殖。草鴞非繁殖季日…",
-          "link": "https://www.natgeomedia.com/environment/article/content-17924.html",
-          "publishedOn": "2025-02-23T16:00:00.000Z",
-          "wordCount": 508,
-          "title": "全臺有幾隻草鴞？ 國土綠網特展與市集 認識離我們遠也很近的淺山動物鄰居 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權",
-          "enclosure": {
-            "url": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/17924/2025022472090801.jpg",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/17924/2025022472090801.jpg"
         }
       ]
     },
@@ -10383,34 +10445,6 @@
             "type": "image/jpeg"
           },
           "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/17929/2025022777937321.jpg"
-        },
-        {
-          "id": "https://www.natgeomedia.com/environment/article/content-17925.html",
-          "author": null,
-          "description": "好幾個世紀以來，當地人一直在說「魔克拉姆邊貝」的故事，那是一種傳說中的生物，據說就潛藏在剛果盆地中。但隨著森林消失，出現愈來愈多目擊紀錄──也讓我們有機會看見民間傳說如何隨著地景的改變而改變。\n樹木開始晃動、猴子尖叫、群鳥驚飛。\n在奧札拉．科科瓦國家公園（Odzala-Kokoua National Park）深處，瑟拉．阿邦奧（Selah Abong’o）呆住了，深信她即將遇見某種從傳說中走出來的生物：魔克拉姆邊貝（mokele-mbembe），剛果傳說中的恐龍。\n2003年，這位年輕的剛果保育學家深入濃密的森林，去探勘一個毀滅性的伊波拉病毒爆發處，那裡曾造成超過5000隻西部低地大猩猩死亡。但在那天，碰上了她奔馳的想像力，這種傳染病也只能閃邊了。\n「結果只是一隻真的很大隻的森林象，」她笑著說：「我們這裡沒有恐龍啦，不過是真的很容易誤把大象或河馬當成恐龍，我就是這樣。那時候我還很菜。」\n20年後，魔克拉姆邊貝的傳說依舊活躍，村落裡流傳著耳語，並隨著每次的新「目擊事件」而加油添醋，而阿邦奧說，森林砍伐就是背後的原因。\n剛果盆地是地球第二大雨林，也是非常重要的生態系，而自從阿邦奧那次所謂的恐龍目擊事件之後，剛果盆地已經失去了2300萬公頃的森林，這片區域大小相當於整個英國。\n隨著人類聚落逐漸深入棲地，當地人也愈來愈常遇到野生動物。魔克拉姆邊貝也從神祕動物學愛好者和神創論傳教士的西方偽科學執迷，轉移回到了出生地、成為早就知道這個故事的居民之間共享的非洲當地傳說。\n「在那些深入動物棲地、居民又不習慣看到大型動物的較大聚落，他們突然間就開始整天遇到動物，」捷克籍的保育學家勞拉．維拉秋瓦（Laura Vlachova）說：「就是這些人跟我說他們看過魔克拉姆邊貝。我認為，這顯示的其實是民間傳說也開始反映出生態系縮小的實際狀況。」\n\n.g_AD_970_250_InArticle_res…",
-          "link": "https://www.natgeomedia.com/environment/article/content-17925.html",
-          "publishedOn": "2025-02-23T16:00:00.000Z",
-          "wordCount": null,
-          "title": "剛果奇怪的「恐龍」目擊潮到底是怎麼回事？ - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權",
-          "enclosure": {
-            "url": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/17925/2025022480049241.jpg",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/17925/2025022480049241.jpg"
-        },
-        {
-          "id": "https://www.natgeomedia.com/environment/article/content-17924.html",
-          "author": null,
-          "description": "草鴞是臺灣唯一棲息在平原草地、非森林性的貓頭鷹，棲地離人類居住空間很近，但由於晝伏夜出的習性不易觀察，早期保育人士推估全臺僅有100隻或300～500隻，為臺灣第一級瀕臨絕種的保育類。\n然而草鴞的實際數量有多少，又分布在哪裡？數量稀少而瀕危的原因為何？需有基礎科學數據才能提出相應的保育措施。嘉義大學、屏東科技大學學者經過10年調查研究，對草鴞在臺灣的生存樣貌和風險逐漸有了清楚的描繪。而南部地區的魚塭、農地等面臨光電和工業區的開發侵蝕，致使草鴞棲地更破碎與劣化，學者也對此提出警示。\n\n                    \n全臺估有158對草鴞  棲息地由中部移往南部 \n「草鴞離我們人類非常近，但某種程度也可以說離我們很遠。」嘉義大學生態資源學系助理教授蔡若詩16日在林保署屏東分署舉辦的「深入淺山國土綠網特展」講座活動上指出，因為夜行性、隱密性，草鴞這種鳥很難調查，不知道牠就在我們身邊。\n從歷史紀錄中可明確知道全臺灣都有草鴞分布，只是數量不多。早期草鴞主要出現在中部地區，但近年的調查發現，中部已較少看到，南部的淺山平原、河川高灘地成為草鴞主要的棲息環境。中部地區的草鴞數量變少，是否因為環境變化所造成？值得更多關注。\n為了解草鴞的分布和生殖習性，蔡若詩表示，自2015～2021年間分別以人工監測和衛星追蹤等方法，進行南部和中部地區草鴞族群監測，評估結果全臺約有158對，約300多隻草鴞，這個數據符合過往保育人士的推測。2025年也將再次進行全臺草鴞的評估，了解數據是否有變化。\n此外，為進一步了解草鴞白天在哪裡睡覺？又晚上到哪裡覓食，使用什麼樣的棲地？蔡若詩透過衛星發報器的定位資訊，發現草鴞日棲地經常選在軍事基地、廢耕農地等草生環境，而且會頻繁移動，尤其在非繁殖季時，草鴞成鳥的移動距離很大。\n蔡若詩說，很可能是為了尋找配偶而移動，一旦配對成功，就會停下來進行繁殖。草鴞非繁殖季日…",
-          "link": "https://www.natgeomedia.com/environment/article/content-17924.html",
-          "publishedOn": "2025-02-23T16:00:00.000Z",
-          "wordCount": null,
-          "title": "全臺有幾隻草鴞？ 國土綠網特展與市集 認識離我們遠也很近的淺山動物鄰居 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權",
-          "enclosure": {
-            "url": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/17924/2025022472090801.jpg",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/17924/2025022472090801.jpg"
         }
       ]
     },
@@ -10474,34 +10508,6 @@
             "type": "image/jpeg"
           },
           "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/17929/2025022777937321.jpg"
-        },
-        {
-          "id": "https://www.natgeomedia.com/environment/article/content-17925.html",
-          "author": null,
-          "description": "好幾個世紀以來，當地人一直在說「魔克拉姆邊貝」的故事，那是一種傳說中的生物，據說就潛藏在剛果盆地中。但隨著森林消失，出現愈來愈多目擊紀錄──也讓我們有機會看見民間傳說如何隨著地景的改變而改變。\n樹木開始晃動、猴子尖叫、群鳥驚飛。\n在奧札拉．科科瓦國家公園（Odzala-Kokoua National Park）深處，瑟拉．阿邦奧（Selah Abong’o）呆住了，深信她即將遇見某種從傳說中走出來的生物：魔克拉姆邊貝（mokele-mbembe），剛果傳說中的恐龍。\n2003年，這位年輕的剛果保育學家深入濃密的森林，去探勘一個毀滅性的伊波拉病毒爆發處，那裡曾造成超過5000隻西部低地大猩猩死亡。但在那天，碰上了她奔馳的想像力，這種傳染病也只能閃邊了。\n「結果只是一隻真的很大隻的森林象，」她笑著說：「我們這裡沒有恐龍啦，不過是真的很容易誤把大象或河馬當成恐龍，我就是這樣。那時候我還很菜。」\n20年後，魔克拉姆邊貝的傳說依舊活躍，村落裡流傳著耳語，並隨著每次的新「目擊事件」而加油添醋，而阿邦奧說，森林砍伐就是背後的原因。\n剛果盆地是地球第二大雨林，也是非常重要的生態系，而自從阿邦奧那次所謂的恐龍目擊事件之後，剛果盆地已經失去了2300萬公頃的森林，這片區域大小相當於整個英國。\n隨著人類聚落逐漸深入棲地，當地人也愈來愈常遇到野生動物。魔克拉姆邊貝也從神祕動物學愛好者和神創論傳教士的西方偽科學執迷，轉移回到了出生地、成為早就知道這個故事的居民之間共享的非洲當地傳說。\n「在那些深入動物棲地、居民又不習慣看到大型動物的較大聚落，他們突然間就開始整天遇到動物，」捷克籍的保育學家勞拉．維拉秋瓦（Laura Vlachova）說：「就是這些人跟我說他們看過魔克拉姆邊貝。我認為，這顯示的其實是民間傳說也開始反映出生態系縮小的實際狀況。」\n\n.g_AD_970_250_InArticle_res…",
-          "link": "https://www.natgeomedia.com/environment/article/content-17925.html",
-          "publishedOn": "2025-02-23T16:00:00.000Z",
-          "wordCount": 504,
-          "title": "剛果奇怪的「恐龍」目擊潮到底是怎麼回事？ - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權",
-          "enclosure": {
-            "url": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/17925/2025022480049241.jpg",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/17925/2025022480049241.jpg"
-        },
-        {
-          "id": "https://www.natgeomedia.com/environment/article/content-17924.html",
-          "author": null,
-          "description": "草鴞是臺灣唯一棲息在平原草地、非森林性的貓頭鷹，棲地離人類居住空間很近，但由於晝伏夜出的習性不易觀察，早期保育人士推估全臺僅有100隻或300～500隻，為臺灣第一級瀕臨絕種的保育類。\n然而草鴞的實際數量有多少，又分布在哪裡？數量稀少而瀕危的原因為何？需有基礎科學數據才能提出相應的保育措施。嘉義大學、屏東科技大學學者經過10年調查研究，對草鴞在臺灣的生存樣貌和風險逐漸有了清楚的描繪。而南部地區的魚塭、農地等面臨光電和工業區的開發侵蝕，致使草鴞棲地更破碎與劣化，學者也對此提出警示。\n\n                    \n全臺估有158對草鴞  棲息地由中部移往南部 \n「草鴞離我們人類非常近，但某種程度也可以說離我們很遠。」嘉義大學生態資源學系助理教授蔡若詩16日在林保署屏東分署舉辦的「深入淺山國土綠網特展」講座活動上指出，因為夜行性、隱密性，草鴞這種鳥很難調查，不知道牠就在我們身邊。\n從歷史紀錄中可明確知道全臺灣都有草鴞分布，只是數量不多。早期草鴞主要出現在中部地區，但近年的調查發現，中部已較少看到，南部的淺山平原、河川高灘地成為草鴞主要的棲息環境。中部地區的草鴞數量變少，是否因為環境變化所造成？值得更多關注。\n為了解草鴞的分布和生殖習性，蔡若詩表示，自2015～2021年間分別以人工監測和衛星追蹤等方法，進行南部和中部地區草鴞族群監測，評估結果全臺約有158對，約300多隻草鴞，這個數據符合過往保育人士的推測。2025年也將再次進行全臺草鴞的評估，了解數據是否有變化。\n此外，為進一步了解草鴞白天在哪裡睡覺？又晚上到哪裡覓食，使用什麼樣的棲地？蔡若詩透過衛星發報器的定位資訊，發現草鴞日棲地經常選在軍事基地、廢耕農地等草生環境，而且會頻繁移動，尤其在非繁殖季時，草鴞成鳥的移動距離很大。\n蔡若詩說，很可能是為了尋找配偶而移動，一旦配對成功，就會停下來進行繁殖。草鴞非繁殖季日…",
-          "link": "https://www.natgeomedia.com/environment/article/content-17924.html",
-          "publishedOn": "2025-02-23T16:00:00.000Z",
-          "wordCount": 488,
-          "title": "全臺有幾隻草鴞？ 國土綠網特展與市集 認識離我們遠也很近的淺山動物鄰居 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權",
-          "enclosure": {
-            "url": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/17924/2025022472090801.jpg",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/17924/2025022472090801.jpg"
         }
       ]
     },
@@ -13874,6 +13880,16 @@
       "siteUrl": "https://sspai.com",
       "articles": [
         {
+          "id": "https://sspai.com/post/97110",
+          "author": "银河捕手",
+          "description": "也许这份记录，能够让我更加确认努力的意义和方法，在未来某个时刻支撑我走过一段艰难的时光呢？查看全文",
+          "link": "https://sspai.com/post/97110",
+          "publishedOn": "2025-03-15T02:30:05.000Z",
+          "wordCount": 813,
+          "title": "进步的度量衡：成为自己的Switch网球教练",
+          "imageUrl": "https://cdnfile.sspai.com/2025/03/07/1ab7965834d76831b4f7da6548e5a6b0.jpg"
+        },
+        {
           "id": "https://sspai.com/post/97348",
           "author": "少数派编辑部",
           "description": "☕️TL;DR近期佳作推荐：[韩剧]苦尽柑来遇见你、[日剧]幸福伽菜子的快乐杀手生活、[台剧]化外之医、[英剧]不可遗忘第六季、[美剧]菜鸟老警第七季、[意大利]豹、[动画]胜与败、[纪录片]与大卫· ...查看全文",
@@ -16553,26 +16569,6 @@
           "wordCount": 61120,
           "title": "药物无效，向谁报告？",
           "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/X0iaO5B69ibWxzQYaBzjfnKoa7wrCAVJJKzIvN6HtTbfhM2FknwjmWdZUUQ0xPA7cDRejMnic2YOL5wwRWKtBBUAA/0?wx_fmt=jpeg"
-        },
-        {
-          "id": "1280112",
-          "author": null,
-          "description": "开源模型正缓慢而坚定地超越闭源模型编译｜吴莹  曹冰颖（实习）来源｜人工智能之趋势（YouTube）头图来源｜视觉中国“放弃生成式模型，不研究LLM（大语言模型），我们没办法只通过文本训练让AI达到人类的智慧水平。”近日，Meta首席AI科学家杨立昆（Yann LeCun）在法国巴黎的2025年人工智能行动峰会上再一次炮轰了生成式AI。杨立昆认为，现有的大模型运行虽然高效，但推理过程是发散的，生成的token有可能不在合理答案范围内，这也是为什么有些大模型会产生幻觉。虽然现在的很多生成式模型让AI可以通过律师资格考试、解决数学问题，但并不能做家务，对于人类来说不用思考就能干的事情，对生成式AI来说很复杂。他还表示，生成式模型根本不适合制作视频，目前大家看到的能生成视频的AI模型，并不能理解物理世界，它们只是在生成漂亮的图片。杨立昆支持的是能理解物理世界的模型，他提出了更适合预测视频内容的联合嵌入预测架构（JEPA），始终认为只有AI能真正理解物理世界，才能迎来比肩人类智慧水平的人工智能。最后，杨立昆强调了开源人工智能平台的必要性，未来，我们将拥有通用虚拟助手，它们会调节我们与数字世界的所有互动。它们要会说世界上所有的语言，了解所有的文化、所有的价值体系以及所有的兴趣中心，这样的AI系统不可能来自硅谷的少数公司，必须以有效的方式协作完成这件事。精彩观点如下：1.我们需要人类水平的智能，因为我们习惯与人互动，我们期待出现具有人类智慧水平的AI系统，未来无处不在的AI助手将成为人类与数字世界的桥梁，帮助人类更好地与数字世界互动。2.我们没办法只通过文本训练就能让AI达到人类的智慧水平，这是不可能发生的。3.在Meta，我们将这类能达到人类智慧水平的AI称为高级机器智能，我们不喜欢“AGI”（通用人工智能）的说法，而是叫它“AMI”，用法语念很像“朋友”这个词。4.生成式模型根本不…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MTI3NTQ1MTY0MQ==&mid=2650639675&idx=1&sn=f0cf20c2c6e179367b24ad7c3d0f2b18&chksm=7dd395b4c8056535bd636efa26ffe61dfcb1d26d38737bba3ea531e816b490f9cfb93cf3517a",
-          "publishedOn": "2025-02-23T14:01:35.000Z",
-          "wordCount": 61219,
-          "title": "Meta首席AI科学家杨立昆再次炮轰生成式AI｜中企荐读",
-          "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/xJ1Up0woqibfDo1nEPZFz6ctNfJNa8mv7yxE5ghONczuQiaEKYrKF8ichgfFhW7wHE7HrAOFeSA988d5vsOg9wXMQ/0?wx_fmt=jpeg"
-        },
-        {
-          "id": "1280111",
-          "author": null,
-          "description": "中概科技股找到新的叙事框架1/5互联网与硬科技盘古开天地，开篇下定义，本文所指“中概科技股”，中概+科技，指主要在香港和美国上市的“硬科技”和互联网公司，包括腾讯阿里百度等典型的互联网公司，也包括中芯国际小米联想万国数据等IT制造业公司，现在还包括比亚迪理想地平线机器人等高端制造公司，但不包括传统央国企和农夫山泉海底捞等消费品公司，当然，最核心的仍然是互联网公司。之所以要作严格的定义，因为这一轮行情，并非是全部中概股或港股的行情，年初到现在，港股几个行业涨跌幅大幅分化：最好的三个行业是资讯科技（+31.9%腾讯小米网易中芯国际联想中兴通讯比亚迪电子地平线机器人万国数据商汤等），非必需消费（+27.4%，阿里比亚迪美团京东携程快手百度理想吉利等）和医药（+21%）。最差的行业均为下跌：能源（-6.1%，包括三桶油、神华）、公用事业（-5%、水电燃气）、综合企业（-4.3%，中信、长和、太古等综合投资公司），还有历来为港股反弹急先锋的地产建筑行业，涨跌仅仅持平。相比去年9~10月的港股普涨行情，本轮行情有自己鲜明的特点，基本上都集中在资讯科技和可选消费这两个板块，如果对标美股，刚好是Mag7所在的两大行业信息技术（微软、英伟达、Meta、谷歌）和可选消费（特斯拉、亚马逊、苹果），实际上是美股科技股行情的延伸。资金选择这两类有代表性的企业发动行情，是因为中国的互联网企业是过去十几年中国最有成长性、国际竞争力和投资价值的企业，也是中国核心资产的海外名片，而在“资讯科技”里的一堆硬科技企业，则是这几年制造业升级的结果，本文合起来称为“中概科技股”行情。行情的原因很简单，Deepseek的冲击波，我在大年三十早上特意在“钢大的全球配置新思维圈子”发了一篇，特别提醒了“中概科技股估值重估”的机会，大年初二又继续深度分析这个话题，现在回头看，这些判断都非常准确，而且当时还是行情刚刚起步的阶…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MzA5MTk5OTY4Mw==&mid=2649661034&idx=1&sn=1096c3a33028f84fb22766656cfaef1e&chksm=893319f1f33c940f172aaa72ef17a074dadeaa87342edbd01358db1cde3111b651d2bbb14cb6",
-          "publishedOn": "2025-02-23T14:01:33.000Z",
-          "wordCount": 61306,
-          "title": "外资又相信中概股了吗？跟一些外资管理人聊了聊",
-          "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/uOsWI2GCFEVXkxmBianibfMwUGdIQRw3PbsMiaVtPMjYnvo3rcVJTWuUc7kYJpgrJBy5Nkj6icaoTo5icXDvIjia82wQ/0?wx_fmt=jpeg"
         }
       ]
     },
