@@ -6,6 +6,36 @@
       "siteUrl": "https://bestblogs.dev/zh/feeds",
       "articles": [
         {
+          "id": "e82038",
+          "author": "Jordan Eldredge",
+          "description": "📌 一句话摘要\n            \n本文提出将 React 组件视为状态机，通过 {transitions} = f(state) 模型来有效防止用户触发无效的状态更新，同时讨论了异步和并发更新场景下的处理方法。\n📝 详细摘要\n            \n文章探讨了将 React 应用程序视为状态机模型的益处，核心在于理解“当前状态决定了用户在该状态下能进行哪些有效的操作”。通过 {transitions} = f(state) 这一模型，开发者可以更清晰地处理异步和并发更新，防止用户触发无效状态更新。文章通过 Todo 应用的例子，说明了在同步更新时 React 的防错机制，并进一步讨论了在异步更新和并发更新场景下，如何利用乐观更新和“处理中”状态等方法，配合 React 内置的并发特性（如 useTransition、useActionState 和 useOptimistic），确保 UI 能及时反映状态变化，避免用户误操作。总结指出，该模型有助于判断哪些更新需要同步处理以防止出错，以及 React 组件如何引导或限制用户操作。\n💡 主要观点\n            \n{transitions} = f(state) 模型有助于防止无效状态更新\n                         该模型强调状态决定了用户可执行的操作，通过在状态改变时同步更新 UI，避免用户在不正确的状态下触发操作。\n                    \n\n                        异步更新可能导致用户触发无效操作\n                         在异步更新期间，UI 可能未及时反映状态变化，允许用户执行逻辑上已失效的操作，需要手动防止。\n                    \n\n                        并发更新需要配合同步的乐观更新或 pending 标记\n                         React 的并发特性可能导致 UI 延迟更新，因此需要立即更新 UI 以禁用某些操作，防止用户触发无效状态转换。\n                    \n💬 文章金句\n            \n当前状态（state）决定了用户在这个状态下能进行哪些有效的操作（transitions）。\n可以将一个 React 应用程序视为对状态机的建模。每一次渲染，都是从一个状态出发，生成对应的 UI。\n{transitions} = f(state) 是一个非常有用的思维模型，帮助我们思考如何防止用户触发无效的状态更新。\n📊 文章信息\n            \nAI 评分：90\n精选文章：是\n来源：前端早读课\n作者：Jordan Eldredge\n分类：软件编程\n语言：中文\n阅读时间：8 分钟\n字数：1953\n标签：\n                    \n                        React, 状态机, 前端开发, UI 设计, 设计模式",
+          "link": "https://www.bestblogs.dev/zh/article/e82038",
+          "publishedOn": "2025-04-18T00:00:00.000Z",
+          "wordCount": 327,
+          "title": "【第 3493 期】{transitions} = f(state)",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/44547e37-e32d-4b75-eeef-28fa7c7d4600/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/44547e37-e32d-4b75-eeef-28fa7c7d4600/cover"
+        },
+        {
+          "id": "008448",
+          "author": "魔搭ModelScope社区",
+          "description": "📌 一句话摘要\n            \n通义万相开源首尾帧生视频模型，基于 Wan2.1 大模型，仅需首尾帧即可生成 5 秒 720p 高清丝滑过渡视频，是用户友好的视频生成工具。\n📝 详细摘要\n            \n文章主要介绍了通义万相最新开源的首尾帧生视频模型。该模型基于 Wan2.1 文生视频 14B 大模型，用户只需提供视频的首帧和尾帧，模型即可自动生成一段 5 秒的 720p 高清视频，实现流畅自然的过渡效果。文章通过多个实际案例展示了该模型在不同场景下的应用效果，包括人像、动物、风景等，并着重强调了模型在细节复刻、动作真实性以及对提示词的遵循方面的出色表现。此外，文章还介绍了该模型的架构设计，采用了先进的 AI 架构和语义特征技术，保证生成视频在时间和空间上的一致性。同时，文章还深入探讨了模型在训练和推理方面的优化策略，例如采用数据并行、完全分片数据并行以及模型切分等技术，以支持高清视频的生成。最后，文章介绍了如何使用魔搭 ModelScope 社区的 DiffSynth-Studio 项目进行模型推理，DiffSynth-Studio 还有助于降低显存需求，并提供了详细的步骤和代码示例。\n💡 主要观点\n            \n万相首尾帧模型能基于首尾图像生成流畅过渡视频\n                         该模型基于 Wan2.1 大模型，通过 DiT 架构和条件控制分支，实现了从首帧到尾帧的自然演变，为视频创作提供了新方式。\n                    \n\n                        模型架构上采用 DiT 和 CLIP 语义特征提升生成质量\n                         通过 Full Attention 机制捕捉时空依赖关系，CLIP 语义特征注入保证画面稳定性，确保生成视频在时间和空间上的一致性。\n                    \n\n                        高效的优化策略让高清视频生成成为可能\n                         采用数据并行、模型切分、CFG cache 等策略，在有限资源下实现 720p 高清视频推理，缩短推理时间。\n                    \n💬 文章金句\n            \n万相首尾帧模型能够完美复刻输入图像的细节，而且生成的视频具有非常生动真实的动作\n万相发布的 Wan2.1 系列模型，采用了先进的 DiT 架构，在技术上实现了多项突破。\n万相首尾帧对提示词的遵循上也有着出色的表现\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：魔搭ModelScope社区\n作者：魔搭ModelScope社区\n分类：人工智能\n语言：中文\n阅读时间：10 分钟\n字数：2474\n标签：\n                    \n                        视频生成, AIGC, 首尾帧模型, 通义万相, Wan2.1",
+          "link": "https://www.bestblogs.dev/zh/article/008448",
+          "publishedOn": "2025-04-18T00:00:00.000Z",
+          "wordCount": 316,
+          "title": "通义万相 2.1 首尾帧模型开源！细节真实生动+过渡丝滑，指令遵循表现出色！",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/89c7d013-8ab8-4975-2c1b-c51a4eccd600/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/89c7d013-8ab8-4975-2c1b-c51a4eccd600/cover"
+        },
+        {
           "id": "71ce86",
           "author": "机器之心",
           "description": "📌 一句话摘要\n            \nOpenAI 姚顺雨认为 AI 进入下半场，应从训练转向评估，解决 AI 的实际效用问题，并构建更贴近现实世界的评估体系。\n📝 详细摘要\n            \n文章阐述了 OpenAI 研究员姚顺雨对于 AI 发展阶段的划分，他认为 AI 发展已经进入下半场，上半场主要关注模型和算法的创新，而下半场则需要将重心放在评估体系的构建上。文章指出，过去 AI 在国际象棋、围棋等领域取得了显著成就，但在实际经济和社会效益方面提升有限，这主要是因为现有的评估方式与现实世界存在脱节。因此，姚顺雨呼吁重新思考 AI 的评估设置，例如引入人机交互和考虑任务之间的关联性，以更好地衡量 AI 的实际效用。通过构建更完善的评估体系，AI 技术有望在现实世界中发挥更大的价值，并推动经济和社会的进步。\n💡 主要观点\n            \nAI 发展进入下半场，评估的重要性超过训练\n                         AI 的上半场侧重于模型和算法的创新，下半场需要重新思考评估方式，以解决 AI 的实际效用问题，更好服务于现实世界。\n                    \n\n                        现有 AI 评估设置与现实世界脱节，存在效用问题\n                         传统的 AI 评估方式，如自动运行和独立同分布假设，与现实世界人机交互和任务关联的场景存在差异，导致 AI 的实际效用不高。例如，客服场景中，用户希望得到即时反馈，而非等待 10 分钟；软件工程师在解决 google3 问题时，会随着对代码库的熟悉程度提高效率，但现有评估无法体现。\n                    \n\n                        应重新设计评估体系，引入人机交互和任务关联\n                         为了更好地评估 AI 的实用性，需要引入人机交互的评估方式，并考虑任务之间的关联性，以更全面地反映 AI 在现实世界中的表现。\n                    \n💬 文章金句\n            \nAI 的重点将从解决问题转向定义问题。在这个新时代，评估的重要性将超过训练。\n语言通过智能体中的推理进行泛化。\n评估应更贴近现实世界\n📊 文章信息\n            \nAI 评分：90\n精选文章：是\n来源：机器之心\n作者：机器之心\n分类：人工智能\n语言：中文\n阅读时间：18 分钟\n字数：4256\n标签：\n                    \n                        AI评估, AI效用, 大语言模型, OpenAI, 姚顺雨",
@@ -64,6 +94,21 @@
             "length": "0"
           },
           "imageUrl": "https://image.jiqizhixin.com/uploads/article/cover_image/d4172feb-d8ea-4cdd-ab81-8c32e1866c29/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202504171010452.png"
+        },
+        {
+          "id": "45ad64",
+          "author": "Tulsee Doshi",
+          "description": "📌 一句话摘要\n            \nGoogle 发布 Gemini 2.5 Flash 预览版，具备可控推理特性，通过思考预算优化质量、成本和延迟。\n📝 详细摘要\n            \nGoogle 发布了 Gemini 2.5 Flash 的早期预览版，现已在 Google AI Studio 和 Vertex AI 开放体验。在 2.0 Flash 的基础上，此版本显著提升了推理能力，同时保持了速度和成本效益。Gemini 2.5 Flash 是首个混合推理模型，允许开发者启用或禁用“思考”并设置思考预算，以平衡质量、成本和延迟。本文展示了该模型在不同复杂程度任务中的卓越推理性能，并提供了 API 示例和文档链接以供实验。\n💡 主要观点\n            \n“思考预算”实现 Gemini 2.5 Flash 的可控推理\n                         开发者可以通过设置“思考预算”来控制模型的推理过程，从而平衡质量、成本和延迟，以适应不同的应用需求。\n                    \n\n                        混合推理是 Gemini 2.5 Flash 的核心特性。\n                         该模型根据任务的复杂性动态调整其推理，并且可以在适当的时候完全禁用推理，从而优化性能和效率。\n                    \n\n                        Gemini 2.5 Flash 具有显著成本优势\n                         它以极低的成本和规模提供了与其他领先模型相当的性能，使其成为一种极具成本效益的选择。\n                    \n💬 文章金句\n            \nGemini 2.5 Flash 是我们的首个完全混合推理模型，使开发者能够开启或关闭思考。\nGemini 2.5 Flash 继续保持最佳性价比。\n即使 **关闭思考** ，开发者也可以保持 2.0 Flash 的快速速度，并提高性能。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：Google Developers Blog\n作者：Tulsee Doshi\n分类：软件编程\n语言：英文\n阅读时间：4 分钟\n字数：790\n标签：\n                    \n                        大语言模型, Gemini 2.5 Flash, 可控推理, 混合推理模型, Google AI Studio",
+          "link": "https://www.bestblogs.dev/zh/article/45ad64",
+          "publishedOn": "2025-04-17T00:00:00.000Z",
+          "wordCount": 322,
+          "title": "Gemini 2.5 Flash：应用构建新起点",
+          "enclosure": {
+            "url": "https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/Gemini-2-5-Flash-ai.dev.2e16d0ba.fill-1200x600.png",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/Gemini-2-5-Flash-ai.dev.2e16d0ba.fill-1200x600.png"
         },
         {
           "id": "be45f0",
@@ -259,6 +304,21 @@
             "length": "0"
           },
           "imageUrl": "https://image.jiqizhixin.com/uploads/article/cover_image/5ef09d69-1729-4848-b851-4df38d965a86/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20250416130915.png"
+        },
+        {
+          "id": "7a4612",
+          "author": "曾鸣",
+          "description": "📌 一句话摘要\n            \nAI 时代，智能体和黑洞效应重塑商业底层逻辑，催生共创型智能组织。\n📝 详细摘要\n            \n曾鸣在演讲中深入探讨了 AI 时代对商业底层逻辑的颠覆性影响，指出企业应积极拥抱智能体，构建黑洞效应，打造共创型智能组织，实现战略转型。文章首先阐述了智能体（Agent）的崛起及其三个发展阶段，强调智能体将从可靠的代理逐步发展为能干的助理和聪明的伙伴。其次，提出了“黑洞效应”的概念，认为它是 AI 时代最基本的竞争优势来源，通过不断吸收数据和知识，驱动 AI 智能的进化。文章还强调，AI 时代企业竞争的关键在于启动机器学习飞轮，实现智能体的独立上线和自我学习提升，并提出“AI 自主运营”和“硅基员工”是衡量企业 AI 化的两个刚性指标。最后，文章描绘了未来组织形态，即共创型智能组织，由创智人才和硅基员工组成，强调群体智慧的涌现和持续创新。文章为企业在 AI 时代的战略转型提供了深刻的思考和方向。\n💡 主要观点\n            \n智能体是 AI 时代的基本经济单元，将带来商业模式的根本性变革。\n                         智能体通过自主学习和执行任务，解决了供给稀缺问题，成为创造经济价值的基础，重塑企业运营模式。\n                    \n\n                        黑洞效应是 AI 时代的核心竞争优势，源于对海量知识的吸收和运用。\n                         通过不断积累个性化数据和知识，AI 形成巨大的知识黑洞，驱动智能快速进化，从而在竞争中占据优势。\n                    \n\n                        共创型智能组织是未来趋势，由创智人才和硅基员工构成，AI 自主运营比例和硅基员工占比是衡量企业 AI 化的重要指标。\n                         创智人才负责建设智能体并与之协作，硅基员工则是由 AI 取代的常规工作岗位，组织目标是实现群体智慧的涌现和持续创新。AI 自主运营比例和硅基员工占比越高，表明企业 AI 化程度越高。\n                    \n💬 文章金句\n            \n智能体是一个 AI 系统，它是一个完全自主的 AI 系统，可以在较长时间内独立运行，使用各种工具完成设定任务，并且能够通过收集反馈不断学习提高自己的能力。\n真正推动 AI 智能体发展的，正是这个不断吞噬知识的黑洞。\n群体认知达到的高度和提升的速度决定了组织的竞争力。\n📊 文章信息\n            \nAI 评分：90\n精选文章：是\n来源：笔记侠\n作者：曾鸣\n分类：商业科技\n语言：中文\n阅读时间：31 分钟\n字数：7609\n标签：\n                    \n                        智能体, 黑洞效应, 共创型组织, AI, 机器学习",
+          "link": "https://www.bestblogs.dev/zh/article/7a4612",
+          "publishedOn": "2025-04-16T00:00:00.000Z",
+          "wordCount": 301,
+          "title": "曾鸣最新演讲：下一个 10 年，生意的底层逻辑变了！",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/c771d170-c5c5-4def-a595-9fd2ef486400/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/c771d170-c5c5-4def-a595-9fd2ef486400/cover"
         },
         {
           "id": "4ec02d",
@@ -2473,6 +2533,26 @@
       "siteUrl": "https://gijn.org",
       "articles": [
         {
+          "id": "https://gijn.org/event/double-exposure-investigative-film-festival-4/",
+          "author": null,
+          "description": "https://dxfest.com",
+          "link": "https://gijn.org/event/double-exposure-investigative-film-festival-4/",
+          "publishedOn": "2025-04-18T00:14:07.000Z",
+          "wordCount": 710,
+          "title": "Double Exposure Investigative Film Festival",
+          "imageUrl": "https://gijn.org/wp-content/themes/gijn/card.jpg"
+        },
+        {
+          "id": "https://gijn.org/event/african-women-in-media-2025-awim25-conference/",
+          "author": null,
+          "description": "https://africanwomeninmedia.com/awim25/",
+          "link": "https://gijn.org/event/african-women-in-media-2025-awim25-conference/",
+          "publishedOn": "2025-04-18T00:14:07.000Z",
+          "wordCount": 713,
+          "title": "African Women in Media 2025 (AWiM25) Conference",
+          "imageUrl": "https://gijn.org/wp-content/themes/gijn/card.jpg"
+        },
+        {
           "id": "https://gijn.org/?p=2193526",
           "author": "Sarah Karacs",
           "description": "The Dating App Reporting Project conducted an 18-month investigation into the mechanisms meant to keep people safe on dating apps — and found them wanting.",
@@ -3359,16 +3439,6 @@
           "wordCount": 4814,
           "title": "你放不下手机，是因为现在的APP越来越像“老虎机”",
           "imageUrl": "https://inews.gtimg.com/news_ls/OFlWi_NYmXckT_kuQq55CJ_tcykduthSsZuueHWOYZJY8AA_640330/0"
-        },
-        {
-          "id": "https://view.inews.qq.com/a/20250329A07F8V00",
-          "author": "晚点LatePost",
-          "description": "张俊杰眼里，茶叶可以是咖啡豆，奶茶可以是咖啡。\n\n\n文丨徐煜萌\n制图丨黄帧昕\n\n北京时间 3 月 26 日凌晨，霸王茶姬向美国证券交易委员会（SEC）公开招股书，计划在纳斯达克上市。股票代码定为 CHA，即 “茶” 的拼音。这家后起的新茶饮明星公司，第一次清楚告诉市场自己的策略、历程。\n\n2022 年到 2024 年，霸王茶姬门店 GMV 分别上涨 734.3% 和 172.9%，去年卖出 295 亿元茶饮，平均每家店每月卖出 2.5 万杯。销量超过门店数高于自己的古茗、沪上阿姨和茶百道。\n\n   \n   \n它还有着头部茶饮公司里目前看来最强的盈利能力、最低的闭店率。靠轻资产运营模式，霸王茶姬去年的净利润率从 17.3% 增长至 20.3%。作为加盟模式的品牌，门店 GMV 的 42.2% 成为公司收入。\n\n去年茶饮行业总门店数下降，霸王茶姬门店数差不多翻倍。闭店率为 1.5%，低于其他因上市披露闭店率的品牌。\n\n在茶饮品牌中，霸王茶姬的突围方式独特。其他所有 5000 店以上的品牌都提供全品类产品——水果茶、珍珠奶茶、轻乳茶、纯茶、纤体茶……消费者喜欢什么就提供什么，甚至咖啡也开始做。而霸王只有原叶鲜奶茶、纯茶和茶拿铁，菜单选择只在于不同茶叶与奶的搭配，就像意式咖啡基本都是咖啡、水和奶的搭配。\n\n公开招股前，在一场面向潜在投资人的演讲里，张俊杰提到 40 多次星巴克、20 多次瑞幸，茶饮同行则只有个位数次。这表明了霸王茶姬的野心——提供一个可以与咖啡抗衡的选择，而不是追求打败其他茶饮。\n\n招股书里，霸王茶姬描述自己的模式 “受到 1970 年代连锁咖啡品牌的启发，后者成功将咖啡塑造成一种生活方式和社交概念”。\n\n它从各种维度对标星巴克这样的连锁咖啡品牌。用张俊杰自己的话来说，“霸王茶姬要像素级对标星巴克。”\n\n在招股书里，霸王茶姬重新用咖啡的逻辑梳理了产品线，从中可以看到…",
-          "link": "https://view.inews.qq.com/a/20250329A07F8V00",
-          "publishedOn": "2025-03-29T12:48:40.000Z",
-          "wordCount": 4273,
-          "title": "霸王茶姬：提供与咖啡抗衡的选择，而非打败其他茶饮",
-          "imageUrl": "https://inews.gtimg.com/om_ls/ON_t9JVmj7stQqeodUP1IMOSfJtQPAD3EF7oHuhw5ZQcsAA_640330/0"
         }
       ]
     },
@@ -3496,26 +3566,6 @@
           "wordCount": 468,
           "title": "律师解答小米SU7爆燃事件：厂商在卖车时需对智驾安全等功能进行告知",
           "imageUrl": "https://inews.gtimg.com/news_ls/OCvCIpARlUyn5SiVp6u4fG08-SLggK6PzTfatguUqFwlsAA_640330/0"
-        },
-        {
-          "id": "https://view.inews.qq.com/a/20250329A074JD00",
-          "author": "深网",
-          "description": "图源：视觉中国\n文丨雅萱\n编辑丨叶锦言\n出品丨深网·腾讯新闻小满工作室\n“许多人认为蔚来的优质服务导致了亏损，但实际上，大部分资金主要用于研发和技术原创性创新。虽然我们在管理经营方面仍有提升空间，但公司始终未降低对技术研发的要求。”蔚来创始人兼CEO李斌在电动汽车百人会论坛（2025）上透露。\n财报显示，2024年蔚来汽车交付量达221,970辆，较2023年增长38.7%。2024年全年，蔚来归母净亏损226.58亿元，与去年归母净亏损211.47亿元相比，亏损进一步扩大。\n汽车制造业的盈利依赖规模效应，随着产销规模的扩大，单位固定成本（如研发、工厂折旧、供应链前期投入）被摊薄，边际成本会递减，车企会逐步进入盈利的正循环。但从蔚来的汽车交付量和亏损变化看，规模经济的螺旋还未体现在蔚来身上。\n蔚来的钱主要花在哪里了？李斌现场解释，蔚来亏损的钱主要花在研发和布局充换电网络上。\n“蔚来是第一家三地上市的汽车公司，我们累计投入了接近600亿人民币研发，但我们公司资产负债表上的无形资产只有400万美金，这因为我们是用最高的财务标准来要求我们自己的，我们的钱亏在哪了，都是一目了然的，非常透明的，这也是蔚来对自己的一个要求。”\n根据国际财务报告准则（IFRS）或美国公认会计准则（GAAP），大部分研发费用在发生时被费用化，而不是资本化为无形资产。蔚来把当期的研发费用直接计入损益表，这会减少当期利润。\n据财报显示，2024年蔚来研发费用为130.37亿元，同比2023年134.31亿的研发费用，同比下滑2.93%。扣除股权激励费用，研发费用（非公认会计准则）为人民币117.412亿元（16.085亿美元），较上一年度下降1.5%。\n在研发方面，李斌现场提到，蔚来自研的全球首颗 5 纳米智驾芯片“蔚来神玑 NX9031 ”已经被搭载到蔚来ET9上。\n公开资料显示，蔚来首款智能电动行政旗舰轿…",
-          "link": "https://view.inews.qq.com/a/20250329A074JD00",
-          "publishedOn": "2025-03-29T12:51:48.000Z",
-          "wordCount": 445,
-          "title": "李斌详解蔚来亏损原因：认为优质用户服务导致亏损是误解",
-          "imageUrl": "https://inews.gtimg.com/om_ls/OLYytCyyewW-6vMlss_T_lrWvv8Kad65-ujQE018FEEWIAA_640330/0"
-        },
-        {
-          "id": "https://view.inews.qq.com/a/20250329A04E8I00",
-          "author": "深网",
-          "description": "2025年3月27日上午，湖南常德，小鹏汇天“陆地航母”飞行汽车在柳叶湖举行首飞仪式。图源：视觉中国\n文丨雅萱\n编辑丨叶锦言\n出品丨深网·腾讯新闻小满工作室\n“未来10年，小鹏汽车有三条增长曲线。一是AI与汽车融合，打造智能汽车；二是全球化扩展，目标是在本年度进入60个国家和地区；三是持续探索低空飞行领域。”小鹏汽车董事长兼CEO何小鹏于3月29日在电动汽车百人会论坛（2025）上透露。\n在智能汽车方面，何小鹏透露，“今年前两个月，小鹏是造车新势力中的交付量冠军，去年小鹏在4万欧元以上的欧洲市场表现突出。”\n据小鹏汽车财报显示，2025年1月和2月，小鹏汽车交付量分别为30350辆和30453辆。根据今年2月公布交付数据，小鹏汽车上调2025年的销量目标至35万辆。\n除汽车外，小鹏重点在百人会论坛上阐述了未来低空飞行技术及小鹏汇天的发展情况。\n“未来10年到20年，全球低空飞行市场将迎来爆发式增长。从销售额来看，飞行汽车市场的规模有望达到当前汽车市场的3%——5%，可能有2万亿美金的市场。”何小鹏预测。\n何小鹏透露，在过去十年间，小鹏的生态企业——小鹏汇天，在飞行汽车领域累计投入超过100亿元，2025年计划再投入30亿元用于飞行汽车的研发，集中在三电系统、碳纤维复合材料、飞控导航、空中自动驾驶这四个领域。\n基于这些技术，何小鹏透露，小鹏汇天正在开发两种类型的飞行汽车：分体式飞行汽车和长续航倾转旋翼飞行汽车。\n其中，分体式飞行汽车的飞行距离小于30公里，只能是短途的飞行；倾转旋翼的飞行汽车单次飞行距离可达500公里以上，但不具备地面行驶能力。例如，从广州到长沙的旅程仅需约一小时，而传统汽车则需要6至8小时。\n何小鹏透露，小鹏汇天计划于2026年在广州建立全球首个具备流水线规模量产能力的飞行汽车工厂，预计年产能达到1万台。\n公开资料显示，2024年3月21日，小鹏汇天“陆地航…",
-          "link": "https://view.inews.qq.com/a/20250329A04E8I00",
-          "publishedOn": "2025-03-29T04:42:20.000Z",
-          "wordCount": 407,
-          "title": "何小鹏：两款飞行汽车2026年或量产 欢迎大家考飞机的驾照",
-          "imageUrl": "https://inews.gtimg.com/om_ls/OOdkcTz1EHQcjTm5nn7KQ_QRrPL4aa13aL8j6mMlhZ98UAA_640330/0"
         }
       ]
     },
@@ -3524,6 +3574,16 @@
       "feedUrl": "https://www.geekpark.net/rss",
       "siteUrl": "http://mainssl.geekpark.net/rss.rss",
       "articles": [
+        {
+          "id": "http://www.geekpark.net/news/348313",
+          "author": null,
+          "description": "黄仁勋时隔 3 个月再次到访北京，H20 芯片管制或造成百亿美元损失\n4 月 17 日，应中国贸促会邀请，英伟达公司首席执行官黄仁勋抵达北京。黄仁勋在会谈中表示，中国是英伟达非常重要的市场，希望将继续与中国合作。三个月前，黄仁勋曾在华表态称，要继续与中国合作。\n特朗普加征关税政策对英伟达带来不小的影响。英伟达周二表示，由于美国对 H20 芯片实施出口管制，公司将计提 55 亿美元损失。不过，业内知情人士指出，这一出口管制对英伟达收入的实际影响可能超过 100 亿美元。\n此外，黄仁勋还会见了 DeepSeek 创始人梁文锋，讨论如何为中国设计下一代芯片，以满足客户需求以及中美双方的监管要求。（来源：凤凰科技）\n\nGrok 新增「记忆」功能，可回复个性化内容\n4 月 17 日，马斯克旗下 xAI 宣布 Grok 新增「记忆」功能，现已能记住用户的会话，用户寻求推荐或建议时会得到个性化的回复。同时，「记忆」也是透明的，用户可以确切地看到 Grok 知晓的内容，并选择「忘记」什么。（来源：界面）\n \n业界首个，阿里通义万相「首尾帧生视频模型」开源\n4 月 17 日，阿里巴巴通义万相宣布开源业界首个百亿参数（14B）规模的「首尾帧生视频模型」。该模型能根据用户指定的起始和结束图片，生成一段衔接两者的 720p 高清视频，提供了更强的可控性和定制化能力。用户可在通义万相官网免费体验，也可从 Github、Hugging Face、魔搭社区下载模型进行二次开发。\n\n该模型克服了首尾帧生成视频的技术难点，需同时确保与输入图像一致、遵循提示词、实现自然过渡且动作协调。基于 Wan2.1 架构，团队引入了额外控制机制，并采用专门训练数据及并行策略优化训练与推理效率，通过模型切分和序列并行策略，在有限资源下支持高清视频生成，并缩短了推理时间。\n借助此开源模型，用户能完成更复杂、个性化的视频生成任…",
+          "link": "http://www.geekpark.net/news/348313",
+          "publishedOn": "2025-04-18T00:26:14.000Z",
+          "wordCount": 910,
+          "title": "霸王茶姬登陆美股，市值破 50 亿美元；小米 YU7 环形仪表曝光；虚假宣传自动驾驶，或面 2 年刑期｜极客早知道",
+          "imageUrl": null
+        },
         {
           "id": "http://www.geekpark.net/news/348272",
           "author": null,
@@ -9979,16 +10039,6 @@
           "wordCount": 7754,
           "title": "How to spend 4 days in St John's, Canada",
           "imageUrl": "https://i.natgeofe.com/n/073ddafb-0678-4e28-8718-15f1c6e40d8d/quidividivillageMichaelWinsor_16x9.jpg?w=1200"
-        },
-        {
-          "id": "https://www.nationalgeographic.com/travel/article/what-is-longevity-travel-and-where-to-go-to-experience-it",
-          "author": "Samantha Lewis",
-          "description": "This article was produced by National Geographic Traveller (UK).\n     \nLongevity travel is one of the biggest trends of the year, as people worldwide become ever more fascinated with living a longer, fuller life. Many are spending significant sums, investing in state-of-the-art tests and biohacking treatments that claim to help you extend your lifespan. But what if you could live to 100 and still enjoy good health without the intervention of science or tech? \n    \nDeep in the south of Japan, miles away from the mainland, lies the subtropical island of Okinawa. A slow-paced paradise hugged by pristine beaches, it’s home to a community of islanders that can teach us a thing or two about living well. Okinawa is one of the five original ‘Blue Zone’ destinations, a handful of places where peopl…",
-          "link": "https://www.nationalgeographic.com/travel/article/what-is-longevity-travel-and-where-to-go-to-experience-it",
-          "publishedOn": "2025-03-29T08:20:08.000Z",
-          "wordCount": 6991,
-          "title": "Unlock the secrets of longevity in these destinations",
-          "imageUrl": "https://i.natgeofe.com/n/d10a0c93-077b-4f13-9823-41b1372d29d2/bluezones_GettyImages-1386573832_HR_RESIZED_16x9.jpg?w=1200"
         }
       ]
     },
@@ -10354,6 +10404,22 @@
       "feedUrl": "https://news.un.org/feed/subscribe/en/news/all/rss.xml",
       "siteUrl": "https://news.un.org/en/",
       "articles": [
+        {
+          "id": "https://news.un.org/en/story/2025/04/1162391",
+          "author": null,
+          "description": "Escalating armed violence, displacement, economic turmoil and disruptions to local food production are fueling hunger in Haiti and leaving millions at risk, the UN World Food Programme (WFP) said on Thursday.",
+          "link": "https://news.un.org/feed/view/en/story/2025/04/1162391",
+          "publishedOn": "2025-04-17T12:00:00.000Z",
+          "wordCount": null,
+          "title": "Record hunger in Haiti amid rising needs",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/11-03-2025-OHCHR-Haiti-03.jpg/image560x340cropped.jpg",
+            "length": "53285",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/11-03-2025-OHCHR-Haiti-03.jpg/image560x340cropped.jpg"
+        },
         {
           "id": "https://news.un.org/en/story/2025/04/1162386",
           "author": null,
@@ -11985,54 +12051,6 @@
             "type": "image/jpeg"
           },
           "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/28-03-2025_UNICEF_Mandalay-02.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/03/1161711",
-          "author": null,
-          "description": "Countries should consider looking beyond Gross Domestic Product, or GDP, as the key measure of economic growth to achieve the ambitious Sustainable Development Goals (SDGs), UN policymakers have suggested.",
-          "link": "https://news.un.org/feed/view/en/story/2025/03/1161711",
-          "publishedOn": "2025-03-29T12:00:00.000Z",
-          "wordCount": null,
-          "title": "Looking beyond GDP to reach the Sustainable Development Goals",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/19-05-23-GDP-index-unsplash-ivan-bandura.jpg/image560x340cropped.jpg",
-            "length": "61892",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/19-05-23-GDP-index-unsplash-ivan-bandura.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/03/1161706",
-          "author": null,
-          "description": "The UN Secretary-General on Saturday strongly condemned an attack on peacekeepers serving with UN mission MINUSCA in the Central African Republic which left one Kenyan ‘blue helmet’ dead.",
-          "link": "https://news.un.org/feed/view/en/story/2025/03/1161706",
-          "publishedOn": "2025-03-29T12:00:00.000Z",
-          "wordCount": null,
-          "title": "UN chief strongly condemns killing of Kenyan peacekeeper in Central African Republic",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/09-06-2023-MINUSCA-Patrol.jpg/image560x340cropped.jpg",
-            "length": "63527",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/09-06-2023-MINUSCA-Patrol.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/03/1161701",
-          "author": null,
-          "description": "Latest news reports indicate that over 1,600 have been killed in Myanmar with thousands injured following two powerful earthquakes on Friday which have left hundreds trapped under rubble.",
-          "link": "https://news.un.org/feed/view/en/story/2025/03/1161701",
-          "publishedOn": "2025-03-29T12:00:00.000Z",
-          "wordCount": null,
-          "title": "Myanmar quake: More than 1,600 reported killed, as UN aid operation supports rescue efforts",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/28-03-2025_UNICEF_Mandalay.jpg/image560x340cropped.jpg",
-            "length": "57463",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/28-03-2025_UNICEF_Mandalay.jpg/image560x340cropped.jpg"
         }
       ]
     },
@@ -13369,6 +13387,16 @@
       "siteUrl": "http://www.ruanyifeng.com/blog/",
       "articles": [
         {
+          "id": "http://www.ruanyifeng.com/blog/2025/04/weekly-issue-345.html",
+          "author": null,
+          "description": "这里记录每周值得分享的科技内容，周五发布。\n本杂志开源，欢迎投稿。另有《谁在招人》服务，发布程序员招聘信息。合作请邮件联系（yifeng.ruan@gmail.com）。\n封面图\n\n湖北宣恩县的竹筏夜游，两岸灯火辉煌。（via）\nHDMI 2.2 影音可能到头了\n今年一月，有一个消息，大家可能没关注，那就是 HDMI 接口发布了2.2版。\n\n今天说说这件事，我冒着打脸的风险，猜测一下，这个标准可能到头了。\nHDMI 接口是最常见的影音接口，每个人应该都接触过，电视机和显示器一般都用它连接信号源。\n\n这个接口一直在升级，每次升级都会提高信号的传输速率。\nHDMI 1.0-1.2（2002）：4.9Gbps\nHDMI 1.3-1.4（2006）：10.2Gbps\nHDMI 2.0（2013）：18Gbps\nHDMI 2.1（2017）：48Gbps\nHDMI 2.2（2025）：96Gbps\n从上表可以看到，HDMI 接口的每次升级，信号的传输速率都会翻倍。这是为了应对现在的视频，越来越高清，数据量越来越大。\n这一次，从2.1版升级到2.2版，速率从 48Gbps 加大到 96Gbps。\n96Gbps 这个速率，大到吓人。\n这是什么概念？最快的家庭网络现在是万兆网络（10Gbps），一般人根本不需要这么快，而 HDMI 2.2 比它还快10倍！\n这是最快的影音接口，即使目前最高清晰度的视频，它可以同时传输多部，还有多余的带宽。\n\n问题是，你用不到它。4K + 60帧 + HDR10 或杜比视界效果的视频，只需要 HDMI 2.0 就能实时传输。\n8K + 60帧的视频，要用到 HDMI 2.1，而 HDMI 2.2 支持 12K + 60帧的视频。\n可是，人们真的会在电视机上观看 12K 分辨率的视频吗？\n\n大家可能听说过一个词\"视网膜分辨率\"（retina display），…",
+          "link": "http://www.ruanyifeng.com/blog/2025/04/weekly-issue-345.html",
+          "publishedOn": "2025-04-18T00:07:46.000Z",
+          "wordCount": null,
+          "title": "科技爱好者周刊（第 345 期）：HDMI 2.2 影音可能到头了",
+          "imageUrl": null
+        },
+        {
           "id": "http://www.ruanyifeng.com/blog/2025/04/weekly-issue-344.html",
           "author": null,
           "description": "这里记录每周值得分享的科技内容，周五发布。\n本杂志开源，欢迎投稿。另有《谁在招人》服务，发布程序员招聘信息。合作请邮件联系（yifeng.ruan@gmail.com）。\n封面图\n\n天津海棠花盛开，茶壶倒出的都是海棠。（via）\n制造业正在\"零工化\"\n本周分享一篇北京大学张丹丹老师的文章。\n\n她主要研究劳动经济学，也就是劳动力问题。\n她注意到一个现象：零工越来越多。\n所谓\"零工\"，就是不与用人单位签订劳动合同，也不缴纳社保的工人。\n这里面包括两种情况。一种是派遣工，合同是跟人力中介签的。另一种是真正的零工，没有任何劳务合同，又称\"日结工\"（当日结算工资）。\n\n正常情况下，零工是少数，大部分员工应该是正式的长期工。\n但是，现实情况恰恰相反。制造业自动化以后，零工不减反增。越来越多的长期岗位消失，变成短期的零工岗位。\n\n张丹丹团队调查了长三角和珠三角，发现工厂的零工非常普遍。\n以江苏省昆山为例，\"那里聚集了上千家劳务和中介机构，每天向当地及周边的数千家大规模制造业企业输送劳动力，日均进厂工人数高峰时可达数万。\"\n他们调查的企业里面，派遣工占企业用工的比例，平时是1/3，旺季可以高达2/3。那些万人大厂，派遣工比例更高达80%。\n这很惊人，意味着，工厂的主要劳动力是零工，那种干几天就走的工人。\n根据他们估算，中国制造业的派遣工已经达到了4000万人，占从业人员的31.12%。也就是说，三个工人里面就有一个是零工，并且还在增加。\n为什么中国的制造业大量使用零工？文章分析了六个原因。\n（1）自动化增加了低技能岗位。机器容易替代中等技能岗位，反而是低技能岗位尚难以替代。对于这些岗位，企业倾向于招零工。\n（2）招工平台极大方便了零工的招聘。企业只要网上发布招聘信息，就能快速找到人。\n（3）消费市场存在季节性波动。制造业的用工需求是周期性的，旺季人手不够，淡季有冗员。零工能够满足临时的用人…",
@@ -14319,6 +14347,46 @@
       "feedUrl": "https://rsshub.rssforever.com/zhihu/daily",
       "siteUrl": "https://daily.zhihu.com",
       "articles": [
+        {
+          "id": "https://daily.zhihu.com/story/9780442",
+          "author": null,
+          "description": "瞎扯 · 你是如何走出人生的阴霾的？\n知乎日报\n查看知乎原文\n\n\n\n\nQ：你是如何走出人生的阴霾的？\n@韩东燃：多走几步。\nQ：你在家闯过最大的祸是什么？\n@扎伊耶克：每次我爸修车时，我都在轮胎上放个长钉子，只要倒车钉子就扎进去，为此我爸修了好几次车，而每次我都放钉子，都没被发现，我爸还为此十分纳闷。直到有一次放钉子刚好被我爸看见。\nQ：人类真的想象不出从来没见过的东西吗？\n@爱吃卤煮王富贵：有一次坐高铁，旁边一个小女孩在玩手机游戏，结果没电了。然后就有了如下对话： 小女孩的妈妈：等充满了再玩吧，你睡会觉。 小女孩：为什么就没有那种能换电池的手机呢？╰_╯\nQ：不提雨字，如何描述雨很大？\n@路遥 ：「你们不要再打了！！！」\nQ：你做过最抽象的事情是什么？\n@德怀特 - 霍建华 ：下班回家地铁上，车厢里有个小朋友一直在哭闹说妈妈不给他买玩具。他妈妈哄了很久都没用，就吓唬他说，「再哭就把你卖了啊。」然而没用，小朋友还是一直哭闹。我可能上班上傻了，就脱口而出：「大姐，这小孩怎么卖。」小朋友抬头看了我一眼，哭得更厉害了。",
+          "link": "https://daily.zhihu.com/story/9780442",
+          "publishedOn": "2025-04-18T01:19:37.107Z",
+          "wordCount": 173,
+          "title": "瞎扯 · 如何正确地吐槽",
+          "imageUrl": null
+        },
+        {
+          "id": "https://daily.zhihu.com/story/9780525",
+          "author": null,
+          "description": "中科院物理所，没错，我就是那个物理所。\n查看知乎原文\n\n\n\n人在打哈欠时出现短暂听力下降，是生理结构与神经反射共同作用的结果。当张大嘴巴打哈欠时，下颌的剧烈运动会触发中耳内的鼓膜张肌和镫骨肌发生反射性收缩。这两块肌肉原本的作用是在遇到强烈噪音时拉紧听小骨链（锤骨、砧骨、镫骨），通过减少振动幅度保护内耳免受损伤，但打哈欠时的肌肉联动会“误激活”这一机制，导致声音传导效率降低，产生类似闷堵的听觉模糊感。\n\n与此同时，打哈欠会牵动连接中耳与咽喉的耳咽管短暂开放，快速平衡中耳内外气压。这一过程中，鼓膜和听小骨可能因气压波动而暂时改变振动特性，进一步削弱声音传递的清晰度。\n此外，打哈欠常伴随困倦或疲劳状态，大脑对声音信号的注意力处理可能减弱，主观上强化了听不清的感受。不过，这种听力变化通常仅持续几秒钟，随着打哈欠结束、中耳肌肉放松、耳咽管闭合，听觉功能会迅速恢复正常。这种现象本质上是人体保护性反射的无害表现，但若听力下降持续或伴随耳痛、耳鸣等症状，则需警惕中耳炎等潜在疾病，及时就医检查。\n参考文献：\n Atcherson ,  Samuel R .Hearing :  Anatomy ,  Physiology ,  and Disorders of the Auditory System  (3rd ed.) [J] .International Journal of Audiology, 2015, 54(3):210.\nHolmquist J , Renwall U .Eustachian Tube Function in Secretory Otitis Media[J].Archives of Otolaryngology, 1974, 99(1):59.\n查看知乎讨论",
+          "link": "https://daily.zhihu.com/story/9780525",
+          "publishedOn": "2025-04-18T01:19:36.952Z",
+          "wordCount": 160,
+          "title": "为什么打哈欠的时候会有短暂的失聪现象？",
+          "imageUrl": null
+        },
+        {
+          "id": "https://daily.zhihu.com/story/9780533",
+          "author": null,
+          "description": "读古籍有必要读直排（竖排）繁体影印本吗?\n星辰格格，教育/母婴/京东数码研究所上榜博主，用心，用爱，陪宝成长！\n查看知乎原文\n\n\n\n从题主的表述看，题主现在应该是中文系本科大二大三左右吧。\n这么说吧，看你的目的。如果为稍稍了解，则都无所谓。若是就学术研究而言，参考用的古籍一般必须是：古代刻本、影印本、繁体竖排本。\n如果你在参考书目中用简体横排本的古书，碰到认真的老师，你会被批得很惨的。本科还好，硕士的话，会被视为硬伤。博士的话，凭这一点，你的论文可以被一票否决了。（除非该书没有影印本，没有繁体本，又查不到刻本）\n因为：出版社出版古籍的简体字标点本，其定位就是普及类读物，而不是专业的参考。\n以近些年比较受欢迎的中华书局“三全本”为例，这一系列的书为简体横排，纸张、印刷、装帧都不错，然而，不能作为学术研究参考使用。\n\n我曾经参与过这系列书籍中两本书的译注。译注的标准和目的，就是要帮助业余爱好者方便地阅读理解古籍。因此，尽量简明、清晰。但要更进一步做“专业研究”，这一系列的书是用不上的。如果你在论文中引用这本书的注解，绝对会被导师批。\n每一个研究古代文史的学者，无不希望自己的著作能以繁体字出版。如果哪个学者一生都没有一部书是繁体印刷的，他肯定会终身引以为憾。\n至于繁体竖排的标点本古籍，一般都是精校精注本，是阅读该种古籍的比较权威的校注本。例如：\n\n同为《吕氏春秋》，这一部汇集了古代高诱注、古代其他人的见解和许先生的研究成果。因而若在专业研究上使用，肯定要用这一部而非上面那部。因为此书定位的读者群就是有一定专业素养者或研究者，因而用繁体竖排，更能保留古书原貌，而且避免了繁简转换造成的错误和不足。（许多时候，古书的字体是不宜简化的，具体等有时间再详谈）\n再说说影印本，影印本的优势是更直接地保存了古籍的原貌，避免了在整理排印中出现的错误。举个例子，民国年间商务印书馆影印的《四部丛刊》，…",
+          "link": "https://daily.zhihu.com/story/9780533",
+          "publishedOn": "2025-04-18T01:19:36.737Z",
+          "wordCount": 172,
+          "title": "读古籍有必要读直排（竖排）繁体影印本吗？",
+          "imageUrl": null
+        },
+        {
+          "id": "https://daily.zhihu.com/story/9780505",
+          "author": null,
+          "description": "One Two，效果拔群。\n查看知乎原文\n\n\n\n众所周知，每过去 1 分钟，我们的寿命就会减少 60 秒，所以在现实中人类直接体验一亿年有多长肯定是没戏了[1]。即便是我们找到一个一亿年前的生物化石，或者观测到距离一亿光年[2]的天体，两者都只能算一种时光切片，并不能呈现事物在一亿年时间里的变化。\n体验时间，我想有一个关键是要找到一个可以参照的事件，比方说钟表的时针走过一圈，就是一小时过去了；从日出到日落，我们便知半天时间过去了。寻找与时间尺度匹配的合适事件，将时间的流逝具象化，才能称之为「直观地体验」。\n虽然现实中不存在某些科幻电影中才有的「时间控制器」，但借助现代科技我们可以通过计算机模拟改变时间流逝的速度，那么体验事物在一亿年尺度下的变化还是有可能的。\n有了控制时间流速的手段，接下来要操心的就是找到有助于我们体验时间流逝的参照事件了。例如题主最关心的一亿年尺度，根据板块构造理论，距今约 1.75 亿年前地球上只有一块完整的大陆，名为盘古大陆「Pangaea」，随后盘古大陆开始分裂，如今的七大洲是在 1 亿多年的时光里逐渐成形的。\n\n类似的我们还可以找到不同时间尺度下的参照事件。\n百亿年尺度：宇宙网结构的形成\n\nformation of large-scale structure\n十亿年尺度：星系合并\n\nMilky Way and Andromeda Galaxies Collision Simulated | Video\n千万年尺度：大质量恒星的演化\n恒星的寿命与其质量挂钩，质量在 20 倍太阳质量左右的恒星寿命约千万年。\n约 20 倍太阳质量的参宿四︱ESO\n以下链接可以模拟恒星在演化过程中的各种变化：\nStar in a Box\n百万年尺度：恒星自行\n看到那个转瞬即逝的北斗七星吗︱Proper Motion Simulator\nProper Motion Simulator\n十万年尺度：长周期彗星回归\n近 20 年前出现的麦克诺特彗星要 10 万年后才会再次回归\n万年尺度：旅行者号穿越奥尔特云\n旅行者号飞越 100AU 用了近 30 年，飞越奥尔特云需要花上这个时间的 1000 倍︱NASA\n万年尺度 2：地轴进动\n地球自转轴存在一个约 2.6 万年的进动周期，表现为北极星的改变︱Proper Motion Simulator\n千年尺度：超新星遗迹的形成与扩散\nSN1054，爆发至今 971 年︱ESA/Hubble\nCrab Supernova explosion\n看起来知友们还是更喜欢高赞那种时间从指尖滑过的爽感，那我也提供一个类似的场景，但不需要大家的手指头那么遭罪（笑：\n不妨把一条 400 米长的环形跑道看作是 100 年时间的具象化，即每走过 400 米，相当于 100 年时间过去了。那么每走一米相当于过了 3 个月，400 米 「100 年」一循环也可以视为一个轮回。\n常见的体测 1000 米相当于 250 年，也就是美国建国前夜到现在「2025」的时长。\n万米长跑就是 2500 年，差不多是孔子活跃的年代和我们的距离。\n马拉松换算过来是有零有整的 10548 年又 9 个月，跑三次全马就够旅行者号真正飞出太阳系了（以奥尔特云为界）。\n长周期彗星回归一次需要的时间相当于跑十次全马。\n北斗七星因为恒星自行从面目全非到面目全非的时间等价于 4000 千米。\n也就是说绕地球赤道走一圈=参宿四活一辈子。\n地月直线距离≈ 9600 万年，很接近题主想要的一亿年了。在地月间往返一次，地球板块就从盘古大陆变成了如今的七大洲。\n宇宙年龄以 138 亿年计，大概相当于 5500 万千米，超过 130 万次全马，火星和地球最近时也差不多是这个距离。\n查看知乎讨论",
+          "link": "https://daily.zhihu.com/story/9780505",
+          "publishedOn": "2025-04-18T01:19:36.679Z",
+          "wordCount": 336,
+          "title": "如何直观地体验一亿年的时间尺度？",
+          "imageUrl": null
+        },
         {
           "id": "https://daily.zhihu.com/story/9780435",
           "author": null,
@@ -15870,6 +15938,16 @@
       "feedUrl": "https://feedx.site/rss/infzm.xml",
       "siteUrl": "http://infzm.com",
       "articles": [
+        {
+          "id": "http://www.infzm.com/contents/291795",
+          "author": null,
+          "description": "2025-04-18 08:00:00\n\n《文艺报》原主编孔罗荪（1912-1996）。\n上世纪八几年到九几年，我几乎年年要到北京，起先最重要的是看母亲，母亲去世后，主要是去看我哥我姐。去大多是住我姐那儿，只有最后一次，赵蘅一个人了，是住她那儿的。北京、上海两个地方，是朋友最多的，到了北京，看望朋友，和朋友聚，是少不了的。像刘北汜、杜运燮这些西南联大的老同学，或是中西的桂慧君，就聚得更多了。照例会去看望的，还有孔罗荪和严文井。\n一、文联旧事\n和孔罗荪早就认识了，上世纪五十年代初的事。一解放就成立了南京文联，赵瑞蕻和我都加入了，孔罗荪是文联负责人之一。\n在我看来，上世纪五十年代初也是南京文联的鼎盛期。不像现在，学校的人和搞创作的是两拨人，学者归学者，作家归作家，那时的文联，差不多文化人都在里面，以中文系和外文系的教授为主。当然胡小石、陈中凡、范存忠这些名教授是挂名的，重要场合出现一下，基本上是不过问的。\n真正管事的是孔罗荪、郑山尊、李世仪。他们各自具体的职务记不清了，反正工作都是在他们领导下进行的。三人都是地下党，都没架子，对胡小石、陈中凡这些长辈都是恭恭敬敬的。\n郑山尊做地下工作时的一段经历，不知是不是他自己说出来的，周围的人都知道。是说有一次他们的组织暴露了，国民党特务找到了他们的联络点，在场的人都被抓了，上了一辆卡车，郑山尊当时刚从别的地方过来，看见他的同志在车上，没留意那些穿便衣的特务，以为要一起去哪里，汽车刚刚启动，他在后面追着喊，还有我哩!等一等！车上的同志作声不得，眼睁睁看着他爬上来。就这么被捕了。我听了这事乐坏了，见面了就开他的玩笑，说他是“自投罗网”，他也不以为忤，一笑了之。\n当时南京文联的气氛就是这样的，没觉得孔罗荪、郑山尊他们是官，在他们面前也没有上级、下级的意识。\n有意思的是，“三反”时他们这些当领导的还小小紧张过一阵。“三反”是反贪污、反浪费、反官僚…",
+          "link": "http://www.infzm.com/contents/291795",
+          "publishedOn": "2025-04-18T00:25:05.000Z",
+          "wordCount": 109,
+          "title": "杨苡 | 忆孔罗荪",
+          "imageUrl": null
+        },
         {
           "id": "http://www.infzm.com/contents/291896",
           "author": null,
@@ -19578,66 +19656,6 @@
           "publishedOn": "2025-03-29T13:25:05.000Z",
           "wordCount": 98,
           "title": "年内12名中管干部落马，又一超70岁副部被查｜时政周报",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/290752",
-          "author": null,
-          "description": "2025-03-29 19:44:54\n关于支持\n刚性和改善性需求购房的通知\n各有关单位：\n为进一步促进房地产市场平稳健康发展，支持居民刚性和改善性住房需求，经研究决定，现将有关事项通知如下：\n1.实施“住有所居”首次置业购房补贴。个人及配偶名下在义乌市行政区域内无商品住房的（以不动产登记和网签备案为准），购买建筑面积小于150㎡且预（现）售备案总价不超过350万元的一手新建商品住房，给予1000元/㎡补贴。\n2.实施多孩家庭购房补贴。符合国家全面两孩、三孩政策实施后生育的多孩家庭，购买一手新建商品住房时给予补贴。其中：两孩家庭每套补贴10万元，三孩家庭每套补贴20万元，每个家庭仅可享受一次。\n“住有所居”首次置业和多孩家庭购房补贴可叠加使用，每套补贴总额度不超过25万元。根据补贴额度，先购先得，用完即止。\n3.进一步加大住房公积金支持购房力度。缴存职工家庭购买二手房的，允许提取本人、配偶及直系亲属账户内的住房公积金用于支付购房首付款；支持个人住房贷款“带押过户”业务。\n4.鼓励国有企业开展“集聚权益换购商品住房”“共有产权商品房”“以旧换新”等活动。\n5.2025年12月31日前在我市佛堂镇、苏溪镇、上溪镇、义亭镇、大陈镇、赤岸镇购买一手新建商品住房且暂未取得不动产权证的购房人，凭商品房网签备案合同其义务教育阶段适龄子女可在该商品住房所在镇学校排序入学。\n6.加大城市有机更新货币化安置凭证的支持力度，城市有机更新货币化安置凭证可用于购买本地取得预售许可且未经备案的一手新建商品住房（含商住混合垂直商品房）。\n7.适应高品质居住需要，完善标准规范，对建筑结构、消防安防、规划设计等进行优化调整，引导房地产开发企业建设“好房子”。\n8.培育和发展保障性住房，鼓励企业收购或自持转化商品住房用作保障性住房，解决新市民、青年人等群体阶段性住房困难问题。\n本通知自2025年3月28日起施行。由建设局、自规局、卫健局、教育局、公积金中心负责解释。\n义乌市城市品质提升行动联席会议\n2025年3月27日\n政策解读\n问：哪些人可以享受“住有所居”首次置业补贴？\n答：只要在申请补贴时，个人及配偶名下在义乌市行政区域内无商品住房的均可享受。商品住房是指房地产开发企业取得商品房预（现）售许可后，通过市场化销售的住房。“住有所居”政策对社保、户籍没有限制。\n问：多孩家庭该如何认定？\n答：符合多孩家庭购房补贴政策的多孩家庭，是指符合国家政策和《浙江省人口与计划生育条例》相关规定，在2016年1月1日之后生育第二孩，或在2021年5月31日之后生育第三孩的家庭。\n政策对父母、子女户籍不做限制，两孩、三孩按照现夫妻共同生育的子女数算，符合政策生育的多胞胎按生育个数计算，超过三孩的家庭按三孩标准领取补贴。但以下情形不计入子女数：再婚夫妻再婚前生育子女；夫妻收养的子女；已死亡的子女或失踪经法定程序宣告死亡的子女；婚姻存续期间与配偶之外的人生育的子女。\n问：今年的“住有所居”首次置业和多孩家庭购房补贴政策和去年有什么不同吗？\n答：今年购房补贴额度共8000万元，与去年不同之处在于：\n1.今年两个政策补贴不再区分额度，所有额度均可叠加使用，符合单个政策条件的可单独申请使用，符合政策叠加使用条件的可申请叠加使用；\n2.单套住房使用“住有所居”首次置业和多孩家庭购房补贴总额度设置了封顶，不超过25万元。\n3.个人及配偶中任一方已享受过2024年“住有所居”首次置业购房补贴的，不可重复享受。\n4.2024年已享受多孩家庭购房补贴的，不可重复享受。\n5.今年财政补贴资金不能用于首付，需在网签后申请兑付。\n问：今年的购房补贴申请怎么规定的？\n答：1.购房者与开发商签订认购协议。\n2.开发商协助购房者在房产新政系统中申请补贴额度。2025年3月29日起每天8:30—17:00，额度用完为止。\n3.申请成功后，购房者与开发商签订商品房买卖合同（网签备案）。额度申请成功后一个月内完成网签，未在期限内网签的，视同放弃补贴。\n4.网签成功一个月后，购房者与开发商共同申请将补贴兑付给开发商用于购房款。\n补贴兑付后，不得解除商品房买卖合同，如因不可抗力因素确需解除商品房买卖合同的，由开发商将补贴资金退回后再行解除。\n问：购买二手房提取公积金支付首付和公积金带押过户是怎么操作的？\n答：缴存职工家庭购买二手房的，允许提取本人、配偶及直系亲属账户内的住房公积金用于支付购房首付款。签订二手房买卖合同后即可申请公积金提取支付首付，提取总额不超过合同约定的首付款金额，中心将提取资金统一打入银行监管账户，交易完成后直接划转至卖方账户。\n支持个人住房贷款带押过户业务，个人住房按揭贷款尚未结清、抵押尚未注销的二手住房，在买方存在贷款需求时，只要买卖双方或其中一方涉及申请或结清公积金贷款的，卖方在尚未提前结清住房贷款的情况下，可直接办理产权过户和相应抵押权变更登记。",
-          "link": "http://www.infzm.com/contents/290752",
-          "publishedOn": "2025-03-29T12:25:05.000Z",
-          "wordCount": 125,
-          "title": "义乌官宣购房新政：两孩家庭补10万，三孩家庭补20万",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/290756",
-          "author": null,
-          "description": "2025-03-29 20:00:00",
-          "link": "http://www.infzm.com/contents/290756",
-          "publishedOn": "2025-03-29T12:25:05.000Z",
-          "wordCount": 77,
-          "title": "六张图看懂全球近十年来最强地震丨漫热点",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/290760",
-          "author": null,
-          "description": "2025-03-29 20:14:28",
-          "link": "http://www.infzm.com/contents/290760",
-          "publishedOn": "2025-03-29T12:25:05.000Z",
-          "wordCount": 85,
-          "title": "直击缅甸地震，南周记者挺进重灾区曼德勒",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/290704",
-          "author": null,
-          "description": "2025-03-29 17:00:00\n\n韩国总统尹锡悦在首尔龙山总统府。韩国公调处和警方于2025年1月15日10时33分执行对被停职总统尹锡悦的逮捕令。尹锡悦成为韩国宪政史上第一个被逮捕的现职总统（视觉中国/图）\n2024年12月3日晚，一次突如其来的全国戒严，让暗流涌动的韩国在这个冬夜乱作一团。\n戒严在短短6小时内仓促收场，国家机器、民众和军队合力遏制住了暴走的总统，避免了事态的全面恶化。这一度被视为民主、法治和常识的胜利，然而，这种乐观并没有持续太久。围绕如何处置尹锡悦及韩国政局的走向，在野的共同民主党和执政的国民力量党为代表的左右两派，以及他们身后的韩国民众，开始了一场漫长的撕扯。\n韩国国会发起对尹锡悦的弹劾，尹锡悦一方随即展开反击。总统府与执法部门对峙，以致韩国高级公职人员犯罪调查处（以下简称“公调处”）三次尝试执行逮捕令未果，并且还成功利用法律上的模糊之处取消了拘留。但是，在宪法法院的11次庭审后，依然愿意尊重常识和法律的韩国观察家和法律界人士普遍相信，尹锡悦的戒严既没有充分的理由，也缺乏正当的法理，他不仅不应该继续当总统，还要进一步接受涉及内乱罪和滥用职权的审判。\n常识和法治正是近期韩国舆论场首先被牺牲的东西。发布戒严令后至今的三个多月里，一度濒临绝境的尹锡悦似乎逐渐站稳了脚跟。他和他的团队将每一次公开讲话、信息发布，乃至宪法法院就尹锡悦弹劾案的庭审辩论，化为政治煽动的言论阵地。他道歉，因为“给民众造成了混乱和损失”，但他坚持不认罪，因为发动戒严是为了“向国民警示亡国危机”。尹锡悦一方几乎不曾就自己面临的法律问题进行任何有效的辩驳，却抓住每一次机会向外界输出一套简单粗暴的陈词滥调——境外势力、反对党、间谍正在瓦解这个国家，而尹锡悦毅然发动戒严，为的正是拨乱反正。\n看似垂死挣扎的呼喊，却在过去三个多月里有效地扭转了让尹锡悦一方被动的舆论，尹锡悦本人和国民力量党…",
-          "link": "http://www.infzm.com/contents/290704",
-          "publishedOn": "2025-03-29T09:25:12.000Z",
-          "wordCount": 96,
-          "title": "“疯王”尹锡悦丨封面人物",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/290740",
-          "author": null,
-          "description": "2025-03-29 17:16:03\n\n刘昊禹发表在《自然》杂志上的文章截图。（海南师范大学官微/图）\n\n2025年3月24日，海南师范大学公众号发表文章称，该校足球学院讲师刘昊禹在《自然》（Nature）杂志发表了文章，为学校“体育学科在Nature正刊发文零的突破”，文中还强调了刘昊禹的“第一作者和通讯作者”身份。推文发布不久，便迅速引发质疑。\n刘昊禹的文章发表于Nature的Correspondence 栏目，页眉也清晰地标注了“Readers respond”字样，也就是说，相当于读者来信。这一栏目并非严格意义上的学术研究论文，通常无需同行评审。\n同济大学教育评估研究中心主任樊秀娣认为，海南师范大学的案例也能够让大家管中窥豹，这也是学术评价体系的部分真实写照——浮躁短视和急功近利，而许多评价者也并不了解研究的具体情况，缺乏科学评价的能力。\n过度宣传\n刘昊禹的文章包含约200个英文单词。内容与当下火热的“人工智能”相关，强调了全球合作对通用人工智能及更广泛AI研究的核心作用。\n海南师范大学足球学院官网信息显示，刘昊禹的研究方向为青少年足球身体运动功能训练，2012进入首都体育学院开始本科学习，2024年取得教育学博士学位，当年9月入职海南师范大学。\n科研成果上，官网提及刘昊禹参与多项省级社科课题研究，发表4篇关于运动训练理论研究的学术论文，但并未列举文章的具体名称。他的主讲课程包括中学体育课程设计、运动训练理论与实践、足球训练与体能促进。\n樊秀娣认为，体育老师在《自然》杂志上发表文章也很正常。争议源于学校将其作为很重要的成果夸大宣传，实际上只是发表在《自然》杂志的读者来信，与宣传内容并不相符。\n海南师范大学于3月24日在官方公众号发文，称刘昊禹为体育学科引进的青年高层次人才，此文章实现了学校体育学科在Nature正刊发文“零的突破”，还强调文章为体育学科与人工智能融…",
-          "link": "http://www.infzm.com/contents/290740",
-          "publishedOn": "2025-03-29T09:25:12.000Z",
-          "wordCount": 85,
-          "title": "教师在顶刊发读者来信成“零的突破”：“类似情况大学里不在少数”",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/290714",
-          "author": null,
-          "description": "2025-03-29 16:00:00\n编者按\n失恋分手、离婚后，你会怎么样挽回感情？315期间，数十名消费者向南都鉴定报料称，自己疑似在情感咨询服务中遭遇到诱导消费、虚假承诺等情况。这些情感咨询服务机构到底提供了哪些服务？消费者在其中又遭遇了什么？相关的规范和监管是否存在模糊性？南方都市报推出“情感咨询乱象调查”系列报道。\n像是溺水时，隐隐约约漂过来的浮木，让人忍不住伸手想去够到它，就快要抓到了。\n在盛十七经历一场失恋后，在社交平台上，有人向他伸出了这根浮木。对方表示，“这段感情值得继续”，“除了重大神经病，否则问题不大”。于是他在33天时间里，前后付款了6次，花费31879元，购买了“处理感情问题”“提升情商”“男性魅力”等课程，极力想要挽回这段感情。最终前女友还是跟别人结婚了，再然后，盛十七才开始意识到自己好像被骗了。\n像盛十七这样的情况并非个案。近日，南都鉴定“消费曝光台”接到数十起消费者报料，他们疑似在情感咨询服务中遭遇到诱导消费、虚假承诺等情况。这些报料人花费数千元到数万元，想要跟前任复合，短期内付款多次，有消费者19天里花了35800元，但最后“人财两空”。\n这些消费者意识到，当时伸过来的，或许是钓鱼的钩子。 \n\n图源南都\n情感咨询乱象调查\n不是因为没能挽回女友而生气\n“只是觉得他们确实手段有些过分”\n盛十七与女友分开已经有一段时间，前女友在跟其他人相亲，他的心里有些着急。2024年11月7日，他在小红书上关注了一个情感咨询博主。没想到，这位博主立马给他发了私信，关心他的感情状态，两人转移至微信聊天。\n加他微信的人，来自幸福有方（广州）投资发展有限公司（下称“幸福有方”）。对方指出了盛十七在这段感情里存在的问题，盛十七主动询问是否“卖课”指导。\n2024年11月7日下午，盛十七第一次付款，第一次的价格是99元，幸福有方会派导师跟他进行一对一沟通并指出解决方向。…",
-          "link": "http://www.infzm.com/contents/290714",
-          "publishedOn": "2025-03-29T08:25:07.000Z",
-          "wordCount": 142,
-          "title": "19天花费超3万挽回伴侣？多名消费者投诉遭遇情感咨询陷阱",
           "imageUrl": null
         }
       ]
