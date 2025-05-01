@@ -6,6 +6,21 @@
       "siteUrl": "https://bestblogs.dev/zh/feeds",
       "articles": [
         {
+          "id": "1a1850",
+          "author": "Ju-yeong Ji, Ravin Kumar",
+          "description": "📌 一句话摘要\n            \nGemma 3 在视觉语言任务中表现出色，具有更高的内存效率、更长的上下文支持、增强的多语言能力，并以更小规模实现更优性能。\n📝 详细摘要\n            \n这篇来自谷歌开发者博客的文章详细介绍了 Gemma 3 的新特性和架构改进。关键增强在于引入视觉语言能力，模型可通过自定义的 SigLIP 视觉编码器解读视觉信息。架构经过修改，通过采用 5 比 1 的交错注意力机制，降低了 KV 缓存的内存占用。KV 缓存内存通常会随着上下文长度的增加而增长。Gemma 3 支持更长的上下文长度，大型模型可处理高达 128k 个 tokens。此外，Gemma 3 采用改进的分词器和重新设计的数据混合策略，以增强多语言能力。Gemma 27B 指令微调模型在 LM 竞技场中名列前茅，性能优于规模更大的开放模型。文章还将 Gemma 3 与其前身 PaliGemma 2 和 Gemma 2 进行了比较，突出了不同模型特性和计算资源之间的权衡。\n💡 主要观点\n            \nGemma 3 通过自定义的 SigLIP 编码器，具备了视觉语言能力。\n                         新的视觉编码器允许模型解释视觉输入，将其应用扩展到需要视觉理解的任务。\n                    \n\n                        交错注意力减少了内存使用，并支持更长的上下文处理。\n                         5 比 1 的交错注意力机制平衡了局部和全局注意力，提高了内存效率，并允许最长 128k 个 tokens 的上下文长度。\n                    \n\n                        Gemma 3 具有改进的分词器，以增强多语言能力。\n                         新的分词器（与 Gemini 共享）和修改后的数据混合提高了模型在非英语语言中的性能。\n                    \n\n                        Gemma 3 以更小的模型规模实现了卓越性能，并针对设备端使用进行了优化。\n                         专为移动和嵌入式系统设计的 1B 纯文本模型，支持在有限或无网络连接下，高效运行的 AI 应用。\n                    \n💬 文章金句\n            \nGemma 3 集成并扩展了 PaliGemma 的技术，为直接处理各种视觉任务提供多轮聊天和强大的零样本性能。\nGemma 3 的架构更改有效地减少了长上下文推理期间 KV 缓存的内存开销。\nGemma 3 使用与 Gemini 相同的分词器，该分词器在非英语语言中更加平衡。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：Google Developers Blog\n作者：Ju-yeong Ji, Ravin Kumar\n分类：软件编程\n语言：英文\n阅读时间：7 分钟\n字数：1733\n标签：\n                    \n                        Gemma 3, 视觉语言模型, 大型语言模型, 多模态AI, 交错注意力",
+          "link": "https://www.bestblogs.dev/zh/article/1a1850",
+          "publishedOn": "2025-04-30T00:00:00.000Z",
+          "wordCount": 304,
+          "title": "Gemma 3：新特性解析",
+          "enclosure": {
+            "url": "https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/whats-new-gemma-3.2e16d0ba.fill-1200x600.png",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/whats-new-gemma-3.2e16d0ba.fill-1200x600.png"
+        },
+        {
           "id": "b1b642",
           "author": "ByteByteGo",
           "description": "📌 一句话摘要\n            \nMeta 的 Threads 利用现有基础设施，包括用于数据存储的 ZippyDB 和用于无服务器计算的 Async，在发布期间实现了前所未有的规模和稳定性，5 天内支持了 1 亿用户注册。\n📝 详细摘要\n            \n本文深入探讨了 Meta 的 Threads 如何在发布后的 5 天内，通过利用 Meta 现有的基础设施（特别是 ZippyDB 和 Async）成功支持 1 亿用户注册。ZippyDB 是一种分布式键值存储，为状态管理和搜索提供了必要的强一致性、高可用性和地理韧性。Async 是一种无服务器计算引擎，处理了数十亿个后台任务，例如复制用户的 Instagram 关注关系，而无需定制扩展方案。文章强调了模块化、经过充分验证的基础设施在实现快速工程和处理大规模数据方面的重要性。\n💡 主要观点\n            \nZippyDB 为 Threads 实现了高可扩展性和适应性。\n                         ZippyDB 是一种分布式键值存储，为 Threads 提供了管理快速变化的指标、Feed 排序和实时搜索的基础，并通过其重新分片协议支持了平台的初始增长，避免了瓶颈。\n                    \n\n                        Async 处理后台任务，保持 UI 响应。\n                         Async 是 Meta 的无服务器计算平台，管理着数百万个与复制 Instagram 关注关系和发送关注推荐相关的函数调用，防止了 UI 阻塞，并确保了发布高峰期间流畅的用户体验。\n                    \n\n                        Meta 现有的基础设施对于 Threads 的成功至关重要。\n                         Threads 的快速增长得益于 Meta 经过多年实践验证的基础设施，包括 ZippyDB 和 Async，这证明了可重用、经过充分验证的系统在实现快速工程和处理大规模数据方面的价值。\n                    \n💬 文章金句\n            \nThreads 的扩展并非侥幸。它的扩展得益于 Meta 久经考验的基础设施：这些平台是由 Facebook、Instagram 和 WhatsApp 多年来的经验教训塑造的。\nZippyDB 是 Meta 内部的分布式键值存储，旨在以大规模提供强大的强一致性、高可用性和地理韧性。\nAsync 是 Meta 内部的无服务器计算平台……将代码部署到 Async，它将继承 Meta 级别的扩展能力、执行保障和灾难恢复能力。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：ByteByteGo Newsletter\n作者：ByteByteGo\n分类：软件编程\n语言：英文\n阅读时间：10 分钟\n字数：2419\n标签：\n                    \n                        Meta, Threads, ZippyDB, Async, 分布式键值存储",
@@ -2164,21 +2179,6 @@
             "length": "0"
           },
           "imageUrl": "https://storage.googleapis.com/gweb-cloudblog-publish/images/GOOGLENEXT2025_0410_143315-1351_ALIVE.max-2600x2600.jpg"
-        },
-        {
-          "id": "bc000b",
-          "author": "Adalbert Pungu",
-          "description": "📌 一句话摘要\n            \n本文介绍了如何使用 TypeSpec 进行 API 文档编写和建模，从而简化 API 设计并提高开发效率。\n📝 详细摘要\n            \n本文详细介绍了如何使用 TypeSpec 这一由 Microsoft 开发的开源声明式语言来定义和建模 API，旨在以显式、可重用、可扩展且符合标准的方式描述 API，并支持 REST、gRPC、GraphQL 等多种 API 类型。TypeSpec 通过领域特定语言 (DSL) 大幅简化 API 设计流程，能够自动生成 OpenAPI 规范、服务器和客户端代码以及 API 文档，从而提高代码重用性和一致性。文章涵盖了 TypeSpec 的安装配置、基本语法、REST API 模型创建，并通过具体示例展示了如何定义数据模型、创建 REST 服务以及添加验证注解。此外，还对比了 TypeSpec 与 OpenAPI/Swagger 的差异，强调了 TypeSpec 在 API 设计和治理方面的高效性。TypeSpec 的最佳实践也有提及，旨在帮助读者更好地组织 TypeSpec 项目和组件。\n💡 主要观点\n            \nTypeSpec 采用 DSL (领域特定语言) 大幅简化了 API 设计流程，降低了开发门槛\n                         TypeSpec 使用简洁的语法和模块化的组织方式，使得 API 的设计更加直观和易于维护，降低了开发复杂性。\n                    \n\n                        TypeSpec 支持自动生成多种格式的 API 文档和代码\n                         TypeSpec 可以自动生成 OpenAPI 规范、服务器和客户端代码以及 API 文档，提高了开…",
-          "link": "https://www.bestblogs.dev/zh/article/bc000b",
-          "publishedOn": "2025-04-11T19:25:13.000Z",
-          "wordCount": 333,
-          "title": "如何使用 TypeSpec 进行 API 文档编写和建模",
-          "enclosure": {
-            "url": "https://cdn.hashnode.com/res/hashnode/image/upload/v1744399481891/de5db16a-2eea-46d8-820d-50c1e66d5019.png",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://cdn.hashnode.com/res/hashnode/image/upload/v1744399481891/de5db16a-2eea-46d8-820d-50c1e66d5019.png"
         }
       ]
     },
@@ -2187,6 +2187,16 @@
       "feedUrl": "https://morss.it/https://gijn.org/feed/",
       "siteUrl": "https://gijn.org",
       "articles": [
+        {
+          "id": "https://gijn.org/?p=2221879",
+          "author": "Kate Kenny, The Conversation",
+          "description": "Insiders who successfully sound the alarm often do so with help — by partnering with allies who can amplify their message and help shield them from retaliation.",
+          "link": "https://gijn.org/stories/whistleblowers-need-allies-lawyers-and-journalists-expose-corruption/",
+          "publishedOn": "2025-05-01T07:00:58.000Z",
+          "wordCount": 4130,
+          "title": "Why Whistleblowers Need Allies Like Lawyers and Journalists to Expose Corruption",
+          "imageUrl": "https://gijn.org/wp-content/uploads/2025/05/shutterstock_2552922393-771x620.jpg"
+        },
         {
           "id": "https://gijn.org/?p=2219732",
           "author": "Austin Kocher, The Journalist's Resource",
@@ -3154,16 +3164,6 @@
           "wordCount": 7519,
           "title": "重新认识阿里：大踏步迈向AI",
           "imageUrl": "https://inews.gtimg.com/news_ls/OX67LQL_WoaF20uE-lrwLRRopnvyX-LnJuv8M41Dm8SFEAA_640330/0"
-        },
-        {
-          "id": "https://view.inews.qq.com/a/20250412A00FDR00",
-          "author": "晚点LatePost",
-          "description": "京东外卖的餐饮日订单量将突破 500 万单。\n\n\n\n文丨沈方伟 管艺雯\n编辑丨管艺雯\n\n\n“京东是认真做外卖吗？”\n\n在京东集团北京总部，蔚来汽车 CEO 李斌点了一份京东外卖，提出了这个互联网行业里很多人的疑问。对面的京东集团创始人、董事局主席刘强东回答：“当然。”\n\n在中国的外卖行业，几百万名骑手是美团最深的护城河，以此为核心，美团每季度获得数百亿元佣金和在线营销收入。随着平台为骑手开始缴纳社保，这也成为了它必须开支的成本。\n\n作为新进入者，京东外卖先后打出 “品质堂食商家 0 佣金”“平台为骑手全额缴纳五险一金”“百亿补贴” 的举措快速切入市场，也打破了外卖市场几年的稳定格局。\n\n整个互联网行业有不少疑问：京东为什么要做外卖？京东做外卖能赢吗？带着这些疑问，4 月 11 日傍晚，我们和京东集团 SEC 副主席、京东集团 CEO 许冉进行了小范围的沟通。\n\n许冉对我们说，京东做外卖最重要的是解决行业痛点、满足用户需求。“如果其他平台已经充分满足了用户的需求，那其实就不会存在现在的这些行业痛点。外卖行业本就是一个宽广的赛道，完全容得下多个平台。”\n\n在外卖定位上，京东强调 “品质”，许冉说，京东外卖首创了最严格的商家入驻审核标准和管理制度，用三重机制来保证品质堂食：第一是真实性，京东外卖选择回到十几年前以线下流量去判断经营环境和食品质量的时代；第二是逐步和各省市监管部门的餐饮数据接口对接，目前京东外卖商家的审核通过率不到四成，不合格的门店坚决不允许上线；第三是门店入驻后不断巡查巡检，问题商家立即下线永不合作，对好商家给予流量加权。\n\n许冉透露，百亿补贴上线后，单量增长很迅速，京东外卖的餐饮日订单量预计下周（4 月 14 日这周）即将突破 500 万单，这个速度远远快于预期。\n\n许冉说京东做外卖更多考虑的不是竞争因素，而是用户需要什么，“这就像开车一样，更多的是往前看，而不…",
-          "link": "https://view.inews.qq.com/a/20250412A00FDR00",
-          "publishedOn": "2025-04-11T16:17:46.000Z",
-          "wordCount": 2276,
-          "title": "京东CEO许冉：外卖是一个宽广赛道，完全容得下多个平台",
-          "imageUrl": "https://inews.gtimg.com/news_ls/OGOF91Y1mrbFfYjuolr7BD9BXLgqpxq61Qc8B53uSlfYwAA_640330/0"
         }
       ]
     },
@@ -3797,26 +3797,6 @@
           "publishedOn": "2025-04-12T00:58:57.000Z",
           "wordCount": 1076,
           "title": "继续反制，中国对美所有商品加征 125% 关税；小米汽车回应 SU7 湛江事故；GPT-4 将退役",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.geekpark.net/news/348124",
-          "author": null,
-          "description": "如果你还对以黑莓、诺基亚为代表的早期智能手机有印象的话，那时智能手机屏幕多采用 3:2 或 4:3 的比例，后来才是 16:9 逐渐成为主流。\n随着屏幕技术、乃至全面屏概念的进步，屏幕比例不断突破，18:9、19:9 甚至更高的比例接连涌现。如今，市场上的主流设计以 18.5:9、20:9 乃至 21:9 为主，而新发布的华为 Pura X 又是其中的另类：凭借其独特的 16:10 可折叠屏幕，为用户带来了与众不同的体验。\n除此之外，华为 Pura X 还拥有上下对折的形态、全新的外屏设计，以及首次搭载的鸿蒙 5 系统和升级后的小艺 AI 功能等亮点。这些特性叠加在一起，让人对这款产品充满好奇。通过实际测试真机，可以明显感受到它的诸多独特之处。其中，最令人印象深刻的便是那块 6.3 英寸、16:10 比例的屏幕，这一比例既适合娱乐内容消费，又能满足生产力需求。\n\n华为 Pura X 外屏 ｜ 图片来源：极客公园\n尽管 Pura X 的屏幕对角线尺寸与普通手机相近，但其显示面积却得到了显著提升。无论是观看视频、浏览图文、阅读电子书，还是享受游戏体验，它都能带来更强的沉浸感。同时，这款设备兼具便携性与接近传统手机的重量，完全可以作为一台小型平板使用。\n与普通直板手机相比，华为 Pura X 的优势在于其「又大又小」的设计理念。这种看似矛盾的特点，恰恰是折叠屏设备的理想形态——它不像大屏折叠机那样显得笨重，同时又比小屏折叠机更适合内容消费与创作，真正实现了「既轻便又高效」的目标。\n当然，华为 Pura X 的魅力远不止一块 16:10 屏幕。\n \n01\n\n\n\n\n\n作为第三种选择的「阔屏」\n\n在探讨华为 Pura 这款 16:10 的阔型屏之前，我们不妨先思考一个问题：为什么如今手机屏幕的显示比例大多集中在 19:9 或 20:9 左右？\n这个问题其实并不难解答。手机作为一款「手」…",
-          "link": "http://www.geekpark.net/news/348124",
-          "publishedOn": "2025-04-11T18:41:21.000Z",
-          "wordCount": 896,
-          "title": "华为 Pura X 的这块屏幕，改变了什么？",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.geekpark.net/news/348123",
-          "author": null,
-          "description": "「不分昼夜，无论远近」\n这是 OPPO 在 Find X6 Pro 时期，关于手机影像能力部分，提出的一句 Slogan。\n虽然是一句宣传语，但在当时，更像是一种愿望。虽然仅仅短短八个字，但对于智能手机的影像系统来讲，却代表着数个艰难的挑战——其中最艰难的领域，当属夜间的长焦表现。\n而对于 OPPO Find X8 系列而言，在凭借着「OPhone」的综合体验，赢得商业上的成功之后，对于有着一脉相承设计的 OPPO Find X8 Ultra，借此奠定「OPhone Pro Max」在移动影像领域的地位，似乎已经是水到渠成的事。\n\n「OPhone 属于自己的 Pro Max」｜ 图片来源：极客公园\n随着 OPPO Find X8 Ultra 已经在北京时间 4 月 10 日晚上发布，如果是已经在关注这款手机的读者，相比已经看到了不少关于这台手机的夜景人像能力。\n但人像显然不是一台力求在摄影领域取得突破的手机的全部。为了验证 OPPO Find X8 Ultra 这次是否真的如 OPPO 宣传的那样，是一次「令人血脉贲张的光学升级」，我决定拿着 Find X8 Ultra，带着它飞上天空，以及去拍各种夜景内容——就和我以往使用相机拍照的场景一模一样。\n\n\n\n\n\n\n\n\n01\n\n\n\n\n\n影像能力，带你飞！\n \n与前代相比，Find X8 Ultra 这套影像系统，新加入了一颗全新的「丹霞原彩镜头」，实现多模态的色温信息感知，用于实现自然的人像肤色还原——当然也能用于夜景的夜色还原。\n\nOPPO Find X8 Ultra 第一次来到五摄系统 ｜ 图片来源：极客公园\nFind X8 Ultra 在模组没变的更厚的前提下，主摄采用了 1 英寸传感器，同时 3 倍潜望支持长焦微距，而 6 倍潜望传感器尺寸和光圈都变大了不少。让夜景长焦拍摄的体验变得更加「顺手」。\n除了第一次做到「五摄系…",
-          "link": "http://www.geekpark.net/news/348123",
-          "publishedOn": "2025-04-11T18:33:24.000Z",
-          "wordCount": 597,
-          "title": "为了测试 OPPO Find X8 Ultra，我们租了一架直升飞机",
           "imageUrl": null
         }
       ]
@@ -7056,6 +7036,16 @@
       "siteUrl": "https://www.nationalgeographic.com/pages/topic/latest-stories",
       "articles": [
         {
+          "id": "https://www.nationalgeographic.com/travel/article/where-travel-june-best-destinations",
+          "author": "Stephanie Cavagnaro",
+          "description": "This article was produced by National Geographic Traveller (UK).\n     \nJune is the month of plenty. While some parts of the world are braced against hurricanes, monsoons and heat waves, the Northern Hemisphere is in its prime. The southern Med is ripe for striking out on a Croatian sailing tour or crisscrossing the Cyclades, while the Baltic and Nordic countries welcome bright nights and midsummer celebrations.\n    \nThe dry season starts in safari spots across the globe like Uganda, Tanzania, Borneo and the Peruvian Amazon, making June an ideal time to view the Serengeti’s Great Migration or orangutans swinging through Sabah rainforests. \n    \nThe comfortable temperatures also afford opportunities for lovers of the great outdoors, including hiking the mountainous Inca Trail or trekking thr…",
+          "link": "https://www.nationalgeographic.com/travel/article/where-travel-june-best-destinations",
+          "publishedOn": "2025-05-01T07:20:20.000Z",
+          "wordCount": 7868,
+          "title": "Where to travel in June",
+          "imageUrl": "https://i.natgeofe.com/n/99fe9eee-50ad-47ad-9613-a2a8eb02e0f6/gettyimages-1153418400_16x9.jpg?w=1200"
+        },
+        {
           "id": "https://www.nationalgeographic.com/animals/article/king-cobra-fight-snake-mating-video",
           "author": "Joshua Rapp Learn",
           "description": "The braided motions of two cobra males twisting around each other is so hypnotic that if you didn’t know better, you might think it was an intimate mating ritual—and in a way it is. \n    \nThe 12-foot-long males will wrap around each other for up to half an hour in a highly ritualized struggle to push their opponent’s face into the dirt with an ignominious thud. Presumably, the snakes spar over access to females. The crazy thing isn’t so much that they fight, but that these well-known snake eaters and occasional cannibals loaded with toxic venom don’t choose the most violent path to victory. Instead, the serpents engage in a highly ritualized contest whose rules are implicitly understood by the combatants.\n    \n“King cobras are venomous—they could easily bite each other and kill each other …",
@@ -8283,6 +8273,34 @@
       "siteUrl": "https://www.natgeomedia.com/science/article",
       "articles": [
         {
+          "id": "https://www.natgeomedia.com/environment/article/content-18103.html",
+          "author": null,
+          "description": "1994年世界盃的廣告、速食外包裝、COVID-19的口罩──鳥類拿來築巢的東西，反映出來的是一個多了更多塑膠垃圾的世界。\n\n                    \n身材圓胖、有雙大腳的黑色水鳥白冠雞，看起來並不像是會稱霸水道的那種類型。但在阿姆斯特丹，牠們可是「運河幫派分子」，領域性強又頑強。牠們約在三十多年前從附近的農田移居進入城市，即使在人口密集的都市核心，牠們也挺了過來。\n科學家正在研究白冠雞和其他鳥類究竟是如何適應都市環境的，還有，牠們入住都市到底是不是一件好事。\n現在，有項新研究拆解了阿姆斯特丹市中一個數一數二大的白冠雞巢中累積了30年的塑膠垃圾，揭露了白冠雞是從什麼時候開始在城市中築巢與繁殖的。\n有一座特別巨大的鳥巢，記錄了白冠雞在紅燈區生活長達30年的歷史。巢中最早的物品是一張印有1994年世界盃廣告的瑪氏巧克力棒包裝；最新的是一張蛋白棒的包裝紙。其間的年代則由糖果包裝、麥當勞漢堡的包裝紙，以及口罩等物品標記——其中口罩的出現，正好對應COVID-19疫情。研究人員也在其他鳥巢中發現了類似的口罩層。\n科學家說，藉由拆解鳥巢中發現的這些塑膠地層，他們了解的不只是鳥類，還有人類。\n白冠雞接受了水泥叢林\n尼德蘭的首都有水泥運河，擠滿了觀光客，沒什麼植物。不像城市周圍的明媚農莊和溼地，對打算築巢的白冠雞來說，並不是最誘人的地方。\n然而，這種鳥類還是在1980年代來到了這裡。\n\n.g_AD_970_250_InArticle_responsive{width:300px;height:250px;}\n@media(min-width: 1100px){.g_AD_970_250_InArticle_responsive{width:100%;}}\n\n\n\n\n\n\n\n\n\n\n「一定是有幾隻勇敢的鳥兒探索了一番，最後到了城市中心。」主持這項計畫的尼德蘭自然生物多樣性中心（Na…",
+          "link": "https://www.natgeomedia.com/environment/article/content-18103.html",
+          "publishedOn": "2025-04-29T16:00:00.000Z",
+          "wordCount": 558,
+          "title": "這些鳥兒正用一張張包裝紙，為人類留下紀錄 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權",
+          "enclosure": {
+            "url": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18103/2025043073944209.jpg",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18103/2025043073944209.jpg"
+        },
+        {
+          "id": "https://www.natgeomedia.com/environment/article/content-18093.html",
+          "author": null,
+          "description": "20年的資料分析透露，失去大白鯊的海洋生態會發生什麼事。\n魚雷般的身型、一排排6公分多的駭人利牙，大白鯊是世界上體型最大，也最令人聞風喪膽的掠食性鯊魚。由於大白鯊實在是太過嚇人，甚至有人認為如果海洋裡沒有大白鯊，或許是一件好事──但如果大白鯊消失了，後果可是會撼動整座海洋生態。\n《海洋科學前沿》（Frontiers in Marine Science）期刊上的新研究指出，倘若鯊魚消失後會有什麼樣的影響。南非福爾斯灣的海豹島曾是全球大白鯊最活躍的棲息地之一，也是少數人們能親眼目擊牠們躍出水面、獵捕獵物的珍貴畫面之地。\n「那裡就像你人在《空中巨鯊》（Air Jaws）節目裡一樣。」研究作者之一的海洋生態學家尼爾．漢默施拉格（Neil Hammerschlag）讚嘆道：「我想在大自然中，沒有什麼能比一隻九百多公斤的大白鯊，叼著海豹破浪騰空更讓人印象深刻了。」漢默施拉格同時也是鯊魚研究基金會（Shark Research Foundation Inc.）的執行董事。\n當這些鯊魚消失後，研究人員和保育團體將矛頭指向步步逼近的虎鯨與人類。不過，早這些掠食者消失之前、從2000年便開始研究島嶼周邊生態的漢默施拉格團隊，卻觀察到了一些出乎意料的環境變化。\n身兼大西洋鯊魚探險公司（Atlantic Shark Expeditions）負責人的漢默施拉格回憶道，在20年前海豹島是「全世界觀賞大白鯊最棒的地方」。但大約從2010年開始，福爾斯灣附近的大白鯊數量便開始下滑；2015年之後更是每況愈下，最後在2018年，這裡的大白鯊完全消失了。\n但大白鯊究竟為什麼消失？至今還是個謎。「這群大白鯊離開的原因還沒塵埃落定。」並未參與此次研究的麻州海洋漁業局（Massachusetts Division of Marine Fisheries）鯊魚生物學家葛雷格・史科摩（Greg Skomal）說。\n有一…",
+          "link": "https://www.natgeomedia.com/environment/article/content-18093.html",
+          "publishedOn": "2025-04-28T16:00:00.000Z",
+          "wordCount": 536,
+          "title": "觀賞大白鯊的絕佳景點已成絕唱 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權",
+          "enclosure": {
+            "url": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18093/2025042948156941.jpg",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18093/2025042948156941.jpg"
+        },
+        {
           "id": "https://www.natgeomedia.com/environment/article/content-18079.html",
           "author": null,
           "description": "紅樹林應該遍布臺灣海岸嗎？數十年來，這個問題不斷引發多方議論，最近學者根據百年來研究資料，再度印證臺灣西岸現存紅樹林多為人為引入、非自然原生分布的結論；少數如基隆灣和高雄灣雖曾擁有原生紅樹林族群，皆已因土地利用型態改變而消失。這項結論提供臺灣紅樹林歷史脈絡與地理分布視野，也是海岸濕地生態保育與管理策略的參考依據。\n\n                    \n研究：原生紅樹林只存在港灣 隨開發蕩然無存\n由中興大學生命科學系教授施習德、許秋容，以及中山大學退休教授楊遠波，於《國立臺灣博物館學刊》共同發表〈臺灣紅樹林分布的變遷〉，回顧1864年首次文獻記載以來，臺灣紅樹植物的歷史分布和演變脈絡，並引用超過130篇國內外文獻，確認臺灣現存紅樹林有許多是人為引入栽植的結果，並非自然原生分布。\n報告引述1900年後日治時期的相關研究，均指出當時臺灣的紅樹林主要分布在基隆灣、新竹紅毛港、高雄灣，並認為基隆灣與高雄灣為原生的，西海岸其他地區並沒有紅樹林的原生分布紀錄。此外，恆春半島於1875年曾有海茄苳植株紀錄，是臺灣紅樹林自然分布的最南界。\n1945年國民政府來臺前，原本擁有原生紅樹林的基隆灣與高雄灣，皆因土地利用型態改變等因素消失。\n研究團隊分析數個地區紅樹林由來：淡水河口在1864年雖有水筆仔最早的標本採集紀錄，但到1925年間並無相關紀錄，推測19世紀末可能已經滅絕。至於今淡水河口大面積的紅樹林，極可能是1925年前後由當地貿易商黃東茂自中國福建省鼓浪嶼再引入水筆仔，栽植於竿蓁林一帶，逐步擴展而成。\n新竹新豐地區的水筆仔與海茄苳分布，則為1790年代由徐熙拱從廣東省惠州府陸豐縣引入。目前臺灣本島的紅樹林分布，大部分是1945年後政府單位和民間團體種植大幅擴張而成；整體而言，臺灣西海岸現存的紅樹林，均為人為栽植，並無原生分布的歷史紀錄。\n至於離島，澎湖與東沙也有人為栽植的紅樹林；金門…",
@@ -8618,6 +8636,34 @@
       "feedUrl": "https://rsshub.rssforever.com/natgeo/history/article",
       "siteUrl": "https://www.natgeomedia.com/history/article",
       "articles": [
+        {
+          "id": "https://www.natgeomedia.com/environment/article/content-18103.html",
+          "author": null,
+          "description": "1994年世界盃的廣告、速食外包裝、COVID-19的口罩──鳥類拿來築巢的東西，反映出來的是一個多了更多塑膠垃圾的世界。\n\n                    \n身材圓胖、有雙大腳的黑色水鳥白冠雞，看起來並不像是會稱霸水道的那種類型。但在阿姆斯特丹，牠們可是「運河幫派分子」，領域性強又頑強。牠們約在三十多年前從附近的農田移居進入城市，即使在人口密集的都市核心，牠們也挺了過來。\n科學家正在研究白冠雞和其他鳥類究竟是如何適應都市環境的，還有，牠們入住都市到底是不是一件好事。\n現在，有項新研究拆解了阿姆斯特丹市中一個數一數二大的白冠雞巢中累積了30年的塑膠垃圾，揭露了白冠雞是從什麼時候開始在城市中築巢與繁殖的。\n有一座特別巨大的鳥巢，記錄了白冠雞在紅燈區生活長達30年的歷史。巢中最早的物品是一張印有1994年世界盃廣告的瑪氏巧克力棒包裝；最新的是一張蛋白棒的包裝紙。其間的年代則由糖果包裝、麥當勞漢堡的包裝紙，以及口罩等物品標記——其中口罩的出現，正好對應COVID-19疫情。研究人員也在其他鳥巢中發現了類似的口罩層。\n科學家說，藉由拆解鳥巢中發現的這些塑膠地層，他們了解的不只是鳥類，還有人類。\n白冠雞接受了水泥叢林\n尼德蘭的首都有水泥運河，擠滿了觀光客，沒什麼植物。不像城市周圍的明媚農莊和溼地，對打算築巢的白冠雞來說，並不是最誘人的地方。\n然而，這種鳥類還是在1980年代來到了這裡。\n\n.g_AD_970_250_InArticle_responsive{width:300px;height:250px;}\n@media(min-width: 1100px){.g_AD_970_250_InArticle_responsive{width:100%;}}\n\n\n\n\n\n\n\n\n\n\n「一定是有幾隻勇敢的鳥兒探索了一番，最後到了城市中心。」主持這項計畫的尼德蘭自然生物多樣性中心（Na…",
+          "link": "https://www.natgeomedia.com/environment/article/content-18103.html",
+          "publishedOn": "2025-04-29T16:00:00.000Z",
+          "wordCount": 558,
+          "title": "這些鳥兒正用一張張包裝紙，為人類留下紀錄 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權",
+          "enclosure": {
+            "url": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18103/2025043073944209.jpg",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18103/2025043073944209.jpg"
+        },
+        {
+          "id": "https://www.natgeomedia.com/environment/article/content-18093.html",
+          "author": null,
+          "description": "20年的資料分析透露，失去大白鯊的海洋生態會發生什麼事。\n魚雷般的身型、一排排6公分多的駭人利牙，大白鯊是世界上體型最大，也最令人聞風喪膽的掠食性鯊魚。由於大白鯊實在是太過嚇人，甚至有人認為如果海洋裡沒有大白鯊，或許是一件好事──但如果大白鯊消失了，後果可是會撼動整座海洋生態。\n《海洋科學前沿》（Frontiers in Marine Science）期刊上的新研究指出，倘若鯊魚消失後會有什麼樣的影響。南非福爾斯灣的海豹島曾是全球大白鯊最活躍的棲息地之一，也是少數人們能親眼目擊牠們躍出水面、獵捕獵物的珍貴畫面之地。\n「那裡就像你人在《空中巨鯊》（Air Jaws）節目裡一樣。」研究作者之一的海洋生態學家尼爾．漢默施拉格（Neil Hammerschlag）讚嘆道：「我想在大自然中，沒有什麼能比一隻九百多公斤的大白鯊，叼著海豹破浪騰空更讓人印象深刻了。」漢默施拉格同時也是鯊魚研究基金會（Shark Research Foundation Inc.）的執行董事。\n當這些鯊魚消失後，研究人員和保育團體將矛頭指向步步逼近的虎鯨與人類。不過，早這些掠食者消失之前、從2000年便開始研究島嶼周邊生態的漢默施拉格團隊，卻觀察到了一些出乎意料的環境變化。\n身兼大西洋鯊魚探險公司（Atlantic Shark Expeditions）負責人的漢默施拉格回憶道，在20年前海豹島是「全世界觀賞大白鯊最棒的地方」。但大約從2010年開始，福爾斯灣附近的大白鯊數量便開始下滑；2015年之後更是每況愈下，最後在2018年，這裡的大白鯊完全消失了。\n但大白鯊究竟為什麼消失？至今還是個謎。「這群大白鯊離開的原因還沒塵埃落定。」並未參與此次研究的麻州海洋漁業局（Massachusetts Division of Marine Fisheries）鯊魚生物學家葛雷格・史科摩（Greg Skomal）說。\n有一…",
+          "link": "https://www.natgeomedia.com/environment/article/content-18093.html",
+          "publishedOn": "2025-04-28T16:00:00.000Z",
+          "wordCount": 536,
+          "title": "觀賞大白鯊的絕佳景點已成絕唱 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權",
+          "enclosure": {
+            "url": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18093/2025042948156941.jpg",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18093/2025042948156941.jpg"
+        },
         {
           "id": "https://www.natgeomedia.com/environment/article/content-18079.html",
           "author": null,
@@ -10241,6 +10287,16 @@
       "siteUrl": "https://chinadigitaltimes.net/chinese",
       "articles": [
         {
+          "id": "https://chinadigitaltimes.net/chinese/?p=717809",
+          "author": "既要又要还要",
+          "description": "大家都是。",
+          "link": "https://chinadigitaltimes.net/chinese/717809.html",
+          "publishedOn": "2025-05-01T05:09:02.000Z",
+          "wordCount": 13068,
+          "title": "每日一语 2025.4.30",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/04/IMG_2931.png"
+        },
+        {
           "id": "https://chinadigitaltimes.net/chinese/?p=717805",
           "author": "不忘初心",
           "description": "今年4月，一篇刊登于《基础医学与临床》上的论文就指出，通过对协和4+4的学生们进行回顾，发现他们无论是论文产出数量、评分、临床能力，都和传统5+3培养出来的学生有差距：核心胜任力差异性比较大。这种暴论，完全都是对精英们的污蔑。患者们无非是冒了点生命危险，董小姐失去的可是镀金路上的垫脚石啊。",
@@ -11229,16 +11285,6 @@
           "wordCount": 13077,
           "title": "浣溪沙杜甫｜关税大战犹如七伤拳，就看哪一方的老百姓更抗揍",
           "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/04/台湾歌手.jpeg"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=717306",
-          "author": "elijah",
-          "description": "我们必须追问：当TIBET的孩子只能听到一种叙事，当城镇与乡村的藏人无法接收远方真实的讯息，当寺院僧侣被困于数据网络和无处不在的摄像头之中；谁，还能告诉他们，他们的世界并不只有一个被中共当局编写的版本？",
-          "link": "https://chinadigitaltimes.net/chinese/717306.html",
-          "publishedOn": "2025-04-11T18:11:48.000Z",
-          "wordCount": 13168,
-          "title": "【Cdt关注】“谁，还能告诉他们，他们的世界并不只有一个被中共当局编写的版本？”（外二篇）",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/04/6473.png"
         }
       ]
     },
@@ -11247,6 +11293,16 @@
       "feedUrl": "http://feeds.feedburner.com/ruanyifeng",
       "siteUrl": "http://www.ruanyifeng.com/blog/",
       "articles": [
+        {
+          "id": "http://www.ruanyifeng.com/blog/2025/05/notebooklm.html",
+          "author": null,
+          "description": "两天前，谷歌发了一个公告。\n\n它旗下的 AI 笔记产品 NotebookLM，现在支持50种语言生成播客了（原来只支持英文）。\n我一定要分享这个消息，终于能生成中文播客了。这是我一直想要的功能，相信也是很多朋友想要的。\n我演示一下，大家听听效果，会惊到你的。\n首先，访问它的官网，点开右上角的设置，选择\"Output Language\"（输出语言）。\n\n切换到\"中文（简体）\"。\n\n然后，在首页新建一个笔记本。一般来说，一个学习主题，对应一个笔记本。\n作为演示，我新建了一个\"中国小说\"的笔记本。进入后，在 Source（原始材料）标签页上传了鲁迅的《阿Q正传》。\n\n注意，上传的文件格式目前只限于 PDF、TXT 和 Markdown。\n另外，经过我测试，如果是图片扫描的 PDF 文件，它会自动进行文字识别。\n接着，切换到 Studio（工作室）标签页，点击 Generate（生成）按钮，它就开始生成播客。\n\n几分钟以后，播客就生成了，里面是一男一女在谈论你上传的资料。\n\nruanyf · 阿Q正傳\n\n\n大家听听看，是不是很像那些精心准备的真人播客。\nNotebookLM 不仅可以上传文本材料，还可以针对网站和 Youtube 视频，生成播客。\n\n我随便找了一个 Youtube 的英文视频，内容是国产旗舰手机的摄影能力比较。\n\n下面是生成的播客。\n\nruanyf · Vivo X200 Ultra 相机评测\n\n\n我听了以后，觉得都不必看视频了。而且，中文播客比英文视频，更容易抓住重点。\n总之，有了中文播客以后，任何枯燥的学习资料，都能变成平易近人的播客节目。走路、休息、锻炼、开车的时候都能听，学习时间和途径都变多了。\n需要注意的是，免费账户一天只能生成三个播客，更多需要付费。\n除了播客，NotebookLM 的 AI 笔记功能，也非常好用。\n你可以上传自己的学习材料，也可以用它搜索某个主题的学习材料。\n下面是我用它搜索 PostgreSQL 数据库的学习材料。\n\n指定学习材料以后，你可以跟这些材料聊天。\n\n它还会自动生成各种笔记：学习指导、内容摘要、常见问题、时间线等等。\n\n\n以上就是 NotebookLM 的基本用法。\n我的评价是，NotebookLM 是一款革命性的笔记工具，属于少数几个真正有重大用处的 AI 产品。\n它会改变做笔记的方式和学习方式，每个学习者都应该知道有这样一个工具。\n它属于谷歌的产品，似乎还没有竞品，希望国内的厂商能够做出替代品。\n（完）\n文档信息\n版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）\n发表日期： 2025年5月 1日",
+          "link": "http://www.ruanyifeng.com/blog/2025/05/notebooklm.html",
+          "publishedOn": "2025-05-01T04:26:24.000Z",
+          "wordCount": null,
+          "title": "谷歌的 NotebookLM 能生成中文播客了",
+          "imageUrl": null
+        },
         {
           "id": "http://www.ruanyifeng.com/blog/2025/04/weekly-issue-346.html",
           "author": null,
@@ -11294,6 +11350,16 @@
       "feedUrl": "https://sspai.com/feed",
       "siteUrl": "https://sspai.com",
       "articles": [
+        {
+          "id": "https://sspai.com/post/98831",
+          "author": "蝉心",
+          "description": "从腾势 N9 的谍照期，我就开始密切关注了，然后首发果断下单，至今提车已快到一个月了，期间也算是密集使用，在此分享一下有关此车的主观想法。查看全文",
+          "link": "https://sspai.com/post/98831",
+          "publishedOn": "2025-05-01T07:08:17.000Z",
+          "wordCount": 677,
+          "title": "理性中绽放的浪漫：腾势 N9 主观体验分享",
+          "imageUrl": "https://cdnfile.sspai.com/2025/04/29/e6c429de8b5d02c1c9885395180d0bac.jpg"
+        },
         {
           "id": "https://sspai.com/post/98651",
           "author": "IF君",
@@ -13691,26 +13757,6 @@
           "wordCount": 264,
           "title": "灭绝了1万多年的冰原狼被“复活了”？这家公司还要复活猛犸象、渡渡鸟。",
           "imageUrl": null
-        },
-        {
-          "id": "1331960",
-          "author": null,
-          "description": "当代年轻人正在经历一种矛盾的年龄体验：生理上仍是青年，心理上却已自觉「老了」。很多人不用等到 40 岁中年危机，在 30 岁就感觉到了「心理早衰」。比如，以前能嗨三天三夜，现在熬一次夜三天缓不过来，周末只想躺着，社交能量耗尽；看到 00 后同事喊自己「姐」，心里咯噔一下；流行歌排行榜前 10 一首没听过，KTV 必点曲目还是周杰伦......心理学家埃里克森将 25~40 岁定义为「成年早期」，40~65岁才是「中年期」。但德国社会学家哈特穆特·罗萨观察到，社会节奏的加速，技术迭代、职业竞争和生命历程的压缩，使得传统意义上的「中年危机」前移至 30~35 岁，甚至更早。罗萨认为，这种持续的加速不仅会导致倦怠，还会破坏我们与世界建立有意义关系的能力，造成疏离感。从个人层面看，其结果是日常生活发生了深刻的变化，现代人感觉自己在与时间赛跑。前不久我们发起征集：你是如何对抗「初老焦虑」的。在我们收到的问卷中，最小的年龄 28 岁，最大的 54 岁。他们讲了讲自己眼中的「初老时刻」，以及是如何应对的。让我们一起来看看吧~01放弃「上进心」后，人生成了旷野@鱼子酱，30岁看见单位新来的 00 后小朋友充满工作的的热情和干劲，还没有被工作毒打过的模样，而我只想每天准时下班回家遛狗，意识到自己不再是那个曾经「眼里有光」的少女了。我选择去跳舞。从 25 岁跳到 30 岁，还是菜鸡一枚，但感觉体型变好了，体力充沛了，更敢于欣赏镜子里的自己。30 岁其实比 20 岁拥有更多自由和快乐。20 岁总是被各种各样的考试和外界评判禁锢，像笼子里的仓鼠一直马不停蹄地奔跑，却只是原地做功。30 岁，放弃了「上进心」之后，人生真的变成了旷野。@铁皮水母，32岁是对着镜子看到眼下的皱纹，是腰痛、背痛，告诉自己身体机能已经不如从前。被小朋友叫「阿姨」，发现自己已经是「大人」了。有一次在路边排队买鸡蛋灌饼，旁边跟着…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MjM5MzA0MzczMg==&mid=2653883535&idx=1&sn=378b8ab8b07b38209c06b4ac6fcb165c&chksm=bca08fa1f288ccbb95177a6fc09dc8c726db679777b84d5d4bf07744a1f34a620b7a45433aa9",
-          "publishedOn": "2025-04-11T18:04:35.000Z",
-          "wordCount": 264,
-          "title": "年轻人觉得自己「老了」，是生活变好的开始",
-          "imageUrl": null
-        },
-        {
-          "id": "1331959",
-          "author": null,
-          "description": "星标关注猎聘公众号 探寻职场的另一种可能近日，一位北大毕业的女硕士辞职去做北大食堂阿姨传遍全网。不少人称赞她的勇气，称她是反内卷先锋，也有一些人质疑她大材小用。据大象新闻综合报道，她是北大新闻与传播学院的硕士研究生，毕业后选择在北大餐饮中心工作，希望大家能吃上便宜健康又好吃的饭，为此她放弃了央媒和大厂的offer，在做管培生轮岗期间她做过一段时间的食堂阿姨。去年5月，26岁的她辞去了这份工作，并在社交平台发布视频解释了辞职原因：一是身处其中才发现学生时代的想法太天真，二是编制无望，理想又不能当饭吃，五六千块钱的工资在北京确实不够花。高学历年轻人愿意做体力工作的不在少数。猎聘2023年针对当年应届生的调研显示，当问及他们如果没有找到心仪工作是否会选择蓝领类工作，61%的应届生选择会。从轻体力工作中探索更多可能性不仅是没有工作经验的大学生能接受蓝领工作，一些有工作经验的白领也能接受蓝领工作，而这背后不仅仅是生存压力，更是寻找疏散压力的出口。在豆瓣上有个汇聚了近10万人的小组——“轻体力探索联盟”，其介绍词写道：“社会惯性里，坐办公室的白领生活永远比草坪修花的工人生活更值得憧憬……可是，不开心的人却越来越多，焦虑、抑郁现象越来越普遍……有的时候，看到园艺师、发型师、旅拍工作者、保安大哥、修理工人、家政人员他们的笑容，是发自内心的，也会很羡慕……人生是有许多可能性的。我们读书，学习知识，不是为了做到什么了不起的职位，恰恰是有勇气去接受更多可能性吧。”这个联盟的成员中有个署名biubiu、自称“互联网失业女工”的人，找了一份在服装店拍照的工作。由于是新店开业，biubiu看老板比较随和，就主动担任起服装销售的工作，开业首日就卖了不少钱，老板对她很满意。往后的日子，她在服装店一边拍照，一边卖衣服,每天工作4-6小时，忙完店铺卫生，熨烫好衣物，最重的活就是拖地。“至于钱钱嘛，底薪完全足够…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MzU5MDcyOTYwMQ==&mid=2247621689&idx=1&sn=da8b016c51816e47e0e36cf1dba76f4e&chksm=ffe385e8fcfe7ca47e06100b4899af477148485bfed08daa2012b0eb54005387a73c8435a390",
-          "publishedOn": "2025-04-11T18:04:34.000Z",
-          "wordCount": 264,
-          "title": "做“轻体力工作”的年轻人，有点后悔了",
-          "imageUrl": null
         }
       ]
     },
@@ -13719,6 +13765,66 @@
       "feedUrl": "https://feedx.site/rss/infzm.xml",
       "siteUrl": "http://infzm.com",
       "articles": [
+        {
+          "id": "http://www.infzm.com/contents/292858",
+          "author": null,
+          "description": "2025-05-01 14:00:00\n\n世界读书日前后举办的2025北京书市。（视觉中国 图）\n4月23日，世界读书日敲响了阅读世界的大门，多份关于阅读与书籍的行业报告绘就出一幅丰富的阅读全景图。\n\n根据中金易云2025年第一季度纸质图书市场分析报告，大众类图书在纸质书市场中悄然回暖，DeepSeek和哪吒带动相关图书销售热度大幅提升。传统电商渠道依旧是图书市场的中流砥柱，占据整体市场销售的46%；而实体渠道的占比不断被压缩，实体零售仅剩7%。与此同时，短视频电商犹如一颗新星，持续拓展市场规模，整体市场占有率已超40%，成为各渠道中唯一销售同比保持正增长的渠道。\n抖音2025年一季度图书消费报告显示，平台日均售出超30万本书，这一数字远超绝大部分书店一年的销售量，令人惊叹。《哪吒·三界往事》《大语文知识画报》《愿你可以自在张扬》等新书在直播间备受追捧，成为读者们的热门选择。\n第二十二次全国国民阅读调查则揭示了一个令人深思的现象：未成年人的平均阅读率比成年人高出近27%，数字化阅读正在重塑成年国民的阅读习惯，近八成的人通过手机阅读，成年国民人均每天数字化媒介接触时长超三小时，而传统纸质媒介阅读时长仅半小时。尽管如此，成年国民的纸质图书和电子书阅读量却实现了双增长，但报纸期刊的阅读量仍在持续下滑。\n在报刊亭被饮料等杂货填充，甚至逐渐从城市消失的当下，一则消息格外出人意表。2025年4月18日，《知音漫客》突然宣布复刊，主打唤醒青春记忆，掀起80后、90后读者的集体怀旧潮。然而，两天后相关公告删除，复刊计划疑似搁置，网友调侃“青春体验卡到期”。据称，其转型核心策略为告别传统月刊、周刊的固定出版周期，改为不定期发行的特别刊形式，主打经典IP深度开发与收藏价值提升。\n删除公告可能涉及两方面原因。一方面，复刊消息引发关注后，主办方意识到读者对定期连载的期待与宣传存在矛盾；另一方面，公…",
+          "link": "http://www.infzm.com/contents/292858",
+          "publishedOn": "2025-05-01T06:25:05.000Z",
+          "wordCount": 96,
+          "title": "读书日之后，人们在阅读什么？丨南周文化榜",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/292878",
+          "author": null,
+          "description": "2025-05-01 13:00:00\n\n上海车展上，广汽高域飞行汽车亮相。南方周末记者赵继林｜摄\n两年一届的上海车展，还在热火朝天地进行着。\n“今年投入比去年北京车展还要大，单纯讲解员就接近一百名。”奇瑞汽车展台一位工作人员告诉南方周末记者，与过去不同的是，除了展出汽车，奇瑞还展示了最新的发动机技术、电动化技术、智能化技术、辅助驾驶技术等。\n奇瑞只是本届车展的一个缩影。不同于过去车展对流量的争抢，技术，是2025年展台的关键词，还有车企展示了人形机器人、飞行汽车、水陆两栖车等，大量汽车供应链企业亦开始参展。\n2025年4月27日-5月2日为车展公众日。官方数据统计，本届车展预计总客流量约130万人次，日均客流超10万人次。\n超充竞赛\n超充技术的激烈角逐成为车展一大看点。\n4月21日，宁德时代官宣了三款动力电池产品——钠新乘用车动力电池、骁遥双核电池、第二代神行超充电池。其中，第二代神行超充电池12C峰值充电功率高达1.3兆瓦，实现1秒充电2.5km，5分钟充电续航超过520km。\n一个月前，比亚迪推出了“兆瓦闪充”技术，充电5分钟续航407公里，亦成为本届车展重点展示的一个模块。\n在比亚迪展台，一台“唐”正通过“兆瓦闪充”系统补能。据比亚迪技术人员介绍，这项基于1000V全域高压架构和10C倍率电池的技术，峰值功率达1000kW，几乎与燃油车加油速度相当。\n兆瓦级充电，通常指充电功率达到兆瓦级水平（1MW及以上）输出功率的充电技术，相比于目前主流的快速充电，在充电功率、充电速度方面均有显著提升。\n小鹏展区的核心位置，也矗立着最新的S5液冷超充桩。“我们是行业首个枪击后仍能正常使用的5C电池。最大功率800千瓦，实测充电1秒续航超过1公里。”小鹏一名技术人员指着身后的屏幕，上面实时播放着P7+车型的充电实测。\n尽管超充技术突飞猛进，其大规模落地仍面临多重挑战。\n车展上，多位…",
+          "link": "http://www.infzm.com/contents/292878",
+          "publishedOn": "2025-05-01T05:25:05.000Z",
+          "wordCount": 85,
+          "title": "供应商出击，“海陆空”登场：技术抢镜2025上海车展",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/292880",
+          "author": null,
+          "description": "2025-05-01 12:36:06\n\n当地时间5月1日，韩国检方就尹锡悦发动紧急戒严进行追加起诉，增加涉嫌滥用职权罪。",
+          "link": "http://www.infzm.com/contents/292880",
+          "publishedOn": "2025-05-01T04:55:06.000Z",
+          "wordCount": 73,
+          "title": "增诉滥用职权罪，尹锡悦遭韩国检方追加起诉",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/292844",
+          "author": null,
+          "description": "2025-05-01 12:00:00\n当地时间2025年4月28日，巴基斯坦国防部长阿西夫表示，印度的对巴基斯坦的“军事入侵”迫在眉睫，但两国局势不至于发展到爆发核战争的程度。\n数日前，印控克什米尔地区发生一起重大恐怖袭击，武装分子在草地上向游客开枪，造成至少26名游客死亡。此次事件是自2008年孟买袭击以来，印度领土上最致命的恐怖袭击。\n\n当地时间2025年4月24日，印控克什米尔斯利那加，民众在达尔湖游船上举行抗议，谴责针对游客的恐怖袭击。图/视觉中国\n事发后，印度和巴基斯坦的紧张局势迅速升级。印度在印控克什米尔地区发动镇压式搜捕行动，印度安全部队共计逮捕超过1500人，并强行拆除武装分子嫌疑人的房屋。\n印巴两国的冲突关系由来已久，而此次恐怖袭击的所在地克什米尔，曾因其主权归属问题，在历史上诱发过数次印巴战争（正式宣战三次，非正式宣战一次）。\n这块夹于印度、巴基斯坦、中国和阿富汗之间的争议地区，是世界上海拔最高、军事化程度最高的地区。1998年，由于印巴均变成“事实拥核国”，加之两国都在此地部署数十万大军，每一次风吹草动，都会牵扯大国的战略神经。\n“血与水无法共流”\n众所周知，1947年英国殖民势力离开南亚后，新独立的印度与巴基斯坦围绕克什米尔归属多次兵戎相见，瓜分的结果是印控区叫查谟-克什米尔（刚分离出拉达克中央直辖区），面积和人口都占三分之二，而巴控部分包括吉尔吉特-伯尔蒂斯坦和自由克什米尔，与阿富汗和中国接壤。\n印巴两国的新一轮争端源于印度总理莫迪，2019年8月，他取缔人口以穆斯林为主的查谟-克什米尔邦享受72年的自治，为改变人口构成并永久吞并大开方便之门。同时，印度河源头就在印控区，可水域主要流向巴基斯坦，1960年的《印度河用水条约》按2∶8的水量分给印巴，随着全球变暖、印巴快速工业化和人口激增，莫迪从2016年起就威胁从克什米尔剥夺巴基斯坦的用水量，‘血…",
+          "link": "http://www.infzm.com/contents/292844",
+          "publishedOn": "2025-05-01T04:25:04.000Z",
+          "wordCount": 90,
+          "title": "印巴争锋克什米尔",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/292872",
+          "author": null,
+          "description": "2025-05-01 12:00:01\n乌克兰当地时间5月1日，乌克兰第一副总理兼经济部长斯维里坚科在社交媒体上透露，根据乌克兰总统弗拉基米尔·泽连斯基与美国总统唐纳德·特朗普达成的协议，她与美国财政部长斯科特·贝森特共同签署了《美乌重建投资基金成立协议》，即此前各界所称的“美乌矿产协议”。\n依据乌方5月1日公布的协议内容，美乌共同创建乌克兰重建投资基金，旨在吸引全球投资注入乌克兰。\n该协议的主要条款如下：\n①所有权与控制权：全部所有权和控制权依旧归属于乌克兰。乌克兰领土和领海内的所有资源均为乌克兰所有，乌克兰政府有权自主决定资源开采地点，协议明确规定地下矿产归乌克兰所有。\n②平等伙伴关系：基金设立比例为 50:50，乌克兰与美国将共同管理该基金，双方均无主导投票权，充分体现了两国间的平等伙伴关系。\n③国家财产保护：协议未涉及私有化进程或国有企业管理的变动，国有企业将继续归乌克兰所有，例如乌克兰石油和乌克兰能源等公司仍保持国有性质。\n④无债务负担：协议未提及乌克兰对美国的债务义务，其实施将通过平等合作与投资提升两国经济潜力。\n⑤符合宪法与欧洲一体化进程：该文件符合国家立法，不违反乌克兰任何国际义务。尤为重要的是，此协议将向其他全球参与者释放信号，表明与乌克兰开展长期（数十年）合作具有可靠性。\n⑥基金资金来源：基金将完全由新许可证收入填充，涵盖关键材料以及石油天然气领域项目新许可证资金的 50%，这些资金将在基金成立后纳入预算。已在进行的项目收入或预算收入不包含在该基金内。\n⑦立法变动适度：基金运作仅需对预算法进行修改，协议本身需得到乌克兰最高拉达的批准。\n⑧美国助力吸引投资与技术：基金由美国政府通过美国国际开发金融公司（DFC）提供支持，将助力吸引来自美国、欧盟以及其他支持乌克兰对抗俄罗斯的国家的基金和公司的投资与技术。技术转让和开发是协议的重要组成部分，因为乌克兰不仅需要投资，更需要创新。\n⑨税收保障：基金的收入和捐款在美国和乌克兰均不征税，以确保投资获得最大收益。美国向该基金提供了捐款，除直接资金外，还可能提供新的援助，如为乌克兰提供防空系统。乌克兰则通过新地块的新许可证新租金贡献50%的国家预算收入，若有必要，还可在此基础数额之外额外捐款。\n乌方称，该基金随后将投资于采矿、石油天然气项目以及相关基础设施或加工项目，乌克兰和美国将共同确定资金投向的具体投资项目，且该基金可专门投资于乌克兰。预计在最初的10年里，基金的利润和收入不会进行分配，而是全部投资于乌克兰的新项目或用于重建，具体条件将进一步商讨。\n乌方说明，该协议的达成对两国而言均有利好。美国在协议中表明愿意为乌克兰实现长期和平贡献力量，并认可乌克兰通过放弃核武库对全球安全所做的贡献，彰显了其对乌克兰安全、恢复和重建的坚定承诺。",
+          "link": "http://www.infzm.com/contents/292872",
+          "publishedOn": "2025-05-01T04:25:04.000Z",
+          "wordCount": 90,
+          "title": "乌克兰公布美乌矿产协议详情，一文详解",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/292874",
+          "author": null,
+          "description": "2025-05-01 12:04:25\n今早（5月1日），永辉官方信息发布平台微信号“永辉同道”发布关于部分门店现金结算分币抹零问题的整改说明表示，重庆、河北、北京、天津、东北地区的部分非调改门店存在现金支付分币“反向抹零”结算规则，重庆金源时代店现金结算“反向抹零”情况属实。\n\n此前报道，近日，有消费者在永辉超市（重庆江北区-金源时代店）购买标价7.96元的商品，结账时发现被收取8元，遭到超市反向抹零。这种现象并非个例，另一位市民发帖称自己于4月20日在永辉超市（重庆渝北区-红叶路店）购买标价11.55元的开心果，小票显示实收11.6元。媒体注意到，两张小票的下方标注“分币凭小票当月内到服务台积零换整”。\n4月29日，永辉超市（重庆渝北区-红叶路店）回应称，因为现在分币比较少，电子支付并不会出现这样的情况，如果是现金的话，可凭小票到客服这边积零换整。\n公开资料显示，永辉超市成立于2001年，并于2010年在A股上市，目前已在全国发展超千家连锁超市，业务覆盖29个省份，近600个城市，经营面积超过800万平方米。\n自2021年起，永辉超市的业绩便呈现下滑趋势。财报显示，2021年，永辉超市净利润亏损高达39亿元，营业收入也出现下滑。此后两年，尽管公司采取了多种措施试图扭转颓势，包括关闭亏损门店、调整商品结构、优化供应链等，但业绩依然未能显著回暖。\n南都此前报道，2024年9月，名创优品宣布了一项重大战略投资，以62.7亿元收购永辉超市29.4%的股权，交易完成后，名创优品成为永辉超市的第一大股东。\n尽管目前永辉超市的业绩承压，但名创优品十分看好其未来的发展前景。名创优品CEO叶国富在电话会议上表示，与山姆、Costco、Trader Joe’s在内的全球零售企业相比，胖东来拥有更优秀的零售模式。在他看来，“胖东来模式是中国超市唯一的出路。”\n值得一提的是，永辉超市在郑州的两家门店经过胖东来的调改后，日销售额实现了10倍以上的爆发式增长。叶国富表示，强烈建议大家参观改造后的永辉超市，以更好地理解名创优品此次投资的初衷。\n此次关于“反向抹零”的整改，也提及对胖东来模式的学习。整改说明中，永辉超市提到：“在学习胖东来的过程中，我们深知，调改不仅是学习先进理念，更是将好的文化理念深度落实到经营细节中；真正的整改也不只是及时止损，而是追本溯源，杜绝类似问题再次发生。”\n针对“反向抹零”问题，永辉超市表示内部排查后第一时间做出整改：\n1.全国门店统一执行“舍分”标准：2025年4月29日起，全国所有永辉超市门店全面执行新规，即现金支付分币零头全舍，商品分位金额无论尾数为1分或9分，一律“舍去不计”，确保顾客实付金额不高于标价。\n2.启动服务补偿：即日起，所有消费存在分位差额的顾客可通过门店服务台或线上通道获得补偿。",
+          "link": "http://www.infzm.com/contents/292874",
+          "publishedOn": "2025-05-01T04:25:04.000Z",
+          "wordCount": 92,
+          "title": "标价7.96元实收8元，永辉超市回应门店“反向抹零”",
+          "imageUrl": null
+        },
         {
           "id": "http://www.infzm.com/contents/292836",
           "author": null,
