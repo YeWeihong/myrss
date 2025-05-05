@@ -2329,51 +2329,6 @@
             "length": "0"
           },
           "imageUrl": "https://static-www.elastic.co/v3/assets/bltefdd0b53724fa2ce/bltb4f215cef63d999e/67f09634b509b7e48530a55d/blog-search-release-blog.png"
-        },
-        {
-          "id": "cac0b2",
-          "author": "kenmuse",
-          "description": "📌 一句话摘要\n            \n对比 GitHub 托管 runners 和自托管 runners 在多方面的差异，为用户选择合适的 GitHub Actions 方案提供决策依据。\n📝 详细摘要\n            \n本文详细对比了 GitHub 托管 runners 和自托管 runners 在五个关键领域的差异，旨在帮助用户根据自身需求选择最合适的 GitHub Actions 方案。文章从可管理性入手，指出 GitHub 托管 runners 提供全托管的基础设施，简化配置和安全管理，而自托管 runners 则需要用户自行管理基础设施、安全和监控。在可扩展性方面，GitHub 托管 runners 依赖微软的数据中心和云服务，提供高可用性和自动伸缩能力，而自托管 runners 则需要用户自行搭建伸缩方案。安全性方面，GitHub 托管 runners 提供内置的安全机制，包括网络隔离、数据加密和定期安全更新，自托管 runners 则需要用户承担全部安全责任。故障排除方面，GitHub 托管 runners 提供 24/7 全天候支持，而自托管 runners 则需要用户自行解决问题。最后，文章分析了两种方案的成本，指出 GitHub 托管 runners 采用按需付费模式，无需预先支付费用，而自托管 runners 则需要考虑基础设施、网络、存储、安全和支持等方面的成本。**文章建议，对于大多数开发者和场景，GitHub 托管 runners 是更好的选择；但若使用 GitHub Enterprise Server，或有特定的合规性需求，则自托管 runners 更为适合。**\n💡 主要观点\n            \nGitHub 托管 runners 简化了 CI / CD 的配置和管理\n                         …",
-          "link": "https://www.bestblogs.dev/zh/article/cac0b2",
-          "publishedOn": "2025-04-15T16:00:22.000Z",
-          "wordCount": 349,
-          "title": "GitHub Actions：GitHub 托管 runners 与自托管 runners 的选择",
-          "enclosure": {
-            "url": "https://github.blog/wp-content/uploads/2025/04/wallpaper_github_generic_3.png?fit=1920%2C1080",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://github.blog/wp-content/uploads/2025/04/wallpaper_github_generic_3.png?fit=1920%2C1080"
-        },
-        {
-          "id": "65df93",
-          "author": "ByteByteGo",
-          "description": "📌 一句话摘要\n            \nNetflix 使用 Maestro 来编排大规模、高可靠性的工作流作业。\n📝 详细摘要\n            \nNetflix 使用 Maestro 来克服其之前的工作流调度器 Meson 的瓶颈。Maestro 具有分布式、可扩展的架构，能够以高可靠性和低运营成本处理大量的工作流和作业。它通过无状态微服务架构、分布式队列、用于持久存储的 CockroachDB 以及对嵌套 foreach 循环的支持来实现这一点，从而实现水平可扩展性。Maestro 通过预定义的步骤类型、直接的 Jupyter notebook 执行和 Docker 容器支持，简化了工作流定义和执行。它还提供了多种创建和管理工作流的方式，包括 DSL (YAML、Python、Java) 和图形用户界面 (GUI)。这些选择满足了具有不同技术背景的用户的需求，从而增强了用户友好性。\n💡 主要观点\n            \nMaestro 的核心是基于微服务的架构，该架构允许系统有效地扩展。\n                         Maestro 的所有服务都构建为无状态微服务，允许任何服务实例处理请求，无需在服务内部存储会话或工作流数据。\n                    \n\n                        Maestro 使用分布式队列来处理组件之间的通信并协调工作流执行。\n                         这些队列将服务彼此分离，允许每个服务以自己的速度处理请求，并实现跨系统的可靠消息传递，即使在流量高峰或故障期间也是如此。\n                    \n\n                        Maestro 使用 CockroachDB 来持久存储工作流定义、步骤实例和状态数据。\n                         CockroachDB 是一个分布式 SQL 数据库，提供强大的数据一致性保证，非常适合 Maestro 的水平可扩展性和高可用性要求，而无需显著的运营复杂性。\n                    \n\n                        Maestro 支持嵌套的 foreach 循环，从而能够构建复杂的、大规模的工作流，这些工作流可以在单个工作流实例中执行数百万甚至数十亿个单独的步骤。\n                         此功能允许用户构建可以动态扩展到大量任务运行的工作流，同时保持可管理性和高性能。\n                    \n\n                        Maestro 通过各种 DSL 和 UI 为具有不同技术背景的用户提供服务。\n                         用户可以从 YAML、Python、Java DSL、图形用户界面或编程 API 中进行选择，以根据其需求和偏好定义和管理工作流。\n                    \n💬 文章金句\n            \nMaestro 从一开始就构建了一个分布式、可扩展的架构，能够处理大量的工作流和作业，同时保持高可靠性和低运营成本。\nMaestro 设计的核心是基于微服务的架构，该架构允许系统有效地扩展。\n为了处理组件之间的通信并协调工作流执行，Maestro 使用分布式队列。\n此外，Maestro 支持嵌套的 foreach 循环，这意味着一个 foreach 块可以包含另一个。这允许用户构建复杂的、大规模的工作流，这些工作流可以在单个工作流实例中执行数百万甚至数十亿个单独的步骤，同时保持可管理性和高性能。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：ByteByteGo Newsletter\n作者：ByteByteGo\n分类：软件编程\n语言：英文\n阅读时间：12 分钟\n字数：2991\n标签：\n                    \n                        工作流编排, workflow engine, 微服务架构, 分布式系统, Netflix",
-          "link": "https://www.bestblogs.dev/zh/article/65df93",
-          "publishedOn": "2025-04-15T15:31:16.000Z",
-          "wordCount": 313,
-          "title": "Netflix 如何使用 Maestro 编排数百万个工作流作业",
-          "enclosure": {
-            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/4ae7edef-1fdc-4d90-b14d-8ce91844b500/cover",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/4ae7edef-1fdc-4d90-b14d-8ce91844b500/cover"
-        },
-        {
-          "id": "54211c",
-          "author": "克雷西",
-          "description": "📌 一句话摘要\n            \n华为盘古 Ultra 模型在纯昇腾集群上训练，135B 参数量达到同尺度最优表现，性能比肩 DeepSeek-R1，关键技术包括三明治归一化和 TinyInit。\n📝 详细摘要\n            \n文章介绍了华为盘古 Ultra 大语言模型，该模型仅使用昇腾集群训练，参数量为 135B，在多个基准测试中表现出色，尤其在中文任务和数学推理、编程竞赛中达到 SOTA 水平，可以与 DeepSeek-R1 等更大的 MoE 模型竞争。为解决超深网络训练问题，盘古 Ultra 采用了三明治层归一化和 TinyInit 参数初始化策略，有效消除了训练过程中的 loss 尖峰。此外，还优化了 Tokenizer，并采用了包括数据并行、张量并行、序列并行和流水线并行在内的多种并行策略，实现了超过 52% 的算力利用率。该模型训练过程不依赖英伟达 GPU，算力利用率达到 52% 以上。整个训练流程分为预训练、长上下文扩展和指令调优三个阶段。\n💡 主要观点\n            \n盘古 Ultra 在纯昇腾集群上实现可媲美 MoE 模型的性能\n                         证明了国产 AI 芯片在训练大型语言模型方面的潜力，摆脱了对英伟达 GPU 的依赖，具有战略意义。\n                    \n\n                        三明治层归一化和 TinyInit 有效提升了超深模型的训练稳定性\n                         通过对层归一化和参数初始化策略的改进，解决了深度模型训练中的梯度消失和 loss 尖峰问题。\n                    \n\n                        多种并行策略和优化技术实现了高效的算力利用率，克服了昇腾芯片在生态上的劣势\n                         通过数据并行、张量并行、序列并行和流水线并行等组合，结合 ZeRO 优化器和算子融合等技术，最大化了硬件资源利用率，对国产 AI 发展具有重要意义。\n                    \n💬 文章金句\n            \n盘古 Ultra 拥有优异的性能表现和 52% 以上的算力利用率。\n作为一个参数量 135B 密集模型，盘古 Ultra 达到了同尺度密集模型的最优表现，甚至可以与 DeepSeek-R1 等参数量更大的 MoE 模型竞争。\n盘古 Ultra 采用的 TinyInit 同时依据模型深度和宽度来缩放初始化权重的标准差。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：量子位\n作者：克雷西\n分类：人工智能\n语言：中文\n阅读时间：12 分钟\n字数：2788\n标签：\n                    \n                        大语言模型, 昇腾, 盘古Ultra, 华为, 模型训练",
-          "link": "https://www.bestblogs.dev/zh/article/54211c",
-          "publishedOn": "2025-04-15T14:56:14.000Z",
-          "wordCount": 309,
-          "title": "英伟达含量为零！华为密集模型性能比肩 DeepSeek-R1，纯昇腾集群训练",
-          "enclosure": {
-            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/360da226-c7d1-4b45-9910-4ea751e1de00/cover",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/360da226-c7d1-4b45-9910-4ea751e1de00/cover"
         }
       ]
     },
@@ -4751,21 +4706,6 @@
             "type": "image//mmbiz_jpg/dhIUoaayW83T6qaGzicyLVFnvfMlAuz3kibermxA5pc17M9HEkqHH8a8091E87iagqTXMySC8WBXOudI1VAYvHBIQ/0"
           },
           "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/dhIUoaayW83T6qaGzicyLVFnvfMlAuz3kibermxA5pc17M9HEkqHH8a8091E87iagqTXMySC8WBXOudI1VAYvHBIQ/0?wx_fmt=jpeg"
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s/A4AMs8pdQxgDcQ279PsjTg",
-          "author": null,
-          "description": "",
-          "link": "https://mp.weixin.qq.com/s/A4AMs8pdQxgDcQ279PsjTg",
-          "publishedOn": "2025-04-15T16:09:51.000Z",
-          "wordCount": 264,
-          "title": "傅里叶：没有他的“变换”，就没有今天的人工智能",
-          "enclosure": {
-            "url": "https://mmbiz.qpic.cn/mmbiz_jpg/dhIUoaayW82AaXgsZ2XTcfmrxNTmH49wUVkLbn3X3cibproSSBl9Fyk8h9wqYyeQiboprC8C6oyqqZtiatWIOpMsg/0?wx_fmt=jpeg",
-            "length": "0",
-            "type": "image//mmbiz_jpg/dhIUoaayW82AaXgsZ2XTcfmrxNTmH49wUVkLbn3X3cibproSSBl9Fyk8h9wqYyeQiboprC8C6oyqqZtiatWIOpMsg/0"
-          },
-          "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/dhIUoaayW82AaXgsZ2XTcfmrxNTmH49wUVkLbn3X3cibproSSBl9Fyk8h9wqYyeQiboprC8C6oyqqZtiatWIOpMsg/0?wx_fmt=jpeg"
         }
       ]
     },
@@ -6536,66 +6476,6 @@
           "publishedOn": "2025-04-16T16:03:00.000Z",
           "wordCount": 264,
           "title": "iPhone6s被列入过时产品，Linux中国官网关闭，索尼新掌机可运行PS5游戏，问界M8商标遭抢注，这就是今天的其他大新闻！",
-          "imageUrl": null
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654594883&idx=1&sn=c279b6f64e8b721350c603e91b1bc20c&subscene=0",
-          "author": null,
-          "description": "除尘很重要",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654594883&idx=1&sn=c279b6f64e8b721350c603e91b1bc20c&subscene=0",
-          "publishedOn": "2025-04-15T16:02:00.000Z",
-          "wordCount": 264,
-          "title": "北方大风带来的沙尘吹到了海南，我才发现有这么个世界性难题。",
-          "imageUrl": null
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654594883&idx=2&sn=ea351e94f14d471fbe0df460c3f46e6f&subscene=0",
-          "author": null,
-          "description": "极氪就是好开。",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654594883&idx=2&sn=ea351e94f14d471fbe0df460c3f46e6f&subscene=0",
-          "publishedOn": "2025-04-15T16:02:00.000Z",
-          "wordCount": 264,
-          "title": "19.99万的007GT，极氪今晚诚意到位了。",
-          "imageUrl": null
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654594883&idx=3&sn=2edbafcf161126009967be2ba8224a41&subscene=0",
-          "author": null,
-          "description": "太强啦。",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654594883&idx=3&sn=2edbafcf161126009967be2ba8224a41&subscene=0",
-          "publishedOn": "2025-04-15T16:02:00.000Z",
-          "wordCount": 264,
-          "title": "快手的可灵又更新了，这次搓出来的视频真有点东西。",
-          "imageUrl": null
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654594883&idx=4&sn=f88ba81ccb96801bc115e21df799d72f&subscene=0",
-          "author": null,
-          "description": "这合理吗？这很合理。",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654594883&idx=4&sn=f88ba81ccb96801bc115e21df799d72f&subscene=0",
-          "publishedOn": "2025-04-15T16:02:00.000Z",
-          "wordCount": 264,
-          "title": "今日最佳：什么时候看到这种梗可以不笑？",
-          "imageUrl": null
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654594883&idx=5&sn=7f498936f17b6c39ac13c1f98363b1c4&subscene=0",
-          "author": null,
-          "description": "聊一聊",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654594883&idx=5&sn=7f498936f17b6c39ac13c1f98363b1c4&subscene=0",
-          "publishedOn": "2025-04-15T16:02:00.000Z",
-          "wordCount": 264,
-          "title": "聊一聊：你当初为啥选了现在开的这辆车？",
-          "imageUrl": null
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654594883&idx=6&sn=5dbe8559722fa43847f07eec7336d03c&subscene=0",
-          "author": null,
-          "description": "今天是4月15日，农历三月十八。",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654594883&idx=6&sn=5dbe8559722fa43847f07eec7336d03c&subscene=0",
-          "publishedOn": "2025-04-15T16:02:00.000Z",
-          "wordCount": 264,
-          "title": "电车电池新国标热扩散测试要求不起火，京东外卖利润率不超5%，王化回应小米芯片平台部成立，智谱启动IPO，这就是今天的其他大新闻！",
           "imageUrl": null
         }
       ]
@@ -10014,6 +9894,36 @@
       "feedUrl": "https://morss.it/:proxy/https://chinadigitaltimes.net/chinese/feed",
       "siteUrl": "https://chinadigitaltimes.net/chinese",
       "articles": [
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=717898",
+          "author": "unknown",
+          "description": "取消外卖骑手超时罚款已经是大势所趋。但这种变化将会如何影响骑手行为和消费者体验，如需要深入分析。",
+          "link": "https://chinadigitaltimes.net/chinese/717898.html",
+          "publishedOn": "2025-05-05T02:16:07.000Z",
+          "wordCount": 13141,
+          "title": "风声Opinion｜超时不再罚款，外卖时间会不会受影响？",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/04/IMG_2931.png"
+        },
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=717899",
+          "author": "unknown",
+          "description": "旅游的真谛，就是要发挥主动性，去自己想去、觉得有趣的地方，而不是被动地跟在别人屁股后面，去一大堆自己可能并不想去的热门景点。",
+          "link": "https://chinadigitaltimes.net/chinese/717899.html",
+          "publishedOn": "2025-05-05T02:13:29.000Z",
+          "wordCount": 13239,
+          "title": "刘夙的科技世界｜这路遥马急的京城",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/05/1a62.jpeg"
+        },
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=717897",
+          "author": "unknown",
+          "description": "中国人民早已习惯了艰苦的生活，并且拥护政府的政策。如果政府说他们需要吃苦，他们就会吃苦。而美国很快就会开始抱怨，因为他们无法从亚马逊买到便宜的东西。",
+          "link": "https://chinadigitaltimes.net/chinese/717897.html",
+          "publishedOn": "2025-05-05T02:10:44.000Z",
+          "wordCount": 13254,
+          "title": "【404文库】中国日报｜“中国人不怕，中国人能吃苦！”",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/05/54.jpeg"
+        },
         {
           "id": "https://chinadigitaltimes.net/chinese/?p=717889",
           "author": "不忘初心",
@@ -13453,6 +13363,26 @@
       "feedUrl": "https://feedx.site/rss/infzm.xml",
       "siteUrl": "http://infzm.com",
       "articles": [
+        {
+          "id": "http://www.infzm.com/contents/293015",
+          "author": null,
+          "description": "2025-05-05 10:00:00\n2025年4月27日，“学生向教育局举报饭菜有蛆被骂”话题登上热搜。四川广元苍溪县教育局当天发布情况通报称，该局值班人员范某某接听值班电话时，在规劝沟通过程中存在言语失范的情形，范某某已被停职检查，并进一步接受教育。关于“学校食堂饭菜有蛆”问题，通报称通过实地检查和走访就餐学生、陪餐教师、陪餐家长代表，未发现该校食堂饭菜存在异物异味现象，未接到其他师生反映类似问题。\n据媒体此前报道，四川广元苍溪县一学生打电话到教育局，举报学校晚自习时间安排不合理、食堂饭菜吃出蛆等问题。教育局工作人员答道：“你这个年龄不读书干啥子，我代表你老爸老妈来骂你。”\n事件引起舆论关注后，当地教育局的回应很迅速，对值班人员做出了停职检查处理，并否认学校存在学生举报的问题。但是，通报中的“规劝沟通”，暴露出教育部门值班人员的职责存在定位不清问题。这恰恰是当前教育管理中值得关注的问题：本该履行教育监管责任的教育部门与被监管的对象——学校成为“利益共同体”。要有效回应学生、家长的举报，规范学校办学，保护学生合法权利，必须推进教育放管服改革，促使教育部门在落实和扩大学校自主权的同时，切实履行依法管理的责任。\n教育部门值班人员怼举报者，已经不是第一次发生了。2025年2月，一名自称学生家属的男子向安徽省教育厅举报滁州市定远中学提前开学补课，违反规定。教育厅工作人员接举报电话时回怼举报者：“（学校）违反规定，你不遵守（学校提前开学补课的）规定就行了。（学校）提前开学，你不去就完了，这有什么好举报的？”安徽省教育厅对此发布情况通报回应称，经初步核查，情况属实。已依规暂停涉事值班当事人工作，并将依规依纪严肃问责。\n学生、家长向教育部门投诉学校存在的问题，教育部门值班人员的职责是什么？是对投诉人进行规劝，规劝不通就开怼吗？显然不是，是准确记录下学生的投诉信息，随后组成调查组，对举报反映的问题，进行调查，根据调查情况做出回应、处理。\n对于学生、家长的投诉，值班人员规劝学生要好好学习，不要投诉这投诉那，这就把屁股坐歪了，完全站在了学校一方。那么，还设置值班人员负责接投诉电话干什么呢？是为了解决问题，还是由值班人员来解决反映问题的学生？据报道，之前，还有教育部门值班人员把投诉学生的信息，反馈给被举报的学校，由学校找学生谈话。\n为何教育局值班人员，不是认真对待投诉，而是反过来规劝举报者？这是因为当前教育主管部门和学校，在某种程度上说，是“利益共同体”。比如，对于学校违规补课，有的地方教育主管部门“睁只眼闭只眼”，甚至对补课加以掩饰，原因在于地方政府教育主管部门把升学率作为重要的教育政绩，于是对学校为提高升学率违规补课，加以纵容。这些地方教育部门，能认真对待学生的补课举报吗？\n再比如，我国一些地方为治理校园餐的质量与卫生问题，在校长陪餐制度基础上，还推出了局长陪餐制，但都没有彻底遏制校园餐问题。原因也是因为校长，甚至教育局负责人，都是校园餐问题的利益与荣誉共同体。如果某校校园餐被查出问题，不但会影响校长的职务，还影响当地教育的形象，所以，对于学生、家长举报的校园餐问题，往往会淡化处理。教育部门如果严肃调查，结果可能是“搬起石头砸自己的脚”。\n这就不难理解教育部门值班人员对相关举报的态度了，他们会认为这是举报者找事，而不是从规范办学、解决问题出发，严肃对待举报者反映的问题。教育部门值班人员“怼”举报者的事一再发生，不能只处理值班人员，而需要明确界定教育部门、学校的权责，深化教育领域的放管服改革。\n教育行政主管部门当然有办好学校的责任，但是，主管部门和学校的职责是不同的。对于教育行政主管部门来说，一方面，要保障对学校的投入，另一方面，则要依法监管学校依法自主办学。对于学校的违规行为，行政主管部门有责任进行调查、处理，而不是采取“老子调查儿子、问责儿子”的方式对待学校的违规办学。\n近年来，基础教育领域存在违法违规、违背教育规律和教育功利化短视化行为，根源也在于教育部门没有尽到依法治教的管理责任，导致部分学校安全底线失守、日常管理失序、师德师风失范。而要让教育部门切实履职，就需要从根本上扭转当前的教育政绩观，推进教育实行管办评分离的现代治理。\n\n• （本文仅为作者个人观点，不代表本报立场）\n\n获取更多RSS：\nhttps://feedx.net \nhttps://feedx.site",
+          "link": "http://www.infzm.com/contents/293015",
+          "publishedOn": "2025-05-05T02:25:04.000Z",
+          "wordCount": 89,
+          "title": "学生举报学校被教育局值班人员怼：谨防监管者与被监管者成为“利益共同体”",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/293012",
+          "author": null,
+          "description": "2025-05-05 09:14:13\n5月4日16时40分许，贵州毕节黔西市新仁乡乌江百里画廊景区六广河水域遭遇突发大风发生游船倾覆事故。根据目前排查核实情况，此次事故造成4艘船倾覆、84人落水。已救出和找到83人，其中医治无效死亡9人，70人尚在医院救治（无生命危险），4人安全未受伤。目前，仍有1人失联。经核查，涉事运营船舶系贵阳清镇市新店镇东湖农用客运有限公司所有，两艘船均核载40人，未超载。",
+          "link": "http://www.infzm.com/contents/293012",
+          "publishedOn": "2025-05-05T01:55:05.000Z",
+          "wordCount": 66,
+          "title": "贵州黔西市游船倾覆事故致9人死亡1人失联",
+          "imageUrl": null
+        },
         {
           "id": "http://www.infzm.com/contents/292956",
           "author": null,
@@ -17341,26 +17271,6 @@
           "publishedOn": "2025-04-16T00:25:05.000Z",
           "wordCount": 85,
           "title": "从买家电到买机器狗——第137届广交会开门迎客，AI科技成果引关注",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/291775",
-          "author": null,
-          "description": "2025-04-15 23:36:47\n河北三河市“禁用红蓝黑招牌”事件有了新的进展。廊坊市人民政府网站2025年4月15日发布通报称，廊坊市联合调查组经初步核查，媒体反映的主要问题基本属实，目前已对三河市委主要负责人免职处理，并责成三河市委、市政府深刻反思，汲取教训，全面整改。\n此前媒体报道，三河市主要街道沿街店铺的招牌被迫改色，甚至人民公园的牌子、医院红十字标志都被改成绿色。三河市相关方面则在长达一周的时间里没有任何回应，令人费解也引起舆论哗然。当然，虽然其上级廊坊市最终发布通报，公布了初步核查结果和处理情况，但此事仍有一些问题留待澄清。\n首先是如何补偿商户损失的问题。《中华人民共和国国家赔偿法》规定，行政机关及其工作人员在行使行政职权时，有造成财产损害的违法行为的，受害人有取得国家赔偿的权利。此次事件中，三河市有关部门要求商户更改招牌颜色于法无据，属于违法行政，而商户更改颜色再改回，蒙受了财产损失，有权索赔。\n这些损失到底应该由谁来赔呢？面对媒体这个问题，三河市政府办公室工作人员的回答是“谁让你改的，你去问谁”。而具体执行让商户改色的三河市城管局则表示，如何赔偿“不清楚”。\n显然，“不清楚”不应该是问题的答案。国家赔偿法规定，违法行政侵犯公民、法人和其他组织的合法权益造成损害的，赔偿义务机关是该行政机关。多个行政机关共同行使职权造成损害的，各个行政机关是共同赔偿义务机关。\n根据媒体报道，要求商户改招牌的，一开始是城管局，后来市场监管局也介入了。事实若果真如此，那三河市城管局、市监局都应该负责对商户的损失进行赔偿。\n但是，政府财政也不应该为个别官员任性用权而带来的损失埋单。国家赔偿法又规定，赔偿义务机关赔偿损失后，应当责令有故意或者重大过失的工作人员或者受委托的组织或者个人承担部分或者全部赔偿费用。城管局赔偿商户损失后，应该让在这一荒唐政策制定、执行过程中有过错的人尤其是“主要负责人”承担赔偿费用。\n这就涉及下一个问题，也是网友仍然关心的问题：被免职的市委主要负责人是谁？究竟是哪一位公职人员或者哪一群人做出了这样的决策。根据《南方都市报》4月15日报道，三河市委书记付顺义是该市委主要负责人，他此前在担任固安县县委书记期间，就曾有过类似要求，出台了《固安县户外广告和牌匾标识的规范》，对商户店招的颜色下了“色浅、淡雅、明快、协调”这样非常具体的“指导棋”。\n至于这位主要负责人要求商铺招牌禁用红蓝黑的真实动机究竟是什么，还有待更多真相被发掘。三河市某局负责人曾表示，红色太亢奋、蓝色太俗，所以要改。招牌有红色蓝色就不够高档，这恐怕违反基本的美学常识。\n从设计学、美学而言，天下从来都没有主政官员比专业人士更懂颜色搭配的道理，“禁色令”的真实动机实在值得关注，也值得玩味。根据色彩美学原理，每一种颜色都有其适合的使用场景，颜色搭配更是一门专业学问，长期以来都是设计人员发挥创意、凸显调性的领域。红色表现的热情、向上更是设计人员喜欢的颜色。\n除了已被免职的三河市委主要负责人，其他官员在这一政策的决策、执行过程中，是什么角色，该承担什么责任？公众期待，这个问题也应该调查清楚，锅不能只让“市委主要负责人”背。廊坊市的通报称，下一步将根据调查结果，对相关责任人依规依纪依法追责问责。下一步的调查和问责结果，应让公众满意。\n“三河市委主要负责人免职”不应该是此次“禁色令”事件的终点，而应是深入调查、公布事件真相的起点。究竟哪些人应当为此负责，又究竟有多少被侵害的主体需要补偿，而下“禁色令”的真实动机又是什么，这是联合调查组需要尽快查明并公布的问题，如此方能有效救济受害者，还他们一个公道，刹住这类滥权卸责的“乱作为”之风，改善营商环境的同时也保障公共利益不受侵害。同时，这次三河市委主要负责人被免职也是一个大大的警示，那些时不时还想着瞎折腾胡折腾的地方官员，要对照对照了。\n\n\n获取更多RSS：\nhttps://feedx.net \nhttps://feedx.site",
-          "link": "http://www.infzm.com/contents/291775",
-          "publishedOn": "2025-04-15T15:55:06.000Z",
-          "wordCount": 91,
-          "title": "三河禁用红蓝黑招牌事件：“市委主要负责人免职”不该是终点",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/291745",
-          "author": null,
-          "description": "2025-04-15 22:02:14\n闷热的停车场，正在排队等待出场的车辆里，人们开始躁动不安。\n我们被困在出口处的闸机面前，等待因为误触到了“确认支付”的按钮，而出现的又一轮“3秒后跳出”。\n“到底是什么样的产品负责人，会同意在支付页面，让理财产品的确认按钮比停车缴费按钮更大？”坐在后排的儿子，明显比我更厌烦被人催促。\n停车场实行扫码支付本来是便民行为，但一些支付页面好像并不想收你这五块、十块的停车费，而是一元理财、九块九保险。它们像超市收银处的大促广告，人们明明只是来买一瓶水，却希望你会被这巨大的广告牌迷惑一下。\n3秒的等待并不长，但停车场里的信号十分糟糕，预估跳转回真正的支付界面还要些时间。\n我深吸一口气，转头看向左边闸机前的车，是一辆黑色SUV，车面锃亮，看得出车主是一位体面人。\n车内传出低龄段孩子的哭闹声，驾驶员是一位头发半白、戴金丝边眼镜的大爷，他把眼镜推到额头，正眯着眼寻找支付按钮。\n“乖孙孙，不哭不哭，爷爷正在付停车费呢。”大爷的脸被手机的光线映照得油光发亮，岁月的沟壑起起伏伏，却并没有遮掩住对小孙女的爱。他的食指在屏幕上焦急地滑动，像在玩一局被卡住的消消乐。\n孩子的哭闹声，与催促的喇叭声混在一起，形成一股看不见的压力扎堆挤在他的身旁。\n“别哭了！吵死了！这是什么复杂页面，总让我点确认、确认，确认出来又是理财又是保险的，怎么付停车费！”在令人晕头转向的支付页面里，大爷终于忍不住大怒起来，额前的眼镜差点掉下来。\n我看到他的手机突然黑屏，应该是低电量自动关机了。那一刻他整个人僵住，随后左手扶着额头，满脸疲惫。\n儿子在后座玩着平板，轻笑一声，说：“看吧，再体面的老人，也会被这事整失态。”\n这时，大爷打开车门下了车，对着后面按喇叭的车大喊：“催得好！要不你来帮我们付？”\n后车驾驶员是一位二十出头的小伙，他或许还无法理解，这样的界面暴力，会令一位已迈入花甲之年的人，产生多大的自我怀疑。\n儿子靠过车窗边对着后车说：“别催了，老人家手机没电了，您跟着我们这一列吧。”\n大爷向我们投来感谢的目光，车里的小孩也摇下车窗看向儿子。尽管我们其实并没有提供任何实质性的帮助，却好像成了他们在这个瞬间的英雄。\n几经周折，终于缴费成功，儿子夸我是脾气好的母亲，我夸他是正直友善的少年。两人互相表扬，一同等待着这场电子支付闹剧快点儿结束。\n栏杆抬起的那一刻，我清晰地看到底部印着一行小字：别急，生活需要缓冲。瞬间大笑起来，这般场景下的人生哲理，还真是讽刺拉满。\n刚过闸，后车迫不及待地冲上前，随即便伸出一只手扫二维码，车里传出一声怒骂：“叫你提前扫你不听！”\n我下意识地看向后视镜，大爷已经连接上了充电线，正在重新扫码，他的小孙女没有再哭了，安静地啃着饼干。不知为何，大爷扫码的“嘀”声特别响亮，仿佛在立誓：这次一定会成功！\n虽然电子支付的结果，与十年前的现金支付并无不同，但人类付出的“注意力税”，早已翻了几番。\n我突然想起成长中曾相似的瞬间，明明成功近在眼前，却无法对贸然出现的选项，做出准确的区分，然后就慌了，开始不自觉地焦虑：我是不是还可以再想想？我是不是做得不够好……\n心力集中，杂念不起。谁能想到，人生修为在停车场的支付闹剧里，得到了升华。\n我们顺利驶向路面，春天的阳光铺在挡风玻璃上，晃得我眯起眼。路边卖水果的阿姨在打盹儿，几名中学生举着手机在三角梅下拍照，花瓣落在她们的脚边，温柔又安静。\n轻柔的春风涌进车里，手机响起一声提示——是延时的缴费成功通知。我深吸一口气，五块钱带来的焦虑总算完结了，这或许就是现代生活的修行费吧。\n儿子关上了他那侧的车窗，头倚靠在一旁，享受着这一刻的轻松。我想，栏杆上的那行“别急，生活需要缓冲”，或许出现在这里才更合适。\n（作者为广西居民）\n\n• （南方周末App“hi，南周”栏目期待您的来稿。投稿邮箱：nfzmreaders@163.com）",
-          "link": "http://www.infzm.com/contents/291745",
-          "publishedOn": "2025-04-15T14:25:06.000Z",
-          "wordCount": 92,
-          "title": "停车场支付闹剧：“生活需要缓冲”，我的修为也得以升华",
           "imageUrl": null
         }
       ]
