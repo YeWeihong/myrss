@@ -2224,51 +2224,6 @@
             "length": "0"
           },
           "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/0b759a1d-82f0-4a76-453f-bc407fb33b00/cover"
-        },
-        {
-          "id": "ecbed3",
-          "author": "AI好好用",
-          "description": "📌 一句话摘要\n            \nOpenAI 发布 o3 和 o4-mini，Agent 能力显著提升，通过自主工具调用和视觉推理，在多任务处理中展现卓越性能，引领大模型走向实用化。\n📝 详细摘要\n            \n文章介绍了 OpenAI 最新发布的 o3 和 o4-mini 模型，强调了它们是具备卓越 Agent 能力的模型，能够自主调用联网搜索、代码解释器等工具，以及增强的视觉思维能力，在解决复杂任务时的出色表现。o3 作为旗舰版模型，性能全面；o4-mini 则以更小的体积和更优的价格，在数学和编程任务上表现强劲。文章通过多个案例，展示了 o3 通过 Agent 能力，像人类侦探一样进行视觉推理，在图像识别、地理位置猜测、迷宫求解和事故分析等方面的应用，以及其强大的推理能力。同时，文章也指出了 o3 存在的一些问题，如视觉推理能力触发概率不稳定和幻觉问题。文章预测大模型将更注重工具的使用和现实问题的解决，Agent 能力将成为核心竞争力，但仍需用户理性使用。\n💡 主要观点\n            \no3 和 o4-mini 通过自主调用工具实现任务闭环处理\n                         模型能够自主使用联网搜索、代码解释器等工具，无需人工干预，即可完成复杂任务，提高了问题解决的效率和质量。\n                    \n\n                        Agent 能力使 o3 在图像识别和推理方面表现出色\n                         o3 不仅能识别图像中的物体，还能像侦探一样从图像中分析、推理和挖掘信息，应用于地理位置猜测和事故分析等场景。\n                    \n\n                        大模型发展趋势转向更务实的应用\n                         未来的大模型将更注重利用强化学习教会模型使用工具，解决现实问题，而不仅仅是追求模型参数的增加和知识的积累。\n                    \n💬 文章金句\n            \n这已经不是图像识别精度的问题，而是能基于视觉线索展开因果、社会文化背景等多维推理 ，像探员一样，从一帧图里挖出更多信息。这也是「模型即 Agent」的价值所在\n大模型正在变得强大，不是因为「懂得多」、「知道一切」，而是因为「能连续、递进地使用多个工具」去搞定更复杂的问题。\no3 启动了，可以清楚看到它先看什么、怎么看、看到了什么、想到了什么。\no3 就像精简版 Deep Research\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：机器之心\n作者：AI好好用\n分类：人工智能\n语言：中文\n阅读时间：11 分钟\n字数：2602\n标签：\n                    \n                        大语言模型, OpenAI, GPT-o3, GPT-o4-mini, Agent模型",
-          "link": "https://www.bestblogs.dev/zh/article/ecbed3",
-          "publishedOn": "2025-04-18T12:40:00.000Z",
-          "wordCount": 317,
-          "title": "满血版 o3 探案神技出圈，OpenAI 疯狂暗示：大模型不修仙，要卷搬砖了！",
-          "enclosure": {
-            "url": "https://image.jiqizhixin.com/uploads/article/cover_image/8ec92d8c-1e37-4c9f-9d3f-18aa1e5f0f2d/%E6%8D%95%E8%8E%B7.PNG",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://image.jiqizhixin.com/uploads/article/cover_image/8ec92d8c-1e37-4c9f-9d3f-18aa1e5f0f2d/%E6%8D%95%E8%8E%B7.PNG"
-        },
-        {
-          "id": "2c8eed",
-          "author": "腾讯程序员",
-          "description": "📌 一句话摘要\n            \n本文深入讲解了 Linux 五种 IO 模型，重点对比分析了 select、poll、epoll 三种多路复用技术的原理、区别和 epoll 的性能优势。\n📝 详细摘要\n            \n文章详细介绍了 Linux 系统中的五种 I/O 模型，包括阻塞 I/O、非阻塞 I/O、信号驱动 I/O、异步 I/O 以及 I/O 多路复用。重点对比分析了 select、poll 和 epoll 三种 I/O 多路复用技术的原理和区别。select 通过轮询 fd 集合判断就绪状态，存在拷贝开销大和监听端口数量限制（最大 1024 个文件描述符）等问题；poll 使用 pollfd 结构解决了 select 的连接数限制，但仍存在整体复制开销和遍历开销；epoll 使用红黑树和事件回调机制，避免了轮询和频繁拷贝，在高并发场景下性能更优。文章还介绍了 epoll 的边缘触发和水平触发模式，并提供了 epoll 的使用示例代码。总结指出，虽然 select、poll 和 epoll 都是同步 I/O，但 epoll 通过事件驱动和避免数据拷贝等优化，显著提升了 I/O 多路复用的性能。\n💡 主要观点\n            \nselect、poll 本质是同步 I/O，读写过程阻塞\n                         select 和 poll 需要在事件就绪后，由进程 / 线程负责实际的读写操作，且读写过程是阻塞的，与异步 I/O 有本质区别。\n                    \n\n                        epoll 通过事件驱动和就绪队列提升性能\n                         epoll 使用红黑树管理文件描述符，通过事件回调机制将就绪的文件描述符加入就绪队列，避免了轮询和频繁的数据拷贝，从而在高并发场景下性能更优。\n                    \n\n                        边缘触发模式需保证一次性读写完所有数据\n                         边缘触发模式仅在文件描述符状态发生变化时通知，因此需要一次性读取或写入所有数据，否则可能导致数据丢失或无法及时处理。\n                    \n\n                        I/O 多路复用技术通过减少系统开销提高并发处理能力\n                         I/O 多路复用技术避免了为每个连接创建单独的进程/线程，从而大大减小了系统的开销，提高了并发处理能力。\n                    \n💬 文章金句\n            \nI/O 多路复用技术的最大优势是系统开销小，系统不必创建进程 / 线程，也不必维护这些进程 / 线程，从而大大减小了系统的开销。\n但 select，poll，epoll 本质上都是同步 I/O，因为他们都需要在读写事件就绪后自己负责进行读写，也就是说这个读写过程是阻塞的，而异步 I/O 则无需自己负责进行读写，异步 I/O 的实现会负责把数据从内核拷贝到用户空间。\nepoll 使用红黑树管理文件描述符，红黑树插入和删除的都是时间复杂度 O(logN)，不会随着文件描述符数量增加而改变。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：腾讯技术工程\n作者：腾讯程序员\n分类：软件编程\n语言：中文\n阅读时间：42 分钟\n字数：10460\n标签：\n                    \n                        IO模型, 多路复用, IO多路复用原理, select, poll",
-          "link": "https://www.bestblogs.dev/zh/article/2c8eed",
-          "publishedOn": "2025-04-18T09:32:00.000Z",
-          "wordCount": 326,
-          "title": "Linux 五种 IO 模型和三种多路复用技术大详解",
-          "enclosure": {
-            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/93e00b16-d700-4cb9-f1ae-bda9c1a79300/cover",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/93e00b16-d700-4cb9-f1ae-bda9c1a79300/cover"
-        },
-        {
-          "id": "2dac13",
-          "author": "Henry Farrell等",
-          "description": "📌 一句话摘要\n            \n文章从社会文化视角分析大模型，认为其是重塑社会文化生态的文化社会技术，类似于印刷术，而非自主智能主体。\n📝 详细摘要\n            \n该文章深入探讨了大模型的本质，提出了一个新颖的观点：大模型不是自主智能主体，而是一种类似于语言、印刷术和市场制度的文化社会技术。文章指出，大模型以独特的方式汇聚并重构人类信息，成为“人类社会人工系统”的新变体。文章通过历史视角，将大模型与过去的文化社会技术进行对比，分析了大模型可能带来的影响，包括资源分配、文化多样性、科学进步和权力结构的重构。同时，文章也探讨了大模型可能带来的挑战，如同质化、信息偏差以及对经济关系的影响。最后，文章呼吁将人工智能的讨论焦点从主体转向文化和社会技术，并强调社会科学与计算机科学的结合，以更好地理解和应对大模型带来的机遇与挑战。文章还提到，大模型有望加速科研发现，为科学进步带来新的可能。\n💡 主要观点\n            \n大模型是文化社会技术，而非自主智能主体。\n                         大模型类似于印刷术，能够汇聚和重构人类信息，但缺乏自主意识和真伪判断能力，不能被视为智能主体。\n                    \n\n                        大模型可能导致文化趋同或分裂。\n                         大模型在训练数据中最一般的情形下倾向于表现得最为准确，可能加剧文化同质化，但也可能通过整合多样化视角来解决复杂问题。\n                    \n\n                        大模型重塑政治经济结构，影响资源分配。\n                         大模型可能使某些类型的知识更容易获取和处理，从而促使政策制定者关注那些可以衡量和观察到的新事物，而忽视那些不那么明显、较为混乱的部分，导致权力和影响力向特定人群倾斜。\n                    \n💬 文章金句\n            \n大模型不应主要被视为智能主体，而应被看作是一种全新的文化和社会技术，使人们能够从其他人长期积累的信息中获益。\n大模型是其训练数据语料库的'有损 JPEG'。\n人工智能削弱了被其使用者以及数据提供者的地位，同时强化了人工智能专家和政策制定者的地位。\n将人工智能辩论的焦点从主体转向文化和社会技术，是构建这种跨学科理解的重要第一步。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：腾讯研究院\n作者：Henry Farrell等\n分类：商业科技\n语言：中文\n阅读时间：31 分钟\n字数：7684\n标签：\n                    \n                        大语言模型, 文化社会技术, 社会科学, 信息传播, 社会影响",
-          "link": "https://www.bestblogs.dev/zh/article/2dac13",
-          "publishedOn": "2025-04-18T08:54:42.000Z",
-          "wordCount": 291,
-          "title": "大模型是我们时代的印刷术吗？",
-          "enclosure": {
-            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/ff4bae40-6017-4745-ba14-e14680925600/cover",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/ff4bae40-6017-4745-ba14-e14680925600/cover"
         }
       ]
     },
@@ -2484,6 +2439,16 @@
       "feedUrl": "https://rsshub.rssforever.com/tencent/news/author/5505476",
       "siteUrl": "https://new.qq.com/omn/author/5505476",
       "articles": [
+        {
+          "id": "https://view.inews.qq.com/a/20250508A0258Y00",
+          "author": "谷雨实验室",
+          "description": "我在湄索遇到的每一个人，在得知我是中国人后，几乎都会用并不熟练却异常清晰的普通话吐出他们知道的唯一一个中文词语 ——“诈骗”。\n\n湄索，这个与缅甸妙瓦底仅一河之隔的泰国边境城市，所有缅东电信诈骗从业者的必经之地，因为商业片《孤注一掷》和演员王星被人口贩卖到妙瓦底诈骗园区，两次成为中文互联网最风口浪尖的话题。\n\n今年2月下旬，中泰缅三国在泰缅边境开展联合行动，是缅东诈骗产业自2023年底以来的力度最强的一次清扫。湄索正经历由此引发的一连串连锁反应，成为供我们一窥电诈生态变化的窗口。\n\n3月初，在王星事件的两个月后，我和朋友为记录边境缅甸难民学童的故事来到湄索，机缘巧合之下，见到并对话了刚刚逃回的人口贩运受害者、疑似电诈园区管理层、为园区和缅甸民族武装供货的边境商人、解救受害者的在地组织，和很多在这里生活的际遇行业各不相同的普通人。\n\n我们的所见所闻只是冰山一角，但或许也可以拼凑出一幅粗糙的图景——泰缅边境的电诈产业面临的又一轮清剿、压制，和在这一过程中，园区的预备、博弈、转型、甚至转移。以及这一切对湄索意味着什么。\n\n\n\n\n\n\n作者 | 赵睿思 王佳薇\n编辑 | 郝库\n出品 | 腾讯新闻 谷雨工作室\n\n\n\n\n   \n\n消失的中国人\n\n3月7日，我从曼谷出发，乘坐每天一班的飞机前往湄索，航程只需50分钟，和飞清迈差不多，价格却是后者的四五倍。这一架次的飞机由于常年坐满了在湄索中转，要前往妙瓦底的人，被当地人戏称为“电诈专机”。\n\n正值王星事件引发的“东南亚恐慌”和新一轮的电诈清扫，这架客载量180人上下的小型客机如今仅售出了不到五分之一的座位，加上我也只有三四个中国人。\n\n湄索机场的到达大厅有一家叫“YATAI INTERNATIONAL”的茶叶店，据正面连接报道，它曾是泰缅边境最大的电诈园区“亚太城”开的，专门用来接待从曼谷飞来的电诈公司老板们，供其喝茶歇脚，如今陈设、商品已…",
+          "link": "https://view.inews.qq.com/a/20250508A0258Y00",
+          "publishedOn": "2025-05-08T01:05:33.000Z",
+          "wordCount": 10465,
+          "title": "打击缅甸电诈后，湄索还藏着多少惊人秘密",
+          "imageUrl": "https://inews.gtimg.com/news_ls/OgOHZIHq6pDcvYqnNP0dm7D1Mtde0ZO5oVhkuVErR59XoAA_640330/0"
+        },
         {
           "id": "https://view.inews.qq.com/a/20250428A021SM00",
           "author": "谷雨实验室",
@@ -3043,6 +3008,16 @@
       "siteUrl": "https://new.qq.com/omn/author/8QMX33xf5YUevTY%3D",
       "articles": [
         {
+          "id": "https://view.inews.qq.com/a/20250507A09BN900",
+          "author": "深网",
+          "description": "图源：视觉中国\n文丨胡世鑫 \n编辑丨叶锦言\n出品丨深网·腾讯新闻小满工作室\n北京时间5月6日，OpenAI宣布，公司将继续由非营利组织控制，现有营利性实体将转变为一家公共利益公司，而非营利组织将控制该公共利益公司，并成为其重要持股方。\n而就在前几日，OpenAI CEO萨姆·奥特曼（Sam Altman）在社交平台X上发布了一张与微软CEO萨提亚·纳德拉（Satya Nadella）的合照，并配文称他们正在讨论一些最新进展。评论区中，纳德拉回复道：“今天很高兴见到你，我很喜欢新办公室。”\n   图源：奥特曼的X\n回溯过去六年，微软投资了OpenAI这家公司超130亿美金；而微软则因为与OpenAI的深度绑定，被视为一家有想象力的老牌科技公司，甚至一度登顶全球市值之最。\n奥特曼曾称，OpenAI与微软是“科技界最强的合作关系”。在双方关系最亲密的时期，纳德拉每天会给奥特曼发五到六条短信，而奥特曼也都会一一回复。\n不过，据外媒4月29日报道，这段“硅谷联姻”如今陷入了困境。熟悉双方关系的人士透露，两位CEO在微软提供给OpenAI的算力、OpenAI给予微软使用其模型的权限，以及OpenAI是否很快能开发出通用人工智能（AGI）等问题上，矛盾日益加剧。\n与此同时，纳德拉将提升ChatGPT的竞争对手——微软自研的AI大模型Copilot的销量和使用度列为重点，并于去年聘请了一位AI大牛，秘密启动了新模型的研发。\n据外媒报道，现如今，奥特曼和纳德拉之间的短信交流也减少了，他们更多是通过已安排好的每周电话会议沟通。\n微软正降低对OpenAI的依赖风险\n奥特曼和纳德拉的合作始于2018年的夏天，当时双方在一场年度会议的楼梯间相遇。据奥特曼透露，他仅用了5分钟时间，便向纳德拉介绍了OpenAI的筹资计划。\n一年后，微软向OpenAI投资了10亿美金。这笔投资也使微软获得了OpenAI技…",
+          "link": "https://view.inews.qq.com/a/20250507A09BN900",
+          "publishedOn": "2025-05-08T00:00:00.000Z",
+          "wordCount": 721,
+          "title": "微软130亿美金投资OpenAI恐打水漂，AI巨头缘何渐行渐远",
+          "imageUrl": "https://inews.gtimg.com/news_ls/OBXxLztMaLaXk6dHeo1hbWhzRp5nnB5aYVpmkNL_1sqgkAA_640330/0"
+        },
+        {
           "id": "https://view.inews.qq.com/a/20250507A05Y7N00",
           "author": "深网",
           "description": "图源：视觉中国\n\n文丨雅萱  \n编辑丨叶锦言\n出品丨深网·腾讯新闻小满工作室\n\n2025年被视为AI智能体（Agent）的元年。作为可以根据环境参数进行合理决策并执行任务的智能体，AI Agent是通往AGI时代的重要钥匙。\n5月7日，联想集团在2025联想创新科技大会（Tech World）上发布三大智能体：面向个人用户的个人超级智能体“天禧”；面向企业的超级智能体“乐享”及定位社会层面的“全局统筹+专业执行”智能中枢城市超级智能体。\n目前，国内外科技巨头对AI Agent有不同的定义，甚至把AI Agent分成不同的等级。比如OpenAI把智能体分为Chatbots（对话机器人）——Reasoners（推理模型）——Agents（智能体）——Innovators（创新者）——Organizations（组织者）这5个等级。\n“与初代智能体相比，超级智能体需要在数据安全和隐私保护的基础上具备感知与交互、认知与决策、自主与演进这三大核心功能，超级智能体已经不再只是一个工具，而是个人和企业的‘认知操作系统。”联想集团董事长兼CEO杨元庆在现场首次阐述“超级智能体”的三大核心功能特征。\n感知与交互是超级智能体的第一层能力。通过文本、语音、手势、眼动追踪等多模态协同，智能体可实时捕捉用户状态与环境信息，跨终端实现对用户意图的精准解读和响应。\n认知与决策能力则能够调用跨设备、跨生态的本地的个人和企业知识库，通过知识积累、经验反思、实时学习和高效反馈，建立并维持端边云一体的可追溯、可关联的长期记忆，从而挖掘事件和情景背后的逻辑关系，准确理解复杂意图，并能举一反三，把一个场景中的学习结果迁移到其他场景中。\n自主与演进是超级智能体的终极目标。它可以结合用户意图和先验知识，将复杂任务分解为子任务，并派发给相应的领域智能体，然后自主编排执行顺序，规划执行步骤，基于智能体互联协议调用跨生态工具…",
@@ -3161,16 +3136,6 @@
           "wordCount": 435,
           "title": "刘强东亲自督战外卖业务：京东“免单+双职工”组合拳能否撼动美团",
           "imageUrl": "https://inews.gtimg.com/news_ls/Oto5_ioCHwpwhwBmKN_CxkpeMbt8CHo4JSqXDaj0o0hWMAA_640330/0"
-        },
-        {
-          "id": "https://view.inews.qq.com/a/20250418A06XZM00",
-          "author": "深网",
-          "description": "图源：视觉中国\n文丨饶富英 \n编辑丨叶蓁\n出品丨深网·腾讯新闻小满工作室\n4月18日，2025天使投资大会在上海举办。在大会上，嘉道私人资本董事长、海康威视天使投资人龚虹嘉在巅峰对话环节就国内目前的投资情况做出了个人分享。\n关于长期主义与科技创新的关系，龚虹嘉认为：“技术的发展是一波一波的，我们很多天使投资都是在社会技术迭代、技术转型过程中涌现出我们眼中认为的一些机会。此外，一波技术过去了你当时看好的项目没有成功的概率也是蛮大的。”\n“我们在现实生活中可以看到，一次创业、二次创业、三次创业都失败的人，第四次创业就成功了，且是大成功。据我所知拼多多的黄峥就是失败过几次后，段永平觉得他能做一些事情，但没有找到适合他做的，就让黄峥自己去想。我看到黄峥这段经历时很感慨，这就是投资人对创始人的长期主义。”\n“六小龙为什么出现在了杭州？江浙一带的优势在哪里？杭州六小龙大多没有创业背景，但是他们的天赋能被某个‘天使投资人’看见，从而造就了未来的成功”，龚虹嘉认为，“在江浙活跃着一批专业知识不一定丰富，但他们对某一事物有自己独特理解的投资人，这些投资人漫不经心给了一笔钱，可能就催生了一个伟大的创业项目”。\n在国内的科技领域，有许多企业依靠天使轮投资被看见，但也有公司靠自己闯出了一片天。龚虹嘉提到，在杭州六小龙里，最出名的DeepSeek借助量化工具，从二级市场挣到了10亿元。而DeepSeek的量化工具正是来自嘉道私人的所投企业，“我们查了，他在2015年买了我们量化的建模，回溯优化，后来做出了让世界震撼的DeepSeek”。\n关于在重投入、周期长的领域，如何平衡好商业回报与社会价值的问题，龚虹嘉认为，关键在于寻找那些既能创造社会价值又能实现商业回报的项目。他提到了三点，一是要对投入的领域有信心，愿意为之冒险；二是不与民争利，不与国有企业竞争，要愿意寻找相对艰苦、回报较慢或者需要较长时间铺…",
-          "link": "https://view.inews.qq.com/a/20250418A06XZM00",
-          "publishedOn": "2025-04-18T08:39:01.000Z",
-          "wordCount": 411,
-          "title": "海康威视天使投资人龚虹嘉：杭州六小龙依靠天使投资被“看见”",
-          "imageUrl": "https://inews.gtimg.com/om_ls/Ov7ju6kHkrdpAtUdBAaK0l5XVCaoNSwrPlV0D1q5h4xuoAA_640330/0"
         }
       ]
     },
@@ -3179,6 +3144,16 @@
       "feedUrl": "https://www.geekpark.net/rss",
       "siteUrl": "http://mainssl.geekpark.net/rss.rss",
       "articles": [
+        {
+          "id": "http://www.geekpark.net/news/349018",
+          "author": null,
+          "description": "知情人士：特朗普政府拟取消拜登时代的 AI 芯片限制\n5 月 8 日，据知情人士透露，特朗普政府计划取消拜登时代的人工智能芯片限制，作为修订半导体贸易限制的更广泛努力的一部分，这些限制已引起主要科技公司和外国政府的强烈反对。该政策将国家划分为三大类，以监管英伟达公司等企业的芯片出口。\n知情人士称，5 月 15 日所谓的人工智能扩散规则生效时，特朗普政府将不会执行该规则，不过这项废除决定尚未最终确定。美国商务部发言人表示：「拜登的人工智能规则过于复杂、官僚主义，会阻碍美国的创新。我们将用一个简单得多的规则来取代它，这个规则将释放美国的创新能力，并确保美国在人工智能领域的主导地位。」知情人士称，在制定新规则期间，美国商务部将继续严格执行芯片出口限制。（来源：第一财经）\n\nOpenAI 计划大幅降低与微软的收入分成比例\n5 月 7 日，据 Information 报道，OpenAI 已告知投资者，随着公司架构调整的推进，将减少给予主要支持者微软的收入分成比例。\n报道称，在向投资者提供的财务预测中，OpenAI 表示，到 2030 年底，给予微软的收入分成比例将至少减半。根据现有协议，OpenAI 同意在 2030 年前将收入的 20% 分配给微软。但媒体援引非公开文件指出，OpenAI 近期向部分潜在及现有投资者透露，到 2030 年将仅与微软等商业伙伴分享 10% 的收入，同时提到微软希望 2030 年后继续获取其技术。\n微软表示，与 OpenAI 之间「存在双向收入分成协议」，该合作的核心条款将在 2030 年合约到期前持续有效。OpenAI 发言人对 The Information 表示：「我们继续与微软保持密切合作，期待近期完成资本结构调整的具体安排。」（来源：新浪科技）\n \n苹果公司高级副总裁 Cue：苹果公司和微软已达成年度搜索合作协议\n5 月 8 日，苹果公司高级副…",
+          "link": "http://www.geekpark.net/news/349018",
+          "publishedOn": "2025-05-08T00:18:11.000Z",
+          "wordCount": 831,
+          "title": "小米为 SU7 Ultra 前盖致歉；苹果微软达成年度搜索合作；任天堂 Switch2 性能暴涨｜极客早知道",
+          "imageUrl": null
+        },
         {
           "id": "http://www.geekpark.net/news/349020",
           "author": null,
@@ -3557,16 +3532,6 @@
           "publishedOn": "2025-04-19T00:16:30.000Z",
           "wordCount": 791,
           "title": "DeepSeek 梁文锋入选「时代 100 人」；华为客服：小米米家 6 月支持鸿蒙 5；《星球大战》新片 2027 上映，高斯林主演",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.geekpark.net/news/348366",
-          "author": null,
-          "description": "作者｜苏子华\n编辑｜郑玄\n \n中国产业带，像是散落在 960 万平方公里上的「制造拼图」，从义乌的小商品到惠东的女鞋，从临汾的黄牛肉到连云港的海鲜，它们撑起了中国制造的半壁江山。\n但繁荣背后，危机四伏。\n同质化竞争的怪圈，让无数商家在「初级加工制造」的泥潭里挣扎。这就是中国产业带的现状：一边是全球最大的制造、生产网络，一边是单一的发展路径，难以企及高附加值的利润。\n以多数服装产业带为例，数千家小型服装厂集中在几个区域，生产款式相似的服装。从传统外贸开始，商家们为了争夺订单，只能进行单一的价格竞争。最终，在激烈的市场竞争中，商家的利润被不断摊薄，难以投入研发和品牌建设，产品也缺少升级创新，消费者体验大打折扣。\n转机正在出现。\n2024 年，拼多多推出的「百亿减免」、「电商西进」、「新质商家扶持计划」接连落地。数据显示，首批上千个产业带商家接入拼多多新质计划后，平均客单价提升 47%，复购率从 23% 飙升至 40%。\n这已不是简单的修修补补，堪称「基因重组」。\n前不久，4 月 3 日，拼多多更是抛出重磅炸弹——「千亿扶持」计划，承诺未来三年投入超 1000 亿元资金和流量资源，助推产业带迈向「新质供给」时代。\n所谓「新质供给」，简单说，就是告别低价堆量，用数字化、技术创新和精准匹配，打造高品质、差异化的产品，既满足消费者挑剔的胃口，又让商家赚到真金白银。\n数据显示，2024 年四季度，首批加入拼多多「新质商家扶持计划」的农产区和产业带已超 1000 个，覆盖从黄牛肉到勃肯鞋的多个品类，订单量同比增长超 150%。\n从源头农产品到加工制造业，从传统手工艺品到高科技产品，新质供给的触角正在向各个领域延伸。\n面对拼多多大手笔的投入和初步显现的成果，一个核心问题浮出水面：拼多多的「千亿扶持」、「百亿减免」等一系列措施，将为产业带带来哪些深层次的改变和影响？\n\n\n\n\n\n\n\n\n破局：产业…",
-          "link": "http://www.geekpark.net/news/348366",
-          "publishedOn": "2025-04-18T10:19:07.000Z",
-          "wordCount": 349,
-          "title": "「千亿扶持」的杠杆效应：拼多多正在撬动产业带「基因重组」",
           "imageUrl": null
         }
       ]
@@ -4742,51 +4707,6 @@
             "type": "image//sz_mmbiz_jpg/9WEn5LibLMvAoTDdDbgV51CKLBabb0wYpVg0If0EB7U48BZ4WvqciaiabFtOhzc0HazIoiayvN8rnIESibLqTZsibfwA/0"
           },
           "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/9WEn5LibLMvAoTDdDbgV51CKLBabb0wYpVg0If0EB7U48BZ4WvqciaiabFtOhzc0HazIoiayvN8rnIESibLqTZsibfwA/0?wx_fmt=jpeg"
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s/4aVoe4KZz4-s81LXrFCv3A",
-          "author": null,
-          "description": "",
-          "link": "https://mp.weixin.qq.com/s/4aVoe4KZz4-s81LXrFCv3A",
-          "publishedOn": "2025-04-18T13:10:18.000Z",
-          "wordCount": 264,
-          "title": "小城贵妇，捧红「全国第一销金窟」？",
-          "enclosure": {
-            "url": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/9WEn5LibLMvCPT9kc80atnLOwcU0RECSupRC0dBOwG5DOJNKWVLBZxhgIb143zwWrgJuCTXtv2Sr486fhyh9AjQ/0?wx_fmt=jpeg",
-            "length": "0",
-            "type": "image//sz_mmbiz_jpg/9WEn5LibLMvCPT9kc80atnLOwcU0RECSupRC0dBOwG5DOJNKWVLBZxhgIb143zwWrgJuCTXtv2Sr486fhyh9AjQ/0"
-          },
-          "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/9WEn5LibLMvCPT9kc80atnLOwcU0RECSupRC0dBOwG5DOJNKWVLBZxhgIb143zwWrgJuCTXtv2Sr486fhyh9AjQ/0?wx_fmt=jpeg"
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s/UtL4gRjK6A_xIqSrg2eBOQ",
-          "author": null,
-          "description": "",
-          "link": "https://mp.weixin.qq.com/s/UtL4gRjK6A_xIqSrg2eBOQ",
-          "publishedOn": "2025-04-18T13:10:18.000Z",
-          "wordCount": 264,
-          "title": "数智融合，科技普惠，构建网络空间命运共同体——2025年世界互联网大会亚太峰会凤凰观察",
-          "enclosure": {
-            "url": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/9WEn5LibLMvCPT9kc80atnLOwcU0RECSuPpjVFofyl3iaUva6hL0Bhq0DLeROD1YM9BfoDtDKq4RSyt1a1UmeWnQ/0?wx_fmt=jpeg",
-            "length": "0",
-            "type": "image//sz_mmbiz_jpg/9WEn5LibLMvCPT9kc80atnLOwcU0RECSuPpjVFofyl3iaUva6hL0Bhq0DLeROD1YM9BfoDtDKq4RSyt1a1UmeWnQ/0"
-          },
-          "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/9WEn5LibLMvCPT9kc80atnLOwcU0RECSuPpjVFofyl3iaUva6hL0Bhq0DLeROD1YM9BfoDtDKq4RSyt1a1UmeWnQ/0?wx_fmt=jpeg"
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s/0XrIfO2pI-6vpbqiNDWbZg",
-          "author": null,
-          "description": "",
-          "link": "https://mp.weixin.qq.com/s/0XrIfO2pI-6vpbqiNDWbZg",
-          "publishedOn": "2025-04-18T13:10:18.000Z",
-          "wordCount": 264,
-          "title": "“人心中的成见是一座天津”，天津到底有多抽象？",
-          "enclosure": {
-            "url": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/9WEn5LibLMvCPT9kc80atnLOwcU0RECSuJmWPXE0IzIkSXKJobaxOQsm6tVSU3EYia5Tm79ZiadZSStpSU53PZeicA/0?wx_fmt=jpeg",
-            "length": "0",
-            "type": "image//sz_mmbiz_jpg/9WEn5LibLMvCPT9kc80atnLOwcU0RECSuJmWPXE0IzIkSXKJobaxOQsm6tVSU3EYia5Tm79ZiadZSStpSU53PZeicA/0"
-          },
-          "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/9WEn5LibLMvCPT9kc80atnLOwcU0RECSuJmWPXE0IzIkSXKJobaxOQsm6tVSU3EYia5Tm79ZiadZSStpSU53PZeicA/0?wx_fmt=jpeg"
         }
       ]
     },
@@ -6036,6 +5956,36 @@
       "siteUrl": "https://www.nationalgeographic.com/pages/topic/latest-stories",
       "articles": [
         {
+          "id": "https://www.nationalgeographic.com/animals/article/colorful-sea-urchin-photos",
+          "author": "Anders Hallan, Hicks Wogan",
+          "description": "Beneath sea urchins’ exterior spines, rounded skeletons called tests are jewels of color, texture, and symmetry. There are hundreds of urchin species, and they’re found in every ocean on Earth, from the intertidal zone to more than four miles below the surface. In 2018, Anders Hallan, a research associate at the Australian Museum in Sydney, began photographing urchin skeletons that had washed up on beaches or been collected by divers and those on fishing or research vessels. He created a composite image over the course of a week in 2024 using 76 individual photographs.\n    \nThe project comes at a perilous moment for these creatures. Since 2022, sea urchins have been plagued by a scuticociliate, a single-celled pathogen that eats away at the animals’ soft tissue and makes their spines fall …",
+          "link": "https://www.nationalgeographic.com/animals/article/colorful-sea-urchin-photos",
+          "publishedOn": "2025-05-08T01:24:04.000Z",
+          "wordCount": 6498,
+          "title": "What creatures make these rare ocean gemstones?",
+          "imageUrl": "https://i.natgeofe.com/n/8bcbd374-8e37-422a-88f7-c0826799c006/Sea%20Urchin-MF10343-mosaic_16x9.jpg?w=1200"
+        },
+        {
+          "id": "https://www.nationalgeographic.com/history/article/kowloon-walled-city-history",
+          "author": "Erin Blakemore, Greg Girard",
+          "description": "Until 1994, a tiny subsection of Hong Kong was dominated by a vertical city—a place so dense, it was hard to imagine how its 30,000 or more residents could survive there.\n    \nKnown as Kowloon Walled City, the area was littered with trash, cluttered with crime, and renowned for its anarchy. Lawless and largely forgotten by both Chinese and Hong Kong officials, the city “has always aroused curiosity and fear, and few dared venture inside,” historian Elizabeth Sinn writes in the Journal of the Hong Kong Branch of the Royal Asiatic Society.\n    \nBut how did Kowloon Walled City become so chaotic—and why did people choose to live there? Once called the “city of darkness,” this area was so tangled and contested that its legacy still lives on decades after its eventual destruction.\n      undefine…",
+          "link": "https://www.nationalgeographic.com/history/article/kowloon-walled-city-history",
+          "publishedOn": "2025-05-08T01:24:03.000Z",
+          "wordCount": 11334,
+          "title": "Inside Kowloon Walled City—a lawless Hong Kong metropolis",
+          "imageUrl": "https://i.natgeofe.com/n/9855c0e6-95b8-4ff0-82f9-9dcb0d6038ab/Girard_KWC_girard_kowloonB_16x9.jpg?w=1200"
+        },
+        {
+          "id": "https://www.nationalgeographic.com/travel/article/best-wine-regions-napa-california-alternatives",
+          "author": "Kate Loweth",
+          "description": "Wine connoisseurs can travel beyond the famed Napa Valley wine region to explore other vineyards like this one in the Santa Ynez Valley, Calif.   \nFrom the Temecula Valley to the Santa Cruz Mountains, these wine regions deliver more of the tailored experience you seek and less of the crowds.\n    \nWhen it comes to wine tasting in California, most people immediately think of Napa Valley, with its wineries and tasting rooms around every corner. If you look beyond this powerhouse region, you'll find wine destinations across the state, where the weekend traffic isn't as intense and you can get a more personalized wine tasting experience.  \n      \nCool winds from the San Francisco Bay flow 90 miles east to the town of Lodi, creating the perfect environment for grape growing. The town owes its ea…",
+          "link": "https://www.nationalgeographic.com/travel/article/best-wine-regions-napa-california-alternatives",
+          "publishedOn": "2025-05-08T01:24:03.000Z",
+          "wordCount": 9244,
+          "title": "Here are 5 lesser-known California wine regions worth exploring",
+          "imageUrl": "https://i.natgeofe.com/n/da11d62a-3999-4ec2-ac7a-22b0c9fef6b6/shutterstock_417977779_16x9.jpg?w=1200"
+        },
+        {
           "id": "https://www.nationalgeographic.com/history/article/american-female-pilots-who-helped-the-allies-fight-hitler-in-world-war-two",
           "author": "Becky Aikman",
           "description": "The women Of Air Transport Auxiliary flew the biggest bombers and the sleekest fighters.    \nBanned from flying in the U.S., these 25 American women headed to Britain to help ferry military aircraft—and fascinated the public with their free-wheeling lives.\n    \nThe United States barred women pilots from the armed forces during World War II, but that didn’t stop 25 courageous young trailblazers. They bolted for Great Britain in 1942 to become the first American women to fly military aircraft.\n    \nThe pilots have been mostly forgotten ever since. But during the war, they shook things up wherever they landed, prompting headlines like one in the New York Herald Tribune. The pilots, it said, “Fly 121 Types of Planes, Sleep Wherever They Land, Find Romance and Tragedy.”\n        \nNo wonder the p…",
@@ -7174,26 +7124,6 @@
           "wordCount": 9690,
           "title": "What archaeology can—and can’t—tell us about Jesus’ crucifixion",
           "imageUrl": "https://i.natgeofe.com/n/a46ef381-e9ea-445a-894b-81a80c9c2f46/NationalGeographic_2514704_16x9.jpg?w=1200"
-        },
-        {
-          "id": "https://www.nationalgeographic.com/travel/article/paid-content-kaunas-lithuania-guide",
-          "author": "Emily Lush",
-          "description": "Kaunas has had numerous rulers over time, from the Teutonic Knights to the Russian Empire. Nonetheless, throughout the years, Lithuania’s second city (the fourth-largest in the Baltic states) has maintained its identity as a centre of culture and academia. Situated 62 miles west of Vilnius, Kaunas’ architecture hints at the city’s great historical depth — from the gothic spires of its medieval Senamiestis (Old Town) to its angular art deco apartment buildings and ultra-modern additions such as the new Science Island. Here’s how to experience it all in a weekend.\n      \nGet ahead of the summer crowds by visiting Kaunas in spring, when the Sakura Park cherry blossoms on Nemunas Island are in bloom. Cultural season kicks off in April with the Kaunas Jazz Festival. In late May, the city celebr…",
-          "link": "https://www.nationalgeographic.com/travel/article/paid-content-kaunas-lithuania-guide",
-          "publishedOn": "2025-04-18T12:08:35.000Z",
-          "wordCount": 6774,
-          "title": "A first-timer’s guide to Kaunas, Lithuania’s eternal city",
-          "imageUrl": "https://i.natgeofe.com/n/40a8789b-abd5-4b28-a49d-64da942ac4f7/Old-town-and-Neris-river_16x9.jpg?w=1200"
-        },
-        {
-          "id": "https://www.nationalgeographic.com/travel/article/hiking-in-greece-zagori",
-          "author": "Duncan Craig, Francesco Lastrucci",
-          "description": "The Vikos Gorge trail in northwest Greece is 20 miles long, with the Voidomatis River forming a lake between the villages of Monodendri and Vikos.   \nThe footpaths that link the isolated mountain settlements of Zagori offer some of the most spectacular hiking in the whole of Greece.\n     \nThis article was produced by National Geographic Traveller (UK).\n     \nGreeks don’t hike. You’ll hear this everywhere you go in Greece — usually from the locals themselves. They can’t see the point, apparently; uses up too much beach time.\n    \nIf that’s the case then no one told Anna Diamantopoulou and her jovial group of trekking pole-wielding beginners. I encounter them on the steep stone path that snakes down into Vikos Gorge from the village of Monodendri. They’re audible long before they’re visible,…",
-          "link": "https://www.nationalgeographic.com/travel/article/hiking-in-greece-zagori",
-          "publishedOn": "2025-04-18T08:22:19.000Z",
-          "wordCount": 8451,
-          "title": "Why Greece’s Zagori is a hiker’s dream",
-          "imageUrl": "https://i.natgeofe.com/n/04c71d66-f4c8-4e6b-9abd-1c49bba5cb1e/coverstory_greece_FLastrucci_Zagori-148_ukHR_16x9.jpg?w=1200"
         }
       ]
     },
@@ -7685,6 +7615,22 @@
       "feedUrl": "https://news.un.org/feed/subscribe/en/news/all/rss.xml",
       "siteUrl": "https://news.un.org/en/",
       "articles": [
+        {
+          "id": "https://news.un.org/en/story/2025/05/1163016",
+          "author": null,
+          "description": "A top UN official has warned that the Democratic People’s Republic of Korea (DPRK) is ramping up its nuclear and missile programme in defiance of international law, as it moves into the final year of its military plan.",
+          "link": "https://news.un.org/feed/view/en/story/2025/05/1163016",
+          "publishedOn": "2025-05-07T12:00:00.000Z",
+          "wordCount": null,
+          "title": "DPR Korea ploughing ahead with nuclear and ballistic missile programme",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/07-05-2025-UN_Photo-SecCo.jpg/image560x340cropped.jpg",
+            "length": "34543",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/07-05-2025-UN_Photo-SecCo.jpg/image560x340cropped.jpg"
+        },
         {
           "id": "https://news.un.org/en/story/2025/05/1163011",
           "author": null,
@@ -9220,22 +9166,6 @@
             "type": "image/jpeg"
           },
           "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/assets/2012/04/14733/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/04/1162401",
-          "author": null,
-          "description": "Thousands of families in Myanmar remain without shelter, water, or medical care three weeks after deadly earthquakes struck the country, as frequent aftershocks compound the suffering of communities already battered by conflict and poverty.",
-          "link": "https://news.un.org/feed/view/en/story/2025/04/1162401",
-          "publishedOn": "2025-04-18T12:00:00.000Z",
-          "wordCount": null,
-          "title": "Myanmar: Thousands remain in crisis weeks after deadly earthquakes",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/18-04-2025-UNICEF-Myanmar_EQ_1.JPG/image560x340cropped.jpg",
-            "length": "50857",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/18-04-2025-UNICEF-Myanmar_EQ_1.JPG/image560x340cropped.jpg"
         }
       ]
     },
@@ -9244,6 +9174,36 @@
       "feedUrl": "https://morss.it/:proxy/https://chinadigitaltimes.net/chinese/feed",
       "siteUrl": "https://chinadigitaltimes.net/chinese",
       "articles": [
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=717970",
+          "author": "不忘初心",
+          "description": "“我的父亲和母亲告诉我，到了我这个年龄，马上就要上大学了。这之后，人生的计划会排的很满，更没有精力好好学一年藏文。如果，你这个时候不去，等你到了社会，你会发现，你跟你的家乡的人、没法用共同的语言交流。”",
+          "link": "https://chinadigitaltimes.net/chinese/717970.html",
+          "publishedOn": "2025-05-08T00:00:18.000Z",
+          "wordCount": 13138,
+          "title": "赵景宜｜父亲，万玛才旦",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/05/post-717970-681bd014f2b80.jpeg"
+        },
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=717968",
+          "author": "不忘初心",
+          "description": "在香港这座光影交织的“动感之都”，同志群体的故事往往隐没于霓虹灯照不到的角落，或偶然闪现，那也是如《春光乍泄》般聚焦于年轻的灵魂与迷离的情感。因此当导演杨曜恺以两部讲述老年同志生活的电影《叔·叔》与《从今以后》走进影迷视野中时，我们似乎才第一次看到那些被时代困缚、在家庭伦理与自我认同间挣扎的银发身影。",
+          "link": "https://chinadigitaltimes.net/chinese/717968.html",
+          "publishedOn": "2025-05-07T21:03:26.000Z",
+          "wordCount": 13291,
+          "title": "深焦DeepFocus｜当代华语同志电影，绕不开他的名字",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/05/2112a496a9934a012aee87806075c12c6c938fc5.webp"
+        },
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=717966",
+          "author": "不忘初心",
+          "description": "有媒体采访了幸福航空员工，他们说目前公司拖欠10个月工资、40个月公积金、28个月社保等等。一些飞行员、空姐、地勤靠干兼职挣钱。太可怜了，有没有什么办法能救救空姐？",
+          "link": "https://chinadigitaltimes.net/chinese/717966.html",
+          "publishedOn": "2025-05-07T20:38:05.000Z",
+          "wordCount": 13113,
+          "title": "星球商业评论｜天上有人笑着哭",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/05/fb64bcd2.png"
+        },
         {
           "id": "https://chinadigitaltimes.net/chinese/?p=717964",
           "author": "不忘初心",
@@ -10609,6 +10569,16 @@
       "siteUrl": "https://sspai.com",
       "articles": [
         {
+          "id": "https://sspai.com/post/98997",
+          "author": "少数派编辑部",
+          "description": "Sonos 与宜家八年合作告终、Fedora Linux 正式加入微软 WSL 列表等。查看全文",
+          "link": "https://sspai.com/post/98997",
+          "publishedOn": "2025-05-08T00:21:25.000Z",
+          "wordCount": 743,
+          "title": "派早报：技嘉推出新款迷你主机、三星推出「轻触转账」功能等",
+          "imageUrl": "https://cdnfile.sspai.com/08/05/2025/article/1c91999b-5a2d-df99-3969-87e320cc54da.jpeg"
+        },
+        {
           "id": "https://sspai.com/prime/story/think-cell-style-file-tutorial",
           "author": "Benjamin_Abner",
           "description": "如果你在工作中也需要根据公司 VI 规范定制图表版式，不妨尝试运用这些方法，让 think-cell 图表更好地服务于你的企业沟通场景。查看全文\n本文为会员文章，出自《单篇文章》，订阅后可阅读全文。",
@@ -11137,26 +11107,6 @@
           "wordCount": 659,
           "title": "非全上岸记：在学历褶皱里打捞成长之光",
           "imageUrl": "https://cdnfile.sspai.com/2025/03/30/b91e9c814df1406e30a38cbdb37dfe9a.png"
-        },
-        {
-          "id": "https://sspai.com/post/98501",
-          "author": "少数派编辑部",
-          "description": "☕️TL;DR近期佳作推荐：[美剧]绝望写手第四季、[美剧]最后生还者第二季、[韩剧]机智住院医生生活、[日剧]对岸的家务事、[美剧]掩耳盗邻、[日剧]倒数第二次恋爱续篇、[电影]孤独的美食家剧场版、 ...查看全文",
-          "link": "https://sspai.com/post/98501",
-          "publishedOn": "2025-04-18T09:46:34.000Z",
-          "wordCount": 929,
-          "title": "本周看什么 | 最近值得一看的不老少作品",
-          "imageUrl": "https://cdnfile.sspai.com/2025/4/18/article/b0d24d89-7cd5-9781-bc48-e7e0f85cb758.png"
-        },
-        {
-          "id": "https://sspai.com/prime/story/inside-release-notes-250418",
-          "author": "少数派编辑部",
-          "description": "Numbers学了新函数，但没学透@PlatyHsu:在办公套件领域，微软以外的玩家只有两条出头之路，要么做出特别差异化的杀手级功能（如GoogleDocs的多人编辑稳定性、Keynote的设计感和过 ...查看全文\n本文为会员文章，出自《单篇文章》，订阅后可阅读全文。",
-          "link": "https://sspai.com/prime/story/inside-release-notes-250418",
-          "publishedOn": "2025-04-18T09:21:30.000Z",
-          "wordCount": 1247,
-          "title": "具透 Plus |  Numbers 学了新函数但没学透；如何找回 Windows 11 本地账户",
-          "imageUrl": "https://cdnfile.sspai.com/4/18/2025/article/9fd6c6a7-4c76-1c63-d1b8-71ac82c52d9c.jpeg"
         }
       ]
     },
@@ -11474,16 +11424,6 @@
           "wordCount": 149,
           "title": "沈辛成评《主动出击》丨科学普及，究竟需要靠谁主动出击",
           "imageUrl": null
-        },
-        {
-          "id": "https://www.thepaper.cn/newsDetail_forward_30665418?commTag=true",
-          "author": null,
-          "description": "《给青年叛逆者的信》，[美] 克里斯托弗·希钦斯著，陈以侃译，云南人民出版社丨理想国，2023年9月版，224页，59.00元\n\n\n美国著名新闻记者、专栏作家克里斯托弗·希钦斯（Christopher Hitchens, 1949-2011）的《给青年叛逆者的信》（Letters to a Young Contrarian，2001；陈以侃译，云南人民出版社，2023年9月）至今我知道的有四个中译版本，最早是《致一位“愤青”的信》（苏晓军译，上海人民出版社，2005年），绿色封面，这是我二十年前就买来和读过的译本，只是后来怎么也找不到。然后是《致愤青》（于海生译，华夏出版社，2015年），后来华夏出版社在2019年又推出《致愤青》的陈以侃译本；现在看到的云南社在2023年推出的陈以侃译本在文字上对华夏版作了些修订，最明显的是书名改了，前三个译本都是致“愤青”，现在成了“青年叛逆者”。顺带要说的是，这是否也可以从一个小小的侧面说明“愤青”的语境和接受度发生了某种变化？从对中译本翻译质量的评价来看，几个版本都有读者指出误译、漏译和更正意见。我注意到有读者对华夏社2019年的陈译本提出不少更正意见，在云南社的版本中，译者陈以侃的译文有些是针对批评意见而作出的修改，但是也有坚持原译。\n我在两个月前读云南版的《给青年叛逆者的信》，想写进“书记”，又有点犹豫。就因为写给“青年”而有点担心是鸡汤读物，虽然是面向“叛逆者”的。最后还是被这本中译本封底那个红色的、大大的“！”和书中一封信的题目“不得不写”打动了我，真的不得不写。理由就是印在中译本封底的这两段话：“在本书中，克里斯托弗·希钦斯以书信体的形式，为未来的‘叛逆者’（contrarian）提供了一些‘规避幻灭’的建议。他探究了各种类型的特立独行者在关键历史时刻为进步与正义事业所采取的违抗立场，援引左拉、奥威尔、哈维尔等普罗米修斯式人…",
-          "link": "https://www.thepaper.cn/newsDetail_forward_30665418?commTag=true",
-          "publishedOn": "2025-04-18T10:02:04.000Z",
-          "wordCount": 236,
-          "title": "李公明︱一周书记：时代风雨中的……叛逆者在前行中",
-          "imageUrl": null
         }
       ]
     },
@@ -11492,6 +11432,46 @@
       "feedUrl": "https://rsshub.rssforever.com/zhihu/daily",
       "siteUrl": "https://daily.zhihu.com",
       "articles": [
+        {
+          "id": "https://daily.zhihu.com/story/9781026",
+          "author": null,
+          "description": "瞎扯 · 什么名能拯救「花」这个姓？\n知乎日报\n查看知乎原文\n\n\n\n\nQ：什么名能拯救「花」这个姓？\n@凌云飞渡 题主是不是觉得花这个姓太柔了？ 那简单啊，我们来点硬的。比如就叫花岗岩。\nQ：孙悟空为什么每次都叫沙僧看着行李，荒山野岭的还怕有人来偷吗？\n@SmileL 锦襕袈裟、紫金钵盂、通关文碟。你是唐僧，请问你敢弄丢哪个？\nQ：说话也有恐怖谷效应吗？\n@张浩彬 你觉得 ChatGPT 讲的这个故事恐怖吗？\n\n \n \n \nQ：你是否有过把宠物逼的差点说话的时候？\n@zitahua 我老公特别爱吹笛子。每次他吹到高音的时候，我家狗子就会发出「呜呜」的声音。他说狗子听了他的笛音太开心了。我觉得狗子想说的是：「受不了了，别吹了。」\nQ：蚂蚁发现了一颗花生米，回去禀告准备立功。我把花生米拿走，蚂蚁群发现它谎报军情，那只蚂蚁会被处死吗？\n@落幕笑红尘 不会的，因为蚂蚁主要是靠气味寻找食物，视力一般，它们过来发现这里确实有花生米的味道，证明那只蚂蚁没有说假话。 而现在没有花生米，它们会沮丧的离开，一边走一边骂：「还是来晚了，花生米被狗叼走了……」",
+          "link": "https://daily.zhihu.com/story/9781026",
+          "publishedOn": "2025-05-08T01:23:44.145Z",
+          "wordCount": 199,
+          "title": "瞎扯 · 如何正确地吐槽",
+          "imageUrl": null
+        },
+        {
+          "id": "https://daily.zhihu.com/story/9781023",
+          "author": null,
+          "description": "冰镇土豆，ABB高级机械工程师\n查看知乎原文\n\n\n\n不行。\n题主想的应该是没有额外的能量输入的情况下做一个毛细泵，那这是不可能的，违背了能量守恒。\n如果是有能量输入的泵，只是这个泵是毛细原理的，那么是可以的。\n\n一、为什么没有额外能量不行\n毛细现象的原理是液体的张力。这里涉及液 - 气界面表面张力和固 - 液界面表面张力。\n毛细现象是系统为降低总能量（表面能 + 重力势能）而自发调整的结果：\n液体与气体、液体与固体接触时，表面分子因作用力不平衡储存的能量，公式为：\n\n ：液 - 气界面表面张力。\n ：固 - 液界面表面张力。\n ：对应界面的面积。\n当液体润湿管壁（θ < 90°），增加固 - 液界面面积（\n\n）可降低总表面能，液体沿管壁爬升。当液体不润湿管壁（θ > 90°），减少固 - 液界面面积（\n\n）可降低总表面能，液面下降。\n毛细现象原理\n所以你以为毛细现象是提供了能量让水从低到高处，但实际上恰恰相反，水是从能量高的地方到了能量低的地方。\n表示能量高低\n如果你觉得这部分想不明白，没关系，我们还有个简单的思想实验。\n你做了一个如你所设想的装置，水会被从低处吸到毛细管的高处。但你会发现，水即使到了毛细管的顶部，也流不出来。\n因为水其实是向着毛细管内部流动的，而不是一定是从下向上的。如果水从毛细管中流出，那么由于毛细作用，这部分水应该流回到毛细管中。而且由于水收到重力作用，从毛细管底部向顶部流动应该难于从顶部向底部流动。\n所以这个泵，最多只能把水泵到毛细管顶部，但要流向你想让水流去的高处，一定还需要额外的动作。\n如果你不相信，你也可以自己用一个细管子试一试。简单实验一下就知道了。\n还有一个例子是植物。植物利用毛细现象吸水，但植物需要蒸腾作用提供能量才能有源源不断的水被吸上来。这就是额外输入的能量。\n综上，题主提出的泵是不可行的。\n二、现实中有没有毛细泵\n答案是有的。\n首先是被动式的毛细泵，这种简化一下其实就是用纸去吸水，本质上不会将水泵走，而是泵到了表面能最低的地方。甚至可以设计专门的路线，让液体沿着想要的路径行走，但最终液体会到达能量最低的地方。这里有段介绍可参考。\n毛细管驱动技术利用微通道中的毛细现象驱动微流体，无需外部动力源。毛细现象是指浸润液体在细管状物体内壁自主上升的现象，由液体的内聚力和附着力的差异克服液体的重力和黏度产生，是表面张力和毛细管的润湿特性相互作用的结果，毛细管表面特性、流体性质和毛细管内部形状都会影响毛细现象中液体上升的高度。液体上升的高度一般遵循 Jurin 定律或 Young-Laplace 定律，基于这些理论，研究者可以设计合理的参数来实现微流体驱动。近年来的研究主要集中在纸基微流控方向和实际应用领域。\n而一旦想要单纯提高水的势能，就如我所说，需要额外的能量控制毛细现象的进行。\n这里有个现成的例子，你可以到产权局的官网上去阅读详细内容。其通过电场改变液体表面张力，调整分子间作用力，从而控制液柱高度。\n专利首页\n再有比如利用热驱动的毛细管水源热泵。\n这段也供参考，相关资料比较难找\n\n好了，到这里题主应该能明白问题所在了。但题主的创新精神值得肯定。如有更多想法欢迎讨论。\n查看知乎讨论",
+          "link": "https://daily.zhihu.com/story/9781023",
+          "publishedOn": "2025-05-08T01:23:44.061Z",
+          "wordCount": 185,
+          "title": "可否利用毛细现象制作水泵？利用分子势能让水自己升高?",
+          "imageUrl": null
+        },
+        {
+          "id": "https://daily.zhihu.com/story/9781016",
+          "author": null,
+          "description": "祥昊，这个世界真好玩。\n查看知乎原文\n\n\n\n这个问题感觉有点深度嗷。\n有个毛深度，\n虽然地球是个球形，但是在 1884 年华盛顿国际子午线会议上，22 国投票通过以格林尼治子午线为本初子午线，这就是经度的起点。\n而在地理上以西经 20°和东经 160°为界来划分东西半球，以减少部分国家被切割的情况。\n这都是初中地理课上必背的题。\n那我问你，美国明明在中国东面，为啥是西方国家？\n印度明明在中国东面，为啥还自称东方大国？\n澳大利亚明明和中国经度差不多甚至还往东，为啥还是西方国家？\n这是因为早期文明都是以自我为中心，欧洲人以地中海以东的亚洲作为东方，\n并细分出了近东，就是现在的东欧，\n中东，就是现在的西亚，\n远东，就是东亚地区。\n所以中国就是东方国家，而相对中国欧洲在西边，那自然是西方国家。\n至于美洲，和澳洲，在老欧洲看来那都是自己的殖民地，自然和自己一样属于西方国家。\n所以，东西方国家只是一个统称，有时以社会阵营划分，本身就是相对的。\n那我问你，\n要是把你丢荒岛上，四周全是海，应该怎么确定位置在哪呢？\n这还真不难，\n想确定方向，得先判断南北。\n想判断也不难，你需要买个表。\n去年买个表也行。\n原理很简单，如果在北半球温带地区（北回归线以北，北极圈以南）\n中午 12 点刚好太阳在正南。\n如果时钟是 24 小时制的，\n那只需要把时针对准太阳，中午十二点的位置就刚好正对着南方。\n而我们用的钟表是 12 小时制的，时针每小时转 30°，转动速度快了一倍。\n由此产生两个方法：\n第一个方法。\n手表平放，时针对着太阳。\n然后找到 12 的刻度，时针和 12 点之间产生的角的中垂线就是南。\n第二个方法，记住一句口诀：\n时数折半对太阳，12 指的是北方。\n比如现在时间是 14:00，14 除以 2,=7，7 对着太阳，12 指的就是北方。\n这俩原理是一样的。\n这个方法建议在上午 8 点至下午 4 …",
+          "link": "https://daily.zhihu.com/story/9781016",
+          "publishedOn": "2025-05-08T01:23:44.020Z",
+          "wordCount": 341,
+          "title": "地球上的东西方位是如何确定的呢？",
+          "imageUrl": null
+        },
+        {
+          "id": "https://daily.zhihu.com/story/9781009",
+          "author": null,
+          "description": "One Two，效果拔群。\n查看知乎原文\n\n\n\n首先题主这种问法注定是没有精准回答的，哪怕是问现在的情况，「中国现在有多少人知道地球是圆的」，虽然可以估算，但准确人数无人能打包票。所以我并不打算直接回答这个问题，而是顺着这个问题尝试简单梳理地圆说在中国古代的蛛丝马迹。\n中国古代知道地圆说无非两个途径，一是本土发展出了地圆说，二是外来地圆说的影响。明清时期外来地圆说的影响我想不必多言，至于向前追溯，在元代由于地球仪实物的传入，肯定有人因此了解到了地圆说。\n《元史·天文志一》：世祖至元四年，扎马鲁丁造西域仪象......苦来亦阿儿子，汉言地理志也。其制以木为圆毬，七分为水，其色绿；三分为土地，其色白。画江河湖海，脉络贯串于其中。画作小方井，以计幅圆之广袤，道里之远近。\n此外有意思的是在国内出土的一些东罗马金币上发现了地球的图案，这些金币的年代可以追溯到隋唐时期[1]。当然当时的国人如何看待金币上的圆球也是值得讨论的话题。\n带地球图案的金币出土情况︱参考文献[1]\n关于本土地圆说的情况，我国天文学史专家陈美东先生曾在《中国古代天文学思想》一书中有涉猎[2]，其中提到北周学者甄鸾所著《笑道论》中有一段关于地圆说的论述：\n《文始传》云：天去地四十万九千里，日月直度各三千里，周回六千里，天地午子相去九千万万里，卯酉四隅，亦令转形......臣笑曰：......又天圆地方，道家恒述。今四隅与方等量，则天地俱圆矣......\n陈美东认为甄鸾在批判道家的地圆说，相关引述则是中国古代关于地圆说的最早记录。\n其实进一步分析，考虑到甄鸾著《笑道论》的初衷是为批判道教，甄鸾不见得是在讨论地圆说本身正确与否，而是想指明道家自身逻辑的矛盾之处：《文始传》作为道家著作，对于天地的描述与传统道家观点相左（卯酉四隅，亦令转形 vs 天圆地方，道家恒述）。「天地俱圆」是甄鸾根据《文始传》语的推论，原文并未明言大地之形状。从上下文看，甄鸾还在讽刺《文始传》连周三径一的道理都搞不明白[3]，那么「卯酉四隅，亦令转形」的原意是否跟甄鸾的解读一致就很值得商榷了。\n另外中国古代在元代以前确实有一些大地非平面的明确表述，如\n地中高外卑（刘宋何承天）\n地中高而四隤（唐李淳风）\n地形中耸而边下（五代邱光庭）\n地形如馒头（南宋朱熹）\n至于老生常谈，争论不休的鸡蛋比喻，我只能感叹一句汉语博大精深。\nPS：鸡蛋 + 馒头，有没有搞头[4]？\n查看知乎讨论",
+          "link": "https://daily.zhihu.com/story/9781009",
+          "publishedOn": "2025-05-08T01:23:43.915Z",
+          "wordCount": 101,
+          "title": "中国古代有多少人知道地球是圆的？",
+          "imageUrl": null
+        },
         {
           "id": "https://daily.zhihu.com/story/9780990",
           "author": null,
@@ -12448,16 +12428,6 @@
           "wordCount": 14515,
           "title": "The last letter",
           "imageUrl": "https://images.aeonmedia.co/images/bf44640f-9420-440b-93b7-f53bd64f860a/essay-mont-valerien-celestino.jpg?width=1200&quality=75&format=auto"
-        },
-        {
-          "id": "urn:id:7923",
-          "author": "Ravi Kopparapu &amp; Jacob Haqq Misra",
-          "description": "When we look for extraterrestrials, we often peer into the depths of space. But alien life might be closer than you think \n - by Ravi Kopparapu & Jacob Haqq Misra\n Read at Aeon",
-          "link": "https://aeon.co/essays/why-were-searching-for-alien-tech-in-the-solar-system?utm_source=rss-feed",
-          "publishedOn": "2025-04-18T10:00:00.000Z",
-          "wordCount": 12966,
-          "title": "Have they been here?",
-          "imageUrl": "https://images.aeonmedia.co/images/d972ae3c-114d-4441-a5e3-1cb04918a165/essay-final-pia20180.jpg?width=1200&quality=75&format=auto"
         }
       ]
     },
@@ -12855,26 +12825,6 @@
           "wordCount": 264,
           "title": "人大教授：中国为何要“以战止战”？",
           "imageUrl": null
-        },
-        {
-          "id": "1338260",
-          "author": null,
-          "description": "现在下场做 AI 产品的创业者越来越多，但创业总归是“九死一生”的艰难旅途，我更关心的是，有没有一些有迹可循的办法，能提高成功率？上周，我和一位非典型 AI 创业者——米可世界 AI Lab 的负责人 Simon 聊了一次天，聊出了很多在 AI 创业的宏大叙事中没有的“大实话”，也获得了不少启发。Simon 这人蛮有意思。简单说就是生命充满“跨界”：本科在卡耐基梅隆大学（CMU）学计算机，后来又转去学心理学；加入米可后，她先搞出了中东首款热门游戏社交产品 TopTop ，这款产品在中东一直拥有超高口碑，一度登顶当地应用商店畅销总榜。后来又牵头搭建起米可世界 AI Lab，探索游戏结合 AI 的可能性。她这次创业并没有走“常规路线”，米可世界 AI Lab 是由中厂孵化的 AI 项目，既非大厂“嫡系”，也不算原生小团队创业。我特地拿 DeepSeek 查了一下，全世界的 AI 创业项目大概只有 5%-15% 属于这个类型。尽管稍有些反常识，但她竟然做得挺好：新产品在测试期间就收获了相当多自然流入的忠实用户，很多海外游戏博主也在自发推荐这款新品，内部看，她的项目得到了公司的认可，并且拿到了更明确的资源投入。从这个角度说，好过市面上众多已经躺在“AI 墓地”里的项目。带着一丝不可思议和好奇，我和 Simon 仔细地聊了聊她的创业心得。1 AI 创业不是请客吃饭聊天中，Simon 和我分享的第一个观点，叫“先搞钱”。Simon 告诉我，在 AI Lab 成立之初，她就坚定了一个认知，自己这场 AI 创业绝不能搞花架子，需要从一开始就思考盈利问题。“先搞钱”这个观点朴素但本质。我经常看到创业公司踩这样的坑：一开始先埋头做产品，把商业化抛在脑后，心想等某天产品成熟了，盈利是自然而然的事情，结果预想中的“车到山前必有路”并没有发生。回想起几年前的“元宇宙”创业风潮，很多团队都会说“我有一…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MjM5ODQ2MDIyMA==&mid=2650731502&idx=1&sn=c0a638f429fc1a8dce75f7cc725abbd3&chksm=bf893c1712a33ab3f171d18d09f80ca5fe23182aadc149cf31f563942fb978b6bbf52abe9f2e",
-          "publishedOn": "2025-04-18T10:01:36.000Z",
-          "wordCount": 264,
-          "title": "我和一位非典型 AI 创业者，来了场坦白局",
-          "imageUrl": null
-        },
-        {
-          "id": "1338259",
-          "author": null,
-          "description": "兄弟们，完犊子了。OpenAI 昨天凌晨放出 2 个新模型，一个 o3，一个 o4-mini。主要就是有了 Thinking with images 图像思考能力。就是说，它们可以把图像整合到思维链中，作为推理的一部分。听起来咋咋呼呼的，实际如何？世超把一张 3 年前的照片发给 o3。结果它只用了 7 分钟，就分析出我是在哪个城市哪个园区甚至哪条河旁边拍摄的。。。不儿，你这开盒能力也太猛了。你可能好奇，就这些清一色的瓦房，它凭啥猜到？看完思考过程，世超只能说，它真把观察、搜索、推理、验证发挥到了极致。首先，o3 通过屋脊上的现代天窗，岸边的铁链护栏，还有屋檐下的“隐藏式线条灯”，猜出这是一个近些年才规划的新晋景区或特色小镇，并非乌镇周庄那些老牌水乡。接下来，是突破口。照片中有一处招牌，o3 不断放大发现了文字“ lestay 仓乾居 ”它通过搜索发现，这是浙江某集团推出的民宿子品牌，接着它居然又跑到集团官网，通过介绍找到了这家酒店的位置：杭州未来科技城梦想小镇核心位置，南临余杭塘河。到这里，o3 并不认为就完全实锤是在杭州拍的，它还要进行验证。或者说，它想继续秀肌肉。因为照片里有积雪，而照片文件名又包含“ 2022-02-17 ”，于是 o3 结合着日期和天气查询了一下，发现 3 年前的那天杭州确实下了大雪。最后，它又点开了各种官方报道和游记分享，发现梦想小镇的整体规划风格，也是和照片是一致的。至此，招牌、地形、建筑风格、拍摄日的天气全部吻合， 最终 o3 推导完毕，把地点锁定在了余杭区梦想小镇。嚯，一开始我还嫌 o3 思考时间太久，怀疑它的水平，但看完推理过程，我开始觉得 7 分钟太快了——真就是福尔摩斯和列文虎克结合体，不断地放大图片，查看细节，再结合着搜索，一步步推导，验证拍摄地点。也许有差友会说，这也不难吧，把招牌放网上一搜不就好了。好，那我们再来看看这张。这次照片…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654595175&idx=2&sn=01afc083a78e22aa297f10082f30c2ff&chksm=8abd9b6d938d8b88ce08a02f33f28e14211b2ad46a766a8185b5741e23b5f90554edebd16eb0",
-          "publishedOn": "2025-04-18T10:01:36.000Z",
-          "wordCount": 264,
-          "title": "ChatGPT这一波更新，让我在网上不敢发照片了。",
-          "imageUrl": null
         }
       ]
     },
@@ -12883,6 +12833,16 @@
       "feedUrl": "https://feedx.site/rss/infzm.xml",
       "siteUrl": "http://infzm.com",
       "articles": [
+        {
+          "id": "http://www.infzm.com/contents/293153",
+          "author": null,
+          "description": "2025-05-08 08:00:00\n\n在德国莱比锡的Eigen+Art空间，艺术家李青的个展“麦格芬之园”似乎把一个多元形态的微缩现实携到了这里。\n比如绘画装置《冰山》，李青融合了德国国会大厦的玻璃穹顶与冰山的形象，这幅画被镶嵌在一座由旧窗框改造而成的木质框架中，这正是李青“画作即世界之窗”的概念。冰山的本质，是固态化的激流，而国会大厦，作为民主制度的象征，看似坚固的建筑，正如意识形态里的冰山，也在快速变化的洋流中经历消融和漂移。\n另一个颇具深意的录像装置《水法》，以横店影视城的圆明新园为棱镜，透视建筑符号在历史创伤、民族叙事与资本逻辑之间的动态循环。圆明园遗址“大水法”，本是18世纪由传教士郎世宁设计的巴洛克风格喷泉建筑群，19世纪末毁于侵略者之手，成为民族创伤。横店影视城复原了这一建筑，成为新的观光点。李青用4K 超清影像记录了喷泉的运作细节，机械化的喷射轨迹，景观化的工业本质，“历史道具”被资本精确利用，原址的创伤记忆，蜕化为可无限增殖的符号商品。\n李青的隐喻并不限于此。横店影视城仿制了殖民列强的诸多地标性建筑，艺术家没有去拍摄这些建筑，转而捕捉它们在水中的倒影。这些在波光粼粼中显得动荡而破碎的建筑，再被翻转成正向的影像，以一种嵌套的方式，悬浮于水体中。屏幕自身已成为继殖民暴力和资本重建后的“第三重废墟”，而整个装置实现了“四重折射”：原型(西方建筑)—仿品 (横店复制品)—倒影(水中镜像)—影像(翻转视频)。历史记忆在当代传播中的扭曲、挪用与解构，正如翻转与又一次翻转，倒影与又一重投影——负负未必得正，正如否定之否定，也未必都通往肯定。\n在极速变化的世界里，李青像一个观察者，他通过他的“窗”来创作。在现代社会中，“窗”的定义早已突破了边界，它不仅仅是建筑上的一个通风口，它可能也意味着电脑的操作系统，意味着我们赖以阅读或观看的各种屏幕和界面，意味着信息的传递与交互。我们依赖窗口辨认外界，并确认自己的庇护所，城市的语法和霓虹的词汇构成了观看的全新经验——窗里的人看向外面，窗外的人窥探里面，窗里窗外的人事和景物快速变迁，只有这扇“后窗”是永远的取景框。\n\n《灯塔与摇篮》，古董木窗、油彩、有机玻璃、亚麻画布、画框，117.5x149.5x5厘米，2024 图/受访者提供\n李青的许多创作都可以在这个线索中找到脉络。他在窗棂和窗格间画画，在画框里和画框外画画，在组合起来的建筑构件上画画，寻找的都是这种“关系”。对于李青来说，他更在意的是一幅画与另一幅画之间那个“between”。\n“做了跟窗有关的作品之后，像是打开了我的一扇窗，我开始更多地去关注城市生活空间，不自觉地在视觉里面寻找框形物……会对城市新旧迭代的变化更加敏感，也思考得更多。我在窗子里面画特别地标性质的殖民时期的大楼，比如外滩的万国建筑，包括汇丰银行的大楼，它们本身就是中国一百多年城市变迁的缩影。在这些富丽堂皇的建筑旁边，紧挨着破烂的老房子，你能直观地感受到城市在空间上那种激烈的争夺，有资本的力量，也有政治的影响，不同阶层被挤压在一起，形成张力。”\n李青用摄影、绘画、装置，来记录这种争夺的张力，仿佛一个怀旧的人，把历史的不同切片拼贴在一起，用新的方式组合创作，并迸发出能量。",
+          "link": "http://www.infzm.com/contents/293153",
+          "publishedOn": "2025-05-08T00:25:05.000Z",
+          "wordCount": 95,
+          "title": "李青：艺术作为现实之窗 | 2025青年力量",
+          "imageUrl": null
+        },
         {
           "id": "http://www.infzm.com/contents/293171",
           "author": null,
@@ -16762,106 +16722,6 @@
           "wordCount": 92,
           "title": "特里芬两难基础不再，但分析框架仍具借鉴意义",
           "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/291873",
-          "author": null,
-          "description": "2025-04-18 19:55:00\n不会做菜，点开短视频，现学现做，相信不少人都有过类似经历。但一个特工，不会开锁，也点开短视频，现学现开。\n这是新片《谍网追凶》里的人物查理。这个中文片名带着上世纪的包浆，比较劝退。若用英文直译的《业余特工》或者片子里的一句台词“查理的复仇”，都还可以原谅。\n\n查理是中情局的一名密码破译员，每天对着电脑上钟。他有一个十分恩爱的妻子，过着甜蜜的二人世界。某天妻子要去伦敦出差，一走就是五六天，妻子问查理要不要和她一起去，查理是一个老实的好员工，选择留下继续搬砖。\n一说到中情局就会让人联想到遁天入地、无所不能的特工，而查理只是一名普通的内勤打工人。领导们坐在宽敞的高层办公室，落地窗外是悦目的风景，而查理的办公室在地下5层，缺少阳光和新鲜空气。\n这天上司带查理来到楼上，告诉他，伦敦发生了一起恐怖袭击，他的妻子因为想去救人而被恐怖分子杀害。查理恳求上司彻查凶手，但上司因内部利益，拒绝了他的请求。\n\n查理虽然没有外勤特工的身手，但是有着超高的智商。他佯装掌握了上司的犯罪证据，要挟上司对其进行特工培训。这个仇查理要亲自来报，内勤员工这次要出个外勤。\n\n\n查理在训练营接受荷枪实弹的培训，上司在他家里寻找并不存在的证据，电影在两个情节中交叉剪辑。等到上司识破查理只是“虚张声势”，他已经解锁装备、走出新手村了。\n造成妻子丧生的恐怖分子有四个人，在接下来的剧情中查理将把他们从蓝星上一一抹去。\n查理从美国启程，辗转英国、法国、土耳其、西班牙、罗马尼亚、俄罗斯，顺着网线，一追到底。\n查理的复仇之旅层次丰富，不仅要一路追杀恐怖分子，还要不断躲避中情局上司的追杀。在追杀恐怖分子的过程中，他差点与自己的多年网友从兄弟变CP。中情局内部也发生分裂，新任领导要肃清前朝遗老。\n\n消灭前三个恐怖分子时，查理利用高智商，兵不血刃。第四个恐怖分子是幕后大boss，藏匿在俄罗斯的一个海港，查理故意“以身入局”，让大boss发现自己，当大boss把他带到自己的船上时，便入了他的局，最终大boss惨败。\n在商业类型片里，特工片融合了动作、悬疑、科技等元素，老少咸宜，诞生了不少经典。《007》系列的风月骑士与高科技装备，《碟中谍》系列的团队协作与高难度任务，《谍影重重》系列的反英雄主义与实战风格，《王牌特工》系列的英伦绅士与漫画式暴力等等都是观众心中的精品。\n传统特工片塑造的往往是身手矫健、装备精良的外勤特工，而《谍网追凶》的主角查理是一个手无缚鸡之力的文弱书生，甚至可能是最接地气的特工，他性格温顺，生活上珍爱花草，工作上任劳任怨，这种设定将传统特工片中的超级英雄请下神坛。查理的每个选择都带着普通人的犹豫和恐惧，观众目睹的不再是神性的碾压，而是人性的胜利。\n\n在剧作结构上，《谍网追凶》因循着好莱坞的生产公式。整部电影123分钟，在进行到第40分钟、影片的三分之一处时，查理飞往伦敦，开启复仇之旅——标准的三幕剧结构。接下来的80分钟里，查理每20分钟消灭一个恐怖分子，直到将其团灭。影片的激励事件是查理妻子的遇难，在A故事中他升级打怪，在B故事中他挣扎在失去爱人的悲痛里，进而完成了从一个内向文员到特工杀手的转变。\n《谍网追凶》不是一部上来就大开杀戒的复仇爽片，它在复仇与良知的边界线上左右试探。恐怖分子被查理困在密闭空间，逐渐窒息。查理焦急地恳求恐怖分子告知幕后大boss的所在，“再不告诉我你就要死了”，他也很担心。查理甚至给恐怖分子都留了逃生的可能，因为他知道杀人也会让他失去一些东西。\n\n在《谍网追凶》中，还揭露了一个社会性的问题：当下的我们生活在一个被监控技术彻底渗透的世界里，摄像头、监听设备、数据追踪无处不在。摄像头可以轻易地进行人脸识别，即便摄像头没有拍到，仅仅通过声音，一样可以定位到人，我们的数据被赤裸裸地采集，大数据比你更了解你。\n这种情况下，究竟是监控带来的安全感多一些，还是隐私被窥视的无奈多一些，当地球最后一片区域都被摄像头覆盖，自由与安全进行了怎样的交换？",
-          "link": "http://www.infzm.com/contents/291873",
-          "publishedOn": "2025-04-18T12:25:05.000Z",
-          "wordCount": 72,
-          "title": "超级英雄下神坛，文弱书生来复仇",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/291984",
-          "author": null,
-          "description": "2025-04-18 20:02:43\n第137届广交会第一期正在广州举办。4月17日，商务部召开新闻发布会，商务部自贸区港建设协调司副司长、新闻发言人何咏前介绍，截至4月17日中午，短短两天半时间，已有来自全球216个国家和地区的超过11万名境外采购商到会，较第135届同期增长10%。\n连日来，美国政府单方面发起关税战，同时不断升级对华关税。对此，广交会上的广东企业如何看待？又有哪些应对之策？《南方》杂志记者深入广交会一线采访发现，本届广交会现场贸易洽谈活跃，广东参展企业普遍反映，到会采购商数量高于往届、询盘积极，有广东企业短短两天已经现场收获500万美元意向订单。\n\n广交会上的广东企业展位。（史成雷/图）\n01 “广东制造的性价比是其他国家无法达到的” \n广交会现场，各个参展企业展位前人头攒动，前来采购的海外客商络绎不绝。\n在广东威力电器有限公司（以下简称“威力电器”）的展位，几乎每一套座椅上都坐着正在洽谈的境外采购商。一旁摆放的几台冰沙机源源不断地产出冰沙，让前来体验的境外采购商连连竖起大拇指。\n“威力电器这几年每次来广交会都特别火。”威力电器市场部经理张洲介绍，威力电器总部位于中山，1980年从单一生产洗衣机起步，逐步发展壮大为拥有微波炉、烤箱、制冰机等多元化产品的大型综合性研发制造企业，国际销售网络遍布欧美、南美、亚太、中东和非洲等地区。威力电器是冰沙机行业的首创者，这款冰沙机产品一经问世，在全球尤其是北美市场爆火。\n谈及关税战，张洲告诉《南方》杂志记者，这次广交会，美国的客户也会过来，还会跟威力电器继续深入合作下去。“我们跟美国客户之间的合作关系，是其他国家无法替代的。我们的服务、产品的性价比都是其他国家远远无法实现的。在这一点上，我们有绝对的信心。”\n在视源股份的展位，智慧生活、智慧会议、智慧教育、智慧办公、智慧零售等各种产品非常丰富。视源股份副总裁黄健介绍，视源股份这次带来的展品有很多都是行业首创或全球领先的产品，比如全球首款获得微软Teams认证、搭载Windows 11 IoT的三摄交互式显示屏MAXHUB XBoard V7，具备触摸交互、人机互动、体感识别、AI智能等多种能力于一体的希沃亲子屏等。\n视源股份于2005年在广州创立，已连续8年上榜中国制造业企业500强。近年来，视源股份在海外的影响力也不断扩大，其交互智能大屏已为全球140多个国家和地区、80万间会议室提供服务，教育交互平板进入东南亚市场。\n“全球化布局的背后，是在世界数字化转型浪潮中，视源股份在技术创新上源源不断地投入。”黄健告诉《南方》杂志记者，视源股份“走出去”最大的底气来自创新。截至2024年底，公司累计获得专利授权超过10000件。今年2月，视源股份还启动了总投资42亿元的全球总部基地项目建设，将作为视源股份新技术、新产品的主要研发基地。\n“广交会是展示中国创新力量的窗口。”黄健表示，“我们希望通过技术赋能，让全球用户享受到更智能、更便捷的办公和生活体验，同时我们期望作为中国智造的代表，站上国际舞台，讲好中国故事。”\n02 积极开拓多元市场，企业两天收获500万美元意向订单 \n作为“中国第一展”，广交会已成为诸多外贸企业稳订单、拓市场的“第一选择”。\n广州工控旗下万宝冰箱深耕广交会多年，在上世纪八九十年代曾连续13年位居国内冰箱出口第一，目前公司产品也大部分用于出口。\n万宝冰箱销售管理部部长黄子威介绍，这次带来参展的商品主打立式冷柜，还有适用于欧美高端市场的房车专用风冷大冰箱，以及小冰箱和太阳能冷柜等。\n“关税战对我们的影响还是非常大的，因为我们整个出口的50%左右是北美市场。”黄子威介绍，为了降低关税战的影响，这次广交会万宝冰箱约了很多中东、非洲的客商过来参展。“我们也积极地在现场跟新客户洽谈，已经有30多批次的客商预约参观我们的工厂。”\n\n广州工控万宝冰箱展位。（史成雷/图）\n黄子威告诉《南方》杂志记者，公司特别推出的小巧节能的小容量直流冰箱及太阳能冷柜，受到非洲国家客户团的高度认可，带动万宝冰箱在广交会第二天就收获意向订单金额达500万美元。\n深圳市福瑞斯健康科技有限公司（以下简称“福瑞斯”）同样是一家北美市场占比较大的外贸企业。福瑞斯外贸总监李杰告诉《南方》杂志记者，福瑞斯的产品涵盖按摩椅、按摩器、按摩仪、按摩垫等健康系列产品，外销占70%左右，曾有四年创下了在全国同行业企业中海外销量前十强的佳绩。\n李杰拿起一款设计精美、小巧的筋膜枪介绍道：“这款产品是我们目前的爆款，高峰期的时候，曾经在美国一个国家年销量就超过10万台。”\n在福瑞斯的展位，操着印度、俄罗斯等语言的外国客商一个接一个地前来体验按摩椅等产品，舒适的体验感让不少客商一待就是至少半个小时。\n“这些年，我们也积极开发‘一带一路’共建国家等其他国际市场的客户，从这几天客户的情况来看，主要就是东南亚、中东以及俄罗斯、印度等国家和地区的客户。”李杰说。",
-          "link": "http://www.infzm.com/contents/291984",
-          "publishedOn": "2025-04-18T12:25:05.000Z",
-          "wordCount": 96,
-          "title": "直面关税战，是啥让广东制造依旧吸金不断？｜广交会观察",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/291986",
-          "author": null,
-          "description": "2025-04-18 19:21:07\n为进一步规范食用植物油生产经营行为，切实保障食用植物油质量安全，市场监管总局部署各地市场监管部门于2025年4月至12月在全国集中开展食用植物油突出问题排查整治工作。\n聚焦排查整治重点\n聚焦食用植物油掺杂掺假、以次充好问题，重点排查整治低价食用植物油冒充高价食用植物油销售，以及将过期食用植物油精炼后冒充新油等违法违规行为。\n聚焦超范围使用食品添加剂问题，重点排查整治在食用植物油生产加工过程中添加香精香料、色素等违法违规行为。\n聚焦虚假标注问题，重点排查整治食用植物调和油未标注或虚假标注成分比例，转基因食用植物油未按规定显著标示，将食用植物油浸出工艺虚假标注为压榨工艺等违法违规行为。\n聚焦交付装卸运输不规范问题，重点排查整治散装食用植物油生产经营者未履行交付装卸运输管理责任义务等违法违规行为。\n全面排查问题线索\n开展生产经营贯通检查，对原料采购、进货查验、投料、过程控制、出厂检验、销售流向和产品标签标识等情况严格监督检查。\n开展线上线下并联核查。以网络食品交易第三方平台、农村地区经营者为重点，通过穿透核查产品生产销售记录、现场检查生产加工过程，循线深挖掺杂掺假等违法行为。\n开展交付装卸运输联动检查。涉及散装食用植物油交易的发货方、收货方所在地市场监管部门加强跨区域联动检查。\n开展专项抽检监测。以问题为导向，采取线上网购平台和线下实体经营环节相结合的方式，开展专项抽检监测。\n严惩重处违法行为\n对查实的违法违规行为，依法从严从快从重予以处罚，对应当吊销许可证的一律予以吊销，对应当处罚到人的一律处罚到人并依法禁止从业，对查处的重点案件和生产经营主体一律予以曝光，涉嫌犯罪的一律移送公安机关。\n同时，鼓励广大消费者通过全国12315平台和12315热线投诉举报违法违规线索。",
-          "link": "http://www.infzm.com/contents/291986",
-          "publishedOn": "2025-04-18T11:55:05.000Z",
-          "wordCount": 77,
-          "title": "排查整治食用植物油运输不规范问题等，市场监管总局出手",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/291982",
-          "author": null,
-          "description": "2025-04-18 18:53:25\n财政部4月18日发布数据显示，2025年一季度，全国一般公共预算支出72815亿元，同比增长4.2%。\n其中，中央一般公共预算本级支出同比增长8.9%；地方一般公共预算支出同比增长3.6%。各级财政部门持续加强对重点领域的支出保障，社会保障和就业、教育、节能环保等领域保障有力。\n收入方面，一季度，全国一般公共预算收入60189亿元，同比下降1.1%。其中，3月份月度增幅由负转正。",
-          "link": "http://www.infzm.com/contents/291982",
-          "publishedOn": "2025-04-18T11:25:04.000Z",
-          "wordCount": 68,
-          "title": "同比增长4.2%！一季度全国财政支出持续增长",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/291963",
-          "author": null,
-          "description": "2025-04-18 19:00:00\n2025年4月15日，第137届中国进出口商品交易会在广州开门迎客，超3万家企业参展，规模创新高，“中国第一展”今年备受期待。商务部发言人表示，根据4月17日中午的最新数据，已有来自全球216个国家和地区的超过11万名境外采购商到会，较第135届同期增长10%。",
-          "link": "http://www.infzm.com/contents/291963",
-          "publishedOn": "2025-04-18T11:25:04.000Z",
-          "wordCount": 85,
-          "title": "“中国第一展”：聚焦第137届广交会",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/291980",
-          "author": null,
-          "description": "2025-04-18 18:36:43\n2025年4月18日，广西壮族自治区柳州市中级人民法院一审公开开庭审理了新疆维吾尔自治区政协原党组成员、副主席窦万贵受贿一案。\n\n柳州市人民检察院起诉指控：2003年至2022年，被告人窦万贵利用担任新疆维吾尔自治区托里县委书记，吐鲁番地委委员、组织部部长，阿克苏地委委员、组织部部长，阿克苏地委副书记、政法委书记，阿克苏地委代理书记、书记，新疆维吾尔自治区政协副主席、阿克苏地委书记等职务上的便利，为有关单位和个人在项目承揽、企业经营、职务提拔等方面提供帮助，直接或者通过他人非法收受财物共计折合人民币2.29亿余元。检察机关提请以受贿罪追究窦万贵的刑事责任。\n\n庭审中，检察机关出示了相关证据，被告人窦万贵及其辩护人进行了质证，控辩双方在法庭的主持下充分发表了意见，窦万贵进行了最后陈述，并当庭表示认罪悔罪。\n\n庭审最后，法庭宣布休庭，择期宣判。\n被告人家属、人大代表、政协委员及各界群众五十余人旁听了庭审。",
-          "link": "http://www.infzm.com/contents/291980",
-          "publishedOn": "2025-04-18T10:55:04.000Z",
-          "wordCount": 73,
-          "title": "非法收受财物2.29亿余元 窦万贵受贿案一审开庭",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/291973",
-          "author": null,
-          "description": "2025-04-18 18:00:00\n近日，一起“市民吐槽地铁广告”事件引发关注。据极目新闻2025年4月11日报道，近日有网友发布视频称，北京地铁的广告让他感到不适。广告展示的是一套关于牲马的摄影，这名网友在视频中表示，牲马的毛发“杆儿粘”，质疑为何要拍“马脏兮兮的毛发”，还称摄影中的马表情“猥琐”“偷感”，每次看到“都是严重的视觉污染”。言下之意，这则广告本就不应该出现在北京地铁上。\n这一评论在社交媒体引起热议。有网友认为，这一评论个人主观色彩浓厚。摄影作者盖少华也对媒体表示，“这只是外行的牢骚”“说这话的人没有去过草原，也不懂马的魅力”。后来，发布视频的网友也承认审美是主观的事情，喜欢讨厌都没有任何问题，他只是吐槽一下。\n社交媒体时代，几乎每个人都有社媒账号，都可以在网络空间发言。每个人当然也有权对公共空间中的事物发表自己的看法。不过，有时候一些不经意的“吐槽”可能会引起本人也意想不到的蝴蝶效应。比如这位网友的“吐槽”，就让北京地铁受到了不小压力。北京地铁十四号线工作人员就表示，已经将“投诉”转给了地铁广告部，“以后类似的广告让他们多加审核”。看，你只是“吐槽”，但在别人看来，就成了“投诉”，需要严肃对待。好在，地铁工作人员同时表示，不会因此撤下这组摄影作品。\n其实，本次“北京地铁野马照片”并非孤例，类似“吐槽地铁广告”的事件近年来屡次出现。比如，南京地铁最近也因“惊现诡异人脸”的广告而被网友吐槽为“惊吓盲盒”，这张脸实则为话剧《海底两万里》的宣传海报。2024年5月，有陕西西安市民在社媒平台发帖，称西安地铁二号线某列车厢的整车医疗广告并不美观，大块的橘色色调广告扎眼，容易引起乘客心情烦躁不安。\n公共场所的广告，公众当然可以评论，但如果仅以个人好恶，就要求有关方面撤销广告，并不可取。审美是非常主观的，一千个人眼中就有一千个哈姆雷特，对于同一个广告，一千个人也可能有一千个不同的感受。你觉得这个不妥要撤销，他觉得那个不妥也要求撤销，到最后，恐怕什么东西都会有几个人看不顺眼，难道什么都不做了吗？\n地铁广告，只要不违反法律法规，不违背公序良俗，就应该在合同规定的地点和时间范围内予以展示。除非真的出现知识性或翻译错误，以及有害公共利益。此次北京地铁的野马照片是地铁公司与某画廊合作的公益项目，意在提升地铁的文化艺术氛围，给地铁乘客以美的享受。如摄影师所说，作品反映的是草原野马的原生态，这些照片此前在全国各地展出，一直反响不错。\n当然，即便是商业广告也要顾及公共利益，不能在文字、色调、造型与图案设计上随心所欲。如果广告中出现明显的错误，或者价值观有违公共利益的话，那是需要立即纠正的，甚至要追究广告投放者以及审核人员的责任。\n在南京地铁“诡异人脸”广告中，广告中的人脸从某个角度看确实有点惊悚，确实可能让一些地铁乘客受到惊吓。商业公司投放广告时应充分考虑到其可能引发的负外部性。在2018年的“地铁吴莫愁”事件中，广州地铁投放的“吴莫愁海报”就吓哭过小朋友，甚至连成年人也不免受惊。\n如何在创意设计的同时尽可能地顾及公共利益，不至于造成某些负外部性，这是商业公司投放广告时应当遵循的原则。广告法第9条列明了诸多广告需要规避的情形，第10条也特别指出“广告不得损害未成年人和残疾人的身心健康”，这都是理应遵循的法律规范。\n具体到地铁广告上，交通运输部2018年公布的《城市轨道交通运营管理规定》还规定“不得影响正常运营”“不得挤占出入口、通道、应急疏散设施空间和防火间距”。北京市《城市轨道交通广告设施设置规范》中提出“车厢内广告色彩应整体宜人”，《上海市轨道交通车站、车辆广告管理规定》也要求，“轨道交通车站、车辆广告的画面应当与车站、车厢环境相协调”，这都是从公共利益出发作出的规定。\n其实，无论商业广告还是公益广告都可以在艺术审美上出彩，商业广告也可以兼顾公共利益，这方面也有很多很好的案例。不少简约大气、雅俗共赏的广告设计甚至会吸引人专程来打卡，如2021年广州地铁“出圈”的“广州人，抵赞”广告。随着商业业态的丰富多元，只要不违公序良俗，相关部门就应尊重包容广告投放者的创意与表达。",
-          "link": "http://www.infzm.com/contents/291973",
-          "publishedOn": "2025-04-18T10:25:04.000Z",
-          "wordCount": 75,
-          "title": "北京地铁广告被吐槽“视觉污染”？公共表达不应被轻易绑架",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/291958",
-          "author": null,
-          "description": "2025-04-18 17:00:00\n\n茶香。视觉中国|图\n2000年7月4日，上午在四川省档案馆看档案，中午档案馆闭馆，我就想找间茶馆休息也顺带考察一下，于是走进了附近花牌坊街“往日情怀茶坊新微水吧”。清代这条街上有一座贞洁牌坊，因此得名，但是这个贞洁牌坊据说在抗战时期被拆除。四川省档案馆就在花牌坊街。档案馆要下午2点半才开，因此差不多我有两个小时。我进去的时候，正是午饭以后，没有看到里面有任何客人。\n所谓水吧，就是既卖茶，也卖各种饮料，属于改良茶馆，显然是为了适应年轻人的需要。门前有一柜台，陈列各种颜色的饮料和新鲜水果，还有装各种原料的瓶子和杯子。卖各种茶，包括柠檬茶等，价格在5-10元，各种冰茶等6-7元一杯。这也说明茶馆能够随时适应时代、经济和城市生活的变化，而改变茶馆的服务和经营形态。\n门面上是“往日情怀茶坊新微水吧”商铺招牌，上面所列的服务范围有：泡沫红茶、珍珠奶茶、各式雪泡、各式冰沙。门的两边是对联：“情有独钟，往日情怀”。水吧有3张桌子，12把椅子，用电烧水。房间虽小，但也优雅，两张桌上有鲜花，室内有冷气、风扇，店为卷帘门，因此开门后，靠街一边包括柜台外，便大开对外。外面是一交通繁忙的大街，门口有一篮色彩鲜艳的假花。\n茶坊里备有《成都商报》等报纸，刚进去坐，老板便递上一份，我要了一杯5块的特级茉莉花茶。用的是三件头的茶碗，比在一般茶馆讲究些，热水瓶也是新的。\n老板是一位中年妇女，看起来40-45岁，雇有两个小姑娘。她说该店刚开十多天，房子属于四川省档案馆，月租1000元，办营业执照要300元左右，卫生许可400-500元。称按现行卫生标准，要求一洗、二洁、三消毒，但是该店面太小，缺乏足够空间放置各种清洁设施。实际操作中，则比较灵活，所以大多数同样大的水吧，也拿到了卫生许可。\n她告诉我开这个铺子花了2万-3万元。她原在四川物资回收局工作，由于单位重组，她下岗…",
-          "link": "http://www.infzm.com/contents/291958",
-          "publishedOn": "2025-04-18T09:25:04.000Z",
-          "wordCount": 94,
-          "title": "王笛：口岸不错，但为啥生意就不好呢？| 日常的史诗",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/291975",
-          "author": null,
-          "description": "2025-04-18 17:03:32\n4月17日晚间，贝壳控股有限公司（以下简称“贝壳”）发布公告称，已接到贝壳董事会主席、首席执行官及控股股东彭永东的通知，其拟捐赠900万股A类贝壳普通股，在承担相应的纳税义务后，50%税后资金将用于居住行业服务者及其家庭成员的医疗健康福利，50%税后资金将用于应届毕业生等租客群体的租房帮扶。\n公告还称，自贝壳于2020年在纽交所上市及2022年在香港上市以来，彭永东未曾出售或转让过公司股份。\n此次捐赠后，彭永东仍是公司控股股东。\n此前的公开信息显示，彭永东2021年年薪847.8万元，2022年升至4.75亿元，2023年涨到7.13亿元，并引发外界广泛关注。\n对此，贝壳解释称，2022年5月贝壳香港上市时，根据联交所的上市规则，具有同股不同权（WVR）架构的公司，WVR持有人（即超级投票权持有人）的股份所对应的经济利益占比不得低于10%。贝壳具有此架构，且上市前彭永东持有的权益相对较低。\n因此，为了满足该上市规则的要求，在联交所批准的前提下，公司向彭永东授予限制性股票。该限制性股票，在会计规则上采用“直线摊销法”，因此在每年的“股权薪酬”科目产生了较大数额，但并非一般理解的年薪。\n同日，贝壳发布2024年年报称，去年贝壳总交易额为3.35万亿元（人民币，下同），同比增加6.6%；净收入935亿元，同比增加20%；净利润40.78亿元，同比下降30.8%。\n年报还称，截至去年末，彭永东持有A类普通股约8148万股，B类普通股10046万股，占已发行股本的5%，拥有22.1%的投票权。",
-          "link": "http://www.infzm.com/contents/291975",
-          "publishedOn": "2025-04-18T09:25:04.000Z",
-          "wordCount": 79,
-          "title": "贝壳董事会主席彭永东拟捐赠900万股 此前被质疑“天价年薪”",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/291960",
-          "author": null,
-          "description": "2025-04-18 16:00:00\n最近，我与朋友探访了周边一个古镇，古镇所在城市是著名的侨乡，历史时期曾有大量人口去到美、加及东南亚等地寻求发展机会，古镇成为周边一带的经贸与商业中心，大量中西合璧的骑楼建筑群林立，百余年历史的旅店、茶楼及食铺不在少数，见证了清末民初华侨纷纷回乡建设的高光时刻。\n时过境迁，随着大量人口进城发展与定居，这个古镇像全国其他古镇一样，也面临老、破、旧等共通性顽疾，加上整体经济形势不容乐观，前来游玩的人锐减。为了扭转态势，当地政府通过招投标方式，与某大型央企合作，对古镇进行深度的升级与改造，试图重塑昔日之辉煌。\n据悉，该企业全面接手古镇改造，光第一期投资就多达60亿元，改造项目包括但不限于：全面围蔽古镇，使其成为一个全封闭空间，全域道路进行沥青化处理，全面置换管网与管道，翻新所有建筑物外立面，加固重要建筑内部结构，引入观光小火车，对古镇范围内的河道进行综合整治，引入泛舟游乐项目，移栽各类树木，添置各种花卉与草皮，夜间点缀各种炫丽的灯饰。\n我和朋友一人花了150块，买了门票，进去一探究竟。我上一次来这里是十年前，朋友上一次来是五年前，我们想看看改造前后有什么变化。\n可见性的景观方面，传统的石板街不见了，被沥青路替代，不少道路改线了，水道也改了，低矮建筑不见了，到处小桥流水，花团锦簇，我们的第一感受是“陌生了”“完全不认识了”。显然，古镇的硬件条件得到了数量级的提升，让人感觉“非常摩登”“非常现代化”，从前传统而略显落魄的古镇，摇身一变，成为具有相当都市情趣与情调的标准化景区了。\n我注意到，当天的游客主要有三拨人：其一，当地某医院的单位团建队伍，估计有一百余人；其二，某地的小学生研学队伍，目测六百余师生；其三，衣着清凉而性感的妙龄女郎，她们正在投入地摆拍，长枪短炮纷纷对准她们，类似女模特、女主播及相关服务人员八十余人。其他才是占比最小的少数退休老人…",
-          "link": "http://www.infzm.com/contents/291960",
-          "publishedOn": "2025-04-18T08:25:05.000Z",
-          "wordCount": 93,
-          "title": "本地人真实的生活不见了，古镇变成了谁的古镇？",
-          "imageUrl": null
         }
       ]
     },
@@ -17219,16 +17079,6 @@
           "wordCount": 1455,
           "title": "Snake (the game) on a globe",
           "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/04/snake-on-a-globe.png"
-        },
-        {
-          "id": "https://flowingdata.com/?p=78241",
-          "author": "Nathan Yau",
-          "description": "New to me, a couple decades ago, author Kurt Vonnegut delivered a lecture…\nTags: humor, Kurt Vonnegut, storytelling",
-          "link": "https://flowingdata.com/2025/04/18/kurt-vonnegut-shape-of-stories-illustrated-with-charts/",
-          "publishedOn": "2025-04-18T10:31:01.000Z",
-          "wordCount": 1532,
-          "title": "Kurt Vonnegut, Shape of Stories illustrated with charts",
-          "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/04/kurt-vonnegut.png"
         }
       ]
     },
