@@ -6,6 +6,21 @@
       "siteUrl": "https://bestblogs.dev/zh/feeds",
       "articles": [
         {
+          "id": "eccb6b",
+          "author": "互联网服务器团队",
+          "description": "📌 一句话摘要\n            \n详细介绍了基于 H5 实现的百万级群聊系统的架构设计与关键技术实现\n📝 详细摘要\n            \n文章系统性地介绍了基于 H5 实现的百万级群聊系统的架构设计与关键技术实现。首先分析了读扩散和写扩散两种消息存储模式的优缺点，选择了适合百万级群聊的读扩散方案。然后详细阐述了整体架构设计，包括连接服务、群组服务、消息队列等核心组件及其交互流程，并配有清晰的架构图和流程图。针对消息顺序、消息可靠性、未读数统计等关键问题提供了具体解决方案，特别是推拉结合的消息顺序一致性机制。最后讨论了超大群场景下的消息风暴、消息压缩(使用 protobuf 节省 43%带宽)和块消息等优化策略。整体方案在实际项目中验证了可行性，为构建高性能、高可靠性的群聊系统提供了有价值的参考。\n💡 主要观点\n            \n读扩散模式更适合百万级群聊场景\n                         相比写扩散，读扩散在百万级群聊场景下具有更低的存储成本和更高的写入效率，虽然读取逻辑相对复杂但整体优势明显，特别是对于 H5 实现的应用\n                    \n\n                        推拉结合保证消息顺序一致性\n                         通过服务端推送消息 ID 和客户端拉取消息详情的推拉结合机制，结合消息 ID 排序和线程隔离策略，确保所有用户看到的消息顺序一致，解决了分布式环境下的消息乱序问题\n                    \n\n                        多级缓存优化未读数统计性能\n                         采用 Redis 有界 ZSET 结构结合 MySQL 游标记录，优化了百万级群聊的未读数统计性能，同时通过产品设计妥协(99+)进一步降低复杂度，这对 H5 实现尤为重要\n                    \n\n                        IO 线程与业务线程隔离提升性能\n                         将连接服务里的 IO 线程与业务线程隔离，实现故障隔离和并行处理，充分利用多核 CPU 能力，显著提升系统整体性能\n                    \n\n                        消息压缩与块消息机制应对消息风暴\n                         通过 protobuf 数据格式节省 43%带宽，以及消息合并推送的块消息机制，减少 IO 系统调用，降低传输量，同时改善用户体验，有效应对百万级群聊的消息风暴问题\n                    \n💬 文章金句\n            \n使用 protobuf 数据交换格式，平均每一个消息可以节省 43%的字节大小，可以大大节省机房出口带宽\n通过推拉结合的方式可以保证所有用户收到的消息展示顺序一致\n将连接服务里的 IO 线程与业务线程隔离，提升整体性能\n读扩散就是所有群成员共用一个群信箱，当一个群产生一条消息时，只需要写入这个群的信箱即可，所有群成员从这一个信箱里读取群消息\n以群为维度，累计一段时间内的消息，如果达到阈值，就立刻合并推送，否则就以匀速的时间间隔将在这个时间段内新增的消息进行推送\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：高可用架构\n作者：互联网服务器团队\n分类：软件编程\n语言：中文\n阅读时间：32 分钟\n字数：7758\n标签：\n                    \n                        即时通讯, 高并发架构, 分布式架构, Websocket, 消息队列",
+          "link": "https://www.bestblogs.dev/zh/article/eccb6b",
+          "publishedOn": "2025-05-09T02:51:00.000Z",
+          "wordCount": 281,
+          "title": "百万级群聊的设计实践",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/74c44150-a930-44eb-3c52-4e8c8d4a1500/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/74c44150-a930-44eb-3c52-4e8c8d4a1500/cover"
+        },
+        {
           "id": "468d99",
           "author": "十三",
           "description": "📌 一句话摘要\n            \nChatGPT 推出深度研究新功能，通过连接 GitHub 代码库实现真 · RAG，帮助开发者快速熟悉项目，并上线强化微调功能。\n📝 详细摘要\n            \n该文章报道了 ChatGPT 的最新功能更新，包括深度研究功能与 GitHub 的连接，旨在解决开发者快速熟悉代码库，提高信息检索效率的问题，实现了真 · RAG。深度研究功能允许用户通过 ChatGPT 直接访问和分析 GitHub 代码库，从而快速了解项目架构、关键模块和代码质量。用户可以通过提出问题，让 ChatGPT 自动搜索并引用 GitHub 内容来解答。此外，OpenAI 还发布了强化微调（RFT）功能，该功能通过思维链推理和任务特定评分来提高模型性能，尤其适用于税务和会计等复杂领域。文章还提到了 OpenAI 对于用户数据使用的声明，强调企业级产品默认不使用用户内容训练模型，而个人版服务则可以选择是否开启此选项。\n💡 主要观点\n            \nChatGPT 深度研究功能现可连接 GitHub，实现真 · RAG，利于代码库分析\n                         开发者可以通过该功能快速熟悉新的代码库，了解项目架构、技术栈和潜在问题，提高工作效率。\n                    \n\n                        强化微调 (RFT) 正式发布，提升模型在复杂领域的性能\n                         RFT 通过思维链推理和任务特定评分，使模型在税务、会计等复杂领域达到顶尖水平，提高模型的专业性。\n                    \n\n                        OpenAI 声明企业级产品默认不使用用户数据训练模型\n                         OpenAI 强调对用户数据的保护，企业级用户无需担心数据被用于模型训练，个人用户可选择是否参与模型改进。\n                    \n💬 文章金句\n            \n这是真 · RAG。\n我最近加入了团队，并接到一项任务要求熟悉我们的 GitHub 代码库。请提供一份简要报告，内容包括：项目目的与架构、关键模块、技术栈、值得关注的开源问题/合并请求，以及两项可执行的代码质量改进建议。\n对于企业级产品（如 ChatGPT Team、Enterprise、Edu 和 API 服务），默认情况下用户发送的内容不会用于改进我们的模型。\n若您使用的是个人版服务（如 ChatGPT 免费版、Plus 和 Pro 版），当开启“为所有人改进模型”选项时，我们可能会使用您的内容来训练模型。\n📊 文章信息\n            \nAI 评分：90\n精选文章：是\n来源：量子位\n作者：十三\n分类：人工智能\n语言：中文\n阅读时间：6 分钟\n字数：1449\n标签：\n                    \n                        ChatGPT, GitHub, 深度研究, 强化微调, OpenAI",
@@ -19,6 +34,21 @@
             "length": "0"
           },
           "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/79b00496-c227-4b29-4cad-4be98c832b00/cover"
+        },
+        {
+          "id": "af6d7b",
+          "author": "Anirudh Baddepudi, Antoine Yang, Mario Lučić",
+          "description": "📌 一句话摘要\n            \nGemini 2.5 Pro 和 Flash 模型在视频理解方面实现了最先进的性能，为互动学习内容创作等应用带来革新。\n📝 详细摘要\n            \nGoogle 的 Gemini 2.5 Pro 和 Flash 在视频理解方面取得了显著进展。它们不仅实现了最先进的性能，还超越了 GPT 4.1 等现有模型。Gemini 2.5 是一种原生多模态模型，能够无缝集成音视频信息与代码。这为互动应用、内容创作等领域开启了新的可能性，并能有效提高学习效率和用户参与度。Gemini 2.5 Pro 可以将视频转换为互动学习应用，并使用 p5.js 从视频生成动画。Gemini 2.5 Flash 为各种应用提供了一种高性价比的替代方案。开发者可以通过 Google AI Studio、Gemini API 和 Vertex AI 使用这些模型，构建能够访问海量视频资源的应用。\n💡 主要观点\n            \nGemini 2.5 在视频理解任务中表现卓越，其性能和准确性均优于现有模型。\n                         Gemini 2.5 Pro 在视频理解基准测试中超越了当前的模型，展示了卓越的性能和准确性。\n                    \n\n                        Gemini 2.5 将视频转化为互动式学习体验，有效提升教育应用的价值。\n                         通过 Google AI Studio 中的视频转学习应用，Gemini 2.5 Pro 分析视频并生成互动学习应用的代码。\n                    \n\n                        Gemini 2.5 通过 Gemini API 和 AI Studio 等平台，显著降低了视频理解技术的开发和应用门槛。\n                         通过 API 和 AI Studio 提供 Gemini 2.5 简化了开发和部署过程，使视频理解技术更易于访问。\n                    \n💬 文章金句\n            \nGemini 2.5 Pro 在关键视频理解基准测试中实现了最先进的性能，在相同的提示词和视频帧等可比测试条件下，超越了 GPT 4.1 等最新模型。\nGemini 2.5 作为首个原生多模态模型，能够无缝整合音视频信息、代码及其他数据格式。\n通过 Google AI Studio、Gemini API 和 Vertex AI，开发者可以利用 Gemini 2.5 Flash 和 Pro 的视频理解功能，构建可访问海量视频资源的应用。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：Google Developers Blog\n作者：Anirudh Baddepudi, Antoine Yang, Mario Lučić\n分类：软件编程\n语言：英文\n阅读时间：4 分钟\n字数：794\n标签：\n                    \n                        视频理解, 多模态学习, 视频分析, 视频生成, Gemini 2.5 Pro",
+          "link": "https://www.bestblogs.dev/zh/article/af6d7b",
+          "publishedOn": "2025-05-09T00:00:00.000Z",
+          "wordCount": 301,
+          "title": "Gemini 2.5：引领视频理解新纪元",
+          "enclosure": {
+            "url": "https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/2.5Pro_Metadatal_RD2-V01.2e16d0ba.fill-1200x600.jpg",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/2.5Pro_Metadatal_RD2-V01.2e16d0ba.fill-1200x600.jpg"
         },
         {
           "id": "40535d",
@@ -2584,36 +2614,6 @@
             "length": "0"
           },
           "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/b8a7ff19-56ca-4698-b922-1ece57eec200/cover"
-        },
-        {
-          "id": "239b5e",
-          "author": "Lenny Rachitsky",
-          "description": "📌 一句话摘要\n            \nLovable 是一款 AI 驱动的低代码平台，通过赋能非技术人员快速构建应用，正在革新软件开发模式，目标是成为“最后一款软件”。\n📝 详细摘要\n            \n文章深入介绍了欧洲增长最快的 AI 初创公司 Lovable 及其创始人 Anton Osika。Lovable 致力于通过 AI 驱动的低代码平台，让非技术人员也能轻松构建应用程序，利用大型语言模型和快速反馈循环，实现 AI 驱动的软件开发。Anton Osika 强调，Lovable 的目标是成为“最后一款软件”，能够为用户创造所有未来的产品。文章通过对话形式，详细展示了 Lovable 的产品功能、技术特点、增长策略以及团队文化。同时，探讨了 AI 时代产品构建的新模式和人才需求，强调了品味、好奇心和快速迭代的重要性。文章认为，在 AI 时代，品味、好奇心和快速迭代是构建卓越产品的关键，而 AI Agent 的未来在于更大的自主性和集成。\n💡 主要观点\n            \nLovable 赋能非技术人员快速构建应用\n                         通过 AI 驱动的低代码平台，用户只需输入英文 prompt，AI 就能在几分钟内生成产品，降低了软件开发的门槛。\n                    \n\n                        品味和快速迭代是构建卓越产品的关键\n                         在 AI 时代，清晰地定义问题、注重用户体验和快速迭代产品至关重要，工程师应提升自身品味和全局观。\n                    \n\n                        AI Agent 的未来在于更大的自主性和集成\n                         未来的 AI Agent 将具备更强的自主决策能力，并能与现有系统无缝集成，从而实现更高效的软件开发。\n                    \n\n                        快速增长和独特的团队文化是 Lovable 成功的关键\n                         通过“公开构建”和痴迷于产品的团队，Lovable 实现了惊人的增长速度。\n                    \n💬 文章金句\n            \nLovable 是你的个人 AI 软件工程师。用户描述一个想法，AI 就会为其生成一个完整可用的产品。\n我们正在构建 '最后一块软件' 。\n我们正在见证人类历史上最大的变化，以前是体力劳动被机器取代，但现在实际上是认知劳动被机器做得比人类更好。\n我认为现在更有价值的是擅长弄清楚要构建什么，然后知道你所构建的东西是否正确、是否好、是否准备好。\n在 AI 时代，成为一个通才比以往任何时候都更重要。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：Z Potentials\n作者：Lenny Rachitsky\n分类：商业科技\n语言：中文\n阅读时间：71 分钟\n字数：17648\n标签：\n                    \n                        AI产品, 低代码, 应用开发, 创业, GPT Engineer",
-          "link": "https://www.bestblogs.dev/zh/article/239b5e",
-          "publishedOn": "2025-04-20T03:00:20.000Z",
-          "wordCount": 318,
-          "title": "深度｜欧洲增长最快 AI 初创 Lovable 创始人：我们正在构建最后一块软件；认知劳动被机器做得比人类更好",
-          "enclosure": {
-            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/b31b70ad-0708-4e3a-d89f-6ed76a354b00/cover",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/b31b70ad-0708-4e3a-d89f-6ed76a354b00/cover"
-        },
-        {
-          "id": "dcabbd",
-          "author": "Founder Park",
-          "description": "📌 一句话摘要\n            \n抖音官方公开推荐算法原理，揭示了其如何利用机器学习和深度学习实现个性化推荐。\n📝 详细摘要\n            \n本文详细解读了抖音的推荐算法原理，从算法演进历程讲起，阐述了推荐算法在信息匹配中的作用。文章介绍了深度学习在推荐系统中的应用，包括 Wide & Deep 模型和双塔召回模型，阐述了它们在提高推荐准确性和泛化能力方面的作用。此外，文章还解释了抖音如何通过学习用户行为数据、预估用户行为概率和定义行为的推荐价值，实现个性化推荐，以及人工干预在避免不当内容泛滥等方面的重要性。\n💡 主要观点\n            \n人工干预在算法推荐中起着重要作用\n                         为了避免不当内容泛滥等问题，需要对算法进行人工干预，为其构筑多层 “护栏”，从而保证推荐内容的质量和价值。\n                    \n\n                        推荐算法通过分析用户行为数据，实现高效的信息匹配\n                         推荐算法通过机器学习技术，对用户的点击、浏览、喜欢等行为进行建模，从而预测用户可能感兴趣的内容，实现个性化推荐。\n                    \n\n                        深度学习模型在推荐系统中具有更强的表达能力和灵活性\n                         深度学习模型能够挖掘数据中潜藏的模式，并根据业务场景和数据特点灵活调整模型结构，从而提高推荐的准确性和泛化能力。\n                    \n\n                        抖音的推荐算法通过预估用户行为概率和定义行为的推荐价值，实现个性化推荐\n                         抖音通过学习用户行为数据、预估用户行为概率和定义行为的推荐价值，综合计算视频的推荐优先级，从而实现个性化推荐。\n                    \n💬 文章金句\n            \n推荐算法的本质是个极其高效的信息过滤系统。个性化推荐算法，好比给每个人量身定制了一个信息「快递员」，能更高效、准确地把合适的信息推送到用户面前，满足每个用户各不相同的需求。\n深度学习的模型结构非常灵活，能够根据业务场景和数据特点，灵活调整模型结构，使模型与应用场景完美契合。\n算法始终在用数学的纯粹性，尝试复刻人类选择的不确定性。\n抖音推荐算法的核心逻辑可以简化为「推荐优先级公式」：综合预测用户行为概率 × 行为价值权重 = 视频推荐优先级\n也正是因为这个特性，若单纯依靠算法预判行为而不加约束，可能会带来不当内容泛滥等新问题。因此，对于不懂内容的算法，还需要为其构筑多层「护栏」，避免算法对内容价值的「认知盲区」引发的问题。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：Founder Park\n作者：Founder Park\n分类：商业科技\n语言：中文\n阅读时间：26 分钟\n字数：6399\n标签：\n                    \n                        推荐算法, 推荐系统, 深度学习, 机器学习, Wide&Deep模型",
-          "link": "https://www.bestblogs.dev/zh/article/dcabbd",
-          "publishedOn": "2025-04-20T02:31:00.000Z",
-          "wordCount": 291,
-          "title": "抖音公开了他们的推荐算法原理，强烈推荐一读",
-          "enclosure": {
-            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/fcf3c641-a137-4c36-063d-358fe49d3900/cover",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/fcf3c641-a137-4c36-063d-358fe49d3900/cover"
         }
       ]
     },
@@ -2622,6 +2622,26 @@
       "feedUrl": "https://morss.it/https://gijn.org/feed/",
       "siteUrl": "https://gijn.org",
       "articles": [
+        {
+          "id": "https://gijn.org/?p=2240581",
+          "author": "Emily O'Sullivan",
+          "description": "Reuters is seeking a skilled and ambitious U.S.-based correspondent to lead coverage on the intersection of race, justice, gender and government. This journalist will pursue stories of global significance that will explore how policy decisions and programs impact communities across the country — and the drivers, or people, behind those decisions. As a U.S.-based correspondent […]",
+          "link": "https://gijn.org/jobs/u-s-race-and-justice-correspondent/",
+          "publishedOn": "2025-05-09T12:49:46.000Z",
+          "wordCount": 881,
+          "title": "U.S. Race and Justice Correspondent",
+          "imageUrl": "https://gijn.org/wp-content/themes/gijn/card.jpg"
+        },
+        {
+          "id": "https://gijn.org/?p=2240579",
+          "author": "Emily O'Sullivan",
+          "description": "CNN is looking for a Researcher to join our Investigations team and will work alongside an ambitious crew of journalists to produce original stories that hold powerful people and institutions accountable, prompt change and right wrongs. The Visual Investigations (OSINT) Researcher will use open-source intelligence techniques to collect, analyze and verify data from publicly available […]",
+          "link": "https://gijn.org/jobs/osint-researcher/",
+          "publishedOn": "2025-05-09T12:44:25.000Z",
+          "wordCount": 836,
+          "title": "OSINT Researcher",
+          "imageUrl": "https://gijn.org/wp-content/themes/gijn/card.jpg"
+        },
         {
           "id": "https://gijn.org/?p=2240576",
           "author": "Emily O'Sullivan",
@@ -2978,16 +2998,6 @@
           "wordCount": 11675,
           "title": "426个老人拼死守护！这个快倒闭的网站，装着这群老人最后尊严",
           "imageUrl": "https://inews.gtimg.com/news_ls/OSgOe4taU0r3ZXixOATfA9g90RR5QvGFyEi929AciUARMAA_640330/0"
-        },
-        {
-          "id": "https://view.inews.qq.com/a/20250420A03HYR00",
-          "author": "谷雨实验室",
-          "description": "今天，是谷雨十周年。十年，在历史中不过白驹一隙，但在每个人的生命里却自有重量。我们用故事记录这个十年，因为我们相信叙事的意义，相信真实胜过伪饰，人与人的理解可以打败虚无。\n\n过去已经消散，未来难以预知，在这个变幻莫测的世界，所谓当下，都是逆水行舟。希望你我能用故事，锚定下一个十年。\n\n在谷雨十周年之际，我们精选了十篇文章，在微信读书上，组成十年纪念特刊\n《我们这样活过》\n。\n期待与谷雨的新老朋友们相聚在新的故事中。",
-          "link": "https://view.inews.qq.com/a/20250420A03HYR00",
-          "publishedOn": "2025-04-20T03:20:36.000Z",
-          "wordCount": 134,
-          "title": "让故事，锚定下一个十年",
-          "imageUrl": "https://inews.gtimg.com/om_ls/OnwIgOAsnZ0NrX9A6ipu6owPMLZ-41QywiEKBPj6zf6p0AA_640330/0"
         }
       ]
     },
@@ -3282,16 +3292,6 @@
           "wordCount": 8070,
           "title": "一位麻醉科医生的自白",
           "imageUrl": "https://inews.gtimg.com/om_ls/O4apM96_YVTqMq6-eTU3okTTvGRTjg2tnjEok8AO0OlIwAA_640330/0"
-        },
-        {
-          "id": "https://view.inews.qq.com/a/20250420A02TF100",
-          "author": "人物",
-          "description": "时隔多年，在上海的春风里，周轶君提出一种观察，许多人在二十六七岁时候做的事情，很可能会影响一生——决定去做战地记者时，她恰好26岁。\n \n后来，周轶君做了许多工作，看起来好像离「战地记者」的身份越来越远，她去凤凰卫视担任时事观察员，写书，录节目，再后来拍纪录片，做制片人，但她心里清楚，自己的内核从来没有变过。她是一个创作者，也是一个记录者，她喜欢观察世界，探索世界，她总是在人生的田野里不断播种，尝试各种新鲜事物，追随一种「强烈的冲动」，打开自己的天地。\n\n\n\n\n\n文｜梁宋\n\n编辑｜Yang\n\n\n\n\n\n春夏「种因」\n\n\n春将尽，夏将至。今天是谷雨，春季最后一个节气，谷雨的到来意味着寒潮天气基本画上句号，气温攀升速度加快。「清明断雪，谷雨断霜」，4月的上海已经暖和起来，中午温度甚至可以到达30度。谷雨虽有春天清新的气质，但已初具夏天的性格。\n \n4月，天朗气清，正是林徽因笔下的「人间四月天」，周轶君站在上海辰山植物园内，看着园子里初放芽的绿叶，樱花一树一树地开，豆梨、喜林草、染井吉野、月季、郁金香相继盛放，她一下想到「播种」，想到「生长」，雨生百谷，「这是一个种因的时节」。\n \n过往人生，周轶君有过许多属于自己的谷雨时刻——那些春夏「种因」的时刻。\n \n小时候，她喜欢文学，喜欢看书，喜欢写作，梦想是成为作家，但试了挺多次，总是不顺利。上中学时上海市要选十几个中学生成立记者团，她一下就被选上了，做得非常顺利，「冥冥之中一件事情你做起来特别顺利，做起来也很开心，或许就选对了，这就是一种种因」。\n \n大学时，她选择离开上海，去北京学习。因为心仪学校的文学专业在上海不招生，她果断决定学习外语。外国语学校有很多可学的语种，英语、法语、德语都是两个字，阿拉伯语很特别，它有四个字，周轶君觉得「很有意思」，她对冷门生僻的东西总有一种好奇，抱着尝试的态度，她学习了阿拉伯语。当时，她对中东一无所知…",
-          "link": "https://view.inews.qq.com/a/20250420A02TF100",
-          "publishedOn": "2025-04-20T02:01:59.000Z",
-          "wordCount": 4808,
-          "title": "周轶君 在敏感与钝感中不断微调",
-          "imageUrl": "https://inews.gtimg.com/om_ls/O8sjfCVGeEkx4FS00GeuM0B3jwzm1NQZrf50Z9rieSbf8AA_640330/0"
         }
       ]
     },
@@ -3300,6 +3300,26 @@
       "feedUrl": "https://rsshub.rssforever.com/tencent/news/author/8QMc3Hhc74cevD%252FR",
       "siteUrl": "https://new.qq.com/omn/author/8QMc3Hhc74cevD%2FR",
       "articles": [
+        {
+          "id": "https://view.inews.qq.com/a/20250509A09MA200",
+          "author": "晚点LatePost",
+          "description": "不盲目追求规模而注重发展质量，是两人的共性。\n\n\n公开反对企业打价格战恶性竞争、拒绝流量营销后，5 月 6 日，魏建军再度发声引发讨论。但这一次与汽车无关，他在个人社媒上发视频声援胖东来，配文称：胖东来是一家优秀的企业，值得我们学习。我不认识于东来，但作为企业界的人士，我也要为他发声。\n\n魏建军是近期胖东来事件中首个公开表态的公众人物，随后永辉超市也发布致社会各界公开信，公开支持胖东来。\n\n近期事件起因是玉石博主 “柴怼怼” 称胖东来卖玉 “低成本、高暴利、品质差”。胖东来发布说明和公开起诉后，创始人于东来于 5 月 3 日称，如果不让 “柴怼怼” 这种随意污蔑伤害他人的行为受到应有的处罚，自己会 “主动关闭或永远离开胖东来”。同一天抖音公告，对 “柴怼怼” 29 条涉嫌侵权视频下架，限制账号投稿权限一个月。\n\n5 月 6 日，许昌市公布对胖东来玉石的检查结果，其 1 至 4 月份共销售和田玉商品 4177 件，销售金额近 3000 万元，平均毛利率不超过 20%，且明码标价、鉴定证书有效。同一天，于东来在社媒上连发 9 条回应，称愿意邀请柴怼怼、宋清辉、躺平叔等质疑胖东来的人，来胖东来研究考察。\n\n魏建军声援胖东来的核心是企业应该 “诚信、真实” 经营，延续了他一贯的经营理念，即重视长期建设而非短期投机。这与胖东来创始人于东来的做法相近，都是通过坚持自身价值取胜，而不是靠跟风竞争。\n\n从不一样的生意里，看见同一种判断方式\n\n魏建军在视频中说道：“做生意就应该真诚，胖东来最基础的东西就是诚信、真实。去年 5 月 3 号，我在胖东来那个超市那，我也录了一个视频，而且我自己解说，胖东来也是我们应该学习的榜样。首先你做生意应该诚信，所以这个社会应该提倡像胖东来一样的企业。我作为企业界的人士，我应该呼应他，我应该去支持他这种行为。”\n\n于东来曾多次强调透明经营的理念，并在实践中做到…",
+          "link": "https://view.inews.qq.com/a/20250509A09MA200",
+          "publishedOn": "2025-05-09T13:59:11.000Z",
+          "wordCount": 1830,
+          "title": "魏建军为什么要为于东来发声？",
+          "imageUrl": "https://inews.gtimg.com/om_ls/O6YrJ9h-FVj8r80ePCaEoZ4CuvSDjNq71eoHiIw5DK53sAA_640330/0"
+        },
+        {
+          "id": "https://view.inews.qq.com/a/20250509A09IK100",
+          "author": "晚点LatePost",
+          "description": "从品牌到技术，吉利聚焦资源，加速一体化。\n\n\n文丨司雯雯\n编辑丨龚方毅\n\n2014 年，吉利决定取消 3 个子品牌、集中销售资源，合力抓紧中国消费者的旺盛需求。这一次，吉利希望用相似策略应对不同的问题：当汽车市场需求减少、销量愈发向头部集中时，作为一家有近 10 个乘用车品牌的大汽车集团如何避免内耗。\n\n5 月 7 日，吉利汽车控股有限公司（下称 “吉利汽车”）披露，计划收购极氪科技已发行的全部股份，按交易价格换算约 65 亿美元。交易完成后，极氪将成为吉利汽车的全资子公司，从纽交所退市。除路特斯、沃尔沃和极星等少数品牌外，吉利所有乘用车品牌将统一归入吉利汽车。\n\n这是吉利乘用车体系目前幅度最大的一次调整。一些极氪科技的员工感到突然，极氪在纽交所上市刚刚一年，他们看到公司公告时才得知消息。十年的多品牌扩张策略后，吉利开始重新推进一体化、回归 “一个吉利”。\n\n相比横跨两家公司、两班管理层，在同一家公司内管理吉利银河、极氪、领克的产品定位变得更直接。不过，整合更长期的目的之一是打通供应链。此前，每个品牌各自组织技术研发、采购供应，去年 9 月《台州宣言》发布后，吉利控股做了多项整合以减少重复投入、技术共享，比如将极氪的辅助驾驶系统开放给吉利汽车品牌。合并后，吉利和极氪、领克将共享更多技术、资源，同时降低间接成本。\n\n吉利今年 1 月宣布，吉利乘用车板块会在整车架构、电子电气架构、辅助驾驶、智能座舱、动力电池等领域深度协同。这种结构类似于建立技术中台、供应不同品牌。\n\n其中，辅助驾驶、智能座舱、动力电池已经基本整合。电池业务是吉利体系目前战略整合中最复杂、链条最长的一次。4 月 23 日，吉利控股集团公布新成立名为 “吉曜通行” 的电池产业集团。\n\n不同于吉利体系内部的资源统筹，吉利此前有金砖、神盾短刀两个电池品牌，分别主供极氪科技集团和吉利汽车集团，分别由极电、耀宁等公司生产…",
+          "link": "https://view.inews.qq.com/a/20250509A09IK100",
+          "publishedOn": "2025-05-09T13:34:28.000Z",
+          "wordCount": 1090,
+          "title": "收回极氪、整合供应链：一个吉利的轮廓",
+          "imageUrl": "https://inews.gtimg.com/om_ls/OAFIkhDea0uXAjCX8aTpV1oQHLdsYUDt4UsWAgGmMNSK4AA_640330/0"
+        },
         {
           "id": "https://view.inews.qq.com/a/20250509A05ZK200",
           "author": "晚点LatePost",
@@ -5070,36 +5090,6 @@
             "type": "image//sz_mmbiz_jpg/ib94HtJ7lw9rV9vEVabGaS3UQKN9juZRclFTh3x2Rna2RpLbbwfUVv50iagV3OfF7GOW6DU5xYibEicKXsvj6M4zrg/0"
           },
           "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/ib94HtJ7lw9rV9vEVabGaS3UQKN9juZRclFTh3x2Rna2RpLbbwfUVv50iagV3OfF7GOW6DU5xYibEicKXsvj6M4zrg/0?wx_fmt=jpeg"
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s/m7ikjhm44QTWZ8OlyPgSlw",
-          "author": null,
-          "description": "",
-          "link": "https://mp.weixin.qq.com/s/m7ikjhm44QTWZ8OlyPgSlw",
-          "publishedOn": "2025-04-20T04:18:52.000Z",
-          "wordCount": 264,
-          "title": "顶流明星带火“打鸟”之后，中年人的爱好藏不住了",
-          "enclosure": {
-            "url": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/ib94HtJ7lw9rV9vEVabGaS3UQKN9juZRcZyicgUNLYthic3QpRL0TmhnYavBXS8hUicR51S2gRoibl58FB7td6VhJLQ/0?wx_fmt=jpeg",
-            "length": "0",
-            "type": "image//sz_mmbiz_jpg/ib94HtJ7lw9rV9vEVabGaS3UQKN9juZRcZyicgUNLYthic3QpRL0TmhnYavBXS8hUicR51S2gRoibl58FB7td6VhJLQ/0"
-          },
-          "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/ib94HtJ7lw9rV9vEVabGaS3UQKN9juZRcZyicgUNLYthic3QpRL0TmhnYavBXS8hUicR51S2gRoibl58FB7td6VhJLQ/0?wx_fmt=jpeg"
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s/NbePJI4mcz_Svs3wrfwx2Q",
-          "author": null,
-          "description": "",
-          "link": "https://mp.weixin.qq.com/s/NbePJI4mcz_Svs3wrfwx2Q",
-          "publishedOn": "2025-04-20T04:18:52.000Z",
-          "wordCount": 264,
-          "title": "如果写作有捷径，阅读是最好的那条",
-          "enclosure": {
-            "url": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/ib94HtJ7lw9rV9vEVabGaS3UQKN9juZRc2j2ntsibRMVBd7d0nyjrXyiaxiauncLjVnYGPIw9EwlkibYHVpTCncd11A/0?wx_fmt=jpeg",
-            "length": "0",
-            "type": "image//sz_mmbiz_jpg/ib94HtJ7lw9rV9vEVabGaS3UQKN9juZRc2j2ntsibRMVBd7d0nyjrXyiaxiauncLjVnYGPIw9EwlkibYHVpTCncd11A/0"
-          },
-          "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/ib94HtJ7lw9rV9vEVabGaS3UQKN9juZRc2j2ntsibRMVBd7d0nyjrXyiaxiauncLjVnYGPIw9EwlkibYHVpTCncd11A/0?wx_fmt=jpeg"
         }
       ]
     },
@@ -6475,6 +6465,46 @@
       "feedUrl": "https://rsshub.rssforever.com/nationalgeographic/latest-stories",
       "siteUrl": "https://www.nationalgeographic.com/pages/topic/latest-stories",
       "articles": [
+        {
+          "id": "https://www.nationalgeographic.com/environment/article/zombie-fungi-research-pest-control",
+          "author": "Rebecca Dzombak, Roberto García-Roa",
+          "description": "Even the largest insect bodies offer no refuge from parasitic fungi. This cicada, now a husk, has been consumed by a fungus. The specimen is part of the growing collection curated by mycologist João Araújo at the University of Copenhagen, where researchers are uncovering the immense diversity—and potential—of these microorganisms.   \nParasitic fungi have adapted to hijack some insects and nourish others. By learning their secrets, we may be able to use them to attack harmful pests.\n    \nZombie fungi have become notorious in pop culture and from videos of them bursting through ants, but it’s time for their redemption arc.\n    \nScientists know very little about how zombie fungi work, but they and closely related fungi could help farmers kill costly pests like mealybugs and aphids. These pest…",
+          "link": "https://www.nationalgeographic.com/environment/article/zombie-fungi-research-pest-control",
+          "publishedOn": "2025-05-09T16:21:37.000Z",
+          "wordCount": 10117,
+          "title": "The surprising real world uses of zombie fungi",
+          "imageUrl": "https://i.natgeofe.com/n/d50b292d-032d-46d9-9090-a2bd277758e0/0V4A2661_16x9.jpg?w=1200"
+        },
+        {
+          "id": "https://www.nationalgeographic.com/travel/article/how-to-run-the-antarctica-marathon",
+          "author": "Nick Busca",
+          "description": "The writer, Nick Busca, crossing the finish line at the Antarctica Marathon.   \nBefore you can lace up for one of the world’s most remote races, you’ll need to navigate wild seas, endure freezing temperatures, and embark on a journey that tests more than just your endurance.\n    \n“Hold on tight. It’s gonna be wet. And it’s gonna be bumpy.” Our Zodiac driver Steven Rose, who goes by Steve, doesn’t sugarcoat it. I grab the line to my left and slide my goggles over my eyes.\n    \nThe sea is choppy, and the water is a deep, intense blue that sends chills down my spine. The temperature is around 5°C (41°F), but the 30-knot winds hitting my face make it feel much colder.\n    \nAs soon as Steve accelerates, the swells hit those at the front of the boat. I grimace: Running a marathon is hard enough …",
+          "link": "https://www.nationalgeographic.com/travel/article/how-to-run-the-antarctica-marathon",
+          "publishedOn": "2025-05-09T16:21:37.000Z",
+          "wordCount": 11042,
+          "title": "What it’s like to run a marathon beyond the end of the world",
+          "imageUrl": "https://i.natgeofe.com/n/92236efe-df9a-4fb7-9310-a9a8a16dc005/Kevin-McGarry_16x9.jpg?w=1200"
+        },
+        {
+          "id": "https://www.nationalgeographic.com/animals/article/elephant-nannies",
+          "author": "Tina Deines",
+          "description": "Allomothers, aka \"nannies,\" play an important role in elephant society by comforting and teaching babies while giving mom a hand.   \nElephant caregivers play an important role in their society by comforting and teaching babies when mom is occupied.&nbsp;\n    \nIn December 2023, a 10-year-old African elephant disappeared from her herd in Kenya’s Samburu National Reserve. When she returned a month later, she was accompanied by two unrelated females, thought to be about 10 and 15 years old; the younger one had a newborn calf in tow.\n    \nWhat happened next was remarkable, according to Giacomo D’Ammando, research manager for the Kenya-based conservation organization Save the Elephants.\n     San Diego Zoo Elephant ParkElephants form what's known as an \"alert circle\" during a 5.2 magnitude earthq…",
+          "link": "https://www.nationalgeographic.com/animals/article/elephant-nannies",
+          "publishedOn": "2025-05-09T16:21:36.000Z",
+          "wordCount": 7470,
+          "title": "When elephant moms need help, nannies step in",
+          "imageUrl": "https://i.natgeofe.com/n/d3fabd92-c2a5-40ff-b724-1c4e3696cd73/NationalGeographic_2791218_16x9.jpg?w=1200"
+        },
+        {
+          "id": "https://www.nationalgeographic.com/history/article/pope-name-pontiff-leo-meaning",
+          "author": "Melissa Sartore",
+          "description": "Cardinal Robert Francis Prevost made history by becoming the first Roman Catholic pope from North America. Once elected, however, he chose a pontifical name steeped in hundreds of years of religious tradition: Pope Leo XIV. \n    \nAs the number indicates, Prevost is the 14th pope with the name Leo. Pope Leo XIV will likely discuss his pontifical name in the coming days, but its significance is clear when looking at the pontificates of his predecessors. From Pope Leo I and his purported exchange with Attila the Hun to Pope Leo IX's role in the Great Schism of A.D. 1054, the pontifical name holds great importance within the Roman Catholic Church. \n      \nThe name Leo means \"lion\" in Latin and carries with it a sense of regality, dignity, and leadership. Pope Leo I, the first of three popes in…",
+          "link": "https://www.nationalgeographic.com/history/article/pope-name-pontiff-leo-meaning",
+          "publishedOn": "2025-05-09T16:21:36.000Z",
+          "wordCount": 8416,
+          "title": "Why did the Pope pick Leo? Here’s why the name is so important",
+          "imageUrl": "https://i.natgeofe.com/n/fb863e1e-d2a2-454d-92d6-69fa655979e3/3A0E87Y_16x9.jpg?w=1200"
+        },
         {
           "id": "https://www.nationalgeographic.com/travel/article/toyama-japan-living-craft-village",
           "author": "Karen Gardiner",
@@ -8155,6 +8185,38 @@
       "feedUrl": "https://news.un.org/feed/subscribe/en/news/all/rss.xml",
       "siteUrl": "https://news.un.org/en/",
       "articles": [
+        {
+          "id": "https://news.un.org/en/story/2025/05/1163076",
+          "author": null,
+          "description": "Shattered by her husband’s death during the rising tide of gang violence in Haiti last year, Christiana and her six children fled 223 kilometres from their hometown to the city of Mirebalais, where her six-year-old daughter, Leineda, began treatment for malnutrition.",
+          "link": "https://news.un.org/feed/view/en/story/2025/05/1163076",
+          "publishedOn": "2025-05-09T12:00:00.000Z",
+          "wordCount": null,
+          "title": "Haiti: Displaced families grapple with death ‘from the inside’ and out",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/2025-05-09-UNICEF-Haiti_01.jpg/image560x340cropped.jpg",
+            "length": "17304",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/2025-05-09-UNICEF-Haiti_01.jpg/image560x340cropped.jpg"
+        },
+        {
+          "id": "https://news.un.org/en/story/2025/05/1163071",
+          "author": null,
+          "description": "Israel’s plan to take control of relief assistance in Gaza would put civilian lives in danger and cause mass displacement while using aid as “bait”, UN humanitarians said on Friday.",
+          "link": "https://news.un.org/feed/view/en/story/2025/05/1163071",
+          "publishedOn": "2025-05-09T12:00:00.000Z",
+          "wordCount": null,
+          "title": "Gaza: UN agencies reject Israeli plan to use aid as ‘bait’",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Graphics%20Library/13-06-2024-Gaza-The%20Little%20Girl%20and%20Water%20Container%20Final.jpg/image560x340cropped.jpg",
+            "length": "21933",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Graphics%20Library/13-06-2024-Gaza-The%20Little%20Girl%20and%20Water%20Container%20Final.jpg/image560x340cropped.jpg"
+        },
         {
           "id": "https://news.un.org/en/story/2025/05/1163046",
           "author": null,
@@ -11163,16 +11225,6 @@
           "wordCount": 13053,
           "title": "水木法学网络｜劳东燕：山西大同订婚强奸案中的众声喧哗",
           "imageUrl": "https://chinadigitaltimes.net/chinese/files/2022/09/Screen-Shot-2022-09-24-at-11.04.35-PM.png"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=717481",
-          "author": "不忘初心",
-          "description": "我想告诉大家最近的遭遇，我在抖音、微信视频号直播、发视频，在微博、公众号、小红书发帖，不断被删帖，被举报。",
-          "link": "https://chinadigitaltimes.net/chinese/717481.html",
-          "publishedOn": "2025-04-20T01:00:27.000Z",
-          "wordCount": 13038,
-          "title": "大口吃面2018｜富士康女工劳动纠纷案庭审纪实",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/04/Screenshot-2025-04-19-at-4.22.11 PM.png"
         }
       ]
     },
@@ -11827,16 +11879,6 @@
           "wordCount": 805,
           "title": "派早报：人形机器人半马在京举办，天工夺冠宇树缺席",
           "imageUrl": "https://cdnfile.sspai.com/4/21/2025/article/1c52cb47-4418-ae17-e7f3-f9cd581f83a8.png"
-        },
-        {
-          "id": "https://sspai.com/post/98495",
-          "author": "宛潼",
-          "description": "不仅更简洁，以邮件内容为核心，而且也与其它邮件 App 只提供「它认为」的分类不同，它是一款你可以自定义各种邮件分类的 App，给了用户更大的自定义和个性化的空间。查看全文",
-          "link": "https://sspai.com/post/98495",
-          "publishedOn": "2025-04-20T03:30:00.000Z",
-          "wordCount": 756,
-          "title": "App+1 | 「邮件」的 AI 时代新体验，Notion Mail",
-          "imageUrl": "https://cdnfile.sspai.com/4/18/2025/article/43c38946-2f06-7097-9e51-5e1ea04f3156.jpeg"
         }
       ]
     },
@@ -12163,16 +12205,6 @@
           "publishedOn": "2025-04-21T04:02:04.000Z",
           "wordCount": 106,
           "title": "徐之凯评《突如其来的勇气》｜早熟的抵抗",
-          "imageUrl": null
-        },
-        {
-          "id": "https://www.thepaper.cn/newsDetail_forward_30687150",
-          "author": null,
-          "description": "龙登高（章静绘）\n\n\n清华大学社会科学学院龙登高教授长期致力于中国经济史研究，关注传统市场与产权制度，著有《 市场中国两千年》《中国传统地权制度及其变迁》《地权市场与资源配置》《中国传统市场发展史》等。而他的新著《近世基层治理及制度变迁》，则将目光投向了传统中国的基层秩序。在接受《上海书评》专访时，他以明清时期基层公共品供给与民间主体治理机制为核心，讲述了士绅、宗族与民间组织的运行逻辑。\n\n《近世基层治理及制度变迁》，龙登高、陈月圆、黄一彪著，广西师范大学出版社2024年7月出版，348页，98.00元\n\n\n先从地权这个概念谈起。中国古代社会是怎么定义“地权”这个概念的，有哪些类别？更进一步，围绕地权，中国古代社会形成了怎样的制度？\n龙登高：地权——严格来说是指土地产权制度——是一个非常重要的制度安排。比如说，2024年的诺贝尔经济学奖颁给了三位经济史学者，奖励他们对新制度经济学的贡献。而产权制度正是新制度经济学的核心问题之一。我们一般把土地产权划分为三种形态：所有权、占有权和使用权，田面权、典权属于占有权形态。三种形态的土地权利在实际操作中有着不同的权能，都可以进入市场而形成交易，从而构成了地权交易体系。西欧中世纪时期的土地产权不太明晰，难以自由买卖。和他们相比，中国古代的土地私有产权制度发育得比较充分，能够被明晰界定，还具有不同的交易形式，如抵押、租赁、典当和买卖等。这些表现构成了一个丰富的地权市场。\n基于这样的市场，普通的农民就有了建立属于自己的家庭农庄的可能。一个农民哪怕没有土地，或者土地不足，都可以通过市场获得土地使用权或占有权，积极组织家庭成员，依靠拥有的劳力来展开经营。举个例子：明代江西有一个农户，他家里有四个孩子，在孩子小的时候，他把家里的地典了出去，等到几年之后，小孩长成彪形大汉，这户人家对土地的需求就发生了变化。于是，他们不仅把原来出典的土地赎了回来，还…",
-          "link": "https://www.thepaper.cn/newsDetail_forward_30687150",
-          "publishedOn": "2025-04-20T02:02:04.000Z",
-          "wordCount": 71,
-          "title": "龙登高谈近世的基层治理及制度变迁",
           "imageUrl": null
         }
       ]
@@ -13653,6 +13685,16 @@
       "feedUrl": "https://feedx.site/rss/infzm.xml",
       "siteUrl": "http://infzm.com",
       "articles": [
+        {
+          "id": "http://www.infzm.com/contents/293073",
+          "author": null,
+          "description": "2025-05-09 21:00:37\n人的一生就像小径分岔的花园，每个人生关口的选择，都会将你引向不同的方向。\n你有没有幻想过，如果当初的某个时刻，你做出了不同的选择，人生会不会不一样？\n针对这个命题，好莱坞诞生了一系列多元宇宙论题材电影：《蜘蛛侠:平行宇宙》《瞬息全宇宙》《奇异博士2：疯狂多元宇宙》《闪电侠》……\n但放眼国内，这个高概念命题下的作品却始终稀缺，只有银河映像1997年的开山之作《一个字头的诞生》探讨了相似的命题。影片通过黑帮小混混黄阿狗在人生节点上做出的不同抉择，以平行时空的方式，交代了他两次选择导致的不同命运。\n\n即便隔28年再回头看这部电影，它的高概念依旧遥遥领先。\n而能够追赶或超越它的，也只有银河映像自己。在银河映像推出的首部剧集《三命》中，再次嵌套了类似的核心创意。该剧播出后，其豆瓣评分从8.0涨到8.2，且还在持续上升中。\n\n制作方面，《三命》最大的看点集中在杜琪峰身上。它是杜琪峰时隔37年重回港剧的作品，虽然只是挂名监制，但从幕后特辑可以看出，他此番显然是深度参与的。正因如此，有观众认为，《三命》之于杜琪峰，就像《繁花》之于王家卫，都是香港电影导演下沉电视剧市场的一大示例，变相提高了电视界的制作水平。\n不同的是，王家卫的《繁花》隐隐透露出对内地市场的迎合，而杜琪峰的《三命》却有着更多的坚守。这种坚守既体现在《三命》引入B站后遭遇的内容删减上，也体现在它并不明快的叙事节奏和较高的观剧门槛上。\n《三命》看起来更像是银河映像创作理念的一部集大成之作。除《一个字头的诞生》外，透过这部剧集，你还能联想到多部银河映像的电影作品。而银河映像的影迷们也能从中找到多个致敬彩蛋：少年阿信跨过马路栏杆的动作致敬了《黑社会2》里的东莞仔跨栏杆，飘在天上的红风筝会让人联想到《柔道龙虎榜》里的红气球，剧中流露出的宿命论则像极了《命案》中的“一切皆是命，半点不由人”……\n\n…",
+          "link": "http://www.infzm.com/contents/293073",
+          "publishedOn": "2025-05-09T13:25:05.000Z",
+          "wordCount": 85,
+          "title": "银河映像入局，港剧起死回生？",
+          "imageUrl": null
+        },
         {
           "id": "http://www.infzm.com/contents/293338",
           "author": null,
@@ -17752,46 +17794,6 @@
           "wordCount": 69,
           "title": "山西一国道发生塌陷，造成4车追尾2人死亡",
           "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/292062",
-          "author": null,
-          "description": "2025-04-20 11:00:00\n\n科考人员在野外调查。受访者供图\n我第一次报道洞穴救援事件，是在2018年7月，泰国野猪少年足球队13名成员被困，经历了18天的煎熬，终于全部成功获救（详见《亲历十八天国际营救，中国队员眼中的洞穴大救援》）。当时受访对象就告诉我，洞穴救援非常复杂，通道狭窄，地形多变，可见度低，找人困难，难有成功解救被困者的事件。\n这一次大小周获救，是全国首例洞穴潜水救援成功的案例，难度可见一斑。（详见报道《寻找洞穴鱼的“荒野猎人”》）\n我结识周佳俊是在2020年，那时他就是我的采访对象，作为蝙蝠研究者，向读者讲解物种特性。在他的朋友圈，常能看到户外科考的碎片分享，包括林中的珍稀植物、昆虫的大特写，濒临绝迹动植物的科普，还有云雾缠绕丛林的视频片段。但直到操作这次选题，我才意识到他们科考背后的艰难。\n成为“荒野猎人”，有着很高的门槛。周佳俊组了一支临时小队，他们是不同领域的专业人士，各自拥有的专业技能能互相帮助，包括索降和潜水，科考人员需要掌握“上山下水”的各项技能。\n极高的专业性限制了这一群体的数量。贵州省洞穴协会副秘书长周文龙曾对媒体表示，洞穴科考需要复合型人才，要会技术、能测绘、懂科研。相关机构也在着力培养洞穴科考的后备力量，早在2005年，中法国际洞穴培训基地就在贵州省遵义市绥阳县设立，举办了15届国际洞穴探测及单绳技术培训，受训人数260余人。\n在公众视线之外，看似小众的洞穴科考领域发展多年，中外洞穴科考专家联合开展过多次科考行动，各地应急局会指导救援队举办洞穴探险与救援培训班，洞穴探险爱好者们组成的洞穴探险队，也会在相关专家的指导下进行科学训练，做科研人员的“千里眼”和“顺风耳”，承担一部分科研任务，采样测绘。\n“荒野猎人”是在探险，而非冒险，我觉得这是很重要的一点。那些未被发现的新物种，可能出现在人迹罕至的地方。掌握这些技能，是为了在保证安全的情况下，尽可能地拓展知识边界。在这个过程中，能感受到他们的执着与热爱。\n他们致力于寻找的洞穴鱼类，长年生活在黑暗环境，身体透明，血管内脏清晰可见，可能成为研究某些特殊疾病的理想动物模型；那些被发现的洞穴鳅，对研究鱼类演化和功能发展机制有所助益；按照论文所说，发现新物种，收集其物种丰富度、分布和受胁因素资料，增加该物种的分布点，扩大对其分布区域的认识，对保护这一物种也是有意义的。\n对他们来说，户外活动风险自担属于共识。周佳俊在社交平台提到，他对广西近年所有涉及洞穴内潜水的情况和事故，都有关心了解，但还是忽略了潜在风险点，发生了意外。他说，出了事故就说明实际风险超过了可控范围，未来会在提升知识和技术的前提下，调整应对风险的冗余，更加保守。\n关于救援的过程，公安部、央视新闻，包括我们的受访者王浩，都用镜头做了详细记录。救援大小周的这支水上勤务救援大队，按照洞潜专家韦柏的介绍，也是因为当地洞穴繁多，他们在七年前开始有意识地主动学习洞穴救援技能，建设了一支具备洞穴救援能力的队伍，“不是一蹴而就，是经过这么长训练得到的”。\n在央视新闻播出的纪录片中，有一个细节让我印象深刻，视频末尾，出现了这支水上勤务救援大队的潜水教练名单，其中一个名字被框了起来：韩颋。他是国内知名洞穴潜水探险家，2023年10月不幸于广西九顿天窗潜水遇难。在他遇难前3天，还帮周佳俊采过样。",
-          "link": "http://www.infzm.com/contents/292062",
-          "publishedOn": "2025-04-20T03:25:05.000Z",
-          "wordCount": 87,
-          "title": "成为“荒野猎人”丨记者手记",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/292070",
-          "author": null,
-          "description": "2025-04-20 09:56:34\n记者从深圳铁路公安处获悉，近日，一名旅客在深圳北站强行阻挡列车车门关闭，构成妨碍交通工具正常行驶违法行为，已被铁路公安机关行政拘留。",
-          "link": "http://www.infzm.com/contents/292070",
-          "publishedOn": "2025-04-20T02:25:07.000Z",
-          "wordCount": 69,
-          "title": "为等同行人上车竟阻挡高铁关门 一旅客被行政拘留",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/292050",
-          "author": null,
-          "description": "2025-04-20 10:00:00\n历经两次征求意见之后，被视为小额网贷行业核心商业模式的助贷业务迎来新规。2025年4月3日，国家金融监督管理总局发布《关于加强商业银行互联网助贷业务管理 提升金融服务质效的通知》（下称《助贷新规》），将于10月1日起正式实施。\n较之2020年和2021年对互联网助贷业务的相关规定，助贷新规更要求商业银行合理调整助贷业务比例，避免过度依赖助贷业务，更针对现实存在的普遍问题作出明确规定，如对助贷机构实行总对总“名单制”管理、禁止增信服务机构变相收费，更首度明确：商业银行与助贷平台合作发放的小额网贷，借款人单笔贷款支付的综合融资成本上限不得超过年化24%。\n助贷新规之下，大量互联网平台贷款机构成为“风暴中心”。这些机构因金融牌照、资本金和杠杆率等方面的严格监管，其自营贷款业务规模、营收和利润的贡献度远不及其助贷业务。助贷业务因此成为各互联网平台小额网贷业务实现商业可持续的最大动力。但因长期缺乏有效监管，该领域也是引发金融消费者投诉纠纷和社会争议最多的领域之一。\n助贷新规将对哪些消费者反映强烈的行业乱象进行规范？哪些业务将被视为违规？哪些机构面临存亡之变？\n南方周末新金融研究中心研究员以在美国和香港上市的6家主要从事互联网平台贷款业务的上市公司为重点调研对象，在研究各公司披露的公开信息（注：因年报披露时间差异，香港上市公司最新年报为2024年度，美国上市公司最新年报为2023年度，下同）基础上，通过对部分公司进行针对性的问卷调研，描摹助贷新规下互联网平台机构即将面临的生存之变。\n调研结果显示，助贷新规的实施至少带来四个方面的影响，包括：强化“马太效应”，提升行业集中度；减少恶性竞争，规范行业秩序；促进技术输出，“网银”合作更稳定；改善行业形象，减轻消费者投诉压力。\n分润比例不再“一刀切”\n在新规发布之前的2024年9月和11月，监管部门曾对助…",
-          "link": "http://www.infzm.com/contents/292050",
-          "publishedOn": "2025-04-20T02:25:07.000Z",
-          "wordCount": 139,
-          "title": "助贷新规开启倒计时，高息网贷将消失？",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/292068",
-          "author": null,
-          "description": "2025-04-20 09:29:21\n\n4月20日，我国首次按照中国民航适航规章完全自主研制的AG600飞机在京获颁中国民航局型号合格证，标志着全球起飞重量最大的民用水陆两栖飞机通过了严格测试和验证，研制取得圆满成功，获得进入市场“准入证”。\nAG600飞机研制节点：\n2017年12月24日，在珠海实现陆上首飞，迈出国产大飞机“水陆两栖”的第一步。\n\n2018年10月20日，在湖北荆门完成水上首飞。\n2020年7月26日，于青岛附近海域成功实现海上首飞。\n\n2023年6月，具备执行灭火任务能力。\n2024年7月，获得首个型号检查核准书。\n2025年2月，全面完成审定试飞。\n\n在AG600飞机的研制历程中，我国填补了大型水陆两栖飞机的战略空白，完善了航空应急救援装备体系，加速了民用航空国产化进程，带动了民机产业链和供应链全面自主创新、自主研发、自主保障，锤炼了一批大型特种飞机工程研发、数字制造、敏捷试飞、适航审定领军人才，为该类飞机适航过程成功探索了实践路径，为后续其他重点飞机型号适航工作提供了有益的借鉴，为民机产业发展创造了有利条件。",
-          "link": "http://www.infzm.com/contents/292068",
-          "publishedOn": "2025-04-20T01:55:05.000Z",
-          "wordCount": 75,
-          "title": "祝贺！国产大型水陆两栖飞机AG600获市场“准入证”",
-          "imageUrl": null
         }
       ]
     },
@@ -17800,6 +17802,16 @@
       "feedUrl": "http://flowingdata.com/feed",
       "siteUrl": "https://flowingdata.com",
       "articles": [
+        {
+          "id": "https://flowingdata.com/?p=78562",
+          "author": "Nathan Yau",
+          "description": "Seth Godin on the importance of judgment:\nAI is a tool, and judgment,…\nTags: Seth Godin, tool",
+          "link": "https://flowingdata.com/2025/05/09/fancy-hammer/",
+          "publishedOn": "2025-05-09T16:03:20.000Z",
+          "wordCount": 1511,
+          "title": "Fancy hammer",
+          "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/01/logo-lone-square512x512.png"
+        },
         {
           "id": "https://flowingdata.com/?p=78496",
           "author": "Nathan Yau",
