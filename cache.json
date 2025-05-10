@@ -21,6 +21,21 @@
           "imageUrl": "https://www.qbitai.com/wp-content/uploads/replace/82e3b57c86c009fbea7b68298e61816f.gif"
         },
         {
+          "id": "c2118e",
+          "author": "Tina",
+          "description": "📌 一句话摘要\n            \nInfoQ 对 Kong 中国区总裁戴冠兰的专访，探讨了 API 网关从微服务到 AI 时代的演进，以及 Kong 在 AI 网关领域的实践与未来展望。\n📝 详细摘要\n            \n本文是 InfoQ 对 Kong 中国区总裁戴冠兰的专访，深入探讨了 API 网关在微服务和大模型时代的角色演变。文章回顾了 Kong 网关从 2015 年开源项目到如今 AI 网关的历程，重点介绍了 Kong AI 网关如何屏蔽不同 LLM 提供商的差异，提供统一 API 接口，并实现可观测性、认证授权等治理能力。此外，还讨论了 AI 网关的关键功能，如多 LLM provider 代理、基于 Token 的 ratelimit，以及如何通过语义缓存优化性能， 提升整体响应速度和降低 Token 消耗。文章还展望了 AI 网关的未来发展，包括持续扩展模型支持、优化开发者体验和强化生态系统建设等。整体而言，本文清晰地阐述了 API 网关在 AI 时代的重要性和 Kong 在 AI 网关领域的战略布局。\n💡 主要观点\n            \nAPI 网关在 AI 时代的核心作用是对 LLM 请求进行治理\n                         包括多 LLM provider 的 fallback、认证授权、Token 消耗管理等，简化开发，提升安全性与可观测性。\n                    \n\n                        Kong AI 网关通过多种机制确保与外部 AI 服务交互的安全性和效率\n                         密钥中心化控制、多种认证策略、限流限速插件以及 Bot Detection 等，有效应对安全风险和爬虫问题。\n                    \n\n                        语义化缓存是提升 AI 网关性能和降低成本的关键手段\n                         通过缓存常见请求的响应，减少对 LLM 的重复调用，降低 Token 消耗，提升整体响应速度。\n                    \n\n                        Kong AI 网关支持多 LLM provider，实现高可用性\n                         通过多种重试和负载均衡策略，保障始终有可用的 LLM provider 提供服务，增强系统的稳定性和可靠性。\n                    \n💬 文章金句\n            \nNo AI without API\n通过 Kong AI 网关主要完成的是对于 LLM 请求的治理，这其中不只是包括对多个 LLM provider 的 fallback，也包括认证授权等能力。\n很难定义哪一项能力最具战略意义，一方面是因为 AI 技术迭代极快，新标准和新需求层出不穷；另一方面，不同行业和企业的 AI 应用场景高度多样化，对能力的侧重也有所不同。\nAI 网关正迅速成为大模型（LLM）和生成式 AI 系统中的关键基础设施。它不仅统一了流量入口，还在安全、合规、性能和可观察性方面提供了核心能力。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：InfoQ 中文\n作者：Tina\n分类：软件编程\n语言：中文\n阅读时间：27 分钟\n字数：6505\n标签：\n                    \n                        AI网关, API网关, 大语言模型, 微服务, Kong",
+          "link": "https://www.bestblogs.dev/zh/article/c2118e",
+          "publishedOn": "2025-05-09T07:31:00.000Z",
+          "wordCount": 320,
+          "title": "API 网关十五年演进：从微服务核心到 AI 时代的神经网络",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/f8889c2e-ffff-4f5c-42e1-5a8ac97a5900/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/f8889c2e-ffff-4f5c-42e1-5a8ac97a5900/cover"
+        },
+        {
           "id": "eccb6b",
           "author": "互联网服务器团队",
           "description": "📌 一句话摘要\n            \n详细介绍了基于 H5 实现的百万级群聊系统的架构设计与关键技术实现\n📝 详细摘要\n            \n文章系统性地介绍了基于 H5 实现的百万级群聊系统的架构设计与关键技术实现。首先分析了读扩散和写扩散两种消息存储模式的优缺点，选择了适合百万级群聊的读扩散方案。然后详细阐述了整体架构设计，包括连接服务、群组服务、消息队列等核心组件及其交互流程，并配有清晰的架构图和流程图。针对消息顺序、消息可靠性、未读数统计等关键问题提供了具体解决方案，特别是推拉结合的消息顺序一致性机制。最后讨论了超大群场景下的消息风暴、消息压缩(使用 protobuf 节省 43%带宽)和块消息等优化策略。整体方案在实际项目中验证了可行性，为构建高性能、高可靠性的群聊系统提供了有价值的参考。\n💡 主要观点\n            \n读扩散模式更适合百万级群聊场景\n                         相比写扩散，读扩散在百万级群聊场景下具有更低的存储成本和更高的写入效率，虽然读取逻辑相对复杂但整体优势明显，特别是对于 H5 实现的应用\n                    \n\n                        推拉结合保证消息顺序一致性\n                         通过服务端推送消息 ID 和客户端拉取消息详情的推拉结合机制，结合消息 ID 排序和线程隔离策略，确保所有用户看到的消息顺序一致，解决了分布式环境下的消息乱序问题\n                    \n\n                        多级缓存优化未读数统计性能\n                         采用 Redis 有界 ZSET 结构结合 MySQL 游标记录，优化了百万级群聊的未读数统计性能，同时通过产品设计妥协(99+)进一步降低复杂度，这对 H5 实现尤为重要\n                    \n\n                        IO 线程与业务线程隔离提升性能\n                         将连接服务里的 IO 线程与业务线程隔离，实现故障隔离和并行处理，充分利用多核 CPU 能力，显著提升系统整体性能\n                    \n\n                        消息压缩与块消息机制应对消息风暴\n                         通过 protobuf 数据格式节省 43%带宽，以及消息合并推送的块消息机制，减少 IO 系统调用，降低传输量，同时改善用户体验，有效应对百万级群聊的消息风暴问题\n                    \n💬 文章金句\n            \n使用 protobuf 数据交换格式，平均每一个消息可以节省 43%的字节大小，可以大大节省机房出口带宽\n通过推拉结合的方式可以保证所有用户收到的消息展示顺序一致\n将连接服务里的 IO 线程与业务线程隔离，提升整体性能\n读扩散就是所有群成员共用一个群信箱，当一个群产生一条消息时，只需要写入这个群的信箱即可，所有群成员从这一个信箱里读取群消息\n以群为维度，累计一段时间内的消息，如果达到阈值，就立刻合并推送，否则就以匀速的时间间隔将在这个时间段内新增的消息进行推送\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：高可用架构\n作者：互联网服务器团队\n分类：软件编程\n语言：中文\n阅读时间：32 分钟\n字数：7758\n标签：\n                    \n                        即时通讯, 高并发架构, 分布式架构, Websocket, 消息队列",
@@ -2599,21 +2614,6 @@
             "length": "0"
           },
           "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/5b63754e-6de0-4b5e-6ffc-04ca8c156d00/cover"
-        },
-        {
-          "id": "811b52",
-          "author": "Harrison Chase",
-          "description": "📌 一句话摘要\n            \n本文讨论了选择 Agent 框架的关键因素，强调了上下文控制的重要性，并介绍了 LangGraph 作为一个兼具灵活性和控制力的编排框架。\n📝 详细摘要\n            \n本文分析了 Agent 框架，强调了在构建可靠的 Agent 系统中上下文控制的重要性。文章指出，Agent 系统由工作流和 Agent 组成，大多数框架都是 Agent 抽象。Agent 抽象简化了入门，但可能导致 LLM 上下文不够清晰。文章介绍了 LangGraph 作为一个支持高级抽象和低级功能的编排框架，兼顾了易用性与灵活性。文章还讨论了 Agent 框架的各个维度，包括工作流与 Agent 以及声明式与非声明式方法。\n💡 主要观点\n            \n确保 LLM 具有适当的上下文对于构建可靠的 Agent 系统至关重要。\n                         这包括控制传递给 LLM 的确切内容，并运行适当的步骤来生成相关内容，确保 LLM 在每个步骤都具有正确的上下文。\n                    \n\n                        Agent 系统应灵活地整合工作流和 Agent，从而实现最佳的可靠性和效率。\n                         生产就绪的 Agent 系统通常结合工作流的确定性以及 Agent 的灵活性。这种结合能够实现最佳的性能和可靠性。\n                    \n\n                        Agent 抽象简化了入门，但可能妨碍对 LLM 上下文的精准控制。\n                         过度的抽象会使理解和控制 LLM 的输入变得困难，从而影响 Agent 系统的可靠性。LangGraph 通过支持具有低级功能的高级抽象来解决此问题。\n                    \n💬 文章金句\n            \n构建可靠 Agent 系统的关键在于确保 LLM 在每个步骤都拥有适当的上下文。\nAgent 系统由工作流和 Agent 组成（以及介于两者之间的一切）。\nLangGraph 最好被认为是一个编排框架（具有声明式和命令式 API），其上构建了一系列 Agent 抽象。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：LangChain Blog\n作者：Harrison Chase\n分类：人工智能\n语言：英文\n阅读时间：21 分钟\n字数：5103\n标签：\n                    \n                        Agent框架, LLM, LangGraph, LangChain, Agent系统",
-          "link": "https://www.bestblogs.dev/zh/article/811b52",
-          "publishedOn": "2025-04-20T20:14:24.000Z",
-          "wordCount": 307,
-          "title": "Agent 框架思考指南",
-          "enclosure": {
-            "url": "https://blog.langchain.dev/content/images/size/w1200/2025/04/Screenshot-2025-04-20-at-10.19.41-AM.png",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://blog.langchain.dev/content/images/size/w1200/2025/04/Screenshot-2025-04-20-at-10.19.41-AM.png"
         }
       ]
     },
@@ -6446,6 +6446,16 @@
       "siteUrl": "https://www.nationalgeographic.com/pages/topic/latest-stories",
       "articles": [
         {
+          "id": "https://www.nationalgeographic.com/travel/article/where-to-see-wildlife-in-europe-this-summer",
+          "author": "Sean Newsom",
+          "description": "Summer is the best time for wildlife-watching in Europe and spotting animals such as bears, wolves and lynx, is made possible thanks to knowledgable guides and various animal reintroduction schemes.   \nFrom the Făgăraș Mountains of Romania to the teeming sea cliffs of St Kilda in Scotland, Europe is still home to staggering displays of summer wildlife. Whether you’re searching for sperm whales, brown bears, dolphins or wolves, here are six of the best destinations to target.\n     \nThis article was produced by National Geographic Traveller (UK).\n     \nAlthough quite densely populated, Europe isn’t short of lonely island outposts, remote mountain ranges and dark, seemingly impenetrable forests — and many of them shelter world-class displays of animal activity. You’ll need to be well-equipped…",
+          "link": "https://www.nationalgeographic.com/travel/article/where-to-see-wildlife-in-europe-this-summer",
+          "publishedOn": "2025-05-10T08:20:27.000Z",
+          "wordCount": 8127,
+          "title": "Where to see wildlife in Europe this summer",
+          "imageUrl": "https://i.natgeofe.com/n/dc5858dd-af97-4261-84f4-9f5cc9bc775f/GettyImages-1135374352_16x9.jpg?w=1200"
+        },
+        {
           "id": "https://www.nationalgeographic.com/history/article/samurai-japan-ancient-history",
           "author": "Antonio Míguez",
           "description": "The samurai, Japan’s celebrated lineage of warriors, emerged in the Heian period (794-1185), when the rise of their status enabled them to mingle with the refined nobility living in the then-capital of Heian-kyō (Kyoto). Samurai fought in the Ōnin War and during the period of unrest that followed. From then on, the bushi, as the samurai were also called, made their mark on Japanese history with their exceptional fighting prowess, becoming emblematic of Japanese culture.\n    \nThe high point of samurai history is often associated with the Tokugawa shogunate, also known as the Edo period (1603–1868), a time of peace, prosperity, isolationist policies, and cultural growth. This is the most studied era of Japanese history and the period in which novelists, filmmakers, and comic book creators te…",
@@ -7734,16 +7744,6 @@
           "wordCount": 6398,
           "title": "Try this Norwegian Arctic lodge for an intro to pack-rafting",
           "imageUrl": "https://i.natgeofe.com/n/a38cc9d5-d725-49ff-8ad2-57c2b659ea78/ST_experiences_Overnight_hike_with_dogs_Trasti_Trine_Sara_Johannessen-VisitNorway_3_16x9.jpg?w=1200"
-        },
-        {
-          "id": "https://www.nationalgeographic.com/travel/article/paid-content-day-trips-from-prague-central-bohemia",
-          "author": "Joseph Reaney",
-          "description": "Wrapped around Prague like an elegant scarf, Central Bohemia is a region rich in ancient history and natural beauty. Once at the heart of the Holy Roman Empire and the Habsburg realm, its storied past is evidenced at every turn by a parade of picture-perfect castles and cathedrals. Perhaps more surprising — considering the region’s proximity to the Czech capital — is the abundance of unspoilt nature, from forest-fringed rivers and natural springs, to yawning limestone caves and grand canyons. Here are five excellent reasons to add Central Bohemia to your next Czech adventure.\n      \nMacabre Sedlec Ossuary is probably Central Bohemia’s most photographed sight (though this has been restricted in recent years). From the outside, it looks like an unremarkable Catholic chapel, but step across t…",
-          "link": "https://www.nationalgeographic.com/travel/article/paid-content-day-trips-from-prague-central-bohemia",
-          "publishedOn": "2025-04-20T19:02:34.000Z",
-          "wordCount": 6541,
-          "title": "Best of Bohemia—discover 5 unmissable day trips from Prague",
-          "imageUrl": "https://i.natgeofe.com/n/8bc8e008-0f4a-4dc8-9ae1-337924798ae1/Karlstjen_castle_Bohemia_16x9.jpg?w=1200"
         }
       ]
     },
@@ -7752,6 +7752,20 @@
       "feedUrl": "https://rsshub.rssforever.com/natgeo/science/article",
       "siteUrl": "https://www.natgeomedia.com/science/article",
       "articles": [
+        {
+          "id": "https://www.natgeomedia.com/environment/article/content-18061.html",
+          "author": null,
+          "description": "「及早發現，及早治療」是現代醫學推廣的概念。全球數百萬人飽受視力問題的困擾，但由於許多患者生活在偏遠的地區，因此難以獲得現代醫療服務。在勞力士「保護地球．恒動不息」計劃（Perpetual Planet Initiative）的支持下，英國眼科醫生安德魯．巴斯塔勞斯（Andrew Bastawrous）創立 Peek Vision，為服務偏遠社區的當地眼科治療機構提供眼科檢查軟體和數據分析。隨著這項工具在亞洲和非洲受到廣泛應用，如今 Peek Vision 創下重要里程碑，在合作夥伴的幫助下，已有一千萬人接受視力篩檢。下一步，巴斯塔勞斯的目標是在 2028 年底前將 Peek 推廣至尼泊爾全國。\n\n                    \n改善視力 看見希望\n巴斯塔勞斯之所以立志改善全球眼科治療服務，源於他在英國上學時的經歷。當時，他因看不清黑板而難以跟上同學們的學習進度。12 歲時，眼科檢查發現他患有嚴重近視。佩帶眼鏡後，望向停車場外的樹木時，他不再只是看到一團模糊的綠影，而是能看見鮮亮的綠色，甚至能清楚地看到樹葉。這次檢查改變他的人生。\n同年，巴斯塔勞斯跟隨父母返回家鄉埃及，他發現其他患有近視的孩童沒有機會接受檢查或治療，無法像他一樣迎來改變。巴斯塔勞斯深切體會到，接受眼科治療的機會並不公平。此後，他一直希望能夠改變這個情況，立志在全球各地普及眼科治療服務。他完成眼科醫生的醫學培訓，並進入英國國家醫療服務系統（National Health Service，簡稱NHS）工作。擔任眼科醫生數年後，2011 年巴斯塔勞斯離開 NHS，並移居肯亞，致力幫助資源匱乏的社區民眾改善視力。\n\n運用科技 普及檢查\n在肯亞面臨的主要挑戰為普及性。除了主要城市，鄉村中普遍缺乏道路和醫療服務。為將服務帶給需要的人，巴斯塔勞斯 2012 年萌生創立 Peek Vision 的構想，並在四年後獲得勞力士大獎（Rolex Award），所獲支持進一步提升計劃的規模。他注意到偏遠社區幾乎人人都有手機，因而帶領團隊成功推出了利用智慧手機的應用程式 Peek，使非專業人士也能進行像傳統眼科檢查一樣準確的檢查。這款易於使用的應用程式可為人們篩檢視力問題，並助其獲得必要的眼科服務。經過培訓的工作人員和志願者可以實地操作該程式，使篩檢和檢測惠及更多人。\n\n                    \n寫下里程 永不止步\n如今，每月有超過 25 萬人透過手機接受眼科檢查，該計劃已擴展到非洲和亞洲的多個地區。在印度也有經歷如同巴斯塔勞斯昔日感受的孩子。14 歲的普仁．庫瑪（Prem Kumar）和他的五個兄弟姐妹生活在印度北部沙賈漢普爾區（Shahjahanpur）的小村莊。由於視力不佳，他在學業上舉步維艱，最終輟學。與此同時，他還放棄了自己最愛的板球運動。借助 Peek Vision 簡便的眼科檢查，診斷出普仁和巴斯塔勞斯一樣患有嚴重近視。隨後，普仁獲轉介至 Peek Vision 的合作夥伴施洛芙醫生慈善眼科醫院（Dr Shroff’s Charity Eye Hospital）營運的視力中心。獲配眼鏡後，他的生活也隨之改變。巴斯塔勞斯相信問題總會存在，不過總能夠一一克服，他希望確保所有人皆有接受眼科保健服務的機會。\n\n                    \n迎向未來 恒動不息\n近一世紀以來，勞力士不斷支持探險先鋒，竭力衝破人類極限。隨著世事變動， 勞力士將探險從最初純粹的探索發現，逐漸轉變為保護地球的方式，矢志支持傑出人士及組織運用科學了解當今環境挑戰並制定解決方案。2019 年推出「保護地球．恒動不息」計劃，初期著眼於以下三方面：勞力士大獎(Rolex Awards)，以及與「藍色使命」（Mission Blue）計劃及國家地理學會的長期合作。該計劃已擁有超過 20 個合作夥伴，涵蓋的領域也日益廣泛。同時，勞力士傾力提供獎學金與補助金，支持組織及倡議培養下一代探險家、科學家及保育專家。\n \n了解勞力士大獎詳情（連結：https://www.rolex.org/zh-hant/rolex-awards）\n\n                    \n#勞力士\n#Rolex\n#PerpetualPlanet\n#RolexAwards\n#勞力士大獎",
+          "link": "https://www.natgeomedia.com/environment/article/content-18061.html",
+          "publishedOn": "2025-05-09T16:00:00.000Z",
+          "wordCount": null,
+          "title": "勞力士「保護地球．恆動不息」計劃支持 Peek Vision 普及眼科檢查 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權",
+          "enclosure": {
+            "url": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18061/2025042167233257.jpg",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18061/2025042167233257.jpg"
+        },
         {
           "id": "https://www.natgeomedia.com/science/article/content-18126.html",
           "author": null,
@@ -8102,6 +8116,20 @@
       "feedUrl": "https://rsshub.rssforever.com/natgeo/history/article",
       "siteUrl": "https://www.natgeomedia.com/history/article",
       "articles": [
+        {
+          "id": "https://www.natgeomedia.com/environment/article/content-18061.html",
+          "author": null,
+          "description": "「及早發現，及早治療」是現代醫學推廣的概念。全球數百萬人飽受視力問題的困擾，但由於許多患者生活在偏遠的地區，因此難以獲得現代醫療服務。在勞力士「保護地球．恒動不息」計劃（Perpetual Planet Initiative）的支持下，英國眼科醫生安德魯．巴斯塔勞斯（Andrew Bastawrous）創立 Peek Vision，為服務偏遠社區的當地眼科治療機構提供眼科檢查軟體和數據分析。隨著這項工具在亞洲和非洲受到廣泛應用，如今 Peek Vision 創下重要里程碑，在合作夥伴的幫助下，已有一千萬人接受視力篩檢。下一步，巴斯塔勞斯的目標是在 2028 年底前將 Peek 推廣至尼泊爾全國。\n\n                    \n改善視力 看見希望\n巴斯塔勞斯之所以立志改善全球眼科治療服務，源於他在英國上學時的經歷。當時，他因看不清黑板而難以跟上同學們的學習進度。12 歲時，眼科檢查發現他患有嚴重近視。佩帶眼鏡後，望向停車場外的樹木時，他不再只是看到一團模糊的綠影，而是能看見鮮亮的綠色，甚至能清楚地看到樹葉。這次檢查改變他的人生。\n同年，巴斯塔勞斯跟隨父母返回家鄉埃及，他發現其他患有近視的孩童沒有機會接受檢查或治療，無法像他一樣迎來改變。巴斯塔勞斯深切體會到，接受眼科治療的機會並不公平。此後，他一直希望能夠改變這個情況，立志在全球各地普及眼科治療服務。他完成眼科醫生的醫學培訓，並進入英國國家醫療服務系統（National Health Service，簡稱NHS）工作。擔任眼科醫生數年後，2011 年巴斯塔勞斯離開 NHS，並移居肯亞，致力幫助資源匱乏的社區民眾改善視力。\n\n運用科技 普及檢查\n在肯亞面臨的主要挑戰為普及性。除了主要城市，鄉村中普遍缺乏道路和醫療服務。為將服務帶給需要的人，巴斯塔勞斯 2012 年萌生創立 Peek Vision 的構想，並在四年後獲得勞力士大獎（Rolex Award），所獲支持進一步提升計劃的規模。他注意到偏遠社區幾乎人人都有手機，因而帶領團隊成功推出了利用智慧手機的應用程式 Peek，使非專業人士也能進行像傳統眼科檢查一樣準確的檢查。這款易於使用的應用程式可為人們篩檢視力問題，並助其獲得必要的眼科服務。經過培訓的工作人員和志願者可以實地操作該程式，使篩檢和檢測惠及更多人。\n\n                    \n寫下里程 永不止步\n如今，每月有超過 25 萬人透過手機接受眼科檢查，該計劃已擴展到非洲和亞洲的多個地區。在印度也有經歷如同巴斯塔勞斯昔日感受的孩子。14 歲的普仁．庫瑪（Prem Kumar）和他的五個兄弟姐妹生活在印度北部沙賈漢普爾區（Shahjahanpur）的小村莊。由於視力不佳，他在學業上舉步維艱，最終輟學。與此同時，他還放棄了自己最愛的板球運動。借助 Peek Vision 簡便的眼科檢查，診斷出普仁和巴斯塔勞斯一樣患有嚴重近視。隨後，普仁獲轉介至 Peek Vision 的合作夥伴施洛芙醫生慈善眼科醫院（Dr Shroff’s Charity Eye Hospital）營運的視力中心。獲配眼鏡後，他的生活也隨之改變。巴斯塔勞斯相信問題總會存在，不過總能夠一一克服，他希望確保所有人皆有接受眼科保健服務的機會。\n\n                    \n迎向未來 恒動不息\n近一世紀以來，勞力士不斷支持探險先鋒，竭力衝破人類極限。隨著世事變動， 勞力士將探險從最初純粹的探索發現，逐漸轉變為保護地球的方式，矢志支持傑出人士及組織運用科學了解當今環境挑戰並制定解決方案。2019 年推出「保護地球．恒動不息」計劃，初期著眼於以下三方面：勞力士大獎(Rolex Awards)，以及與「藍色使命」（Mission Blue）計劃及國家地理學會的長期合作。該計劃已擁有超過 20 個合作夥伴，涵蓋的領域也日益廣泛。同時，勞力士傾力提供獎學金與補助金，支持組織及倡議培養下一代探險家、科學家及保育專家。\n \n了解勞力士大獎詳情（連結：https://www.rolex.org/zh-hant/rolex-awards）\n\n                    \n#勞力士\n#Rolex\n#PerpetualPlanet\n#RolexAwards\n#勞力士大獎",
+          "link": "https://www.natgeomedia.com/environment/article/content-18061.html",
+          "publishedOn": "2025-05-09T16:00:00.000Z",
+          "wordCount": null,
+          "title": "勞力士「保護地球．恆動不息」計劃支持 Peek Vision 普及眼科檢查 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權",
+          "enclosure": {
+            "url": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18061/2025042167233257.jpg",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18061/2025042167233257.jpg"
+        },
         {
           "id": "https://www.natgeomedia.com/science/article/content-18108.html",
           "author": null,
@@ -9928,6 +9956,16 @@
       "feedUrl": "https://morss.it/:proxy/https://chinadigitaltimes.net/chinese/feed",
       "siteUrl": "https://chinadigitaltimes.net/chinese",
       "articles": [
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=718009",
+          "author": "南方街头运动员",
+          "description": "都是咱马家人👍",
+          "link": "https://chinadigitaltimes.net/chinese/718009.html",
+          "publishedOn": "2025-05-10T04:27:09.000Z",
+          "wordCount": 13068,
+          "title": "每日一语 2025.5.9",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/05/2025.5.9.jpg"
+        },
         {
           "id": "https://chinadigitaltimes.net/chinese/?p=718007",
           "author": "南方街头运动员",
@@ -12010,6 +12048,16 @@
       "siteUrl": "http://thepaper.cn",
       "articles": [
         {
+          "id": "https://www.thepaper.cn/newsDetail_forward_30790476",
+          "author": null,
+          "description": "[美]欧文·拉铁摩尔著，王敬译，上海人民出版社︱光启书局2024年5月出版，414页，108.00元\n\n\n历史学家理查德·布利特在其著《骆驼与轮子》思考了一个问题：在漫长的历史中，为何骆驼几乎完全取代了有轮车，成为运输的标准方式？回答这个看似简单的问题，需要查阅大量文献和考古资料。可能是因为骆驼有更好的运量、韧性与耐力，也可能是因为它更经济——有轮车和道路都需要建造和维护，直到铁路出现，其运力强大到人类愿意为之付出维护成本，驼运才退出历史舞台。答案不是唯一和笃定的，这也提醒我们，虽然骆驼作为“沙漠之舟”的印象，以及象征丝绸之路等宏大主题的意义已经深入人心，但我们对它本身以及它如何参与运输还不那么了解。\n中国关于骆驼的记载绵延不绝，图像和考古发现中人骑坐骆驼或牵引骆驼的形象则立体地呈现了古人对骆驼的认知。但是，古代资料毕竟久远，我们大多数时候仍需要演绎和归纳，不免疏于细节，也可能蒙上艺术加工的滤镜。若把时间限定在更近的清朝和民国初年，驼运的历史画面就清晰多了。有清一代，在内地与蒙古、新疆等地之间兴起了以驼运为主要方式的旅蒙商贸易。这段历史时期留下不少口述史料和传说，因而更容易拼凑出历史画面。不过，亲历并正面书写驼运（而非事后的回忆）的并不多见。毕竟参与驼运的劳苦大众不具备记录的动机和能力；能够留下记录的官员文人，以及近代西方探险者，他们的兴趣点又不在骆驼本身。在这样的背景下，欧文·拉铁摩尔可以说是一个异数，他的游记《从塞北到西域：重走沙漠古道》亦是一本奇书。\n商道即驼道\n拉铁摩尔在1926—1927年走了一场中国边疆之旅，他在前半程（从内蒙古呼和浩特到新疆奇台）走的是商道，因此这段旅行有了田野调查的性质。骆驼不仅是他的交通工具，亦是他关注的商队贸易的重要组成部分，因而在《从塞北到西域》中有大量的描写。\n拉铁摩尔并不是最早对驼道感兴趣的外国旅行者。在《天津条约》签订后，英人、法…",
+          "link": "https://www.thepaper.cn/newsDetail_forward_30790476",
+          "publishedOn": "2025-05-10T07:02:04.000Z",
+          "wordCount": 126,
+          "title": "肖峰读《从塞北到西域》︱拉铁摩尔的骆驼",
+          "imageUrl": null
+        },
+        {
           "id": "https://www.thepaper.cn/newsDetail_forward_30764783?commTag=true",
           "author": null,
           "description": "《文明的追求：现代英国的礼仪与文化探源》，[英]基思·托马斯著，社会科学文献出版社｜思想会，2025年1月出版，496页，98.00元\n\n\n一\n在笛福那部脍炙人口的海洋小说中，主人公鲁滨逊落难荒岛后，他不时提起自己的恐惧。刚刚逃难登岛时，因为缺乏衣服、食物、淡水和武器，他像疯子一样惊惧。夜幕降临，他害怕被野兽吃掉，甚至不敢在地上过夜。当他在岛上遭遇地震，感染疟疾，进入可怕梦境时，他的灵魂恐惧万分。在荒岛生活的第十五年，他在海滩看到一个野人的脚印，他于是魂不守舍，害怕至极。\n这三次恐惧都有特别的意义。它们就像界标，将鲁滨逊的海岛生活划成三个阶段。它们也是每个阶段的起点，是鲁滨逊努力克服、摆脱的对象。第一次恐惧是生存的恐惧。鲁滨逊经历海难，被抛上荒岛，他就陷入了生存的困境与危机。生存是他要解决的首要问题。于是，他想尽办法，从沉船上抢救出食物、衣服、武器和工具，并在岛上建筑工事，防范莫名的危险。鲁滨逊建好了居所，这是一座生活的堡垒，足以让他维持生计，保障安全。第二次恐惧是灵魂的恐惧，也是道德觉醒时刻的恐惧。“当我的精神由于重病的负担而开始消沉，体力由于高烧的强烈而开始耗尽，那沉睡已久的良心开始苏醒，我开始悔恨我过去的生活。”（[英]丹尼尔·笛福：《鲁滨逊漂流记》，周伟驰译，华东师范大学出版社，2018年，98页）鲁滨逊受到恶梦的启示，开始阅读《圣经》，敬拜上帝，反思过往的人生。这时，“我感到恐惧，我的罪太可怕了，我的灵魂对上帝别无他求，只求能把我从罪的重担下解救出来，这些重担压得我不得安宁”（同前，105页）。在一个摒除了社会关系、虚荣竞争的世界里，鲁滨逊借助双手和身体与自然相往来。鲁滨逊一边阅读《圣经》，一边反求诸己，反思曾经犯下的罪过，体认良知的觉醒，在精神上与上帝相往来。在与自然和上帝的交往中，他终于改造了自我，学会了孤独的生活，获得精神的自足与安宁。于是，在鲁滨逊的眼里，…",
@@ -13787,6 +13835,66 @@
       "feedUrl": "https://feedx.site/rss/infzm.xml",
       "siteUrl": "http://infzm.com",
       "articles": [
+        {
+          "id": "http://www.infzm.com/contents/293358",
+          "author": null,
+          "description": "2025-05-10 14:40:00\n\n2024年9月，因涉嫌赌球、假球，61名足球从业者遭到惩处，其中汪嵩等17人被禁足5年，43人终身禁足。图为2019年9月，汪嵩在中超比赛中庆祝进球。（视觉中国/图）\n在公共舆论空间，存在着一个未解之谜。上至媒体演播厅，下至校园“宿谈会”，众人群情激昂、各抒己见，纷纷表达自己的思索和关切——中国足球为什么总是搞不好？\n其实，职业球员聚集在一起，也会进行这样的讨论。我在做《禁足球员的终场哨响》这篇报道时，密集接触了一些职业足球运动员。他们私下里聚集在一起，也会从亲身感受出发，发表一番见解。不过，问题的症结就像秃子头上的跳蚤，明明白白摆在那里，说来说去无非就是青训底子薄、球员收入低、足球文化不够深入等等老生常谈。说得多了，即便再由业内人士之口“唠叨”一遍，也给人以卑之无甚高论之感。\n所以，我觉察到职业球员与普通人之间的“结界”，根本不是这些观点，而是他们讨论起足球的神态——当谈到这颗几十年来如影随形的伴侣，他们展现出由内到外的自信、乐观，以及松弛状态下的愉悦。\n当他们提及一位可能认识的朋友，第一反应是用“脚下还行”之类的行话，以技术特点描述这个人的特征；当他们提到职业生涯待过的城市，用到的第一标签是这座城市的球市“火爆不火爆”。当然，还有血气方刚的比较、不服气，和“遥想公瑾当年”的峥嵘岁月稠。\n这种氛围有似曾相识之感。媒体同行们坐在一起“吹水”，聊来聊去，离不开特稿如何把故事讲好，调查如何突破“拿料”，仿佛有一个开关，酒过三巡会自动代入这些话题。无论哪个行业，姑且把这些话题统称为业务讨论吧。\n之前，朋友们之间还相互调侃，可能记者是最喜欢业务讨论的群体。现在看来，其实职业运动员不遑多让。回想起新冠疫情期间我接触到的医生们，他们讨论起病例的劲头，又何尝不是如此呢？专业自有一种迷人气质，把一个人放置在职业生态位当中，有一种油然而生的向心力。\n即便遭遇“禁足令”，球员们仍然流露出对足球的留恋和不舍。他们并没有否认自己犯下的错误，而是倾诉自己的后悔，和置身其中的不得已，还有稍纵即逝、没能好好把握的职业生涯。而这些愁容苦楚，一碰到业务讨论，马上就会烟消云散。\n一个人的命运，要靠个人奋斗，也离不开历史进程。其中一位球员感慨自己时运不济，他加盟的俱乐部，接近于欧洲俱乐部的模式，背后没有其他产业作依托，而是纯做足球生意，虽然在二三级别联赛谋生，但是他发现，即便在大西北、大西南的三四线小城，现场都能涌进去几万人观赛。球市火爆如斯，夫复何求呢？\n可惜碰上了疫情，隔离式“赛会制”下，这种纯俱乐部很多都倒闭了，一切美好愿景都成了泡影。他最终走上歧途。\n经过多年的大水漫灌，足球市场已经培育起来，即便是在偏远地区，也有很雄厚的足球消费群体，渐渐能够供养起当地足球的经济生态。或许，如果再撑上一小口气，正向循环的生态链便搭建起来了。\n说一千道一万，职业联赛才是足球事业的根基所在。当然可以说，足球要从娃娃抓起，要增加球员收入，要培养足球文化，诸如此类。可这一切从哪里来呢？答案是联赛。只有俱乐部经营好了，它才会搭建起自己的梯队，培育出庞大的人才供需体系，收入和文化渐渐就都水到渠成了。\n在采访的时候，球员们会讲起自己与足球结缘的过往，走上职业道路的不易和艰辛，以及努力赢下关键比赛后，看到球迷们忘情庆祝的感动。这让我想起来很多年前，我刚来到广州这座城市，发现一起踢球的球友们，谈论起孔卡的精彩表现时，个个眉飞色舞，球衣、门票自然不在话下。甚至，他们专挑冠名了球队、十块钱一瓶的矿泉水品牌消费，就是想让俱乐部赚走这个钱，好继续请来高水平外援，周末有个地方能够线下一饱眼福。\n现在想想，这何尝不是一种变相的众筹或赞助？英超当然厉害，但只存在于电视及网络转播当中，咱们普通人又不像梁朝伟，周末飞个来回去伦敦喂鸽子。家门口坐个地铁就能看的比赛，还得是中超。俱乐部实现正向盈利是一个世界性难题，但是各国自有国情，大家总能找到良好运转下去的长效模式。而无论如何，庞大而慷慨的球迷群体，是所有模式的根本。\n就像做了一场春秋大梦，很多人认为，职业足球可能再也缓不过神来了。谁知道，不断有专业球场投入使用，现场观赛人数破纪录的消息屡屡传来。\n中国球迷就是这样，给点阳光就灿烂。以中国市场之庞大，省会级别城市如果精打细算过日子，纯靠市场机制，养活一到两支俱乐部绰绰有余。不过这需要耐心，需要再次进入一个漫长的培育周期——不管能不能够实现，至少被禁足的这批球员，等不到那一天了。",
+          "link": "http://www.infzm.com/contents/293358",
+          "publishedOn": "2025-05-10T06:55:07.000Z",
+          "wordCount": 85,
+          "title": "他们谈起足球眉飞色舞，后悔走上歧途｜记者手记",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/293359",
+          "author": null,
+          "description": "2025-05-10 14:07:00\n2025年5月7日凌晨，印度以“朱砂行动”为名对巴基斯坦和巴控克什米尔地区的设施发动导弹打击，巴方则宣称击落多架印度战机并升级反击。\n这场自2003年停火以来最激烈的冲突，已造成双方数十名平民伤亡、超过2000人流离失所，克什米尔地区居民形容自身犹如“大象脚下的蚂蚁”。\n两个拥核国家的激烈空战引发世界瞩目，自1947年建国以来，印巴围绕克什米尔地区已爆发三次规模性战争与大大小小的交火，而这一次局势又将如何发展？\n\n获取更多RSS：\nhttps://feedx.net \nhttps://feedx.site",
+          "link": "http://www.infzm.com/contents/293359",
+          "publishedOn": "2025-05-10T06:25:05.000Z",
+          "wordCount": 143,
+          "title": "南亚火药桶再燃：印巴爆发20年来最严重军事冲突",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/293365",
+          "author": null,
+          "description": "2025-05-10 14:16:55\n重庆大学官微5月10日发布情况通报。",
+          "link": "http://www.infzm.com/contents/293365",
+          "publishedOn": "2025-05-10T06:25:05.000Z",
+          "wordCount": 65,
+          "title": "重庆大学通报“本科生发14篇SCI论文”：存在学术不端行为",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/293157",
+          "author": null,
+          "description": "2025-05-10 13:30:00\n妻子死后进入天堂，和深爱的丈夫长相厮守，从此共享永恒之乐，这似乎无比美好，近乎童话。\n可如果告诉你，这位妻子得以80岁的沧桑容颜，面对丈夫20岁的健硕身躯，它还会羡煞旁人吗？\n前不久开播的韩剧《比天堂还美丽》，讲的便是这样一个荒诞而治愈的故事。\n\n本剧导演金锡允，算是高分剧专业户，光是近些年，便有代表作《我的解放日志》《耀眼》；饰演女主角的金惠子，是与尹汝贞齐名的老戏骨，主演过奉俊浩的《母亲》；而本剧的男主演孙锡久，如今在影视圈炙手可热，尤其凭借《D.P：逃兵追缉令》中的林智燮一角，获得不少剧迷的喜爱。\n《比天堂还美丽》虽然没有像《苦尽柑来遇见你》那样，引起现象级的追剧狂潮，但凭借新颖有趣的奇幻设定、东亚大女主的苦难叙事，还是让剧迷们为其打出了8.5分，算是近期最值得一看的治愈系新作。\n剧中，丈夫高乐俊在年轻时遭遇意外，下肢截肢，从此瘫痪在床，丧失了行动能力。面对这样的人生变故，不满30岁的妻子李海淑肩负起家庭重担，既要照顾丈夫，还要挣钱养家。\n\n\n为此，她只能用丈夫的保险金放债谋生，一辈子都战战兢兢、被人唾弃。\n就像李海淑所说，找她借钱的人，往往走投无路，一个个笑脸相迎，甚至是磕头乞求，把她当作活菩萨；而一旦到了还债的日子，这些人不是耍无赖，死活不还，就是骂骂咧咧，恶语相向。\n五十多年的岁月，让李海淑变得成熟，从年轻时的不知所措，到暮年的从容应付。夸张的是，由于菜市场的“熟客”总会报复，朝李海淑扔东西，她不得不创出一套用雨伞遮挡丢弃物的看家本领。\n可在此过程中，李海淑并没有变得铁石心肠、唯利是图。\n\n\n当欠债人去世，她虽然会找其家属要债，但临走时，她又会奉上帛金；而碰到欠债人毫无人性，对自己的女儿无端施暴，李海淑不但激愤叱责，还以债务抵押的方式，从此抚养女孩。\n说白了，为了和丈夫能有保障地活下去，李海淑必须态度强硬，手段凌厉，否则就…",
+          "link": "http://www.infzm.com/contents/293157",
+          "publishedOn": "2025-05-10T05:55:06.000Z",
+          "wordCount": 86,
+          "title": "韩版《重启人生》，荒诞又扎心！",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/293363",
+          "author": null,
+          "description": "2025-05-10 12:19:03\n近日，青岛市李沧区人民法院的一桩调解案件引发舆论关注。一名60岁刘姓女子在路上边走边打电话，过程中突然掉头往回走，与后方王姓男子相撞。造成股骨骨折，后经鉴定构成十级伤残。刘某后向青岛市李沧区人民法院提起诉讼，要求王某赔偿医疗费、护理费、残疾赔偿金等各项损失188845.16元。在法官多次调解下，双方达成一致调解意见，由男子赔偿女子70000元。\n法官介绍这起案例时认为，监控记录证实刘某在前方无突发情况的状态下突然转身往回走，对于事故的发生存在较大的过错，但是，又认定“王某存在未保持安全距离的过错”，是事故发生的次要原因。后经法官多次调解，由王某赔偿刘某7万元，案件了结。相关单位将此作为普法案例在网上发布，却引发了网友反弹，外界多有“行人追尾”“掉头逆行难道不全责”“行人也需要安全距离？”的疑问。\n在本案中，双方并未走到法院判决那一步，而是以调解方式结案。因此，网上所谓“判赔”的说法并不成立。但这个调解结果的法律分析仍有值得商榷之处。如果本案走到诉讼的话，男子的行为是否需要承担侵权责任，是本案应当厘清的核心事实，也是外界关注的焦点所在。\n根据《中华人民共和国民法典》，侵权责任的构成要件包括侵权行为、损害结果、因果关系与过错责任。在本案中，当事女子的损害结果为十级伤残，而当事男子是否存在侵权行为，又是否需要因为因果关系承担近四成的过错责任？这就需要从事实还原入手。\n从案情来看，当事女子与当事男子都在正常步行，当事女子突然转身撞上当事男子，猝不及防之下的当事男子躲避不及，造成当事女子跌倒骨折、十级伤残。从因果关系来看，造成当事女子受伤的直接原因是她突然转身，而非正常步行的当事男子。法官在调解中也承认当事女子负有较大过错责任，而问题在于，当事男子是否需要承担近四成的过错责任，以及判定其过错责任的法律依据。\n法官在本案调解里援引了“安全距离”这一概念，同样不无商榷余地。“安全距离”出自《中华人民共和国道路交通安全法》第43条，“同车道行驶的机动车，后车应当与前车保持足以采取紧急制动措施的安全距离。”就具体区间而言，“安全距离”并非一个明确概念，而是需要根据道路性质、行车速度、反应距离、制动距离进行精确计算，如高速公路上的安全距离就有“车速100公里时不低于100米”的具体规定。\n但“安全距离”的规定适用于机动车，因为机动车速度快、惯性大，一旦碰撞就可能造成较大的损害后果，所以要求司机承担更高的注意义务，这是合理的。对于行人来说，人行走的速度较慢，除非是奔跑、快走，或是突然转身、“变道”，否则正常步行的行人之间一般没有重大伤害之虞。因此并不能把适用于机动车的规定平移到行人的场景中，法律无需也没有规定行人要“保持安全距离”。万一发生事故，可以从人身损害发生时的因果关系来划定过错责任。\n那么，错在谁呢？“受害方”未必就一定是无过错方，安然无恙的一方也不一定就是过错方，还是要根据具体的情况来判断。即使是在机动车要“保持安全距离”的情况下，前车如果掉头逆行，造成碰撞毫无疑问也要由前车负全责，而不可能要求后车因“没有保持安全距离”而承担部分责任，因为逆行才是造成事故的根本原因。那把这个规则平移到行人场景，同样也应该由突然逆行的刘某承担事故的全部责任才对。\n不妨做一个思想实验：如果本案中的两名当事人位置对调，刘姓女子突然转身而撞到在后面正常步行的王姓男子并造成人身损害，又会怎样呢？如此追问并非多余，而关系到“安全距离”这一法律概念，能否统一适用于类似情况，而非仅仅是“看人下菜碟”式的“谁受伤谁有理”，否则的话就是在以“和稀泥”的方式，变相让本应没有过错责任的人承担责任。\n“法不强人所难。”这句法谚蕴含的精神是，法律不应该强加给人过高的注意义务，法律不应强求任何人对无法预见的事情承担过错责任。易言之，法律只应当规定“非不能也，是不为也”的义务，而不应该强求人去完成“非不为也，是不能也”的高难度动作。最高法已多次表态司法判决要捍卫公平正义，不和稀泥。坚持居中裁判、不偏不倚、分清是非，方能定分止争，维护所有人的合法权益。",
+          "link": "http://www.infzm.com/contents/293363",
+          "publishedOn": "2025-05-10T04:55:04.000Z",
+          "wordCount": 85,
+          "title": "行人走路也要“保持安全距离”？法律不应强人所难",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/293346",
+          "author": null,
+          "description": "2025-05-10 11:45:00\n《住宅项目规范》（下称规范）于2025年5月1日起实施。这是由住房城乡建设部发布的国家标准。有业内人士形容，它是“政府把过去散落在各类文件中的强制性规范凝结在了一个文件里”。\n该规范规定，住宅建筑平均层数的高层Ⅱ类（18-26层），建筑高度控制最大值限80米，容积率为2.4-2.8。规范将住宅建筑的平均层数分为五类，高层Ⅱ类是最高的。\n这是不是意味着，超过80米的住宅不会再出现了，我们要告别超高层住宅了？\n事实上，“限高80米”早在2018年住房城乡建设部发布的《城市居住区规划设计标准》中就有提及：要求19-26层的高层住宅，建筑高度控制最大值为80米。\n此后几年，“限高”越来越严。\n2020年，住房城乡建设部、国家发展改革委要求：一般不得新建500米以上建筑，严格限制新建250米以上建筑，新建100米以上建筑也应充分论证、集中布局。中小城市要严格控制新建超高层建筑，县城住宅要以多层为主。\n多层，指楼层总数为4-6层的住宅。高层，指楼层总数12层以上、楼栋高度小于100米的住宅。超过100米，即为超高层住宅。\n2021年，相关要求更为严格：一般不得新建超高层住宅，并且实行超高层建筑决策责任终身制。\n在2022年的《“十四五”新型城镇化实施方案》中，要求“不得新建500米以上的建筑”，把两年前的前缀“一般”删除了，意味着一律叫停。\n\n新一线城市，重庆、武汉、成都、西安、长沙等超高层住宅小区数量位居前列。视觉中国/图\n哪些城市超高层住宅最多？\n根据贝壳研究院2020年发布的《超高层住宅“画像”》：新一线城市重庆、武汉、成都、西安、长沙等超高层住宅小区数量位居前列。重庆以2200多栋排名首位，武汉以近1500栋的数量，排名第二。\n在一线城市中，深圳更爱建高楼，拥有近290座200米以上的高楼，全国第一。2025年2月的数据显示，全市共有在用超高层建筑约1400栋。\n在关于超高层居住体验的讨论中，人们享受着采光、通风、视野宽阔的同时，也不得不忍受缺氧、头晕等各种问题。\n有业主抱怨，“住在高层，碰上大风天气，窗外刺耳的风声吵得睡不着觉。遇到电梯停电，得爬楼回到31层的家。住得越久，越不踏实，怕火灾、怕电梯故障。”\n那么，过去为什么会有这么多超高层住宅出现？\n资深投资人、曾在地产行业工作十余年的韩毓祥分析，一个现实原因是，在土地有限的情况下，开发商想要卖得更多，只能上调容积率，容积率又和建筑的高度密切相关。\n上海中原地产市场分析师卢文曦告诉南方周末记者，有的城市因发展需要，追求造地标性建筑带动区域经济。还有些受制于环境，只能往高建，比如位于山城的重庆。\n可以肯定的是，超高层住宅纷纷拔地而起的时代过去了。\n近半年来，多地规范陆续出台。江苏省明确：各地一般不得新建100米以上的住宅建筑，若新建，要履行重大行政决策程序。江西省提出：住宅建筑高度不应大于54m，以小高层和多层住宅为主。山东省的“好房子建设标准指引”也写道：住宅建筑高度不宜高于54m。\n一位地产行业资深专家告诉南方周末记者，经过十多年的发展，老百姓开始反思超高层建筑的风险，尤其警惕失火问题。中国现有的消防车云梯可以达到101米的高度，但就实际救火而言，挑战很大。\n“它不像低层，消防车抵达后，马上就能施救。超高层对作业场地有要求，到现场后，要做完固定平衡稳定装置、调试液压系统等工作后，才能升至高空施救，所以从接到火警把车开出来，到在失火建筑周围布置好，需要更长时间。”\n国家消防救援局数据显示，近年来，中国高层建筑火灾呈逐年上升趋势。2024年前8个月已达3.6万起，超过2023年全年总和。\n韩毓祥分析，此次规范的出台是很明确的导向，即政府不希望住宅建得太高。这也与房地产领域今年以来最受关注的“好房子”建设息息相关。\n卢文曦判断，高层和超高层住宅不敢说会杜绝，但一定会陆续退出历史舞台。他指出，建造超高层住宅，钢筋水泥的成本更高，经济性大打折扣。还存在高峰期电梯不够用，有些敏感的人上到高层会头晕，甚至感受到楼体摆动的问题，影响居住的舒适性。\n“可能让你造，你也不一定想那么造了，消费者都想住舒适、安全的好房子，造得很高，得房率下去了，与住好房子的初衷也相违背。”\n但此次规范还有一些内容比较模糊。有受访者提出，“文件只谈到26层以下，那么26层以上的住宅能不能建？如果能建，肯定会突破80米高的限制，怎么办？需要更明确的解释。”\n前述不愿具名的专家也有相似困惑，“以往也有限高规定，但此前的经验是，如果要突破，就一事一议，上报、审批，最后导致大家都突破了。”\n\n获取更多RSS：\nhttps://feedx.net \nhttps://feedx.site",
+          "link": "http://www.infzm.com/contents/293346",
+          "publishedOn": "2025-05-10T04:25:04.000Z",
+          "wordCount": 87,
+          "title": "我们要告别超高层住宅了吗？｜说政经事",
+          "imageUrl": null
+        },
         {
           "id": "http://www.infzm.com/contents/293332",
           "author": null,
