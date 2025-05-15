@@ -6,6 +6,21 @@
       "siteUrl": "https://bestblogs.dev/zh/feeds",
       "articles": [
         {
+          "id": "6aeb21",
+          "author": "吉多",
+          "description": "📌 一句话摘要\n            \n通过深度分析 JVM GC 问题，利用调参和发布策略优化，将高并发系统可用率从 95% 提升到 99.995%。\n📝 详细摘要\n            \n本文详细记录了解决一个高并发、低延迟系统因大内存索引切换导致 GC 暂停时间长、服务不稳定的排查与优化过程。作者首先定位问题根源在于 YGC 时索引对象复制耗时过高。随后，围绕让索引对象尽早晋升到老年代（通过调整 MaxTenuringThreshold=0 等参数，将复制次数从 2 次减少到 1 次）、尝试直接分配到老年代、加速复制过程及升级 GC（ZGC）等思路进行了探索。尽管部分尝试效果有限或引入新问题（如 ZGC 下的 Allocation Stall），但通过 JVM 参数优化已将成功率提升到 99.5%。最终，结合发布策略（灰度断流）和创新的“Eden 区预热”方案，强制索引在断流期间完成 GC 复制，彻底消除了索引切换对业务的影响，系统可用率最终稳定在 99.995%。文章提供了详细的分析过程、GC 日志解读和多种优化尝试的对比，具有极高的实践参考价值。\n💡 主要观点\n            \n大规模对象复制是高并发系统因 GC 导致不稳定的关键原因\n                         在高流量、低延迟场景下，加载大型内存对象（如索引）触发的长时间 GC STW（特别是 Object Copy）会直接导致请求超时，严重影响系统可用性。\n                    \n\n                        通过调整 MaxTenuringThreshold 等参数可减少对象在年轻代的复制次数\n                         将对象晋升年龄阈值设置为 0 或 1，可以强制对象尽早从 Eden 或 Survivor 区晋升到老年代，减少年轻代内部的反复复制耗时。\n                    \n\n                        ZGC 通过读屏障和着色指针实现并发转移，显著降低 STW 时间\n                         相比 G1，ZGC 在对象复制/转移阶段能与业务线程并发执行，极大减少了因 GC 移动对象导致的暂停，提升了高活跃度堆下的性能稳定性。\n                    \n\n                        结合断流和“Eden 预热”能彻底解决特定场景下的 GC 抖动\n                         在流量低谷或断流期间，通过构造临时对象填充 Eden 区，强制触发 YGC 将关键大对象晋升到老年代，确保重新接流后 YGC 快速完成，实现无感切换。\n                    \n💬 文章金句\n            \n因此服务抖动的根本原因已锁定：系统 A 加载的索引非常大，导致 YGC 时索引在堆内存的复制过程耗时久，复制期间业务线程被长时间暂停，导致上游请求大量超时报错。\n由于本例中索引对象复制开销太大，因此可考虑让索引尽早晋升到老年代，避免在年轻代反复腾挪影响系统稳定性。\nZGC 中业务线程访问对象将触发\"读屏障\"，如果发现对象被复制移动了（通过\"着色指针\"实现），则\"读屏障\"会把读出来的指针更新到对象的新地址上，让业务线程始终访问到对象更新后、移动后的正确地址。\n分批断流发布 + Eden 区\"预热\"的方式，预期能彻底消除索引复制时 YGC 长暂停导致的负面影响。\n至此，未来无论系统 QPS 涨到多高、索引体积膨胀到多大、索引切换多么频繁，系统都能无感切换索引，稳定性不再受到任何影响。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：阿里云开发者\n作者：吉多\n分类：软件编程\n语言：中文\n阅读时间：31 分钟\n字数：7643\n标签：\n                    \n                        JVM, GC, 性能优化, 高并发, 稳定性",
+          "link": "https://www.bestblogs.dev/zh/article/6aeb21",
+          "publishedOn": "2025-05-15T00:30:00.000Z",
+          "wordCount": 321,
+          "title": "加一个 JVM 参数，让系统可用率从 95%提高到 99.995%",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/2fab2fe3-94ce-4d3f-0f35-2cc4fc23f600/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/2fab2fe3-94ce-4d3f-0f35-2cc4fc23f600/cover"
+        },
+        {
           "id": "42ac64",
           "author": "Google DeepMind Blog",
           "description": "📌 一句话摘要\n            \nAlphaEvolve 是一款由 Gemini 驱动的进化式编码智能体，它结合了大型语言模型的创造力与自动化评估，旨在设计和优化各种领域的复杂算法，并在多个领域取得突破性进展。\n📝 详细摘要\n            \nAlphaEvolve 由 Google DeepMind 推出，是一款基于大型语言模型的进化式编码智能体，专为通用算法的发现和优化而设计。它创新性地结合了 Gemini 模型的创造性问题解决能力与自动化评估器，通过进化框架不断改进有潜力的方案。作为首个将大型语言模型 (LLM) 应用于大规模算法进化和优化的系统，AlphaEvolve 显著提升了 Google 数据中心、芯片设计和 AI 训练流程的效率，甚至促进了其底层大型语言模型的训练。此外，它还在矩阵乘法算法上实现了突破性进展，并为开放性数学难题找到了新的解决方案，展现出在各种应用领域中的巨大潜力。\n💡 主要观点\n            \nAlphaEvolve 利用进化算法优化数据中心资源调度\n                         通过发现一种简单而有效的优化策略，AlphaEvolve 不断回收 Google 全球计算资源的 0.7%，从而提高数据中心效率。\n                    \n\n                        AlphaEvolve 通过改进 TPU 中的矩阵乘法电路来辅助硬件设计\n                         AlphaEvolve 提出了一个 Verilog（一种硬件描述语言）重写方案，删除了关键算术电路中不必要的位，并集成到 Google 的 TPU 中以加速芯片设计。\n                    \n\n                        AlphaEvolve 加速 AI 训练和推理过程\n                         通过优化矩阵乘法，AlphaEvolve 将 Gemini 的训练速度提高了 1%，并显著减少了内核优化的工程时间。\n                    \n\n                        AlphaEvolve 在数学领域取得突破\n                         AlphaEvolve 发现了更快的矩阵乘法算法，并改进了亲吻数问题的解决方案，展示了其在解决数学问题方面的卓越能力。\n                    \n💬 文章金句\n            \nAlphaEvolve 将 Gemini 模型的创造性问题解决能力与验证答案的自动化评估器相结合，并使用进化框架来改进最有前景的思路。\nAlphaEvolve 发现了一种简单但非常有效的启发式方法，可以帮助 Borg 更有效地协调 Google 庞大的数据中心。\nAlphaEvolve 还可以为复杂的数学问题提出新的解决方案。\nAlphaEvolve 展示了从发现特定领域的算法到开发用于应对各种现实世界挑战的更复杂算法的演变过程。\n📊 文章信息\n            \nAI 评分：90\n精选文章：是\n来源：Google DeepMind Blog\n作者：Google DeepMind Blog\n分类：人工智能\n语言：英文\n阅读时间：6 分钟\n字数：1461\n标签：\n                    \n                        AI 模型, 算法进化, 算法设计, AlphaEvolve, Gemini",
@@ -19,6 +34,21 @@
             "length": "0"
           },
           "imageUrl": "https://lh3.googleusercontent.com/Gw688MNwkQVBeUALSFtQz46Oh4NFoZAe10mEpvtmZhKuWhlQsi5uh2KFHKbxH8NhBnOGUNza6O6-0HElml2zEN06vI_9oAsjAxFVzxjDL5DOw7HsAw=w1200-h630-n-nu"
+        },
+        {
+          "id": "a91c6b",
+          "author": "Founder Park",
+          "description": "📌 一句话摘要\n            \n多邻国 All in AI，利用 AI 提升内容创作效率，并探索教育及营销的创新应用。\n📝 详细摘要\n            \n文章详细解读了多邻国 All in AI 的战略，以及 AI 在其产品和运营中的应用。多邻国通过 AI 驱动的内容创作流程，大幅提升了课程生成效率和覆盖范围，实现了用户和收入的显著增长。AI 还被应用于对话练习、个性化教学和动画制作等方面，提升用户体验和学习效果。创始人 Luis von Ahn 还分享了多邻国在游戏化学习、品牌营销（如猫头鹰吉祥物的“假死”营销事件）和未来教育方面的思考。他强调了学习动机的重要性，以及 AI 在教育领域的可扩展性和个性化潜力。文章还探讨了 AI 对传统教育模式的影响，以及未来学校和教师的角色。\n💡 主要观点\n            \nAI 大幅提升了多邻国的内容创作效率和课程覆盖范围\n                         通过 LLM，多邻国实现了内容生产的全 AI 化，突破了人力瓶颈，为更多语言学习者提供个性化课程。\n                    \n\n                        游戏化设计是多邻国成功的关键\n                         多邻国通过缩短学习时长、引入连续学习天数等机制，有效激发用户学习动机，提升用户粘性。\n                    \n\n                        多邻国独特的品牌营销策略\n                         多邻国通过猫头鹰等吉祥物，以更具特色和冒险精神的营销方式，引发用户共鸣，提升品牌影响力。\n                    \n\n                        AI 将在未来教育中发挥重要作用\n                         AI 教学具有可扩展性和个性化优势，能够精准把握学生的学习优劣势，提供更高效的个性化教学。未来学校和教师需要拥抱 AI，提升教学效率和质量。\n                    \n💬 文章金句\n            \nDuolingo 将成为一家以 AI 为先的公司。\n这是第一次，高质量教学和顶尖人类导师的体验变得触手可及。\n纠结学习方式意义不大，最重要的是让人真正开始学、愿意学。\n我们试图使用很多和让人们沉迷于手机游戏相同的技巧，但目的是让他们学习东西。\n最大的误解是学习动机的重要性。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：Founder Park\n作者：Founder Park\n分类：商业科技\n语言：中文\n阅读时间：35 分钟\n字数：8703\n标签：\n                    \n                        AI产品, 教育科技, 教育, 多邻国, 语言学习",
+          "link": "https://www.bestblogs.dev/zh/article/a91c6b",
+          "publishedOn": "2025-05-14T12:30:00.000Z",
+          "wordCount": 331,
+          "title": "付费用户突破 1000 万，All in AI 的多邻国，是怎么用 AI 的？",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/90e42510-72b6-4eb7-2db7-cde5e46ca100/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/90e42510-72b6-4eb7-2db7-cde5e46ca100/cover"
         },
         {
           "id": "af3160e",
@@ -2213,6 +2243,16 @@
       "siteUrl": "https://gijn.org",
       "articles": [
         {
+          "id": "https://gijn.org/?p=2250708",
+          "author": "Molly Peterson, Caleigh Wells, SEJournal",
+          "description": "Two California-based journalists offer some reporting best practices, logistical tips, and safety precautions to take when covering wildfires.",
+          "link": "https://gijn.org/stories/wildfire-reporting-expert-advice/",
+          "publishedOn": "2025-05-15T07:00:08.000Z",
+          "wordCount": 4652,
+          "title": "Wildfire Reporting — Expert Advice on Emerging Issues, Recurring Risks",
+          "imageUrl": "https://gijn.org/wp-content/uploads/2025/05/shutterstock_2573811463-771x513.jpg"
+        },
+        {
           "id": "https://gijn.org/?p=2238296",
           "author": "Clément Doumouro",
           "description": "Passports can help unlock secret ownership of offshore companies, but finding them is often challenging. At ICIJ, we decided to build a new detection tool to speed up this process.",
@@ -2470,6 +2510,26 @@
       "siteUrl": "https://new.qq.com/omn/author/5505476",
       "articles": [
         {
+          "id": "https://view.inews.qq.com/a/20250515V02L4Z00",
+          "author": "谷雨实验室",
+          "description": "",
+          "link": "https://view.inews.qq.com/a/20250515V02L4Z00",
+          "publishedOn": "2025-05-15T01:43:22.000Z",
+          "wordCount": 108,
+          "title": "70后觉得95后软弱？其实年轻人内心有很多沉重",
+          "imageUrl": "https://inews.gtimg.com/news_ls/OdGaZ-sY6VQ0OHSYruwv0-6QjH9pnMLS2xh8mJHV1LO2YAA_7201280/0"
+        },
+        {
+          "id": "https://view.inews.qq.com/a/20250515A0245600",
+          "author": "谷雨实验室",
+          "description": "‍‍   \n\n\n作者 | 徐杨\n\n编辑 | 江臾\n出品 | 腾讯新闻 谷雨工作室\n\n\n北京温暖的春日里，我在一家书店见到了吉井忍。她刚结束上午的行程，正在会议室里匆匆吃完一份外卖。我推门进去，墙边还放着她的拉杆行李箱。看起来，她早已习惯这种“跑来跑去”的生活。\n\n出生在日本，年轻的时候到世界各地“晃荡”，从中国、欧洲到东南亚，再回到中国，现在用华语写作，吉井忍自认过着一种“滚石”一样的人生。即使在东京，她也像一颗游离的粒子。她在《东京八平米》里刻画过这样的生活：住在中野区一间八平米的小屋，由于没有洗衣机、没有浴室，她不得不频频走进家附近的投币式洗衣机和“钱汤”（日本公共澡堂）。太冷或者太热的时候，由于很难控制小房间里的温度，她也必须到外面去写作。\n\n张望见他人的生命缝隙，是这种生活的副产品。从人群里穿行而过，故事越来越多，在今年2月，吉井忍新作《格外的活法》面世。\n\n   \n\n她的声音有一种温和的坚决，像她本人一样。她拒绝探讨过于宏大的问题，拒绝重复谈论过去说过的话，拒绝“社会时钟”的影响。她会非常直接地表示“这个我不太喜欢”“我不这么认为”，有时说着说着，干脆挥挥手：“不聊了，这件事就让它过去吧。”她是那种碰到有人插队，会张口直说“不好意思，打扰一下”来制止对方的人。\n\n从上班到不上班，从世界一个地方跑到另一个地方，一同毕业的朋友们在日本的“就业冰河期”投简历找工作时，她在地球另一端的农场喂羊。当然，不是另一种生活不好，她向我解释，上班有种种好处，有时候走在路上，闻到别人家的厨房飘来阵阵味噌汤香味，也会突然很羡慕那种“稳定”的人生。只是，这样的生活有时无法让她做到自己想做的事，“比如我要写一本书，哪家公司会给我这样的位置？”\n\n她写作，也做很多兼职，去咖喱店端过盘子、在公司做过清洁工作，还计划去一家三明治店打工。吉井并不认为体力活是“低人一等”的，很多人似乎无法理解这点。…",
+          "link": "https://view.inews.qq.com/a/20250515A0245600",
+          "publishedOn": "2025-05-15T01:32:10.000Z",
+          "wordCount": 9688,
+          "title": "在东京住8平米小屋、全球到处流浪：49岁女作家的格外活法",
+          "imageUrl": "https://inews.gtimg.com/news_ls/OIrFh3_v7rYDvwo1sSj7OvcEwFrSg6V_q4kU1XpzjVy_YAA_640330/0"
+        },
+        {
           "id": "https://view.inews.qq.com/a/20250514A02FL800",
           "author": "谷雨实验室",
           "description": "‍‍   \n\n\n\n\n文 | 郝库\n\n编辑 | 张瑞\n出品 | 腾讯新闻 谷雨工作室\n\n\n4月20日，2025春季搜狐视频播主大会上，搜狐创始人张朝阳以一种独特的方式出场了。他脚踏着滑板自如滑行，随后用手里的火炬点燃了大会的社交之火。这位中国早期的互联网开拓者，仿佛在用这种方式呼应当下搜狐视频“关注流”中的年轻圈层，传达着搜狐的创新与活力。\n实际上，几十年来张朝阳从未停止折腾，比如直播讲物理课、英语课、登雪山、跑马拉松、游泳横跨威海湾……就在 3 月底的威海，搜狐新闻马拉松第十年头第十七季的赛场上，张朝阳也曾以这样的活力和坚持出现在人群中。他穿一身运动服，羽绒服套在外面。开幕式还没开始，有人喊他的名字，他冲着人群指了指脚上荧光色的跑鞋，然后原地抬腿做准备活动。威海不是第一次来， “上次是游过来的，”他指着海的那头，“从那边（刘公岛）游到这边。”去年9月，张朝阳蛙泳横渡威海湾，耗时2小时36分。\n威海风大，把树木吹得歪斜。这样的天气并不能妨碍张朝阳的好心情。这位身上贴着无数标签、承载着中国互联网历史的企业家，现在他依然有很多事要做，比如打磨公司产品，比如思考物理问题，以及跑步。\n张朝阳跟每个向他走来的人打招呼，不管是参加过很多次的明星、企业家，还是搜狐视频“关注流”的播主——他会主动聊起对方最近发的视频，有不少他都转发过。主持人在台上开场，介绍搜狐新闻马拉松的历史、参加马拉松的跑者们，张朝阳站在台下，适时地送上掌声、微笑，或大笑。\n如果翻看十几年前的媒体报道，人们称他为数字英雄。上世纪九十年代，他将互联网带入中国，在麦当劳的餐巾纸上写下“搜狐”，于是搜狐诞生了，中国门户网站时代开启。他拖着滑板滑过天安门广场，带着当时最火的明星登上玉珠峰。每个人都叫他Charles。你能在他脸上看到自信、张扬。\n但对现在的张朝阳来说，更重要的是时间和价值。开幕式轮到张朝阳上台，他感叹起赛事横跨的…",
@@ -2663,6 +2723,16 @@
       "feedUrl": "https://rsshub.rssforever.com/tencent/news/author/8QMf33ZY5YwduT%252FQ",
       "siteUrl": "https://new.qq.com/omn/author/8QMf33ZY5YwduT%2FQ",
       "articles": [
+        {
+          "id": "https://view.inews.qq.com/a/20250514A09FAL00",
+          "author": "人物",
+          "description": "和叶童见面，是她四公两个唱跳舞台刚刚结束之后。\n \n高强度的唱跳之后，她看起来又疲惫又兴奋。行程排得满满当当。两场访谈，声乐课，赶回北京去新浪扫楼。再然后回香港，「还有一整天的工作」。\n \n叶童有种世事通达的了然，回答问题很直接。她的反击，她曾经的后悔，她说起来毫不避讳。\n \n遇到她不想回答的问题，她也会直说，这个不必聊。\n \n她一直有自己的节奏。年轻时任性，自在，挥洒自如。60岁，因为电影《我爱你》重新进入大众视野。62岁，在《乘风2025》里成为了最受关注的存在。但她不想被裹挟。不管是粉丝，热度，还是关系，她都希望不要限制她人生的核心关键词——自由。\n\n\n\n\n\n\n文｜张寒\n\n\n\n\n\n\n\n\n\n「房琪拒绝我没问题，因为我反击了」\n\n\n\n\n\n《人物》：你在这一次的《乘风2025》里面非常受关注，二公的那个选择，包括后来房琪的事情，我不知道这些东西会对你产生一些影响吗？因为太受关注了，它会引起各种各样的讨论。\n\n\n\n叶童：唯一的就是可能房琪事件吧。她不是故意的。所以当我发现，诶，原来因为这句话让她受到很多的批评——某种程度我觉得那个批评也是对的，不过我也认为说她当时也是发自内心地担心我。嗯，可能真的是体力方面的问题，所以她的出发点不是坏的，\n\n \n现在反而是我担心她会不会有其他的舆论方面的不习惯，会让她觉得接受不了。\n\n\n《人物》：你其实后来还写了微博，然后去解释房琪这件事情，当时是担心她会被网暴或者是有一些不必要的困扰吗？\n \n叶童：嗯，可能她真的想要一个很活泼很活泼的舞台，然后她可能会认为跟我在一起，那个舞台就变得成熟。所以她用这个方向来拒绝我，我觉得也没问题，因为我反击了。\n \n《人物》：是，反击得非常迅速。\n \n叶童：对，我反击了，因为我认为你误会我了，我不是这样，所以我觉得人交流就是交流。对，就把你认为真的直接的那一方面讲出来。嗯，那就对了。\n \n《人物》：你是一个非…",
+          "link": "https://view.inews.qq.com/a/20250514A09FAL00",
+          "publishedOn": "2025-05-15T01:00:00.000Z",
+          "wordCount": 13590,
+          "title": "叶童：我是特别的，我怎么都好看",
+          "imageUrl": "https://inews.gtimg.com/om_ls/OCqRUaLv0gQdiXcTcQLr4CqEUidZR7f6jyzEd9qqQnRCAAA_640330/0"
+        },
         {
           "id": "https://view.inews.qq.com/a/20250513A02AC900",
           "author": "人物",
@@ -3089,16 +3159,6 @@
           "wordCount": 3637,
           "title": "百度智能云升级千帆：云平台战场转向体系能力比拼",
           "imageUrl": "https://inews.gtimg.com/om_ls/OYgR37tFJ-7eJRcXOIpGvM67W6hHMGeSMyDDRcIE4mQZsAA_640330/0"
-        },
-        {
-          "id": "https://view.inews.qq.com/a/20250425A0969300",
-          "author": "晚点LatePost",
-          "description": "本土团队主导产品定义和开发流程，上汽通用目标成为转型最快的合资车企。\n\n\n在大多数老牌车企对电动化转型犹豫时，通用汽车在 2020 年宣布未来五年将在新能源战略投资 200 亿美元，其在华合资公司上汽通用，几乎在同一时间引入奥特能电动化平台并推动电动汽车供应链本土化。不过，巨头转型虽起步早，但却需要不断平衡市场节奏，进而导致产品面向市场的时候，品牌认知更新滞后。\n\n上海车展开幕前夕，上汽通用举办 “别克品牌日” 活动，展示别克对智电时代的憧憬和规划：推出全新高端新能源品牌 “至境”，并发布首款旗舰车型 “别克世家”。新车定位超豪华新能源 MPV，由中方主导开发，基于上汽通用首个本土研发的新能源整车架构 “逍遥” 打造 —— 合资品牌中首个立足中国市场、针对中国用户、由本土研发团队开发的架构，实现了合资车企的技术本土化突破。\n\n这是上汽通用推进电动化升级、以完善的体系优势重塑品牌形象的开始。未来 12 个月，别克将基于逍遥架构推出 6 款全新新能源车型，覆盖 MPV、轿车、SUV 全车型，驱动形式包括纯电、插混、增程。从 2025 年开始，别克在中国推出的全新车型将全部为新能源车。\n\n   \n\n别克至境 MPV 先导概念车。来源：晚点\n\n\n不止上汽通用，在电动化浪潮滚滚而来的当下，所有合资车企都面临压力，还不想退出中国市场的车企都做出了改变，从被动迎战变为主动出击。它们普遍选择强化中方自主权——广汽丰田提出 “自我革命再造新合资车”。\n\n上汽通用的优势相对其他合资品牌更显著——成立之初就是合资研发模式。1997 年上汽通过与通用汽车各出资 50% 成立泛亚汽车技术中心，深入参与车型研发设计，实现真正意义上的联合研发，而非简单引进车型，它的成立让上汽通用具备大多数合资公司没有的产品研发能力。\n\n经过二十多年的发展，上汽通用构建了覆盖品牌运营、技术研发、产品定位、营销渠道和供应链…",
-          "link": "https://view.inews.qq.com/a/20250425A0969300",
-          "publishedOn": "2025-04-25T11:51:56.000Z",
-          "wordCount": 3604,
-          "title": "全球标准、中国研发、创业心态，上汽通用再出发",
-          "imageUrl": "https://inews.gtimg.com/om_ls/OeDI7FD7gGylYhHFX9KKtuRE_TcEFIasJ5x4y5MwmRrrUAA_640330/0"
         }
       ]
     },
@@ -3186,16 +3246,6 @@
           "wordCount": 579,
           "title": "手机销量“罗生门”：华为和小米谁才是第一",
           "imageUrl": "https://inews.gtimg.com/news_ls/Oq6CRX9ijq37TghVdBbVgngzqxLcuebC6nCkJbyXwHLToAA_640330/0"
-        },
-        {
-          "id": "https://view.inews.qq.com/a/20250425A085JR00",
-          "author": "深网",
-          "description": "2025年，上海车展人形机器人。图源：视觉中国\n\n\n文丨胡世鑫  \n编辑丨叶锦言\n出品丨深网·腾讯新闻小满工作室\n\n\n2025上海车展首日，董事长何小鹏携自主研发的人形机器人IRON首次公开亮相。这款机器人身高178厘米、体重70公斤，通体白色。像一位“超模”。在现场，它不仅与何小鹏碰拳互动，还频频向观众们打招呼。\n除了小鹏的IRON外，上汽荣威展台邀请了智元机器人的远征A2。在现场，这款机器人担任着“汽车顾问”一角。另外，宇树科技的人形机器人则成为深蓝汽车的AI员工，与观众握手互动。\n此次车展，人形机器人已经成为部分车企的“标配”。据悉，目前已有十几家车企宣称布局人形机器人赛道，其中包括小鹏、广汽、上汽、比亚迪、蔚来、小米等。车企为何纷纷进入人形机器人赛道？\n在今年全国两会上，政府工作报告明确提出要建立未来产业投入增长机制，具身智能作为未来产业之一被重点提及并加以培育。具身智能的核心产品类型除机器人（包括人形机器人、工业机器人和服务机器人）外，还有自动驾驶载具（如商用车、乘用车、无人机和eVTOL）。\n此外，据《人形机器人产业研究报告》数据显示，2024年中国人形机器人市场规模达到约27.6亿元，并有望在2030年成长为“千亿元市场”。\n人形机器人正抢走车模的“饭碗”\n早在2023年10月，小鹏汽车便发布了首款人形机器人PX5。时隔一年多，2024年11月，小鹏再次推出人形机器人IRON。车展这几天，IRON直接化身为小鹏汽车展台的“钢铁车模”，引来大量观众驻足。\n而在展台的互动环节，“红衣教主”周鸿祎以及由法国前总理Jean-Pierre Raffarin带领的法国汽车协会代表团都来到了小鹏汽车展台前，与IRON互动。\n周鸿祎要求人形机器人展示行走能力。他称，在上次亦庄马拉松大赛中，有些机器人走路姿势着实令人忍俊不禁。他还半开玩笑地问何小鹏：“听说有人要搞机器人的格斗大…",
-          "link": "https://view.inews.qq.com/a/20250425A085JR00",
-          "publishedOn": "2025-04-25T10:05:06.000Z",
-          "wordCount": 1597,
-          "title": "人形机器人成上海车展新顶流，车企暗战下一个万亿市场",
-          "imageUrl": "https://inews.gtimg.com/om_ls/OXHY8o9ZWeKLqmYICHYvH1rXKu2PF9l1pA_oY_W7Qo3XEAA_640330/0"
         }
       ]
     },
@@ -3204,6 +3254,16 @@
       "feedUrl": "https://www.geekpark.net/rss",
       "siteUrl": "http://mainssl.geekpark.net/rss.rss",
       "articles": [
+        {
+          "id": "http://www.geekpark.net/news/349276",
+          "author": null,
+          "description": "头图来源：腾讯\n \n5月14日，腾讯发布2025年第一季度财报。一季度，腾讯实现营收1800.2亿元同比增长13%，毛利1004.9亿元同比增长20%，经营利润（Non-IFRS）693亿元同比增长18%；微信及WeChat合并月活跃账户数增至14.02亿。\n \n毛利与利润增速双双跑赢营收，已是连续第十个季度，反映出腾讯在提质增效方面的长期定力和短期成效。\n \n不仅如此，腾讯在AI基础设施和应用生态上的投入也显著提速：一季度资本开支同比激增91%至274.8亿元，研发投入达189.1亿元，同比增长21%。AI正成为撬动公司全业务系统进化的核心杠杆。\n \n管理层在财报电话会上大篇幅谈及「Agent AI」，明确释放出公司在下一代AI形态上的战略意图：不仅要构建通用型智能助手，更要打造深度融合微信生态的「特有型Agent」，将社交关系、小程序体系与AI连接，形成腾讯独有的产品体验。\n \n1 AI布局走向深水区，Agent战略初露端倪\n腾讯的AI战略进入深水区，从模型训练和通用问答的底层能力构建，逐步向产品与生态的深度融合迈进。\n尽管财报未披露AI业务的具体营收数据，但管理层在电话会上大篇幅谈及Agent AI（代理式人工智能），释放出明确信号：腾讯正在推进一套更具长期想象力的AI路径。\n腾讯董事会主席兼首席执行官马化腾在电话会上指出，目前AI Agent大致可以分为两类：一类是通用型Agent，另一类则是深度绑定微信生态的「特有型Agent」。\n\n元宝已入驻微信｜图片来源：腾讯财报\n \n通用型Agent已开始在「元宝」「ima」等AI原生产品中落地，并正从简单问答逐步演进为具备复杂任务执行能力的助手——它们能够与其他程序或外部API打通，帮助用户完成实际操作。这一模式与行业内其他公司的Agent形态基本类似。\n「特有型Agent」则依托微信的社交关系链、小程序体系和内容生态。马…",
+          "link": "http://www.geekpark.net/news/349276",
+          "publishedOn": "2025-05-15T05:05:18.000Z",
+          "wordCount": 329,
+          "title": "腾讯，开始新一轮「谨慎扩张」",
+          "imageUrl": null
+        },
         {
           "id": "http://www.geekpark.net/news/349257",
           "author": null,
@@ -6121,6 +6181,16 @@
       "siteUrl": "https://www.nationalgeographic.com/pages/topic/latest-stories",
       "articles": [
         {
+          "id": "https://www.nationalgeographic.com/health/article/birds-sing-brain-mental-health",
+          "author": "Alisa Hrustic",
+          "description": "A European robin, <i>Erithacus rubecula</i>, sings in a tree in Norfolk, England. Studies have linked the sound of birdsong to reduced levels of depression and anxiety.   \nSpending time in nature is important for your mental health. But studies show that even just listening to birds singing can ease symptoms of anxiety and depression.\n    \nEach spring, as billions of birds head north during peak migration, their melodic songs become impossible to drown out—not that you would want to. Their “dawn chorus” signals that brighter, warmer days are finally here. It’s also a scientifically proven balm for your brain.\n    \nScientists know that nature is a salve for the soul. Getting outdoors keeps your body active. Spending time in the forest lowers your stress, heart rate, and blood pressure. Gazi…",
+          "link": "https://www.nationalgeographic.com/health/article/birds-sing-brain-mental-health",
+          "publishedOn": "2025-05-15T08:12:42.000Z",
+          "wordCount": 7060,
+          "title": "Listening to birds sing really does soothe your brain. Here’s why.",
+          "imageUrl": "https://i.natgeofe.com/n/9f7a9581-dd2b-4fff-a306-b9df349b54ca/naturepl_01474201_16x9.jpg?w=1200"
+        },
+        {
           "id": "https://www.nationalgeographic.com/history/article/griselda-blanco-miami-cocaine-70s",
           "author": "Parissa DJangi",
           "description": "Griselda Blanco is suspected of being involved in 40 murders across the U.S., including all three of her husbands. At its height, her network was pushing $80 million a month in cocaine.   \nHow did a girl who grew up in poverty in Colombia become an international narcotics queenpin pushing $80 million a month in cocaine?\n    \nThe Godmother. The Black Widow. Queenpin. Griselda Blanco’s many aliases and nicknames speak to the notoriety she gained by heading a billion-dollar, blood-soaked drug empire that stretched from Colombia to the United States.\n    \nThe subject of the Netflix’s Emmy nominated series Griselda, Blanco’s life blurred the line between fact and fiction as she clawed her way to a position of power in a violent world. So, who was the real woman behind the myth?\n      \nBlanco wa…",
@@ -7169,36 +7239,6 @@
           "wordCount": 13400,
           "title": "Rome is teeming with mysterious papal crypts filled with secrets",
           "imageUrl": "https://i.natgeofe.com/n/1c4c40a7-f6c1-452b-b010-3355c5eb194a/NationalGeographic_629577_16x9.jpg?w=1200"
-        },
-        {
-          "id": "https://www.nationalgeographic.com/travel/article/what-to-see-and-do-in-mahon-menorca-spain",
-          "author": "Annabelle Thorpe",
-          "description": "Stretching for eight miles, Mahón's harbour remains the heart of the city alongside the Old Town, which gazes down from a rocky outcrop.   \nThe capital of the quiet Balearic island of Menorca offers an atmospheric old town, thriving food scene and tranquil beaches. \n     \nThis article was produced by National Geographic Traveller (UK).\n     \nAs Spanish cities go, Mahon is relatively little known to travellers, despite its tumultous history. The port city on Menorca’s southeast coast has been at the centre of centuries of conflict, with everyone from the Moors to the Ottomans and French taking control of its natural harbour, the second largest in the world. But it was the British who left their mark, ruling from the early 18th to the early 19th century, leaving a series of military building…",
-          "link": "https://www.nationalgeographic.com/travel/article/what-to-see-and-do-in-mahon-menorca-spain",
-          "publishedOn": "2025-04-25T16:21:09.000Z",
-          "wordCount": 6406,
-          "title": "Why Menorca's capital is one of Spain's most underrated cities",
-          "imageUrl": "https://i.natgeofe.com/n/ce71d381-a814-4a90-ad1a-abcfd8cc0e28/GettyImages-656942992_16x9.jpg?w=1200"
-        },
-        {
-          "id": "https://www.nationalgeographic.com/travel/article/family-tours-in-japan",
-          "author": "Melinda Fulmer",
-          "description": "Traveling with teenagers to Japan can be stressful, but taking a cruise or a land tour can ensure that someone else is managing the logistics.    \nCruises and guided tours can help make planning a trip easier, especially if you’re traveling with kids—but they have decidedly different perks. Here are the pros and cons of each.&nbsp;&nbsp;\n    \nDreamy videos of Kyoto blanketed in pastel cherry blossoms and Tokyo’s anime-inspired street fashion have saturated social media, making it the top bucket list destination for families with teenagers.\n    \nWhile there’s plenty for all ages to enjoy in Japan, from the more affordable Tokyo Disneyland to ancient samurai villages, monkey parks, and castles, planning a trip there can be daunting, says Tamatha Frederick, senior Japan specialist with Audley…",
-          "link": "https://www.nationalgeographic.com/travel/article/family-tours-in-japan",
-          "publishedOn": "2025-04-25T16:21:09.000Z",
-          "wordCount": 8874,
-          "title": "By land or by sea? Here are 2 ways to see Japan",
-          "imageUrl": "https://i.natgeofe.com/n/cf007b40-dda6-4d89-ac0c-70c8853be586/h_25.2295379_16x9.jpg?w=1200"
-        },
-        {
-          "id": "https://www.nationalgeographic.com/travel/article/best-beach-towns-to-visit-in-uk",
-          "author": "Duncan Craig",
-          "description": "This article was produced by National Geographic Traveller (UK).\n     \nAt the turn of the century, a range of micro and macro factors, from whittled-down transport links to the availability of cheap foreign holidays, combined to lay waste to Britain’s seaside towns. Precious few were to escape the ruinous effects of this retreat of the economic tide.\n    \nFast forward to 2025, however, and it’s a very different picture. Just as the decline stemmed from multiple factors, the resurgence is driven by a complex web of influences. The cost-of-living crisis, flight scepticism and the lure of the great outdoors are all playing a part. So too is the staycation boom, which was accelerated by the pandemic. \n    \nSure, only the most misty-eyed nostalgist could fail to spot boarded-up shops and buildi…",
-          "link": "https://www.nationalgeographic.com/travel/article/best-beach-towns-to-visit-in-uk",
-          "publishedOn": "2025-04-25T08:23:04.000Z",
-          "wordCount": 9933,
-          "title": "The UK’s beach towns are bouncing back—here are 7 of the best",
-          "imageUrl": "https://i.natgeofe.com/n/367f65e1-d7f3-476e-ba6b-40214487c0c3/ukseaside_2RRJYRR_HR_16x9.jpg?w=1200"
         }
       ]
     },
@@ -7207,6 +7247,34 @@
       "feedUrl": "https://rsshub.rssforever.com/natgeo/science/article",
       "siteUrl": "https://www.natgeomedia.com/science/article",
       "articles": [
+        {
+          "id": "https://www.natgeomedia.com/science/article/content-18139.html",
+          "author": null,
+          "description": "2024年3月18日，毅力號（Perseverance）火星探測車在傑澤羅隕石坑的夜空中，成功捕捉到可光見波段的綠色極光。此項發現不僅是技術上的突破，也為研究太陽與火星之間交的互作用開啟了全新途徑。\n極光是太陽風中的高能粒子與行星際磁場、行星高層大氣交互作用產生的發光現象。儘管早已證實火星上會出現紫外光波段的極光，但可見光波段的極光從未直接被觀測到。雖然火星僅擁有約地球2%的稀薄大氣以及局部、殘留的磁場，這些磁場來自古老地殼中的磁性礦物，無法像地球般形成全球性磁層。但是這些局部磁場仍可誘發極光活動，特別是在太陽劇烈活動的期間。\n\n                    \n研究團隊自從發現氧原子躍遷會發出特定紫外光波段（波長297奈米）的輻射，就推論火星上應同時存在可見光波段的綠色極光（波長557.7奈米）。此波長與地球上氧原子發出的典型綠色極光相同，2024年3月15日，太陽發生一次日冕物質拋射（CME），大量帶電粒子衝擊火星。幾日後，毅力號搭載的日間光學儀器，在團隊即時調整後，成功記錄下夜空中微弱的綠色極光。\n\n                    \n值得令人注意的是，火星的綠色極光與地球上典型的絲帶狀結構大異其趣。雖然顏色相同，但火星極光呈均勻分布，不論在赤道或極區的整個天空皆呈現出均勻的綠色。這種結構上的差異可能與火星磁場分布及大氣密度相關。且因肉眼對微弱光線的顏色辨識力較低，即使人類置身火星，亦未必能直接看到火星的綠色極光。本次為團隊第4次在火星上搜尋可見光波段的極光，未來仍需記錄分析更多觀測數據，瞭解火星極光的觸發條件與變異模式。\n團隊表示這項成果讓人興奮不已，未來的研究方向將聚焦於瞭解何種類型的太陽風會觸發火星上的極光，也期待未來人類登陸火星時，能親歷其境體驗。\n \n \n\n.g_AD_970_250_InArticle_responsive{width:300px;height:250px;}\n@media(min-width: 1100px){.g_AD_970_250_InArticle_responsive{width:100%;}}\n\n\n\n\n\n\n\n\n\n\n資料來源：Science Alert\n本文轉載自臺北市立天文科學教育館網站。\n \n \n\n  \n  \n.g_AD_970_250_InArticle_responsive{width:300px;height:250px;}\n@media(min-width: 1100px){.g_AD_970_250_InArticle_responsive{width:100%;}}\n\n\n\n\n\n\n\n\n\n                    \n#火星\n#綠色極光\n#可見光波段",
+          "link": "https://www.natgeomedia.com/science/article/content-18139.html",
+          "publishedOn": "2025-05-14T16:00:00.000Z",
+          "wordCount": 486,
+          "title": "在火星地表首度觀測到可見光波段的綠色極光 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權",
+          "enclosure": {
+            "url": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18139/2025051552134341.jpg",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18139/2025051552134341.jpg"
+        },
+        {
+          "id": "https://www.natgeomedia.com/science/article/content-18138.html",
+          "author": null,
+          "description": "甫推出新書《超級長壽者》（Super Agers，暫譯）的抗老化研究權威艾瑞克．托波爾接受《國家地理》雜誌專訪，分享哪些養生技巧真的能夠保健抗老，又有哪些延壽偏方其實不值一試。一起來看看！\n長久以來，人類一直在尋找拖延死神腳步的方法。而過去40年以來，人類對於長壽的集體執著帶來了重大的科學突破，以及蓬勃發展的抗衰老產業。\n為了逆轉歲月，科學家們正在尋找新的醫療介入方式，也有講究健康的養生狂熱者自願充當白老鼠，像是服用雷帕黴素（rapamycin）等藥物、甚至注射「小鮮肉」的血漿，就是為了追求永保青春。美國人每年在保健方面的花費，平均超過6000美元。\n如今的科學家比以往更有機會破解老化的關鍵密碼，但是在延年益壽這個廣大領域，錯誤資訊卻是層出不窮。為了釐清真相，身為心臟科權威、研究文獻廣受全球科學家引用的艾瑞克．托波爾（Eric Topol）撰寫了《超級長壽者：破解延壽的科學關鍵》（Super Agers: An Evidence-Based Approach to Longevity，暫譯）一書。\n托波爾同時也是斯克里普斯技轉研究所（Scripps Research Translational Institute）的創辦人兼所長，他指出：「科學已經向我們證明，不光只是延長壽命，就連逆轉衰老都是有可能的。但在科學日新月異的同時，卻也有許多逐利之徒趁機湧入，向消費者兜售未經實證、潛藏風險或根本是騙錢的產品或服務。」\n在《國家地理》雜誌的訪談中，托波爾談到了改寫人類老化命運的新科技、抗老風潮中盛行的偽科學，以及最有效、最能夠促進健康的「養生技巧」。\n面對眾多冒牌專家和健康達人利用人們對死亡的恐懼來撈錢，托波爾提供了一本根據科學實證撰寫的保健指南，告訴大家如何活得老又活得好：\n1. 記住，基因無法決定你的命運\n如果家族病史中有癌症、心臟病或阿茲海默症等重大疾病，你可能會覺得自己就像…",
+          "link": "https://www.natgeomedia.com/science/article/content-18138.html",
+          "publishedOn": "2025-05-14T16:00:00.000Z",
+          "wordCount": 618,
+          "title": "想延年益壽？七個經過科學驗證的簡單祕訣，讓你活得更久更健康 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權",
+          "enclosure": {
+            "url": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18138/2025051551155153.jpg",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18138/2025051551155153.jpg"
+        },
         {
           "id": "https://www.natgeomedia.com/science/article/content-18137.html",
           "author": null,
@@ -7481,6 +7549,20 @@
           "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18061/2025042167233257.jpg"
         },
         {
+          "id": "https://www.natgeomedia.com/science/article/content-18126.html",
+          "author": null,
+          "description": "研究宇宙大小與演化的課題時，以長景深拍攝的觀測影像總令人體驗自然界的偉大而心生謙卑。近期韋伯太空望遠鏡發布了震撼人心的深空影像，展現出令人讚嘆的宇宙面貌。此最新影像是將韋伯與哈伯太空望遠鏡觀測的影像疊合，這兩架望遠鏡同步對準距離地球120億光年，視野僅約滿月直徑五分之一的天空區域進行拍攝，發現布滿這片微小天區的璀璨光點，竟然大多不是恆星，而是距離遙遠的星系。\n這些光點看起來與我們仰望晴朗夜空時所見的星星十分類似，但真正令人驚嘆的是，影像中幾乎所有光源都是完整的星系，它們出現的時間甚至可以追溯至宇宙形成初期。而前景恆星在韋伯望遠鏡影像中，由於會出現由望遠鏡支架產生繞射尖角的星芒，因此很容易就能分辨出來。至於星系並非點光源，光線來源較為分散則無上述特徵。此張影像的焦點位於畫面略低於中央處，一群距離地球約65億光年的星系呈現出金色光芒，這些星系出現在約65億年前，是宇宙年齡138億年的一半。\n本次觀測屬於COSMOS-Web計畫的一環，該計畫旨在系統性搜尋並記錄星系群，以瞭解宇宙本身與宇宙大型結構，例如宇宙網的演化過程。宇宙中的星系分布並非隨機雜亂分布，而是群聚成大型星系團，而彼此藉由暗物質與氫氣構成的宇宙網相互連結並交換物質。研究團隊將韋伯望遠鏡的觀測結果與錢卓拉X射線望遠鏡的數據相結合，進一步瞭解前述的星系團為COSMOS-Web計畫觀測的天區中最為龐大者，而錢卓拉X射線望遠鏡還觀測到星系團內高溫氣體放射出來的X射線。另外，團隊在此張影像中總共辨識出1678個星系群、星系團。\n令人驚奇的是，這片天區看似平凡且非常狹小，因此這項成果暗示在天空中任何相同大小的天區中，皆蘊藏了成千上萬的星系，密度之高令人震撼。在浩瀚宇宙中，每一道微光都可能是一個星系，這無疑是對人類視野與存在的深刻提醒。\n \n資料來源：Science Alert\n本文轉載自臺北市立天文科學教育館網站。\n\n  \n  \n.g_AD_970_250_InArticle_responsive{width:300px;height:250px;}\n@media(min-width: 1100px){.g_AD_970_250_InArticle_responsive{width:100%;}}\n\n\n\n\n\n\n\n\n\n                    \n#宇宙\n#星系\n#韋伯太空望遠鏡",
+          "link": "https://www.natgeomedia.com/science/article/content-18126.html",
+          "publishedOn": "2025-05-07T16:00:00.000Z",
+          "wordCount": 456,
+          "title": "影像中滿布的光點幾乎都是星系 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權",
+          "enclosure": {
+            "url": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18126/2025050881742097.jpg",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18126/2025050881742097.jpg"
+        },
+        {
           "id": "https://www.natgeomedia.com/science/article/content-18108.html",
           "author": null,
           "description": "研究人員已經拍攝到這些熊在最親密的時刻發出各種叫聲的影片，這是第一次在熊類物種記錄到這類聲音。\n\n                    \n眼鏡熊（Andean bear，又稱安地斯熊）是南美洲的唯一熊種，牠的明顯特徵是臉部周圍如同眼鏡的淺色斑紋。直到最近，我們都以為眼鏡熊幾乎不會發出聲音；以往只有幾個留下紀錄的案例顯示，圈養環境中的母熊和幼熊會透過聲音交流。不過，近期在安地斯山脈深處，相機陷阱拍攝到意想不到的畫面：在交配期間，這種難以捉摸的動物居然會頻繁發出聲音，包括嗚咽聲、咆哮聲、呼嚕聲。\n透過這項新資訊，科學家終於可以開始破譯牠們的語言。\n眼鏡熊的愛之語\n這項發現屬於一項今年1月發表在《墨西哥生物多樣性期刊》（Mexican Journal of Biodiversity）的研究。在2020和2021年之間，有一隊研究人員在哥倫比亞安地斯山脈和玻利維亞安地斯山脈的森林中設置隱藏式相機陷阱，希望能找到神秘的眼鏡熊。\n這些影音紀錄擷取到眼鏡熊的各種叫聲，包括咕噥聲、抽氣聲、有節奏的低哼聲，完全顛覆我們先前對這種動物的了解。眼鏡熊其實根本不沉默，反而會表演豐富且多樣的曲目。此外，牠們不是偶爾才這麼做，而是在最私密的時刻之一發出聲音。\n亞歷山大．馮洪保德生物資源研究所（Alexander von Humboldt Institute for Biological Resources Research）的聲音採集研究專員安琪拉．門多薩－埃納奧（Ángela Mendoza-Henao）說：「先前文獻表示這些動物很沉默。」她是該研究的作者之一。「但我們可以看到牠們一直發出許多聲音……持續幾個小時。」\n該研究顯露眼鏡熊的獨特曲目，由五種不同叫聲組成，每種叫聲都帶有清楚的目的。「啃咬」（bite）是一種尖銳、短暫的尖叫，類似生鏽鉸鏈的嘎吱聲，只有母熊在與公熊接觸時才會發出這種叫聲。洪…",
@@ -7572,6 +7654,20 @@
       "siteUrl": "https://www.natgeomedia.com/history/article",
       "articles": [
         {
+          "id": "https://www.natgeomedia.com/environment/article/content-18129.html",
+          "author": null,
+          "description": "編按：你有想過網路上買的「防鳥膠」有什麼成分嗎？生活在都市的鳥類，難免會為民眾帶來衛生困擾，但市面上新興的防鳥塗料，卻可能導致野鳥死傷。從今年3月一起領角鴞中膠案例開始，《環境資訊中心》採訪各界說法與記者實測——防鳥，是需求也是商機，但我們如何能做得更好？跟著【防鳥變傷鳥？】系列報導一起尋找答案。\n標榜「環保友善」、「不損壞生態環境」的防鳥膠，可能會有什麼問題？我們決定做一個實驗，《環境資訊中心》記者實際從電商購入一罐防鳥膠，該品牌曾供應公部門、臺電、區公所作為防鳥用途使用。我們把膠交由猛禽救傷站獸醫師王齡敏，以死鳥實測其黏稠度，發現無論是用麵粉、洗碗精、潔顏油，都無法把羽毛完全清洗乾淨；而當記者皮膚沾上防鳥膠時，即使以上述去污物加上酒精反覆清洗，短時間內亦持續有黏稠不適感。\n\n                    \n王齡敏頻呼防鳥膠「好黏！」\n防鳥膠的成分含有聚丁烯，其特性是不會水解亦不易分解，且穩定性高，常用於機械機軸的滾輪。《環境資訊中心》記者在4月中時，從電商購入一罐名為「瑪克斯塗料」的防鳥膠，邀請臺灣猛禽研究會獸醫師王齡敏進行黏稠度實測。\n王齡敏以金背鳩幼鳥及白頭翁屍體作測試，在兩隻鳥的飛羽及胸口羽毛塗抹少量防鳥膠，再以麵粉、洗碗精、潔顏油及清水清洗，最後用吹風機吹乾羽毛，檢視是否仍有殘留膠體。\n戴上手套的王齡敏在塗抹膠體時，手指與鳥身一直出現拉絲情況，飛羽不再蓬鬆乾爽，胸口的羽毛也黏作一坨，王齡敏頻呼「好黏！」。她認為金背鳩體型與力氣相對較大，飛羽沾上防鳥膠後，翅膀或還能張開使用，「可能還有一些逃跑能力」，但羽毛亦會變重，「多少會影響到飛行」。至於較小型的白頭翁，飛羽更容易黏起來，「翅膀不一定打得開。」\n潔顏油清洗能力較強  獸醫師提醒不可用酒精\n清洗時，王齡敏先在羽毛撒上麵粉，把大塊膠體黏住並搓掉，但羽毛摸起來的感覺仍非常黏稠。她再用洗碗精清洗，但不怎麼起泡，清洗效果也不佳。她遂拔出另一根羽毛，嘗試用自製的潔顏油來乳化防鳥膠，效果顯然比前面兩種好一些，「但洗完還是黏黏的，還是要洗很多次才洗得下來。」平時要幫黏到黏鼠板的傷鳥清理，救傷站都會自備這些東西。\n不論用什麼方法，大鳥小鳥胸口的小羽毛在清洗過程中都很容易被搓掉、脫羽。\n\n  \n  \n.g_AD_970_250_InArticle_responsive{width:300px;height:250px;}\n@media(min-width: 1100px){.g_AD_970_250_InArticle_responsive{width:100%;}}\n\n\n\n\n\n\n\n\n\n                    \n重覆清洗後來到最後一個步驟，王齡敏用吹風機把鳥兒吹乾，結果可以看到飛羽並沒有變回漂亮、健康的片狀，仍有殘膠感。而且現實中，不可能如此近距離用吹風機去吹牠的羽毛和身體，以檢查清洗效果，「會燙傷牠！」\n另一方面，當人類皮膚接觸到防鳥膠，同樣可先用麵粉搓走膠塊，然後用酒精清洗皮膚，但酒精不能用於活鳥身上，「牠的體熱會散失」，也會破壞身體及羽毛的油水平衡，皮膚吸收酒精亦會造成過敏，「簡單來說就是不可能用人的角度去幫牠洗。直接用酒精的話鳥可能會死得更快。」\n王齡敏提醒，如發現野生動物被防鳥膠黏住、受傷，應立即聯絡地方政府的動保單位，或把傷鳥送往救傷單位，切勿自行幫傷鳥清洗。「你自己處理可能花好幾個小時，再後送這隻鳥，那牠可能已錯過黃金治療時期，會降低牠的存活率。」\n \n本文轉載自「環境資訊中心」網站，內容由許多專家學者及民間環團，提供國內外環境教育與環保資訊；主題涵蓋全球變遷、溫室氣體控制、環保生活、環境汙染防治、生態保育、能源節約與能源效率、綠建築等各面向。期許能替沒有選票的山林、濕地、海洋、土地發聲。\n\n.g_AD_970_250_InArticle_responsive{width:300px;height:250px;}\n@media(min-width: 1100px){.g_AD_970_250_InArticle_responsive{width:100%;}}\n\n\n\n\n\n\n\n\n\n\n \n\n                    \n#臺灣猛禽研究會\n#防鳥膠\n#防鳥變傷鳥",
+          "link": "https://www.natgeomedia.com/environment/article/content-18129.html",
+          "publishedOn": "2025-05-11T16:00:00.000Z",
+          "wordCount": 481,
+          "title": "【防鳥變傷鳥？】防鳥膠「好黏！」實測 feat.臺灣猛禽研究會 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權",
+          "enclosure": {
+            "url": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18129/2025051277457497.jpg",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18129/2025051277457497.jpg"
+        },
+        {
           "id": "https://www.natgeomedia.com/environment/article/content-18061.html",
           "author": null,
           "description": "「及早發現，及早治療」是現代醫學推廣的概念。全球數百萬人飽受視力問題的困擾，但由於許多患者生活在偏遠的地區，因此難以獲得現代醫療服務。在勞力士「保護地球．恒動不息」計劃（Perpetual Planet Initiative）的支持下，英國眼科醫生安德魯．巴斯塔勞斯（Andrew Bastawrous）創立 Peek Vision，為服務偏遠社區的當地眼科治療機構提供眼科檢查軟體和數據分析。隨著這項工具在亞洲和非洲受到廣泛應用，如今 Peek Vision 創下重要里程碑，在合作夥伴的幫助下，已有一千萬人接受視力篩檢。下一步，巴斯塔勞斯的目標是在 2028 年底前將 Peek 推廣至尼泊爾全國。\n\n                    \n改善視力 看見希望\n巴斯塔勞斯之所以立志改善全球眼科治療服務，源於他在英國上學時的經歷。當時，他因看不清黑板而難以跟上同學們的學習進度。12 歲時，眼科檢查發現他患有嚴重近視。佩帶眼鏡後，望向停車場外的樹木時，他不再只是看到一團模糊的綠影，而是能看見鮮亮的綠色，甚至能清楚地看到樹葉。這次檢查改變他的人生。\n同年，巴斯塔勞斯跟隨父母返回家鄉埃及，他發現其他患有近視的孩童沒有機會接受檢查或治療，無法像他一樣迎來改變。巴斯塔勞斯深切體會到，接受眼科治療的機會並不公平。此後，他一直希望能夠改變這個情況，立志在全球各地普及眼科治療服務。他完成眼科醫生的醫學培訓，並進入英國國家醫療服務系統（National Health Service，簡稱NHS）工作。擔任眼科醫生數年後，2011 年巴斯塔勞斯離開 NHS，並移居肯亞，致力幫助資源匱乏的社區民眾改善視力。\n\n運用科技 普及檢查\n在肯亞面臨的主要挑戰為普及性。除了主要城市，鄉村中普遍缺乏道路和醫療服務。為將服務帶給需要的人，巴斯塔勞斯 2012 年萌生創立 Peek Vision 的構想，並在四年後獲得勞力士大獎（Rolex Award），所獲支持進一步提升計劃的規模。他注意到偏遠社區幾乎人人都有手機，因而帶領團隊成功推出了利用智慧手機的應用程式 Peek，使非專業人士也能進行像傳統眼科檢查一樣準確的檢查。這款易於使用的應用程式可為人們篩檢視力問題，並助其獲得必要的眼科服務。經過培訓的工作人員和志願者可以實地操作該程式，使篩檢和檢測惠及更多人。\n\n                    \n寫下里程 永不止步\n如今，每月有超過 25 萬人透過手機接受眼科檢查，該計劃已擴展到非洲和亞洲的多個地區。在印度也有經歷如同巴斯塔勞斯昔日感受的孩子。14 歲的普仁．庫瑪（Prem Kumar）和他的五個兄弟姐妹生活在印度北部沙賈漢普爾區（Shahjahanpur）的小村莊。由於視力不佳，他在學業上舉步維艱，最終輟學。與此同時，他還放棄了自己最愛的板球運動。借助 Peek Vision 簡便的眼科檢查，診斷出普仁和巴斯塔勞斯一樣患有嚴重近視。隨後，普仁獲轉介至 Peek Vision 的合作夥伴施洛芙醫生慈善眼科醫院（Dr Shroff’s Charity Eye Hospital）營運的視力中心。獲配眼鏡後，他的生活也隨之改變。巴斯塔勞斯相信問題總會存在，不過總能夠一一克服，他希望確保所有人皆有接受眼科保健服務的機會。\n\n                    \n迎向未來 恒動不息\n近一世紀以來，勞力士不斷支持探險先鋒，竭力衝破人類極限。隨著世事變動， 勞力士將探險從最初純粹的探索發現，逐漸轉變為保護地球的方式，矢志支持傑出人士及組織運用科學了解當今環境挑戰並制定解決方案。2019 年推出「保護地球．恒動不息」計劃，初期著眼於以下三方面：勞力士大獎(Rolex Awards)，以及與「藍色使命」（Mission Blue）計劃及國家地理學會的長期合作。該計劃已擁有超過 20 個合作夥伴，涵蓋的領域也日益廣泛。同時，勞力士傾力提供獎學金與補助金，支持組織及倡議培養下一代探險家、科學家及保育專家。\n \n了解勞力士大獎詳情（連結：https://www.rolex.org/zh-hant/rolex-awards）\n\n                    \n#勞力士\n#Rolex\n#PerpetualPlanet\n#RolexAwards\n#勞力士大獎",
@@ -7584,6 +7680,20 @@
             "type": "image/jpeg"
           },
           "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18061/2025042167233257.jpg"
+        },
+        {
+          "id": "https://www.natgeomedia.com/science/article/content-18126.html",
+          "author": null,
+          "description": "研究宇宙大小與演化的課題時，以長景深拍攝的觀測影像總令人體驗自然界的偉大而心生謙卑。近期韋伯太空望遠鏡發布了震撼人心的深空影像，展現出令人讚嘆的宇宙面貌。此最新影像是將韋伯與哈伯太空望遠鏡觀測的影像疊合，這兩架望遠鏡同步對準距離地球120億光年，視野僅約滿月直徑五分之一的天空區域進行拍攝，發現布滿這片微小天區的璀璨光點，竟然大多不是恆星，而是距離遙遠的星系。\n這些光點看起來與我們仰望晴朗夜空時所見的星星十分類似，但真正令人驚嘆的是，影像中幾乎所有光源都是完整的星系，它們出現的時間甚至可以追溯至宇宙形成初期。而前景恆星在韋伯望遠鏡影像中，由於會出現由望遠鏡支架產生繞射尖角的星芒，因此很容易就能分辨出來。至於星系並非點光源，光線來源較為分散則無上述特徵。此張影像的焦點位於畫面略低於中央處，一群距離地球約65億光年的星系呈現出金色光芒，這些星系出現在約65億年前，是宇宙年齡138億年的一半。\n本次觀測屬於COSMOS-Web計畫的一環，該計畫旨在系統性搜尋並記錄星系群，以瞭解宇宙本身與宇宙大型結構，例如宇宙網的演化過程。宇宙中的星系分布並非隨機雜亂分布，而是群聚成大型星系團，而彼此藉由暗物質與氫氣構成的宇宙網相互連結並交換物質。研究團隊將韋伯望遠鏡的觀測結果與錢卓拉X射線望遠鏡的數據相結合，進一步瞭解前述的星系團為COSMOS-Web計畫觀測的天區中最為龐大者，而錢卓拉X射線望遠鏡還觀測到星系團內高溫氣體放射出來的X射線。另外，團隊在此張影像中總共辨識出1678個星系群、星系團。\n令人驚奇的是，這片天區看似平凡且非常狹小，因此這項成果暗示在天空中任何相同大小的天區中，皆蘊藏了成千上萬的星系，密度之高令人震撼。在浩瀚宇宙中，每一道微光都可能是一個星系，這無疑是對人類視野與存在的深刻提醒。\n \n資料來源：Science Alert\n本文轉載自臺北市立天文科學教育館網站。\n\n  \n  \n.g_AD_970_250_InArticle_responsive{width:300px;height:250px;}\n@media(min-width: 1100px){.g_AD_970_250_InArticle_responsive{width:100%;}}\n\n\n\n\n\n\n\n\n\n                    \n#宇宙\n#星系\n#韋伯太空望遠鏡",
+          "link": "https://www.natgeomedia.com/science/article/content-18126.html",
+          "publishedOn": "2025-05-07T16:00:00.000Z",
+          "wordCount": 456,
+          "title": "影像中滿布的光點幾乎都是星系 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權",
+          "enclosure": {
+            "url": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18126/2025050881742097.jpg",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18126/2025050881742097.jpg"
         },
         {
           "id": "https://www.natgeomedia.com/science/article/content-18108.html",
@@ -10604,76 +10714,6 @@
           "wordCount": 1734,
           "title": "【404文库】李宇琛｜前途是光明的，曲折的是我们",
           "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/04/前途是光明的.jpeg"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=717593",
-          "author": "unknown",
-          "description": "不是所有口头表述都叫口供。像在大同订婚强奸案里，有些人说由于没在受害人下体里找到DNA证据，被告在行车记录仪录音里承认强奸，受害人指控强奸，被告在警方讯问时承认发生性关系，这些“口供”都不能作为切实证据。",
-          "link": "https://chinadigitaltimes.net/chinese/717593.html",
-          "publishedOn": "2025-04-25T17:05:49.000Z",
-          "wordCount": 13105,
-          "title": "一个生物狗的科普小园｜给“法盲”科普一下到底什么是口供",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/04/post-717593-680bc0cccb60d.png"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=717591",
-          "author": "unknown",
-          "description": "我不太能想象出，还有任何一件事能比提高农民基础养老金更有群众基础。此外，正如之前反复说的，它不仅对农民有利，对农民的孩子有利，对整个国家的政治经济发展也有利。",
-          "link": "https://chinadigitaltimes.net/chinese/717591.html",
-          "publishedOn": "2025-04-25T17:03:02.000Z",
-          "wordCount": 13086,
-          "title": "往事和随想｜提高农民基础养老金真的不可能吗？",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/04/342.jpg"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=717592",
-          "author": "unknown",
-          "description": "如果你还认为“开放”是对的，还认为牛津剑桥、哈佛普林斯顿是值得读的，这可能已经是“少数派”。在这个时候坚持这种看法，也许有着深远的意义。",
-          "link": "https://chinadigitaltimes.net/chinese/717592.html",
-          "publishedOn": "2025-04-25T17:01:04.000Z",
-          "wordCount": 13088,
-          "title": "张3丰的世界｜董明珠肯定是发现了什么",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/04/IMG_2931.png"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=717595",
-          "author": "unknown",
-          "description": "一家企业真正的核心竞争力，并不在于人才的出身背景，而在于能否构建激发各类人才创新潜能的有效机制。",
-          "link": "https://chinadigitaltimes.net/chinese/717595.html",
-          "publishedOn": "2025-04-25T16:59:07.000Z",
-          "wordCount": 13089,
-          "title": "四环青年｜董明珠称“绝不用海归派”，“保守”得过头了",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/04/1-3.jpg"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=717594",
-          "author": "unknown",
-          "description": "董明珠再干三年，格力还得继续在“董化”的怪异画风中再熬三年。三年之后还有三年，只要格力熬得住，七十岁的董奶奶能一口气干成九十岁的董太奶，想想都有点可怕。",
-          "link": "https://chinadigitaltimes.net/chinese/717594.html",
-          "publishedOn": "2025-04-25T16:55:48.000Z",
-          "wordCount": 13114,
-          "title": "关胖本胖｜暴论频出的董明珠，正在“绑架”格力！",
-          "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/KHQcQspS1whzfOxUYT1GJ26jPVpEw2n3RAyu0kbkI5RgGqdyqnFD33ia4zfqGQBI3EibMWtJ6MPic9icER8gJUh0Iw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=717590",
-          "author": "unknown",
-          "description": "每个留学归来人员都有间谍嫌疑，这是很严重的指控，这就是迫害，这就是挑动群众斗群众。",
-          "link": "https://chinadigitaltimes.net/chinese/717590.html",
-          "publishedOn": "2025-04-25T16:51:21.000Z",
-          "wordCount": 13129,
-          "title": "就叫熊太行也行｜董明珠正在发动一场非国民运动，很危险",
-          "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/EOONRlAx1VWtCtVBPZn9or0rBfT76wvA4YAib9JGDfT0BcjnCM7ZKU5QAYM1HcPHLEHVFbHMPaxNnwuxJ0OCicew/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=717589",
-          "author": "unknown",
-          "description": "两边把留学生和间谍联系在一起，都是基于宣传“外部威胁论”的需要。在人员国际交流中，留学生是人数最多、覆盖面最广的群体，拿留学生开刀，可以收获最大的宣传价值，而不是最大的国家安全价值。",
-          "link": "https://chinadigitaltimes.net/chinese/717589.html",
-          "publishedOn": "2025-04-25T16:44:24.000Z",
-          "wordCount": 13050,
-          "title": "基本常识｜留学生陷入空前困境：到底做哪边的间谍比较好呢？",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/04/2-2.jpg"
         }
       ]
     },
@@ -10709,6 +10749,16 @@
       "feedUrl": "https://sspai.com/feed",
       "siteUrl": "https://sspai.com",
       "articles": [
+        {
+          "id": "https://sspai.com/post/99202",
+          "author": "少数派编辑部",
+          "description": "在我派搬进新的办公室之后，我们从灯光系统出发，进行了一次全面的智能化改造。考虑到我派成员的「果系」浓度，我们的全套智能化设备都使用了对 Apple Home 生态更友好的 Aqara，并请 Aqara 服务商帮我们落地实现了理想中的效果。查看全文",
+          "link": "https://sspai.com/post/99202",
+          "publishedOn": "2025-05-15T03:24:42.000Z",
+          "wordCount": 575,
+          "title": "「梦中情司」计划：少数派办公室智能化改造记",
+          "imageUrl": "https://cdnfile.sspai.com/14/05/2025/article/ce42e648-601a-dd14-fd9a-c757be2b31ab.png"
+        },
         {
           "id": "https://sspai.com/post/99212",
           "author": "少数派编辑部",
@@ -11257,6 +11307,36 @@
       "siteUrl": "http://thepaper.cn",
       "articles": [
         {
+          "id": "https://www.thepaper.cn/newsDetail_forward_30764784?commTag=true",
+          "author": null,
+          "description": "《1517：全球史视野下的“奇迹之年”》，[德]海因茨·席林著，王双译，上海人民出版社｜世纪文景，2025年2月出版，376页，88.00元\n\n\n1590年，在墨西哥城的一座方济各会修道院中，一位名叫赫罗尼莫·德·门迪耶塔（Geronimo de Mendieta, 1525-1604）的修士正在撰写《印第安教会史》（Historia Eclesiástica Indiana）。灵光乍现之下，他把三个看似毫无相干的，但据他考证都发生在1485年的事件联系在一起。首先，宗教改革家马丁·路德（Martin Luther, 1483-1546）在这一年出生于德意志的萨克森公国。他“注定要让许多有信仰的人都臣服在魔鬼的旗帜下”。同年在大西洋对岸，居住在特诺奇蒂特兰城的阿兹特克人，为庆祝神庙落成而举行了盛大的典礼。阿兹特克祭司杀死八千人作为献祭。门迪耶塔称，为了抚慰“如此多的灵魂的呼喊”，也为了弥补因新教运动而损失的信徒，埃尔南·科尔特斯（Hernan Cortes, 1484-1547）降生在西班牙。他的征服事业将会“把那些自亘古以来就生活在撒旦之下的人们带回教会的怀抱”。实际上，这三件事并非发生在1485年：马丁·路德生于1483年，科尔特斯生于1484年，而阿兹特克神庙的落成典礼在1487年（[英]马修·罗斯托尔：《印第安帝国的覆灭》，梁鹏译，文汇出版社，2024年，164页）。尽管史笔有失准确，但这位十六世纪的教会史家展现出了一种如今看来是“全球史”的意识：通过突出历史事件与进程的“共时性”（synchronicity），彰显那些突破了地域与国家范围的变化和趋势。四百二十年过去，在大洋彼岸的德国，为了纪念宗教改革运动五百周年，德国史家海因茨·席林（Heinz Schilling）写下了《1517：全球视野下的“奇迹之年”》一书，对书写“共时的全球史”进行了实践。\n从“民族”到…",
+          "link": "https://www.thepaper.cn/newsDetail_forward_30764784?commTag=true",
+          "publishedOn": "2025-05-15T07:02:04.000Z",
+          "wordCount": 338,
+          "title": "杞支雅男评《1517》｜放眼世界，立足德国",
+          "imageUrl": null
+        },
+        {
+          "id": "https://www.thepaper.cn/newsDetail_forward_30764784",
+          "author": null,
+          "description": "《1517：全球史视野下的“奇迹之年”》，[德]海因茨·席林著，王双译，上海人民出版社｜世纪文景，2025年2月出版，376页，88.00元\n\n\n1590年，在墨西哥城的一座方济各会修道院中，一位名叫赫罗尼莫·德·门迪耶塔（Geronimo de Mendieta, 1525-1604）的修士正在撰写《印第安教会史》（Historia Eclesiástica Indiana）。灵光乍现之下，他把三个看似毫无相干的，但据他考证都发生在1485年的事件联系在一起。首先，宗教改革家马丁·路德（Martin Luther, 1483-1546）在这一年出生于德意志的萨克森公国。他“注定要让许多有信仰的人都臣服在魔鬼的旗帜下”。同年在大西洋对岸，居住在特诺奇蒂特兰城的阿兹特克人，为庆祝神庙落成而举行了盛大的典礼。阿兹特克祭司杀死八千人作为献祭。门迪耶塔称，为了抚慰“如此多的灵魂的呼喊”，也为了弥补因新教运动而损失的信徒，埃尔南·科尔特斯（Hernan Cortes, 1484-1547）降生在西班牙。他的征服事业将会“把那些自亘古以来就生活在撒旦之下的人们带回教会的怀抱”。实际上，这三件事并非发生在1485年：马丁·路德生于1483年，科尔特斯生于1484年，而阿兹特克神庙的落成典礼在1487年（[英]马修·罗斯托尔：《印第安帝国的覆灭》，梁鹏译，文汇出版社，2024年，164页）。尽管史笔有失准确，但这位十六世纪的教会史家展现出了一种如今看来是“全球史”的意识：通过突出历史事件与进程的“共时性”（synchronicity），彰显那些突破了地域与国家范围的变化和趋势。四百二十年过去，在大洋彼岸的德国，为了纪念宗教改革运动五百周年，德国史家海因茨·席林（Heinz Schilling）写下了《1517：全球视野下的“奇迹之年”》一书，对书写“共时的全球史”进行了实践。\n从“民族”到…",
+          "link": "https://www.thepaper.cn/newsDetail_forward_30764784",
+          "publishedOn": "2025-05-15T06:02:04.000Z",
+          "wordCount": 338,
+          "title": "杞支雅男评《1517》｜放眼世界，立足德国",
+          "imageUrl": null
+        },
+        {
+          "id": "https://www.thepaper.cn/newsDetail_forward_30805338",
+          "author": null,
+          "description": "《何为科学：科学是什么，科学不是什么》，[美]亚当·弗兰克 / [加]埃文·汤普森 / [美]马塞洛·格雷斯著，周程 / 廖新媛 / 杨军洁 / 万舒婵译，中信出版社，2025年4月版，376页，88.00元\n\n\n由美国学者亚当·弗兰克（Adsm Frank）、马塞洛·格雷斯（Marcelo Gleiser）和埃文·汤普森（Evan Thompson）合著的《何为科学：科学是什么，科学不是什么》（The Blind Spot： Why Science Cannot Ignore Human Experience，The MIT Press，2024；周程等译，中信出版社， 2025年4月）是一部很及时的科学哲学新著，它所讨论的问题既是当下亟需关注、思考和解决的，其讨论语境也是处于该论域的最前沿。在这部去年出版的著作中，最新的引述文献截止到2023年（见330页，注释37），中文版在原著出版后一年内就推出，都有一种紧迫的前沿研究氛围。原书名直译是“盲点：为什么科学不能忽视人类经验”，有鲜明的专题性和针对性。中译本的书名或许有各种考虑，不过看来与原书名强烈凸显的问题意识相比有点大了。可能是意识到论题的专业性和前沿性，三位作者要兼顾专业研究者与普通读者的阅读需要，因此该书的“引言”部分非常简明扼要地论述了全书的主题和核心观点。对于中译本读者来说，前面的“译者导读：现代科学中的盲点”也很有帮助。\n该书论述议题的核心不是关于自然科学与人文科学的相互关系，而是对科学观本身的本体论认知迷思的反思与纠偏，是关于科学哲学的观念研究中的重要议题。这个议题的提出具有明确而强烈的现实针对性，就是当前科学观中的盲点、危机与人类命运的紧密关系，而不是纯粹科学理论的形而上思辨。“引言”的第一个小标题“燃眉之急”反映了作者的忧虑感和强烈的使命感，开头第一句话就是：“我们怀着深深的忧虑撰写了这本书，因为我们…",
+          "link": "https://www.thepaper.cn/newsDetail_forward_30805338",
+          "publishedOn": "2025-05-15T05:02:04.000Z",
+          "wordCount": 256,
+          "title": "李公明︱一周书记：当前科学观中的盲点、危机与……人类命运",
+          "imageUrl": null
+        },
+        {
           "id": "https://www.thepaper.cn/newsDetail_forward_30809802",
           "author": null,
           "description": "《通勤梦魇：东京地铁与机器的人类学》，迈克尔·菲什著，孟超、桑元峰译，上海人民出版社2025年1月出版，384页，69.00\n\n\n在东京各大铁路车站又或是地铁站，时常能看到这么一幕：几位外国人对着挂在墙上复杂如蛛网一般的电车运行图“吃手”，又或是不知所措地一会儿低头看着手机，一会儿抬头望向墙上的运行图。日本东京都市圈作为全球最大的都会区之一，其境内轨道交通网络的复杂程度在全世界范围内也是数一数二的。目前，东京都市圈内的轨道线路有近一百六十条、运营轨道的总里程超过四千七百公里，每天运送的乘客超过四千万人次（不同运营主体间换乘会被重新计算）。而在东京地区内，每平方公里就有零点二四座车站，可见其网络的密度之高。\n各式各样穿梭在摩天大楼与低矮民房间的电车，穿着西装衬衫或制服等着上下车的乘客、拥挤但却有序的人群都己经成为东京这座巨大都市的日常景观。每天都有数百万人乘坐电车穿行于城市的大街小巷，密布各处的轨道交通线早已成为东京这座巨型都市的血管。电车网络的延伸发展与都市扩张相互促进，正如血管与肌体的关系一样。电车线沿线催生出新的社区和商业中心，城市规划也往往围绕车站展开，形成“站城一体”的独特布局，塑造了东京市民生活的基本样貌。\n芝加哥大学人类学与社会学学院副教授迈克尔·菲什通过细致的田野调查结合他个人在东京的生活经历，在《通勤梦魇：东京地铁与机器的人类学》（An Anthropology of the Machine：Tokyo’s Commuter Train Network）一书中对东京的电车通勤网络进了一番别开生面的人类学考察，探究了东京的轨道交通系统是如何与都市发展以及市民生活交织在一起的。他敏锐地指出尽管东京的电车系统经常超负荷运行，但却依旧能保持高效运作，而这得益于列车运营方和通勤者之间的“协作”。这种协作不仅体现在技术层面，更涉及到社会和文化层面的互动且重新形塑了都市人…",
@@ -11553,6 +11633,46 @@
       "feedUrl": "https://rsshub.rssforever.com/zhihu/daily",
       "siteUrl": "https://daily.zhihu.com",
       "articles": [
+        {
+          "id": "https://daily.zhihu.com/story/9781167",
+          "author": null,
+          "description": "赵泠，在知乎，见证世界的参差\n查看知乎原文\n\n\n\n如果人是被进化塑造为题述状态，那么不会发生任何医疗奇迹或灾难。人的免疫系统会对所谓“不同血型”建立足够的免疫耐受——就像地球上其他许多输血不需要管血型的动物那样。\n1953 年发表的一篇文章报告一名妇女的血液因嵌合体而有两种血型。看起来，混在一起的 A 型血细胞与 O 型血细胞并未造成什么后果。推测这是异卵双胞胎在胚胎早期通过胎盘血管吻合交换造血干细胞所致，胚胎免疫耐受解决了潜在问题。\nDUNSFORD I, BOWLEY CC, HUTCHISON AM, THOMPSON JS, SANGER R, RACE RR. A human blood-group chimera. Br Med J. 1953 Jul 11;2(4827):81. doi: 10.1136/bmj.2.4827.81. PMID: 13051584; PMCID: PMC2028470.\n1996 年发表的一项研究发现上述血型嵌合并不罕见。看起来，混在一起的血细胞并未造成什么后果。已报告的 70 多例先天性血型嵌合体涉及 ABO、Rh、Kidd 等多个血型系统。\nvan Dijk BA, Boomsma DI, de Man AJ. Blood group chimerism in human multiple births is not rare. Am J Med Genet. 1996 Jan 22;61(3):264-8. doi: 10.1002/(SICI)1096-8628(19960122)61:33.0.CO;2-R. PMID: 8741872.\n孕妇和胎儿可以视为在一个身体里有两颗心脏，孕妇和胎儿显然可以有不同血型，二者的循环系统未直接连通。孕妇对胎盘和来自胎儿的少量细胞通常有明显的免疫耐受。Lowry 等部分学者称胎盘是寄生体，这可以简单地描述胎盘使用病毒和多细胞寄生虫使用的一些分子机制[1][2]。Beer 和 Billingham 等学者认为，比起寄生物，胎儿与胎盘更像移植物[3]。\n寄生胎、连体人等理论上可以因突变、嵌合体等出现血型不一致。看起来，这方面的参考价值还不如孕妇与胎儿。截至 2025 年，科学文献未报告确定血型不一致的连体人案例。亦可参考某些鮟鱇之类后天形成的嵌合体动物的免疫耐受。\n构造方面，人胚胎和其他四足形类胚胎一样有两条心管，它们在早期发育过程中融合，通过盘绕和分隔产生腔室——看起来是单一心脏，其实一开始是两个部件。不过，将其分开并分别配备造血系统对应的发育过程会需要许多刻意的演化创新，在自然界难以期待找到适当的选择压来让人如此。\n查看知乎讨论",
+          "link": "https://daily.zhihu.com/story/9781167",
+          "publishedOn": "2025-05-15T08:24:47.143Z",
+          "wordCount": 222,
+          "title": "如果人类拥有两颗心脏，但必须分别由不同血型供血，会发生怎样的医疗奇迹或灾难？",
+          "imageUrl": null
+        },
+        {
+          "id": "https://daily.zhihu.com/story/9781165",
+          "author": null,
+          "description": "赵泠，在知乎，见证世界的参差\n查看知乎原文\n\n\n\n有些植物能。\n例如，小球藻属植物可以侵染动物的皮肤、淋巴结或在体内扩散，引起人畜共患的绿球藻病。小球藻可以在动物皮肤引发特征性的绿色肉芽肿。绿球藻病主要见于牛、绵羊，亦可见于人、家犬、羚羊、骆驼、河狸、一些鱼。一些论文认为这涉及特定的变异株和免疫抑制的宿主。\n小球藻是根正苗红的植物，绿藻门 - 共球藻纲 - 小球藻目 - 小球藻科 - 小球藻属。\n小球藻的光合能力相当突出，历史上多次有人考虑培育它们来生产食物或生物燃料。显然，它们还有分解利用环境中的有机物的能力，这对活的动物体也有效。\n小球藻科原孢囊藻属植物丢弃了叶绿体，主要营腐生生活，亦可寄生于家犬、牛、水牛、马等动物，引起原孢囊藻病。\n历史上，原孢囊藻属曾被人们错误分类为真菌，后来人们发现它们产生孢子的方式与小球藻相同，将它们重新分类为绿藻。\n1964 年，塞拉利昂报告了首例人感染原孢囊藻病。一些来源认为这涉及免疫抑制的宿主。\n这是分解者尝试分解活动物的典型情况。喜欢的话，读者可以说这是等不及了。\n下图是原孢囊藻属的 Prototheca wickerhamii 感染人的显微照片，已染色：\nBy Jerad M Gardner, MD - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=14839398\n小球藻科旋孢藻属(Helicosporidium)植物丢弃了叶绿体，寄生于昆虫等无脊椎动物的消化道。截至 2025 年，未发现其他植物寄生在昆虫消化道里。\nBy Aurélien Tatar - https://www.mdpi.com/2075-4450/4/3/375: \"The Non-Photosynthetic Algae Helicosporidium spp.: Emergence of a Novel Group of Insect Pathogens\", CC BY 3.0, https://commons.wikimedia.org/w/index.php?curid=135572560\n拥有叶绿体的链带藻属(Desmodesmus)植物亦可感染人，能通过发生在淡水里的开放性损伤感染免疫功能正常的人[1]。此属分类至绿藻门 - 绿藻纲 - 环藻目 - 栅藻科。下图是从人类患者身上取出培养的链带藻属的 Desmodesmus armatus，图片来自参考 1：\n\n此外，历史上，色藻、细菌曾在一些时期被人们当成植物，后来人们陆续调整了相关分类。疟原虫等来自顶复门的寄生性单细胞生物是色藻。\n查看知乎讨论",
+          "link": "https://daily.zhihu.com/story/9781165",
+          "publishedOn": "2025-05-15T08:24:43.708Z",
+          "wordCount": 205,
+          "title": "植物能寄生在动物体内吗？",
+          "imageUrl": null
+        },
+        {
+          "id": "https://daily.zhihu.com/story/9781161",
+          "author": null,
+          "description": "赵学浩，东亚海域史/都市传说/未解之谜/太阳系第一帅\n查看知乎原文\n\n\n\n江户时代的日本人，捡到海豚的化石，当成鸦天狗的头骨；捡到鲨鱼牙齿化石，当成天狗的指甲。\n浮世绘画家大场丰水，在明和七（1770）年九月二十四日前往爱宕神社时，发现神社门口的樱川的河床上，露出一个奇怪的东西，大场丰水用水将泥巴洗干净后，发现是一个形状奇怪的骷髅头。\n大场丰水发现的“天狗的头骨”\n大场丰水捡起头骨后，周边聚集了一群人，有的人说“这肯定是天狗的头骨”。\n大场丰水当然不相信，他很想知道这玩意是什么，于是就用箱子装好，拿去给他的朋友——博物家、发明家平贺源内鉴定。\n平贺源内（1728-1780），作为江户时代最著名的发明家，所以经常客串各种日本动漫\n平贺源内当时正和门人们讨论市面上出现的新药是真是假，看到大场丰水拎着一个奇怪的头骨上门，平贺源内便让门人们各抒己见。\n一个门人说：“这肯定是巨鸟的头骨，也就是荷兰人说的 struis vogel（鸵鸟）！”\n由于日本仅在 1658 年得到过一只真的鸵鸟，在江户时代，日本人普遍被荷兰人糊弄，认为食火鸡才是鸵鸟（陀鸟）……\n另一个门人驳斥说：“就算是外国的大鸟，也不可能长这么大，这肯定是大鱼的头骨！”\n平贺源内当然也不清楚这是什么的头骨，于是开玩笑说：“这肯定是天狗的头骨。”\n《天狗骷髅鉴定缘起》描绘的平贺源内的门人们讨论“天狗的头骨”的景象\n门人们纷纷表示：“不对不对，日本的天狗是魑魅魍魉的总体，怎么可能有具体的形态呢？”\n“现在的天狗都是有意变形画出来的，鼻子长的大天狗是高傲自大的象征；嘴巴长的乌天狗是废话多的象征；长着翅膀还穿着草鞋，是代表天狗或飞或走都漫不在意；住在树梢上代表他们是不愿意付房租的懒汉，手里拿着羽团扇，则和贫乏神手里拿着涩团扇一样，表明他们都很抠门，各种画法都是有寓意在内的，并不是事实描写。《论语》上说‘子不语怪力乱神’，您却说‘这是天狗的头骨’，这不是在耍我们吗？”\n鸦天狗\n平贺源内则继续开玩笑，借这个话题狠狠讽刺了一顿把“鲸鱼骨说成是独角兽的角，把放屁虫说成是西瓜虫，看见西洋参说是高丽参”发大财的药商和医生，然后说，既然搞不清楚是什么，那不如按照大家所喜闻乐见的那样，说成是天狗的头骨。\n并且说：“你就当他是下级的乌天狗，语言和行动都非常令人不快，不但天天说人坏话，而且还动不动抓人来吃，于是天狗的总首领太郎坊就一刀剁了他的狗头，丢到了樱川里，然后就被大场丰水发现了。”\n平贺源内、大场丰水在 1777 年为此出版了一本叫《天狗骷髅鉴定缘起》的滑稽本，据说还引起了江户的医生们的抗议。当然，放在现在来看，这个所谓的“天狗头骨”自然是海豚的头骨。\n\n与此大致同一时期，日本收藏界还流行过一种名为“天狗的指甲”（天狗之爪）的化石。\n“天狗的指甲”\n学者栗本丹洲，曾经听他父亲的好友、平贺源内的师兄弟木村蒹葭堂说过这样一个故事：\n“某天夜里，古寺的周围突然传来一阵吵吵闹闹的声响，原来是天狗在举行宴会。由于当地有不可观望天狗的习俗，因此和尚们都蛰居起来不去观望。大概过了两个半时辰后，天狗散去，寺里的和尚走过去发现寺的门口上插着一个巨大的指甲。这个指甲就被当做是寺宝珍藏了起来。”\n一个当做寺宝的“天狗的指甲”\n当然，栗本丹洲本人可不信前辈讲的故事，因为当时江户的医学馆里举办的交流会上，经常有人出售这样长一两寸（3-6 厘米）、三角状的石头，都说是“天狗的指甲”。\n天狗又不是得了脱甲症，哪来这么多指甲呢？\n栗本丹洲本人对于鱼类很有研究，因此很快调查得知所谓的“天狗的指甲”，其实就是鲨鱼上颚的牙齿，与西洋人说的“鲨鱼化石”是一种东西。所以他在 1818 年写成了《天狗爪石拙考》，得出结论——“和螺蛤鱼蟹的化石是同一道理，不能因为是鲨鱼就感到奇怪。”\n《天狗爪石拙考》里记载的“石牙”\n至于木村蒹葭堂所讲的故事，实际上是因为出产鲨鱼牙齿化石的加贺、能登地区，时不时有人会在山间的树木上、房子的屋顶上发现类似的三角状化石。这些人因为住在山里，没有见过鲨鱼牙齿，因此就误认为是天狗的指甲。\n后来大概是有人觉得有利可图，就将当地流行的“天狗砾”（隐形的天狗闹事在寺门口丢石块）的故事，改编成天狗“遗留下的指甲”，然后再将收集到的鲨鱼牙齿化石，高抬成“天狗的指甲”去贩卖……\n天狗砾\n只能说，良心大大的坏。\n相关回答：\n在科学史上，有什么解释非常错误，但预测非常准确的例子？在外国人的感觉中，汉语是否好听？\n查看知乎讨论",
+          "link": "https://daily.zhihu.com/story/9781161",
+          "publishedOn": "2025-05-15T08:24:43.671Z",
+          "wordCount": 157,
+          "title": "古代人出土过他们古代的文物吗？",
+          "imageUrl": null
+        },
+        {
+          "id": "https://daily.zhihu.com/story/9781169",
+          "author": null,
+          "description": "瞎扯 · 是大部分动物都喜欢被摸头吗？\n知乎日报\n查看知乎原文\n\n\n\n\nQ：是大部分动物都喜欢被摸头吗？\n@安静的百家湖 ：要看什么动物，比如这条动物看起来比较困惑。\n\n \n \n \nQ：小孩子能口无遮拦到什么程度？\n@WZJJ ：多年前，带着二年级的大儿子开车经过一片墓园，孩子有感而发：「爸爸，还好我有个弟弟，你这么胖，将来死了我一个人真搬不动。」\nQ：如果在银河系中迷路了，怎样才能找到地球？\n@疑是真情 ：用导航呀。 当你都可以漫步银河系的时候，导航技术已经飞速发展了呀。\n\n \n \n \nQ：你见过最无用的节俭行为是什么？\n@阿毛 ：这两天太热了。空调太费电了，为了省点电费去商场里蹭空调，逛了一晚上，喝奶茶花了 28 ，吃晚饭花了 58 ，买衣服花了 560 ，逛超市花了 170 ，停车费 40 多。 回到家发现空调没关。\nQ：你曾入住过最差的宾馆有多差？\n@chiron：见识浅，这是第一次在现实见到共享空调的。",
+          "link": "https://daily.zhihu.com/story/9781169",
+          "publishedOn": "2025-05-15T08:24:43.664Z",
+          "wordCount": 261,
+          "title": "瞎扯 · 如何正确地吐槽",
+          "imageUrl": null
+        },
         {
           "id": "https://daily.zhihu.com/story/9781146",
           "author": null,
@@ -12964,6 +13084,36 @@
       "feedUrl": "https://feedx.site/rss/infzm.xml",
       "siteUrl": "http://infzm.com",
       "articles": [
+        {
+          "id": "http://www.infzm.com/contents/293750",
+          "author": null,
+          "description": "2025-05-15 15:00:00\n近日，两条个人破产申请信息冲上社交媒体热搜。一是“退休夫妇月入1.2万元负债1.2亿申请破产”（详见报道《退休夫妻月入1万多负债超1亿，巨债何来？能否免除？》），另一条是“女子月薪4700负债2544万申请破产”。公众关注的焦点，一是个人还可以申请破产，二是收入不高但负债极高，这些债务是怎么回事。\n在全国层面，中国只有公司破产，没有个人破产制度，理论上个人需要对其债务承担无限责任。但深圳2020年通过了《深圳经济特区个人破产条例》，在深圳居住且参加社保连续满3年的自然人，如果因生产经营、生活消费导致丧失清偿债务能力或者资产不足以清偿全部债务的，可以进行破产清算、重整或者和解，依法经过破产程序后，其未清偿的债务予以免除。\n个人破产制度，目的是保护“诚实而不幸”的债务人，他们本是诚实守信的人，但因为种种原因，不幸地背上了过于沉重的债务包袱，如果不允许他们破产，可能穷其一生也无法偿清债务，这会严重影响他们的生活。在个人破产制度下，让债务人用几年时间偿还部分债务，之后未偿清的债务清零，让他们能够轻装上阵，这有利于债务人后续的工作和生活。\n另一方面，债权人的利益也要尽可能得到保护。如果债务人本来有足够的资产可以清偿债务，却隐藏、恶意转移财产，试图通过个人破产来逃废债务，就会严重损害债权人的利益。近来，媒体曝光了不少“职业背债人”案例，这些人通过伪造身份信息，向银行或其他贷款平台骗取贷款后被别人拿走，从来没有打算偿还。还有一些“老赖”，被法院判决赔款后，把资产转给成年子女，逃避法律义务。\n这也是前述两条个人破产申请信息引起网友高度关注的原因。网友质疑，两条信息中的债务人收入都非常有限，为何会背上巨额债务，是不是恶意借贷后试图逃债？不过，据《深圳特区报》采访深圳中院相关负责人，上述两个案例都处于立案审查阶段，债务人自述因创业失败，个人对公司债务承担连带责任而背上巨额债务，并非个人负债。如果其所述属实，在个人收入和资产显然无法承担巨额债务的情况下，法院受理其破产申请未必不可以。\n当然，也有一些个人破产申请，看起来就不太正常。个人破产制度，旨在保护“诚实但不幸”的人，这一底线不能突破。个人破产，不能成为一些恶意债务人逃废债务的途径。有些人从银行或者其他途径借了一大笔钱后挥霍一空，甚至藏匿转移资产，有些人收入并不算太低，债务也不算太多，却想靠个人破产免除债务，维持个人更高的生活水准。如果允许这些人破产，会鼓励更多人借债、逃债，形成巨大的道德风险。防止破产欺诈，保护债权人利益，这一底线不容突破。对试图通过个人破产来恶意逃债的不诚之人，需有严厉的处罚。\n\n获取更多RSS：\nhttps://feedx.net \nhttps://feedx.site",
+          "link": "http://www.infzm.com/contents/293750",
+          "publishedOn": "2025-05-15T07:25:05.000Z",
+          "wordCount": 95,
+          "title": "个人破产需防道德风险",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/293748",
+          "author": null,
+          "description": "2025-05-15 14:00:00\n\n当地时间2025年5月14日，在乌克兰南部梅利托波尔市，一名女性走过一处遭军事打击后的市场。（视觉中国/图）\n\n一场隔空喊话，迅速成为国际焦点。\n当地时间2025年5月11日凌晨，在克里姆林宫举行的新闻发布会上，俄罗斯总统普京提议于15日在土耳其伊斯坦布尔重启俄乌直接谈判。他强调“不设任何先决条件”，目标直指“消除冲突根源，建立历史性和平”。\n数小时后，乌克兰总统泽连斯基在社交媒体上回应称“已准备好接受任何形式的谈判”，并表示将亲自前往土耳其“等候普京”。\n5月13日，美国总统特朗普透露，即将举行的俄乌会谈中，包括美国国务卿鲁比奥在内的美国代表也将前往。\n距2022年俄乌伊斯坦布尔直接谈判已经过去3年，这场隔空喊话也被外界称为“伊斯坦布尔2.0”谈判。但看似乐观的外交辞令背后，是双方在停火条件、战略诉求与国际博弈中的激烈角力。\n不少受访专家学者告诉南方周末记者，从克里姆林宫到基辅，从华盛顿到布鲁塞尔，各方围绕停火条件、谈判议程与地缘利益的博弈，“都还没有准备好”，和平前景仍然成谜。\n倡议,“不设任何条件”背后\n这一倡议的提出时机耐人寻味。\n此前一天5月10日，法国总统马克龙、德国总理默茨等欧洲四国领导人联合泽连斯基向俄方施压，要求其接受“5月12日起实施30天无条件停火”，否则将面临“大规模制裁升级”。\n俄罗斯外交部发言人扎哈罗娃直指西方意图：“30天停火只是为乌克兰重整军备争取时间。”\n自2022年2月俄乌冲突全面升级以来，俄罗斯多次提出谈判意愿，但始终以乌克兰承认俄对克里米亚及乌东四州的主权、承诺“中立化”等为条件。\n然而，此次普京的提议却罕见地放弃了预设门槛。俄罗斯总统新闻秘书佩斯科夫称，这一决定展现了俄方“对和平的真心实意”。\n“俄方所谓的‘无条件’背后，核心条件并未改变。”华东师范大学俄罗斯研究中心副研究员万青松向南方周末…",
+          "link": "http://www.infzm.com/contents/293748",
+          "publishedOn": "2025-05-15T06:25:06.000Z",
+          "wordCount": 87,
+          "title": "“伊斯坦布尔2.0”：土耳其斡旋下的俄乌谈判",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/293675",
+          "author": null,
+          "description": "2025-05-15 13:00:00",
+          "link": "http://www.infzm.com/contents/293675",
+          "publishedOn": "2025-05-15T05:25:05.000Z",
+          "wordCount": 85,
+          "title": "四姐歌舞厅",
+          "imageUrl": null
+        },
         {
           "id": "http://www.infzm.com/contents/293746",
           "author": null,
@@ -16822,6 +16972,16 @@
       "siteUrl": "https://flowingdata.com",
       "articles": [
         {
+          "id": "https://flowingdata.com/?p=78577",
+          "author": "Nathan Yau",
+          "description": "The Brazilian Institute of Geography and Statistics (IBGE), Brazil’s agency for statistics and…\nTags: Brazil, projections",
+          "link": "https://flowingdata.com/2025/05/15/world-map-with-south-on-top-and-brazil-in-center/",
+          "publishedOn": "2025-05-15T08:03:08.000Z",
+          "wordCount": 1582,
+          "title": "World map with south on top and Brazil in center",
+          "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/05/Brazil-south-on-top-center-scaled.jpeg"
+        },
+        {
           "id": "https://flowingdata.com/?p=78584",
           "author": "Nathan Yau",
           "description": "The birthday effect is a statistical anomaly that shows higher likelihood of death…\nTags: birthday, mortality, Pudding, Russell Samora",
@@ -17160,36 +17320,6 @@
           "wordCount": 1458,
           "title": "Charting no-look passes by Nikola Jokic",
           "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/04/jokic-no-look-e1745601176860.webp"
-        },
-        {
-          "id": "https://flowingdata.com/?p=78377",
-          "author": "Nathan Yau",
-          "description": "Pope Francis’ papacy started in 2013 and lasted 12 years and 39 days.…\nTags: Axios, pope",
-          "link": "https://flowingdata.com/2025/04/25/length-of-pontificates/",
-          "publishedOn": "2025-04-25T18:06:34.000Z",
-          "wordCount": 1356,
-          "title": "Length of pontificates",
-          "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/04/pontificates-timeline.png"
-        },
-        {
-          "id": "https://flowingdata.com/?p=78371",
-          "author": "Nathan Yau",
-          "description": "With the passing of Pope Francis, the Washington Post charted the ages of…\nTags: pope, Washington Post",
-          "link": "https://flowingdata.com/2025/04/25/pope-age-comparisons/",
-          "publishedOn": "2025-04-25T17:55:14.000Z",
-          "wordCount": 1362,
-          "title": "Pope age comparisons",
-          "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/04/pope-age-comparisons.png"
-        },
-        {
-          "id": "https://flowingdata.com/?p=78358",
-          "author": "Nathan Yau",
-          "description": "Election data should be publicly available and easy to access at high granularity,…\nTags: districts, Downballot, election",
-          "link": "https://flowingdata.com/2025/04/25/complete-2024-election-data-for-congressional-districts/",
-          "publishedOn": "2025-04-25T16:28:50.000Z",
-          "wordCount": 1429,
-          "title": "Complete 2024 election data, for congressional districts",
-          "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/04/congressional-district-map-2024.webp"
         }
       ]
     },
