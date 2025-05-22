@@ -6,6 +6,36 @@
       "siteUrl": "https://bestblogs.dev/zh/feeds",
       "articles": [
         {
+          "id": "567326",
+          "author": "Tilda Udufo",
+          "description": "📌 一句话摘要\n            \n解释了 JavaScript 代码检查工具（如 ESLint）如何通过分析抽象语法树 (AST) 而非代码文本来工作。\n📝 详细摘要\n            \n本文深入探讨了 JavaScript 代码检查工具的内部工作原理，重点介绍了它们如何利用抽象语法树 (AST)。它将代码检查工具定义为用于自动化代码分析，以捕获错误和强制执行代码风格的工具。提出的核心概念是代码检查工具将代码解析为结构化的树状表示 (AST)，而不是将其作为原始文本处理。这种基于 ESTree 等规范的 AST 结构允许代码检查规则一致地识别特定的代码模式，忽略表层语法差异，专注于代码的语义。文章解释了 ESLint 如何遍历 AST，触发订阅特定节点类型的规则。它说明了一个简单的代码检查规则的结构，并重点介绍了有用的工具，如 AST Explorer，用于可视化 AST 并理解代码结构。最终，理解 AST 使开发者能够更有效地自定义、贡献或调试代码检查工具，提供更强大、更灵活的代码静态检查能力。\n💡 主要观点\n            \n代码检查工具使用规则自动分析代码中的错误和样式问题。\n                         代码检查工具充当自动化代码审查员，使用预定义的规则在开发过程的早期识别潜在问题并保证代码风格一致性。\n                    \n\n                        抽象语法树 (AST) 是代码的结构化表示。\n                         代码检查工具不直接处理原始文本，而是将代码转换为节点树。每个节点代表代码的结构和语义的特定组成部分。\n                    \n\n                        代码检查规则分析 AST，而不是原始文本，以实现强大的模式匹配。\n                         分析 AST 允许规则根据结构和语义识别代码模式，使它们在同一逻辑的不同语法样式中有效。\n                    \n\n                        ESLint 遍历 AST 并根据节点类型触发规则。\n                         ESLint 使用标准化的 AST 格式 (ESTree) 并遍历树，当遇到规则感兴趣的节点类型时，执行特定的规则函数。\n                    \n\n                        理解 AST 是自定义和贡献代码检查工具的关键。\n                         了解 AST 使开发者能够编写自定义代码检查规则、调试意外的代码检查工具行为，并为现有的代码检查工具和插件做出贡献。\n                    \n💬 文章金句\n            \n代码检查工具无处不在 —— 跨语言、框架和工作流程。它们有助于捕获错误、强制执行一致的格式并推广最佳实践。\n要了解代码检查规则在底层如何工作，我们需要讨论抽象语法树 (AST) —— 每个代码检查工具的核心数据结构。\n代码检查规则并非通过解析代码文本的方式工作。它们通过匹配 AST 中的特定节点模式来工作。\nESLint 依赖于一种称为 ESTree (ECMAScript Tree) 的标准化格式，将 JavaScript 代码表示为抽象语法树 (AST)。\n了解 AST 的工作原理可以让您在自定义和贡献代码检查工具方面拥有超能力。\n📊 文章信息\n            \nAI 评分：90\n精选文章：是\n来源：freeCodeCamp.org\n作者：Tilda Udufo\n分类：软件编程\n语言：英文\n阅读时间：9 分钟\n字数：2017\n标签：\n                    \n                        代码检查, JavaScript, 抽象语法树 (AST), ESLint, 代码分析",
+          "link": "https://www.bestblogs.dev/zh/article/567326",
+          "publishedOn": "2025-05-21T15:21:33.000Z",
+          "wordCount": 325,
+          "title": "JavaScript 代码检查规则的工作原理（以及为什么抽象语法树至关重要）",
+          "enclosure": {
+            "url": "https://cdn.hashnode.com/res/hashnode/image/upload/v1747835156597/f30994d4-f4da-4100-af25-9f858c015aa8.png",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://cdn.hashnode.com/res/hashnode/image/upload/v1747835156597/f30994d4-f4da-4100-af25-9f858c015aa8.png"
+        },
+        {
+          "id": "b48ba0",
+          "author": "LlamaIndex",
+          "description": "📌 一句话摘要\n            \nLlamaIndex 分享了他们使用 uv 和自定义工具优化 Python 单代码仓库工具链的经验。\n📝 详细摘要\n            \n本文详细介绍了 LlamaIndex 在管理具有 650 多个软件包的大型 Python 单代码仓库时面临的技术挑战。他们最初使用 Poetry 进行软件包管理，使用 Pants 进行构建流程管理，但面临着大规模的重大问题，包括 Poetry 的依赖解析器速度慢，且缺乏跨软件包的依赖感知，这导致了构建效率低下。此外，Pants 存在复杂的缓存服务器维护、冗余日志记录以及难以在本地重现 CI 失败等问题。在评估 `uv` 并发现它与他们现有的设置不兼容后，他们采用了 `uv`，因为它在本地开发中速度很快，并构建了一个自定义工具 `LlamaDev`，以管理单代码仓库的依赖图，启用定向测试并简化 CI 工作流。新的 uv+LlamaDev 设置显著加快了测试运行速度，解决了日志冗余的问题，提高了本地可重现性，并消除了对外部基础设施缓存的依赖。\n💡 主要观点\n            \n扩展 Python 单代码仓库工具链对现有工具提出了重大挑战。\n                         使用 Poetry 和 Pants 等工具管理 650 多个软件包的依赖项和构建会导致性能下降、维护开销和开发体验不佳。\n                    \n\n                        自定义工具能更好地解决单代码仓库扩展问题。\n                         构建 LlamaDev 可以进行定制的依赖分析、定向测试和简化的 CI/CD 工作流，从而克服通用构建系统的局限性。\n                    \n\n                        使用 `uv` 可以显著提高 Python 依赖项管理速度。\n                         与 Poetry 和 pip 等传统工具相比，迁移到 `uv` 进行本地开发可显著加快依赖项安装和管理。\n                    \n💬 文章金句\n            \n小问题在系统规模扩大后会被放大。\nPoetry 不支持 uv，并且在可预见的将来也不会支持。\nuv 不仅仅是 `pip` 的替代品，它实际上是一个非常强大的 Python 项目管理器。\n如果需要进行一些调试，贡献者可以在本地运行 `llama-dev` 并准确地重现 CI 系统中所做的工作。\n📊 文章信息\n            \nAI 评分：90\n精选文章：是\n来源：LlamaIndex Blog\n作者：LlamaIndex\n分类：人工智能\n语言：英文\n阅读时间：9 分钟\n字数：2211\n标签：\n                    \n                        单代码仓库, Python 工具链, 构建系统, CI/CD, 开发者体验",
+          "link": "https://www.bestblogs.dev/zh/article/b48ba0",
+          "publishedOn": "2025-05-21T00:00:00.000Z",
+          "wordCount": 348,
+          "title": "大规模 Python 工具链：LlamaIndex 的单代码仓库优化 — LlamaIndex - 基于您的企业数据构建知识助手",
+          "enclosure": {
+            "url": "https://cdn.sanity.io/images/7m9jw85w/production/5072f44cf25db4b603e6a20487d2b46085ef6f05-1536x1024.png",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://cdn.sanity.io/images/7m9jw85w/production/5072f44cf25db4b603e6a20487d2b46085ef6f05-1536x1024.png"
+        },
+        {
           "id": "607270",
           "author": "Katie Nguyen",
           "description": "📌 一句话摘要\n            \n谷歌云发布 Vertex AI 上的 Veo 3、Imagen 4 和 Lyria 2，赋能生成式 AI 视频、图像与音乐创作。\n📝 详细摘要\n            \n谷歌宣布在 Vertex AI 平台推出下一代生成式 AI 媒体模型：Imagen 4 (图片生成)、Veo 3 (视频生成) 和 Lyria 2 (音乐生成)。Imagen 4 提升了文本渲染效果和图像质量；Veo 3 新增了音频和语音功能；Lyria 2 则提供了更强大的创作控制能力。文章展示了 Klarna、Jellyfish、Kraft Heinz 和 Envato 等公司的客户成功案例，强调效率提升，激发更多创意灵感。所有模型均内置 SynthID 水印和安全过滤器等安全功能。Imagen 4 和 Lyria 2 已公开发布，Veo 3 尚处于私有预览阶段，适用于企业在营销、媒体和内容创作中使用。\n💡 主要观点\n            \n谷歌在 Vertex AI 上推出新一代生成式 AI 媒体创作模型。\n                         新版 Imagen 4 (图像)、Veo 3 (视频) 和 Lyria 2 (音乐) 通过谷歌云的 AI 平台为企业提供更强的性能和功能。\n                    \n\n                        新模型在质量和功能上均有显著提升。\n                         Imagen 4 擅长文本渲染，Veo 3 为视频加入音/视频功能，Lyria 2 可更精确地控制音乐生成的各项参数。\n                    \n\n                        与 Vertex AI 集成，加速企业应用，提高工作效率。\n                         在云平台上发布这些模型，企业可将 AI 媒体生成无缝集成到创作工作流中，众多客户案例已充分证明了这一点。\n                    \n\n                        内置安全机制，确保 AI 生成过程安全可控。\n                         模型内置 SynthID 水印和可配置的安全过滤器，提高生成内容的透明度和可控性。\n                    \n💬 文章金句\n            \n今天，我们将在 Vertex AI 上推出下一波生成式 AI 媒体模型：Imagen 4、Veo 3 和 Lyria 2。\n作为谷歌最高质量的图片生成模型，Imagen 4 能更好地理解和执行提示语，并在各种风格中呈现更高的图像质量……\n使用 Veo 3，您可以生成具有以下功能的视频：从文本和图像提示生成视频时，质量显著提升；支持添加语音，如对话和画外音；支持添加音频，如音乐和音效。\n原本需要 8 周才能完成的工作，现在只需 8 小时，大幅降低了成本。\n默认情况下，使用 Veo、Imagen 和 Lyria 生成的所有内容都将使用 SynthID 技术，这项技术会将无形的水印直接嵌入到生成结果中。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：Google Cloud Blog\n作者：Katie Nguyen\n分类：软件编程\n语言：英文\n阅读时间：10 分钟\n字数：2280\n标签：\n                    \n                        生成式 AI, Imagen, Veo, Lyria, Vertex AI",
@@ -2722,6 +2752,16 @@
       "siteUrl": "https://new.qq.com/omn/author/8QMf3nhc5YEasD%2FQ",
       "articles": [
         {
+          "id": "https://view.inews.qq.com/a/20250521V09MXD00",
+          "author": "地球知识局",
+          "description": "",
+          "link": "https://view.inews.qq.com/a/20250521V09MXD00",
+          "publishedOn": "2025-05-21T12:24:41.000Z",
+          "wordCount": 108,
+          "title": "东北资源枯竭报告：为啥东北模式是最惨的？【地球知识局】",
+          "imageUrl": "https://inews.gtimg.com/om_ls/OwV1JprMZUi1W_h7DV4vYBzcFhfj79a1o3y0dpOOY1JR4AA_196130/0"
+        },
+        {
           "id": "https://view.inews.qq.com/a/20250521A049SO00",
           "author": "地球知识局",
           "description": "地球知识局\n文字 | 犍陀罗守护人\n制图 | 凯尔希 校对 | 邵学成 编辑 | 哈哈\n\n巴基斯坦时间2025年5月7日凌晨，有史以来最大规模的超视距空战，在印巴交界地区展开。\n\n同一时期，中国南方航空的一架波音787-9，在这片交战空域飘过。\n\n根据后来披露的战线报告分析，这架波音787-9飞越交战区时，印巴双方已经在这片区域处于战时状态，双方的战机已经发动，随后就是大家耳熟能详的各种事件。\n\n▼\n   \n而这架波音787-9所执飞的CZ8070航班，也成为了此次空战前，巴基斯坦最后一班离港的国际航班。就在当时，长期关注南亚文博事业发展的地球知识局团队，就有三名成员在本次航班上，他们也是在落地广州之后，才得知了这场“世纪空战”。\n\n时至今日，CZ8070航班依然没有恢复执飞。\n\n这就是战争对普通人的影响，突发性以及负面作用的延续性，谁也不能保证身边永远不会有战争。\n\n就在这场“世纪空战”结束后的第11天，正值2025年国际博物馆日。巴基斯坦的一些孩子们，进行了一场以“犍陀罗精神的和平传承”为主题的文化盛典，中华人民共和国驻巴基斯坦伊斯兰堡大使馆对本次活动致贺，地球知识局团队也深入参与了其中。\n\n▼\n   \n犍陀罗，和平的呼唤\n\n犍陀罗，自古以来就是古代欧亚文明交汇的十字路口，各种宗教、文明、艺术在此融合、碰撞、交流互补。\n\n▼\n   \n\n这其中，就包括来自地中海文明的奥林匹克式竞技传统，无论是崇尚公平竞技、团队合作的精神，还是艺术中的力士形象，都在犍陀罗当地留下了痕迹。\n\n犍陀罗艺术的存在证明了：宗教的包容性、艺术的创新性与竞技的公平性，本质上是人类对“美”与“善”的共同追求。这些历史遗产不仅塑造了东亚佛教艺术范式，更为当代跨文明对话提供了“和而不同”的经典范例。\n\n▼\n   \n5月18日国际博物馆日当天，巴基斯坦犍陀罗核心区的开伯尔－普什图省，白沙瓦博物馆和斯瓦特博物馆…",
@@ -2798,6 +2838,16 @@
       "feedUrl": "https://rsshub.rssforever.com/tencent/news/author/8QMf33ZY5YwduT%252FQ",
       "siteUrl": "https://new.qq.com/omn/author/8QMf33ZY5YwduT%2FQ",
       "articles": [
+        {
+          "id": "https://view.inews.qq.com/a/20250522A01WWO00",
+          "author": "人物",
+          "description": "2025年5月17日，演员朱媛媛因病去世，终年51岁。\n\n她的离开令人感到痛心。多年来，她的角色一直陪伴着我们。从《贫嘴张大民的幸福生活》的李云芳开始，朱媛媛饰演过许多鲜活的、复杂的、苦中掺着甜的、散发着市井气息的女性角色。《家有九凤》的初七凤，《八兄弟》的方方……朱媛媛用她精准又细腻的表演，提供了一种女性样本：或许不耀眼、不精英，或许被琐碎笼罩着，挨着地面生活，却从来不向生活投降，面对苦难与击打，她总是展露出一股生猛的劲头，又在为人处世的细节里，不失可爱与温柔。\n\n她一直是丰富的，生动的。生活中，她做出了很多不一样的选择。在事业上升期，她选择暂缓工作、进入家庭，成为一个母亲。与大众期待的「大女主」叙事不同，她缺乏功利上的野心，总是热烈地投入具体的日子，爱说，爱笑，爱张罗。她幽默地形容，女儿是她永远拍不完的戏，当妈妈是拍了一部万集电视剧。她会在微博上生动地记录这些时刻，带孩子拔牙，陪孩子过家家……生活中的所得所思，又被她反哺进表演中。她的角色总是极具生活质感，带着市井气，就像我们的邻居，就像最常见的母亲，这是她与生活在一起的证明。\n\n她走后，许多朋友和合作者写下对她的思念。好友、同窗陶虹回忆，「她聪明、反应快，还难得的幽默风趣，和她在一起总是那么愉快。但她又是典型的山东人，仗义江湖，总是愿意伸手帮助身边的人。」\n\n在大众面前，朱媛媛始终呈现这样的一面，爽快，利落。直到昨日，她的先生辛柏青发布了讣告后，人们才得知，她与癌症共存、抗争了近五年的时光。2020年末，电影《送你一朵小红花》上映，朱媛媛在其中饰演了一位癌症患者的母亲，电影中，她说过这样一段话，「人活着，都会经历失去，我们都害怕失去。但是面对这种害怕，最有力的反击就是，认真活好每一分钟、每一秒钟。」\n\n她确实是这样做的。她离开的消息传来，许多网友贴出最近一年偶遇她的画面，她总是和家人在一起，笑着在商场挑选衣服，笑着在街…",
+          "link": "https://view.inews.qq.com/a/20250522A01WWO00",
+          "publishedOn": "2025-05-22T00:52:02.000Z",
+          "wordCount": 931,
+          "title": "朱媛媛，愿你的明媚与欢乐长存",
+          "imageUrl": "https://inews.gtimg.com/om_ls/Ov3kRuXP4CXPI5CdMM9w97tfKlHi_-viCYuQs6ZF1riUoAA_640330/0"
+        },
         {
           "id": "https://view.inews.qq.com/a/20250521A03F2100",
           "author": "人物",
@@ -2975,6 +3025,16 @@
       "feedUrl": "https://rsshub.rssforever.com/tencent/news/author/8QMc3Hhc74cevD%252FR",
       "siteUrl": "https://new.qq.com/omn/author/8QMc3Hhc74cevD%2FR",
       "articles": [
+        {
+          "id": "https://view.inews.qq.com/a/20250521A0A3ZM00",
+          "author": "晚点LatePost",
+          "description": "5 月 20 日，长城汽车旗下魏牌在上海用户交付中心举办了以 “为用户而改变” 为主题的特别活动日，旨在通过一系列以用户为核心的变革，加强产品力、提升用户体验、重塑品牌价值。\n\n长城汽车董事长魏建军在活动上强调，为用户而改变，是魏牌的价值观底线，品牌致力于 “做一个真正懂用户的品牌”。\n\n为了贯彻 “懂用户” 的承诺，魏牌宣布将陆续建立更强大的直营服务体系，通过更直接的触点掌控用户体验、收集一手反馈，从而更精准地响应市场需求。魏牌 CEO 冯复之说，今年的目标是进一步拓展到 600 家，覆盖全国 200 个以上的城市”。\n\n活动上，2025 款魏牌蓝山 SUV 正式上市。作为一款中大型六座混动 SUV，新车共推出 3 款配置，售价区间为 29.98 万元至 32.68 万元，起售价与旧款保持一致。为了感谢 “启动用户” 的支持，魏建军决定以个人名义对打算置换蓝山的 2017 年 VV7 首任车主，提供每台 8 万元的补贴。\n\n新款蓝山搭载长城汽车最新的 Hi4 插电混动技术，由 1.5T 发动机与高功率 P4 电机组成，电机总功率达 408 马力，零百加速仅需 4.9 秒。新车提供 44.5 千瓦时和 52.3 千瓦时两种电池包，WLTC 纯电续航里程分别为 185 公里和 220 公里，理论综合续航里程最高可达 1343 公里。\n\n智能化配置方面，依托长城的技术池，新款蓝山搭载了全新一代 Coffee OS 3，配备高通骁龙 8295 芯片。辅助驾驶方面，新车搭载英伟达 Orin-X 芯片和 Coffee Pilot Ultra 智能辅助驾驶，全车配备包括激光雷达、毫米波雷达、超声波雷达、高清摄像头等 30 余个传感器，已支持无图全场景 NOA（导航辅助驾驶）。\n\n作为发布会的 One More Thing，魏建军还宣布了长城汽车的 “下一代全动力智能超级平台”，专为中大…",
+          "link": "https://view.inews.qq.com/a/20250521A0A3ZM00",
+          "publishedOn": "2025-05-21T14:33:11.000Z",
+          "wordCount": 872,
+          "title": "魏牌焕新：用户至上，渠道升级，新款蓝山与新平台齐发",
+          "imageUrl": "https://inews.gtimg.com/om_ls/OzlL_XIKS2BaVM426w0xXooJNSBCtDaJedpA5i4M_fwbIAA_640330/0"
+        },
         {
           "id": "https://view.inews.qq.com/a/20250520A09PT200",
           "author": "晚点LatePost",
@@ -3259,6 +3319,16 @@
       "feedUrl": "https://www.geekpark.net/rss",
       "siteUrl": "http://mainssl.geekpark.net/rss.rss",
       "articles": [
+        {
+          "id": "http://www.geekpark.net/news/349562",
+          "author": null,
+          "description": "小米 15 周年战略新品发布会今晚开幕，卢伟冰爆料玄戒芯片不止一款\n5 月 21 日晚，卢伟冰发微博透露，玄戒芯片不止 O1 一款。小米 15 周年战略新品发布会将于 5 月 22 日举行，其中小米时隔多年公布的自研芯片玄戒 O1 成为关注重点。玄戒 O1 芯片将由小米 15S Pro 和小米平板 7 Ultra 首发搭载，是小米自主研发的全新旗舰芯片。 ​​​（来源：快科技）\n\n\n百度 2025 年第一季度营收 325 亿元超预期，智能云同比增速达 42%\n百度发布 2025 年第一季度财报。财报显示，一季度百度总营收达 325 亿元，其中核心营收 255 亿元，同比增长 7%，均超市场预期。\n\n一季度，百度核心净利润同比增长 48% 至 76.3 亿元，智能云持续强劲增长，同比增速达 42%。财报显示，3 月，百度 App 月活用户达 7.24 亿，同比增长 7%。无人驾驶方面，截至 2025 年 5 月，萝卜快跑在全球累计提供超 1100 万次的出行服务。今年一季度，萝卜快跑在全球提供超 140 万次出行服务，同比增长 75%。（来源：36 氪）\n \n​小米官宣与高通签署全新多年协议\n小米和高通庆祝双方长达 15 年的合作，并达成了全新的多年协议。\n与往年一样，小米今年将再次成为首批采用下一代旗舰骁龙 8 系列芯片的厂商之一，用于其高端智能手机 —— 不仅针对中国市场，也针对全球市场。\n展望未来，双方计划继续携手，在包括智能手机、汽车、AR/VR 眼镜、可穿戴设备、平板电脑等在内的各类边缘侧设备领域，持续推动技术进步。\n小米集团 CEO 雷军表示：「小米一路从初创公司发展成为全球科技领军企业，高通技术公司始终是我们最值得信赖、最重要的合作伙伴之一。我们期待下一个 15 年继续携手合作，利用高通技术公司先进的骁龙平台和技术，为全球用户提供更具创新性的高品质产品。」\n高通…",
+          "link": "http://www.geekpark.net/news/349562",
+          "publishedOn": "2025-05-22T01:05:28.000Z",
+          "wordCount": 821,
+          "title": "微信开展短视频恶意营销专项整治；卢伟冰爆料玄戒芯片不止一款；阿里大文娱更名虎鲸文娱",
+          "imageUrl": null
+        },
         {
           "id": "http://www.geekpark.net/news/349564",
           "author": null,
@@ -7044,46 +7114,6 @@
           "wordCount": null,
           "title": "14 iconic beaches you should visit in your lifetime",
           "imageUrl": null
-        },
-        {
-          "id": "https://www.nationalgeographic.com/travel/article/how-to-plan-classic-summer-adventure-alps",
-          "author": "Kerry Walker",
-          "description": "This article was produced by National Geographic Traveller (UK).\n     \nMother Nature had one of her wildest moments shaping the Alps, which thrust up millions of years ago when the African and Eurasian tectonic plates collided. These peaks rip across Central Europe for 700 miles in a whirl of limestone turrets, glacier-frosted summits, dense forests and misty waterfalls. As they do, they run through eight countries — Monaco, France, Italy, Switzerland, Liechtenstein, Austria, Germany and Slovenia — and around mighty rivers like the Rhine and Po.\n    \nThese mountains’ rugged terrain and ever-changing weather once struck fear into those who had to cross them. Hannibal led his Carthaginian army and 37 elephants across rocky, icy heights to invade Italy in 218 BCE. Countless blizzard-battling …",
-          "link": "https://www.nationalgeographic.com/travel/article/how-to-plan-classic-summer-adventure-alps",
-          "publishedOn": "2025-05-02T12:34:41.000Z",
-          "wordCount": 10780,
-          "title": "How to plan a classic summer adventure in the Alps",
-          "imageUrl": "https://i.natgeofe.com/n/add1a8c1-deda-4b8a-a431-d8e56a222809/bigtrip_GettyImages-1399451432_HR_GanzTwins_16x9.jpg?w=1200"
-        },
-        {
-          "id": "https://www.nationalgeographic.com/history/history-magazine/article/silk-road-history",
-          "author": "Juan Pablo Sánchez",
-          "description": "In A.D. 166, Chinese chroniclers recorded that ambassadors from the Roman emperor Marcus Aurelius presented themselves at the imperial court of Luoyang in east-central China—and were given an unusual welcome. The travelers had come via Malaysia, followed the coasts of Thailand and Vietnam, and docked at a Chinese port at the mouth of the Red River in the Gulf of Tonkin. Then, escorted by Chinese military authorities, they traveled overland for another 1,200 miles or so, passing numerous fortresses and walled cities. Anticipation at the Chinese court mounted as the travelers grew closer. The Chinese had long been aware that the Roman Empire existed; they knew it as Da Qin, “the Great China” and considered it to be equal in power to their own empire. But this was the first time direct contac…",
-          "link": "https://www.nationalgeographic.com/history/history-magazine/article/silk-road-history",
-          "publishedOn": "2025-05-02T12:34:40.000Z",
-          "wordCount": 15381,
-          "title": "How the Silk Roads became the connection between east and west",
-          "imageUrl": "https://i.natgeofe.com/n/ad36465a-d9a3-446e-86e4-834c89672607/silk16_16x9.jpg?w=1200"
-        },
-        {
-          "id": "https://www.nationalgeographic.com/travel/article/robert-macfarlane-interview-is-a-river-alive-book",
-          "author": "Sarah Barrell",
-          "description": "This article was produced by National Geographic Traveller (UK).\n     \nCan you explain the concept of a river as a living being?\nAt the heart of the book is the idea that rivers have lives, deaths –– and even rights. It asks readers to imagine rivers in these terms, and to see what consequences flow from that re-imagining. The book is a journey into the history, futures, places and possibilities of this ancient, urgent idea.\n    \nI know that the notion of a river as 'alive' is a searching, confronting one, especially to those of us raised in the traditions of rationalism. It strikes at the anthropocentric core of many of our assumptions. But if you find it hard to imagine a river as alive, try imagining a dead or dying river. We know what this looks like, what it feels like: fish floating …",
-          "link": "https://www.nationalgeographic.com/travel/article/robert-macfarlane-interview-is-a-river-alive-book",
-          "publishedOn": "2025-05-02T12:34:40.000Z",
-          "wordCount": 7506,
-          "title": "Are the world's rivers dying? Author Robert Macfarlane thinks so",
-          "imageUrl": "https://i.natgeofe.com/n/286b81c2-4385-45f5-ae70-a094dcda898a/ST_books_GettyImages-1576504989_ukHR_16x9.jpg?w=1200"
-        },
-        {
-          "id": "https://www.nationalgeographic.com/premium/article/vitamin-d-nutrient-supplement-health",
-          "author": "Katie Camero",
-          "description": "Vitamin D is a key nutrient for health. Not only does it help keep your bones strong, but it also assists with muscle and immune function. Yet, vitamin D stands at the center of a hotly debated wellness paradox.\n    \nResearchers agree that we generally aren’t getting enough vitamin D, but they can’t see eye to eye on how much is actually “enough,” what levels constitute a deficiency, or what benefits—if any—supplements provide, particularly for young and otherwise healthy people.\n    \nAdvice on how to get vitamin D is also conflicting. Sunlight is the best source, but we’re told to cover up to avoid skin cancer. Then we’re advised to eat a diet rich in vitamin D even though most foods don’t contain enough of it. \n    \nNow, research published in April 2025 in the journal Nutrients is adding…",
-          "link": "https://www.nationalgeographic.com/premium/article/vitamin-d-nutrient-supplement-health",
-          "publishedOn": "2025-05-02T12:34:40.000Z",
-          "wordCount": 9294,
-          "title": "How to get enough vitamin D",
-          "imageUrl": "https://i.natgeofe.com/n/0c7ac6bb-c3ee-40c2-bdbf-fcb652b0afa1/NationalGeographic_2734393_16x9.jpg?w=1200"
         }
       ]
     },
@@ -7547,6 +7577,70 @@
       "feedUrl": "https://news.un.org/feed/subscribe/en/news/all/rss.xml",
       "siteUrl": "https://news.un.org/en/",
       "articles": [
+        {
+          "id": "https://news.un.org/en/story/2025/05/1163561",
+          "author": null,
+          "description": "UN Secretary-General António Guterres has called on countries to radically rethink their relationship with nature, warning that biodiversity loss is a global crisis no nation can ignore.",
+          "link": "https://news.un.org/feed/view/en/story/2025/05/1163561",
+          "publishedOn": "2025-05-21T12:00:00.000Z",
+          "wordCount": null,
+          "title": "Biodiversity loss demands urgent global action, says UN chief",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/14-05-2024-UN_News-Tiger.JPG/image560x340cropped.jpg",
+            "length": "54369",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/14-05-2024-UN_News-Tiger.JPG/image560x340cropped.jpg"
+        },
+        {
+          "id": "https://news.un.org/en/story/2025/05/1163566",
+          "author": null,
+          "description": "Armed violence and insecurity in Haiti have exposed already vulnerable children to sexual violence and exploitation, the UN Office for the Coordination of Humanitarian Affairs (OCHA) warned on Wednesday.",
+          "link": "https://news.un.org/feed/view/en/story/2025/05/1163566",
+          "publishedOn": "2025-05-21T12:00:00.000Z",
+          "wordCount": null,
+          "title": "Haiti: Displaced children face sexual violence risk",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/19-12-2024_IOM_Haiti-02.jpg/image560x340cropped.jpg",
+            "length": "63440",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/19-12-2024_IOM_Haiti-02.jpg/image560x340cropped.jpg"
+        },
+        {
+          "id": "https://news.un.org/en/story/2025/05/1163556",
+          "author": null,
+          "description": "An “horrific” attack on a school bus in Pakistan’s Baluchistan Province on Wednesday which left six dead – including four children – has been condemned by the UN children’s agency.",
+          "link": "https://news.un.org/feed/view/en/story/2025/05/1163556",
+          "publishedOn": "2025-05-21T12:00:00.000Z",
+          "wordCount": null,
+          "title": "Four children dead in ‘horrific’ attack on school bus in Baluchistan: UNICEF",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/21-05-2025_UNICEF_Pakistan.jpg/image560x340cropped.jpg",
+            "length": "42070",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/21-05-2025_UNICEF_Pakistan.jpg/image560x340cropped.jpg"
+        },
+        {
+          "id": "https://news.un.org/en/story/2025/05/1163551",
+          "author": null,
+          "description": "Football unites fans worldwide – but on Wednesday it matched the sport’s global reach with the UN Sustainable Development Goals (SDGs). In the lead-up to World Football Day, marked on 25 May.",
+          "link": "https://news.un.org/feed/view/en/story/2025/05/1163551",
+          "publishedOn": "2025-05-21T12:00:00.000Z",
+          "wordCount": null,
+          "title": "Champions for Change: World football teams up with UN development goals",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/24-05-2024-UNICEF-Sudan.jpg/image560x340cropped.jpg",
+            "length": "17759",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/24-05-2024-UNICEF-Sudan.jpg/image560x340cropped.jpg"
+        },
         {
           "id": "https://news.un.org/en/story/2025/05/1163546",
           "author": null,
@@ -9146,102 +9240,6 @@
             "type": "image/jpeg"
           },
           "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/04-09-2024-UNICEF-Gaza-10.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/05/1162876",
-          "author": null,
-          "description": "UN Secretary-General António Guterres is following developments in Syria, where fresh fighting in the capital Damascus and elsewhere is threatening fragile efforts toward peace and political transition.",
-          "link": "https://news.un.org/feed/view/en/story/2025/05/1162876",
-          "publishedOn": "2025-05-02T12:00:00.000Z",
-          "wordCount": null,
-          "title": "Guterres condemns violence against civilians in Syria, urges Israel to stop attacks",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/17-03-2025-UNOCHA-Syria-02.jpg/image560x340cropped.jpg",
-            "length": "43688",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/17-03-2025-UNOCHA-Syria-02.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/05/1162881",
-          "author": null,
-          "description": "More than a month after two powerful earthquakes devastated Myanmar, the country is spiralling deeper into crisis as continued military attacks, obstructed aid access and widespread displacement leave nearly 6.3 million people in urgent need.",
-          "link": "https://news.un.org/feed/view/en/story/2025/05/1162881",
-          "publishedOn": "2025-05-02T12:00:00.000Z",
-          "wordCount": null,
-          "title": "Myanmar crisis deepens as military attacks persist and needs grow",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/22-04-2025-UNOCHA-Myanmar-11.jpg/image560x340cropped.jpg",
-            "length": "43378",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/22-04-2025-UNOCHA-Myanmar-11.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/05/1162871",
-          "author": null,
-          "description": "The UN refugee agency (UNHCR) warned on Friday that a worsening funding crisis is placing refugees – who cannot return home due to war or persecution – in increasing danger.",
-          "link": "https://news.un.org/feed/view/en/story/2025/05/1162871",
-          "publishedOn": "2025-05-02T12:00:00.000Z",
-          "wordCount": null,
-          "title": "Funding crisis increases danger and risks for refugees",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/02-05-2025-UNHCR-Myanmar.jpg/image560x340cropped.jpg",
-            "length": "36340",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/02-05-2025-UNHCR-Myanmar.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/05/1162856",
-          "author": null,
-          "description": "Countries must do everything to ensure that free and independent news reporting can thrive, the UN High Commissioner for Human Rights said on Friday in a message to mark World Press Freedom Day.",
-          "link": "https://news.un.org/feed/view/en/story/2025/05/1162856",
-          "publishedOn": "2025-05-02T12:00:00.000Z",
-          "wordCount": null,
-          "title": "Journalism facing new threats from AI and censorship",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/12-04-2023-UN-Photo-Guterres-Somalia-05.jpg/image560x340cropped.jpg",
-            "length": "48199",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/12-04-2023-UN-Photo-Guterres-Somalia-05.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/05/1162861",
-          "author": null,
-          "description": "\"After losing my leg in the war, I returned to photojournalism not just for work, but because I have loved photography since childhood,\" said Palestinian reporter Sami Shahada.",
-          "link": "https://news.un.org/feed/view/en/story/2025/05/1162861",
-          "publishedOn": "2025-05-02T12:00:00.000Z",
-          "wordCount": null,
-          "title": "Reporters in Gaza bear witness and suffer tragic consequences",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/01-05-2025_UNNews_Gaza_Press_03.jpg/image560x340cropped.jpg",
-            "length": "37684",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/01-05-2025_UNNews_Gaza_Press_03.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/05/1162851",
-          "author": null,
-          "description": "Two months into a devastating aid blockade of Gaza food has run out and people are fighting over water amid relentless bombing, the UN’s humanitarian affairs coordination office (OCHA) said on Friday.",
-          "link": "https://news.un.org/feed/view/en/story/2025/05/1162851",
-          "publishedOn": "2025-05-02T12:00:00.000Z",
-          "wordCount": null,
-          "title": "Gaza: ‘Worst-case scenario’ unfolds as brutal aid blockade threatens mass starvation",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/28-01-2025_WFP_Gaza-08.jpg/image560x340cropped.jpg",
-            "length": "37473",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/28-01-2025_WFP_Gaza-08.jpg/image560x340cropped.jpg"
         }
       ]
     },
@@ -11313,16 +11311,6 @@
           "wordCount": 697,
           "title": "十年陪伴，腕上守护：Apple Watch 的健康故事",
           "imageUrl": "https://cdnfile.sspai.com/2025/5/3/article/00f14753-edcb-00c7-31a2-4ccf76d7172d.jpeg"
-        },
-        {
-          "id": "https://sspai.com/post/98878",
-          "author": "少数派编辑部",
-          "description": "☕️TL;DR近期佳作推荐：[美剧]安多第二季、[韩剧]比天堂还美丽、[电影]管乐队、[美剧]你/安眠书店第五季/最终季、[国产]无尽的尽头、[日剧]即使成为大人、[动画]mono女孩、[动画]时光流 ...查看全文",
-          "link": "https://sspai.com/post/98878",
-          "publishedOn": "2025-05-02T09:30:00.000Z",
-          "wordCount": 902,
-          "title": "本周看什么 | 最近值得一看的 9 部作品",
-          "imageUrl": "https://cdnfile.sspai.com/2025/5/2/article/52e6f808-d80e-349e-6471-d45ad2c9f698.png"
         }
       ]
     },
@@ -12614,16 +12602,6 @@
           "wordCount": 13605,
           "title": "Vikings on the Silk Roads",
           "imageUrl": "https://images.aeonmedia.co/images/05e55959-5008-4c8e-b1e6-63ee6fed5f29/essay-14_2_list_of_radzivill_chron.jpg?width=1200&quality=75&format=auto"
-        },
-        {
-          "id": "urn:id:7927",
-          "author": "Hannah Katznelson",
-          "description": "Like today’s large language models, 16th-century humanists had techniques to automate writing – to the detriment of novelty \n - by Hannah Katznelson\n Read at Aeon",
-          "link": "https://aeon.co/essays/who-needs-ai-text-generation-when-theres-erasmus-of-rotterdam?utm_source=rss-feed",
-          "publishedOn": "2025-05-02T10:00:00.000Z",
-          "wordCount": 10845,
-          "title": "Methodical banality",
-          "imageUrl": "https://images.aeonmedia.co/images/299ae304-73a0-479b-a533-f295c2e1a897/essay-final-gettyimages-525517238.jpg?width=1200&quality=75&format=auto"
         }
       ]
     },
@@ -12979,6 +12957,26 @@
       "feedUrl": "https://feedx.site/rss/infzm.xml",
       "siteUrl": "http://infzm.com",
       "articles": [
+        {
+          "id": "http://www.infzm.com/contents/294128",
+          "author": null,
+          "description": "2025-05-22 08:35:50\n当地时间21日，朝鲜新建造5000吨级驱逐舰下水仪式在清津造船厂举行。朝鲜劳动党总书记、国务委员长金正恩出席仪式。\n新建驱逐舰在下水过程中发生严重事故。驱逐舰下水过程中，因指挥不熟练，操作不慎、未能保障底盘移动平行度，致使船尾部分的下水滑板先脱离搁浅，部分区段船底破空导致船体失衡，船首部分未脱离船台。\n金正恩观看了事故全过程，金正恩批评称这是由于疏忽和不负责任，不尊重科学的经验主义而产生的无法容忍的重大事故和犯罪行为。\n金正恩指示成立调查小组，调查事故原因。 \n\n\n获取更多RSS：\nhttps://feedx.net \nhttps://feedx.site",
+          "link": "http://www.infzm.com/contents/294128",
+          "publishedOn": "2025-05-22T00:55:04.000Z",
+          "wordCount": 72,
+          "title": "朝鲜新建驱逐舰下水过程发生严重事故  金正恩要求调查原因",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/293738",
+          "author": null,
+          "description": "2025-05-22 08:00:00\n谁说商场过时了？2025年，拼命转型的商场正重新变回城市居民最喜爱的公共空间。\n在此前的“城市散步家”中，城画小分队曾打卡很多城市的特色商场。比如在成都，有以腊肠狗为主题的潮流商场GOGO EGO；在武汉，有能滑雪能坐过山车的全球最大纯商业体武商梦时代。\n有人说：“去的地方越多，越发现自己还是喜欢逛商场。”在电商产业大杀四方的年代，商场为了将人们留在线下，开始把自己改造为包罗万象的全能社交地。\n攀岩、泡澡、种菜、看展、逛公园……亚洲商场已经发展到令人瞠目结舌的程度，城市居民也和商场一起探索出更多可能性。\n盒马赶海\n商场比大海更惊喜\n想去水族馆但工作繁忙怎么办？打工人选择下班直奔商场，0元入场“盒马鲜生水族馆”。彩虹鲷鱼、老鼠斑鲈、新西兰蓝鲍……美丽的水生生物让人们在紧凑生活的间隙收获一丝“小治愈”。\n然而“水族馆”还没逛够，会玩的年轻人又开始在商场“赶海”了。\n \n\n\n小红书@仙人钓鱼饭\n海洋生物爱好者“仙人钓鱼饭”在为自家河豚购买晚饭的时候，偶然发现扇贝上附着了几只小海葵。于是她决定留扇贝一命，将它连带着海葵一起投入海水缸饲养。经过14天的精心照料，原本奄奄一息的海葵胖了一大圈，还长出了许多可爱的触手。\n有了经验，博主便一发不可收拾地开启在商场的赶海路。经过地毯式搜索，她在生鲜区的鲍鱼外壳上又发现了生蚝、藤壶、海鞘等生物。她将这些赠品丰富的鲍鱼统统买下，家里的海水缸又迎来大批新成员。\n\n \n\n\n小红书@仙人钓鱼饭\n在商场里赶海这件有趣又小众的事引来大批网友关注，该系列视频共收获30万点赞。很多人留言，“原来还能这么玩，我也想去”“以前不知道是什么，还用钢丝球刷掉了哈哈哈”……还有行动力极强的朋友已经收获颇丰，在评论区晒出了自己的战利品。\n \n目前，#盒马赶海#相关话题已有近3万浏览量，也让同好者聚集在一起，交流自己的“赶海”心得。\n…",
+          "link": "http://www.infzm.com/contents/293738",
+          "publishedOn": "2025-05-22T00:25:04.000Z",
+          "wordCount": 88,
+          "title": "现在流行去盒马鲜生赶海？",
+          "imageUrl": null
+        },
         {
           "id": "http://www.infzm.com/contents/294085",
           "author": null,
@@ -16888,36 +16886,6 @@
           "wordCount": 110,
           "title": "杨苡 | 忆严文井",
           "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/292862",
-          "author": null,
-          "description": "2025-05-02 18:24:47\n巴以冲突、印巴边境交火等纷扰不断袭来，中印边境却出现一缕温馨、柔和的曙光——重启朝圣线路。纵观中印朝圣通道的发展，远非一帆风顺；却似中印关系的晴雨表，起伏坎坷。作为中印建交75周年之际的破冰信号，朝圣线路的重启，不仅预示着中印边境转暖和宗教文化纽带的复兴，更深刻体现了两大文明古国以东方智慧应对复杂地缘政治局势的战略智慧与深远考量。\n中印双轨朝圣路线打开\n从南亚赴中国西藏朝圣的路线有西路、东路两条。一是朝圣西路，香客可经西藏阿里地区普兰口岸的强拉山口入藏，这是传统的朝圣路线，要经过海拔5800米左右的高原地带，大部分路段无法通车，南亚香客需徒步跋涉二十多天才能抵达圣地。二是朝圣东路，南亚香客可从西藏亚东的乃堆拉山口进入，乃堆拉山口连接我国西藏亚东县和印度锡金邦，是古代丝绸之路重要组成部分，是中印之间主要的陆路贸易通道，这一朝圣线路于2015年正式启用，由此可将朝圣路线的发展分为两个阶段。\n第一阶段——传统朝圣通道的单线发展期。1954年，中印签订《关于中国西藏地方和印度之间的通商和交通协定》，规定“双方香客按惯例在双方指定的朝圣地朝拜”，但由于1962年中印边境战争的爆发，导致两国关系严重恶化，印度香客朝圣被迫中断。直到1979年，时任印度外长瓦杰帕伊访问中国，中印关系缓和，1981年中国政府决定恢复印度香客前往西藏神山圣湖朝圣，规定须由印度官方组团经西藏普兰口岸的强拉山口入境。\n第二阶段——“双轨朝圣通道”并行发展期。2013年5月，中印双方签署《关于印度官方香客赴中国西藏自治区朝圣的议定书》，2014年，双方达成开通乃堆拉山口赴西藏神山圣湖朝圣新路线的共识。2015年6月22日，乃堆拉朝圣新路线正式开启，当年就有5批共240名印度香客经乃堆拉山口赴藏朝圣。这一新路线虽然长达两千多公里，但由于交通设施条件、气候环境的改善，朝圣路程时间…",
-          "link": "http://www.infzm.com/contents/292862",
-          "publishedOn": "2025-05-02T10:55:05.000Z",
-          "wordCount": 92,
-          "title": "神山圣湖朝圣线路重启，成中印“低敏感合作”试验场丨智库视点2025",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/292924",
-          "author": null,
-          "description": "2025-05-02 18:00:50\n2025年4月25日下午，科技护发品牌“幸氧科技”创始人吴丹妮刚结束一场会议。她抓起桌上的冰美式猛灌两口，把高跟鞋换成平底鞋，准备继续跑工厂。“昨天考察了五家供应厂商，今天还得去龙岗。”\n1990年出生的吴丹妮，来深圳南山创业已经有几年时间。她的工作节奏也跟得上深圳速度：说话语速快，手机屏幕不时亮起——来自团队小伙伴的信息、工厂负责人的语音、科创学院导师的提醒，几乎挤满她的每一分钟。\n香港创业者吴国声也有同样的节奏。\n他每周穿梭深港的业务至少三次：上午在香港沙田开会，中午到深圳河套合作区的办公室处理业务，傍晚再赴罗湖与客户洽谈。这种“同城化”的速度，被其视为企业发展的关键优势。\n距离23公里外的前海深港青年梦工场，则是另一番场景。\n“All Day Club”店里，午后阳光斜射进落地窗，咖啡的醇香裹挟着粤语、普通话与英语的讨论声。\n香港青年赵逸朗手持手冲壶，水流在云纹滤杯上划出漂亮的螺旋。\n他用了一款云南产的咖啡豆，熟练地冲泡出一杯精品咖啡。\n54%、104%、125%、145%、部分豁免……2025年以来，自美国宣布实施所谓“对等关税”，对华关税步步走高且朝令夕改，作为外贸大市的深圳，首当其冲。\n谈起贸易战下的成本波动时，赵逸朗抬起头，笑着说：“国产豆占比越来越高，进口压力反而成了转型契机。”吴国声则告诉南方周末记者，技术封锁、关税壁垒、供应链都成为绕不开的挑战。\n“但方法总比困难多。”吴国声觉得，贸易战下的创业者，是危机，也是机遇。\n“两条腿走路”\n\n\n选址梦工场，赵逸朗看中的是这里的“港味”——园区内有很多来深圳创业的香港人。他透露，越来越多想来深圳创业的港青，都会聚集在这里，互相取经。（受访者赵逸朗供图）\n\n“咖啡豆关税上涨了，但我们的成本暂时还扛得住。”赵逸朗说这话时，语气从容。他的咖啡店主打精品咖啡。日常使用的咖啡豆多来自…",
-          "link": "http://www.infzm.com/contents/292924",
-          "publishedOn": "2025-05-02T10:25:13.000Z",
-          "wordCount": 93,
-          "title": "贸易战下，港人北上创业“两条腿走路”",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/292918",
-          "author": null,
-          "description": "2025-05-02 17:00:00\n第43届香港电影金像奖日前颁奖，在《九龙城寨之围城》与《破·地狱》两大热门影片的竞争中，《九龙城寨之围城》获得“最佳影片”和“最佳导演”两个大奖。这两个奖项一向被认为是电影奖的价值取向风向标，所以说《九龙城寨之围城》成“最大赢家”并不为过。在向后看和向前看之间，本届金像奖评委选择了前者。\n不少网友为《破·地狱》鸣不平，觉得它才应该是“最佳影片”和“最佳导演”首选，比起《九龙城寨之围城》，《破·地狱》更接近现象级电影的定义，况且，在国内国际电影奖项竞争中，《破·地狱》的成绩也大大领先于《九龙城寨之围城》。本届金像奖更为青睐《九龙城寨之围城》，有其审美倾向与价值选择，但同时也给观众留出更多解读空间。\n两部电影都是纯正的港片，编导、主要演员均为香港人。从出品公司构成看，参与《九龙城寨之围城》的内地公司要多几家，但恰恰它的港味要比《破·地狱》更浓。《破·地狱》讲的是香港本土的故事，但所讲的“破地狱”风俗在粤港澳地区常见，所以它面向的受众更广，所深入的文化寻根意味更使得它部分脱离了港片意境，会在整个华语范围内引起广泛共鸣。\n《九龙城寨之围城》所涵盖的类型元素，比如功夫、武侠、动作、武打、警匪、古惑仔、枭雄、英雄等等，熟悉港片历史的观众会一目了然。这些类型的香港电影，曾创造过港片辉煌，其影响也曾长时间覆盖整个华语地区，也曾输出到海外，按道理讲，《九龙城寨之围城》本应再现佳绩，风行海内外。但时代已变迁，影片不出意外地获得了“大乱炖”“去库存”等评价，它不仅没法再次成为港片的高光时刻，甚至连“回光返照”的标准也不能达到。\n反观《破·地狱》，同样拥有对市井生活的描述与眷恋，同样点缀着对往昔的追抚与叹息，但《破·地狱》因为对家庭关系、性别平等、集体创伤等进行了举重若轻的表达，使得影片拥有了积极昂扬的因素。电影采取先抑后扬的手法，对现代人内心的幽微进行了坦率的刻画。每个挣扎活着的角色身上，都能让观众对应到现实中的自身。尤其影片最后一幕由女主角破天荒完成的“破地狱”仪式，则给人一种豁然开朗的释放感，由此影片留下了更多的回味。\n对比来看，《破·地狱》是向前看的，《九龙城寨之围城》是向后看的。《破·地狱》的向前看，是指影片敢于直面当下，能够揪出现实与人心之间的摩擦，并给出具有参考价值的解决方案；而《九龙城寨之围城》的向后看，是对过去港片的一次盘点和总结，是对往事与记忆的一次沉溺，是给本就美好的影像再加上一层滤镜，而它的漫改电影特征，又使它显得有些夸张与不真实，以上种种元素叠加，使得《九龙城寨之围城》散发出陈旧气息，愈发显出《破·地狱》关注现实与当下的珍贵。\n《九龙城寨之围城》具有明显的寓言特征，在特定历史时间与地理空间的交织架构下，身份、权力与秩序等的风云突变，本身就具有戏剧感。但影片的表达重点并不在此，它对暴力美学的追求，对打斗场面的迷恋，使得它蒙上了童话以及浪漫主义色彩，这一色彩对于热爱港片的影迷来说没有理解障碍，但对于年轻的主流观众来说，他们会对电影里人物举止的出发点、与物理常识相违背的武打设计等感到迷惑，以一敌多，躲子弹，愈伤愈勇等属于纸上武侠的描写，也无法再说服观众相信。\n《九龙城寨之围城》的内地票房是6.85亿元，香港票房1.12亿港元。《破·地狱》的内地票房是2.11亿元，香港票房超1.6亿港元。单看内地票房，前者是后者的三倍多，但后者的香港票房更高。\n从商业片的角度看，《九龙城寨之围城》的票房成绩很难说“优异”，但《破·地狱》以文艺片成为“香港影史最高票房华语片排行榜第一名”，却具有极高的含金量，它标志着香港电影的优势，已经从由动作、喜剧等主导的商业片，转型到深刻探索市井人物内在的剧情文艺片，它是香港文艺片、港式文艺片的一大突破，它的票房口碑双丰收，意味着港片只要题材独特、角度精准、兼具娱乐与思考价值，就完全有可能与内地电影、进口电影进行新一轮竞争。\n本届金像奖把最高荣誉给予《九龙城寨之围城》，表面看是寄希望于商业片能代表香港电影再出发，内里看则是仍然难舍香港电影过去的成功经验，评委会的目光这次选择了向内而非向外，价值观念选择了向后而非向前，作为香港本土奖项，金像奖今年如此颁奖在情感上可以理解，但就香港电影未来走向来看，却是一个遗憾。\n\n• （本文仅为作者个人观点，不代表本报立场）",
-          "link": "http://www.infzm.com/contents/292918",
-          "publishedOn": "2025-05-02T09:25:05.000Z",
-          "wordCount": 92,
-          "title": "金像奖为何选择了“向后看”的《九龙城寨之围城》？",
-          "imageUrl": null
         }
       ]
     },
@@ -17215,36 +17183,6 @@
           "wordCount": 1567,
           "title": "Information is Beautiful Awards shortlist and community vote",
           "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/05/as-we-get-older.png"
-        },
-        {
-          "id": "https://flowingdata.com/?p=78450",
-          "author": "Nathan Yau",
-          "description": "The Deportation Data Project, launched by a group of researchers and lawyers, is…\nTags: deportation",
-          "link": "https://flowingdata.com/2025/05/02/deportation-data-project/",
-          "publishedOn": "2025-05-02T11:05:52.000Z",
-          "wordCount": 1486,
-          "title": "Deportation Data Project",
-          "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/01/logo-lone-square512x512.png"
-        },
-        {
-          "id": "https://flowingdata.com/?p=78446",
-          "author": "Nathan Yau",
-          "description": "As more people are detained, they are sent to detention centers in the…\nTags: Bloomberg, deportation, flights, ice",
-          "link": "https://flowingdata.com/2025/05/02/ice-detainees-shuttled-to-further-away-facilities/",
-          "publishedOn": "2025-05-02T11:04:50.000Z",
-          "wordCount": 1514,
-          "title": "ICE detainees shuttled to further away facilities",
-          "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/05/ICE-transfers.png"
-        },
-        {
-          "id": "https://flowingdata.com/?p=78442",
-          "author": "Nathan Yau",
-          "description": "Big universities more often make the news, but the freeze in federal funding…\nTags: funding, government, research, university",
-          "link": "https://flowingdata.com/2025/05/02/universities-that-received-federal-funding-for-research/",
-          "publishedOn": "2025-05-02T11:04:22.000Z",
-          "wordCount": 1453,
-          "title": "Universities that received federal funding for research",
-          "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/05/federal-funding-for-research.png"
         }
       ]
     },
