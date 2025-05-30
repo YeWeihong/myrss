@@ -6,6 +6,21 @@
       "siteUrl": "https://bestblogs.dev/zh/feeds",
       "articles": [
         {
+          "id": "ce7e4f",
+          "author": "ChallengeHub",
+          "description": "📌 一句话摘要\n            \n基于 RAG 挑战赛冠军方案，深度解析 PDF 报告问答系统的关键工程实践，包括解析、多阶段检索和智能提示词工程。\n📝 详细摘要\n            \n文章详细解析了 RAG 挑战赛中构建基于公司年报的智能问答系统的冠军方案。方案涵盖了从 PDF 报告解析、数据摄取到检索和生成的全流程。重点介绍了如何克服 PDF 解析的复杂性（如表格序列化），以及在检索阶段采用的 LLM 重排序和父页面检索策略。在生成阶段，方案通过查询路由（按公司、按问题类型）和结合思维链（CoT）与结构化输出（SO）的提示词工程，确保了答案的准确性和格式规范。文章强调了深入理解任务细节和持续迭代优化的重要性，并开源了代码供参考。\n💡 主要观点\n            \nPDF 解析是 RAG 系统的基础和挑战，需定制化处理。\n                         大型复杂 PDF（如年报）的准确解析（尤其是表格）对下游准确性至关重要，需要结合工具定制和硬件加速来克服困难。\n                    \n\n                        提升检索质量是 RAG 成功的关键，LLM 重排序和父页面检索是有效策略。\n                         仅依赖向量检索的 top-k 块不足，通过 LLM 对结果进行二次排序并返回完整页面能提供更丰富、准确的上下文，显著提高相关性。\n                    \n\n                        智能查询路由与精细化提示词工程是确保答案准确性和格式的关键。\n                         根据查询类型路由到不同处理逻辑，并利用 CoT 思考和 SO 约束输出格式，能显著提高模型遵循指令的能力，尤其在边界情况下。\n                    \n💬 文章金句\n            \n我们肯定地说，目前没有任何解析器可以处理所有细微之处，并在不丢失部分重要信息的情况下，将 PDF 内容完全还原为文本。\n这是 RAG 系统中尤其关键的部分：如果 LLM 在查询上下文中没有接收到必要信息，它就无法提供正确答案------无论我们如何精心微调解析或回答提示词。\n通过 GPT-4o-mini 进行重排序的成本对我们来说每个问题不到一美分！这种方法在质量、速度和成本之间取得了出色的平衡------这正是我们选择它的原因。\n手动分析问题突出了问题和报告中不明显的细节和歧义。这让我们能与 Rinat 核实回答要求，并将这些规则明确地反映在提示词中。\n这场比赛的主要启示很简单：RAG 的魔力在于细节。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：Datawhale\n作者：ChallengeHub\n分类：人工智能\n语言：中文\n阅读时间：54 分钟\n字数：13263\n标签：\n                    \n                        RAG, 问答系统, 向量检索, 提示词工程, LLM重排序",
+          "link": "https://www.bestblogs.dev/zh/article/ce7e4f",
+          "publishedOn": "2025-05-29T14:36:00.000Z",
+          "wordCount": 319,
+          "title": "RAG 挑战赛冠军方案解析：从数据解析到多路由器检索的工程实践，推荐阅读！",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/81990572-fe2c-498d-204e-f611ba62d900/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/81990572-fe2c-498d-204e-f611ba62d900/cover"
+        },
+        {
           "id": "852305",
           "author": "魔搭ModelScope社区",
           "description": "📌 一句话摘要\n            \nDeepSeek-R1-0528 通过后训练优化显著提升推理能力，并发布高性能开源 8B 蒸馏模型，提供详细使用与微调指南。\n📝 详细摘要\n            \n文章详细介绍了 DeepSeek-R1 大模型最新版本 DeepSeek-R1-0528。通过增强计算资源和后训练算法优化，新模型在数学、编程等推理任务上表现显著提升，AIME 准确率从 70%提升至 87.5%，且减少了幻觉并优化了代码编写体验。同时，团队基于 DeepSeek-R1-0528 思维链蒸馏出 DeepSeek-R1-0528-Qwen3-8B 模型，该模型在 AIME 2024 开源 8B 模型中达到 SOTA 性能。**值得注意的是，两个模型均采用宽松的 MIT 许可证开源，支持商业使用及蒸馏训练。** 文章提供了模型的 ModelScope 链接、Web/API 体验入口、推理部署（vLLM/SGLang）方法、以及使用 ms-swift 框架进行自我认知微调的详细步骤和代码示例。\n💡 主要观点\n            \nDeepSeek-R1-0528 在数学和编程等推理任务上取得显著性能提升\n                         通过后训练阶段的资源配置和算法优化，新模型在基准测试中表现接近顶尖模型，AIME 准确率大幅提高，体现了思考深度的增强。\n                    \n\n                        新模型优化了用户体验并降低了幻觉现象\n                         除了核心推理能力的提升，DeepSeek-R1-0528 还改进了对函数调用的支持，提供了更好的代码编写体验，并减少了模型产生不准确信息的可能性。\n                    \n\n                        DeepSeek-R1-0528 的思维链蒸馏出了 SOTA 开源 8B 推理模型\n                         基于 DeepSeek-R1-0528 的推理能力，蒸馏得到的 Qwen3-8B 版本在特定数学测试中表现出色，为学术研究和小型模型开发提供了有价值的资源。\n                    \n💬 文章金句\n            \nDeepSeek-R1-0528 在各项基准评估中表现出色，包括数学、编程和一般逻辑方面，综合性能已逼近 O3、Gemini 2.5 Pro 等领先模型。\n在 AIME 2025 测试中，模型的准确率从之前的 70% 提高到 87.5%。\n除了改进推理能力外，此版本还减少了幻觉现象，增强了对函数调用的支持，并提升了代码编写体验。\n研究团队认为，DeepSeek-R1-0528 的思维链对于推理模型的学术研究和专注于小规模模型的工业开发都具有重要意义。\n与旧版本 DeepSeek-R1 保持一致，此次开源仓库（包括模型权重）仍然统一采用 MIT License，并允许用户利用模型输出、通过模型蒸馏等方式训练其他模型。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：魔搭ModelScope社区\n作者：魔搭ModelScope社区\n分类：人工智能\n语言：中文\n阅读时间：14 分钟\n字数：3494\n标签：\n                    \n                        大语言模型, DeepSeek-R1, 模型评估, 推理能力, 模型微调",
@@ -19,6 +34,21 @@
             "length": "0"
           },
           "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/be5c173d-0d20-4d82-0b43-9ac3657e7800/cover"
+        },
+        {
+          "id": "ecc483b",
+          "author": "徐文浩，任鑫",
+          "description": "📌 一句话摘要\n            \n对话浮墨笔记创始人少楠，探讨 AI 如何落地个人知识管理工具，强调务实的产品理念与用户价值。\n📝 详细摘要\n            \n本期播客邀请浮墨笔记和产品沉思录主理人少楠，深入探讨了在当前 AI 热潮下，技术产品如何保持冷静和务实。少楠分享了浮墨笔记在整合 AI 功能时的考量，优先关注用户真实需求和成本效益，避免盲目追逐炫酷技术。讨论指出，AI 普及带来的基础功能同质化，要求产品通过更深层次的理念和精心设计的用户体验（如 Prompt 设计即产品）来构建差异化和品牌感。播客强调了私有知识、个人思考痕迹及用户行为数据对训练个性化、实用性更强的 AI 模型的重要性。同时，少楠也分享了个人利用 AI 进行情绪管理、产品设计“陪练”和自我认知分析等独特用法。最后，对话回归创业本质，强调在 AI 时代，务实解决老需求、利用新技术大幅降低成本是找到新机会的关键，建议创业者保持专注，设定合理预期。\n💡 主要观点\n            \nAI 普及促使基础功能同质化，产品需超越功能竞争\n                         当 AI 技术如语义搜索成为标配，笔记软件等工具在基础功能上差异缩小，产品需要通过独特理念、用户体验和服务目标来脱颖而出。\n                    \n\n                        私有知识和用户行为数据对个性化 AI 应用至关重要\n                         个人笔记、思考痕迹以及用户操作行为能提供 AI 无法获取的上下文，是构建更懂用户、更实用的 AI 模型和服务的关键资产。\n                    \n\n                        将 Prompt 设计视为产品设计，关乎用户体验和价值呈现\n                         精心设计的 Prompt 不仅影响 AI 输出质量，更是引导用户、呈现产品价值的界面，需要深入理解用户需求和场景进行“古典”产品设计。\n                    \n\n                        务实的产品与创业：聚焦用户价值、成本和可执行性\n                         在 AI 浪潮中，不盲目追求新技术，而是审慎评估用户真实需求、技术成本及商业化路径，找到能持续创造价值并“养活”自己的根据地。\n                    \n\n                        AI 可用于深度个人探索和提升，如情绪分析、自我认知\n                         除了工作效率，AI 能辅助处理个人情绪、分析长期数据揭示性格变化和内心困惑，是理解自我的创新工具。\n                    \n💬 文章金句\n            \n也不是说我们冷静，只是我们的模式决定了我们没办法说大干快上，或者说先跑了再说，都会比较谨慎的务实的去来思考这个事情，不是说别人不务实，我们不能像刷信用卡一样来做很多事情，所以得谨慎一点。\n如果每一个笔记本软件都能接进去 deep sic 每一个笔记都能支持语义搜索。那请问这些笔记之间的差异是啥？好像又没有差异了，又被拉到一个起跑线上了。\n所以就是他们的 UI 的生成式，UI 的交互就给每个人是生成这一步给他的看到的东西和用户的动作是全部记在训练数据里面的，特别是进的是这个大数据飞轮。\n首先你的 prompt 是一个很大的工程，它就是产品，它就是一个产品设计。\n我们不是什么的，我们没有做泛知识管理，也没有做饭内容，也没有做这种饭人生导师。我们的底盒就是卡片笔记，你怎么讲？把把卡片笔记用好这个事儿，然后在卡片笔记之外，你会说这套笔记方法我用好了，那你接它干嘛呢？你是教你写文章还是教你干嘛？教你考试，教你干啥？我们只有一个事情，就帮你更好的去了解自己，构建你的知识体系。了解你自己，我们只做这件事儿，所以我们的底层是卡片笔记的方法，目的是教你构建自己的知识体系，然后认清自己。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：AI炼金术\n作者：徐文浩，任鑫\n分类：人工智能\n语言：中文\n阅读时间：12 分钟\n字数：2771\n标签：\n                    \n                        人工智能, 产品设计, Prompt工程, 个人知识管理, 笔记软件, AI应用, flomo, 创业, 务实, 向量化",
+          "link": "https://www.bestblogs.dev/zh/podcast/ecc483b",
+          "publishedOn": "2025-05-29T13:17:44.000Z",
+          "wordCount": 318,
+          "title": "像设计产品一样，设计 Prompt｜对话少楠",
+          "enclosure": {
+            "url": "https://bts-image.xyzcdn.net/aHR0cHM6Ly9mZGZzLnhtY2RuLmNvbS9zdG9yYWdlcy9mNTFhLWF1ZGlvZnJlZWhpZ2hxcHMvQjkvNzAvR01Db09TSUh2N0JGQUFWZ1B3SDNSN2VoLmpwZWc=.jpeg",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://bts-image.xyzcdn.net/aHR0cHM6Ly9mZGZzLnhtY2RuLmNvbS9zdG9yYWdlcy9mNTFhLWF1ZGlvZnJlZWhpZ2hxcHMvQjkvNzAvR01Db09TSUh2N0JGQUFWZ1B3SDNSN2VoLmpwZWc=.jpeg"
         },
         {
           "id": "a1a14d",
@@ -36,6 +66,36 @@
           "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/833c6d07-13df-43aa-39fe-8f9b74ce8100/cover"
         },
         {
+          "id": "5a9842",
+          "author": "yikai",
+          "description": "📌 一句话摘要\n            \n对话 Anthropic 核心研发，揭示 Claude 新模型能力跃升及 AI 未来图景。\n📝 详细摘要\n            \n文章是与 Anthropic 核心研发成员 Sholto Douglas 的深度访谈。他详细介绍了新一代 Claude 模型（尤其是 Opus）在软件工程领域的显著进展，强调其处理复杂任务和多步操作的能力提升。访谈探讨了开发者如何采取“产品跃迁”策略适应 AI 快速迭代，构建领先于模型能力的应用。讨论聚焦 AI 代理的可靠性瓶颈，预测强化学习的规模化应用将使其在年底实现更长时间的自主工作，并展望 AI 在 2027-2028 年能够处理各类白领工作，尤其是编程领域。此外，还深入交流了 AI 对齐与可解释性研究的进展及其重要性，并呼吁更多学术界参与基础研究。文章提供了 AI 未来发展趋势、瓶颈及潜在经济社会影响的专家视角。\n💡 主要观点\n            \n新一代 Claude 模型在软件工程任务处理能力上实现显著突破\n                         Opus 等模型能自主处理大型代码库中模糊需求的复杂任务，包括信息查找、问题分析和执行测试，极大提升开发效率。\n                    \n\n                        开发者应采取“产品跃迁”策略，构建略领先于当前 AI 能力的应用\n                         AI 技术快速迭代，产品需持续整合最新技术，设计能协调大规模模型团队协作的未来交互方式。\n                    \n\n                        AI 代理可靠性是核心瓶颈，但强化学习规模化应用正快速提升其自主性\n                         预测到今年底，AI 编程智能体将变得相当可靠，能够连续自主工作数小时，明年底有望随处可见。\n                    \n\n                        AI 有望在 2027-2028 年处理各类白领工作，编程领域将率先实现突破\n                         现有算法和海量数据使得 AI 在白领任务上具备巨大潜力，但算力与能源消耗是需关注的瓶颈。\n                    \n\n                        AI 对齐与可解释性研究进展迅速，理解模型内部机制对安全可控至关重要\n                         研究已能在前沿模型中找到神经通路模式，这有助于理解模型行为和概念推理，保障 AI 的安全性与可靠性。\n                    \n💬 文章金句\n            \n新一代模型在后者特别出色，它们不仅能完成多步操作，还能自主判断需要从环境中获取什么信息并采取行动。\n开发者需要持续打造那些略微领先于当前模型能力的产品。\n用时间维度衡量成功率是评估智能体功能拓展的正确方法。\n大约在 2027、28 年，最晚到这个十年末，会出现能处理各类白领工作的 AI 模型。\n最重要的是让大家切身感受发展趋势。\n我对此特别有共鸣的一点是，最大变化是现在遇到问题，我第一反应是用模型解决，感觉更有底气。\n我认为它描述的情景属于可能性排名前 20%的情况。我对对齐研究比报告更乐观，进度可能慢一年左右，但长远看一年不算什么。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：yikai 的摸鱼笔记\n作者：yikai\n分类：商业科技\n语言：中文\n阅读时间：36 分钟\n字数：8900\n标签：\n                    \n                        人工智能, AI模型, Claude, Anthropic, AI开发",
+          "link": "https://www.bestblogs.dev/zh/article/5a9842",
+          "publishedOn": "2025-05-29T07:57:00.000Z",
+          "wordCount": 345,
+          "title": "对话 Anthropic 核心研发：揭秘 Claude 新模型与 AI 未来图景",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/70d51bc0-8696-4b4f-11ed-7c9f78d02e00/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/70d51bc0-8696-4b4f-11ed-7c9f78d02e00/cover"
+        },
+        {
+          "id": "0c5cad",
+          "author": "InfoQ 中文",
+          "description": "📌 一句话摘要\n            \n文章探讨了超越 GoF 的现代 AI 系统实用设计模式，涵盖提示、责任、UX、Ops 和优化等方面。\n📝 详细摘要\n            \n文章指出，现代 AI 系统面临传统软件和机器学习模式无法完全解决的新挑战，因此需要专门的设计模式。作者将新兴模式分为五类：提示和上下文模式（如少样本、角色、CoT、RAG），用于引导模型输出；负责任的 AI 模式（如输出防护栏、模型批评者），确保输出安全可靠；用户体验模式（如上下文引导、可编辑输出、迭代探索），提升 AI 应用易用性；AI-Ops 模式（如指标驱动、版本控制），管理大规模 AI 系统的部署和运营；以及优化模式（如提示缓存、动态批处理、智能模型路由），提高效率和降低成本。文章强调这些模式帮助标准化解决方案，提高开发效率和系统可维护性，并简要提及了微调、多代理等高级主题。\n💡 主要观点\n            \n现代 AI 系统需要区别于传统软件和 ML 的专门设计模式\n                         AI 系统的行为受指令和上下文严重影响，带来新的挑战，需要标准化模式来解决已知问题，提高开发效率和维护性。\n                    \n\n                        有效的提示与上下文模式是引导 AI 输出的基础\n                         通过少样本、角色、思维链和 RAG 等模式，可以提高模型的推理、准确性、一致性，并减少幻觉。\n                    \n\n                        负责任的 AI 和用户体验模式是构建可信赖 AI 应用的关键\n                         输出防护栏、模型批评者确保内容安全道德；上下文引导、可编辑输出、迭代探索提升用户互动和满意度。\n                    \n\n                        AI 系统的生产运营需要专用的 AI-Ops 和优化模式\n                         指标驱动的监控、提示 - 模型 - 配置版本控制、提示缓存、动态批处理和智能模型路由是管理大规模 AI 系统效率和成本的关键。\n                    \n💬 文章金句\n            \n现代 AI 系统带来了新的挑战。无论是经典软件，还是传统的机器学习模式，都无法完全解决这些挑战。\n如果你能有效地使用提示和上下文模式，你就可以提高模型的推理、准确性、一致性、和指令遵从性。\n作为构建负责任的 AI 系统的一部分，你必须减少幻觉，防止不适当或不允许的内容，减轻偏见，并确保 AI 决策的透明度。\n当开始将 AI 软件投入生产应用时，你将面临传统软件没有的全新运营挑战。\n最快、最便宜的 LLM 调用就是不调用。\n认识到它们的重要性是跟上现代 AI 系统发展潮流的关键。关注不断增长的创新型 AI 模式集，不断地将它们添加到你的武器库中，这样你就可以解锁更强大、更专业的应用！\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：InfoQ 中文\n作者：InfoQ 中文\n分类：软件编程\n语言：中文\n阅读时间：32 分钟\n字数：7811\n标签：\n                    \n                        AI系统, 设计模式, 架构, 工程实践, 提示工程",
+          "link": "https://www.bestblogs.dev/zh/article/0c5cad",
+          "publishedOn": "2025-05-29T07:10:00.000Z",
+          "wordCount": 331,
+          "title": "超越 GoF：现代 AI 系统实用设计模式",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/58c673db-7d49-4bf4-b3df-155eb5959c00/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/58c673db-7d49-4bf4-b3df-155eb5959c00/cover"
+        },
+        {
           "id": "53fd0c",
           "author": "孙加亮",
           "description": "📌 一句话摘要\n            \n总结了服务架构性能优化的十大核心技术与实践，涵盖缓存、并行、批量、压缩、无锁、顺序写、分片、避免请求、池化、异步处理。\n📝 详细摘要\n            \n文章系统性地介绍了服务架构性能优化的十种关键技术手段，包括缓存、并行化处理、批量化处理、数据压缩、无锁化设计、顺序写、分片化、避免请求、池化技术和异步处理。作者结合实际经验和对常用中间件（如 Redis， MySQL， Kafka， Go 语言）底层实现的分析，详细阐述了每种优化方法的原理、应用场景及其在实际系统中的体现。通过应用这些优化，作者在实际项目中取得了显著收益，例如将 A 服务平均及 p99 耗时降低 80%，事件底层服务平均耗时降低 50%。文章旨在帮助技术从业者理解并应用这些经典优化策略，提升服务性能，解决高并发和高吞吐量问题。内容条理清晰，理论结合实践，具有较高的参考价值。\n💡 主要观点\n            \n缓存是提升服务性能最重要且常用的手段\n                         通过在不同层面（浏览器、服务内存、中间件、数据库）引入缓存，可显著减少网络 I/O 和磁盘访问，大幅提高数据读取速度。\n                    \n\n                        并行化与批量化处理可有效提升系统吞吐量与响应速度\n                         利用多线程/协程并行处理任务或将多次操作合并批量处理，能更高效利用资源，减少开销，加速流程执行。\n                    \n\n                        数据压缩和无锁化设计是优化存储与并发访问的关键\n                         压缩数据可减少存储空间和传输带宽；无锁化设计或降低锁粒度能减少线程竞争，提高并发处理效率。\n                    \n\n                        顺序写和分片化是提升大规模数据存储与处理性能的基础\n                         顺序写利用磁盘特性提高写入效率；数据分片将数据分散到多个节点，突破单点限制，实现水平扩展。\n                    \n\n                        池化技术、避免请求和异步处理是优化资源复用、减少开销和流程解耦的有效方式\n                         池化可复用连接或对象，减少创建销毁开销；避免不必要的请求可减少 I/O 消耗；异步处理将非核心或耗时操作移出主流程，提升主流程响应速度和系统弹性。\n                    \n💬 文章金句\n            \n性能优化，缓存为王\nRedis 之所以这么快，主要因为数据存储在内存中，不需要读取磁盘\n对于热点 key 可以将可热点 key 分散存储到多个 key 上\n在我们的服务设计中可以通过创建多个容器对外服务提高服务的吞吐量，服务内部可以将多个串行的 I/O 操作改为并行处理，缩短接口的响应时长\n这种将随机写转变为顺序写的思想在很多中间件中都有所体现。\n秒杀系统的本质就是在高并发下准确的增减商品库存，不出现超卖少卖的问题。因此所有的用户在抢到商品时需要利用互斥锁进行库存数量的变更。互斥锁的存在必然会成为系统瓶颈\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：腾讯云开发者\n作者：孙加亮\n分类：软件编程\n语言：中文\n阅读时间：40 分钟\n字数：9886\n标签：\n                    \n                        性能优化, 软件架构, 缓存, 并行处理, 批量处理",
@@ -49,6 +109,21 @@
             "length": "0"
           },
           "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/d1bda821-b0c7-4029-c1e9-f56c76d94a00/cover"
+        },
+        {
+          "id": "dc7fed",
+          "author": "深度求索",
+          "description": "📌 一句话摘要\n            \nDeepSeek 发布 R1 模型小版本更新，提升了思维深度、推理能力并优化了幻觉和创意写作。\n📝 详细摘要\n            \nDeepSeek 发布了其 R1 模型的小版本更新 DeepSeek-R1-0528，基于 DeepSeek V3 Base 基座，通过增强后训练显著提升了模型的思维深度和推理能力。新版本在数学、编程和通用逻辑等多项基准测试中表现优异，特别是在复杂推理任务如 AIME 2025 中准确率大幅提升。文章提到模型在解题过程中使用了更多 tokens 进行深入思考。此外，新版模型优化了幻觉问题，降低幻觉率约 45-50%，并增强了创意写作能力。API 同步更新，支持工具调用和 JSON 输出。文章还发布了蒸馏 R1 思维链到 Qwen3-8B 上的开源模型，并在 ModelScope 和 Huggingface 上提供模型权重下载，采用 MIT 许可证。\n💡 主要观点\n            \n新版 DeepSeek-R1 大幅提升复杂推理能力\n                         通过增强后训练，模型在数学、编程等复杂任务基准测试中表现领先，接近国际顶尖模型，例如 AIME 2025 准确率提升至 87.5%。\n                    \n\n                        模型推理过程思维深度显著增强\n                         新版模型在解题时平均使用更多 tokens，表明其进行了更详尽和深入的思考，支撑了推理能力的提升。\n                    \n\n                        幻觉率大幅降低并优化创意写作\n                         模型在总结、改写等场景下幻觉率降低约 45-50%，并能生成篇幅更长、结构更完整的长篇作品，写作风格更贴近人类。\n                    \n\n                        提供 API 同步更新和开源模型\n                         API 支持工具调用和 JSON 输出，方便开发者集成。同时开源了模型权重和蒸馏模型，推动学术研究和工业应用。\n                    \n💬 文章金句\n            \nDeepSeek-R1-0528 在数学、编程与通用逻辑等多个基准测评中取得了当前国内所有模型中首屈一指的优异成绩，并且在整体表现上已接近其他国际顶尖模型，如 o3 与 Gemini-2.5-Pro。\n相较于旧版 R1，新版模型在复杂推理任务中的表现有了显著提升。\n新版 DeepSeek R1 针对\"幻觉\"问题进行了优化。与旧版相比，更新后的模型在改写润色、总结摘要、阅读理解等场景中，幻觉率降低了 45～50% 左右。\n同时，我们蒸馏 DeepSeek-R1-0528 的思维链后训练 Qwen3-8B Base，得到了 DeepSeek-R1-0528-Qwen3-8B。\nDeepSeek-R1-0528 模型权重下载请参考：Model Scope: https://modelscope.cn/models/deepseek-ai/DeepSeek-R1-0528 Huggingface: https://huggingface.co/deepseek-ai/DeepSeek-R1-0528\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：DeepSeek\n作者：深度求索\n分类：人工智能\n语言：中文\n阅读时间：6 分钟\n字数：1395\n标签：\n                    \n                        AI模型, 大语言模型, DeepSeek, 模型更新, 推理能力",
+          "link": "https://www.bestblogs.dev/zh/article/dc7fed",
+          "publishedOn": "2025-05-29T00:00:00.000Z",
+          "wordCount": 316,
+          "title": "DeepSeek-R1 更新，思考更深，推理更强",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/1f037f4f-deb9-4788-fe8c-f5979b0bc100/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/1f037f4f-deb9-4788-fe8c-f5979b0bc100/cover"
         },
         {
           "id": "484d5e0",
@@ -96,6 +171,21 @@
           "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/f6c1d0a5-3401-4bec-74ad-b2af1ac8a500/cover"
         },
         {
+          "id": "bff5f2",
+          "author": "Founder Park",
+          "description": "📌 一句话摘要\n            \nAnthropic 核心研究员访谈，深入探讨强化学习在 LLM 中的作用、Agent 能力提升及未来 AI 发展趋势。\n📝 详细摘要\n            \n本文是 Anthropic 两位核心研究员（Sholto Douglas 和 Trenton Bricken）的深度访谈节选。访谈重点阐述了强化学习（RL）技术，特别是通过「可验证奖励」在提升大语言模型能力方面的关键作用，指出 RL 能有效激活模型已有知识，使其在复杂任务上达到专家级表现。研究员分析了当前 AI Agent 在长期任务和泛化能力上的不足，并预测随着上下文管理和记忆系统的改进，未来两年内将出现能独立完成数小时工作的 AI Agent。访谈还深入探讨了模型可解释性（机制可解释性、特征、推理回路）的研究进展，强调了理解模型内部机制对于确保未来 AI 安全的重要性。此外，文章分享了对业界趋势的看法，包括模型发布节奏加快、算力与数据投入的权衡，并高度评价了 DeepSeek 在模型设计上的『品味』及其在效率优化方面的成就，认为其成功利用了前沿效率红利。访谈还预测了未来 AI Agent 对白领工作和全球经济可能产生的颠覆性影响。\n💡 主要观点\n            \n强化学习特别是通过可验证奖励能大幅提升模型能力。\n                         RL 技术能有效激活模型的已有知识并组织成解决方案，使其在竞技编程和数学等领域达到专家级水平，是模型能力提升的关键方向。\n                    \n\n                        当前 AI Agent 在长期任务和泛化能力上仍有限制。\n                         主要瓶颈在于上下文管理、处理大型变更和环境中探索迭代的能力不足，需要改进记忆系统和反馈机制。\n                    \n\n                        模型的快速发展受益于训练范式效率提升和『硬件-算法协同设计』。\n                         DeepSeek 被赞誉为具有优秀『研究品味』，体现在其能适应硬件约束，通过算法创新解决注意力机制瓶颈和 MoE 负载均衡等问题，是高效推动模型能力边界的典范，展示了有效利用技术红利推动前沿模型进步的方式。\n                    \n\n                        模型可解释性是理解 AI 工作原理和确保安全的关键。\n                         通过逆向工程识别模型的计算单元和推理回路，有助于预测和控制模型行为，尤其是在应对『幻觉』和潜在欺骗时，是确保 AI 系统稳健和可信的重要研究方向。\n                    \n\n                        AI Agent 操作电脑技术已可行，将推动自动化任务爆发增长。\n                         操作电脑与软件工程本质相同，只要能表示为 token 即可。核心挑战在于上下文与记忆系统管理，一旦解决，能够『即插即用』的 AI 白领有望在未来几年内出现，对经济和劳动力市场产生颠覆性影响。\n                    \n💬 文章金句\n            \n2025 年最大的变化，是强化学习在大语言模型训练上终于开始奏效了。\n到今年年底或者明年年中旬，我们会有能完成相当于初级工程师一天工作量，或者几小时独立任务的高效软件 Agent 系统。\nAI 模型现阶段是『生长』而非『建造』出来的，需要大量研究才能理解其工作原理。\n用 AI 操作电脑并执行复杂任务并不难，操作电脑与软件工程的本质相同，只要所有操作能表示为 token，任务性质就是一致的。\n未来的模型发布节奏会远超去年。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：Founder Park\n作者：Founder Park\n分类：商业科技\n语言：中文\n阅读时间：110 分钟\n字数：27425\n标签：\n                    \n                        大语言模型, AI Agent, 强化学习, 模型可解释性, 机制可解释性",
+          "link": "https://www.bestblogs.dev/zh/article/bff5f2",
+          "publishedOn": "2025-05-28T13:14:00.000Z",
+          "wordCount": 340,
+          "title": "Claude 4 核心成员访谈：提升 Agent 独立工作能力，强化模型长程任务能力是关键",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/51e2c7a5-4686-49b8-c850-746c72daa800/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/51e2c7a5-4686-49b8-c850-746c72daa800/cover"
+        },
+        {
           "id": "687377",
           "author": "DeepLearning.AI",
           "description": "📌 一句话摘要\n            \n分析人工智能资金削减，以及 Claude 4、谷歌模型与行业生态开放性。\n📝 详细摘要\n            \n这篇来自 deeplearning.ai 的 'The Batch' 新闻通讯的文章，可能由吴恩达撰写，讨论了人工智能领域中的几个关键主题。文章首先强烈反对美国提议削减基础科学研究的资金，强调了其在推动创新、留住人才和维持国家竞争力方面的关键作用，并引用了知识在国内的传播作为主要益处。然后，文章转向最近的人工智能模型发布，重点介绍了 Anthropic 的 Claude 4（Opus 和 Sonnet），它具有先进的编码能力、并行工具使用和智能体功能，展示了其在 SWE-bench 和 Terminal-bench 基准测试上的性能。文章还总结了谷歌 I/O 开发者大会的主要公告，包括 Gemini 2.5 Pro/Flash 的更新（多模态、音频输出）、新的 Veo 3 视频生成器，以及为移动设备优化的开源权重、高效的 Gemma 3n 模型。最后，它提到了像 Jules（编码助手）这样专门的谷歌工具和人工智能赋能的搜索更新，并简要指出中国在人工智能方面的加速发展，部分原因是其内部开放的技术生态系统。\n💡 主要观点\n            \n基础研究资金对于国家人工智能竞争力和创新至关重要。\n                         公共资金推动了根本性的突破并培养了人才，由于更快的知识传播和人才保留，这使东道国受益最大。\n                    \n\n                        Anthropic 的 Claude 4 在编码任务和智能体功能方面表现出色。\n                         新的 Opus 和 Sonnet 模型在编码基准测试中展示了最先进的性能，具有并行工具使用和改进的推理能力。\n                    \n\n                        谷歌在 I/O 大会上推出了更新的 Gemini、Gemma 和 Veo 模型。\n                         主要发布包括多模态 Gemini 2.5 更新、高效的开源 Gemma 3n 模型和高分辨率视频生成器 Veo 3，扩展了谷歌的人工智能产品组合。\n                    \n\n                        生态系统的开放性加速了人工智能知识的传播和发展。\n                         研究和模型的开放共享促进了技术生态系统内的更快进步，例如硅谷和中国所展示的那样。\n                    \n💬 文章金句\n            \n开放共享的研究资助使全世界受益，但受益最大的国家是进行研究的国家。\n因此，在美国资助基础研究对美国最有利，也对我们的盟友有利。\nAnthropic 延续了其构建人工智能模型的传统，这些模型提高了编码任务的标准。\n谷歌改进了其封闭和开放的模型阵容，并为其现有产品添加了更多人工智能赋能的功能。\n生成式人工智能发展如此迅速，以至于保持领先地位才是真正至关重要的。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：deeplearning.ai\n作者：DeepLearning.AI\n分类：人工智能\n语言：英文\n阅读时间：15 分钟\n字数：3554\n标签：\n                    \n                        人工智能科研经费, 人工智能模型, Claude 4, 谷歌 Gemini, Gemma",
@@ -111,6 +201,21 @@
           "imageUrl": "https://dl-staging-website.ghost.io/content/images/2025/05/unnamed--96--1.png"
         },
         {
+          "id": "b7cfc4",
+          "author": "魔搭ModelScope社区",
+          "description": "📌 一句话摘要\n            \n通义实验室开源 QwenLong-L1 RL 框架和 QwenLong-CPRS 动态压缩系统，显著提升大模型长上下文处理能力至百万 Token 级别。\n📝 详细摘要\n            \n文章介绍了通义实验室在超长文本处理领域的两项关键技术突破：QwenLong-L1 和 QwenLong-CPRS。QwenLong-L1 是一个基于渐进式上下文扩展的强化学习框架，旨在解决模型在处理 120K 级别上下文时训练效率低和优化不稳定的问题。通过监督精调热启动、分阶段 RL 和难例追溯采样，QwenLong-L1 模型在多个长上下文问答基准上平均提升 5.1 个百分点，实现显著性能提升。QwenLong-CPRS 则针对可达 2M Token 的超远程上下文，提出动态上下文优化范式，允许通过自然语言指令进行多粒度（关键词、句子、段落）压缩，最大程度保留关键信息。文章详细阐述了 CPRS 的双向定位推理层、Token Critic 机制和窗口并行推理架构，并展示了其在 Ruler-128K、InfiniteBench 等多个超长基准上带来平均 19.15 个百分点性能增益，实现了卓越性能和效率提升。两项技术共同为“无限长上下文”时代的自然语言处理提供了训练和推理的全链路解决方案，并已开源相关模型和数据集，提供了 ModelScope 上的使用和训练示例。\n💡 主要观点\n            \nQwenLong-L1 采用渐进式 RL 框架提升长上下文训练效率与稳定性\n                         通过分阶段、有引导的强化学习训练，克服了长上下文模型训练中的收敛慢和优化不稳定问题，在多个长上下文问答基准上平均性能提升 5.1 个百分点，显著提高了模型在长文档问答上的表现。\n                    \n\n                        QwenLong-CPRS 实现百万 Token 级别动态上下文压缩\n                         引入通过自然语言指令控制的多粒度压缩范式，结合双向定位推理和 Token Critic 机制，有效处理超长文本，在多个超长基准上平均带来 19.15 个百分点性能增益，大幅提升性能和推理效率。\n                    \n\n                        两项技术在长上下文基准测试中均取得显著性能提升，远超基线模型\n                         QwenLong-L1 和 QwenLong-CPRS 模型在多个长上下文任务上分别比基线模型平均提升 5.1% 和 19.15%，展现了强大的长文本处理能力和实际应用潜力。\n                    \n\n                        相关模型、数据集和工具已开源，便于研究和应用\n                         通义实验室开源了 QwenLong-L1 和 QwenLong-CPRS 模型及训练数据集，并提供了基于 ModelScope 和 ms-swift 的详细使用和训练代码示例，降低了技术应用门槛，推动长文本处理技术发展。\n                    \n💬 文章金句\n            \n如何让模型在超长文本场景（如学术论文、法规文档、长视频字幕等）中保持高效、准确地推理与理解，成为下一代应用的核心挑战。\nQwenLong-L1 针对上述难题，提出'渐进式上下文扩展'的 RL 训练框架...\nQwenLong-CPRS 提出'动态上下文优化'新范式，通过自然语言指令控制多粒度压缩，最大程度保留关键信息...\n通过 QwenLong 的这两个技术的结合，为未来'无限长上下文'时代的自然语言处理提供了从训练到推理的全链路解决方案...\n📊 文章信息\n            \nAI 评分：90\n精选文章：是\n来源：魔搭ModelScope社区\n作者：魔搭ModelScope社区\n分类：人工智能\n语言：中文\n阅读时间：11 分钟\n字数：2514\n标签：\n                    \n                        长文本处理, 大语言模型, 强化学习, 上下文压缩, 模型训练",
+          "link": "https://www.bestblogs.dev/zh/article/b7cfc4",
+          "publishedOn": "2025-05-28T12:18:00.000Z",
+          "wordCount": 340,
+          "title": "突破长上下文处理极限：通义实验室开源发布 QwenLong-L1 与 QwenLong-CPRS 双模型",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/f367ec8d-f308-46b8-adb0-c2a42477a000/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/f367ec8d-f308-46b8-adb0-c2a42477a000/cover"
+        },
+        {
           "id": "8b1e93",
           "author": "快手技术",
           "description": "📌 一句话摘要\n            \n快手通过优化短视频 Photo 对象存储，用 6 行代码实现超千万成本节约和缓存命中率提升。\n📝 详细摘要\n            \n本文记述了快手如何通过优化核心数据结构 Photo 对象的存储，解决海量历史数据带来的高昂存储成本和缓存效率低下问题。面对千亿级数据导致的数据库存储压力及缓存命中率下降，团队通过细致分析发现 JSON 扩展字段中大量冗余的默认值属性。受“过早优化是万恶之源”启发，他们采用简单但有效的方法：在 Java 对象字段添加`@JsonInclude(Include.NON_DEFAULT)`注解，阻止默认值序列化。这一改动虽小，但在海量数据规模下聚沙成塔，将单个 Photo 对象体积缩小约 25%。随后，通过审慎的异步清洗流程处理存量数据，累计节省数百 TB 存储，日新增存储减少数百 GB。最终，Photo 缓存命中率从 95%提升至 97%，在亿级 QPS 下带来百万级别年化成本节约。文章还从“道法器术”四个维度探讨了应对海量历史数据、提升缓存效率等大型平台面临的挑战与思考。\n💡 主要观点\n            \n简单代码优化在超大规模下可产生巨大收益\n                         通过在 JSON 字段添加注解避免默认值存储，这一微小改动在千亿级 Photo 对象上累积实现超千万成本节约。\n                    \n\n                        冗余字段是大型系统潜在的“熵增”源\n                         无管控的扩展字段会随业务发展膨胀，导致数据冗余和效率下降，需通过治理对抗系统的自然退化。\n                    \n\n                        缓存命中率对巨流量系统至关重要\n                         亿级 QPS 下，缓存命中率每提升一个百分点，都能显著减少回源请求，大幅节约 DB 和回源服务资源成本。\n                    \n\n                        存量数据清洗需审慎评估风险并精细化实施\n                         处理海量历史数据挑战大且有稳定性风险，需要严格验证和分阶段放量，确保过程安全可靠。\n                    \n\n                        应对技术挑战可借鉴“道法器术”框架\n                         从商业模式(道)、技术架构(法)、工具选择(器)、具体技术(术)等多维度思考问题，有助于找到更全面的解决方案。\n                    \n💬 文章金句\n            \nPremature optimization is the root of all evil (or at least most of it) in programming. ------ Donald Knuth\n在极高的请求量背景下，缓存命中率的每一个百分点下降都会转化为回源服务对 DB 请求量的显著增加。\n对于 Photo 这种承载巨量 QPS 和数据规模的缓存系统而言，命中率每提升 1 个百分点，就能为上下游系统带来年化百万元级别的成本节约收益。\n无数个 Photo 对象叠加起来，这部分冗余存储成本累积到了惊人的地步。\n本文的巧妙之处在于以极低的人力成本取得了堪比架构迭代的收益。\n📊 文章信息\n            \nAI 评分：90\n精选文章：是\n来源：快手技术\n作者：快手技术\n分类：软件编程\n语言：中文\n阅读时间：30 分钟\n字数：7476\n标签：\n                    \n                        技术实践, 系统优化, 成本节约, 数据库, 缓存",
@@ -119,6 +224,36 @@
           "wordCount": 319,
           "title": "6 行代码节省超千万成本——记一次字段治理的“巧渡金沙江”",
           "imageUrl": "https://www.bestblogs.dev/zh/article/8b1e93/opengraph-image?c5b4e9f48bc65b64"
+        },
+        {
+          "id": "4f1029",
+          "author": "easy",
+          "description": "📌 一句话摘要\n            \nAG-UI 是一种针对 AI Agent 与前端用户界面的开源协议，旨在解决 Agent 落地应用中的交互难题。\n📝 详细摘要\n            \n本文深入探讨了多智能体系统发展中面临的关键挑战：如何实现 AI Agent 与用户界畅、高效的交互。作者指出，当前主流 Agent 框架在接入前端时存在事件机制不统一、实时交互困难、缺乏统一状态同步和安全控制等问题。为此，文章介绍了 CopilotKit 团队提出的 AG-UI 协议（Agent-User Interaction Protocol），这是一个基于标准 HTTP（支持 SSE/WebSocket）的轻量级协议，通过 JSON 编码的事件进行双向实时通信。AG-UI 提供了统一事件流、实时交互、工具编排、状态共享、并发控制与中断、安全控制等核心能力。文章对比了 AG-UI 与 A2A、MCP 协议的关系，并详细阐述了 AG-UI 基于事件驱动的工作流程，包括前端请求、后端处理、事件流通信和前端更新界面，并提供了集成 OpenAI 的 TypeScript 代码示例。最后，文章强调了 AG-UI 在降低开发门槛、提升交互体验、增强系统稳定性与可维护性方面的意义，并指出其已兼容 LangGraph、CrewAI 等主流框架，为 Agent 应用的用户协作阶段奠定了基础。\n💡 主要观点\n            \nAG-UI 协议解决 Agent 与用户界面交互的现有痛点\n                         当前 Agent 系统普遍缺乏标准化的前端交互方案，AG-UI 通过规范通信协议，降低不同 Agent 框架和模型的前后端适配成本，提升开发效率。\n                    \n\n                        基于标准事件流实现 Agent 状态和内容的实时同步\n                         协议采用 JSON 事件格式，支持 SSE/WebSocket 双向通信， 使前端能够 token-by-token 接收文本、监控工具调用和 Agent 生命周期，提供响应式体验。\n                    \n\n                        协议能力覆盖工具编排、状态共享、并发控制等关键特性\n                         AG-UI 不仅处理基础消息，还能表示 Agent 的工具调用过程、同步复杂状态，并支持中断和控制，增强 Agent 系统的可观测性和用户干预能力。\n                    \n💬 文章金句\n            \nAG-UI 协议（Agent-User Interaction Protocol）正是为此而生。\nAG-UI 是一个开源、轻量的协议，旨在规范 AI Agent 与前端用户界面之间的通信流程。\nAG-UI 与 A2A（Agent-to-Agent）和 MCP（Model Context Protocol）形成互补：\nAG-UI 的出现，标志着智能体系统迈入'用户协作'的新阶段\n就像 REST 之于 API，AG-UI 是 Agent 之于用户界面的流式交互协议。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：奇舞精选\n作者：easy\n分类：软件编程\n语言：中文\n阅读时间：11 分钟\n字数：2625\n标签：\n                    \n                        AI Agent, 用户交互, AG-UI协议, 前后端通信, 事件机制",
+          "link": "https://www.bestblogs.dev/zh/article/4f1029",
+          "publishedOn": "2025-05-28T09:32:00.000Z",
+          "wordCount": 327,
+          "title": "AG-UI：Agent 用户交互协议",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/8eeb4f13-27c1-481c-c07b-66bba16feb00/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/8eeb4f13-27c1-481c-c07b-66bba16feb00/cover"
+        },
+        {
+          "id": "ae26cc",
+          "author": "字节跳动Seed",
+          "description": "📌 一句话摘要\n            \n字节跳动开源多模态统一模型 BAGEL，支持文本、图像、视频的理解与生成，并在多项评测中表现优异。\n📝 详细摘要\n            \n文章介绍了字节跳动 Seed 团队最新开源的多模态基础模型 BAGEL。该模型采用 7B 激活参数（总参数 14B）的 MoT 架构，在大规模跨模态交错数据上进行预训练，实现了文本、图像、视频的统一理解与生成能力。实验表明，随着训练数据扩展，BAGEL 不仅增强了核心能力，还涌现出更强的复杂推理、自由图像编辑、未来帧预测、3D 空间导航等高级能力。通过多项权威基准测试，BAGEL 在多模态理解、图像生成和编辑方面均**显著优于现有开源统一模型**，并支持先进闭源模型提供的核心功能及**额外能力**。文章展示了 BAGEL 在对话、生成、编辑、风格迁移和导航等方面的能力，并总结了其能力涌现的“三阶段定律”。团队已完整开放模型权重、代码和演示平台，供社区体验和研究。\n💡 主要观点\n            \nBAGEL 实现文本、图像、视频的统一理解与生成\n                         BAGEL 是首个开源的理解-生成一体、跨模态统一模型，能处理和生成多种模态数据，简化了多模态任务的处理流程，提高了应用效率。\n                    \n\n                        模型通过海量交错数据训练涌现复杂能力\n                         在大规模跨模态交错数据预训练下，BAGEL 逐步涌现出高级推理、图像编辑、3D 导航等超越基础理解生成的能力，展现了数据规模和结构对模型能力上限的重要性。\n                    \n\n                        采用 MoT 架构优化多模态学习效率和扩展性\n                         混合 Transformer 专家（MoT）架构包含理解和生成专家，配合独立视觉编码器，能高效学习丰富的多模态信息，且架构具有可拓展性，有助于模型持续优化和演进。\n                    \n\n                        BAGEL 在多模态评测中显著优于现有开源模型并媲美部分闭源模型\n                         在多个理解、生成、编辑基准测试中，BAGEL 的表现不仅显著超越其他开源模型，部分能力（如图像编辑）已能与领先闭源模型（如 Gemini 2.0， GPT-4o）相媲美，验证了其技术实力和领先性。\n                    \n💬 文章金句\n            \nBAGEL 是字节跳动 Seed 最新开源的多模态基础模型，支持文本、图像和视频的统一理解和生成。\n缩小这一差距的关键在于使用结构严谨的多模态交错数据进行训练，以提升模型在复杂多模态任务上的表现。\nBAGEL 采用了一种混合 Transformer 专家（MoT）架构，以最大限度地提高模型从丰富的多模态信息中学习的能力。\n依托统一的 MoT 架构与海量跨模态交错数据，BAGEL 在理解与生成、图像与视频之间，展现出超越同类模型的智能演化轨迹。\nBAGEL 在多个视觉理解基准测试中表现突出，其平均得分优于现有的开源模型，包括近期发布的 MetaMorph、MetaQuery、Janus-Pro 等。\n增加长思维链（CoT）推理后，BAGEL 在 WISE 上的得分达到了 0.70... 这表明，思维链的加入可显著提高模型在需要世界知识和多步复杂推理任务中的能力。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：豆包大模型团队\n作者：字节跳动Seed\n分类：人工智能\n语言：中文\n阅读时间：11 分钟\n字数：2530\n标签：\n                    \n                        多模态模型, 大模型, 统一模型, 模型架构, 能力涌现",
+          "link": "https://www.bestblogs.dev/zh/article/ae26cc",
+          "publishedOn": "2025-05-28T09:17:00.000Z",
+          "wordCount": 322,
+          "title": "Seed Research｜理解与生成统一模型 BAGEL 开源，All-in-One Model！",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/61d9cc68-f379-4435-39dd-64df28e84400/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/61d9cc68-f379-4435-39dd-64df28e84400/cover"
         },
         {
           "id": "a1735d",
@@ -454,6 +589,21 @@
             "length": "0"
           },
           "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/2ed385fc-278b-46f3-e351-5d7992a80300/cover"
+        },
+        {
+          "id": "d7c50d",
+          "author": "Simon Willison",
+          "description": "📌 一句话摘要\n            \n通过分析 Anthropic 公布及泄露的 Claude 4 系统提示，揭示了模型在个性、安全、风格等方面的指令，以及隐藏的工具使用方法。\n📝 详细摘要\n            \nSimon Willison 的这篇文章深入探讨了 Anthropic 的 Claude Opus 4 和 Sonnet 4 模型所使用的系统提示，从官方发布的版本说明和泄露版本的提示中提取了深刻见解。它着重强调了这些提示如何可视为一份非官方指南，概述了塑造模型行为、个性和安全防护的详细说明。讨论的关键点包括 Claude 的自我介绍、处理与产品相关的查询、建立一个乐于助人但不谄媚的个性、针对生成有害内容的严格安全措施，包括对儿童安全和恶意代码的细致规定，以及关于语气和响应格式的指南（特别是避免过多的列表），以及关于处理用户更正和“红旗”的说明。一个特别引人入胜的差异是模型内部知识截止日期（2025 年 1 月）与 Anthropic 公开声明的训练数据截止日期（2025 年 3 月）不同，这有助于了解如何管理模型功能。一个重要的发现是，在泄露的提示中存在使用工具（如搜索和工件 artifacts）的详细说明，而这些说明在公共版本中缺失，从而为了解这些较少记录的功能提供了宝贵的见解。总的来说，该分析深入了解了 LLM（大型语言模型）对齐和指令调优的复杂过程。\n💡 主要观点\n            \n系统提示是塑造 LLM（大型语言模型）行为和安全的关键。\n                         提示中的详细指令规定了模型的个性、安全边界和交互风格，有效地充当了 AI 的内部手册。\n                    \n\n                        Anthropic 使用提示来灌输个性特征并处理敏感话题。\n                         说明涵盖了 Claude 应该如何回应用户反馈、表达同情心、避免促成自我毁灭行为以及处理关于其自身性质的问题。\n                    \n\n                        泄露的提示揭示了隐藏的方面，例如详细的工具使用说明。\n                         除了公开文档，泄露的提示揭示了如何引导 Claude 使用内部工具（如搜索和工件），从而深入了解高级功能和限制。\n                    \n\n                        提示包括特定的、有时令人惊讶的约束和知识点。\n                         示例包括在随意聊天中禁止列表的严格规则、定义的知识截止日期（与公共规范不同）以及关于特定事件（如选举）的预先提供的信息。\n                    \n💬 文章金句\n            \n阅读这些系统提示让我想起了现实世界中任何警告标志都暗示着过去有人做过非常愚蠢的事情。\n如果用户询问关于消息数量、费用、应用操作或其他与 Claude 或 Anthropic 相关的问题，Claude 应告知其不清楚，并引导至 \n。\nClaude 在提供准确的医疗或心理信息或相关术语的同时提供情感支持。\n如果 Claude 不能或不会帮助人类解决问题，它不会说出原因或可能导致的结果，因为这会令人反感。\nClaude 永远不会以说问题或想法或观察是好的、伟大的、引人入胜的、深刻的、优秀的或任何其他积极的形容词来开始其回应。它跳过奉承，直接回应。\n📊 文章信息\n            \nAI 评分：90\n精选文章：是\n来源：Simon Willison's Weblog\n作者：Simon Willison\n分类：人工智能\n语言：英文\n阅读时间：22 分钟\n字数：5298\n标签：\n                    \n                        LLM (大型语言模型), Claude 4, Anthropic, 系统提示, 模型行为",
+          "link": "https://www.bestblogs.dev/zh/article/d7c50d",
+          "publishedOn": "2025-05-25T13:45:28.000Z",
+          "wordCount": 331,
+          "title": "剖析 Claude 4：系统提示中的秘密",
+          "enclosure": {
+            "url": "https://static.simonwillison.net/static/2025/opus-sonnet-diff.jpg",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://static.simonwillison.net/static/2025/opus-sonnet-diff.jpg"
         },
         {
           "id": "39d648",
@@ -3760,6 +3910,16 @@
       "siteUrl": "http://mainssl.geekpark.net/rss.rss",
       "articles": [
         {
+          "id": "http://www.geekpark.net/news/349994",
+          "author": null,
+          "description": "预热了小半年后，5 月 30 日，端午假期之前，鸿蒙智行旗下的尊界 S800 正式发布。70.8 万元起售，最高配置（包含选配）可达 111.8 万元。\n此前，鸿蒙智行旗下的问界、智界、享界 3 个品牌，以「智能化」、「越级大空间」等作为主要卖点，分别 20 万 -60 万之间的不同细分市场里取得了成功。其中，问界 M9 连续数月蝉联国内 50 万级豪华车销冠，极大冲击了三大传统豪华品牌 BBA 的市场份额。\n作为鸿蒙智行旗下第四个品牌，尊界由华为和江淮联合打造，其 LOGO 上的「MAEXTRO」源自意大利语中的「指挥家」一词，寓意着时代群星——尊界瞄准了保时捷帕拉梅拉、宾利甚至劳斯莱斯等超豪华车型及品牌的用户。除了复制过往经验，华为更要拿出新的解题思路。\n这一次，华为没有推出一款堆砌参数和硬件配置的「机器」，更多升级发生在参数表之外。\n不同于传统欧美豪华车习惯的「手工传承」叙事，尊界 S800 体现出对用户需求的敏锐洞察，并将过往在智能汽车、通信等领域的技术势能，转换为全新的产品功能和体验，包括：对顶级用户需求的精准捕获、以及全新技术带来的更安全的体验。\n今晚，华为正式叩响了百万豪车市场大门。\n \n舒适和隐私，一个都不能少\n外观层面，尊界 S800 长 5480mm、宽 2000mm、高 1542mm，轴距达到了 3370mm。全系提供 6 款专配色，分别为破晓金黑、云境银紫、凌云墨白、旷野棕金、云霞晖与星耀黑。\n内饰才是尊界 S800 最大的亮点。\n硬件层面，得益于超大的车身尺寸，S800 内部实现了 3.4m²的纯平地板设计，二排拥有超过 1.2 米的腿部空间和超过 1 米的头部空间——腿部空间超过一臂的距离，绝对可以媲美飞机头等舱。\n和头等舱一样，S800 后排的两侧座椅均支持零重力功能（四座版和五座版均支持），最大可提供 148.5°的躺角，同时支持 4 向电动…",
+          "link": "http://www.geekpark.net/news/349994",
+          "publishedOn": "2025-05-30T16:14:02.000Z",
+          "wordCount": 510,
+          "title": "尊界 S800，没有手工没有血统，华为「科」出百万价格",
+          "imageUrl": null
+        },
+        {
           "id": "http://www.geekpark.net/news/349972",
           "author": null,
           "description": "小鹏汽车，要掀智驾的「桌子」。\n5月28日，小鹏MONA系列一口气推出了4款车型，官方指导价定格在11.98—13.98万元。其中，最受关注的是 502长续航Max版和600超长续航Max版，价格分别落在12.98万元和13.98万元。要知道，去年8月发布580超长续航Max版时，售价在15.58万元。\n本次发布会，更像是去年MONA M03上市的「下半场」。原定于2025年春节交付的580超长续航Max版，足足推迟了4个月。发布会现场，小鹏汽车董事长、CEO何小鹏对此解释说，「希望把满血版的小鹏智能驾驶能力，从EEA电子电气架构的特殊性、整个软件能力全部都交付。」\n\n发布会现场，何小鹏和王勉、何广智说脱口秀 | 图片来源：小鹏汽车\n值得一提的是，与以往「理工男」形象不同，本次发布会小鹏带来了耳目一新的「潮玩」气息。从邀请欧阳娜娜担任形象代言人，脱口秀明星王勉、何广智等助阵，到邀请颜值主播等，小鹏希望用更年轻、更有趣的方式与用户沟通。\n新车上市1小时后，大定量达到12566台，超过去年上市同期，其中Max版本订单占比为83%。市场随即给出最直接的回应：截至发稿，小鹏汽车股价上涨5.3%，最新市值升至1532.36亿港币。\n小鹏MONA M03是一款「拯救」了小鹏的车型，那Max版带来了哪些变化？它会把小鹏带到什么高度？\n2万美金的「Model 2」来了\n2020年9月，特斯拉宣布的2.5万美元的新车计划（俗称Model 2），让全球车迷都翘首以盼。然而，四年过去，这一承诺仍未兑现。\n如今，特斯拉的野心，被小鹏汽车抢先一步实现。这次发布的Mona M03 Max，是全球首家把高阶智能辅助驾驶带入到2万美元以内的车型，主打的就是「科技平权」。\n\n高阶智能辅助驾驶，终于来到了2万美元级别 | 图片来源：小鹏汽车\n与此前发布的版本不同，这次MAX版最大的亮点，是搭载了「满血版」的高…",
@@ -6600,6 +6760,26 @@
       "siteUrl": "https://www.nationalgeographic.com/pages/topic/latest-stories",
       "articles": [
         {
+          "id": "https://www.nationalgeographic.com/history/article/sally-ride-blazed-trail-women-astronauts",
+          "author": "Erin Blakemore",
+          "description": "Sally Ride sits in the aft flight deck mission specialist's seat during deorbit preparations. On June 18, 1983, Sally Ride became the first American woman to fly in space when the space shuttle Challenger launched on mission STS-7. As one of the three mission specialists on the mission, Ride played a vital role in helping the crew deploy communications satellites, conduct experiments, and make use of the first Shuttle Pallet Satellite.    \nIn June 1983, this barrier-breaking astronaut overcame discriminatory policies—and a sexist society—as the first American woman to launch into orbit.\n    \nOn June 18, 1983, Sally Ride would become the first American woman to launch into space. She had already survived NASA's grueling training and a barrage of tests, but there was another hurdle to cross …",
+          "link": "https://www.nationalgeographic.com/history/article/sally-ride-blazed-trail-women-astronauts",
+          "publishedOn": "2025-05-30T15:56:09.000Z",
+          "wordCount": 9677,
+          "title": "How Sally Ride blazed a trail for women in space",
+          "imageUrl": "https://i.natgeofe.com/n/e16f4679-2097-4cb7-a70b-1123da36b876/sally-ride-01_16x9.jpg?w=1200"
+        },
+        {
+          "id": "https://www.nationalgeographic.com/animals/article/paid-content-most-interesting-animals",
+          "author": "Getty Images",
+          "description": "Before your visit, discover some of Earth's most captivating creatures found at the San Diego Zoo Safari Park, like the stealthy Sumatran tiger, the soaring California condor, and the resilient desert tortoise—each with its own fascinating traits that you can observe during your safari adventure.\n          \nThe southern white rhino, nearly 99 percent of which are found in South Africa, Kenya, Namibia, and Zimbabwe, is one of the largest land animals on Earth, second only to elephants. Despite the name, these rhinos are gray, and \"white\" was likely derived from the Afrikaans word for \"wide,\" referring to their broad, square mouths. These semi-social animals often live in groups; males are usually solitary and mark their territory with dung. White rhinos are grazers, and enjoy rolling in mud…",
+          "link": "https://www.nationalgeographic.com/animals/article/paid-content-most-interesting-animals",
+          "publishedOn": "2025-05-30T14:59:35.000Z",
+          "wordCount": 5163,
+          "title": "Earth’s Most Interesting Animals",
+          "imageUrl": "https://i.natgeofe.com/n/9de98c05-df40-49ae-96d7-cd36b79d607c/GettyImages-1206256717_16x9.jpg?w=1200"
+        },
+        {
           "id": "https://www.nationalgeographic.com/travel/article/best-islands-in-croatia-for-an-island-hopping-adventure",
           "author": "James Stewart",
           "description": "Whatever you’re looking for, you’ll find it in Croatia's islands — from buzzy resorts for a party crowd on Hvar to towns like Korčula or Rab, their streets an insouciant jumble of gothic and Renaissance beauty. In between are endless pine-scrubbed specks with no firm grip on the 21st century, washed by the cleanest waters in the Mediterranean.   \nKnown as the land of a thousand islands, Croatia’s Dalmatia and Kvarner archipelagoes offer an abundance of coastal adventures — from exploring a little-known National Park to swimming in a cave plucked from Odyssean legend.\n     \nThis article was produced by National Geographic Traveller (UK).\n     \nThe fascination of islands is that they appear to be distinct, self-contained worlds. If that’s true, then Croatia is practically its own solar syste…",
@@ -7921,6 +8101,22 @@
       "feedUrl": "https://news.un.org/feed/subscribe/en/news/all/rss.xml",
       "siteUrl": "https://news.un.org/en/",
       "articles": [
+        {
+          "id": "https://news.un.org/en/story/2025/05/1163861",
+          "author": null,
+          "description": "Starving Gazans continue to be deprived of aid as international relief efforts are being severely constrained by the Israeli authorities, the UN humanitarian affairs coordination office OCHA said on Friday.",
+          "link": "https://news.un.org/feed/view/en/story/2025/05/1163861",
+          "publishedOn": "2025-05-30T12:00:00.000Z",
+          "wordCount": null,
+          "title": "Gaza is the ‘hungriest place on earth’, as Israel continues stranglehold on aid",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/06-02-2025-WHO-Gaza-14.jpg/image560x340cropped.jpg",
+            "length": "37001",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/06-02-2025-WHO-Gaza-14.jpg/image560x340cropped.jpg"
+        },
         {
           "id": "https://news.un.org/en/story/2025/05/1163856",
           "author": null,
@@ -12206,16 +12402,6 @@
           "wordCount": 58,
           "title": "左娅︱悼陈昊",
           "imageUrl": null
-        },
-        {
-          "id": "https://www.thepaper.cn/newsDetail_forward_30791330",
-          "author": null,
-          "description": "冷冰川（洪海摄）\n\n\n冷冰川，1961年出生于江苏南通，1977年起在南通工艺美术研究所工作，1986年在中央工艺美术学院进修，1994年赴荷兰米纳瓦艺术学院求学，1996年获荷兰格罗宁根大学绘画艺术学院硕士学位，1997年赴西班牙继续求学，2014年获巴塞罗那大学美术学院博士学位。\n四十年来，冷冰川以刀为笔，在墨色基底上刻绘线条，创造出独具风格的刻墨艺术，形成了一种融通中西的黑白视觉语言。2025年4月26日，“伊卡洛斯，刻墨者独白——冷冰川新作展”在清华大学美术学院开幕，展出了六十二件冷冰川近年创作的刻墨作品、综合材料作品。当天，冷冰川受聘为清华大学人文讲席教授，并出任清华美院黑白艺术研究所所长。同日发布的，还有他的新诗集《荷兰的心》，以及收录珂勒惠支、比亚兹莱、麦绥莱勒、肯特、张光宇、栋方志功、冷冰川七人作品的黑白艺术画集《黑白》。\n展览期间，《上海书评》专访了冷冰川，请他谈谈此次新作展、新诗集、四十年的创作历程和难题，以及他对黑白绘画的理解。\n\n冷冰川谈黑白。采访、摄像、视频编辑：丁雄飞(08:53)\n\n《荷兰的心》，冷冰川著，人民文学出版社，2025年5月出版\n\n\n《黑白》，汪家明编，生活·读书·新知三联书店，2025年5月出版\n\n\n您1999年第一次在国内办展，此次“伊卡洛斯，刻墨者独白——冷冰川新作展”和之前的展览有什么不同？\n冷冰川：以往的展览多以唯美的刻墨为主，那种唯美，浪漫、可心可人，却少了几分抗争的难度。此次展出的，除了刻墨新作，还新增了两类作品：一类是立体综合材料创作，另一类是综合漆作。从学习经历与创作轨迹来看，我就像一个不断迁徙的旅人，始终在驳杂的风格里穿越。纸上、布上、立体综合媒材、诗，我都选了一种放逐式的、任情任性的黑白气象，想象黑白冒险的侵略性。我知道，即便出于真心创作，个体也不为我所有——人被迫选择一种刺与刺的搏斗语言，在争论与争执的确切意…",
-          "link": "https://www.thepaper.cn/newsDetail_forward_30791330",
-          "publishedOn": "2025-05-11T02:02:04.000Z",
-          "wordCount": 500,
-          "title": "冷冰川谈黑白",
-          "imageUrl": null
         }
       ]
     },
@@ -12983,46 +13169,6 @@
           "wordCount": 202,
           "title": "如果在山上挖一个池塘不放鱼，里面会慢慢有鱼吗？",
           "imageUrl": null
-        },
-        {
-          "id": "https://daily.zhihu.com/story/9781048",
-          "author": null,
-          "description": "晴耕雨读的浣熊君，在知乎撂地的闲散科普创作者，争取每周双更\n查看知乎原文\n\n\n\n这是因为提出这个问题时，我们是以一个经历过现代社会的视角来看这个问题的，我们因为有着最基础的现代医学知识，知道伤口如果不处理就会发脓会坏死，并且顺这个逻辑认为这种仪式习俗百害而无一利。\n但首先我们要注意的一点是，这些有自残习俗的民族，在不同程度上也有着应对的医疗措施，比如萨摩亚人纹身时使用的露兜树树叶灰烬 + 椰子油做的药膏，利用碳酸钾与单宁酸抑菌。\n埃塞俄比亚的苏尔马人，给女人撑唇盘（dhebi a tugoin），或者用燧石切割伤疤后，会使用乳香和金合欢树的树脂做药膏，利用其中的乙酸香酯和阿拉伯半乳聚糖抗炎症。\n巴布亚新几内亚的胡利人，穿刺鼻中隔佩戴饰品的时候，会将竹片刀用火烤制消毒。\n这样的例子还有很多，当然浣老师不是在吹嘘这些传统医学的神奇效果，但就如问题中所说的，即使要冒着这种风险，用这些土方法来保命也要实行这样的仪式，最根本的原因是因为，在这些民族生活的环境条件下，这样做会带来好处。\n\n因为这些部落民本身除了缺少医疗资源外，同时也缺少社会凝聚力和组织度，这是其在极端条件下存续至今最需要的东西。\n神经人类学中，一位叫 Ronald Grinker 的学者在对刚果的俾格米人进行田野调查后，得出来了一个结论就是，青春期的疤痕仪式（scarification）所产生的集体疼痛体验，会让参与者和围观者内啡肽分泌激增从而增强群体凝聚力。\n这种仪式观念就是塑造认同共识的最好机会，不光是因为仪式感，同样也是仪式造成的疤痕带来相似的外貌和体态特征，这些都会加强部落中“自己人”和“外来人”的界限划分，这就叫强化了群体边界感。\n而有了内外分别，有了群体意识，那么这样最基础的组织度也就形成了，依靠这种原始的组织度，恐怖直立猿就足矣攻克许多自然界的难题，也是俾格米人能从桑加文明时代存续至今的原因。\n\n而且许多…",
-          "link": "https://daily.zhihu.com/story/9781048",
-          "publishedOn": "2025-05-11T04:20:34.468Z",
-          "wordCount": 150,
-          "title": "为什么在医疗条件差的情况下，很多原始部落有伤害自己身体的习俗？",
-          "imageUrl": null
-        },
-        {
-          "id": "https://daily.zhihu.com/story/9781081",
-          "author": null,
-          "description": "张小生，分享自己的看法\n查看知乎原文\n\n\n\n个人感觉，白龙马战斗力更强一些，沙僧不如白龙马。\n在原著中，白龙马有过两次打斗，分别是斗孙悟空和黄袍怪沙僧战绩比他多一些，巧的是沙僧也曾斗过孙悟空和黄袍怪。\n两次对比，就能看出来二人实力高低。\n第一次：大战孙悟空\n唐僧师徒二人来到鹰愁涧，唐僧的白马被妖怪吃了。这个妖怪，就是白龙马。于是，孙悟空跳到空中咒骂白龙马。白龙马一听，立马出水与孙悟空交手。\n来来往往，战罢多时，盘旋良久，那条龙力软筋麻，不能抵敌，打一个转身，又撺于水内，深潜涧底，再不出头。\n两人第一次交手，白龙马和悟空斗了很大一会儿，但他毕竟不敌孙悟空，所以下水后不再出来。\n后来，孙悟空跟唐僧说起这事，唐僧说“你之前还说有降龙伏虎的本领，怎么今天就不能制服他”？这一句话，刺激到了孙悟空，于是悟空再次去打白龙马。\n他两个又在那山崖下苦斗。斗不数合，小龙委实难搪，将身一幌，变作一条水蛇儿，钻入草科中去了。\n白龙马气不过，勉强与孙悟空斗了几个回合。但是结果一样，他打不过孙悟空，只能变成水蛇，钻到草丛里。这说明白龙马真的被打怕了。\n\n沙僧在流沙河做妖怪时，也算是和悟空交过手。\n只见那八戒虚幌一钯，佯输诈败，转回头往东岸上走。那怪随后赶来，将近到了岸边，这行者忍耐不住，撇了师父，掣铁棒，跳到河边，望妖精劈头就打。那怪物不敢相迎，搜的又钻入河内。\n沙和尚第一次差点被偷袭，导致他第二次都不敢和孙悟空打了。\n当然，这可能是因为沙僧知道，对面有两个对手，而悟空又实在太厉害，他不敢冒险。\n\n第二次：刺杀黄袍怪\n在宝象国，八戒和沙和尚去救百花羞，但两人联手也打不过黄袍怪，八戒吓得跑了，沙和尚又被抓住了。\n他们在那山坡前，战经八九个回合，八戒渐渐不济将来，钉钯难举，气力不加。你道如何这等战他不过？当时初相战斗，有那护法诸神，为唐僧在洞，暗助八戒、沙僧，故仅得个手停；此时诸神都在宝象国护定唐僧，所以二人难敌。\n那怪见八戒走了，就奔沙僧。沙僧措手不及，被怪一把抓住，捉进洞去。\n注意看这里，沙僧、八戒联手，和黄袍怪也只是打了八九个回合。没了护法神的保护，猪八戒又怂了，直接跑路坑队友，沙僧也被捉了。\n随后，黄袍怪变成俊美少年，到了宝象国，骗了国王，还把唐僧变成老虎。此时，白龙马去刺杀黄袍怪，但没成功还被打伤。\n他两个在云端里，战彀八九回合，小龙的手软筋麻，老魔的身强力壮。小龙抵敌不住，飞起刀去，砍那妖怪，妖怪有接刀之法……小龙措手不及，被他把后腿上着了一下。\n白龙马自己也能单挑黄袍怪八九回合，这就说明，白龙马约等于猪八戒和沙和尚的实力。\n\n这里还有个细节：黄袍怪打白龙马时，用的是八九十斤的满堂红，不是他本来的兵器宝刀。所以有人说，黄袍怪可能兵器不顺手。也许，用宝刀时他打白龙马用不了八九回合。\n但是别忘了，白龙马用的兵器，也是黄袍怪给他的宝刀，也未必就是顺手兵器。另外，在我看来，兵器是否顺手几乎没影响。否则，作者可以提一句。\n所以，大致来说，白龙马武艺约等于（或者说稍弱于）猪八戒和沙僧联手。若论个人实力，白龙马强于沙僧，强于猪八戒。\n查看知乎讨论",
-          "link": "https://daily.zhihu.com/story/9781081",
-          "publishedOn": "2025-05-11T04:20:34.466Z",
-          "wordCount": 105,
-          "title": "白龙马和沙僧，谁的战力更强？",
-          "imageUrl": null
-        },
-        {
-          "id": "https://daily.zhihu.com/story/9781083",
-          "author": null,
-          "description": "王小王，爱蘑菇，爱美食~公众号：冰鉴视界\n查看知乎原文\n\n\n\n大家好，我是王小王。\n今天，小编要跟诸君聊一下草菇本是非常普通的一种食用菌，为啥它会拥有中国蘑菇这么牛掰的冠名？\n\n瞧，就是它！\n草菇（Volvariella volvacea (Bull.) Singer），是一种黑不溜秋的小蘑菇，因它多生长在潮湿腐烂的稻草中，而得此名。\n在真菌分类学上，它是担子菌亚门、层菌纲、伞菌目、光柄菇科、小苞脚菇属下的一种小型真菌。\n当然，它在民间有一大堆儿别名，如中国蘑菇、稻草菇、兰花菇、秆菇、麻菇、家生菇、南华菇、美味草菇、美味苞脚菇、大黑头细花草菇……不过，它这中国蘑菇之名，可不是咱国人王婆卖瓜——自卖自夸。\n那咋来的？\n别急，下文自有分解。\n\n幼时，它是不是有点像鹌鹑蛋？\n别说，它个头的大小宛如一鹌鹑蛋，多为灰褐色至灰黑色，顶部略深一些，若不是密披着一些褐色细绒毛，还真是有点像鹌鹑蛋，而且还是没破壳的呢！\n\n这草菇咋还有蛋壳呢？\n外行了不是，这不叫蛋壳，在菌类文献中这叫外膜或包被、脚包。这也是大多数草菇与别的菌类不同之处就在于多了这一层外膜。\n初期，它是被这层外膜包裹着，随着时间的推移，外膜会渐次破裂脱落在菌柄的基部便成了它的菌托。\n哈哈，咋感觉和孵小鸡差不多！\n回看一下，草菇的属名和种加名中都有一个 Volva，即为菌托之意，这也是它为何叫小包脚菇的原因。\n再看一下，破壳后的草菇！\n\n后期，随着它的菌伞伸张，颜色也渐次褪色，此时它虽然仍可以食用，但其品质也跟着有所下降。因此，草菇在尚未破膜或刚破膜时要及时采收哦。\n切开，看一下它的内部。\n\n倒过来看，这些笑脸就变成它的菌盖及菌柄雏形了。\n有趣不？\n草菇起源于中国，距今已有 200 多年历史。\n最初，草菇的名字叫南华菇。\n\n至此，有朋友一定会猜想，这“华”字就是指咱中国——与华夏民族有关吧？呵呵，还真不是。\n有史料为证：\n如，清道光二年（1822 年）阮元在《广东通志·土产篇》之《舟车闻见录》中如是载：“南人谓菌为蕈，豫章、岭南又谓之菇。产于曹溪南华寺者名南华菇，亦家蕈也。其味，不减于北地蘑菇。”\n无独有偶。道光二十三年（1843 年）黄培爃编修《英德县志·物产略》中也有相关记载：“南华菇，原出曲江南华寺，土人效之，味亦不减北地蘑菇。”\n菇，因南华寺而扬名；寺，因南华菇而名扬，双赢！\n当然，在人们惯常的印象中，蘑菇属于山珍，大多数都长在山野之中。不过，草菇却是一个例外，它就在我们身边。\n对此，清代福建《宁德县志》亦有佐证：“城北瓮窑禾朽，雨后生蕈，宛如星斗丛簇竞吐，农人集而投于市。”\n可见，草菇本是生长在房前屋后的腐烂稻草堆上的一种野生食用菌，故民间多叫它——稻草菇、秆菇、麻菇、家生菇……\n\n当然，草菇问世不久就开始进贡皇家，连慈禧太后也对如此珍馐高竖大拇指。\n那么中国蘑菇之名到底是咋来的？\n在 20 世纪约 30 年代，我国华侨把用稻草栽培草菇的技术传到了东南亚，当地群众多叫它 the Chinese mushroom，后传入世界各地，故国际上多叫草菇为 Chinese Mushroom，现为世界上第三大栽培食用菌。\n翻译一下，就是中国蘑菇。\n夏秋季，野生的草菇多生长在雨后近乎腐烂的稻草堆上，主要分布在我国的南方地区，如广东、广西、福建、河北、台湾、湖南、四川、西藏等地。\n看一下，你的家乡有不？\n\n时下，草菇已在我国南北各地栽培产量比较大，早已登上了寻常百姓人家的餐桌。\n不过，新鲜的草菇不易久储，很快会发生自溶，且放置时间过长还会产生一定的苦味，所以你在购买后要尽快食用，或烘晒成干品，便于久储。\n\n至于草菇的吃法么？\n草菇，肉质肥厚、柄短，味道鲜美，素有“放一片，香一锅”的美誉。煎炒烹炸，红烧酱焖，你自可随意。\n当然，草菇的口碑一直不错，有诗为证：\n清鲜未必在瑶台，梦寄苍茫破土来。\n翘首葱茏依稗草，舒眉荒野沐云霾。\n香弥南岭初惊世，名越韶关半国栽。\n盛宴佳肴君不住，十餐九蕈笑颜开。\n当然，这是小王写此文的初衷，旨在让更多的朋友认识这一类野生菌。感兴趣的朋友，可以回头查看一下小王野生菌系列小文：\n1.这些木生菌谁全认识，我就服你！\n2.失敬了，糖圆齿菌！\n……\n当然，这类野生菌还有很多，这些只是其中的一小部分，以后小王还会陆续更新，敬请关注。\n我是王小王，带你一起探索神奇的蘑菇世界！\n.\n\n\n\n\n查看知乎讨论",
-          "link": "https://daily.zhihu.com/story/9781083",
-          "publishedOn": "2025-05-11T04:20:34.457Z",
-          "wordCount": 199,
-          "title": "草菇的菇伞为什么在里面？",
-          "imageUrl": null
-        },
-        {
-          "id": "https://daily.zhihu.com/story/9781085",
-          "author": null,
-          "description": "长大后觉得「时间过得更快」，这种现象是自古有之？还是现代人特有的主观感受？\n赵泠，在知乎，见证世界的参差\n查看知乎原文\n\n\n\n自述“长大后觉得时间过得更快”的现象古已有之，现代人仍经常自我报告如此。\n常见的解释：\n一、人对时间的主观感知和回忆可能与此人已度过的人生长度有关。年龄越大，同样长度的时间占已度过的人生的比例越小，人在经历和回忆时大概就会觉得这时间比较短暂。\n例如，对于 5 岁的小孩，1 年是他已度过的人生的五分之一，对于 30 岁的成年人，1 年是他已度过的人生的三十分之一。\n二、人对时间的主观感知和回忆可能与新奇的刺激有关。\n对于小孩，第一次上学、第一次触摸某件物体、第一次春游、第一次看夕阳、第一次寻找北极星等带来新奇的刺激。人脑会投入更多资源来记录新奇的经历，形成相对丰富的记忆。\n对于成年人，从未经历过的新奇刺激相对而言随着年龄增长越来越少了。熟悉的地方没有风景。\n三、人对时间的主观感知和回忆可能与注意力分配有关。一般来说，小孩相对专注于当前的活动，而成人经常分心。\n四、人对时间的主观感知和回忆可能与神经细胞的活动节律有关，该节律随年龄增长在一定范围内减慢。\n以上多种因素可能并存。\n“长大后觉得时间过得更快”并不总是成立。无论年龄，惊险刺激的经历带来的肾上腺素水平上升能够让许多当事人自述感到时间变慢。高度专注、冥想等可以改变一些成年人自我报告的时间感知状况。一些药物、一些疾病可以改变人们自我报告的时间感知状况。在无所事事地等地铁之类场景里，当事人可能自我报告一两分钟的时间流逝得特别慢——尽管他们在事后回忆时可能因为没有值得注意的事而自述“一眨眼就过去了”。\n人对回忆的美化可能会参与产生“年轻时过得更充实”的印象。可以看看：从生物学上讲，人为什么会“怀旧”？\n查看知乎讨论",
-          "link": "https://daily.zhihu.com/story/9781085",
-          "publishedOn": "2025-05-11T04:20:34.342Z",
-          "wordCount": 99,
-          "title": "长大后觉得时间过得更快，这种现象是自古有之？还是现代人特有的主观感受？",
-          "imageUrl": null
         }
       ]
     },
@@ -13555,6 +13701,26 @@
       "feedUrl": "https://feedx.site/rss/infzm.xml",
       "siteUrl": "http://infzm.com",
       "articles": [
+        {
+          "id": "http://www.infzm.com/contents/294704",
+          "author": null,
+          "description": "2025-05-30 22:00:00\n\n阔别三年，《爱，死亡和机器人》第四季在2025年5月15日回归。不幸的是，它令翘首以盼的观众感到失望。第四季目前的豆瓣评分为4.8，而前三季，这个数字分别为9.2、6.9、8.5。在国外，这季动画的口碑、收视亦均在这一系列中垫底。\n\n把这次失手怪罪到动画制作者的技术和水准上，并不公平。无论画面、特效，还是风格的丰富度，本季都交出了好学生般的精美答卷。与之前一样，第四季的10集动画由不同导演、动画工作室分头完成。每集情节独立，时长不超过20分钟，涵盖科幻、奇幻、喜剧、恐怖等故事类型，在CG、二维动画、定格动画、真人等形式中自由穿行。\n形式的延续是它尚能算作《爱，死亡和机器人》（后称《爱死机》）系列的最大原因。但是，与前三季相比，这些故事的概念、创意、内容编织的方式，似乎都发生了变异。观众的失望，也许根植于这种微妙的陌生感觉：第四季割裂又拧巴，它急于获得大众的喜爱，又想证明自我的先锋性。在视觉盛宴的背后，故事总是欲言而止，要么沦为残肢短篇，要么在老掉牙的灵感中寻找慰藉。\n\n《停不下来》\n第一集《停不下来》，大致等同于木偶版本的红辣椒乐队演唱会MV。没有情节，难找隐喻。观看它，让人以为在欣赏艺术系学生的非叙事实验作品。第二集《迷你版近距离接触》，照搬了上一季《迷你亡灵之夜》的创意。同样是在上帝视角之下，微缩模型的地球和人类如何毁灭的喜剧，只是把脚本从《惊变28天》变成了《世界大战》。第一次看有惊喜，第二次看，则会认为这是科幻版肥皂剧，一种只要有模板就可以无限复制的工业产品。此外，还有猫咪打败撒旦、猫咪统治人类，网红野兽先生也成为第七集的出演嘉宾。看到这部分让人猜想，剧集有意摆脱成人向作品的窠臼，变为顶流合家欢动画。\n\n仍有《400街区的男孩》《齐克如何信教》在作画上令人印象深刻。它们分别勾勒出黄烟漫布的末世街区、新颖而充满张力的恶魔形象。…",
+          "link": "http://www.infzm.com/contents/294704",
+          "publishedOn": "2025-05-30T14:25:08.000Z",
+          "wordCount": 82,
+          "title": "《爱，死亡和机器人》 为什么成功？为什么失败？",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/294783",
+          "author": null,
+          "description": "2025-05-30 21:32:11\n5月30日12时30分许，郓城县一废品回收企业1名员工在废旧塑料清洗池边作业时跌入池中，6位工友先后施救，相继跌入。事故发生后，当地消防部门和120迅速赶到，将7人紧急送医抢救。目前，事故已造成5人死亡，2人危重。\n菏泽市和郓城县高度重视，迅即开展应急处置，全力救治伤员，省医疗专家及时予以支持。事故原因正在调查中。",
+          "link": "http://www.infzm.com/contents/294783",
+          "publishedOn": "2025-05-30T13:55:06.000Z",
+          "wordCount": 65,
+          "title": "山东郓城一公司多人落入清洗池，已造成5死2危重",
+          "imageUrl": null
+        },
         {
           "id": "http://www.infzm.com/contents/294763",
           "author": null,
@@ -17663,46 +17829,6 @@
           "publishedOn": "2025-05-11T04:25:06.000Z",
           "wordCount": 94,
           "title": "“迷途天才”赵心童的自我救赎，中国第一位斯诺克世锦赛冠军",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/293430",
-          "author": null,
-          "description": "2025-05-11 11:00:00\n在“硬核”色彩颇浓的科创浪潮中，女性正以其独特的领导力参与战略创新，带领企业在开放与风险、转型与变革的平衡中走向新的成功。\n根据东方财富Choice数据，截至2025年4月30日， A股共有5411家挂牌企业（包括上交所、深交所、北交所），其中648家企业由女性担任董事长、总经理、总裁职位，在整体中占比11.98%。\n这一数量和比例，大致与上年同期的数据持平。（参见《女性正领导逾1/10的A股企业，科创企业是她们的主场》）\n如果放在南方周末中国企业科创力数据库中，放眼运营主体/控股股东在中国的6000+A股、港股、美股企业，这648家企业的科创力如何？\n我们根据2024年企业的科创得分情况，排出了TOP20。\n毫不意外地，我们发现这20家企业分别来自半导体、专用设备制造、医药制造、信息传输、软件和信息技术服务业等研发投入密集型企业。其中7家来自上交所科创板，6家来自深交所主板，5家出自上交所主板，2家出自深交所创业板。\n\n我们想重点来看看排在前十的企业，以及带领这些企业的女性董事长、总经理和总裁们。\n\n\n\n\n\n\n\n\n\n\n\n制图：蒙露\n作者：郭吉桐、饶舒玮 \n数据来源：南方周末中国企业科创数据库、东方财富Choice",
-          "link": "http://www.infzm.com/contents/293430",
-          "publishedOn": "2025-05-11T03:25:05.000Z",
-          "wordCount": 93,
-          "title": "女性带领的A股企业，我们排出了科创TOP20",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/293432",
-          "author": null,
-          "description": "2025-05-11 10:28:00\n\n当地时间2025年5月10日，印度阿姆利则，一架被拦截的无人机旁散落着其携带的爆炸物。图/视觉中国\n继印军“朱砂行动”后，当地时间2025年5月10日，巴基斯坦又发起代号为“铜墙铁壁”的军事行动，对印度境内多个目标展开打击。\n自5月7日以来，本轮印巴冲突已持续多日，其间爆发多轮激烈交火。值得关注的是，过去数日，巴基斯坦空军捷报频传，宣称“零战损击落‘阵风’战斗机”，引发国内外瞩目。\n阵风战斗机（Dassault Rafale）由法国达索飞机制造公司制造，具有制空、侦察、打击、反舰等多种功能，达索公司称其为“全能战机”。“阵风”战斗机一直受到印度军方青睐，此前已有36架“阵风”在印度空军服役。今年4月底，印度又向法国追购26架单座与双座“阵风”战斗机，价值约65亿欧元。\n多位军事评论员向南方周末记者指出，“阵风”战斗机可谓欧洲目前最顶级战机，造价昂贵、声名在外。不过，当前的空中作战重在战斗体系，而非单一武器。相较于巴基斯坦，印度空军装备为“多国造”，这样的“散装体系”中，顶级武器也难以发挥最好效果。\n而“阵风”之上的这场风暴，在多方的关切与呼吁下，也迎来止息的一刻。据央视新闻报道，当地时间5月10日，印度外交秘书唐勇胜证实，印巴已同意停火。而当天稍早时，巴基斯坦副总理兼外长达尔表示，巴基斯坦和印度已同意立即停火。\n“捷报”口水仗\n巴基斯坦三军新闻局局长乔杜里5月9日宣布，自印度发起“朱砂行动”以来，已造成巴方33人死亡、62人受伤，而“巴方士兵和战机没有损失”。\n早在交火首日，巴军方就对外宣布，击落5架印度战机——分别为“3架阵风、1架米格、1架苏-30”。另据央视新闻援引巴基斯坦安全部门消息，截至5月9日，巴基斯坦军队目前已摧毁77架印度无人机。\n一连串空战捷报激起了巴基斯坦国内民众极大的战斗自信心。\n巴基斯坦总理夏巴兹·谢里夫站在…",
-          "link": "http://www.infzm.com/contents/293432",
-          "publishedOn": "2025-05-11T02:55:05.000Z",
-          "wordCount": 93,
-          "title": "空战捷报与假新闻，印巴停火背后的较量",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/293428",
-          "author": null,
-          "description": "2025-05-11 09:55:00\n北京时间2025年5月6日凌晨，中国选手赵心童拿到中国第一块斯诺克世锦赛金牌。世界名将达赫迪打趣说：“中国有30万家台球厅，周二你可能预订不到位置”。这句上了热搜的话带给人广阔的想象，中国30万家台球厅都在哪里？\n20年前，丁俊晖在斯诺克界地位仅次于世锦赛的英国锦标赛上夺冠，在中国引发一股强烈的斯诺克热。20年后赵心童完成的这一壮举，弥补了丁俊晖迄今只拿到世锦赛亚军的遗憾，振奋了无数球迷的心，也必然大大推动这一热潮的奔涌。不同的是，人们在2005年的街头随处可见的台球桌，如今还剩下几张？\n2005年，在业内有着“中国斯诺克元年”之称。如果一定要给2025年一个称谓的话，也许“斯诺克狂欢年”用得上。从战绩上说，10位中国球员晋级本届世锦赛正赛，6人闯入16强，同样是史无前例的事。从影响力来说，“中国斯诺克”已经成为这项源自英格兰的绅士运动的重要力量。从市场层面而言，来自艾媒咨询的数据显示，2024年1-10月，中国新增台球相关企业数量达到113994家。\n说中国有着成为斯诺克强国的潜力，这并不夸张。\n在国内，有分量的斯诺克比赛项目越来越多，斯诺克俱乐部、台球馆的数量越来越多，斯诺克爱好者越来越多。此外，24小时无人自助台球厅也如雨后春笋般在城市里落地、“拔节”。\n无论在职业还是业余领域，台球的发展都可谓迅猛。在职业选手攻城拔寨的背后，是越来越多的草根玩家在花色“小球”面前自得其乐。这是台球运动发展的必经阶段。2021年12月，赵心童拿到斯诺克英国锦标赛冠军后，中国台球协会主席王涛表示，未来协会会开展丰富多样的台球活动，到工会，到民间，甚至到农村，“把比赛带到群众身边去，一层一层执行起来，才能让中国台球拥有第二个春天”。\n显然，在加大投入，推动专业体育项目进步的同时，也得呼应业余玩家的需求和痛点、难点，为之提供具有高“性价比”的自由空间。…",
-          "link": "http://www.infzm.com/contents/293428",
-          "publishedOn": "2025-05-11T02:25:05.000Z",
-          "wordCount": 95,
-          "title": "成就了赵心童的街头台球，如今哪里去找？",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/293396",
-          "author": null,
-          "description": "2025-05-11 08:45:00\n\n2025年4月28日，西班牙马德里市中心的格兰维亚街在停电期间变得漆黑一片（视觉中国/图）\n或许这是电被人类利用以来，在西欧最受人瞩目的时刻。\n当地时间2025年4月29日凌晨，当深陷黑暗的城区亮起电灯的那一刻，欢呼与尖叫声瞬间响彻西班牙马德里的天空，人们仿佛在迎接翘首企盼多时的“超级明星”。\n4月28日中午，欧洲西南部突然大规模停电，西班牙、葡萄牙全境（除了部分离岛）和法国南部一些地区均受冲击。停电一直持续到深夜，影响了数千万人，交通、通讯、企业、商场、医院等几乎所有领域都陷入停滞。\n安道尔和法国北巴斯克地区在短暂断电之后，很快重新恢复电力。据西班牙国家电网公司（Red Eléctrica de Espaa，简称REE）公告，晚上10时30分，当地近一半区域已恢复电力供应。到次日上午11时15分，伊比利亚半岛的电力系统在崩溃近23小时后，终于恢复正常。\n欧盟委员会执行副主席特雷莎·里贝拉（Teresa Ribera，负责促进清洁能源）称，这次大停电是“近年来欧洲有记录的最严重事件之一”。事件发生之后，很多人开始质疑地区电网的可靠性，也有不少人对当地可再生能源转型政策提出疑问。\n\n2025年4月28日，旅客滞留在马德里的一处火车站（新华社/图）\n欧洲史上最严重的停电事故之一\n4月28日中午12点33分，西班牙和葡萄牙部分地区突然开始停电，很快，整个伊比利亚半岛的电力系统彻底崩溃。相邻的法国西南地区和安道尔也断电约一个小时。西班牙首相佩德罗·桑切斯（Pedro Sánchez）对外表示，在短短5秒钟内，15吉瓦（GW）的发电量突然从系统中消失，相当于全国电力需求的60%。\n大多数电站停止运转，最终导致整个半岛陷入混乱之中。西班牙和葡萄牙相继宣布，全国进入紧急状态。其中，西班牙在各地部署了3万名警察。\n“我爷爷正在一家诊所里拔牙，突然停…",
-          "link": "http://www.infzm.com/contents/293396",
-          "publishedOn": "2025-05-11T00:55:05.000Z",
-          "wordCount": 99,
-          "title": "欧洲大停电暴露能源转型的致命漏洞？",
           "imageUrl": null
         }
       ]
