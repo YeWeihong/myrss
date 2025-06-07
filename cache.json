@@ -2729,36 +2729,6 @@
             "length": "0"
           },
           "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/2c2e0ee0-6f07-48e5-756f-da1c5803b000/cover"
-        },
-        {
-          "id": "920266",
-          "author": "InfoQ 中文",
-          "description": "📌 一句话摘要\n            \n阿里巴巴团队分享重现 DeepSeek-V3 MoE 模型高性能推理的关键技术与实践经验。\n📝 详细摘要\n            \n本文由阿里巴巴智能引擎团队撰写，详细介绍了其在 RTP-LLM 推理引擎上优化并对齐 DeepSeek-V3 大规模 MoE 模型推理性能的实践过程。文章分析了 MoE 模型推理面临的挑战，特别是 Prefill 和 Decode 阶段的性能瓶颈。作者团队通过实现和优化 DeepEP、MicroBatch & Overlapping、MTP（多令牌预测）等关键技术，以及进行 PD 分离部署、网络优化、CUDA Kernel Fusion、PDL 等底层优化，成功在实际部署环境中复现了 DeepSeek 官方报告的性能指标，甚至在部分测试场景下有所超越。文章还分享了实现过程中的技巧、不足和未来工作方向，并对比分析了 Qwen3 MoE 模型的推理特点，为处理大型 MoE 模型推理提供了宝贵的工程经验参考。\n💡 主要观点\n            \n成功在 RTP-LLM 上复现 DeepSeek-V3 推理性能\n                         通过一系列系统级优化，阿里巴巴团队使用其 RTP-LLM 引擎在实际环境中达到了与 DeepSeek 官方报告相当甚至更高的 Prefill 和 Decode 吞吐性能。\n                    \n\n                        MoE 推理需结合 EP、MicroBatch 和 Overlap 技术\n                         针对 MoE 模型的特点，利用专家并行 (EP)、细粒度处理 (MicroBatch) 以及计算与通信重叠是提升推理效率的关键方法。\n                    \n\n                        MTP 投机采样有效改善 Decode 延迟\n                         引入 MTP 投机采样能降低平均迭代延迟 (ITL)，补偿 MicroBatching 带来的延迟，提高用户交互响应速度。\n                    \n\n                        PD 分离部署是大型 MoE 模型的必然选择\n                         Prefill 和 Decode 阶段计算特点差异大，采用 PD 分离部署并优化负载均衡策略，能更有效地利用资源和提升整体吞吐。\n                    \n💬 文章金句\n            \nDeepSeek-V3 在多个评测中展现出强大性能，成为当前最受关注的开源大模型之一。\n在 RTP-LLM 测试中，我们使用 4K input/2K output，在 1.6s TTFT 和 50ms ITL 约束下，达到了 Prefill42.6KTPS per node， Decode14.7KTPS per node 的性能。\nEP 负载策略仍然是未来要深入探索的一个方向。\nMTP 可以降低平均 ITL，将 MicroBatch 造成的延迟补偿回来。\nPD 分离部署是必然选择。\n我们相信开源、开放、交流是实现 AGI 的必由之路。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：InfoQ 中文\n作者：InfoQ 中文\n分类：软件编程\n语言：中文\n阅读时间：18 分钟\n字数：4314\n标签：\n                    \n                        LLM推理优化, MoE模型, DeepSeek-V3, 分布式推理, RTP-LLM",
-          "link": "https://www.bestblogs.dev/zh/article/920266",
-          "publishedOn": "2025-05-19T06:26:00.000Z",
-          "wordCount": 321,
-          "title": "如何重现 DeepSeek 推理性能突破",
-          "enclosure": {
-            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/2cb422ea-5955-499c-d746-6dc2f0397c00/cover",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/2cb422ea-5955-499c-d746-6dc2f0397c00/cover"
-        },
-        {
-          "id": "43fd95",
-          "author": "十三",
-          "description": "📌 一句话摘要\n            \n华为昇腾携手 DeepSeek 在大规模 MoE 模型推理上取得性能突破，单卡吞吐创新高并承诺开源技术。\n📝 详细摘要\n            \n文章详细介绍了华为昇腾平台（CloudMatrix 384 超节点和 Atlas 800I A2）在部署超大规模 MoE 模型（DeepSeek V3/R1）推理方面的最新进展。通过“以数学补物理”的策略，昇腾在内存压力、通信开销和架构创新挑战下，从算子、模型、框架三方面进行优化，实现了单卡 Decode 吞吐突破 1920 Tokens/s（50ms 时延下）和 808 Tokens/s（100ms 时延下），性能可比肩 H100 部署性能。文章还披露了 PD 分离部署、基于 vLLM 的框架优化、A8W8C16 量化、大规模 EP 并行、FusionSpec 投机推理、FlashComm 通信优化、层内并行转换及多种算子优化技术。华为承诺将陆续开源相关技术报告和核心代码。\n💡 主要观点\n            \n华为昇腾硬件在超大规模 MoE 模型推理上实现性能突破。\n                         通过 CloudMatrix 384 超节点和 Atlas 800I A2 服务器，昇腾在 DeepSeek V3/R1 推理上单卡吞吐达 1920/808 Tokens/s，性能媲美甚至超越英伟达同类架构，彰显国产算力潜力。\n                    \n\n                        采用“以数学补物理”理念克服硬件瓶颈。\n                         通过数学理论、算法和建模等软件层面的创新，弥补硬件工艺局限，最大化发挥芯片和系统能力，是实现高性能的关键策略。\n                    \n\n                        从框架、模型、算子等多层面进行深度技术优化。\n                         结合 PD 分离部署、vLLM 框架适配、量化、并行策略、通信优化(FlashComm 等)及算子优化(AMLA 等)，系统化提升 MoE 模型在集群环境下的推理效率。\n                    \n💬 文章金句\n            \n国产芯片的推理性能，已经再创新高了——不仅是'英伟达含量为 0'这么简单，更是性能全面超越英伟达 Hopper 架构！\n华为昇腾所采取的'以数学补物理'——这种通过数学理论、工具、算法和建模等方式，来弥补硬件和工艺的局限性，实现最大化发挥芯片和系统能力效果。\n华为昇腾还不只是'官宣'一下而已，后面更会是全面开源。\n该服务在保证单用户 20 TPS(等效 50ms 时延约束) 水平前提下，单卡 Decode 吞吐突破 1920 Tokens/s，可比肩 H100 部署性能。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：量子位\n作者：十三\n分类：人工智能\n语言：中文\n阅读时间：15 分钟\n字数：3695\n标签：\n                    \n                        LLM推理, 性能优化, MoE模型, 分布式计算, 昇腾",
-          "link": "https://www.bestblogs.dev/zh/article/43fd95",
-          "publishedOn": "2025-05-19T05:22:26.000Z",
-          "wordCount": 315,
-          "title": "华为+DeepSeek，推理性能创新高！技术报告也公布出来了",
-          "enclosure": {
-            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/5dc7d06f-6950-4655-eada-d09d405bf400/cover",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/5dc7d06f-6950-4655-eada-d09d405bf400/cover"
         }
       ]
     },
@@ -3006,26 +2976,6 @@
           "wordCount": 8198,
           "title": "Journalism in the Crucible: Seven Key Takeaways from 2025 Harry Evans Truth Tellers Summit",
           "imageUrl": "https://gijn.org/wp-content/uploads/2025/05/Harry-Evans-Summit-Will-the-Press-Fight-or-Fold-771x436.png"
-        },
-        {
-          "id": "https://gijn.org/?p=2252996",
-          "author": "Andrea Romanos",
-          "description": "In this fast-paced session, winning teams will each have five minutes to share key insights from their reporting process — from their favorite tools to innovative methods that helped uncover complex stories. Moderated by journalist and newsroom leader Gina Chua, the session offers a unique, behind-the-scenes look at the workflows powering award-winning journalism.",
-          "link": "https://gijn.org/event/gijn-webinar-behind-the-data-2025-sigma-award-winners/",
-          "publishedOn": "2025-05-19T07:02:56.000Z",
-          "wordCount": 1129,
-          "title": "GIJN Webinar: Behind the Data — Tools and Techniques from the 2025 Sigma Award Winners",
-          "imageUrl": "https://gijn.org/wp-content/uploads/2025/05/DUPLICATE-ME-–-Final-Result-1-771x434.png"
-        },
-        {
-          "id": "https://gijn.org/?p=2250831",
-          "author": "Rowan Philp",
-          "description": "Ten outstanding data-driven journalism projects, from as many countries, were chosen by a diverse Prize Committee of 17 judges from 498 entries from 80 countries.",
-          "link": "https://gijn.org/stories/gijn-winners-2025-sigma-awards/",
-          "publishedOn": "2025-05-19T07:00:58.000Z",
-          "wordCount": 6637,
-          "title": "From Flammable Buildings to Slavery’s Hidden Legacy to Tainted Groundwater: Projects from 10 Countries Win GIJN’s 2025 Sigma Awards",
-          "imageUrl": "https://gijn.org/wp-content/uploads/2025/05/WINNERS-ANNOUNCEMENT.png"
         }
       ]
     },
@@ -4598,16 +4548,6 @@
           "wordCount": 497,
           "title": "中国 AI 大厂，被 Deepseek 掀了牌桌之后",
           "imageUrl": null
-        },
-        {
-          "id": "http://www.geekpark.net/news/349396",
-          "author": null,
-          "description": "01\nAI 崛起：技术双刃剑下的安全暗战\n随着 AI 技术的快速发展，网络安全面临的威胁日益复杂化，攻击手段不仅更高效、隐蔽，还催生了新型的「AI 黑客」形态，因此引发了各类新型网络安全危机。\n首先是生成式 AI 正重塑网络诈骗的「精准度」。\n简单而言，就是将传统的钓鱼攻击智能化，比如在更精准的场景中，攻击者会利用公开社交数据训练 AI 模型，批量生成个性化钓鱼邮件，模仿特定用户的写作风格或语言习惯，实施「定制化」诈骗，绕过传统垃圾邮件过滤器，大幅提升攻击成功率。\n接着是最为大众所熟知的深度伪造（Deepfake）与身份冒用。在 AI 技术成熟之前，传统的「变脸诈骗攻击」，即 BEC 诈骗，全称为「Business Email Compromise」，具体为攻击者通过将邮件发件人伪装成你的领导、同事或商业伙伴，以此骗取商业信息或钱财、或者获取其他重要资料。\n如今，「变脸」真的发生了。AI 生成的换脸、变声技术可伪造公众人物或亲友身份，用于诈骗、舆论操控甚至政治干预。就在两个月前，上海某企业财务总监接到来自「董事长」的视频会议邀请，对方通过 AI 换脸仿声称需紧急支付「境外合作保证金」，该总监依指示转 380 万元至指定账户，后识破系境外诈骗团伙利用深度伪造技术作案。\n第三则是自动化攻击与漏洞利用。AI 技术的进步让大量场景向智能化、自动化演进，网络攻击自然也是如此。攻击者可借助 AI 自动扫描系统漏洞、生成动态攻击代码，并对目标实施无差别快速攻击，比如 AI 驱动的「零日攻击」在发现漏洞后会立即编写并执行恶意程序，传统防御系统难以实时响应。\n就在今年春节，DeepSeek 官网遭遇 3.2Tbps 超大规模 DDoS 攻击，黑客同步通过 API 渗透注入对抗样本，篡改模型权重导致核心服务瘫痪 48 小时，直接经济损失超数千万美元，事后溯源发现美国 NSA 长期潜伏的渗透痕迹…",
-          "link": "http://www.geekpark.net/news/349396",
-          "publishedOn": "2025-05-19T06:44:01.000Z",
-          "wordCount": 656,
-          "title": "「AI 黑客」来袭，Agentic AI 如何成为新守护者？",
-          "imageUrl": null
         }
       ]
     },
@@ -4699,21 +4639,6 @@
           "publishedOn": "2025-05-21T08:12:15.000Z",
           "wordCount": 765,
           "title": "当吃这件事“吃”了你｜深度报道",
-          "enclosure": {
-            "length": "1337",
-            "type": "image/png",
-            "url": "https://static.ws.126.net/163/frontend/images/logo-netease-114.png"
-          },
-          "imageUrl": "https://static.ws.126.net/163/frontend/images/logo-netease-114.png"
-        },
-        {
-          "id": "http://www.inoreader.com/article/3a9c6e7738ca0238",
-          "author": null,
-          "description": "记者/石爱华 实习记者/陈书灵苏罗杰\n编辑/宋建华\n     \n 涉案螺母与32号枪管螺母对比图\n2025年5月15日，一起“涉嫌非法买卖枪支”案在珠海市金湾区法院开庭审理。马建想不到，一个看起来平常的五金订单，会把儿子马晓强送上被告席。\n2022年6月24日，广东警方来到马建的金属制品厂将其当场控制，并在仓库内查获一批疑似枪支配件的“铁头子螺母”。同时，在山东出差的马晓强也被珠海市高栏港分局以“涉嫌非法买卖枪支罪”刑事拘留。次日，二人被带往珠海接受调查。\n一个月后，马建被取保候审，马晓强被珠海市金湾区检察院批捕。经过公安机关两次补充侦查，马晓强于2023年6月30日被起诉至珠海市金湾区法院，马建则被作出不起诉处理。\n起诉书显示，在马建工厂查获的1977个螺母被认定为属于国外AR15系列制式枪管螺母金属零件，其中至少有1746个被认定为枪支散件。马建称，涉案的螺母订单一部分来自早有合作的客户，其余来自线上订单，每个售价10元。在他看来，这款螺母使用的是通用螺纹规格，“用的地方多了，甚至安在水龙头、热水器水管上都可以。”\n法庭上，针对“铁头子螺母”是否为枪支散件，控辩双方拿出了两份结论不同的鉴定报告，两份鉴定报告的鉴定人也作为证人出庭，当面向法官阐述了鉴定过程。\n此次庭审持续两天，至5月16日晚7点结束，法庭未当场宣判。\n \n    \n 涉案螺母与32号枪管螺母\n5月15日上午，马建来到珠海市金湾区法院，以证人身份出席此次庭审。\n马建今年62岁，南通市通州区平潮镇人，做五金生意已有20多年。2016年，当地媒体报道称“南通正在崛起全球最大枪用瞄准镜产业集群”，枪用瞄准镜的全球产量有80%以上来自中国，而中国“枪瞄”产量的60%以上又来自南通，发展至今形成了完整的上下游配套产业集群，从业人数逾万人。马建便是从业者之一。\n马建的儿子马晓强1988年出生，大学毕业后，他在镇上帮家里…",
-          "link": "https://c.m.163.com/news/a/JVUDKLEE0512BN99.html?from=subscribe",
-          "publishedOn": "2025-05-19T08:14:10.000Z",
-          "wordCount": 511,
-          "title": "一批螺母订单牵出的“买卖枪支案” | 深度聚焦",
           "enclosure": {
             "length": "1337",
             "type": "image/png",
@@ -5722,6 +5647,56 @@
       "feedUrl": "https://wechat2rss.xlab.app/feed/8d839de8dd3290a1f1be7a94423cccb30c1b087d.xml",
       "siteUrl": "https://wechat2rss.xlab.app/feed/8d839de8dd3290a1f1be7a94423cccb30c1b087d.xml",
       "articles": [
+        {
+          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654601003&idx=1&sn=9bd7d88a229349522c9cd36e868ff2f1",
+          "author": null,
+          "description": "今天是6月7日，农历五月十二。",
+          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654601003&idx=1&sn=9bd7d88a229349522c9cd36e868ff2f1",
+          "publishedOn": "2025-06-07T16:01:00.000Z",
+          "wordCount": 264,
+          "title": "特朗普再次宽限Tiktok，首个满级QQ诞生，宝洁将裁员7000人，Switch 2销量突破300万，这就是今天的其他大新闻！",
+          "imageUrl": null
+        },
+        {
+          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654601003&idx=2&sn=afe6886a688b169444ec54c2afdc3493",
+          "author": null,
+          "description": "如果看不见，该如何用手机？",
+          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654601003&idx=2&sn=afe6886a688b169444ec54c2afdc3493",
+          "publishedOn": "2025-06-07T16:01:00.000Z",
+          "wordCount": 264,
+          "title": "黑灯教我用手机，我觉得他有“超能力”。",
+          "imageUrl": null
+        },
+        {
+          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654601003&idx=3&sn=7850ea4343b1812d690245ae67f10a17",
+          "author": null,
+          "description": "写作文已经拦不住AI了",
+          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654601003&idx=3&sn=7850ea4343b1812d690245ae67f10a17",
+          "publishedOn": "2025-06-07T16:01:00.000Z",
+          "wordCount": 264,
+          "title": "今年AI写的高考作文，我已经感觉自己没资格点评了。",
+          "imageUrl": null
+        },
+        {
+          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654601003&idx=4&sn=6fd8ae34a1bca7e8ed5f79e10a4591fc",
+          "author": null,
+          "description": "来源微博@迷惑行为大赏老师给考卷打了 9.9 分。",
+          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654601003&idx=4&sn=6fd8ae34a1bca7e8ed5f79e10a4591fc",
+          "publishedOn": "2025-06-07T16:01:00.000Z",
+          "wordCount": 264,
+          "title": "今日最佳：如何销售临期商品？",
+          "imageUrl": null
+        },
+        {
+          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654601003&idx=5&sn=ebdb8c2b180f451ea71273361724dc02",
+          "author": null,
+          "description": "",
+          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654601003&idx=5&sn=ebdb8c2b180f451ea71273361724dc02",
+          "publishedOn": "2025-06-07T16:01:00.000Z",
+          "wordCount": 264,
+          "title": "聊一聊：哪个家电最能给你幸福感？",
+          "imageUrl": null
+        },
         {
           "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654600938&idx=1&sn=493b9094d3cb0efa1cc71aaf801def50",
           "author": null,
@@ -6799,6 +6774,16 @@
       "feedUrl": "https://rsshub.rssforever.com/nationalgeographic/latest-stories",
       "siteUrl": "https://www.nationalgeographic.com/pages/topic/latest-stories",
       "articles": [
+        {
+          "id": "https://www.nationalgeographic.com/travel/article/best-moroccan-city-for-architecture-casablanca",
+          "author": "Amelia Dhuga",
+          "description": "You can organise a guided tour of the Hassan II Mosque with Casamémoire, a non-profit that’s been working to preserve the city’s 20th-century architecture since 1995.   \nLocated on the Atlantic coast of Morocco, the nation’s most populous city is a layer cake of soaring mosques, art deco cinemas and technicolour murals.\n     \nThis article was produced by National Geographic Traveller (UK).\n     \nCasablanca is well versed in transformation. Anfa, the Amazigh settlement that once stood here, was obliterated by the Portuguese in 1468. When they returned to rebuild the town half a century later, they renamed it ‘Casa Branca’ (White House). An earthquake then levelled the region in 1755, prompting Moroccan ruler Sultan Mohammed ben Abdallah to build the whitewashed Medina. Earning itself the lo…",
+          "link": "https://www.nationalgeographic.com/travel/article/best-moroccan-city-for-architecture-casablanca",
+          "publishedOn": "2025-06-07T18:49:51.000Z",
+          "wordCount": 6656,
+          "title": "Love Moroccan architecture? Try this city instead of Marrakech",
+          "imageUrl": "https://i.natgeofe.com/n/9fb1c5b3-6697-4507-af4d-1108975aacd9/GettyImages-2152143162-SergioFormoso_16x9.jpg?w=1200"
+        },
         {
           "id": "https://www.nationalgeographic.com/travel/article/chengdu-ancient-teahouses-are-going-viral",
           "author": "Qin Xie",
@@ -9992,6 +9977,66 @@
       "siteUrl": "https://chinadigitaltimes.net/chinese",
       "articles": [
         {
+          "id": "https://chinadigitaltimes.net/chinese/?p=718719",
+          "author": "不忘初心",
+          "description": "“人在极度无语的情况下是真的会笑。”https://chinadigitaltimes.net/chinese […]",
+          "link": "https://chinadigitaltimes.net/chinese/718719.html",
+          "publishedOn": "2025-06-07T19:50:54.000Z",
+          "wordCount": 13068,
+          "title": "每日一语 2025.6.7",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/20250607_dailyquote.png"
+        },
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=718716",
+          "author": "不忘初心",
+          "description": "当代大学存在太多腐败。有时它更像游乐园、精英会员俱乐部、公司——除了生产知识并与世界分享的地方。但在最好的时候，大学是这样一个不可能的幻想——一个我们可以测试危险、非正统思想的地方，一个我们可以梦想更好世界的地方，一个我们可以犯错误的地方，一个我们可以改变想法的地方。心灵的生活是乌托邦，历史证明了它的脆弱性。如果我们停止为它而战，它就会死亡。",
+          "link": "https://chinadigitaltimes.net/chinese/718716.html",
+          "publishedOn": "2025-06-07T19:22:11.000Z",
+          "wordCount": 13108,
+          "title": "【Cdt关注】华裔作家匡灵秀谈89天安门和美国高等教育困境：2025年乔治城大学毕业演讲",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/Kuang-Rebecca_Event-Image.webp"
+        },
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=718689",
+          "author": "不忘初心",
+          "description": "“强奸不满14岁女孩判2年，给r18G书籍校对判4年，写书的判10年。”",
+          "link": "https://chinadigitaltimes.net/chinese/718689.html",
+          "publishedOn": "2025-06-07T18:00:57.000Z",
+          "wordCount": 13063,
+          "title": "【网络民议】强奸罪判两年，大人们看着不发笑吗？",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/Screenshot-2025-06-06-at-10.58.40 AM.png"
+        },
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=718712",
+          "author": "温都尔汗空管",
+          "description": "这些年，张雪峰争议不断，总在风口浪尖处讲一些不合时宜的话。几乎每次他关于高考与考研的发声，都会掀起一阵巨浪。曾经口口声声说着不希望自己太娱乐化的张雪峰，早已成为娱乐中的重要一环。",
+          "link": "https://chinadigitaltimes.net/chinese/718712.html",
+          "publishedOn": "2025-06-07T16:02:47.000Z",
+          "wordCount": 13348,
+          "title": "最人物｜张雪峰，消失在高考第一天",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/截屏2025-06-07-17.54.48.png"
+        },
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=718709",
+          "author": "温都尔汗空管",
+          "description": "杭州六小龙之后，很多地方都在反思那么，到底有不有“杭州模式”，或者更精准的说，存不存在一种范式，其他地方可以。",
+          "link": "https://chinadigitaltimes.net/chinese/718709.html",
+          "publishedOn": "2025-06-07T16:02:42.000Z",
+          "wordCount": 13109,
+          "title": "赛格大道｜杭州模式？别闹了",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/截屏2025-06-07-12.27.22.png"
+        },
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=718609",
+          "author": "不忘初心",
+          "description": "“打星号的是那三个字发不出来吗？”",
+          "link": "https://chinadigitaltimes.net/chinese/718609.html",
+          "publishedOn": "2025-06-07T15:00:33.000Z",
+          "wordCount": 13239,
+          "title": "今天今日｜***骄*傲*月 | 6月 | ***属于*倾向的一种 , 指对**产生情感、爱情或*的吸引**",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/post-718609-683f8dffa1b31-1.png"
+        },
+        {
           "id": "https://chinadigitaltimes.net/chinese/?p=718706",
           "author": "南方街头运动员",
           "description": "这算是“官方VPN”吗？ https://chinadigitaltimes.net/chinese/7186 […]",
@@ -11470,56 +11515,6 @@
           "wordCount": 13065,
           "title": "【404文库】鸡蛋bot｜网传武汉硚口一餐馆发生枪击案，目击者：有人员中枪",
           "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/05/image-1747649929825.png"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=718190",
-          "author": "unknown",
-          "description": "据香港《南华早报》报道，在最近举行的第十二届中国国际警用装备博览会上，公安部第三研究所展示了一款能监控Telegram的工具，据称该工具目前已收集超过300亿条消息，监控了7000万个Telegram账户，以及39万个公共频道和群组。",
-          "link": "https://chinadigitaltimes.net/chinese/718190.html",
-          "publishedOn": "2025-05-19T04:22:41.000Z",
-          "wordCount": 13129,
-          "title": "【CDT关注】南华早报｜中国新一代监控工具借力AI：已监控7000万Telegram账户、可自动检测翻墙行为",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/04/IMG_2931.png"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=718177",
-          "author": "既要又要还要",
-          "description": "有微博大V如此评论：“咱们老百姓运气可太好了，唯一一次油罐车里装的食用油被查出来了；唯一一个靠造假当医生的董小姐也被查出来了，我们运气是真的好。”最终这条帖子遭遇了404。就在网友们呼吁“既查造假，也查包庇”的时候，另一个类似董袭莹事件的大瓜再次出现。这次的主角，是一位四川雅安籍演员黄杨钿甜......",
-          "link": "https://chinadigitaltimes.net/chinese/718177.html",
-          "publishedOn": "2025-05-19T04:18:36.000Z",
-          "wordCount": 13163,
-          "title": "【Cdt周报】第219期：唯一一个造假的董小姐被查出来了，我们运气是真的好",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/05/image-1747628125635.png"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=718187",
-          "author": "unknown",
-          "description": "被迫退学后的5年间，仅有一张初中毕业证的胡乐艰难求职，至今仍未等到校方的正式道歉，工作屡屡受挫，抑郁反复发作。只因一个懵懂的表达，少年付出了惨痛的代价。",
-          "link": "https://chinadigitaltimes.net/chinese/718187.html",
-          "publishedOn": "2025-05-19T04:05:24.000Z",
-          "wordCount": 13175,
-          "title": "真实故事计划｜被迫退学的玫瑰少年，无路可走",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/05/2-2.jpg"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=718185",
-          "author": "unknown",
-          "description": "所谓的乾隆盛世，表面看是中国传统政治文化的巅峰，但英国使团的记录中，这个巅峰却更像是万丈深渊里的最后一块垫脚石。",
-          "link": "https://chinadigitaltimes.net/chinese/718185.html",
-          "publishedOn": "2025-05-19T03:58:23.000Z",
-          "wordCount": 13113,
-          "title": "捉刀时间max｜大清的官僚系统，其实就是一个吸血系统",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/05/1-3.jpg"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=718183",
-          "author": "unknown",
-          "description": "《看见》，看不见。",
-          "link": "https://chinadigitaltimes.net/chinese/718183.html",
-          "publishedOn": "2025-05-19T03:53:32.000Z",
-          "wordCount": 13068,
-          "title": "每日一语 2025.5.18",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/05/5.18.jpg"
         }
       ]
     },
@@ -12224,16 +12219,6 @@
           "wordCount": 851,
           "title": "派评 | 近期值得关注的 App",
           "imageUrl": "https://cdnfile.sspai.com/2025/5/19/article/73f2f43a-4f80-33ef-1e93-bfbc4d51f187.png"
-        },
-        {
-          "id": "https://sspai.com/post/99154",
-          "author": "胡九思",
-          "description": "如今的信息世界被算法所主导，与其依靠算法推送制造无尽焦虑，不如选择信息聚合服务，重新掌握信息摄入的主动权。查看全文",
-          "link": "https://sspai.com/post/99154",
-          "publishedOn": "2025-05-19T07:00:00.000Z",
-          "wordCount": 758,
-          "title": "利器善事，用 FOLO 和语鲸打造个人信息流",
-          "imageUrl": "https://cdnfile.sspai.com/2025/5/19/article/efc6f709-3232-eb55-aeba-a880bd7c7f3f.png"
         }
       ]
     },
@@ -12510,16 +12495,6 @@
           "publishedOn": "2025-05-20T05:02:04.000Z",
           "wordCount": 49,
           "title": "李根读《野兽之魂》｜拨开高深的布幔，直窥历史的复杂",
-          "imageUrl": null
-        },
-        {
-          "id": "https://www.thepaper.cn/newsDetail_forward_30837779",
-          "author": null,
-          "description": "《发展法学：经济法维度的解析》，张守文著，中国人民大学出版社，2021年8月出版，340页，98.00元\n\n\n《新发展理念与经济法制度完善》，张守文等著，北京大学出版社，2022年6月出版，408页，76.00元\n\n\n一\n为什么有些国家贫穷、有些国家富裕，以及穷国如何致富，一直是经济学研究的重要议题，并形成了专门的分支学科——发展经济学（Development Economics）。发展经济学兴起于二战之后，西方世界的政策制定者意识到，单靠经济学无法解决政治稳定、社会发展、产权保护等问题，于是，发展研究（Development Studies）扩展到政治学、社会学、法学等学科，形成了发展社会学、发展政治学、法律与发展研究等。在发展研究中，法律是一个重要的维度。\n长期以来，中国一直被视为典型的“发展型国家”（developmental state）。“发展才是硬道理”“发展是第一要务”，是当代中国人耳熟能详的命题。对中国法学界来说，发展并不是一个全新的议题。中国法学界关于发展问题的研究，大致可以分为两个脉络，一是对“法律与发展”运动的研究，例如姚建宗的《法律与发展研究导论》、黄文艺的《当代中国法律发展研究——模式、传统与过程》、鲁楠的《全球化视野下的法律与发展》、郭晓明的《新法律与发展多维研究——趋向综合发展的跨学科考察》等；二是发展权研究，汪习根教授是这方面的执牛耳者，代表作如《法治社会的基本人权——发展权法律制度研究》《发展权全球法治机制研究》。但是，在中国法学界，发展问题总体处于比较边缘的位置。究其原因，大概与当代中国法学研究的基本理论范式有关。改革开放以来，中国法学界在反思以往“阶级斗争范式”的基础上，确立了“权利本位范式”。在这一范式下，法学界的主流观点主张国家与市民社会、公法与私法的相对分离，以及私法优位，认为私法是公法以及整个法治的基础，强调限制公权力，保护私权…",
-          "link": "https://www.thepaper.cn/newsDetail_forward_30837779",
-          "publishedOn": "2025-05-19T05:02:04.000Z",
-          "wordCount": 310,
-          "title": "吴双评《发展法学》｜穷国致富的钥匙：制度，还是产业活动？",
           "imageUrl": null
         }
       ]
@@ -17629,56 +17604,6 @@
           "wordCount": 120,
           "title": "一周精选：轮奸卖淫女案：未获核准的二审改判",
           "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/293976",
-          "author": null,
-          "description": "2025-05-19 14:45:00\n“世纪病”：一个不容忽视的重大社会问题\n在《记忆的重量》这本深度探索失智症、衰老和死亡的作品中，记者尼奇·杰勒德（Nicci Gerrard）把失智症称为我们这个时代的瘟疫，它也是“世纪病”。后面这个说法出自著名科学作家兼医生刘易斯·托马斯（Lewis Thomas），因为“在所有20世纪的健康问题中，这一个是最糟糕的”。这凸显了阿尔茨海默病所带来的深远影响，尤其是对大脑功能的破坏，以及对患者及其家人生活所造成的巨大挑战。\n世界卫生组织的数据显示，2021年，全球共有5700万失智症患者，其中60%以上生活在低收入和中等收入国家。每年新增近1000万病例。失智症目前是第七大死因，也是造成全球老年人能力丧失和依赖他人的主要原因之一。\n2019年，失智症造成的全球经济损失达1.3万亿美元，其中约50%的费用涉及非正式护理人员（例如家庭成员和亲密朋友）提供的护理，他们平均每天提供5小时的护理和监督。\n根据世界卫生组织的另一个数据，失智症患者人数预计将从2019年的5500万增加到2050年的1.39亿。国际阿尔茨海默病协会发布的《2023 年世界阿尔茨海默病报告》显示，预计到2030年，失智症相关的费用也将增加一倍以上，从2019年的每年1.3万亿美元增加到2.8万亿美元。\n根据《中国阿尔茨海默病报告2024》，中国现存的失智症患病人数近1700万，占全球患者总人数近三成。其中最常见的是阿尔茨海默病型失智症。这一类型的失智症虽然最普遍，但筛查率、诊断率和治疗率都偏低。近30年来，随着人口老龄化进程加速，阿尔茨海默病在中国的发生率、发病率和死亡率稳步上升，目前已成为城乡居民的第五大死因。据《中华老年医学》杂志预计，到2050年，失智症患者的数量可能超过5000万。\n近日，复旦大学附属华山医院耿道颖教授发表的研究论文指出，近30年来，中国的阿尔…",
-          "link": "http://www.infzm.com/contents/293976",
-          "publishedOn": "2025-05-19T06:55:05.000Z",
-          "wordCount": 102,
-          "title": "家庭照护为什么这么难⑿：让失智症照护进入公共议题",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/293978",
-          "author": null,
-          "description": "2025-05-19 13:45:00\n\n2022年11月2日，四川省广安市，在双河小学举办的“女童保护”儿童防性侵知识讲座上，社会工作者在为学生演示如何预防和抵抗性侵。（视觉中国/图）\n“性教育是斩断性侵黑手的治本之策。”2025年5月17日，国家健康和人口发展战略研究院学术委员会主席、原国家卫计委副主任王培安如是说。他是在《“女童保护”2024年性侵儿童案例统计及儿童防性侵教育调查报告》发布会现场说这番话的。\n王培安还表示，根据未成年人保护法，眼下已有多地推动构建科学的性教育课程体系，但应进一步推动防性侵教育心理健康服务纳入基本公共服务的清单。\n“女童保护”团队已连续12年发布系列报告。统计数据基于机构媒体公开报道、各级人民法院、检察院官网和认证账号公开的案例。\n报告显示，2024年全年媒体公开报道性侵儿童（18岁以下）案例205起，受害人数690人。205起案例中，受害人3人以上的案例41起，占比20%；受害人5人以上的案例27起，占比13.17%；受害人10人以上的案例13起，占比6.34%；平均每起案例受害儿童为3.37人。\n北京众一公益基金会理事长、“女童保护”基金负责人孙雪梅表示，根据最高人民检察院公布的数据，2024年前11个月，全国检察机关共起诉性侵未成年人案件4.1万人次。\n“在侵害未成年人犯罪中，性侵案件占比超过60%，形势十分严峻。我们之所以选取公开曝光这部分案件，是为了让社会大众知道性侵儿童案件的特点，以及如何预防。”孙雪梅说。\n最小受害人仅3岁\n报告里的205起案例中，有178起写明了受害人的年龄。这之中，14岁以下的占比70%以上，14-18岁占比是29.78%，而年龄最小的受害人只有3岁，施害者为其邻居大爷。\n“关于未成年人性侵犯罪，以前大家会说，要预防坏叔叔。但现在也有坏哥哥、坏爷爷。”孙雪梅表示，205起案例当中，施害人年龄最大的超过66…",
-          "link": "http://www.infzm.com/contents/293978",
-          "publishedOn": "2025-05-19T06:25:06.000Z",
-          "wordCount": 94,
-          "title": "校园和培训机构成性侵儿童案件高发场所",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/293981",
-          "author": null,
-          "description": "2025-05-19 12:58:11\n5月19日，武汉市硚口区公安分局发布警情通报：2025年5月18日21时37分，辖区崇仁路某餐馆门口发生一起因纠纷引发的故意伤害案件。案发后，公安机关第一时间将伤者送医救治，迅速将犯罪嫌疑人抓获归案。目前，1名伤者经抢救无效死亡，另2人无生命危险。案件正进一步侦办中。",
-          "link": "http://www.infzm.com/contents/293981",
-          "publishedOn": "2025-05-19T05:25:21.000Z",
-          "wordCount": 67,
-          "title": "武汉警方通报一起故意伤害案件：1人死亡，嫌疑人已被抓获",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/293983",
-          "author": null,
-          "description": "2025-05-19 12:59:48\n18日7时许，广东茂名高州市荷花镇平头岗村因强降雨致山体滑坡。记者19日上午在事故救援现场了解到，共有7人被困，已搜救出6人。截至目前，有3人经抢救无效死亡，3人正在接受治疗无生命危险，仍有1人失联。\n记者在现场看到，受灾地为一处三层自建房，一层和二层楼体背部已被冲破，楼房前累积起大量淤泥，楼房大门已被冲至数十米远。\n据高州市应急管理局工作人员介绍，此次损毁自建房非削坡建房点、非在册地质灾害隐患点，塌方点在自建房屋后约20米处，初步估计塌方量约6000立方米。接报后，茂名、高州两级迅速组织公安、消防、应急、医疗等现场救援力量140余人前往搜救。目前，剩余失联1人正在全力搜救中。",
-          "link": "http://www.infzm.com/contents/293983",
-          "publishedOn": "2025-05-19T05:25:21.000Z",
-          "wordCount": 76,
-          "title": "广东茂名高州市山体滑坡已致3人死亡1人失联 搜救仍在继续",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/293929",
-          "author": null,
-          "description": "2025-05-19 11:55:00\n地球上一个物种形成往往需要数百万年甚至数千万年，而走向灭绝可能只需要短短的几十年。剑齿虎、恐狼、长毛猛犸象是数千年前或上万年前灭绝的史前巨兽，而新疆虎、比利牛斯山羊、西部黑犀牛等动物则新近被宣告灭绝。据世界动物基金会预测，到2050年全球约50%的物种可能会灭绝。\n有什么方法能挽救濒危动物，甚至为我们复活已灭绝动物吗？最近，一家美国生物科技公司——Colossal Biosciences（巨像生物科技）宣布，他们在复活已灭绝动物方面取得重要进展，为濒危动物保护和灭绝动物复活带来了新的希望，引起广泛关注。\n拿小鼠练手\n巨像生物科技公司是一家专门从事灭绝动物复活的生物技术公司，由世界著名生物学家、基因测序技术和基因组编辑技术先驱、哈佛大学教授乔治·丘奇（George Church）等人联合创立，这也是丘奇教授连续创办的数十家生物高科技公司之一。自2021年成立以来，该公司已累计融资超过4.35亿美元，最新估值超过 100 亿美元，而该公司的主要目标是复活长毛猛犸象、塔斯马尼亚虎和渡渡鸟等已灭绝动物。\n长毛猛犸象曾经广泛生活在北半球的极寒地区，于4000多年前灭绝，与现存的亚洲象和非洲象是近亲。如今，在西伯利亚永久冻土中出土了大量长毛猛犸象遗骸，有些遗骸的皮肤、毛发、肌肉等组织还保留得较为完好，为长毛猛犸象复活奠定了重要基础。\n2025年3月和4月，巨像生物科技公司接连通过媒体宣布在复活灭绝动物方面的两项重大突破，其中一项重大突破是利用基因编辑技术创造长毛小鼠，重现了长毛猛犸象的金棕色、蓬松、卷曲的长毛发，被认为是复活猛犸象计划的重要一步，从概念上验证了该计划的可行性。\n\n具有猛犸象毛发特征的长毛小鼠。（资料图）\n据巨像生物科技公司今年3月初发布在预印本网站bioRxiv上的研究论文初稿显示，该公司与哈佛大学等多个单位合作，从长毛猛犸象遗骸…",
-          "link": "http://www.infzm.com/contents/293929",
-          "publishedOn": "2025-05-19T04:25:05.000Z",
-          "wordCount": 97,
-          "title": "从长毛象到恐狼，他们在复活什么？",
-          "imageUrl": null
         }
       ]
     },
@@ -17936,16 +17861,6 @@
           "wordCount": 1562,
           "title": "Farmers sued over deleted USDA data — and it worked",
           "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/01/logo-lone-square512x512.png"
-        },
-        {
-          "id": "https://flowingdata.com/?p=78610",
-          "author": "Nathan Yau",
-          "description": "Card counting is a method to keep track of the cards left in…\nTags: blackjack, cards, counting, Quattro, Slate",
-          "link": "https://flowingdata.com/2025/05/19/point-of-view-of-a-professional-card-counter/",
-          "publishedOn": "2025-05-19T07:31:20.000Z",
-          "wordCount": 1752,
-          "title": "Point of view of a professional card counter",
-          "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/05/beat-the-dealer-chart.jpg"
         }
       ]
     },
