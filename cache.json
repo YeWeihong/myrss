@@ -6,6 +6,36 @@
       "siteUrl": "https://bestblogs.dev/zh/feeds",
       "articles": [
         {
+          "id": "153f9e",
+          "author": "机器之心",
+          "description": "📌 一句话摘要\n            \nAnthropic 分享了构建、评估和部署多智能体研究系统的经验，强调 token 消耗、提示词工程和并行执行的关键作用。\n📝 详细摘要\n            \n文章深入探讨了 Anthropic 基于 Claude 模型构建多智能体研究系统的方法和经验。核心采用“协调者-执行者”架构，主导智能体分配任务给并行运行的子智能体，以应对复杂、开放式研究问题。研究表明，token 消耗是智能体性能的关键驱动因素，多智能体系统通过并行消耗 token 显著提升了处理能力，但成本也随之增加。文章详细分享了有效的提示词工程原则（如分工、分级投入、工具设计）和评估方法（从小样本、LLM 评审官、人工评估），并讨论了有状态智能体的调试、部署和同步/异步执行等工程挑战。总结强调了将原型转化为可靠生产系统所需的工程投入。\n💡 主要观点\n            \n多智能体系统更适合解决复杂、开放式研究任务\n                         这类任务步骤不固定，需要灵活调整和多轮推理，单一智能体难以应对，多智能体通过并行探索和协作提升能力。\n                    \n\n                        Token 消耗是智能体性能的关键驱动因素\n                         在信息搜索等任务中，智能体消耗的 token 量与性能高度相关，多智能体系统通过并行增加 token 容量提升处理能力。\n                    \n\n                        “协调者-执行者”模式是有效的多智能体架构\n                         一个主导智能体负责策略和分派，多个子智能体并行执行具体探索和过滤任务，实现高效协作和信息压缩。\n                    \n\n                        提示词工程是优化智能体行为的关键\n                         通过精细的提示词设计，指导智能体正确分工、调整投入、选择工具和引导思维过程，能显著提升系统性能。\n                    \n\n                        构建可靠智能体系统面临独特的工程挑战\n                         智能体有状态性导致错误累积，动态决策增加了调试难度，部署需要谨慎协调，并行执行引入同步问题。\n                    \n💬 文章金句\n            \n多智能体系统的核心优势在于能够通过充分的 token 消耗来解决问题。\n并行调用工具彻底改变了研究任务的速度与性能。\n主导智能体会利用这种思维过程来规划整体策略，包括评估哪些工具适合当前任务、判断查询的复杂度和需要的子智能体数量，并明确每个子智能体的职责。\n最好的做法是立即从小规模测试开始，用几个示例立刻着手评估，而不是等到构建出完整评估系统之后再行动。\n智能体是有状态的，错误会累积。\n在构建 AI 智能体时，最后一公里往往占据了整个旅程的大部分。\n📊 文章信息\n            \nAI 评分：94\n精选文章：是\n来源：机器之心\n作者：机器之心\n分类：人工智能\n语言：中文\n阅读时间：28 分钟\n字数：6766\n标签：\n                    \n                        多智能体, LLM, 智能体架构, 提示词工程, 智能体评估",
+          "link": "https://www.bestblogs.dev/zh/article/153f9e",
+          "publishedOn": "2025-06-14T12:50:27.000Z",
+          "wordCount": 324,
+          "title": "多智能体在「燃烧」Token！Anthropic 公开发现的一切 ｜ 机器之心",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/f6c1d0a5-3401-4bec-74ad-b2af1ac8a500/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/f6c1d0a5-3401-4bec-74ad-b2af1ac8a500/cover"
+        },
+        {
+          "id": "538ece",
+          "author": "机器之心",
+          "description": "📌 一句话摘要\n            \nAnthropic 与人类合著论文批评苹果《思考的错觉》论文评估大模型推理方法的三个关键缺陷。\n📝 详细摘要\n            \n文章报道了一篇由 Anthropic（包括 Claude Opus 作为第一作者）与人类合著的评论性论文《思考的错觉的错觉》，对苹果《思考的错觉》论文中关于大型推理模型无法真正“推理”的结论提出了有力质疑。评论论文详细分析并指出了苹果研究方法的三大关键缺陷：首先，汉诺塔实验未考虑模型因输出 token 限制而截断，将其误判为推理失败；其次，自动化评估框架未能区分模型的主动感知和决策，导致对能力的错误分类；最后，“过河”基准测试包含了数学上无解的实例，模型因正确识别其不可解性而未能解答，却被错误地判定为失败，暴露了纯程序化评估的弊端。评论论文认为，苹果的所谓“崩溃”实则源于实验设计、僵化的评估方式及对问题复杂度的错误定义（混淆了解答长度与求解难度），而非模型固有的推理局限性。文章还提及了 AI 与人类合著论文这一有趣现象及网友对此的看法。\n💡 主要观点\n            \n苹果论文的汉诺塔实验未考虑模型输出 token 限制。\n                         当问题复杂且需要大量输出时，模型会因触及 token 上限而截断，这被误判为推理失败，而非能力不足。模型其实能够识别并适应这些限制。\n                    \n\n                        苹果的自动化评估框架未能区分模型的主动识别和决策。\n                         僵化的评估系统未能识别模型何时因约束选择不详尽输出，导致对模型能力进行了错误分类和低估，未能考虑模型的感知和决策。\n                    \n\n                        苹果的“过河”基准测试包含了数学上无解的问题。\n                         当包含数学上无解的问题时，模型正确识别了其不可解性并因此未能给出答案，这应被视为模型能力的体现，而非推理失败，纯程序化评估未能区分这一点，导致错误判断，暴露了评估弊端。\n                    \n\n                        对未来 AI 推理评估方法的建议。\n                         评论论文基于对苹果论文缺陷的分析，提出了改进建议，强调未来评估应区分推理能力和输出限制，验证问题可解性，使用更反映计算难度而非仅解答长度的复杂度指标，并考虑不同解答表示形式，以更准确衡量模型能力。\n                    \n💬 文章金句\n            \n在超过某些复杂度阈值后，模型准确度会「崩溃」为零。\n我们的分析表明，这些明显的失败源于实验设计的选择，而非模型固有的局限性。\n模型获得零分并非因为推理失败，而是因为正确识别了不可解的问题 ------ 这相当于惩罚 SAT 求解器，因为该程序对不可满足的公式返回了「不可满足」。\n原始论文报告的超出这些规模的所谓「崩溃」与这些约束一致。\n问题不在于大型推理模型（LRM）能否推理，而在于我们的评估方法能否区分推理和文本生成。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：机器之心\n作者：机器之心\n分类：人工智能\n语言：中文\n阅读时间：12 分钟\n字数：2883\n标签：\n                    \n                        AI推理, 模型评估, 研究方法, 大语言模型, Apple",
+          "link": "https://www.bestblogs.dev/zh/article/538ece",
+          "publishedOn": "2025-06-14T12:45:24.000Z",
+          "wordCount": 318,
+          "title": "苹果《思考的错觉》再挨批，Claude 与人类共著论文指出其三大关键缺陷 ｜ 机器之心",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/f6c1d0a5-3401-4bec-74ad-b2af1ac8a500/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/f6c1d0a5-3401-4bec-74ad-b2af1ac8a500/cover"
+        },
+        {
           "id": "df3028",
           "author": "Alessio Fanelli",
           "description": "📌 一句话摘要\n            \nChris Lattner 讨论了 Modular 公司的 Mojo 语言和 MAX 平台，旨在统一跨硬件的 AI 计算。\n📝 详细摘要\n            \n本文基于与 Chris Lattner 的播客对话，详细介绍了 Modular 公司解决 AI 异构计算挑战的方法。文章介绍了 Mojo，一种旨在跨 CPU 和 GPU 实现高性能的编程语言，它具有类似 Python 的语法，能够访问底层硬件特性，并且性能优于 CPython，通常也优于 Rust。文章还介绍了 MAX，一个基于此技术栈构建的轻量级（约 1 GB）开源推理平台，强调了其高效率、快速启动时间和对 NVIDIA 和 AMD 等多种硬件供应商的支持。Modular 的策略是从编译器层面构建一个全新的、统一的 AI 技术栈，旨在普及 AI 计算，并挑战 NVIDIA CUDA 等现有生态系统。\n💡 主要观点\n            \nMojo 提供类似 Python 的语法，用于高性能异构计算。\n                         它允许开发者使用熟悉的 Python 语法编写硬件加速代码，面向不同的芯片（NVIDIA、AMD），同时屏蔽复杂性。\n                    \n\n                        Modular 公司的 MAX 平台提供高效、轻量级的 AI 推理。\n                         通过移除 Python 分发和依赖项，MAX 提供更小的容器大小和更快的启动速度，从而提高横向扩展能力。\n                    \n\n                        该技术栈旨在通过硬件可移植性打破 NVIDIA CUDA 的主导地位。\n                         Modular 的方法支持编写一次代码，并高效地部署到不同供应商的硬件上，包括 AMD，从而减少对 CUDA 的依赖。\n                    \n\n                        Modular 已从 R&D 转向专注于产品可用性和功能。\n                         在初始研究阶段之后，公司现在正积极发布功能和支持硬件，以使其技术栈适用于实际用例。\n                    \n💬 文章金句\n            \n编写一次，重新适配 H100、MI300 或未来的 Blackwell。\n比 CPython 快 10-100 倍；在相同算法上通常胜过 Rust。\n作为一个**零绑定**的扩展语言工作：导入 my_fast_fn.mojo 并从普通 Python 调用。\nMax 的基础镜像约 1 GB，因为它剥离了 Python 分发路径。\n可以理解的是，根据传统观点，这是不可能做到的。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：Latent Space\n作者：Alessio Fanelli\n分类：商业科技\n语言：英文\n阅读时间：69 分钟\n字数：17161\n标签：\n                    \n                        AI计算, 异构计算, GPU编程, Mojo, MAX",
@@ -21,6 +51,51 @@
           "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/8577f994-90bb-4393-dc5f-21918d54a100/cover"
         },
         {
+          "id": "505b8e",
+          "author": "郭炜",
+          "description": "📌 一句话摘要\n            \n探讨 Agentic AI 如何改变数据仓库范式，提出强调语义与响应的 Agentic Data Stack 概念。\n📝 详细摘要\n            \n文章分析了云数据仓库公司 Snowflake 更换 CEO 背后隐藏的行业范式变迁信号，认为随着 Agentic AI 的兴起，传统的面向“人”设计的决策支持系统（DSS）架构已不再适应。未来的数据消费者和开发者将是具备感知、行动、协作能力的 Agent。这要求数据架构从强调结构与查询的“拉模式”转向强调语义与响应的“推模式”。作者提出了“Agentic Data Stack”的概念，这是一个为 Agent 服务的新一代数据技术栈，其核心是“Contextual Data Unit”（CDU），即数据与语义的组合存储。未来的 Agentic Data Stack 可能包含 Semantic Orchestrator（数据交互层）、Data Mesh（数据存储层，融合语义+数据）和 Data Flow Agent（数据处理层，事件驱动+意图驱动）。文章认为这一趋势将大幅降低数据建设和获取成本，使数据能力普惠化，并强调这不是传统数据仓库被淘汰，而是其范式被取代，就像导航取代了传统地图。作者持“中间派”观点，认为 Agentic Data Stack 是必然趋势，但全面成型尚需 5-10 年。\n💡 主要观点\n            \nAgentic AI 的崛起改变了数据消费者，从人转变为 Agent。\n                         具备感知、行动和协作能力的 Agent 将成为数据的主要使用者，这使得为人类决策设计的传统 DSS 架构不再最优。\n                    \n\n                        未来数据架构需从“拉模式”转向“推模式”，强调语义与响应。\n                         Agent 需要系统主动感知变化、理解意图并生成决策建议，而非传统数据仓库的用户主动查询和提取结论。\n                    \n\n                        Agentic Data Stack 是适应 Agent 需求的新一代数据架构。\n                         这个新架构的核心是 Contextual Data Unit（语义+数据组合），并可能包含 Semantic Orchestrator， Data Mesh， Data Flow Agent 等组件，以服务 Agent 的智能化需求。\n                    \n\n                        Agentic Data Stack 将显著降低数据平台建设和使用成本。\n                         通过 Agent 的自动化处理和语义感知，数据获取和分析过程将更高效、更普惠，不仅限于大型企业。\n                    \n💬 文章金句\n            \n数据仓库世界的范式，正在悄然巨变。\nAgentic AI：AI 不再只是一个模型，它是一个能感知、能行动、有目标、有协作能力的 Agent。\n当数据仓库的用户从人变成 Agent 的时候，原先 Bill Inmon 老爷子设计的整体 DSS 架构还成立么？我个人认为，不成立了。\n传统数据仓库偏重结构与查询，而 Agentic 架构强调语义与响应。\n不是 AI 取代你，而是会用 AI 的人取代你；不是数据仓库被吞噬了，而是传统数据仓库偏重结构与查询模式，被 Agentic Data Stack 架构强调语义与响应模式取代了。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：InfoQ 中文\n作者：郭炜\n分类：软件编程\n语言：中文\n阅读时间：26 分钟\n字数：6345\n标签：\n                    \n                        Agentic AI, Agentic Data Stack, Contextual Data Unit, 数据仓库, 数据湖",
+          "link": "https://www.bestblogs.dev/zh/article/505b8e",
+          "publishedOn": "2025-06-13T05:16:00.000Z",
+          "wordCount": 346,
+          "title": "被骂“在乱讲”的专家，这次可能说对了：传统数据仓库正在被 Agentic AI 吞噬",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/d5345d0c-ea28-45f9-4559-99cd6e4b2f00/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/d5345d0c-ea28-45f9-4559-99cd6e4b2f00/cover"
+        },
+        {
+          "id": "43f517",
+          "author": "QCon",
+          "description": "📌 一句话摘要\n            \n深入剖析大模型安全风险，并分享京东基于 AI 对抗 AI 的安全防御体系及 Agent 赋能安全实践。\n📝 详细摘要\n            \n文章基于 QCon 大会演讲内容，详细阐述了 AI 大模型应用普及带来的安全风险，包括数据泄露、提示词注入、数据投毒及 Agent 安全等。针对这些挑战，京东信息安全团队构建了“AI 对抗 AI”的安全防线，包括训练数据去毒、模型安全评测、Prompt 实时检测和生成内容检测四道外部防线，以及训练、微调、推理阶段的安全对齐两项内部对齐。文章还探讨了大模型对安全攻防的赋能作用，介绍了如何通过构建安全大模型和开发平台支撑安全场景落地，并分享了威胁情报研判、钓鱼邮件检测、自动化渗透测试等 Agent 赋能安全的具体实践案例，展示了显著的效率和准确率提升。\n💡 主要观点\n            \n大模型面临多样化安全风险，贯穿数据、模型、平台和应用层\n                         风险涵盖训练数据投毒、模型推理阶段的提示词注入、数据泄露以及 Agent 应用中的复杂攻击面，需要全面防范。\n                    \n\n                        构建多层级“AI 对抗 AI”体系是应对大模型安全的关键策略\n                         结合外部检测拦截与内部模型安全对齐，从数据源到最终输出构建纵深防御，提升整体安全能力。\n                    \n\n                        安全大模型和 Agent 能显著提升传统安全工作的效率与效果\n                         通过专业数据微调安全基座模型并结合 Agent 自动化流程，能实现威胁情报、安全研判等场景的智能化，解决人力瓶颈。\n                    \n💬 文章金句\n            \n在 AI 时代，大模型的安全防护问题日渐凸显，如何解决大模型落地过程中面临的安全挑战是企业非常关心的问题。\n每 10 万名员工平均给 ChatGPT 发送了 5267 次企业数据，上传 199 份机密文件，173 份客户数据和 159 次源代码。\n我们内部的整体目标和思路是构建一个可信、可控、安全、向善的大模型。\n安全大模型 + 大模型开发平台支撑大模型在安全场景落地。\n大模型安全：需重视但不必过度焦虑\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：InfoQ 中文\n作者：QCon\n分类：软件编程\n语言：中文\n阅读时间：20 分钟\n字数：4913\n标签：\n                    \n                        大模型安全, 人工智能安全, 网络安全, Agent, 威胁情报",
+          "link": "https://www.bestblogs.dev/zh/article/43f517",
+          "publishedOn": "2025-06-13T05:16:00.000Z",
+          "wordCount": 329,
+          "title": "大模型安全挑战与实践：构建 AI 时代的安全防线",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/1a5bbfbf-d885-416a-6d74-cd4585c37e00/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/1a5bbfbf-d885-416a-6d74-cd4585c37e00/cover"
+        },
+        {
+          "id": "083e7a",
+          "author": "有新",
+          "description": "📌 一句话摘要\n            \nDeepMind CEO Demis Hassabis 阐述构建 AI 世界模型路线，强调游戏、科学、数学训练及 AI 治理重要性。\n📝 详细摘要\n            \n文章深度分析了 Google DeepMind 联合创始人兼 CEO Demis Hassabis 关于 AI 发展方向的观点。他认为 DeepMind 的核心路线在于构建能理解和操作世界的“世界模型”，而非仅局限于语言生成。文章详细阐述了游戏、科学（如蛋白质结构预测 AlphaFold）以及数学（如 AlphaProof）如何作为训练 AI 建立复杂模型能力的理想平台。Hassabis 强调，Project Astra 和 Gemini 模型作为构建“世界模型”的技术架构，正在实现持续感知、多模态理解和复杂情境推理的能力。当 AI 具备解释和参与现实世界的能力时，它就不再仅仅是工具，而是真实世界的参与者，这引发了对 AI 治理、伦理和跨学科合作的深刻思考。文章还探讨了 AI 对世界的理解是否必须依赖具身经验的最新研究发现。整体而言，文章为读者提供了理解 DeepMind 长期愿景和 AGI 前沿探索的宝贵视角。\n💡 主要观点\n            \n游戏与科学是构建智能世界模型的关键训练场\n                         Hassabis 认为游戏和科学问题提供了结构化、可验证的环境，是训练 AI 理解和模拟复杂世界的理想平台，而非应用终点。\n                    \n\n                        DeepMind 的核心方向是模型主导的决策与规划能力\n                         与侧重语言生成不同，DeepMind 路线聚焦于让 AI 具备像人类一样感知、模拟、理解因果和规划的能力。\n                    \n\n                        AI 从工具转向世界的真实参与者，需要新的制度与治理\n                         当 AI 具备解释和操作世界的能力后，其社会影响巨大，需要跨学科的全球性治理机制来决定其发展方向和边界。\n                    \n\n                        数学可能是通往 AGI 核心的一条重要路径\n                         数学问题具有清晰目标函数、可自动验证等特点，是构建高效闭环推理系统的理想场景，挑战计算复杂性边界。\n                    \n\n                        AI 对世界的理解可能不依赖于具身经验\n                         最新实验显示，AI 仅通过图像数据就能模拟复杂物理过程，挑战了以往认为智能必须具身的假设。\n                    \n💬 文章金句\n            \n当 AI 开始解释和操作世界，就不再是工具，而是真实世界参与者。\nAI 的最重要任务，不是替代人类，而是作为'协作型智能系统'，帮助人类提出新问题、建立更复杂的世界模型、拓展认知边界。\nAGI 的理想系统，必须能够在多个任务之间迁移、在不同领域表现稳定，博弈只是这个过程中极好的训练平台，而不是目标本身。\n我们所构建的，不应只是更快的语言模型，而是更强的思维引擎。\n无论技术多先进，它也只是另一个无法理解自身的系统。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：有新Newin\n作者：有新\n分类：商业科技\n语言：中文\n阅读时间：22 分钟\n字数：5347\n标签：\n                    \n                        AI趋势, 世界模型, Demis Hassabis, DeepMind, Project Astra",
+          "link": "https://www.bestblogs.dev/zh/article/083e7a",
+          "publishedOn": "2025-06-13T02:13:00.000Z",
+          "wordCount": 343,
+          "title": "Demis Hassabis：当 AI 开始解释和操作世界，就不再是工具，而是真实世界参与者",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/daec5e1c-0e50-41d2-c1fc-5e2d9ba2f700/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/daec5e1c-0e50-41d2-c1fc-5e2d9ba2f700/cover"
+        },
+        {
           "id": "fc4b85",
           "author": "阮一峰的网络日志",
           "description": "📌 一句话摘要\n            \n本期周刊围绕 Bug 追踪系统的理想形态展开探讨，并精选近期多领域科技资讯、工具及文章。\n📝 详细摘要\n            \n本期《科技爱好者周刊》以“Bug 追踪系统的正确样子”为核心话题，通过回顾历史悠久的 Bugzilla 系统，提炼出优秀 Bug 追踪系统的四项关键设计原则（所有任务纳入追踪、多状态流转、单人负责制、支持自定义视图），并以此批评 GitHub Issues 在这些方面的不足。文章还广泛收录了近期的科技动态，包括中国科大的火星电池方案、华为的可收纳方向盘专利、瑞士的 3D 打印建筑等；介绍了 PandaWiki 等多款开源软件工具；分享了关于大模型回顾、Claude Code 使用体验、速率限制算法等技术文章；并摘录了任正非访谈、小模型定义、代码风格、API 采用速度等观点。内容丰富多样，旨在为技术爱好者提供一个快速了解近期技术进展和实用资源的窗口。\n💡 主要观点\n            \n优秀 Bug 追踪系统应具备全面任务管理和灵活流程支持\n                         基于 Bugzilla 的经验，好的系统应将所有待办事项纳入管理，支持复杂的、可自定义的状态流转，以适应企业级开发流程。\n                    \n\n                        明确的责任制和自定义视图是提升 Bug 管理效率的关键\n                         每个任务指定唯一负责人有助于权责分明；强大的查询和自定义视图功能则能帮助团队和个人聚焦于当前最重要的工作。\n                    \n\n                        周刊提供了一个快速浏览和获取多领域技术信息及资源的渠道\n                         通过精选和简要概括近期科技新闻、技术文章和实用工具，帮助读者高效地了解行业动态和发现有价值的资源。\n                    \n💬 文章金句\n            \n它的本职工作----Bug 追踪系统----并不好用。\n只有满足这四点，才是一个好的 Bug 追踪系统（bug tracking system）\n软件是卡不住脖子的，那是数学的图形符号、代码，一些尖端的算子、算法垒起来的，没有阻拦索。\n今天的'小模型'，更多的是指模型的可部署性，而不仅仅是模型的规模。\n动力恰恰源自行动，只要你开始做一些事情，只要能朝着目标前进，你就会发现动力随之而来。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：阮一峰的网络日志\n作者：阮一峰的网络日志\n分类：商业科技\n语言：中文\n阅读时间：19 分钟\n字数：4588\n标签：\n                    \n                        科技周刊, Bug追踪, 软件工程, 开发工具, 人工智能",
@@ -34,6 +109,21 @@
             "length": "0"
           },
           "imageUrl": "https://cdn.beekka.com/blogimg/asset/202506/bg2025060801.webp"
+        },
+        {
+          "id": "be364c",
+          "author": "yikai",
+          "description": "📌 一句话摘要\n            \n微软前 CEO 史蒂夫·鲍尔默复盘其在微软的关键商业决策、成败得失以及卸任后的生活与思考。\n📝 详细摘要\n            \n本文是 Acquired 播客对微软前 CEO 史蒂夫·鲍尔默的深度访谈摘要。鲍尔默回顾了微软从早期与 IBM 合作开发 DOS，到操作系统（OS/2 vs Windows）、企业业务（Office、服务器、企业协议）的崛起历程。他反思了微软在移动和搜索领域的失误，认为未能摆脱既有模式（Windows）是主因，并强调了平台与第一方应用结合的重要性。鲍尔默详细讲述了 Azure 的起源与发展，**特别指出其明确从平台即服务（PaaS）起步，**及其对微软文化转型的推动。他回顾了 CEO 任期内的成就（建立企业地位、收入增长）与挑战（互联网泡沫、反垄断、与盖茨的分歧），并解释了辞职原因（手机硬件分歧、云计算转型需要新领导）。卸任后，鲍尔默长期持有微软股票并投身慈善和经营洛杉矶快船队，分享了体育产业与商业的异同及打造 Intuit 球馆的理念。访谈提供了对微软历史、领导力及商业策略的深刻洞察。\n💡 主要观点\n            \n微软企业服务的成功源于早期消费业务基础和持续深耕。\n                         Office 等消费产品普及打开企业市场大门，后续服务器业务（如 Exchange， AD）和云转型（Azure）巩固了其企业地位，但过程中失去消费市场敏锐度。\n                    \n\n                        平台需要顶级自有应用驱动价值而非仅强调平台身份。\n                         反思微软曾过于强调自身为“平台公司”，忽略了如 Office 在 Windows 上、Outlook 在 Exchange …",
+          "link": "https://www.bestblogs.dev/zh/article/be364c",
+          "publishedOn": "2025-06-12T16:00:00.000Z",
+          "wordCount": 317,
+          "title": "微软风云：与前 CEO 史蒂夫·鲍尔默的商业复盘",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/a8cdcdad-2a6a-4b0d-eb8c-4255f9370b00/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/a8cdcdad-2a6a-4b0d-eb8c-4255f9370b00/cover"
         },
         {
           "id": "52e55e",
@@ -4328,16 +4418,6 @@
           "wordCount": 1409,
           "title": "苹果 AI 的崩塌真相：从乔布斯愿景，到高管失误的困局",
           "imageUrl": null
-        },
-        {
-          "id": "http://www.geekpark.net/news/349730",
-          "author": null,
-          "description": "AI，已经热了快三年了。\n各大科技巨头争先恐后下注入局，可偏偏在这个热潮中，最接近我们生活的苹果，却看起来离 AI 最远。\n最大的巨头，在最热的潮流面前，好似隐身了。\n去年 6 月 WWDC 上，苹果慢吞地发布了 Apple Intelligence，可如今快一年过去，对大部分用户来说，Apple Intelligence 依旧只闻其声、不见其形。\n全世界都看到苹果的 AI 做不好了，但没人知道到底发生了什么。\n知名苹果分析师 Mark Gurman 刚刚在外媒发出一篇长文，题为《Why Apple Still Hasn’t Cracked AI》（为何苹果仍未攻克人工智能），揭露了苹果内部对 AI 态度的摇摆，内部的斗争和难以克服的技术瓶颈。\n值得注意的是，Gurman 用的是「Still hasn’t（仍未）」，这词就已经给苹果的现状定了调。\n本文将通过重组原文以呈现苹果在 AI 领域的历史、现状、问题根源及未来挑战，剖析苹果为何在 AI 赛道上步履维艰，让 AI 成为其阿喀琉斯之踵。\n \n14 年前的 Siri，概念已是大模型\n2011 年 10 月 4 日，乔布斯去世前一天，他留给苹果的遗产 Siri 问世了。\n彼时 Siri 宛如科幻成真的产物，它能听懂用户的语音指令，能预订餐厅、查找电影院或叫出租车，苹果再一次把未来科技概念变成了主流产品。\n\n伴随着一代神机 iPhone 4s 共同发布的 Siri｜图片来源：Apple\n \n当时，乔布斯对打造搜索引擎兴趣不大。\n一位曾与他共事的人说：「乔布斯不相信用户会主动去搜索东西，他认为苹果的职责是精心挑选并向用户展示他们想要的内容。」这一理念，如同乔布斯的许多信念一样，在他去世后依然深刻影响着苹果公司。\n乔布斯首次接触到当时还是 App Store 里一款应用的 Siri 时，他立刻被吸引了。\nSiri 的联合创始人 D…",
-          "link": "http://www.geekpark.net/news/349730",
-          "publishedOn": "2025-05-26T03:01:09.000Z",
-          "wordCount": 1791,
-          "title": "苹果 AI 的崩塌真相：从乔布斯愿景，到高管失误的困局",
-          "imageUrl": null
         }
       ]
     },
@@ -5376,16 +5456,6 @@
           "publishedOn": "2025-05-30T01:19:00.000Z",
           "wordCount": 264,
           "title": "在粽香之外，端午节是一种身份的锚丨外刊精读丨写作丨传统文化",
-          "imageUrl": null
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzI5MzQ0NjMyMw==&mid=2247494217&idx=1&sn=26a023ed65e0a46ad598c5fe211e41e0",
-          "author": null,
-          "description": "经典未老，句型常新。",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzI5MzQ0NjMyMw==&mid=2247494217&idx=1&sn=26a023ed65e0a46ad598c5fe211e41e0",
-          "publishedOn": "2025-05-26T00:55:00.000Z",
-          "wordCount": 264,
-          "title": "如何用《新概念》里的句型写出高级感？丨经典未老，句型常新丨写作",
           "imageUrl": null
         }
       ]
@@ -9706,6 +9776,56 @@
       "siteUrl": "https://chinadigitaltimes.net/chinese",
       "articles": [
         {
+          "id": "https://chinadigitaltimes.net/chinese/?p=718827",
+          "author": "不忘初心",
+          "description": "“舆论上来马上查？自己查自己？”",
+          "link": "https://chinadigitaltimes.net/chinese/718827.html",
+          "publishedOn": "2025-06-14T16:17:41.000Z",
+          "wordCount": 13181,
+          "title": "【网络民议】“湘雅医院——中国人自己的北缅园区”",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/04/IMG_2931.png"
+        },
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=718849",
+          "author": "温都尔汗空管",
+          "description": "曾经的中国国产新能源汽车品牌「哪吒汽车」宣布破产，进入重整程序。而哪吒汽车董事长兼CEO方运舟被大量欠薪员工堵在办公室。",
+          "link": "https://chinadigitaltimes.net/chinese/718849.html",
+          "publishedOn": "2025-06-14T15:30:40.000Z",
+          "wordCount": 13141,
+          "title": "上证报｜哪吒汽车正式进入破产重整程序",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/nezha.png"
+        },
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=718847",
+          "author": "温都尔汗空管",
+          "description": "Mr. Han personally wrote the statement and then shut do […]",
+          "link": "https://chinadigitaltimes.net/chinese/718847.html",
+          "publishedOn": "2025-06-14T14:30:08.000Z",
+          "wordCount": 13169,
+          "title": "费米的沉思录｜来不及说一声再见",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/ef79af40-47fe-11f0-bdfd-9f321623057e.png"
+        },
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=718820",
+          "author": "不忘初心",
+          "description": "医院和学校，救人和育人，都承担着某种高尚的社会使命。这些地方的坍塌，才激起了我们最深的恐惧。",
+          "link": "https://chinadigitaltimes.net/chinese/718820.html",
+          "publishedOn": "2025-06-14T14:00:00.000Z",
+          "wordCount": 13366,
+          "title": "Sir电影｜算了，不敢往下猜了",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/8ef3f001758c1b4a4adbd4c0c5401e3f97416d54.webp"
+        },
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=718842",
+          "author": "温都尔汗空管",
+          "description": "6月13日湖南当地所谓“联合调查组”发布关于“罗某宇坠楼事件”的情况通报。针对该通报，罗帅宇家属结合全部客观事实以及部分相关证据材料，特此通报说明。",
+          "link": "https://chinadigitaltimes.net/chinese/718842.html",
+          "publishedOn": "2025-06-14T12:58:26.000Z",
+          "wordCount": 13089,
+          "title": "罗帅宇父亲｜针对“罗某宇坠楼事件”情况通报的家属联合公开通报说明",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/caonimaxiangya.png"
+        },
+        {
           "id": "https://chinadigitaltimes.net/chinese/?p=718836",
           "author": "南方街头运动员",
           "description": "嗯，我也知道",
@@ -11104,36 +11224,6 @@
           "wordCount": 13199,
           "title": "【Cdt周报】第220期：枪击又叫“故意伤害”，欠薪又叫“走审批流程”",
           "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/05/image-1747649929825.png"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=718348",
-          "author": "unknown",
-          "description": "2025年至今5个月内，南京大学文科资深教授，南京大学马克思主义社会理论研究中心研究员、哲学系教授张一兵已发表11篇CSSCI，2篇CSSCI扩展版以及1篇北大核心解读《空间的生产》这一文本。",
-          "link": "https://chinadigitaltimes.net/chinese/718348.html",
-          "publishedOn": "2025-05-26T01:21:45.000Z",
-          "wordCount": 13119,
-          "title": "【异闻观止】社会学通讯｜不到五个月，张一兵解读《空间的生产》已发11篇C刊",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/05/640-2.jpg"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=718340",
-          "author": "unknown",
-          "description": "它是非常理想的：我用了最大力气呐喊，但是我却没说出一个字。所以，它不可能犯错。这个词最能代表当下公务员的哲学。",
-          "link": "https://chinadigitaltimes.net/chinese/718340.html",
-          "publishedOn": "2025-05-26T01:18:04.000Z",
-          "wordCount": 13098,
-          "title": "张3丰的世界｜“嗷嗷叫”：一种不会犯错的哲学",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/05/32-2.jpg"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=718341",
-          "author": "unknown",
-          "description": "“要胸怀大局、把准方向，着力建设“响当当”的领导班子。要倾心倾力、严管善用，着力锻造“硬邦邦”的干部队伍。要在“真教育”上下功夫。要昂扬斗志、思进图强，全力提振“嗷嗷叫”的精神状态。”",
-          "link": "https://chinadigitaltimes.net/chinese/718341.html",
-          "publishedOn": "2025-05-26T01:14:36.000Z",
-          "wordCount": 13104,
-          "title": "【立此存照】湖北日报｜湖北省委书记：县委书记要“响当当、硬邦邦、嗷嗷叫”",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/05/mfile_1785666_1_L_20241231201130.jpg"
         }
       ]
     },
@@ -11918,26 +12008,6 @@
           "wordCount": 1182,
           "title": "理性购物 618：要不要买新键盘，以及有啥值得买",
           "imageUrl": "https://cdnfile.sspai.com/2025/5/26/article/e9a541cc-2aff-a204-ec5a-e30a0f64fc2f.png"
-        },
-        {
-          "id": "https://sspai.com/post/99441",
-          "author": "王隐",
-          "description": "或许未来，我们不再只是用语言理解模型，而是借助模型，反过来理解语言，理解我们自己。查看全文",
-          "link": "https://sspai.com/post/99441",
-          "publishedOn": "2025-05-26T03:35:20.000Z",
-          "wordCount": 596,
-          "title": "你的想法会说话：在「大模型」里找到思维的语言",
-          "imageUrl": "https://cdnfile.sspai.com/2025/05/21/d19e729404f6e0f863c91cafa146aaa9.png"
-        },
-        {
-          "id": "https://sspai.com/post/99608",
-          "author": "少数派编辑部",
-          "description": "你可能错过的新鲜事《国家网络身份认证公共服务管理办法》公布据公安部网站发布的信息，近日，公安部、网信办等部门联合公布《国家网络身份认证公共服务管理办法》，自2025年7月15日起施行。《管理办法》共1 ...查看全文",
-          "link": "https://sspai.com/post/99608",
-          "publishedOn": "2025-05-26T00:43:40.000Z",
-          "wordCount": 789,
-          "title": "派早报：国家网络身份认证公共服务管理办法公布，Docomo 停用经典 emoji 设计",
-          "imageUrl": "https://cdnfile.sspai.com/5/26/2025/article/a7d36a97-5e45-3c57-9272-d7110dd29926.png"
         }
       ]
     },
