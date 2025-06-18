@@ -2609,36 +2609,6 @@
             "length": "0"
           },
           "imageUrl": "https://storage.googleapis.com/gweb-cloudblog-publish/images/01_-_AI__Machine_Learning_H1ZyZG8.max-2600x2600.jpg"
-        },
-        {
-          "id": "ce7e4f",
-          "author": "ChallengeHub",
-          "description": "📌 一句话摘要\n            \n基于 RAG 挑战赛冠军方案，深度解析 PDF 报告问答系统的关键工程实践，包括解析、多阶段检索和智能提示词工程。\n📝 详细摘要\n            \n文章详细解析了 RAG 挑战赛中构建基于公司年报的智能问答系统的冠军方案。方案涵盖了从 PDF 报告解析、数据摄取到检索和生成的全流程。重点介绍了如何克服 PDF 解析的复杂性（如表格序列化），以及在检索阶段采用的 LLM 重排序和父页面检索策略。在生成阶段，方案通过查询路由（按公司、按问题类型）和结合思维链（CoT）与结构化输出（SO）的提示词工程，确保了答案的准确性和格式规范。文章强调了深入理解任务细节和持续迭代优化的重要性，并开源了代码供参考。\n💡 主要观点\n            \nPDF 解析是 RAG 系统的基础和挑战，需定制化处理。\n                         大型复杂 PDF（如年报）的准确解析（尤其是表格）对下游准确性至关重要，需要结合工具定制和硬件加速来克服困难。\n                    \n\n                        提升检索质量是 RAG 成功的关键，LLM 重排序和父页面检索是有效策略。\n                         仅依赖向量检索的 top-k 块不足，通过 LLM 对结果进行二次排序并返回完整页面能提供更丰富、准确的上下文，显著提高相关性。\n                    \n\n                        智能查询路由与精细化提示词工程是确保答案准确性和格式的关键。\n                         根据查询类型路由到不同处理逻辑，并利用 CoT 思考和 SO 约束输出格式，能显著提高模型遵循指令的能力，尤其在边界情况下。\n                    \n💬 文章金句\n            \n我们肯定地说，目前没有任何解析器可以处理所有细微之处，并在不丢失部分重要信息的情况下，将 PDF 内容完全还原为文本。\n这是 RAG 系统中尤其关键的部分：如果 LLM 在查询上下文中没有接收到必要信息，它就无法提供正确答案------无论我们如何精心微调解析或回答提示词。\n通过 GPT-4o-mini 进行重排序的成本对我们来说每个问题不到一美分！这种方法在质量、速度和成本之间取得了出色的平衡------这正是我们选择它的原因。\n手动分析问题突出了问题和报告中不明显的细节和歧义。这让我们能与 Rinat 核实回答要求，并将这些规则明确地反映在提示词中。\n这场比赛的主要启示很简单：RAG 的魔力在于细节。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：Datawhale\n作者：ChallengeHub\n分类：人工智能\n语言：中文\n阅读时间：54 分钟\n字数：13263\n标签：\n                    \n                        RAG, 问答系统, 向量检索, 提示词工程, LLM重排序",
-          "link": "https://www.bestblogs.dev/zh/article/ce7e4f",
-          "publishedOn": "2025-05-29T14:36:00.000Z",
-          "wordCount": 319,
-          "title": "RAG 挑战赛冠军方案解析：从数据解析到多路由器检索的工程实践，推荐阅读！",
-          "enclosure": {
-            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/81990572-fe2c-498d-204e-f611ba62d900/cover",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/81990572-fe2c-498d-204e-f611ba62d900/cover"
-        },
-        {
-          "id": "852305",
-          "author": "魔搭ModelScope社区",
-          "description": "📌 一句话摘要\n            \nDeepSeek-R1-0528 通过后训练优化显著提升推理能力，并发布高性能开源 8B 蒸馏模型，提供详细使用与微调指南。\n📝 详细摘要\n            \n文章详细介绍了 DeepSeek-R1 大模型最新版本 DeepSeek-R1-0528。通过增强计算资源和后训练算法优化，新模型在数学、编程等推理任务上表现显著提升，AIME 准确率从 70%提升至 87.5%，且减少了幻觉并优化了代码编写体验。同时，团队基于 DeepSeek-R1-0528 思维链蒸馏出 DeepSeek-R1-0528-Qwen3-8B 模型，该模型在 AIME 2024 开源 8B 模型中达到 SOTA 性能。**值得注意的是，两个模型均采用宽松的 MIT 许可证开源，支持商业使用及蒸馏训练。** 文章提供了模型的 ModelScope 链接、Web/API 体验入口、推理部署（vLLM/SGLang）方法、以及使用 ms-swift 框架进行自我认知微调的详细步骤和代码示例。\n💡 主要观点\n            \nDeepSeek-R1-0528 在数学和编程等推理任务上取得显著性能提升\n                         通过后训练阶段的资源配置和算法优化，新模型在基准测试中表现接近顶尖模型，AIME 准确率大幅提高，体现了思考深度的增强。\n                    \n\n                        新模型优化了用户体验并降低了幻觉现象\n                         除了核心推理能力的提升，DeepSeek-R1-0528 还改进了对函数调用的支持，提供了更好的代码编写体验，并减少了模型产生不准确信息的可能性。\n                    \n\n                        DeepSeek-R1-0528 的思维链蒸馏出了 SOTA 开源 8B 推理模型\n                         基于 DeepSeek-R1-0528 的推理能力，蒸馏得到的 Qwen3-8B 版本在特定数学测试中表现出色，为学术研究和小型模型开发提供了有价值的资源。\n                    \n💬 文章金句\n            \nDeepSeek-R1-0528 在各项基准评估中表现出色，包括数学、编程和一般逻辑方面，综合性能已逼近 O3、Gemini 2.5 Pro 等领先模型。\n在 AIME 2025 测试中，模型的准确率从之前的 70% 提高到 87.5%。\n除了改进推理能力外，此版本还减少了幻觉现象，增强了对函数调用的支持，并提升了代码编写体验。\n研究团队认为，DeepSeek-R1-0528 的思维链对于推理模型的学术研究和专注于小规模模型的工业开发都具有重要意义。\n与旧版本 DeepSeek-R1 保持一致，此次开源仓库（包括模型权重）仍然统一采用 MIT License，并允许用户利用模型输出、通过模型蒸馏等方式训练其他模型。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：魔搭ModelScope社区\n作者：魔搭ModelScope社区\n分类：人工智能\n语言：中文\n阅读时间：14 分钟\n字数：3494\n标签：\n                    \n                        大语言模型, DeepSeek-R1, 模型评估, 推理能力, 模型微调",
-          "link": "https://www.bestblogs.dev/zh/article/852305",
-          "publishedOn": "2025-05-29T14:13:00.000Z",
-          "wordCount": 312,
-          "title": "DeepSeek-R1-0528：小更新大升级",
-          "enclosure": {
-            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/be5c173d-0d20-4d82-0b43-9ac3657e7800/cover",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/be5c173d-0d20-4d82-0b43-9ac3657e7800/cover"
         }
       ]
     },
@@ -3730,6 +3700,16 @@
       "siteUrl": "http://mainssl.geekpark.net/rss.rss",
       "articles": [
         {
+          "id": "http://www.geekpark.net/news/350519",
+          "author": null,
+          "description": "好饭不怕晚，MiniMax 终于把这款金字塔尖的推理模型拿出来了。\n在将 MoE 和 Lightning Attention（闪电注意力）的激进架构变革引入基础模型底层，转化为全新的 MiniMax-01 系列模型的 5 个月后，大模型公司 MiniMax 终于更进一步，捧出了酝酿许久的自研文本推理模型 MiniMax-M1，这也是全球首个开源、大规模实现混合注意力的推理模型。\n推理模型已成为新的大模型技术浪潮，拿出一款强劲的自研推理模型，是近半年里国内第一阵营的大模型公司保持自己技术身位最直接的目标。\n\n \n01 \n金字塔尖的文本推理模型 \n \n作为推理模型，MiniMax-M1 在长上下文理解能力上，是目前包括所有闭源和开源模型在内，能力全球前二的模型 ，且在 训练和推理成本上极高的性价比 。\nM1 仍然延续着 MoE 架构，而在注意力机制上和强化学习算法上的创新让 M1 鲜明的区别于其他推理模型。模型总参数达到 4560 亿参数，原生支持 100 万 token 的上下文长度输入，以及目前所有模型中最长的 80k token 的输出长度。\n在上下文能力的评测基准 OpenAI-MRCR (128k/1M) 以及 LongBench-v2 中，M1 的表现远超包括 DeepSeek-R1-0528 和 Qwen3-235B 在内的所有开源模型，甚至超越 OpenAI o3 和 Claude 4 Opus，仅小幅落后 SOTA 的 Gemini 2.5 Pro。\n\n除了在长上下文能力上的强势，M1 所展现出的在智能体工具使用（Agentic Tool Use）维度上的能力上限甚至更加让人期待。从评测基准 TAU-Bench (airline) 中的表现来看，目前 M1 已经是市面上在 Agentic Tool Use 方面能力最强的模型。\n技术报告中对于 M1 的概述是，…",
+          "link": "http://www.geekpark.net/news/350519",
+          "publishedOn": "2025-06-18T03:18:15.000Z",
+          "wordCount": 960,
+          "title": "MiniMax-M1 登场，MiniMax 再次证明自己是一家模型驱动的 AI 公司",
+          "imageUrl": null
+        },
+        {
           "id": "http://www.geekpark.net/news/350498",
           "author": null,
           "description": "面对嗑药质疑，马斯克公布药检结果自证清白\n6 月 17 日，马斯克下午公布了其药检结果，对于外界所谓马斯克在美国大选前「经常服用氯胺酮」的说法进行了回击。\n如图所示，马斯克分享的报告中包含了一系列非法和医疗物质的阴性结果，包括摇头丸、可卡因和氯胺酮。\n\n此外，《纽约时报》通过「近期基于接近马斯克竞选活动的消息人士」获悉，马斯克不仅公开承认使用氯胺酮进行治疗，还被指曾使用迷幻药和可卡因，且其药物使用程度远超此前报道。\n《纽约时报》援引消息人士的话称，马斯克在为特朗普宣传时，不仅使用了摇头丸和食用了迷幻蘑菇，还向身边人透露，他因频繁使用氯胺酮而出现了膀胱问题。这位 53 岁的企业家还被报道随身携带一个装满至少 20 种药物的日常药盒，其中包括利他林。\n针对有关「经常服用氯胺酮、摇头丸和迷幻蘑菇」、「吸毒成瘾导致膀胱问题」的报道，马斯克在 X 上发文进行了澄清：「我必须要澄清的是，我没有吸毒！《纽约时报》纯属胡编。几年前我试过处方氯胺酮，还在 X 平台上说过这事，所以这根本不算新闻。它确实有助让人走出负面情绪的深渊，但从那以后我就没再用过了。」（来源：IT之家）\nMeta 开始测试 AI 自动生成视频广告功能\n6 月 17 日，彭博社报道称，Meta 正深入探索 AI 生成广告技术，从而降低广告商制作广告内容的成本和复杂性。\n当地时间周二，Meta 宣布升级图像转视频广告工具，允许营销人员利用人工智能将产品图片转化为多场景视频广告。广告主最多可上传 20 张图片来创建视频，并可添加背景音乐和文本。\nMeta 已将 AI 作为其广告业务的关键重点（该业务约占其年收入的 98%），但目前 Meta 大多数广告客户是小型企业。因此，帮助他们降低广告素材制作成本，可使他们将更多预算用于 Facebook 或 Instagram 上的广告投放。\nMeta 还允许广告商使用文本提示创建广告图…",
@@ -4197,16 +4177,6 @@
           "publishedOn": "2025-05-30T00:15:25.000Z",
           "wordCount": 606,
           "title": "马斯克「挥别」白宫，重回公司；传小米汽车挖一汽南京 CTO 做智驾；「维密」遭黑客攻击，网站下线股价暴跌 | 极客早知道",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.geekpark.net/news/349933",
-          "author": null,
-          "description": "作者｜Li Yuan \n编辑｜ 郑玄\n\n\n过去一年，具身智能成为技术圈最受关注的赛道之一，资本和媒体热度持续攀升。\n我们看见机器人会跑马拉松、会跳舞，甚至比人类还有逻辑，还会接话。但如果要用一句话来形容人形机器人当前的能力水平，也许「两三岁的小孩」是一个准确的比喻。\n它们能跑能跳，虽然偶尔跌倒；能听能说，但尝试完成一个完整任务，依然力不从心。两三岁的孩子能力在飞快成长，但是谈到替代成年人，又远远不足。\n2025 年，机器人逐渐开始进入量产时代。特斯拉的 Optimus 人形机器人计划于 2025 年试生产 5000 台，并在 2026 年将产能提升至 5 万台。在中国，多家企业也纷纷公布了 2025 年的量产计划，预计年产量将达到千台级别。\n当成千上万个「两三岁的孩子」走进商业社会，他们究竟能够在商业社会找到怎样的位置？这是每一个关注具身智能领域的人，都在密切关注的命题。\n最近，极客公园接触到一家走「务实路线」的人形机器人公司——优理奇。优理奇介绍道，他们的轮式双臂机器人已于 2025 年 2 月开始量产交付，售价压在十万元以内，更出人意料的是，这家公司表示，其机器人在适配部署方面有很强的优势，因此已经完成超千万元订单。\n极客公园现场实地测试了通用人形机器人 Wanda 2.0，并和优理奇创始人兼 CEO 杨丰瑜聊了聊目前的市场现状。在一家真实落地的公司中，我们看到了一个市场的真实状态：人形机器人不再只是讲故事的舞台，也开始有人做起了现实的生意。\n\n\n01\n万元级的人形机器人，能做什么？\n\n\n在苏州工业园区的优理奇总部里，极客公园作者见到了优理奇最新一代的人形机器人——Wanda 2.0。\n这是一款售价 8.8 万元起的轮式双臂机器人，于 2024 年底正式发布。它身高、臂展接近成年人类，搭载了八自由度的机械臂。\nWanda 2.0 背后搭载了融合触觉的预训练多模态大模型 …",
-          "link": "http://www.geekpark.net/news/349933",
-          "publishedOn": "2025-05-29T14:12:45.000Z",
-          "wordCount": 450,
-          "title": "测评 | 从实验室到茶水间，可量产万元全尺寸具身机器人全网首测",
           "imageUrl": null
         }
       ]
@@ -5203,6 +5173,16 @@
       "feedUrl": "https://wechat2rss.xlab.app/feed/3db1babbdeeb84327cf6b5315e98d5f40925ae13.xml",
       "siteUrl": "https://wechat2rss.xlab.app/feed/3db1babbdeeb84327cf6b5315e98d5f40925ae13.xml",
       "articles": [
+        {
+          "id": "https://mp.weixin.qq.com/s?__biz=MzI5MzQ0NjMyMw==&mid=2247494284&idx=1&sn=f597938f28711a8980999ead4238775f",
+          "author": null,
+          "description": "一杯敬过去，一杯说再见",
+          "link": "https://mp.weixin.qq.com/s?__biz=MzI5MzQ0NjMyMw==&mid=2247494284&idx=1&sn=f597938f28711a8980999ead4238775f",
+          "publishedOn": "2025-06-18T00:40:00.000Z",
+          "wordCount": 264,
+          "title": "禁酒令一来，茅台也凉了？中国年轻人正集体告别酒桌文化",
+          "imageUrl": null
+        },
         {
           "id": "https://mp.weixin.qq.com/s?__biz=MzI5MzQ0NjMyMw==&mid=2247494274&idx=1&sn=4fdff425479662af9e2ebcaebafb1cbb",
           "author": null,
@@ -6411,66 +6391,6 @@
           "publishedOn": "2025-05-30T16:00:00.000Z",
           "wordCount": 264,
           "title": "iPhone 17屏幕曝料，比亚迪回应被指汽车圈恒大，马斯克称机器人或行走火星，德国或对科技巨头多征税，这就是今天的其他大新闻！",
-          "imageUrl": null
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654599522&idx=1&sn=10ee8406a6d8eabdf9ca502e8486550b",
-          "author": null,
-          "description": "小屏机我超爱！",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654599522&idx=1&sn=10ee8406a6d8eabdf9ca502e8486550b",
-          "publishedOn": "2025-05-29T16:03:00.000Z",
-          "wordCount": 264,
-          "title": "续航拍照全拉满就算了，还搞胶片氛围感？vivo太懂年轻人了。。。",
-          "imageUrl": null
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654599522&idx=2&sn=8055299021b8958f9c2eca6e4e512f16",
-          "author": null,
-          "description": "这剧情，刘慈欣都不敢信。",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654599522&idx=2&sn=8055299021b8958f9c2eca6e4e512f16",
-          "publishedOn": "2025-05-29T16:03:00.000Z",
-          "wordCount": 264,
-          "title": "这场上海保卫战，可能是全球人民最团结的一次。",
-          "imageUrl": null
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654599522&idx=3&sn=788a9057f7a437919cd95820fbd0cb92",
-          "author": null,
-          "description": "这就去开起点账号。",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654599522&idx=3&sn=788a9057f7a437919cd95820fbd0cb92",
-          "publishedOn": "2025-05-29T16:03:00.000Z",
-          "wordCount": 264,
-          "title": "你以为这是DeepSeek的一次小更新，实际上它又超神了。。。",
-          "imageUrl": null
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654599522&idx=4&sn=ff38909ef806126451261ac53a3ab7ca",
-          "author": null,
-          "description": "导师：无理由退学。",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654599522&idx=4&sn=ff38909ef806126451261ac53a3ab7ca",
-          "publishedOn": "2025-05-29T16:03:00.000Z",
-          "wordCount": 264,
-          "title": "今日最佳：学客服专业的。",
-          "imageUrl": null
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654599522&idx=5&sn=b3c9195be146587b454819b2ca1ac4cb",
-          "author": null,
-          "description": "聊一聊",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654599522&idx=5&sn=b3c9195be146587b454819b2ca1ac4cb",
-          "publishedOn": "2025-05-29T16:03:00.000Z",
-          "wordCount": 264,
-          "title": "聊一聊：你充了最多钱的游戏，玩了多久？",
-          "imageUrl": null
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654599522&idx=6&sn=153750bea5b2cc809d0ecc24e422d9d8",
-          "author": null,
-          "description": "今天是5月29日，农历五月初三。",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654599522&idx=6&sn=153750bea5b2cc809d0ecc24e422d9d8",
-          "publishedOn": "2025-05-29T16:03:00.000Z",
-          "wordCount": 264,
-          "title": "大疆将于7月发布首款全景相机，美国切断部分对华半导体技术出口，小红书可跳转京东，马斯克将离开特朗普政府，这就是今天的其他大新闻！",
           "imageUrl": null
         }
       ]
@@ -10989,26 +10909,6 @@
           "wordCount": 13141,
           "title": "码头青年｜孩子们拉不出屎，但有人不让说这事",
           "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/05/1-4.jpg"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=718472",
-          "author": "unknown",
-          "description": "如厕第一，老师第二",
-          "link": "https://chinadigitaltimes.net/chinese/718472.html",
-          "publishedOn": "2025-05-29T16:05:57.000Z",
-          "wordCount": 13068,
-          "title": "每日一语 2025.5.29",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/05/5.29.jpg"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=718469",
-          "author": "既要又要还要",
-          "description": "想想真的悲哀：很多年前南方周末呼吁的还是其他自由，如今开始呼吁孩子们的排便自由——我们在不断的退步，但是还有退的余地吗？已经到孩子们的肠胃了，还会到到哪里？",
-          "link": "https://chinadigitaltimes.net/chinese/718469.html",
-          "publishedOn": "2025-05-29T13:27:49.000Z",
-          "wordCount": 13121,
-          "title": "张3丰的世界｜没有自由，当然就没排便自由",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/05/image-1748525054632.png"
         }
       ]
     },
@@ -13879,6 +13779,86 @@
       "feedUrl": "https://feedx.site/rss/infzm.xml",
       "siteUrl": "http://infzm.com",
       "articles": [
+        {
+          "id": "http://www.infzm.com/contents/296011",
+          "author": null,
+          "description": "2025-06-18 12:00:00\n\n2024年9月，在山东启迪济能环保科技有限公司，工作人员在控制室内操作设备吊运垃圾。新华社/朱峥/摄\n“中国的垃圾不够烧了。”最近，一则相关话题的短视频获得点赞、收藏、转发全部10万+的现象级传播。\n有人甚至在该短视频评论区留言，原本对产生垃圾有愧疚感，看完这个视频后则“有一种深深的放松感”。\n垃圾焚烧似乎变成了一种“赎罪券”，也让多年专注垃圾处理的环保人士坐不住了，纷纷发文、制作视频，科普垃圾焚烧的原理，强调垃圾减量和分类的必要性。\n关注垃圾焚烧11年，环保组织“芜湖生态”秘书长、“零废无界”发起人张静宁提醒，垃圾问题的出现，每个人都是“始作俑者”，解决这个问题，任重道远。“没有万能的技术解决方案，即便是垃圾焚烧企业，也不会说自己完美解决了垃圾问题。”\n南方周末整理了关于垃圾的十个疑惑，结合数据和采访，以答疑解惑。\n不是垃圾不够，而是焚烧厂太多\n疑问1：中国的垃圾不够烧了吗？\n是不够烧。但不是垃圾不够，而是焚烧厂太多。\n焚烧厂建设已经超过规划。按照“十四五”规划，到2025年底，全国城镇生活垃圾焚烧处理能力达到80万吨/日左右。据生态环境部例行发布会公布的数据，截至2024年10月，我国垃圾焚烧处理能力已经达到约111万吨/日，远超“十四五”规划目标。\n垃圾焚烧处理能力已超过生活垃圾产生量。根据芜湖生态计算的数据，保守估计，早在2022年，我国生活垃圾焚烧处理能力约3.33亿吨/年，就已经超过了住建部公开的生活垃圾清运量——3.11亿吨/年。\n天津大学环境科学与工程学院教授马文超在接受南方周末记者采访时表示，过去我国垃圾管理以填埋为主，为了破解早年存在的“垃圾围城”问题，将垃圾焚烧作为技术升级的主要手段。\n此后，中国垃圾焚烧的炉温控制技术、废气处置技术、在线监测技术等都突飞猛进，达到世界一流水平。\n而考虑到未来经济增长、人口增加等…",
+          "link": "http://www.infzm.com/contents/296011",
+          "publishedOn": "2025-06-18T04:25:07.000Z",
+          "wordCount": 94,
+          "title": "垃圾不够烧了？关于垃圾的十个疑惑",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/296023",
+          "author": null,
+          "description": "2025-06-18 12:06:38\n国务院任免国家工作人员。\n任命周星（女）为自然资源部副部长；任命王建华为文化和旅游部副部长；任命杨金龙为同济大学校长（副部长级）。\n免去王振江的司法部副部长职务；免去姜万荣的住房和城乡建设部副部长职务；免去赵保林的审计署总审计师职务；免去苟坪的国务院国有资产监督管理委员会副主任职务。",
+          "link": "http://www.infzm.com/contents/296023",
+          "publishedOn": "2025-06-18T04:25:07.000Z",
+          "wordCount": 65,
+          "title": "周星任自然资源部副部长，王建华任文旅部副部长",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/295996",
+          "author": null,
+          "description": "2025-06-18 11:00:00\n2025年6月第2周，106家上市公司曝光风险事件141起，风险指数184.35，其中治理风险占23.7%，环境风险占23.4%，社会风险占52.9%。中国交建ESG风险级别达到IV级。扬帆新材子公司江西扬帆发生火灾事故停产整顿、*ST广道因连续多年财务造假拟被强制退市等重大风险事件值得关注。\n*ST广道（839680.BJ，广道数字）2003年成立于深圳，2021年在北交所上市。据证监会深圳监管局日前发出的《行政处罚事先告知书》（简称《告知书》），2018年至2024年上半年，*ST广道通过制作虚假购销合同、发票、银行回单、发货通知单及入库单等方式虚构销售和采购业务，从而虚增营业收入及营业成本。\n《告知书》显示，因连续多年财务造假导致定期报告等存在虚假记载，对深圳市广道数字技术股份有限公司责令改正，给予警告，并处以1000万元罚款；对实际控制人金文明给予警告，并处以1500万元罚款（其中作为直接负责的主管人员罚款500万元，作为控股股东、实际控制人罚款1000万元）；多名董监高也被处以不同额度的罚款。\n根据《告知书》认定的情况，*ST广道可能触及北交所股票上市规则10.5.1条规定的重大违法行为，可能被实施重大违法强制退市。北交所将自其股票复牌之日（6月17日）起对其实施退市风险警示。\n*ST广道事件中长达七年的系统性财务造假，暴露出资本市场在财务舞弊防范与审计监管体系中的深层漏洞。\n财务造假已从个别企业的道德风险演变为需要技术防控、制度约束、多方协同的系统性治理课题。企业自身需强化内部治理，筑牢防范财务造假的第一道防线，将合规意识融入企业发展的每一个环节，从根本上杜绝财务造假的主观动机。有关部门应严格监管、加大现场检查频次，打破监管部门之间的数据壁垒。审计机构应及时升级审计手段，通过大数据分析，对企业的财务数据、行业数据进行比对，挖掘异常交易模式和财务指标的异常波动。只有建起多方协同、技术防控与制度约束并重的治理体系，才能有效遏制资本市场中财务造假的劣币驱逐良币现象，维护市场的公平、公正与健康发展。",
+          "link": "http://www.infzm.com/contents/295996",
+          "publishedOn": "2025-06-18T03:25:07.000Z",
+          "wordCount": 85,
+          "title": "善择ESG风险跟踪第89期｜106家公司暴露ESG风险，*ST广道因连续多年财务造假拟被强制退市",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/296019",
+          "author": null,
+          "description": "2025-06-18 10:32:43\n毁林毁草，违规审批，违法侵占河道……最新一批的中央生态环保督察正在陆续公布典型案例。除此之外，这也是《生态环境保护督察工作条例》印发实施后的首批督察。在这样的背景下，新一批的中央生态环保督察有何不同？此次公布的典型案例又反映了哪些典型问题？《新闻1+1》主持人董倩连线中央生态环境保护督察协调局督察专员杨少清、国务院发展研究中心资源与环境政策研究所副所长常纪文，带来分析解读。\n\n                       \n《新闻1+1》完整版\n\n为什么这次锁定的目光是在黄河流域？\n中央生态环境保护督察协调局督察专员 杨少清：我们这批督察主要还是按照统筹黄河流域督察和省级督察的要求安排的，这次主要是对山西、内蒙古、山东、陕西和宁夏开展利剑督察，同时我们既关注黄河流域一些流域性、整体性和典型性的问题，也结合各省的实际情况，关注一些共性的问题。\n这次我们重点还关注了黄河流域水资源刚性约束的落实情况、绿色低碳发展，以及违法违规侵占自然保护地，突破生态红线搞开发建设，还有野生动物的保护等一些重点的问题。\n同时，我们还关注了大气污染防治、农业面源污染的防治、固体废物特别是建筑垃圾处理和处置等一些污染防治攻坚战的问题。特别值得指出的是，我们中央生态环保督察始终坚持以人民为中心的理念，把群众身边的小问题作为督察的大事件来关注。截止到目前，我们一共受理和转办了几千名群众信访举报案件，最终解决了一大批群众家门口的一些生态环境问题。\n\n有些问题再次被发现，说明了什么？\n中央生态环境保护督察协调局督察专员 杨少清：我们这批督察确实发现了一些共性和典型性的问题，还有一些像我们这次出现的黄河流域是最大的特点就是水资源紧缺，我们这批督察就针对各地是否落实了对刚性水资源约束的政策，查实了一批违规取水、粗放用水等方面的一些突出问题，在重大生态破坏方面，也查实了一批侵占自然保护地、毁林毁草、水土流失的治理严重滞后等方面的问题。\n再比如在深入打好污染防治攻坚战的方面，我们也发现了一些地方大气污染治理不到位，环境基础设施短板比较突出，特别是还有一些较大城市污水直排，特别是在旱田直排的问题，还有一些固体废物的违规处置等一系列问题。\n我们在历史督察当中，或者在别的省份督察当中也发现过类似的问题，这批督察为什么又出现了这些类似的问题呢？我们认为有的肯定是地方整改不到位，或者是没有举一反三，导致问题反复出现。这也从另一个方面反映出当前我们的生态环境保护，一些结构性、根源性和趋势性压力还没有根本缓解，特别是生态环境质量稳中向好的基础还不是十分牢固。\n这些问题的解决还需要一个过程，有的还需要我们持续发力，不断地推进来进行解决，所以我们督察的一个基调就是必须锚定全民建设美丽中国的目标，坚持一个原则总基调，要保持一种定力，久久为功，继续发挥生态环境保护督察的利剑作用，使我们的环境变得越来越好。\n\n还有哪些日常机制能发挥作用？\n国务院发展研究中心资源与环境政策研究所副所长 常纪文：一些日常的机制主要是两个方面，第一个就是对于以前中央环保督察在前两轮，包括“回头看”过程中发现的问题建立台账，紧盯不放，这样仍然可以解决一些问题。\n第二个就是按照环境保护法和其他法律法规的要求，发动社会公众参与和监督，因为在有一些情况下，一些地方的情况上边是难以掌握的，比如说有些地方明知道基础设施建设存在短板，包括推进不利，但是以为上面发现不了，所以基层就瞒着，包括一些上级政府就睁一只眼闭一只眼，到了中央环保督察上面才发现，所以就导致平时对一些地方的环境违法行为，地方举报的有一些，但是不是那么多。等到中央环保督察组来了，这个地方举报的就更多了。\n所以像这种情况下，我建议把中央环保督察发现问题的机制常态化，发动社会公众去向中央生态环保督察协调局举报，发现问题，最终促进解决问题。\n\n中央环保督察对地方环保治理和监督有何作用？\n国务院发展研究中心资源与环境政策研究所副所长 常纪文：中央环保督察协调局经常以问题为导向，派出工作组到各个省份平时去巡查，看这些问题整改得怎么样，也就是说目前经历了一个督察的台账制度，这个台账就有整改的一些要求，最后还有销号的一些要求。\n生态破坏的治理如果没有达到进度要求，如果没有达到目标要求，最后肯定是销不了号的，迟早是一个问题。所以，现在各个地方都是比较重视的。目前我建议继续把台账制度做实，只有这样中央生态环保督察制度才能继续切切实实地发挥作用。\n\n\n获取更多RSS：\nhttps://feedx.net \nhttps://feedx.site",
+          "link": "http://www.infzm.com/contents/296019",
+          "publishedOn": "2025-06-18T02:55:07.000Z",
+          "wordCount": 91,
+          "title": "中央生态环保督察，又查出了什么？",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/296021",
+          "author": null,
+          "description": "2025-06-18 10:35:32\n十三届全国人大教科文卫委员会副主任委员杜玉波涉嫌受贿一案，由国家监察委员会调查终结，经最高人民检察院指定，由山西省临汾市人民检察院审查起诉。近日，临汾市人民检察院已向临汾市中级人民法院提起公诉。\n检察机关在审查起诉阶段，依法告知了被告人杜玉波享有的诉讼权利，并讯问了被告人，听取了辩护人的意见。检察机关起诉指控：被告人杜玉波利用担任北京理工大学党委副书记、副校长、党委常务副书记，北京航空航天大学党委书记，教育部党组副书记、副部长，十三届全国人大常委会委员、教育科学文化卫生委员会副主任委员，中国高等教育学会第七届、第八届理事会会长，第七届、第八届全国高等学校设置评议委员会主任等职务上的便利以及职权、地位形成的便利条件，为他人谋取利益，非法收受他人财物，数额特别巨大，依法应当以受贿罪追究其刑事责任。",
+          "link": "http://www.infzm.com/contents/296021",
+          "publishedOn": "2025-06-18T02:55:07.000Z",
+          "wordCount": 66,
+          "title": "检察机关依法对杜玉波涉嫌受贿案提起公诉",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/296015",
+          "author": null,
+          "description": "2025-06-18 09:45:27\n海口市民政局关于网传“一男子将孩童关铁笼中”事件的情况通报\n2025年6月16日13时许，海口110接群众报警称，海口市龙华区义龙路一辆红色三轮车上，有多名小孩未着衣物，其中一名小孩在铁笼里。了解到相关情况后，我局立即组织人员到场协助公安部门处置。\n经警方调查，当事人刁某某（男，55岁，河南省汝南县人）与杨某（女，33岁，河南省汝南县人，存在智力障碍）为夫妻关系，目前育有6个孩子，不存在拐骗情况。夫妻二人无稳定工作，长期驾驶一辆改装三轮车（上下两层供休息）游走各地打零工。6月15日，一家8口人从省外乘坐轮渡来到海口。16日中午，到义龙路某饭馆吃饭，刁某某因无法同时照顾杨某和6个孩子，便先安置4个孩子留在车上休息。期间，为防止孩子从车上跌落，便将一铁笼推车（用于装衣物，上方可坐人）横向挡在车箱尾部，其中一名幼童玩耍时自行爬入笼内。\n事情发生后，我局会同妇联、残联等部门快速行动，16日18时许，将刁某某一家人接至海口市救助站妥善安置，并安排了健康状况检查，为孩子购买了衣服、鞋子、玩具等用品，为一家人提供了必要的帮助和人文关怀。目前，刁某某一家状态良好，情绪稳定。\n接到我市相关通报后，刁某某户籍所在地政府迅速派出工作组，预计18日上午到达我市接回刁某某一家。我市相关部门为刁某某一家准备了精美的海南特产礼包，并已协调轮渡做好过海等服务保障，方便其踏上平安顺利的归家之旅。\n海口市民政局\n2025年6月18日",
+          "link": "http://www.infzm.com/contents/296015",
+          "publishedOn": "2025-06-18T02:25:06.000Z",
+          "wordCount": 71,
+          "title": "网传“男子将赤裸孩童关铁笼中”，海口民政局通报",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/296017",
+          "author": null,
+          "description": "2025-06-18 09:52:14\n今年以来，港股创新药市场迎来强势反弹，开启新一轮上涨行情。数据显示，截至6月16日，恒生港股通创新药精选指数（HSSCPB）年内累计涨幅达71.83%，与去年同期20.74% 的跌幅形成鲜明对比；港股创新药ETF（159567）亦实现67.16%的可观增长。二级市场的持续回暖，为众多谋求上市的药企带来新机遇，港股IPO市场掀起热潮。\n仅 6 月以来，包括翰思艾泰、维立志博、银诺医药、东阳光药、长风药业、和美药业、轩竹生物在内的七家本土药企相继递表赴港。此外，泰德医药、药捷安康也顺利通过港交所聆讯，即将叩响资本市场大门。\n值得一提的是，此次递表上市的药企中，翰思艾泰、维立志博、银诺医药、和美药业、轩竹生物仍处于亏损状态。其中，前三家药企为2024年底递表失效后的再次更新。而长风药业、轩竹生物曾谋划A股IPO未果，转投港股怀抱。\n\n\n\n近年来，A 股 IPO 节奏有所放缓，港股市场则持续释放活力，吸引众多中资药企奔赴上市。平安证券研报分析，从制度看，港股主板上市条件更为灵活、宽松，同时增设18A、18C章科技企业上市专属通道，尤其对高市值、科创属性相对不足的公司有更大吸引力。从近两年已赴港上市中资企业情况看，主要呈现市值水平提升、“含科量”提升、企业加速出海三大趋势。\n有资深投行人士向21世纪经济报道记者指出，在宏观环境稳定的前提下，医药行业正从“全面冰封”进入“结构性解封”状态。对比过去两年，即便是优质管线也难获得资本青睐，创新药企研发难以获得回报和激励。现阶段，具备真正创新力的企业开始获得融资。但关键还得看公司质地、产品的竞争力和盈利能力。\n未盈利药企的上市“续命”\n2018年港交所推出“18A”上市新规，为未有收入、未有利润的生物科技公司进入资本市场打开了闸门，持续为创新药产业生态注入发展动能，掀起内地药企赴港IPO热潮。近期赴港的…",
+          "link": "http://www.infzm.com/contents/296017",
+          "publishedOn": "2025-06-18T02:25:06.000Z",
+          "wordCount": 122,
+          "title": "药企扎堆港股IPO：上市热潮难掩盈利焦虑",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/296003",
+          "author": null,
+          "description": "2025-06-18 10:00:00\n“第二学期比上学期紧张多了，每天都是从早忙到晚：早操、练声、上课、晚自习，每天都是夜里十二点左右才睡。中午有两个小时的休息，我从没休息过。我的基础差，时间就比别人宝贵多少倍……尽管这样，我业务上还是不行，我心里整天都是焦灼的。”\n这是1977年3月19日，在北京广播学院（今中国传媒大学）播音系学习的敬一丹写给家人的信件。除了汇报学习，信里还谈到考试时突然发生地震、靠男生“作弊”帮忙获得妇女节拔河比赛冠军、观看电影《木兰花》……\n信纸用的是“清河林业局革命委员会稿纸”。之前4年，敬一丹在黑龙江通河县清河林业局当知青，1976年被推荐为工农兵学员，得以进入大学读书。“走进校园，告别书荒，听到上课铃，眼泪都要下来了，很想把学校的一切见闻感受与家人分享。”敬一丹对南方周末说。\n\n敬一丹在抢救民间家书20周年纪念大会上现场捐赠家书。受访者供图\n5月13日，在“抢救民间家书20周年纪念大会暨2025中国家书文化论坛”上，已是知名播音主持人的敬一丹，将这封信捐给了中国人民大学家书博物馆（下称“家书博物馆”）。\n“抢救民间家书”项目是家书博物馆的前身，于2005年4月10日启动，2009年落户中国人民大学，2016年成立博物馆。如今，家书博物馆已征集收藏家书8万多封，九成是普通人家书，以及大量照片、日记、证件等延伸物件。\n“家藏资料是第一手资料，抢救家书对存史的意义重大。”学者徐庆全说。在家书博物馆常设展览“尺翰之美——中国传统家书展”上，有一封1985年北京延庆县农民李仲坤写给在北京师范大学任教的弟弟的信，“昨天我到镇上买了一个30瓦的吹风机（按，此处指鼓风机），单价29元，现在做饭不用拉风箱了，吃水也不用去担了。”这是改革开放后中国农村生活变化的直观记录。\n展馆角落处墙上的一封信，每每引来围观。那是1991年，一位去外地出差的父亲，用图画、符号、…",
+          "link": "http://www.infzm.com/contents/296003",
+          "publishedOn": "2025-06-18T02:25:06.000Z",
+          "wordCount": 96,
+          "title": "和记忆的赛跑：“抢救民间家书”20年",
+          "imageUrl": null
+        },
         {
           "id": "http://www.infzm.com/contents/295919",
           "author": null,
@@ -17158,36 +17138,6 @@
           "wordCount": 92,
           "title": "鼓励学生互相举报，不是文明社会的教育方式",
           "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/294707",
-          "author": null,
-          "description": "2025-05-29 22:59:19\n2025年5月22日，特朗普政府一纸行政令，将哈佛大学推向风口浪尖：撤销其国际学生招生资质。哈佛大学24小时内发起诉讼，直指特朗普政府“政治报复”。这场以联邦拨款冻结为前奏、国际生签证禁令为升级的博弈，于5月29日迎来首次法庭听证。\n\n获取更多RSS：\nhttps://feedx.net \nhttps://feedx.site",
-          "link": "http://www.infzm.com/contents/294707",
-          "publishedOn": "2025-05-29T15:25:07.000Z",
-          "wordCount": 93,
-          "title": "白宫VS哈佛：权力博弈与学术自由的对决",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/294706",
-          "author": null,
-          "description": "2025-05-29 22:18:01\n案例一\n贵州省某法律援助中心对尹某请求人身损害赔偿提供法律援助案\n年仅一岁多的尹某因餐饮店的铁炉无人看管，不慎触碰到铁炉，双手及胸口被烫伤。尹某受伤后住院治疗共计59天，产生数万元的医疗费用，尹某父母生活困难，与餐饮店老板吴某多次协商但赔偿无果。\n尹某父亲代尹某向当地法律援助中心申请了法律援助。经审查，法律援助中心认为，尹某属无固定生活来源的未成年人，可以依法对其免予核查经济困难状况；且请求人身损害赔偿属于法律援助事项范围，当日作出给予法律援助的决定，并指派办案经验丰富、熟悉未成年人身心特点的律师承办此案。\n承办律师接受指派后，立即约见受援人尹某及其父母，仔细翻阅证据材料。在充分了解案件情况的基础上，承办律师拟定了代理意见：根据民法典第一千一百九十八条的规定，经营场所、公共场所的经营者、管理者未尽到安全保障义务，造成他人损害的，应当承担侵权责任。本案中餐饮店的经营者将危险物置于未采取任何安全保障的场所，导致受援未成年人遭受人身损害，应当承担赔偿责任。为充分证明餐饮店的经营者未尽安全保障义务，以及给受援人造成的人身损害，承办律师前往派出所调取了事发时的监控录像，并通过就医记录、缴费凭证等材料计算出医疗费、营养费等费用，初步确定了要求人身损害赔偿的数额。在与尹某父母充分沟通后，承办律师代理尹某向人民法院提起诉讼。\n庭审中，承办律师指出，餐饮店属于经营场所、公共场所，其管理者和经营者应当提供安全的经营服务环境，清除危险源或对潜在危险进行必要的说明和警示。本案被告吴某作为涉案餐饮店的经营者，在门口摆放铁炉却未提示顾客，属于未尽到安全保障义务，存在明显过错，应当承担主要责任。最终，人民法院采纳了承办律师的代理意见，判决吴某承担80%的法律责任，赔偿尹某3万余元。\n本案系一起典型的侵害未成年人人身权益的案件。案件办理过程中，法律援助机构为未成年人…",
-          "link": "http://www.infzm.com/contents/294706",
-          "publishedOn": "2025-05-29T14:55:07.000Z",
-          "wordCount": 100,
-          "title": "涉及偷拍同学视频，司法部发布一批未成年人法律援助典型案例",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/294520",
-          "author": null,
-          "description": "2025-05-29 22:00:00\n\n获取更多RSS：\nhttps://feedx.net \nhttps://feedx.site",
-          "link": "http://www.infzm.com/contents/294520",
-          "publishedOn": "2025-05-29T14:25:07.000Z",
-          "wordCount": 85,
-          "title": "陈凯歌：中国电影要有品有趣",
-          "imageUrl": null
         }
       ]
     },
@@ -17425,26 +17375,6 @@
           "wordCount": 1624,
           "title": "Data-driven story on the first vaccine",
           "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/05/vaccine-halloran.png"
-        },
-        {
-          "id": "https://flowingdata.com/?p=78679",
-          "author": "Nathan Yau",
-          "description": "The Congressional Budget Office published a report estimating effects on household income if…\nTags: bill, Congressional Budget Office, G. Elliott Morris, government, scale, taxes",
-          "link": "https://flowingdata.com/2025/05/29/pay-more-taxes-and-receive-less/",
-          "publishedOn": "2025-05-29T16:15:24.000Z",
-          "wordCount": 1582,
-          "title": "Pay more taxes and receive less",
-          "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/05/tax-effects.png"
-        },
-        {
-          "id": "https://flowingdata.com/?p=78723",
-          "author": "Nathan Yau",
-          "description": "The good stuff from May: tools you can use, data to play with, and resources to learn from.\nTags: roundup",
-          "link": "https://flowingdata.com/2025/05/29/process-339-roundup/",
-          "publishedOn": "2025-05-29T15:08:23.000Z",
-          "wordCount": 1557,
-          "title": "✚ Visualization Tools and Resources, May 2025 Roundup",
-          "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/05/process-339-featured.png"
         }
       ]
     },
@@ -18032,106 +17962,6 @@
           "wordCount": 6751,
           "title": "Israeli Public Is Increasingly Skeptical About Lasting Peace",
           "imageUrl": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/05/PG_25.05.21_Israel_featured@2x.png?w=1200&h=628&crop=1"
-        },
-        {
-          "id": "https://www.pewresearch.org/?p=260258",
-          "author": "Reem Nadeem",
-          "description": "The post Appendix: Detailed chart appeared first on Pew Research Center.",
-          "link": "https://www.pewresearch.org/science/2025/05/29/extreme-weather-2025-appendix/",
-          "publishedOn": "2025-05-29T15:57:14.000Z",
-          "wordCount": 4523,
-          "title": "Appendix: Detailed chart",
-          "imageUrl": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/05/PS_25.05.29_extreme-weather_featured.png?w=1200&h=628&crop=1"
-        },
-        {
-          "id": "https://www.pewresearch.org/?p=260255",
-          "author": "Reem Nadeem",
-          "description": "The American Trends Panel survey methodology Overview Data in this report comes from Wave 169 of the American Trends Panel (ATP), Pew Research Center’s nationally representative panel of randomly selected U.S. adults. The survey was conducted from April 28 to May 4, 2025. A total of 5,085 panelists responded out of 5,772 who were sampled, […]\nThe post Methodology appeared first on Pew Research Center.",
-          "link": "https://www.pewresearch.org/science/2025/05/29/extreme-weather-2025-methodology/",
-          "publishedOn": "2025-05-29T15:57:13.000Z",
-          "wordCount": 5708,
-          "title": "Methodology",
-          "imageUrl": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/05/PS_25.05.29_extreme-weather_featured.png?w=1200&h=628&crop=1"
-        },
-        {
-          "id": "https://www.pewresearch.org/?p=260252",
-          "author": "Reem Nadeem",
-          "description": "This report is made possible by The Pew Charitable Trusts. It is a collaborative effort based on the input and analysis of the following individuals. Find related reports online at: pewresearch.org/science. Primary research team        Eileen Yam, Director, Science and Society ResearchAlec Tyson, Associate Director, Science and Society ResearchBrian Kennedy, Senior ResearcherGiancarlo Pasquini, Research AssociateEmma Kikuchi, […]\nThe post Acknowledgments appeared first on Pew Research Center.",
-          "link": "https://www.pewresearch.org/science/2025/05/29/extreme-weather-2025-acknowledgments/",
-          "publishedOn": "2025-05-29T15:57:13.000Z",
-          "wordCount": 4659,
-          "title": "Acknowledgments",
-          "imageUrl": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/05/PS_25.05.29_extreme-weather_featured.png?w=1200&h=628&crop=1"
-        },
-        {
-          "id": "https://www.pewresearch.org/?p=260250",
-          "author": "Reem Nadeem",
-          "description": "At least eight-in-ten Americans who experienced extreme weather say climate change contributed a lot or a little.\nThe post Americans’ Views on How to Address the Impacts of Extreme Weather appeared first on Pew Research Center.",
-          "link": "https://www.pewresearch.org/science/2025/05/29/americans-views-on-how-to-address-the-impacts-of-extreme-weather/",
-          "publishedOn": "2025-05-29T15:57:11.000Z",
-          "wordCount": 6104,
-          "title": "Americans’ Views on How to Address the Impacts of Extreme Weather",
-          "imageUrl": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/05/PS_25.05.29_extreme-weather_featured.png?w=1200&h=628&crop=1"
-        },
-        {
-          "id": "https://www.pewresearch.org/?p=238972",
-          "author": "Reem Nadeem",
-          "description": "The American Trends Panel survey methodology Overview Data in this report comes from Wave 160 of the American Trends Panel (ATP), Pew Research Center’s nationally representative panel of randomly selected U.S. adults. The survey was conducted Jan. 8-19, 2025, among a sample of lesbian, gay, bisexual, transgender and queer (LGBTQ) U.S. adults. A total of […]\nThe post Methodology appeared first on Pew Research Center.",
-          "link": "https://www.pewresearch.org/social-trends/2025/05/29/lgbtq-experiences-methodology/",
-          "publishedOn": "2025-05-29T13:55:50.000Z",
-          "wordCount": 6753,
-          "title": "Methodology",
-          "imageUrl": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/05/ST_25.05.29_LGBT_Feature_featured.png?w=1200&h=628&crop=1"
-        },
-        {
-          "id": "https://www.pewresearch.org/?p=238969",
-          "author": "Reem Nadeem",
-          "description": "The Pew Research Center is a subsidiary of The Pew Charitable Trusts, its primary funder. This report was made possible with support from the Trusts and from the People & Voices Initiative.   This report is a collaborative effort based on the input and analysis of the following individuals. Find related reports online at pewresearch.org/topic/gender-lgbtq. […]\nThe post Acknowledgments appeared first on Pew Research Center.",
-          "link": "https://www.pewresearch.org/social-trends/2025/05/29/lgbtq-experiences-acknowledgments/",
-          "publishedOn": "2025-05-29T13:55:49.000Z",
-          "wordCount": 4824,
-          "title": "Acknowledgments",
-          "imageUrl": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/05/ST_25.05.29_LGBT_Feature_featured.png?w=1200&h=628&crop=1"
-        },
-        {
-          "id": "https://www.pewresearch.org/?p=238966",
-          "author": "Reem Nadeem",
-          "description": "We asked LGBTQ Americans some questions to better understand: Connections to a broader LGBTQ community About a quarter of LGBTQ adults (23%) say they feel extremely or very connected to a broader LGBTQ community. Another 42% feel somewhat connected, and 35% feel not too or not at all connected. Views on this vary by: How […]\nThe post 5. Community, friends and LGBTQ spaces appeared first on Pew Research Center.",
-          "link": "https://www.pewresearch.org/social-trends/2025/05/29/community-friends-and-lgbtq-spaces/",
-          "publishedOn": "2025-05-29T13:55:48.000Z",
-          "wordCount": 6646,
-          "title": "5. Community, friends and LGBTQ spaces",
-          "imageUrl": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/05/ST_25.05.29_LGBT_Feature_featured.png?w=1200&h=628&crop=1"
-        },
-        {
-          "id": "https://www.pewresearch.org/?p=238961",
-          "author": "Reem Nadeem",
-          "description": "To better understand how LGBTQ adults identify, we asked respondents three separate questions: When it comes to sexual orientation, more than half of LGBTQ adults (55%) describe themselves as bisexual. Four-in-ten are gay or lesbian, while small shares are straight (1%) or something else (3%). About one-in-ten LGBTQ adults (9%) are transgender. This includes 4% […]\nThe post 4. LGBTQ identities appeared first on Pew Research Center.",
-          "link": "https://www.pewresearch.org/social-trends/2025/05/29/lgbtq-identities/",
-          "publishedOn": "2025-05-29T13:55:48.000Z",
-          "wordCount": 5849,
-          "title": "4. LGBTQ identities",
-          "imageUrl": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/05/ST_25.05.29_LGBT_Feature_featured.png?w=1200&h=628&crop=1"
-        },
-        {
-          "id": "https://www.pewresearch.org/?p=238946",
-          "author": "Reem Nadeem",
-          "description": "To better understand the coming out experiences of gay, lesbian, bisexual and transgender adults, we asked them: Half or more in each group say they knew they were gay, lesbian, bisexual or trans before age 14. Far fewer say they first told someone by that age. Small shares ranging from 1% to 4% across these […]\nThe post 3. Experiences with coming out as gay, lesbian, bisexual or transgender appeared first on Pew Research Center.",
-          "link": "https://www.pewresearch.org/social-trends/2025/05/29/experiences-with-coming-out-as-gay-lesbian-bisexual-or-transgender/",
-          "publishedOn": "2025-05-29T13:55:47.000Z",
-          "wordCount": 5700,
-          "title": "3. Experiences with coming out as gay, lesbian, bisexual or transgender",
-          "imageUrl": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/05/ST_25.05.29_LGBT_Feature_featured.png?w=1200&h=628&crop=1"
-        },
-        {
-          "id": "https://www.pewresearch.org/?p=238944",
-          "author": "Reem Nadeem",
-          "description": "We asked LGBTQ adults whether they feel accepted by their family, friends and co-workers, and about their experiences with discrimination based on their LGBTQ identity. Some LGBTQ adults are not out to different people in their lives. Varying shares say no one in each of the following groups knows about their sexual orientation or gender […]\nThe post 2. Personal experiences with acceptance and discrimination appeared first on Pew Research Center.",
-          "link": "https://www.pewresearch.org/social-trends/2025/05/29/personal-experiences-with-acceptance-and-discrimination/",
-          "publishedOn": "2025-05-29T13:55:46.000Z",
-          "wordCount": 5975,
-          "title": "2. Personal experiences with acceptance and discrimination",
-          "imageUrl": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/05/ST_25.05.29_LGBT_Feature_featured.png?w=1200&h=628&crop=1"
         }
       ]
     },
