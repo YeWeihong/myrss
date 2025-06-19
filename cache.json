@@ -81,6 +81,21 @@
           "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/66c77747-660b-4cd8-ccc2-9c118dc95e00/cover"
         },
         {
+          "id": "f52f44",
+          "author": "不爱动脑",
+          "description": "📌 一句话摘要\n            \n深入解析 Ant Design Form 从 HOC 到 Hooks 的实现原理演进，揭示背后的状态管理和性能优化之道。\n📝 详细摘要\n            \n文章详细分析了 Ant Design Form 组件在 3.x 版本使用高阶组件(HOC)模式和 4.x/5.x 版本转向 Hooks API 的实现原理与技术考量。HOC 模式通过状态提升实现集中管理，但因组件重渲染问题存在性能瓶颈。新版本则借鉴 Redux 思想，构建独立的 FormStore 数据管理仓库，结合 React Hooks (useRef， useLayoutEffect) 和 Context API，通过发布订阅机制实现更细粒度的状态更新和高效的跨层级通信，解决了 HOC 模式的固有缺陷，提升了性能和可维护性。文章通过精简代码示例，逐步演示了两种模式的核心实现细节，帮助读者深刻理解其设计哲学。\n💡 主要观点\n            \nAnt Design Form 从 HOC 到 Hooks 是为解决 HOC 带来的性能和架构问题\n                         HOC 模式的状态提升导致任何字段变化都可能触发整个表单树的重渲染，带来性能损耗；Hooks 模式旨在通过更精细化的控制解决此问题。\n                    \n\n                        HOC 模式的核心是 getFieldDecorator 劫持并注入属性实现状态提升\n                         getFieldDecorator 是一个双层函数，通过 React.cloneElement 为输入控件注入 name， value， onChange 等属性，将状态变更统一汇聚到 HOC 组件的 state 中。\n                    \n\n                        Hooks 模式借鉴 Redux 思想，采用独立 FormStore 结合发布订阅管理状态\n                         将表单状态从组件中抽离，由 FormStore 统一管理，并使用发布订阅模式通知相关订阅者(Item 组件)按需更新，避免全局重渲染。\n                    \n\n                        useRef 和 Context 是 Hooks 模式实现状态管理和通信的关键\n                         useRef 用于保持 FormStore 实例在多次渲染中不变，Context 用于在组件树中共享 FormStore 实例，方便子组件访问和操作状态。\n                    \n\n                        useLayoutEffect 用于在 Item 组件中同步注册订阅，确保视图更新前状态正确\n                         在浏览器绘制之前同步注册 Item 组件到 FormStore，并在组件卸载时取消订阅，避免因异步 useEffect 导致的闪烁或初始值问题。\n                    \n💬 文章金句\n            \n从 Form.create()高阶组件到 Form.useForm() Hooks API ，这不仅是 API 设计的改变，更是整个表单状态管理思路的转变。\nHOC 模式虽然设计巧妙，但其核心缺陷在于状态提升导致的渲染效率问题。\n我们可以借鉴 Redux 的思想，创建一个独立的数据管理仓库（FormStore），通过发布订阅模式来实现状态管理。\n使用 ref 可以确保：可以在重新渲染之间存储信息；改变它不会触发重新渲染；对于组件的每个副本而言，这些信息都是本地的。\nuseLayoutEffect 会在浏览器执行绘制之前同步调用，确保在用户看到页面之前就完成了订阅，useEffect 是异步执行的，会导致页面先渲染一次后再订阅，造成闪烁或初始值不正确的问题。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：稀土掘金技术社区\n作者：不爱动脑\n分类：软件编程\n语言：中文\n阅读时间：24 分钟\n字数：5855\n标签：\n                    \n                        React, Ant Design Form, 前端开发, React Hooks, 状态管理",
+          "link": "https://www.bestblogs.dev/zh/article/f52f44",
+          "publishedOn": "2025-06-18T00:30:00.000Z",
+          "wordCount": 361,
+          "title": "探索 Ant Design Form 的实现原理——从 HOC 到 Hooks",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/5f524cbf-14da-487d-f8e8-68a2c6966600/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/5f524cbf-14da-487d-f8e8-68a2c6966600/cover"
+        },
+        {
           "id": "ebb8f2",
           "author": "LlamaIndex",
           "description": "📌 一句话摘要\n            \n探讨模型上下文协议 (MCP) 是否取代企业 AI 中的向量搜索/RAG，结论是它们在数据访问方面是互补的。\n📝 详细摘要\n            \n本文分析了新兴的模型上下文协议 (MCP) 及其对传统的、利用向量搜索帮助 AI 代理访问企业数据的 RAG（检索增强生成）管道的潜在影响。文章介绍了 MCP 在结构化数据（如 SaaS 工具）的实时联邦搜索方面的潜力，它通过直接访问源 API 来提供最新信息和操作。然而，它强调了纯粹的联邦方法的显著缺点，包括缺乏跨来源的全局理解、性能/延迟问题以及对第三方搜索质量的依赖。文章强调了对于绝大多数非结构化企业数据来说，强大的预处理和索引层仍然必不可少。最终，文章认为最有效的 AI 代理系统将采用混合架构，利用 RAG 实现对索引数据（特别是非结构化数据）的快速查找，并利用 MCP 实现对特定结构化来源的深入查询、实时状态查询、操作以及可能更好的认证集成。\n💡 主要观点\n            \n联邦 MCP 通过直接 API 调用实现对结构化数据源的实时查询。\n                         AI 代理可以直接访问 SaaS 工具的实时数据，绕过对 Jira 或 Salesforce 等来源的索引，为组织良好的数据提供最新结果。\n                    \n\n                        纯联邦搜索（通过 MCP）缺乏全局理解，并且面临跨多个来源的性能问题。\n                         单独查询不同系统会阻止统一排名，并且与集中式索引相比，会遇到“最慢环节”的延迟问题。\n                    \n\n                        非结构化企业数据不管有没有 MCP 都需要预处理和索引。\n                         文档（PDF、PPT）需要先进行解析、提取、分块和索引成可搜索格式，然后 AI 代理才能有效利用其内容。\n                    \n\n                        MCP 在操作服务和处理复杂结构化查询方面具有优势。\n                         直接 API 访问允许 AI 代理执行操作（发送电子邮件、创建工单）并执行超出语义搜索能力的精确查询（SQL/JQL）。\n                    \n\n                        最佳 AI 代理架构结合了 RAG 和 MCP 工具。\n                         混合方法利用 RAG 实现对索引数据的快速初始查找，并利用 MCP 实现深入查询、实时数据、操作以及可能更好的认证集成。\n                    \n💬 文章金句\n            \n我们的论点是，AI 代理仍然需要预处理和索引层来进行快速语义查找和非结构化数据搜索。\n如果没有理解跨来源关系的统一排名算法，AI 代理将难以呈现最相关的信息。\n如果你试图仅仅通过将 AI 代理连接到一堆联邦 MCP 服务器来复制 RAG，你的用户将遇到更长的等待时间、不太相关的结果以及取决于哪些系统恰好包含其答案的不一致质量。\n尽管 MCP 对结构化数据源有潜力，但 90% 的企业数据是以 PDF、PPT、扫描件和电子表格的形式存在—这些格式缺少原生查询 API。\n在我们看来，最佳 AI 代理将使用 MCP 工具的组合：直接连接第三方服务的工具，以及对预索引数据执行检索的工具。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：LlamaIndex Blog\n作者：LlamaIndex\n分类：人工智能\n语言：英文\n阅读时间：8 分钟\n字数：1767\n标签：\n                    \n                        AI 代理, MCP, 向量搜索, RAG, 企业 AI",
@@ -184,6 +199,21 @@
             "length": "0"
           },
           "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/f237fef0-395a-40fe-791b-3b83223cb200/cover"
+        },
+        {
+          "id": "ed5c9c",
+          "author": "曹建峰 杨浩然",
+          "description": "📌 一句话摘要\n            \n深度分析大模型可解释性挑战、技术进展与未来方向，强调其对 AI 安全和落地的关键价值。\n📝 详细摘要\n            \n文章深入探讨了在当前大模型能力飞速提升背景下，提升 AI 可解释性所面临的挑战及重要性。由于大模型的“黑箱”特性，理解其决策机制异常困难，这带来了价值偏离、不良行为、滥用风险等问题。文章详细介绍了当前破解“黑箱”的四大技术路径：自动化解释（如 GPT-4 解释 GPT-2 神经元）、特征可视化（稀疏自编码器提取抽象概念）、思维链监控（事后追踪推理过程）和机制可解释性（“AI 显微镜”动态复原电路）。同时，文章也指出了神经元多重语义、解释普适性不足、人类认知局限等技术瓶颈。文章强调，人们正处于可解释性研究与模型智能发展之间的竞赛中，必须加快脚步。最后，文章对未来 AI 核磁共振、标准化评估体系、个性化解释等趋势进行了展望，呼吁加强研究投入并采取审慎的监管策略。\n💡 主要观点\n            \n大模型“黑箱”特性导致其决策机制不透明，带来显著安全与可控风险。\n                         生成式 AI 的“涌现”特性使其内部机制难以预测和理解，可能出现意外的欺骗或权力寻求等行为，难以防范和调试。这构成了 AI 安全和对齐的重大挑战。\n                    \n\n                        多项前沿技术正探索破解 AI 黑箱，包括自动化解释、特征可视化等。\n                         OpenAI、Anthropic、DeepMind 等机构利用大模型自解释、稀疏编码、思维链监控、机制可解释性等方法，试图揭示模型内部工作原理，理解其计算过程和概念表示。\n                    \n\n                        可解释性是 AI 在高风险领域落地、防范滥用、建立信任的关键基础。\n                         法律法规要求高风险 AI 应用必须解释决策依据；理解模型逻辑能避免“橡皮图章式”决策，增强用户信任和系统可靠性，从而推动 AI 的广泛应用和接受度。\n                    \n\n                        可解释性研究与模型智能发展处于一场竞赛中，需优先加强投入。\n                         大模型的智能快速发展，但其可解释性研究相对滞后。为了确保 AI 安全、可靠和可控，必须加快可解释性研究步伐，使其与模型能力同步提升。\n                    \n💬 文章金句\n            \n深度学习模型通常被视作\"黑箱\"，其内在运行机制无法被其开发者理解，大模型更是如此，这给人工智能的可解释性提出了新的挑战。\n增进大模型的可解释性对于人工智能发展意义重大。大模型的很多风险和担忧，最终源于模型的不透明性。\n如果模型具备有效的可解释性，人们就可以直接检查它是否存在企图欺骗或不服从人类指令的内部回路。\n我们正处于可解释性与模型智力之间的竞赛中。\n无论出于法律要求还是应用信任，可解释性都是推动 AI 系统在关键领域落地的基础和核心要素。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：腾讯研究院\n作者：曹建峰 杨浩然\n分类：商业科技\n语言：中文\n阅读时间：37 分钟\n字数：9061\n标签：\n                    \n                        大语言模型, 模型可解释性, AI安全, AI对齐, 机制可解释性",
+          "link": "https://www.bestblogs.dev/zh/article/ed5c9c",
+          "publishedOn": "2025-06-17T09:21:00.000Z",
+          "wordCount": 310,
+          "title": "从黑箱到显微镜：大模型可解释性的现状与未来",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/ffb2cc1c-f028-4db2-2890-e21ad181b400/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/ffb2cc1c-f028-4db2-2890-e21ad181b400/cover"
         },
         {
           "id": "456276",
@@ -2708,6 +2738,16 @@
       "siteUrl": "https://gijn.org",
       "articles": [
         {
+          "id": "https://gijn.org/?p=2323628",
+          "author": "Maurice Oniango, The Reuters Institute",
+          "description": "The Pulitzer Prize winning investigative reporter Azmat Khan is known for her rigorous reporting on civilian casualties in war,  the impact of US airstrikes, and for exposing systemic failures in military and government accountability.",
+          "link": "https://gijn.org/stories/azmat-khan-investigating-airstrikes/",
+          "publishedOn": "2025-06-19T07:00:56.000Z",
+          "wordCount": 7139,
+          "title": "This Reporter Exposed the Civilian Toll of US Airstrikes. Her Warning: Be Ready for a More Hostile World",
+          "imageUrl": "https://gijn.org/wp-content/uploads/2025/06/40838524573_712d0b8a80_c-771x514.jpg"
+        },
+        {
           "id": "https://gijn.org/?p=2325646",
           "author": "Emily O'Sullivan",
           "description": "The Public Media Alliance (PMA) is the largest global association of public service media organisations, whose main objective is to advocate for and support independent public media worldwide. PMA has an exciting opportunity for a Communications Officer, with at least two years’ experience in a similar role, to enhance the associations advocacy output, visibility, and […]",
@@ -3173,16 +3213,6 @@
           "wordCount": 258,
           "title": "豪门千金不继承家业，勇闯娱乐圈追求音乐十年",
           "imageUrl": "https://inews.gtimg.com/news_ls/O53xI2XCzx4TTWYxTglDd4lU6G2mkxJafzHt0lw-Z42MsAA_640360/0"
-        },
-        {
-          "id": "https://view.inews.qq.com/a/20250530V06DRD00",
-          "author": "谷雨实验室",
-          "description": "",
-          "link": "https://view.inews.qq.com/a/20250530V06DRD00",
-          "publishedOn": "2025-05-30T11:55:00.000Z",
-          "wordCount": 108,
-          "title": "28岁大学生回村种地，在村里打了十几份工",
-          "imageUrl": "https://inews.gtimg.com/news_ls/OjZfunYJDVBTsP-77hlS-bHfHl_dDdwTU8dCEkyl2xsZgAA_7201280/0"
         }
       ]
     },
@@ -3191,6 +3221,16 @@
       "feedUrl": "https://rsshub.rssforever.com/tencent/news/author/8QMf3nhc5YEasD%252FQ",
       "siteUrl": "https://new.qq.com/omn/author/8QMf3nhc5YEasD%2FQ",
       "articles": [
+        {
+          "id": "https://view.inews.qq.com/a/20250619A03VU700",
+          "author": "地球知识局",
+          "description": "地球知识局\n文字 | 绯红之猪\n校对 | 朝乾 编辑 | 桐\n\n过去提起“苏超”这个名字，很多人都可能不知道是个啥。懂足球的人会跟你说，“苏超”是苏格兰足球超级联赛的简称。但就在最近，“苏超”一下子变成了全国家喻户晓的爆火话题。\n\n为了详细了解“苏超”是个啥，我询问了扣子空间。扣子空间是我最近常用的AI工具，一句话布置任务，就像个啥都懂、啥都会的实习生。上面这个音频播客是不是听起来毫无违和感？其实也是扣子空间用本文链接，一键自动生成的特别省事。\n\n   \n▲图：扣子空间 coze.cn\n\n好家伙，扣子空间直接生成了一篇深度介绍“苏超”的文章。原来，这个火出圈的“苏超”，乃是“江苏省城市足球联赛”，由江苏13个地级市各自组队参加。“苏超”能火，原因总结下来是“天时+地利+人不和”。\n\n天时与地利自不必多谈，江苏省下辖的“十三太保”个个财大气粗，个个进全国百强，哪怕“吊车尾”的连云港，放在隔壁安徽都能排进第三。\n\n真金白银砸出来的赛事组织、企业赞助，取得了场均观战人数超1.5万、前三轮累计超18万的成绩，超越中甲直逼中超。\n\n   \n▲图注：快速整合信息，通过几个维度让你了解苏超\n（图：来自扣子空间 coze.cn）\n\n而13座城市谁也不服谁的“人不和”，成为了“苏超”爆火的直接推手。更有甚者，原本画风都比较“端着”的各市政府部门，直接下场玩梗，变身拱火大师。\n\n官方玩梗，最为致命\n\n“苏超”联赛如火如荼地之际，13座城市的文旅部门用自家官方的“XX发布”账号各种“带节奏”，为自己的城市球队加油打气，用各种梗阴阳对手城市。\n\n   \n▲图注：各地喊话的时候都创意十足又阴阳怪气\n\n譬如徐州与宿迁在“苏超”第二轮的对决，因这两座城市分别为刘邦和项羽的故里，所以被冠以“楚汉之争2.0”。\n\n延续了两千多年的恩怨，吸引了超过1.2万名球迷到现场观战。场上球员拼抢激烈不断有人倒地，两队的…",
+          "link": "https://view.inews.qq.com/a/20250619A03VU700",
+          "publishedOn": "2025-06-19T03:13:48.000Z",
+          "wordCount": 4243,
+          "title": "13个江苏，明显不够用了！| 地球知识局",
+          "imageUrl": "https://inews.gtimg.com/om_ls/Ovzk7u5MMLR04vcUWl6wfMTm2cashBeJ4uhuf6n0PnKPMAA_640330/0"
+        },
         {
           "id": "https://view.inews.qq.com/a/20250618V04XOC00",
           "author": "地球知识局",
@@ -3290,16 +3330,6 @@
           "wordCount": 4160,
           "title": "内蒙古，这么多年来终于实现了！｜地球知识局",
           "imageUrl": "https://inews.gtimg.com/om_ls/OViXHnABis22dbxgdcr4fffVAcxqrXcmx5cMObjwtxUc8AA_640330/0"
-        },
-        {
-          "id": "https://view.inews.qq.com/a/20250530A03TKL00",
-          "author": "地球知识局",
-          "description": "地球知识局\n文字 | 小贝\n校对 | 朝乾 编辑 | 哈\n\n黄山，你的第一印象是什么？\n\n是“黄山归来不看岳”？文人水墨丹青？徽商纵横天下？还是水乡的粉墙黛瓦？\n\n无论你去过，亦或没去过，黄山都是中国独一无二的贵宝，贵在千人千面，贵在推陈出新，每个人都能在其中找到自己理想的一面，这印象的集合，便是黄山。\n   \n▲图注：“已识黄山真面目，主山犹放白云遮”\n（图：图虫创意）\n\n近几年，黄山又“上新”了，还火出了圈。比较特别的是，这次是一项黄山非遗，以往外界几乎没听说过，这就是黄山鱼灯，堪称黄山文旅的新锐。\n\n黄山鱼灯究竟有何魅力，能为已然“层峦叠嶂”的黄山再添砖加瓦？\n\n什么是“黄山鱼灯”？\n\n所谓黄山鱼灯，是一种以鱼形灯笼为载体，融合祈福、庆典的艺术表演，主要分布在安徽省黄山市歙县及周边。\n\n▼\n   \n每到正月前后，鱼灯队伍扎灯巡游，满街鱼灯游弋，整片古村落宛若星河流淌入人间。\n\n   \n▲图注：“非遗鱼灯之乡”的微光不只在照在歙县\n通过互联网的传播被更多人认识了\n（图：壹图网）\n\n对本地人而言，“黄山鱼灯”这个说法并不常用。原因也很朴实，现在黄山市的主体部分，在过去是大名鼎鼎的徽州。\n\n“徽州”的底蕴，单这两个字就一望可知，“徽州”不仅沿用了900年，这里“一府（州）六县”的格局更是维系了1200年之久。\n\n很显然，徽州在文化、历史层面的地位，远非上世纪80年代因旅游而设立的“黄山市”所能比肩。而鱼灯同样是传承了成百上千年的非物质文化遗产，当地人自然更喜欢叫它的旧名——“徽州鱼灯”。\n   \n▲图注：鱼灯则是徽州地区传承最悠久\n保存最完好的传统年俗之一\n（图：壹图网）\n\n徽州鱼灯的历史渊源，据传最早可追溯到南宋。虽然它对外统称“徽州鱼灯”，但在徽州内部，鱼灯还有众多细分流派，基本上是“一村一鱼灯”。\n\n其中最著名的就是“歙县三大鱼灯”——汪满田鱼灯、瞻淇鱼灯、渔梁鱼灯。…",
-          "link": "https://view.inews.qq.com/a/20250530A03TKL00",
-          "publishedOn": "2025-05-30T03:08:16.000Z",
-          "wordCount": 4426,
-          "title": "安徽这件事在抖音上火了，到底咋了？｜地球知识局",
-          "imageUrl": "https://inews.gtimg.com/om_ls/O5oqKyHgGzKZ1uIT8yhnS65PVtGqie3LezzQPNhRLqoN8AA_640330/0"
         }
       ]
     },
@@ -3467,26 +3497,6 @@
           "wordCount": 14475,
           "title": "5月，只有19个工作日，果然不一般",
           "imageUrl": "https://inews.gtimg.com/om_ls/O4z6i3T2FqaHqlWxM8CUQcslvSdEjEtqiP4KZxq7Apy2YAA_640330/0"
-        },
-        {
-          "id": "https://view.inews.qq.com/a/20250530A04LR100",
-          "author": "人物",
-          "description": "中国汽车正在加速驶向全球，但这条出海之路，远不止于销量与份额的争夺。它更是一场关于设计语言、文化共鸣与情感价值的深层对话。\n \n当技术参数逐渐趋同，真正构成差异的，是谁能真正读懂不同市场背后的人。零跑汽车设计师虞舒悦的答案是：用「无需翻译的美」，与世界建立连接。从欧洲街头到亚洲都市，她和团队用一辆辆「全球车」证明，中国品牌出海，不仅是商业版图的扩张，更是一次关于「如何与世界共情」的实践。在这条路上，比参数更重要的，或许是那瞬间让人心动的能力。\n\n\n\n\n\n文｜噜皮\n\n\n\n\n年轻人想要的，不止一辆代步工具\n \n在智能电动车的风口上，设计早已不是「锦上添花」， 而是在一辆车能否被看见、被记住的竞争中，发挥着越来越关键的作用。对Z世代而言，一辆车不只是通勤工具，也是审美宣言，是可移动的自我空间。\n \n在这样的基础上，「年轻人需要一辆什么样的车？」这个问题似乎被反复提起，却很少有人真正停下来，认真地试着给出一个回答。直到2025年春天，一辆叫做零跑B01的车出现在大众视野中，它背后的主设计师是虞舒悦。\n \n虞舒悦鲜少在公开场合露面。但这十年，她从零开始参与零跑汽车的设计工作，从最初的概念草图到现在的全球车型，她和团队一起建立了零跑的设计语言。\n \n5月，《人物》在杭州见到虞舒悦。她性格坚韧、对设计充满热情。她不是所谓的「天才设计师」，最初学的是工业设计，毕业后进入大华，从事电子产品设计工作。\n \n她说，那个阶段不仅要自己去用软件建模，全流程的跟整个产品的设计，还要完成用户和竞品的洞察。她学会最多的，是如何看清一件事的全貌。\n \n2015年，虞舒悦在老板朱江明的邀请下，进入了零跑的汽车设计团队。那时国内的新势力品牌刚刚起步，一切都在摸索中。\n \n虽然对汽车了解不多，但虞舒悦很快适应了新角色。她花了很多时间学习汽车设计知识，意识到汽车不仅是艺术品，更需要考虑法规、技术和用户需求。\n \n虽…",
-          "link": "https://view.inews.qq.com/a/20250530A04LR100",
-          "publishedOn": "2025-05-30T04:14:27.000Z",
-          "wordCount": 4155,
-          "title": "从大华到零跑：她如何把「汽车界优衣库」开进欧洲？",
-          "imageUrl": "https://inews.gtimg.com/om_ls/OuzPYOm8y2-qAWbpH8FOFXglMEX6zFtyccRhwq2YbI-kQAA_640330/0"
-        },
-        {
-          "id": "https://view.inews.qq.com/a/20250530A04L6N00",
-          "author": "人物",
-          "description": "明星道德条款的起源可以追溯到百年前的美国派拉蒙电影公司。当时，一个跟派拉蒙签了演出合约的艺人涉嫌谋杀强奸被逮捕，虽然他最终被判无罪，但项目因此受到抵制，派拉蒙从此在艺人合同里创立了道德条款。\n \n近年来，在中国影视行业中，「道德条款」也逐渐变成了摆在明星们面前的必选项。它是上至明星，下至剧组摄影灯光等工作人员都在被要求遵循的一种道德准则，它禁止的行为正在变多，且违约金数额惊人。\n\n某种程度上，这是一种必要，娱乐明星们享有极高的社会影响力和薪酬水平，自然也需要承担与之对应的社会责任和约束，道德条款能够在一定程度上对部分艺人起到警示作用，使他们更加严格地约束自己。但另一方面，比道德条款更重要的是相关法律的进一步健全，例如，如何界定违约、如何处罚、如何追偿？这是一场明星与经纪公司、片方、投资方的博弈，目前，从未止息的「塌房」事件表明，即便道德条款越来越长，它能拦住的事故也依然有限。\n\n\n\n\n\n文｜刘楚楚\n\n编辑｜王婧祎\n\n\n\n\n楼塌时分\n\n乙方保证，在合同签订前及签约后，不得出现下列行为：\n\n吸毒、嫖妓、赌博、斗殴、涉黄、酒驾、出轨…….；其他导致自身形象遭受负面评价的事件；通过伪造材料、学历造假等不正当手段牟取利益；发表任何政治、种族、性别等相关的敏感话题……若乙方违反前述承诺，甲方有权单方面终止协议，乙方应返还甲方已经支付的合约酬金，并按照合同总额3倍支付违约金，违约金若不能弥补甲方、投资方…….全部损失的，乙方应继续赔偿。\n \n在我手中的是一份艺人聘用合同，这部分涉及对艺人私德约束的条款，通常被称作「道德条款」。值得注意的是「签约前及签约后」，相当于要你保证从出道前，到签约后不限定的时间里，都没有做过「错事」，这几乎算是一种终身保证。怎么说服艺人签下并尽可能少地改动这份条款，是今天的影视公司或者品牌必做的一步努力。\n \n毕竟，有的「房」已经塌了好多年，发生在影视行业的次生灾…",
-          "link": "https://view.inews.qq.com/a/20250530A04L6N00",
-          "publishedOn": "2025-05-30T04:13:03.000Z",
-          "wordCount": 7692,
-          "title": "当越来越多明星签下那则「道德条款」",
-          "imageUrl": "https://inews.gtimg.com/om_ls/Oq-sxhr3UW3FkfQxIebyYf5TJBHOceq__VSLiaP3zIb2kAA_640330/0"
         }
       ]
     },
@@ -3495,6 +3505,16 @@
       "feedUrl": "https://rsshub.rssforever.com/tencent/news/author/8QMc3Hhc74cevD%252FR",
       "siteUrl": "https://new.qq.com/omn/author/8QMc3Hhc74cevD%2FR",
       "articles": [
+        {
+          "id": "https://view.inews.qq.com/a/20250619A06C1V00",
+          "author": "晚点LatePost",
+          "description": "宇树的产品正成为具身研发基础设施。\n\n\n\n文丨贺乾明 李梓楠\n编辑丨程曼祺\n\n\n据了解，宇树科技已于近期完成了去年底开启的 C 轮融资，由中国移动旗下基金、腾讯、锦秋、阿里、蚂蚁和吉利资本共同领投，宇树的大部分老股东跟投。宇树投前估值目前超过 100 亿元人民币。\n\n在去年底至今的 C 轮融资期间，宇树经历了春节晚会出圈爆火、公司股改等系列事件。据《晚点 LatePost》此前对这轮融资的跟踪了解：今年 1 月初，中国移动、蚂蚁和一些大型产业方就在积极洽谈，几家主要潜在投资方计划出资 1 亿-3 亿元不等。而进入今年 2 月后，宇树 C 轮投后估值逐渐上涨，融资结构也相应变化。\n\n据多方信息，有原本希望参与 C 轮融资的潜在产业投资方后来也购买了宇树的部分老股。\n\n宇树的估值目前并不是中国具身市场里最高的。“宇树的（正式）估值在十名开外。” 一位宇树的早期投资人不久前曾对我们感叹，当时宇树的 C 轮仍未最终落定。\n\n论知名度、影响力和实际出货量，宇树的机器狗和人形机器人都位居中国乃至世界前列。据多方行业信息，今年上半年，宇树部分老股交易的估值已超过 150 亿元人民币。\n\n目前宇树的机器狗面向消费市场和巡检等一些生产、物流场景，人形机器人的主要客户则是全球具身研究机构。在这一新兴领域，宇树的产品正成为一种共通的研发基础设施，成为了一代机器人博士生做研究、写论文的 “生产资料”。\n\n比如一位机器人行业创始人今年去美国时，在硅谷周边各高校的机器人或具身实验室里，都看到了宇树的人形机器人或狗。\n\n宇树未来发展的悬念也在于，这家强于硬件和运动控制的公司，在机器人大脑和具身基础模型上是否也能有突破，这是智能机器人普及到更多真实生产、生活服务场景的关键。\n题图来源：宇树科技\n\n.rich_media_content{--news-tabel-th-night-color: #44444…",
+          "link": "https://view.inews.qq.com/a/20250619A06C1V00",
+          "publishedOn": "2025-06-19T07:53:33.000Z",
+          "wordCount": 1142,
+          "title": "宇树C轮落定，腾讯、阿里、蚂蚁等领投，估值超100亿",
+          "imageUrl": "https://inews.gtimg.com/news_ls/OIhh3QE8ckfZkzfSNqQDtG3g_vq5ZvgHwPMlyFX55-1a4AA_640330/0"
+        },
         {
           "id": "https://view.inews.qq.com/a/20250617A09ROO00",
           "author": "晚点LatePost",
@@ -3714,26 +3734,6 @@
           "wordCount": 2810,
           "title": "尊界 S800 上市：如何打破超豪华市场的刻板印象？",
           "imageUrl": "https://inews.gtimg.com/om_ls/O1qGl_4YV8QK2I7cNGIXGpBLpqcwGpuWx23i6W3JpjXjsAA_640330/0"
-        },
-        {
-          "id": "https://view.inews.qq.com/a/20250530A0942E00",
-          "author": "晚点LatePost",
-          "description": "牺牲短期利润，建设平台生态。\n\n\n自 2020 年首次单季扭亏为盈后，拼多多近期公布了五年来第一份利润大幅下滑的财报。\n\n在 5 月 27 日发布的 2025 年一季度财报中，拼多多总营收 956.72 亿元，同比增长 10%，低于市场预期的 1016 亿元；拼多多一季度净利润为 147.42 亿元，同比大幅下降 47%，经调整后净利润 169.2 亿元，远不及市场预期的 278.8 亿元。与此同时，拼多多调整后每 ADS 收益 11.41 亿元人民币，同样低于预期的 19.11 元。\n\n财报一经发布，拼多多美股盘前跌超 20%，随后收跌至 14%，单日市值蒸发超过 230 亿美元。截至发稿前，拼多多股价回升至 98 美元 / 股。\n\n继 2024 年年报中表示 “优先考虑对平台生态系统加大投入” 后，拼多多 2025 年一季度财报中再次强调了 “消费者和商家利益要优先于平台利益”。财报业绩会中，拼多多董事长、联席 CEO 陈磊说，反哺商家的投入虽然记作会计费用，但更是长期投资，“这意味着，短期甚至相当一段时间内，我们的利润将受到很大的压力和挑战”。\n\n拼多多一季度的财报表现，印证了平台去年预判形式后，多次给出的 “利润下滑” 预警，但转型阵痛期仍引起资本市场的强烈反应。\n\n\n利润下滑背后，拼多多选择了长期生态\n\n\n从营收结构来看，拼多多一季度在线营销服务（广告）收入为 487.22 亿元，同比增长 15%，表现较为稳健；交易服务（佣金和支付）收入为 469.50 亿元，同比增长 6%，增速下滑显著。\n\n回顾 2024 年四季度，拼多多在线营销服务收入增长 17%，交易服务收入增长 33%，这已是继 2024 年中拼多多官方释放 “高收入增长不可持续，盈利能力下降趋势不可避免” 预警信号后的业绩，而本季度拼多多营收增长的疲态进一步放大。\n\n营收的下降主要来自拼多多的战略转向…",
-          "link": "https://view.inews.qq.com/a/20250530A0942E00",
-          "publishedOn": "2025-05-30T11:56:49.000Z",
-          "wordCount": 2094,
-          "title": "高投入拖累利润，拼多多重金押注长期",
-          "imageUrl": "https://inews.gtimg.com/om_ls/O5DtXvATtQk8ILOMLBCVnmRSq57NGjryi-MipI0ayWqmAAA_640330/0"
-        },
-        {
-          "id": "https://view.inews.qq.com/a/20250530A08VII00",
-          "author": "晚点LatePost",
-          "description": "从餐饮外卖打到闪购万物，消费习惯转移的赢家最终还是平台。\n\n\n\n文丨沈方伟 管艺雯\n编辑丨黄俊杰\n\n\n五月以来，京东和淘宝闪购 x 饿了么分别宣布外卖战果：单日订单突破 2000 万单和 4000 万单。\n\n整个 2024 年，中国外卖市场的峰值时段也不过一天约 1 亿单/天，其中大部分由美团配送，2000 万单来自饿了么。现在靠补贴大战，京东和饿了么没花两个月就多了 4000 多万单。\n\n与此同时，美团的订单量也还在增长。《晚点 LatePost》了解到，近期中国外卖市场（包括闪购送上门的其他商品）峰值每天已经超过 1.4 亿单，其中美团在 8000 万 - 9000 万单。\n\n很显然中国人的餐饮和商品消费没有在三个月里增长 40%。其中一部分是超低价促进的茶饮、咖啡消费，还有一部分则是线下店的消费被搬到了外卖平台。美团在今年一季度财报后的营收会议上透露，由于补贴消费者外卖下单，预计其到店业务营收增速和利润都将小幅下滑。\n\n针对餐饮外卖的补贴不会再持续太久。补贴对平台的压力开始显现，美团预计在今年二季度，其外卖所在的核心本地商业板块营收增长将减速、利润将比去年同期减少。饿了么仍希望在今年盈利，我们了解到，阿里本轮外卖补贴中大多数成本由淘宝承担。已经有平台调整外卖百亿补贴的出资结构，增加商家承担的比例。\n\n不过这并不意味着竞争缓和。接近淘宝闪购和京东的人士告诉我们，淘宝闪购和饿了么可能在 618 期间冲击 5000 万单，京东此前也在储备运力和完善补贴计划应对 618。但重点将会转移，从餐饮外卖逐渐蔓延到 iPhone、电饭煲、吹风机等消费电子和家用电器的即时零售。\n\n\n拆解订单：超过一半的增长来自奶茶咖啡\n\n\n早期，京东联合库迪等奶茶咖啡品牌用 3.9 元的饮品拉升单量。到今年五月，用户可以在京东外卖点到价格更低的奶茶，最低 1.68 元一杯蜜雪冰城。通过奶茶咖啡带动餐饮…",
-          "link": "https://view.inews.qq.com/a/20250530A08VII00",
-          "publishedOn": "2025-05-30T11:22:16.000Z",
-          "wordCount": 2720,
-          "title": "每天烧出4000万个新订单，外卖补贴战即将转向新战场",
-          "imageUrl": "https://inews.gtimg.com/news_ls/O1EEEaIopBhtRw3WIhGdJnLP_qjzeVNEvRaJ7iu1SK0h8AA_640330/0"
         }
       ]
     },
@@ -3821,16 +3821,6 @@
           "wordCount": 2620,
           "title": "中美AI算法差距仅6个月！投资人详解下一代爆发点：智能体、具身智能",
           "imageUrl": "https://inews.gtimg.com/om_ls/OJpIT1YTZm2P2fesLVdwblNGUf3-bHSgYV6grMn6-z_rQAA_640330/0"
-        },
-        {
-          "id": "https://view.inews.qq.com/a/20250530A09SJN00",
-          "author": "深网",
-          "description": "华为尊界S800 图源：视觉中国\n文丨雅萱  \n编辑丨叶锦言\n出品丨深网·腾讯新闻小满工作室\n5月30日晚，华为与江淮汽车合作推出的尊界S800正式发布，包含纯电版本和增程版本。其中尊界S800星辉尊享版价格70.8万，星耀尊享版78.8万，星辉行政版81.8万，星耀行政版101.8万。此前，该车已开启预售，预售价在100万—150万元之间。\n其中，尊界 S800 先行者计划6月26日开始交付，限量599台。8月中旬开始规模批量交付。\n   \n“华为不造车，要帮助车企造好车。我们将华为30多年来在通信技术，包括芯片、软件、硬件、算法、AI云等一系列能力，以及我们这十几年来在消费电子领域所积累的产品设计、体验、质量服务等体系化能力，赋能中国汽车产业在技术、制造工艺、产业链的突破。”余承东在现场说。\n江淮汽车董事长项兴初在现场透露，“江淮汽车成立了尊界上海设计中心，组建了超5000人的专属团队，新建了尊界超级工厂，目前投入已超百亿元。”\n公开资料显示，2024年12月，江淮与华为联合打造的尊界超级工厂正式落成，该工厂是高度自动化、数字化、绿色化的世界级智能工厂，也是专为尊界品牌打造的时代匠心标杆工厂。\n长期以来，尊界S800所在的百万级豪车市场长期被外资品牌的燃油车把持。\n据中汽数研统计，2024年百万级轿车销量前三名分别为迈巴赫S级（12449辆）、奔驰S级插混（1096辆）、以及宾利飞驰（940辆）。\n余承东曾在做客央视新闻时表示，“能够大规模销售的百万级豪华汽车都是西方发达国家的高端品牌，智能化给了我们弯道超车的机会。过去百万豪华车拼的是发动机、波箱（变速箱）、座舱的豪华设计、材质用料和品牌，这些（我们）都具备，关键我们的智能化进步更快。”\n据公开信息显示，尊界S800首发途灵龙行底盘、天使座主动安全防护、华为星河通信、鸿蒙ALPS座舱2.0、华为车语系统2.0、华为巨鲸…",
-          "link": "https://view.inews.qq.com/a/20250530A09SJN00",
-          "publishedOn": "2025-05-30T13:43:09.000Z",
-          "wordCount": 490,
-          "title": "尊界S800售价70.8万-101.8万 余承东称这是中国汽车走向高端化的开始",
-          "imageUrl": "https://inews.gtimg.com/news_ls/OToRorK83Noy7Lpk_vxiGQYaPyw9Bc3cGDA8VXxb6sdqYAA_640330/0"
         }
       ]
     },
@@ -3839,6 +3829,36 @@
       "feedUrl": "https://www.geekpark.net/rss",
       "siteUrl": "http://mainssl.geekpark.net/rss.rss",
       "articles": [
+        {
+          "id": "http://www.geekpark.net/news/350590",
+          "author": null,
+          "description": "稳定币火了。\n它或许是整个6月份，在AI之外最热门的科技概念。互联网大厂们对稳定币的热情，让其重回主流视野。\n2025年6月17日，京东集团董事局主席刘强东在分享会上表示：“京东将在全球主要货币国家申请稳定币牌照，目标是将跨境支付成本降低90%，转账时间提升到10秒内。”\n这可能是中国互联网大厂的创始人或CEO，首次在公开场合表示布局加密货币。\n稳定币，本质上来说也是一种加密货币。\n与比特币、以太坊等价格剧烈波动的加密货币不同，稳定币通过锚定法定货币（如美元、港元等）或资产，保持价格稳定。\n它的主要优点是成本和效率。国际清算银行（BIS）调研显示，稳定币的跨境支付效率可以比传统支付高100倍，成本低10倍以上。\n这个过去一直在“灰色地带”存活、小众边缘的金融科技赛道，正在爆发。根据公开数据，2025年5月，全球稳定币市场总市值已突破2463亿美元，较2019年增长近50倍。\n不仅如此，6月5日，稳定币概念第一股Circle在纽交所上市，首日股价暴涨168%，市值突破183亿美元，而其员工不到1000人。 Circle的上市，也为其他稳定币公司增加了巨大信心。近期，蚂蚁集团、沃尔玛、亚马逊等科技大厂都在积极推进各自的稳定币项目。\n2014年，京东赴美上市时，刘强东曾坦言，最大的错误是没有早点布局支付，被支付宝、微信支付远远甩在后面。\n如今，在跨境电商、出海的浪潮下，随着大厂的蜂拥而至，稳定币俨然成为了支付领域一个不可错过的新风口。\n未来，用稳定币购买海外商品、跨境转账的图景，将如何一步步成为现实？稳定币，会成为巨头的下一个主战场吗？\n \n京东的稳定币，到底是什么？\n \n根据京东曝光的信息，京东的稳定币，名叫JD-HKD，是一种与港元（HKD）1:1挂钩的加密货币。也就是说，每发行一枚稳定币，都有等值的1港元的高流动性资产（现金、国债等）作为支持，由持牌银行托管并定期审计。\n京…",
+          "link": "http://www.geekpark.net/news/350590",
+          "publishedOn": "2025-06-19T07:32:52.000Z",
+          "wordCount": 356,
+          "title": "刘强东宣布发力稳定币，大厂找到了「新金矿」",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.geekpark.net/news/350585",
+          "author": null,
+          "description": "在 Mac 上追求效率这件事，从来没停过。我们都用过各种工具来提高工作流速度，从早年的 Alfred 到系统内建的 Spotlight，好用是好用，但你总感觉，它们做的事就那么几样，边界很清晰。\n直到 Raycast 出现，一下子把这个品类给「打开了」。它不仅能启动应用、查文件、换算单位、排列窗口，连剪贴板历史、日历事件、速记浮窗、翻译、跑脚本、跑 AI、连 Wi-Fi、开热点……都能一口气干了。\n它也不只是 macOS 的「万能遥控器」，最夸张的是，Raycast 直接把 AI 大模型整合进了操作系统的体验里，Claude、GPT-4o、Gemini 2.5 Flash 想用哪个都能切。\n\n一行光标，一段指令，和一整套响应迅速的交互逻辑，Raycast 创造出了全新的 macOS 操作体验，它是一个让你「重构操作习惯」的效率中枢。\n而就在 WWDC25 上，苹果终于把 Spotlight 更新成了更聪明的版本，加入自然语言搜索、图片识别、Siri 整合，但看完很多人只说了一句话：\n「这些 Raycast 早就能做到了。」\n而与 AI 大模型打通后，Raycast 更是直接变身离你最近的 AI 助手，为 Mac 加上双重效率引擎\n \n01 \n一个键盘驱动的「效率宇宙」 \n \nRaycast 的底层逻辑是：少碰鼠标，多靠键盘。\n所以它首先是是个高度可定制的「Mac 控制台」，基础操作和 Spotlight 类似，但快得多、顺得多。\n在任何界面按下启动键，就能打开 Raycast 的控制栏，在控制栏里，最基础的操作有：\n启动应用和搜索文件 : 输入要打开的应用或文件名，比如输入「sa」会显示「Safari」。\n\n计算与单位换算 : 直接在输入框键入数学表达式，如「10*3.14」，或进行单位换算「10kg to lbs」，「100℉ = ℃」答案都能即时呈现。时区转换、汇率换算…",
+          "link": "http://www.geekpark.net/news/350585",
+          "publishedOn": "2025-06-19T06:56:56.000Z",
+          "wordCount": 1058,
+          "title": "AI 上新｜打通了 AI，这个 App 让我的 Mac「快到飞起」！",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.geekpark.net/news/350584",
+          "author": null,
+          "description": "「美团既白，可以节省 70% 的时间来拿到最终结果。」首批试用 AI 的杭州黄龙饭店，率先给出了数据上的反馈。\n6 月 5 日，美团发布了一款专注酒店场景的 AI Agent「美团既白」，这也是国内首个面向酒店商家的 AI 工具。\n相比于 「啥都懂但不专精」的通用大模型，它更擅长解决酒店经营中的实际问题，这也体现出美团一贯的务实风格。\n虽然通过深度体验美团的零代码开发平台 NoCode，我们已经见证了美团是如何通过 AI 技术简化复杂的研发流程，也对美团的 AI in products 战略有了初步认知。但它能否从「辅助研发」扩展至更广泛的「驱动实体商业经营」，让我们充满了好奇。\n美团既白究竟能否真正帮助酒店进入综合数据决策的新阶段？带着疑问，笔者对美团既白的产品功能，以及底层技术支撑进行了全面调研。\n\n\n01 \n提效 70%，酒店人终于能喘口气了 \n\n\n杭州黄龙饭店是美团既白正式面向酒店商家推出之前的首批试用者，董事长杜宏新在提起试用体验时举了一个生动的例子：暑期要到了，如果是以往，他们此时正在翻箱倒柜的查旧账，淄博烧烤、甘肃麻辣烫火爆起来的时候，营销方案是怎么做的？经营数据如何？再通过这些碎片拼凑出今年的策略。杜宏新说：「从某种程度来说，这堪比闭门造车。」\n传统经营模式下，实体经营往往面临三大痛点：一是数据决策滞后、二是客户服务低效、三是经营分析繁琐。就像抖音商家常因无法及时掌握热门趋势数据，错过爆款商品的推广时机；微信私域运营者面临大量客户咨询，却难以快速响应，导致客户流失。而美团既白，就是为了解决酒店商家经营中存在的实际问题而诞生的产品。\n经营策略的制定需以数据决策为先导。一句「暑期青岛的城市热度如何？」的提问背后，美团既白已在几分钟内完成了交通流量分析、商圈预订热度评估、商圈热度洞察，并快速生成一份完整分析报告。如进一步追问「竞争圈的酒店表现情况」，美团既白还能通…",
+          "link": "http://www.geekpark.net/news/350584",
+          "publishedOn": "2025-06-19T06:42:16.000Z",
+          "wordCount": 326,
+          "title": "​酒店管理进入 AI 时代？这个模型或许是第一步",
+          "imageUrl": null
+        },
         {
           "id": "http://www.geekpark.net/news/350561",
           "author": null,
@@ -6511,6 +6531,56 @@
       "siteUrl": "https://www.nationalgeographic.com/pages/topic/latest-stories",
       "articles": [
         {
+          "id": "https://www.nationalgeographic.com/science/article/NASA-golden-records",
+          "author": "Paola Rosa-Aquino",
+          "description": "The Golden Record carried by Voyager 1 and 2. Photographs of Jupiter by Voyager 1 on March 24, 1979 and Uranus by Voyager 2 on January 24, 1986.   \nIn 1977, NASA launched two 12-inch gold-plated copper disks filled with the sounds of children's laughter, heartbeats, and bird calls. Is their time in space running out?\n    \nIn 1977, NASA launched Voyagers 1 and 2 from Cape Canaveral, Florida into space to embark on a grand tour of the far reaches of our solar system. Mounted on board each probe was a 12-inch gold-plated copper disk—a cosmic “message in a bottle” engraved with sights, sounds, and depictions of life on Earth, collectively known as the Golden Records—on the slim chance some far-off alien civilization might discover them. And in Disney and Pixar’s animated film Elio, in theaters…",
+          "link": "https://www.nationalgeographic.com/science/article/NASA-golden-records",
+          "publishedOn": "2025-06-19T08:24:49.000Z",
+          "wordCount": 8744,
+          "title": "The Golden Records tell the story of Earth. Here’s what they say.",
+          "imageUrl": "https://i.natgeofe.com/n/1b3620af-e225-4318-bb95-7955c8dec263/GoldenRecord-Wide_16x9.jpg?w=1200"
+        },
+        {
+          "id": "https://www.nationalgeographic.com/history/article/liberia-america-colonial-history",
+          "author": "Enrique Vaquerizo",
+          "description": "Faced with injustice in the land of their enslavement, oppressed people might find the offer of a new country, with the chance for freedom and prosperity, attractive. During the early 1800s in the U.S., however, the idea of establishing a colony of Black Americans in Africa was deeply controversial among freedmen—people of African descent who had gained freedom from enslavement—and freeborn Black people.\n    \nThe reasons centered on the self-serving motives of many of the project’s promoters: It was supported by, among others, pro-enslavement figures. Although it led to the founding of Liberia—the world’s second ever Black republic—the new state later practiced violence against Indigenous Africans.\n      \nMost free Black people saw themselves as Americans, participating in the economy of t…",
+          "link": "https://www.nationalgeographic.com/history/article/liberia-america-colonial-history",
+          "publishedOn": "2025-06-19T08:24:49.000Z",
+          "wordCount": 8484,
+          "title": "Were there sinister motives behind founding Liberia?",
+          "imageUrl": "https://i.natgeofe.com/n/c2efa86e-0f2e-4ab4-bb92-e83fc3f202f3/liberia5_16x9.jpg?w=1200"
+        },
+        {
+          "id": "https://www.nationalgeographic.com/travel/article/us-national-parks-train-trips",
+          "author": "Rebecca Toy",
+          "description": "A passenger train rolls through the unforgiving desert landscape as seen through some beautiful blooming Ocotillo cactuses. Trains are an accessible way to see some of America’s national parks.   \nWith popular national parks still searching for the answers to congestion, train travel is a practical solution—and a unique adventure.\n    \nDriving to and through the most popular U.S. national parks can be a hassle—from parking to long lines at the entrance gates. For many parks, train travel may be the stress-free answer for parkgoers who don’t want to drive. Locomotives can move hundreds of people along a rail bed less than 5 feet wide, which can drastically reduce traffic woes. Riders can enter these parks without a coveted vehicle reservation while enjoying vistas often inaccessible by road…",
+          "link": "https://www.nationalgeographic.com/travel/article/us-national-parks-train-trips",
+          "publishedOn": "2025-06-19T08:24:49.000Z",
+          "wordCount": 9289,
+          "title": "Forget the road trip—these national parks are best visited by train",
+          "imageUrl": "https://i.natgeofe.com/n/85ec81f9-7612-447c-8ea8-6924e1b105a4/GettyImages-910990684_1_16x9.jpg?w=1200"
+        },
+        {
+          "id": "https://www.nationalgeographic.com/animals/article/dolphins-killer-whales",
+          "author": "Joshua Rapp Learn",
+          "description": "Pacific white-sided dolphins swim off the coast of British Columbia. Dolphins and porpoises in this region have been spotted swimming alongside a population of killer whales known as northern resident orcas. Scientists have theories about why.   \nScientists have documented what might be the first case of friendly interactions between killer whales and smaller cetaceans. Here's what they think is going on.\n    \nA pod of Dall’s porpoises sped toward an adult orca, swimming under and around her for a few minutes before getting “bored” and moving on to her companions—a mother orca with a young calf. As soon as the porpoises appeared, the calf seems to have gotten excited, speeding up and trying to catch the porpoises. The mother eventually got frustrated, but “the calf looked like it was havin…",
+          "link": "https://www.nationalgeographic.com/animals/article/dolphins-killer-whales",
+          "publishedOn": "2025-06-19T08:24:48.000Z",
+          "wordCount": 8305,
+          "title": "These dolphins have orca friends—but may have an ulterior motive",
+          "imageUrl": "https://i.natgeofe.com/n/5a6b00ec-1730-4231-9334-7abfa0f55a89/NationalGeographic_2481588_16x9.jpg?w=1200"
+        },
+        {
+          "id": "https://www.nationalgeographic.com/history/article/juneteenth-food-history",
+          "author": "Dana Givens",
+          "description": "Juneteenth is celebration of Black history and culture, where communities gather and eat, as seen here at a festival at Malcolm X Park in West Philadelphia.   \nGrilled meats, watermelon, and hibiscus are often served on the holiday not only to bring communities together, but to honor Black history.\n    \nWhile now recognized as a national holiday, Juneteenth has always been embedded in the local culture of Galveston, Texas, where the last group of enslaved Africans were freed by Union soldiers two years after the Civil War ended. The holiday is still cherished among city locals who celebrate the day their ancestors were finally given their freedom.\n    \n(Juneteenth is America’s second Independence Day—here’s why.)\n    \nAt its core, Juneteenth represents the community coming together over mu…",
+          "link": "https://www.nationalgeographic.com/history/article/juneteenth-food-history",
+          "publishedOn": "2025-06-19T08:24:48.000Z",
+          "wordCount": 6121,
+          "title": "There’s a deeper meaning behind Juneteenth food traditions",
+          "imageUrl": "https://i.natgeofe.com/n/9a4e9f9d-4c1b-4445-b4ea-4eb4b06fb99d/h_16221437_16x9.jpg?w=1200"
+        },
+        {
           "id": "https://www.nationalgeographic.com/animals/article/florida-grasshopper-sparrow",
           "author": "Jason Bittel, Carlton Ward Jr.",
           "description": "On the dry prairies of the Sunshine State, there’s a tiny, camouflaged bird known as the Florida grasshopper sparrow. Each one weighs about as much as three U.S. quarters yet has to survive against a backdrop of torrential floods, herds of stomping cattle, and waves of ravenous fire ants.\n    \nNot to mention the humans. “We’ve lost over 90 percent of their habitat,” says Fabiola “Fabby” Baeza-Tarin, a senior conservation ecologist with a Tampa-based consulting firm known as Common Ground Ecology. \n        \nFlorida grasshopper sparrows and many other organisms rely on the dry prairie for their entire life cycles, not even leaving to migrate, but humans have increasingly rendered the space inhabitable by clearing and draining it to make way for development, ranching, and intensified agricult…",
@@ -7579,106 +7649,6 @@
           "wordCount": 9374,
           "title": "Why the Balkans should be your next summer destination",
           "imageUrl": "https://i.natgeofe.com/n/2c24045a-990b-4f60-99bb-d93449bac2e6/GettyImages-1044361652_16x9.jpg?w=1200"
-        },
-        {
-          "id": "https://www.nationalgeographic.com/history/article/rattles-toys-children-ancient-syria-bronze-age",
-          "author": "Tom Metcalfe",
-          "description": "Archaeologist Mette Marie Hald holds fragments of 4,500-year-old rattles found at the Hama site in Syria. Hald and her colleagues suspect that the rattles and others like them were used to sooth children rather than to make music, as some have previously suggested.   \nA new study argues that ancient rattles unearthed in Syria aren’t musical instruments, but toys used to entertain infants.&nbsp;“Today, we use screens, back then it was rattles.”\n    \nClay rattles made in Syria about 4,500 years ago were designed to “amuse and calm” infants, according to a new study. But some archaeologists think they were used in rituals to dispel evil spirits, or that they might have served both purposes.\n    \n“They have little handles that are too small for me, and I have quite small hands,” says archaeolo…",
-          "link": "https://www.nationalgeographic.com/history/article/rattles-toys-children-ancient-syria-bronze-age",
-          "publishedOn": "2025-05-30T20:19:41.000Z",
-          "wordCount": 7703,
-          "title": "These 4,500-year-old rattles may be among the world’s oldest toys",
-          "imageUrl": "https://i.natgeofe.com/n/f3af9c2d-28ad-4f2f-ada8-b9dfd1fdc206/IMG_1884_red_foto_John_Fhaer_Engedal_Nissen_Nationalmuseet_16x9.jpg?w=1200"
-        },
-        {
-          "id": "https://www.nationalgeographic.com/travel/article/mount-everest-new-rules-tours-nepal",
-          "author": "Anna Callaghan",
-          "description": "Mount Everest and Lhotse are seen through Buddhist prayer flags in Nepal.   \nA new proposal from Nepal aims to tighten requirements and improve climber safety on the world's tallest peak, but such proposals rarely become law.\n    \nLast month, as the 2025 climbing season began on Mount Everest, Nepal’s upper house of Parliament introduced a tourism bill that includes a suite of new rules that would significantly raise the bar for who is allowed to attempt the mountain, who can guide, and how much it will cost.  \n    \nThis year’s proposal includes a mandate that Everest hopefuls must first climb a 7,000-meter peak located in Nepal, as well as requirements for all guides to be Nepalese citizens, for medical certificates confirming good health to be obtained from approved in-country facilities…",
-          "link": "https://www.nationalgeographic.com/travel/article/mount-everest-new-rules-tours-nepal",
-          "publishedOn": "2025-05-30T20:19:41.000Z",
-          "wordCount": 10725,
-          "title": "Climbing Mount Everest may get even harder",
-          "imageUrl": "https://i.natgeofe.com/n/d78e5e13-c615-4fef-8e49-0c82cd22ed35/NationalGeographic_2720944_16x9.jpg?w=1200"
-        },
-        {
-          "id": "https://www.nationalgeographic.com/history/article/christianity-nicene-creed-first-council-of-nicaea",
-          "author": "Candida Moss",
-          "description": "This May marks 1,700 years since the convening of what is arguably the most important and influential council in Christian history. For three months in 325 CE, Emperor Constantine gathered hundreds of bishops from across the empire in Nicaea, on the northern coast of what is now Turkey. The resulting statement of belief—the Nicene Creed—was the first official declaration of Christian faith and remains foundational for Christians around the world to this day. Attend Sunday school or a Christian church of nearly any denomination, and you will encounter principles derived from the Nicene Creed.\n      \nThe task of the council was enormous: to establish correct Christian doctrine, fix the date of Easter, define episcopal jurisdictions, and devise protocols for addressing local schisms and disse…",
-          "link": "https://www.nationalgeographic.com/history/article/christianity-nicene-creed-first-council-of-nicaea",
-          "publishedOn": "2025-05-30T20:19:40.000Z",
-          "wordCount": 8698,
-          "title": "How the Council of Nicaea changed Christianity forever",
-          "imageUrl": "https://i.natgeofe.com/n/09f6fadb-4b53-442a-803d-b78411d5a354/2A48EG2_16x9.jpg?w=1200"
-        },
-        {
-          "id": "https://www.nationalgeographic.com/premium/article/mosquito-magnet-smell-repell",
-          "author": "Connie Chang",
-          "description": "Colored scanning electron micrograph of a female specimen of the mosquito species,&nbsp;<i>Anopheles gambiae</i>. This micrograph shows the mosquito's bulging abdomen, swollen after a meal of human blood.   \nNew research proves these bloodsuckers can pick you out in a crowd. Here are the odors they’re drawn to, what scientists recommend to keep them away—and how a future personalized repellant might work.\n    \nMosquitoes love Kim Zarins. The insects’ preference for Zarins, an English professor at Sacramento State University, is so extreme that her 20-year-old son likes her to come outside with him because she serves as a decoy and “he knows he’ll be safe,” Zarins says.\n    \nBut now, mosquito magnets like Zarins are helping scientists pinpoint what entices these thirsty bloodsuckers, and th…",
-          "link": "https://www.nationalgeographic.com/premium/article/mosquito-magnet-smell-repell",
-          "publishedOn": "2025-05-30T20:19:40.000Z",
-          "wordCount": 9985,
-          "title": "You really are a mosquito magnet. Here’s what you can do.",
-          "imageUrl": "https://i.natgeofe.com/n/a8aae0d3-43c8-420e-bd49-3b35f7df232f/Z3410211-Female_specimen_of_mosquito_SEM_16x9.jpg?w=1200"
-        },
-        {
-          "id": "https://www.nationalgeographic.com/travel/article/lgbtq-history-nevada-city-california",
-          "author": "Matt Kirouac",
-          "description": "Since the early to mid-1800s, Nevada City has been a haven for many people in California and beyond, including LGBTQ+ travelers and transplants.   \nProspectors came to Nevada City for gold, but the forested community has become an enduring oasis for artists, musicians, and bohemians.\n    \nWhen the first settlers came to the Sierra Nevada foothills in the late 1840s, they came for gold. Decades after the California Gold Rush ended in 1855, a different crop of settlers—including artists, musicians, and LGBTQ+ people—came looking for something other than precious metal. \n    \nHistory runs deep in Nevada City, a hilly, pine-scented community of barely 3,000, which boomed in 1849 upon the arrival of early settlers like Captain John Pennington and William McCaig. During its heyday, miners came a…",
-          "link": "https://www.nationalgeographic.com/travel/article/lgbtq-history-nevada-city-california",
-          "publishedOn": "2025-05-30T20:19:40.000Z",
-          "wordCount": 9911,
-          "title": "How this California Gold Rush town became an LGBTQ+ haven",
-          "imageUrl": "https://i.natgeofe.com/n/06c828be-006f-46c2-abc3-e3e7d4a2c493/shutterstock_2336366213_16x9.jpg?w=1200"
-        },
-        {
-          "id": "https://www.nationalgeographic.com/travel/article/why-june-is-the-best-month-to-visit-st-thomas",
-          "author": "Carley Thornell",
-          "description": "St. Thomas in June brings calmer waters, cheaper hotels, turtle sightings, and more room to stretch out.   \nThe best place in the Caribbean for a passport-free tropical escape offers up great weather, fewer crowds, and hotel rates up to half off in the shoulder season.\n    \nIt turns out that the grass actually is greener in St. Thomas—sea turtle grass, that is, for those traveling in June. This sweet spot, after the bustle and beats of carnival season concludes across most of the Caribbean, is both an ecologist’s paradise and a deal-hunter’s delight.\n    \nCanopies of fire-red flamboyant flowers blanket the island, complementing the hue of mangoes that hang lush and ripe. Nesting season starts for green sea turtles, which are drawn not only to shore to lay their eggs, but to the shallow-wat…",
-          "link": "https://www.nationalgeographic.com/travel/article/why-june-is-the-best-month-to-visit-st-thomas",
-          "publishedOn": "2025-05-30T20:19:40.000Z",
-          "wordCount": 9878,
-          "title": "Why June is the best month to visit this U.S. Virgin Island",
-          "imageUrl": "https://i.natgeofe.com/n/884f7304-e2bb-4007-be8f-70fff8add756/GH4CF6_1_16x9.jpg?w=1200"
-        },
-        {
-          "id": "https://www.nationalgeographic.com/travel/article/best-places-to-stay-yosemite-national-park",
-          "author": "Erika Mailman",
-          "description": "Situated at the base of a granite rock cliff, the Ahwahnee Hotel opened in 1927 and is an example of the National Park Service's rustic architecture, also known as “parkitecture.” This hotel is just one of 10 incredible places to stay when visiting Yosemite National Park.   \nChoose your own adventure: a rustic tent cabin at the base of Half Dome or a lavish lodge just outside the national park’s gate.\n    \nYosemite National Park welcomes approximately four million visitors every year. Not surprisingly, travelers from around the world are drawn to the 748,000 acres of natural beauty which include Yosemite Valley, Half Dome, El Capitan, Glacier Point, numerous waterfalls, and Mariposa Grove, where visitors can walk through a giant sequoia. With so much to see and do, visitors to the national…",
-          "link": "https://www.nationalgeographic.com/travel/article/best-places-to-stay-yosemite-national-park",
-          "publishedOn": "2025-05-30T20:19:40.000Z",
-          "wordCount": 9268,
-          "title": "10 places to stay while you're at Yosemite National Park",
-          "imageUrl": "https://i.natgeofe.com/n/c82569ab-9d90-403a-b95d-f4b640b60f4d/GettyImages-1336700327_1_16x9.jpg?w=1200"
-        },
-        {
-          "id": "https://www.nationalgeographic.com/history/article/sally-ride-blazed-trail-women-astronauts",
-          "author": "Erin Blakemore",
-          "description": "Sally Ride sits in the aft flight deck mission specialist's seat during deorbit preparations. On June 18, 1983, Sally Ride became the first American woman to fly in space when the space shuttle Challenger launched on mission STS-7. As one of the three mission specialists on the mission, Ride played a vital role in helping the crew deploy communications satellites, conduct experiments, and make use of the first Shuttle Pallet Satellite.    \nIn June 1983, this barrier-breaking astronaut overcame discriminatory policies—and a sexist society—as the first American woman to launch into orbit.\n    \nOn June 18, 1983, Sally Ride would become the first American woman to launch into space. She had already survived NASA's grueling training and a barrage of tests, but there was another hurdle to cross …",
-          "link": "https://www.nationalgeographic.com/history/article/sally-ride-blazed-trail-women-astronauts",
-          "publishedOn": "2025-05-30T15:56:09.000Z",
-          "wordCount": 9677,
-          "title": "How Sally Ride blazed a trail for women in space",
-          "imageUrl": "https://i.natgeofe.com/n/e16f4679-2097-4cb7-a70b-1123da36b876/sally-ride-01_16x9.jpg?w=1200"
-        },
-        {
-          "id": "https://www.nationalgeographic.com/animals/article/paid-content-most-interesting-animals",
-          "author": "Getty Images",
-          "description": "Before your visit, discover some of Earth's most captivating creatures found at the San Diego Zoo Safari Park, like the stealthy Sumatran tiger, the soaring California condor, and the resilient desert tortoise—each with its own fascinating traits that you can observe during your safari adventure.\n          \nThe southern white rhino, nearly 99 percent of which are found in South Africa, Kenya, Namibia, and Zimbabwe, is one of the largest land animals on Earth, second only to elephants. Despite the name, these rhinos are gray, and \"white\" was likely derived from the Afrikaans word for \"wide,\" referring to their broad, square mouths. These semi-social animals often live in groups; males are usually solitary and mark their territory with dung. White rhinos are grazers, and enjoy rolling in mud…",
-          "link": "https://www.nationalgeographic.com/animals/article/paid-content-most-interesting-animals",
-          "publishedOn": "2025-05-30T14:59:35.000Z",
-          "wordCount": 5163,
-          "title": "Earth’s Most Interesting Animals",
-          "imageUrl": "https://i.natgeofe.com/n/9de98c05-df40-49ae-96d7-cd36b79d607c/GettyImages-1206256717_16x9.jpg?w=1200"
-        },
-        {
-          "id": "https://www.nationalgeographic.com/travel/article/best-islands-in-croatia-for-an-island-hopping-adventure",
-          "author": "James Stewart",
-          "description": "Whatever you’re looking for, you’ll find it in Croatia's islands — from buzzy resorts for a party crowd on Hvar to towns like Korčula or Rab, their streets an insouciant jumble of gothic and Renaissance beauty. In between are endless pine-scrubbed specks with no firm grip on the 21st century, washed by the cleanest waters in the Mediterranean.   \nKnown as the land of a thousand islands, Croatia’s Dalmatia and Kvarner archipelagoes offer an abundance of coastal adventures — from exploring a little-known National Park to swimming in a cave plucked from Odyssean legend.\n     \nThis article was produced by National Geographic Traveller (UK).\n     \nThe fascination of islands is that they appear to be distinct, self-contained worlds. If that’s true, then Croatia is practically its own solar syste…",
-          "link": "https://www.nationalgeographic.com/travel/article/best-islands-in-croatia-for-an-island-hopping-adventure",
-          "publishedOn": "2025-05-30T10:27:35.000Z",
-          "wordCount": 11796,
-          "title": "How to plan the ultimate island-hopping adventure in Croatia",
-          "imageUrl": "https://i.natgeofe.com/n/6fe9e699-5fd5-4e2c-8113-52c518b48ae3/bigtrip_croatia_2C69HX0-Enhanced-SR-copy_HR-Alamy-Nino-Marcutti_16x9.jpg?w=1200"
         }
       ]
     },
@@ -7687,6 +7657,20 @@
       "feedUrl": "https://rsshub.rssforever.com/natgeo/science/article",
       "siteUrl": "https://www.natgeomedia.com/science/article",
       "articles": [
+        {
+          "id": "https://www.natgeomedia.com/science/article/content-18220.html",
+          "author": null,
+          "description": "科學家正逐步揭開這些海中最「Q彈」生物的神祕面紗──其中一種水母，甚至可能是地球上最古老的動物物種。\n\n                    \nCorolla spectabilis，譯註：屬於有殼翼足亞目，也稱為披殼亞目）貼著海面漂浮。雖然看起來可能不像，但牠們其實是一種蝸牛，已經演化出翅膀，以便生活深廣的水體中。\n\n\n\n\n                    \n通稱「水母」的凝膠狀浮游動物，是由各種Q彈、半透明、主要成分是水的生物所組成的演化大雜燴。這些動物裡確實包括了具有經典圓型傘狀體和螫人觸手的「真水母」，但也包括了像海蟲、原始脊索動物和長著翅膀的蝸牛之類的種種五花八門的生物。\n\n\n                \n                    \nSemicossyphus pulcher）從雙尾樽海鞘（Thetys vagina）身上咬了一口下來。水母不適合在近岸地區生活，所以當牠們漂進海藻林的時候，就會變成容易到手的獵物。\n\n\n\n\n                    \n「如果體內超過95%是水可以算是這群生物的共通點，那也就僅此而已。」斯克里普斯海洋研究中心（Scripps Institution of Oceanography）的博士候選人葛瑞絲．考利（Grace Cawley）說。\n有些是溫和的植食動物，有些會追捕獵物。有些只有頂針大小，有些卻能長到體長比藍鯨還長。有些會貼著海面巡游，有些則生活在水下數千公尺的地方。\n考利開玩笑說，大家對水母的共同反應就是：「『喔，是黏黏的嗎？』那就歸到膠狀浮游動物吧。」\n因為未曾正視牠們的多樣性，人類其實忽略了地球上某些歷史最悠久的生物。感謝科技的進步，目前科學家正加快腳步，開始探索水母對地球海洋的未來會產生什麼影響。\n軟Ｑ身體的硬傷\n對膠狀浮游動物的研究始於1800年代末，當時是從碼頭和船邊水裡撈捕樣本…",
+          "link": "https://www.natgeomedia.com/science/article/content-18220.html",
+          "publishedOn": "2025-06-18T16:00:00.000Z",
+          "wordCount": null,
+          "title": "「水母」終於透露了牠們的祕密 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權",
+          "enclosure": {
+            "url": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18220/2025061949948665.jpg",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18220/2025061949948665.jpg"
+        },
         {
           "id": "https://www.natgeomedia.com/science/article/content-18219.html",
           "author": null,
@@ -9665,6 +9649,16 @@
       "siteUrl": "https://chinadigitaltimes.net/chinese",
       "articles": [
         {
+          "id": "https://chinadigitaltimes.net/chinese/?p=718966",
+          "author": "既要又要还要",
+          "description": "官方通报在罗帅宇事件中遭遇的，依旧是不信与质疑，尽管以真相为归依的质问还在，但对通报本身的合法性并不会构成威胁。舆论与通报的低烈度对峙再度证明，通报是可以脱离真相运行的，且运行有效。法治、程序争议、个人自由、社会自决等古老的工具，在官民互动的模式中呈现历史性的退却，真相成了硕果仅存的稀薄盾牌，为舆论问责提供最后一点屏障。",
+          "link": "https://chinadigitaltimes.net/chinese/718966.html",
+          "publishedOn": "2025-06-19T06:15:58.000Z",
+          "wordCount": 13151,
+          "title": "旧闻评论｜官方通报在罗帅宇事件中遭遇何如？",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/image-1750265474967.png"
+        },
+        {
           "id": "https://chinadigitaltimes.net/chinese/?p=718958",
           "author": "既要又要还要",
           "description": "33岁的退伍水兵暴钦瑞遭受了长时间限制性体位、反复机械性损伤、电击损伤，在被指居的第13天猝死，他的多名父兄亲属遭受的严刑逼供和折磨侮辱可能更甚。12名涉案的石家庄警务人员相继受审。",
@@ -11043,36 +11037,6 @@
           "wordCount": 1502,
           "title": "【中国哭墙】4+4，让普通人可怜（4月6日-5月31日，2025年）",
           "imageUrl": "https://chinadigitaltimes.net/chinese/files/2020/03/Screenshot-2020-03-13-10.48.21.png"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=718488",
-          "author": "unknown",
-          "description": "校方被判承担30%的赔偿责任。法院认为，校方的做法客观上形成了“以举报代管理”的效果，引起矛盾。一个缺乏边界、鼓励检举的环境，将导致同学之间相互防备、猜忌，甚至引发肢体冲突，对青少年人格发展造成不利影响。",
-          "link": "https://chinadigitaltimes.net/chinese/718488.html",
-          "publishedOn": "2025-05-30T17:48:25.000Z",
-          "wordCount": 13125,
-          "title": "财新｜湖南中学生举报同学后被打伤 法院指校方鼓励检举也应担责",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/05/12.jpg"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=718490",
-          "author": "unknown",
-          "description": "卖饭卖菜本来是商家自己的事，京东免费提供平台给商家使用，还帮助商家搞促销、做推广，接订单，完全可以让商家全额承担优惠补贴的。但京东为了让好兄弟多赚钱，还主动承担了30%的补贴。餐饮商家赚了所有的钱，却只需要负担补贴的70%，上哪儿找这样的好事呢？",
-          "link": "https://chinadigitaltimes.net/chinese/718490.html",
-          "publishedOn": "2025-05-30T17:45:47.000Z",
-          "wordCount": 13138,
-          "title": "基本常识｜京东请客3元，商家买单7元，不愧是好兄弟啊！",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/05/23-3.jpg"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=718492",
-          "author": "unknown",
-          "description": "在这样一连串的组合拳之下，世家门阀继续过着逍遥的日子，在百业凋零的情况下，人工更加便宜，大批百姓为奴为婢，于是世家门阀的日子反而过得更好。",
-          "link": "https://chinadigitaltimes.net/chinese/718492.html",
-          "publishedOn": "2025-05-30T17:44:48.000Z",
-          "wordCount": 13108,
-          "title": "捉刀时间max｜汉朝百姓为什么选择躺平？",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/05/34.jpg"
         }
       ]
     },
@@ -11845,6 +11809,16 @@
       "feedUrl": "https://feedx.site/rss/shanghaishuping.xml",
       "siteUrl": "http://thepaper.cn",
       "articles": [
+        {
+          "id": "https://www.thepaper.cn/newsDetail_forward_31003141",
+          "author": null,
+          "description": "《持存记忆》，陈家琪著，上海三联书店，2024年10月版，401页，98.00元\n\n\n前些日子读陈家琪老师的新著《持存记忆》（上海三联书店，2024年 10 月），深受感动，同时也引起一些思考。家琪老师是1947年生人，长期从事政治哲学与法哲学、德国哲学、中西比较哲学等领域的研究。在经历时代浪潮和人生起伏之后，他的思考与写作至今仍然保持着罕见的真诚、热忱与思考的锐利品质，没有任何的虚无与犬儒。书中令我感慨的一句话是，他说直到退休之后，“唯一放不下的，还是闪现着的回忆与时时萦绕在心头的黑格尔哲学”（277页）。这部文集收入的文章就是退休前后所写的，把记忆与思辨哲学作为终身思考的对象和生活方式，其厚重性质不言而喻。\n该书第一辑“尊严与伪善”收入《我们距离有尊严的存在还有多远?》《尊严论》《历史虚无主义与政治犬儒主义》《关于儒家思想的思考》等文章，主要探讨了政治哲学中一些关键概念及其在现实生活面向中的问题与危机；第二辑“生离与死别”收录了《回忆中的问题意识》《思念之苦》等更为私人化的情感之作；第三辑“脆弱与救赎”收入《死亡是生命的一部分》《事关生死的真相与谎言》《“心怀爱意奔向自我救赎”》等关于生死与救赎问题的文章，并纳入了与之相关的一些影评、剧评。\n作为书名的“持存记忆”颇有深意。以“记忆”作为书名的有很多，而“持存”则少见。我不知道这里的“持存”是否与法国当代哲学家贝尔纳·斯蒂格勒（Bernard Stiegler，1952-2020）的“第三持存” （rétentions tertiaires），或者是海德格尔的“持存物”（Bestand）这两个有关技术哲学的概念有关，家琪老师自己的解释很平实：总的意思是在时间的流逝中如何保存记忆、如何发掘意义；与之相关的就是活着或生命的意义问题。最后改定为《持存记忆》，内含着“为什么”“如何”“怎样表达”之类的问题，“这些问题对我来说已经…",
+          "link": "https://www.thepaper.cn/newsDetail_forward_31003141",
+          "publishedOn": "2025-06-19T05:02:04.000Z",
+          "wordCount": 155,
+          "title": "李公明︱一周书记：政治哲学中的“记忆”……与“尊严”",
+          "imageUrl": null
+        },
         {
           "id": "https://www.thepaper.cn/newsDetail_forward_30989149",
           "author": null,
@@ -13983,6 +13957,96 @@
       "feedUrl": "https://feedx.site/rss/infzm.xml",
       "siteUrl": "http://infzm.com",
       "articles": [
+        {
+          "id": "http://www.infzm.com/contents/296126",
+          "author": null,
+          "description": "2025-06-19 15:30:52\n6月19日，外交部发言人郭嘉昆主持例行记者会。有记者就中国公民撤离提问。\n郭嘉昆表示，截至目前，在外交部和中国驻伊朗、以色列及周边有关国家使领馆组织协调下，已有1600余名中国公民从伊朗安全撤离，数百名中国公民从以色列撤离。外交部及有关使领馆将继续全力以赴协助中国公民安全转移撤离。",
+          "link": "http://www.infzm.com/contents/296126",
+          "publishedOn": "2025-06-19T07:55:05.000Z",
+          "wordCount": 83,
+          "title": "外交部：已有1600余名中国公民从伊朗安全撤离 数百名中国公民从以色列撤离",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/296128",
+          "author": null,
+          "description": "2025-06-19 15:30:56\n国家禁毒办今天召开新闻发布会，有关负责人表示：\n自2024年7月列管46种新精神活性物质以来，国家禁毒办通过毒品滥用监测发现，去年按品种列管的尼秦类和咪脂类物质又出现新的替代品，并在国内发生滥用危害；结合国际毒情形势和联合国列管情况，经充分论证、评估和严格审批，国家禁毒办决定将尼秦类物质和12种新精神活性物质纳入管制，加强监管和打击，严防滥用蔓延。\n\n特别是此次整类列管尼秦类物质，是继整类列管芬太尼类物质、合成大麻素类物质后在全球又一次监管创新，对遏制此类物质等新型毒品犯罪具有重要意义。",
+          "link": "http://www.infzm.com/contents/296128",
+          "publishedOn": "2025-06-19T07:55:05.000Z",
+          "wordCount": 77,
+          "title": "国家禁毒办：列管尼秦类物质及12种新精神活性物质",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/295972",
+          "author": null,
+          "description": "2025-06-19 15:00:00\n6月15日，陈可辛导演根据中国近代史上一桩耸人听闻的真实奇案“酱园弄杀夫案”改编的电影《酱园弄·悬案》迎来了在上海国际电影节的首映。“悬案”是该系列故事的上部，聚焦的是杀夫者詹周氏被捕后面对的审判及舆论场，她的身世及婚后经历未在此片中展开。\n\n\n\n《酱园弄》自公布以来就备受瞩目，电影将这桩奇案置于1940年代日占时期上海的动荡背景之下，被控肢解丈夫的女性詹周氏（章子怡 饰）的个人命运与国家命运紧密交织，共同构筑了一个充满张力的时代画卷 ，使影片从一桩奇案升华为对一个时代的深刻反思，这应是陈可辛迄今为止最具野心的一次尝试。\n01\n历史上的“酱园弄杀夫案”发生在1945年3月20日上海新昌路酱园弄，该弄堂因曾有著名的张振新酱园而得名，在案发前本是一条安静的街道 。清晨时分，楼下二房东王燮阳夫妇被楼上传来的异响和滴落的血滴惊醒，随即报警，揭开了这桩骇人听闻的血案 。\n\n\n\n死者詹云影，外号“大块头”，31岁，安徽人，从事旧货生意 。他为人精明干练，却沉迷于吃喝嫖赌，不顾家用，将家中钱财挥霍一空，导致妻子的衣箱空空如也，不得不四处借钱 。更甚者，詹云影性情暴躁，经常殴打妻子詹周氏，并竭力阻挠她外出打工贴补家用，甚至诬陷她想“轧姘头” 。\n凶手詹周氏自幼父母双亡，8岁时被收为养女，实则如同使唤丫头，9岁时被养父带到上海，后被卖到典当行 。17岁时由养父母作主与詹云影订婚，21岁正式出嫁，至案发时已结婚九年 。在这九年的婚姻生活中，她长期遭受丈夫的欺凌和殴打。在案发当日凌晨，喝醉酒的詹云影回家后，再次痛斥詹周氏变卖家当以维持生计的提议。最终，在詹云影熟睡后，詹周氏拿起厨房间的菜刀将其杀害并分尸16块，装入皮箱企图移尸灭迹 。\n\n\n\n案件一经曝光，便成为当时上海滩街头巷尾争相议论的焦点，大小报纸铺天盖地进行报道 。社会舆论对詹周氏的看法呈现两极分化…",
+          "link": "http://www.infzm.com/contents/295972",
+          "publishedOn": "2025-06-19T07:25:06.000Z",
+          "wordCount": 94,
+          "title": "本月最声势浩大的电影，我替你们先看了",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/295907",
+          "author": null,
+          "description": "2025-06-19 14:00:00\n\n（南方人物周刊记者 孙凌宇/图）\n接连出版了《人生解忧：佛学入门四十讲》（2024）和《安心之道：佛学通识十讲》（2025）两本书后，在上海大学教书的成庆很快被视为人生导师。来询问的人多了，他有时无力自嘲，担心自己在指引年轻人时流露“爹味”。但更多时候，因为说过许多类似“唤醒大家的生命能量是极其重要的事情”的壮语，他仍不可避免地要在不同场合梳理、表达他的感悟和心得。在历史和佛学的专业研究之外，他还关注佛学通识教育。《人生解忧》一书修订和整理自一档很受欢迎的同名音频节目。\n如何唤醒生命能量？成庆的方法是每天强迫自己走一个小时的路。他住在大学里，楼下就有一个田径场。走路的时候头脑放空，单纯地去体会身体的感觉。“我们现在人都是拼命地要做出什么东西，但紧张的状态其实出不了什么东西。反而放松之后，会产生很多有趣的想法。”他开始停下来观察周遭的世界，发现操场上有打棒球的、有消防队训练体能的，还有带小孩的，是个很丰富的空间。\n他建议每个人都要找到自己利用碎片时间的方式，听播客、跑步，或是像阿部宽出演的某部日剧的主人公一样，每天下班回家后，把音响打开，坐到沙发上听交响乐。“每个人家里都必须有自己的一个神圣空间以及这样的空白时间。如果我们有太多的贪求心，那么生活节奏自然会被填满。”\n放松不是为了漠不关心地缩进房间避世。在成庆看来，原子化的现代个体很难去体会他人的苦，但社会是与每个人密切相关的，大的环境改变势必影响到个人，因此我们在关照内心的同时，也应该看看这个社会。\n日常遇到外卖员，成庆都会主动地给他们按电梯、跟他们聊天，“很多外卖员习惯了在社区里被忽视、被排挤、被隔绝，似乎人与人之间只是提供有价服务的对象而已。”面对网约车司机，他会投以同样的关注，有时遇到司机因拮据只能在车里过夜、导致车内味道不太好闻的情况，他也是选择体谅而非投诉。他认为这种善意的…",
+          "link": "http://www.infzm.com/contents/295907",
+          "publishedOn": "2025-06-19T06:25:10.000Z",
+          "wordCount": 91,
+          "title": "成庆：人生没什么东西是一下子跳到结尾的",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/296120",
+          "author": null,
+          "description": "2025-06-19 14:06:10\n键盘轻响间，一个全民书写、世界共读的“网文江湖”正澎湃着新时代的文化脉动。\n\n中国作协6月17日在江苏盐城最新发布的《2024中国网络文学蓝皮书》显示，中国网文用户规模达5.75亿人，年度新增作品200万部，营收规模约440亿元。\n2024年的网络文学创作有哪些新特点？\n——现实题材创作影响力持续扩大。全年新增17万部作品，文笔更加注重细节，着力表达现实的真实与厚重，体现出对文学性的自觉追求；“年代文”风行，更多作品采用基层人物的视角，用小切口表现新时代。其中《滨江警事》以基层水警视角见证时代变迁，《一路奔北》借北斗卫星研发书写科学家精神，《重回1982小渔村》用温暖笔触描绘平凡生活。\n——科幻创作依然火爆。科幻题材作品新增18万部，涌现出诸多精品，多部作品获得银河奖、星云奖。其中《故障乌托邦》探讨人机伦理，《天才俱乐部》畅想多维未来，网络科幻正加速走进主流视野。\n——“Z世代”成为创作生力军。全年新增注册作者约280万人，新增签约作者35万人，其中近四成为“Z世代”，“00后”占比约20%。2024年有82位网络作家成为中国作协会员，最年轻的仅25岁，为行业注入新鲜血液和创新活力。\n网络文学作品精品迭出的同时，网络文学读者圈层也在持续扩大、品味升级，一方面用网络文学阅读点亮多彩生活，一方面又以个体经验参与网络文学创作，以共读共创的文学生态助推新大众文艺。\n代际融合趋势凸显，老中青三代读者正共筑全民阅读生态。\n请看一组网络文学读者画像：性别结构均衡，男女比例相当；年龄结构多元，核心阅读群体为26至45岁读者，约占全部读者的50%；“00后”年轻读者占比近25%，是拉动阅读增长的有生力量；45至60岁读者约占15%，比重持续上升；60岁以上的阅读群体明显扩大，占比已超10%。\n值得一提的是，“银发族”的阅读参与极大拓展了网络文学的题材内容，老年生活、老年主角在网络文学中开始显现，并带动了微短剧相关内容的流行；“银发族”创作也相应崛起，银发创作者沈东生用手机“敲字”创作《上海人吃泡饭》一书，用沪语真情讲述人生经历，引发中老年读者共情，吸引年轻读者在线“向爷爷催更”。\n\n  6月17日，中国作协在江苏盐城发布《2024中国网络文学蓝皮书》。新华社记者余俊杰 摄\n\n2024年，网络文学IP改编热度不减，年度新增各类改编授权约3万项，下游产业链充满活力。\n微短剧狂飙突进。“短剧化”在2024年成为网络文学IP转化的发力点，微短剧用户规模达6.62亿，市场规模504亿元，首次超越同年电影票房。全年新增网络文学微短剧改编授权超1600部，同比增长81%。\n动漫游戏持续发力。全年新增动画改编授权80余部、漫画改编授权400余部。《斗破苍穹》《仙逆》等“年番”陪伴式成长，《黑神话：悟空》全球风靡展现国产单机游戏潜力，为中华文化展示打开新窗口，带动《凡人修仙传》等网文IP启动游戏项目开发。\n“谷子”经济兴起，撬动下游产业。实体衍生品销售火爆，《诡秘之主》《全职高手》等作品的角色徽章、亚克力立牌、盲盒等热销，成为IP产业链重要新增量。\n此外，从“内容输出”到“生态扎根”，中国网络文学出海成绩亮眼——海外活跃用户约2亿，新增注册用户3000万人；《诡秘之主》《我们生活在南京》等作品入藏大英图书馆；《庆余年2》通过迪士尼实现全球同步发行，《与凤行》在全球180多个国家与地区播出，“C-Drama”掀起中华美学收视热潮。\n“中国网络文学正在以创作模式的跨文化传播，推动世界通俗文学的叙事方法创新。”谈及网络文学出海热，中国作协网络文学中心主任何弘表示，中国网络文学已从单纯的内容输出转向构建全球化IP生态体系，呈现出技术驱动、生态重构、文化共创的新特征。\n当前，网络文学创作在繁荣发展的同时，也暴露出一些不容忽视的问题，部分网络小说套路化严重，缺乏创新内核，低俗、媚俗、庸俗问题仍然存在，不仅影响了读者的阅读体验，也制约了网络文学行业的健康发展。\n对此，中国作协通过主办全国重点网络文学网站负责人培训班、网络文学创作出版培训班等，深化对从业者的价值引领。行业也对优化产业生态达成共识，抵制“唯市场论”“唯算法论”，从“数量优先”转向“质量制胜”，用思想性、艺术性俱佳的作品愉悦读者、引领风尚。\n从国内“破圈”到海外“圈粉”，中国网络文学以其庞大的创作群体、海量的作品储备和日益增强的文化辐射力，正成为新时代文化版图中不可或缺的有生力量。",
+          "link": "http://www.infzm.com/contents/296120",
+          "publishedOn": "2025-06-19T06:25:10.000Z",
+          "wordCount": 98,
+          "title": "中国作协发布《2024中国网络文学蓝皮书》",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/296122",
+          "author": null,
+          "description": "2025-06-19 14:08:49\n6月18日至22日，第三十一届北京国际图书博览会（以下简称“图博会”）在北京国家会议中心举办。书展由国家新闻出版署主办，中国图书进出口（集团）有限公司承办。\n\n\n\n本届图博会以“促进文明传承发展 推动交流互鉴共赢”为主题，共吸引80个国家和地区的1700多家展商参展，与去年相比，新增了9个国家，有22万种中外精品图书集中亮相。\n主宾国马来西亚携20多家图书馆、出版机构、行业协会等参展，举办中马版权交流、阅读推广等活动。国内综合馆则有来自全国34个省、自治区、直辖市、特别行政区的600多家单位参展，集中展示中国精品图书和“走出去”成果。精品出版物展则新增“纪念中国人民抗日战争暨世界反法西斯战争胜利80周年图书”和“世界文化遗产图书”两个专题展区。\n多家国际著名学术出版社联合参展，学术馆配区将集中展示1万余种优秀进口出版物，打造亚洲领先的原版学术资源馆配平台，助力高校和科研机构资源建设。\n图博会期间，还将举办中华图书特殊贡献奖颁奖仪式、北京国际出版论坛、第三届出版教育国际高峰论坛、第十六届中国图书馆馆长与国际出版社高层对话论坛、第三届中外图书馆高端对话论坛、2025BIBF世界童书论坛、第三届北京国际艺术出版论坛等多种交流活动。\n为反映文化新业态和新模式，网络出版馆将重点展示大数据、云计算、人工智能等新质生产力在出版领域的应用成果。新设的“网络文学专题展区”，聚合网络文学作家资源，以图书作品、短片视频、文创周边等多种形式全方位、立体化展现网络文学的多元魅力与时代价值。\n值得一提的是，图博会设立了“中国传统文化故事IP展区”，集中展示“黑神话：悟空”、哪吒、封神榜、敦煌等传统文化故事IP，推动更多优质出版产品和影视、动漫、游戏融合，多渠道传播中华优秀传统文化。",
+          "link": "http://www.infzm.com/contents/296122",
+          "publishedOn": "2025-06-19T06:25:10.000Z",
+          "wordCount": 81,
+          "title": "第三十一届北京国际图书博览会开幕",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/296116",
+          "author": null,
+          "description": "2025-06-19 12:52:11\n总台记者获悉，截至当地时间19日8时30分，已有210名印度空难遇难者的DNA匹配成功，其中187人的遗体已移交给家属。此前，当地时间12日，一架波音787客机在印度坠毁，机上共载有242人，仅1人生还。",
+          "link": "http://www.infzm.com/contents/296116",
+          "publishedOn": "2025-06-19T05:25:06.000Z",
+          "wordCount": 79,
+          "title": "印度坠机210名遇难者身份确认，其中187人遗体已移交家属",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/296047",
+          "author": null,
+          "description": "2025-06-19 13:00:00",
+          "link": "http://www.infzm.com/contents/296047",
+          "publishedOn": "2025-06-19T05:25:06.000Z",
+          "wordCount": 68,
+          "title": "遭前股东实名举报财务问题，李雪琴方：法院见",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/296118",
+          "author": null,
+          "description": "2025-06-19 13:03:33\n后续还有1380亿元中央资金将分批有序下达\n“国补”将继续惠及广大消费者\n“618”期间，线上线下促销活动持续多日，消费者对于以旧换新的热情不减。然而，社交媒体也出现一些关于部分地区暂时无法申领“国补”的讨论。针对相关热点话题，记者在多地进行了采访。\n5月底以来，关于重庆、江苏、湖北等地“国补”暂时无法领取的讨论，在社交媒体上引发关注。\n记者查阅云闪付App重庆消费品以旧换新页面，一则公告提及绿色智能家电、家装厨卫“焕新”27个小类补贴资金已使用完毕。\n近日在登录淘宝的国补专区时，记者也看到，江苏省的页面曾出现“江苏国补活动升级中，升级期间您将无法领取”的提示。京东国补专区湖北省的页面也曾出现“湖北智能家居国补活动升级中”等提醒。\n正是基于这些表述，部分网友开始猜测，一些地方“国补”是否就此停止？\n\n通过采访多地相关负责部门和相关负责人，记者了解到，所谓取消“国补”的情况是不存在的。\n记者联系江苏省商务厅市场运行和消费促进处获悉，江苏消费品以旧换新政策并未暂停。江苏此前发布的相关通知明确了“消费品以旧换新资金实行限额管理、资格调控”的规定，即“国补”实行限额管理。\n重庆市商务委5月下旬在其官网“公开信箱”栏目里回复表示，全市加力扩围实施消费品以旧换新补贴政策，市民群众参与积极性高，第一阶段补贴资金即将使用完毕。目前，相关部门正在起草第二阶段以旧换新补贴政策。\n湖北省商务厅明确答复记者称，湖北国补活动贯穿2025年全年，持续到12月31日。“目前家电和数码3C类产品国补资格券每日限量发放，先到先得。”湖北省商务厅流通处工作人员董伟告诉记者。\n业内人士表示，少部分地区阶段性地完善了“国补”政策实施节奏，实际上消费品以旧换新工作将持续全年，消费者每月每周都有参与申领“国补”的机会。最近一些企业、平台和自媒体借机炒作，搞饥饿营销，营造恐慌情绪…",
+          "link": "http://www.infzm.com/contents/296118",
+          "publishedOn": "2025-06-19T05:25:06.000Z",
+          "wordCount": 95,
+          "title": "“国补”将继续，1380亿元中央资金将分批下达",
+          "imageUrl": null
+        },
         {
           "id": "http://www.infzm.com/contents/296025",
           "author": null,
@@ -18280,6 +18344,16 @@
       "feedUrl": "https://rsshub.rssforever.com/nippon/culture",
       "siteUrl": "https://www.nippon.com/cn/economy/",
       "articles": [
+        {
+          "id": "https://www.nippon.com//cn/guide-to-japan/gu020006/",
+          "author": null,
+          "description": "效仿皇室的婚礼仪式\n婚礼是一对新人盟誓白头偕老的仪式。日本多采用“两段式”流程：先由至亲挚友见证盟誓仪式，随后举办招待众多宾朋的喜宴。\n传统日式婚礼中，新郎身着最高规格的黑纹羽织（外褂）配黑白条纹袴服。纯黑色象征不容玷污的威严，彰显其成为一家之主的决心。新娘则身披“白无垢”，寓意下定决心脱胎换骨，承担起新家庭的重任，融入夫家的生活。虽然倡导性别平等的今天不再需要这般决心，但也有女性为了纪念这一生一次的重要时刻，选择将素净的“白无垢”作为嫁衣。\n\n日式婚礼装束（图片：PIXTA）\n这种婚礼装束承袭了室町时代的武家传统，但出乎意料的是，在神明面前盟誓爱情的婚礼形式，其历史并不久远。\n明治时代之前，新婚夫妇主要通过与宗教无关的“祝言”仪式宣布婚约。仪式由族长或村长主持，亲友齐聚在新郎家中，庆贺一对新人共同迈入新生活。所谓“冠婚葬祭”，是指成人礼、婚礼、葬礼和祭祀仪式等日本四大传统礼仪，本属民间礼仪，是向自己所在的社群宣告人生阶段转换的重要仪式。\n现代婚仪可追溯至1900年，大正天皇还是皇太子时在宫中举行的大婚典礼。效仿这一婚典形式，东京大神宫随之开创了民间的神前婚礼，其蓝本是小笠原流的武家礼法。其中最核心的“三献之仪（式三献）”演变为新人交杯共饮的“三三九度”，以简化的形式流传至今。\n值得一提的是，当年皇太子夫妇完婚后，参拜了伊势神宫及各地的历代皇陵，向先祖汇报人生大事。这种做法在百姓中逐渐发展成为现代的蜜月旅行。\n\n“三三九度”的仪式源自日本创世神伊邪那岐与伊邪那美的婚典（图片：PIXTA）\n现代婚礼的主流形式为二战后逐渐普及的教会式婚礼，在基督教堂中举行，其次是在众人面前宣告婚约的“人前式婚礼”。若将后者视为现代版“祝言”，那么这种形式比看起来更加传统的神前式历史更为悠久。\n\n人前式婚礼近年来人气不断攀升。既可自由选择场地，又能将仪式与喜宴无缝衔接，因此备受青睐。\n婚礼上的言…",
+          "link": "https://www.nippon.com//cn/guide-to-japan/gu020006/",
+          "publishedOn": "2025-06-18T21:00:00.000Z",
+          "wordCount": 110,
+          "title": "出席日式婚礼的着装规范、礼金标准与言语禁忌",
+          "imageUrl": "https://www.nippon.com/cn/ncommon/contents/guide-to-japan/2820183/2820183.jpg"
+        },
         {
           "id": "https://www.nippon.com//cn/guide-to-japan/gu024005/",
           "author": null,
