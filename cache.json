@@ -6,6 +6,21 @@
       "siteUrl": "https://bestblogs.dev/zh/feeds",
       "articles": [
         {
+          "id": "8144f0",
+          "author": "作者: 美团信息安全团队",
+          "description": "📌 一句话摘要\n            \n美团技术团队分享了升级至 JDK 17 的关键特性，以及结合 ZGC 在实际服务中实现的显著性能提升与成本节约。\n📝 详细摘要\n            \n这篇文章来自美团技术团队，深入探讨了从广泛使用的 Java 8 升级到长期支持版本 JDK 17 的价值和实践经验。文章首先总结了 JDK 9 到 17 引入的核心特性，包括 var 局部变量类型推断、密封类、Record 类、优化的 switch 表达式、文本块、instanceof 模式匹配、NullPointerExceptions 优化以及集合/Stream/Optional 的增强等语言层面改进；同时也介绍了 HttpClient、jpackage、进程相关 API 等新工具和 API。文章的重点在于垃圾回收器的改进，特别是 ZGC。作者详细阐述了 ZGC 的低停顿特性及其与 CMS/G1 的原理差异，并通过美团内部两个核心服务（智能决策系统和内容安全核心服务）的实际升级案例和性能对比数据（如 TP9999/TP999 延迟、CPU 占用、服务失败率、元空间使用等），有力证明了 JDK 17 + ZGC 带来的显著性能提升和稳定性改善，以及由此带来的机器成本下降约 10%。最后，文章提供了升级过程中的一些实践建议，强调兼容性问题解决和性能测试的重要性。整体而言，文章结合理论介绍和翔实的实践数据，为考虑升级高版本 JDK 和优化 GC 的技术团队提供了宝贵的参考。\n💡 主要观点\n            \nJDK 17 引入多项语言及 API 特性提升开发效率与代码质量\n                         新的语法糖和 API 如 var、record、文本块、HttpClient 等，简化了代码编写，提高了可读性和功能性，减少了样板代码。\n                    \n\n                        ZGC 是低停顿垃圾回收器，尤其适用于大内存服务\n                         ZGC 通过并发标记、转移和重定位，将停顿时间控制在毫秒级别，有效解决了传统 GC 在大堆内存场景下的性能瓶颈。\n                    \n\n                        美团实践证明，JDK 17+ZGC 显著改善服务性能与稳定性并降低成本\n                         智能决策和内容安全服务的案例表明，升级后 TP9999/TP999 延迟、CPU 占用、失败率、元空间使用均有明显优化，并带来 10%的机器成本下降。\n                    \n\n                        升级高版本 JDK 需要重点关注兼容性并进行充分性能测试\n                         特别是与现有中间件、依赖库的兼容性问题，需要细致的安装部署、问题排查和基于实际流量的性能验证。\n                    \n💬 文章金句\n            \n升级后服务性能和稳定性指标也得到巨大的飞跃，同时机器成本可以下降约 10%，升级 JDK 版本收益十分明显。\n目前正处在 AI 时代的爆发期，Java AI SDK 的最小支持版本为 JDK 17，这让升级 JDK 版本变得更具价值。\nZGC 在标记、转移和重定位阶段几乎都是并发的，这是 ZGC 实现停顿时间小于 10ms 目标的最关键原因。\nZGC 几乎所有暂停都只依赖于 GC Roots 集合大小，停顿时间不会随着堆的大小或者活跃对象的大小而增加。\n与 ZGC 对比，G1 的转移阶段完全 STW 的，且停顿时间随存活对象的大小增加而增加。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：美团技术团队\n作者：作者: 美团信息安全团队\n分类：软件编程\n语言：中文\n阅读时间：37 分钟\n字数：9080\n标签：\n                    \n                        JDK升级, Java 17, ZGC, 性能优化, GC优化",
+          "link": "https://www.bestblogs.dev/zh/article/8144f0",
+          "publishedOn": "2025-06-20T00:00:00.000Z",
+          "wordCount": 333,
+          "title": "JDK 高版本特性总结与 ZGC 实践",
+          "enclosure": {
+            "url": "https://p0.meituan.net/meituantechblog/95ae6ec72bf744c4bf5662a8a92b2a5682808.png",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://p0.meituan.net/meituantechblog/95ae6ec72bf744c4bf5662a8a92b2a5682808.png"
+        },
+        {
           "id": "91e9f9",
           "author": "Latent.Space",
           "description": "📌 一句话摘要\n            \nNoam Brown 访谈：规模化测试时间计算、推理和多智能体系统是迈向 AGI 的关键途径。\n📝 详细摘要\n            \n本文重点介绍了 OpenAI 首席研究员 Noam Brown 的播客访谈要点，该访谈聚焦于 AI 规模化的下一个前沿。Brown 认为，随着像 GPT-4 这样的模型出现，该领域现在正处于测试时间规模化的时代，在此阶段，在推理过程中投入更多计算资源能够显著提升推理能力。他讨论了推理如何改善 AI 对齐，以及如何泛化到超出具有易于可验证奖励的任务之外的场景。访谈还深入探讨了多智能体系统，将其与人类文明通过合作与竞争发展的方式进行类比，表明 AI 遵循类似路径可能带来远超当前限制的能力。Brown 强调，他们在多智能体系统方面的方法遵循‘苦涩的教训’（Bitter Lesson） 原则，即侧重于规模化而非启发式方法。最后，文章探讨了规模化测试时间计算的挑战（成本、实际时间），并对比了自博弈在简单零和博弈与复杂开放式环境中的有效性，强调需要新的范式，而不仅仅是规模化现有方法。\n💡 主要观点\n            \n推理是一种涌现能力，需要基础模型达到最小规模。\n                         只有当模型足够大、能力足够强（如 GPT-4） 时，测试时间计算带来的显著推理效益才变得明显，这类似于在复杂思维之前需要基础智能。\n                    \n\n                        规模化测试时间计算和多智能体系统对于未来 AI 发展至关重要。\n                         除了模型规模和数据之外，让 AI 能够“思考”更长时间（测试时间计算）以及进行合作/竞争式交互（多智能体系统）被视为释放高级能力的关键途径。\n                    \n\n                        多智能体 AI 交互可能孕育出“AI 文明”。\n                         与人类文明通过集体努力在数千年里建立起来的方式相比，允许 AI 合作和竞争可能会带来远超当前个体 AI 限制的涌现能力。\n                    \n\n                        自博弈的有效性受到环境结构的限制。\n                         虽然自博弈在双人零和博弈（如围棋/国际象棋） 中收敛于最优策略，但在更复杂、开放式环境中的应用和收敛保证则不太明确。\n                    \n\n                        心智理论等隐性理解随着模型规模的发展而出现。\n                         足够大的模型不是通过显式建模其他智能体，而是通过规模化隐性地发展出对智能体、动机和环境的复杂理解。\n                    \n💬 文章金句\n            \n我认为被低估的一点是，模型，即预训练模型，需要达到一定能力水平才能真正从这种额外的思考中获益。\n在我们发布 Cicero 后，许多 AI 安全社区 的人对这项研究以及它的工作方式感到非常满意，因为它是一个非常可控的系统……我们认为这可能是通过这些系统实现安全的绝佳方式。\n我认为这是一个存在证明，表明这些模型可以在没有易于可验证奖励的任务中取得成功。\n实际上，我认为，如果这些模型变得足够智能，它们就会发展出心智理论之类的能力……而这些模型只是通过规模化和更广泛的能力行为隐性地发展出这种能力。\n如果你能让它们在很长一段时间内与数十亿 AI 合作和竞争，并基本上建立起一个文明，那么它们能够产生和回答的事物将远远超出我们今天拥有的 AI 所能实现的水平。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：Latent Space\n作者：Latent.Space\n分类：商业科技\n语言：英文\n阅读时间：85 分钟\n字数：21084\n标签：\n                    \n                        推理, 多智能体系统, AI 规模化, LLM, OpenAI",
@@ -4403,16 +4418,6 @@
           "wordCount": 840,
           "title": "雷军疑似回应余承东：诋毁，也是仰望；京东外卖日单超 2500 万；端午档票房破 2 亿，《碟中谍 8》占一半",
           "imageUrl": null
-        },
-        {
-          "id": "http://www.geekpark.net/news/350001",
-          "author": null,
-          "description": "华为余承东：鸿蒙智行已有「五界」，可能不会再有新的「界」了\n5 月 31 日消息，华为常务董事、终端 BG 董事长余承东在今日的 2025 未来汽车先行者大会上表示，目前鸿蒙智行已经有「五界」，之后「可能不会」再有新的「界」了。\n\n余承东说：「上次聚首的时候，我们认为还只有四界，结果后来发生了很多的变化，在贾总（IT 之家注：上汽集团总裁贾健旭）和各位领导强力的推动下，我们又增加了一界。我觉得可能这个只能到此结束了。因为我们的能力做两三个界都已经很不容易了，做五个界非常非常难。」\n余承东对赛力斯、奇瑞、北汽、江淮、上汽表示赞许：五个界对应的五个厂家都非常优秀，「一个拳头还真的需要五个手指头，握上才有力量。所以也不可能有六个手指头，我们就到此暂时握紧了，一起努力干，一起打天下。」（来源：IT 之家）\n极客公园：华为余承东：有些车卖爆了但产品不太好，尊界 S800 百万顶配超七成\n \n深蓝汽车邓承浩回应「灵魂在不在自己手上」：把全世界最好的智能化体验带给用户\n5 月 31 日消息，2025（第三届）未来汽车先行者大会于 5 月 31 日-6 月 1 日在深圳国际会展中心（宝安）举办。长安汽车副总裁、深蓝汽车 CEO 邓承浩出席并发表演讲。\n现场，邓承浩被问及「把智驾交给华为，你的灵魂还在不在自己手上？」\n他直言表示「问题很尖锐」。他认为汽车行业真正的灵魂是「用户体验」，即用科技来普惠每一位消费者，因此要用技术来普惠每一个消费者，就是要把最好的体验带给用户。\n\n「我们左手深蓝超级增程，把最好的电动化体验带给用户。右手华为乾坤智驾，把全世界最好的智能化体验带给用户，这就完（成）了」「天天去纠结灵魂是没有用的」，他说，「体验为王」。\n新款深蓝 S09 已于 5 月 22 日正式上市并开启交付。新车搭载深蓝超级增程 + 华为乾崑智能，首批搭载鸿蒙智能座舱 HarmonySpace 5，…",
-          "link": "http://www.geekpark.net/news/350001",
-          "publishedOn": "2025-06-01T00:29:44.000Z",
-          "wordCount": 1054,
-          "title": "「平价 Model Y」曝光；OpenAI 死敌年化收入超 30 亿美元；机器人足球联赛月底开战｜极客早知道",
-          "imageUrl": null
         }
       ]
     },
@@ -8130,6 +8135,38 @@
       "siteUrl": "https://news.un.org/en/",
       "articles": [
         {
+          "id": "https://news.un.org/en/story/2025/06/1164656",
+          "author": null,
+          "description": "Death and suffering in Gaza are ever-present and the enclave's people now have little choice but to risk their lives to fetch aid supplies, UN agencies said on Friday.",
+          "link": "https://news.un.org/feed/view/en/story/2025/06/1164656",
+          "publishedOn": "2025-06-20T12:00:00.000Z",
+          "wordCount": null,
+          "title": "Gaza horrors continue as the weakest succumb to injuries and disease",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/30-05-2025-UNICEF-Gaza-08.jpg/image560x340cropped.jpg",
+            "length": "34126",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/30-05-2025-UNICEF-Gaza-08.jpg/image560x340cropped.jpg"
+        },
+        {
+          "id": "https://news.un.org/en/story/2025/06/1164651",
+          "author": null,
+          "description": "One week since the Israel-Iran conflict erupted, diplomatic efforts to end the war are ramping up in Geneva today as foreign ministers from France, Germany, the UK and the European Union prepare to meet their Iranian counterpart. In New York, meanwhile, the UN Security Council is also set to discuss this latest worrying escalation, against the backdrop of the ongoing emergency in Gaza. We'll be covering these developments and more across the UN system today. UN News app users can follow here.",
+          "link": "https://news.un.org/feed/view/en/story/2025/06/1164651",
+          "publishedOn": "2025-06-20T12:00:00.000Z",
+          "wordCount": null,
+          "title": "MIDDLE EAST CRISIS: Live updates for 20 June",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/assets/2017/02/26788/image560x340cropped.jpg",
+            "length": "76038",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/assets/2017/02/26788/image560x340cropped.jpg"
+        },
+        {
           "id": "https://news.un.org/en/story/2025/06/1164646",
           "author": null,
           "description": "Last year, 41,370 grave violations against children were documented and verified by the United Nations, according to the Secretary-General's annual report on children in armed conflict, released on Thursday.",
@@ -9892,6 +9929,36 @@
       "siteUrl": "https://chinadigitaltimes.net/chinese",
       "articles": [
         {
+          "id": "https://chinadigitaltimes.net/chinese/?p=719000",
+          "author": "既要又要还要",
+          "description": "十多年前坚决反对垃圾焚烧的环保专家赵章元的判断仍然有效：目前就说垃圾焚烧完全无害，还为时过早。在工艺还未进步到100%无害化处理垃圾焚烧废气、废水、废渣的情况下，垃圾烧得越多，对环境和公众健康的危害就越严重。",
+          "link": "https://chinadigitaltimes.net/chinese/719000.html",
+          "publishedOn": "2025-06-20T11:49:08.000Z",
+          "wordCount": 13206,
+          "title": "智谷趋势Trend｜太意外，中国的垃圾不够烧了，什么信号？",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/image-1750419501948.png"
+        },
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=718997",
+          "author": "既要又要还要",
+          "description": "当我们说要尊重“某国人民的选择”的时候，一定要弄清楚，这个选择是权贵的选择，还是人民真实的意愿；一定要弄清楚，这个国家的人民有没有权利，做出自由的选择？就像伊朗的女人们蒙上厚厚的头巾。我们一定要明白，这是出于女人们自愿的选择，还是凌驾于人们头上的那个特权阶层的选择？",
+          "link": "https://chinadigitaltimes.net/chinese/718997.html",
+          "publishedOn": "2025-06-20T10:02:42.000Z",
+          "wordCount": 13097,
+          "title": "通向远方的道路｜迎着以色列的炮声，伊朗女性勇敢摘下头巾",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/image-1750413690617.png"
+        },
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=718994",
+          "author": "既要又要还要",
+          "description": "以色列以安全关切为理由攻打了主权国家伊朗，俄罗斯以安全关切为理由攻打了主权国家乌克兰。这两个行为的性质有区别吗？以色列和俄罗斯都是邪恶的侵略者吗？还是说它们都是被逼无奈才先下手为强？",
+          "link": "https://chinadigitaltimes.net/chinese/718994.html",
+          "publishedOn": "2025-06-20T09:22:18.000Z",
+          "wordCount": 13042,
+          "title": "基本常识｜以色列打伊朗，和俄罗斯打乌克兰有什么区别吗？",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/image-1750410795316.png"
+        },
+        {
           "id": "https://chinadigitaltimes.net/chinese/?p=718984",
           "author": "温都尔汗空管",
           "description": "1985年5月，苏共通过决议规定，所有党和行政组织坚定且广泛地加强同酗酒的斗争。于是，一场关于酒精的全民斗争开始了。",
@@ -11230,26 +11297,6 @@
           "wordCount": 13164,
           "title": "【网络民议】看到那些被抓和审问的海棠女作者，不知道该说什么",
           "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/02/173966781977897_P31136208.png"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=718520",
-          "author": "elijah",
-          "description": "2025年5月，中国数字时代搜集整理了过去一个月（2025.4.29—2025.5.28）期间反映国内热点事件的网络视频，以时间为序进行混剪制作了本月月度视频——《五月之声（2025）》。",
-          "link": "https://chinadigitaltimes.net/chinese/718520.html",
-          "publishedOn": "2025-05-31T22:08:34.000Z",
-          "wordCount": 13188,
-          "title": "【Cdt月度视频】五月之声（2025）——“我们没犯法，我们要不到钱，要吃饭啊”",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/05/1.png"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=718518",
-          "author": "不忘初心",
-          "description": "“删了就不存在了吗？”https://chinadigitaltimes.net/chinese/718481 […]",
-          "link": "https://chinadigitaltimes.net/chinese/718518.html",
-          "publishedOn": "2025-05-31T20:51:48.000Z",
-          "wordCount": 13021,
-          "title": "每日一语 2025.5.31",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/05/20250531_dailyquote.png"
         }
       ]
     },
@@ -11295,6 +11342,26 @@
       "feedUrl": "https://sspai.com/feed",
       "siteUrl": "https://sspai.com",
       "articles": [
+        {
+          "id": "https://sspai.com/post/100434",
+          "author": "少数派编辑部",
+          "description": "☕️TL;DR近期佳作推荐：[韩剧]未知的首尔、[美剧]金妮与乔治娅第三季、[美剧]外星居民第四季、🔦[印度]警网：西孟加拉邦篇、[动画]前桥魔女、[纪录片]人生海海几则精彩预告：《新吊带袜天使》发布 ...查看全文",
+          "link": "https://sspai.com/post/100434",
+          "publishedOn": "2025-06-20T09:42:53.000Z",
+          "wordCount": 887,
+          "title": "本周看什么 | 最近值得一看的 6 部作品",
+          "imageUrl": "https://cdnfile.sspai.com/2025/6/20/article/1bb921ef-753f-2ced-4c98-e8e723c4930a.png"
+        },
+        {
+          "id": "https://sspai.com/prime/story/anti-inflammatory-diet-steamed-fried",
+          "author": "潘誉晗",
+          "description": "抛弃精制食物，改用多样食材，简单基础的烹饪方法也能做出不错的美味。查看全文\n本文为会员文章，出自《单篇文章》，订阅后可阅读全文。",
+          "link": "https://sspai.com/prime/story/anti-inflammatory-diet-steamed-fried",
+          "publishedOn": "2025-06-20T08:51:28.000Z",
+          "wordCount": 1093,
+          "title": "抗炎饮食菜单：蒸菜与炒菜篇",
+          "imageUrl": "https://cdnfile.sspai.com/6/20/2025/article/1ff5817c-ba2f-1f84-7fa4-d0fec0e2418e.jpeg"
+        },
         {
           "id": "https://sspai.com/post/100149",
           "author": "谷丰",
@@ -13057,6 +13124,16 @@
       "siteUrl": "https://aeon.co",
       "articles": [
         {
+          "id": "urn:id:8208",
+          "author": "Fleur Hopkins-Loféron",
+          "description": "With brain swaps and death rays, a little-known French sci-fi genre explored science’s dark possibilities a century ago \n - by Fleur Hopkins-Loféron\n Read at Aeon",
+          "link": "https://aeon.co/essays/how-french-merveilleux-scientifique-fiction-reframed-reality?utm_source=rss-feed",
+          "publishedOn": "2025-06-20T10:00:00.000Z",
+          "wordCount": 14825,
+          "title": "Merveilleux-scientifique",
+          "imageUrl": "https://images.aeonmedia.co/images/99a916b2-fd22-4de4-bc1c-ddf2bbba9e2b/essay-18_renard.jpg?width=1200&quality=75&format=auto"
+        },
+        {
           "id": "urn:id:8206",
           "author": "Aeon Video",
           "description": "Join a Romanian family as they prepare for winter in the mountains and reflect on the richness of a slower way of life \n - by Aeon Video\n Watch at Aeon",
@@ -14190,6 +14267,106 @@
       "feedUrl": "https://feedx.site/rss/infzm.xml",
       "siteUrl": "http://infzm.com",
       "articles": [
+        {
+          "id": "http://www.infzm.com/contents/296266",
+          "author": null,
+          "description": "2025-06-20 20:00:00",
+          "link": "http://www.infzm.com/contents/296266",
+          "publishedOn": "2025-06-20T12:25:06.000Z",
+          "wordCount": 85,
+          "title": "怀集商户恢复生产生活，感叹三十多年没见过那么大的洪水",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/296256",
+          "author": null,
+          "description": "2025-06-20 19:26:59\n\n郑愁予（1933-2025）。资料图\n西方马首vs东方龙头\n上世纪五十年代开始的台湾现代诗，十余年间如天宇新星闪耀，表现与影响各别的著名诗人包括纪弦、周梦蝶、洛夫、余光中、罗门、向明、痖弦、郑愁予、杨牧等等；这些作者，除了向明仍健在，其余都已归天了。先是纪弦在2013年弦断音消，2025年6月13日，郑愁予也在美国东岸随风而逝。\n台湾文学艺术在1950年代开始“现代化”，说白了就是西化。纪弦论诗，标榜“横的移植”而不要“纵的继承”；意思是一切以西方的现代主义（modernism）马首是瞻，弃绝中国的传统龙头。响应纪弦号召的大不乏人，洛夫和后来的杨牧，成为其诗暗昧难解而其名响亮昭彰的诗坛“明星”。洛夫提倡“自动写作”，反对把诗写得有主题有脉络，甚至鼓吹思想虚无。余光中被虚妄之论惹得恼火，1961年发表《再见，虚无》，作为声讨诗歌极度现代主义的檄文。\n余光中从西方文学艺术汲取营养，但尊重中国传统、发扬中国传统，有“蓝墨水的上游是汨罗江”的警句。与余光中无形中同声同气的是郑愁予，他们维护了新诗的尊严，维护了中西古典诗艺的美德：作品有情意有主题，修辞美妙，结构稳妥，可读可解。上述众人的诗风与影响不尽相同，各有喜爱者、崇奉者、研究者；论诗篇之能让人琅琅成诵以至脍炙人口的，当以余光中与郑愁予为最。\n《错误》：美丽若宋词小令\n1933年出生的郑愁予，1949年从大陆移居台湾；1968年赴美，读书，教书，长期在耶鲁大学任教。其柔丽动人的情诗《错误》和《如雾起时》在1954年发表，时年21岁。《错误》几乎成为郑愁予的“名片”，有如《乡愁》之于余光中。1922年艾略特发表《荒原》，晦涩难懂，却成为二十世纪世界最著名影响最深远的“杰作”。台湾那些趋新务洋者如洛夫，对“欧立德”（即艾略特，T.S. Eliot）顶礼膜拜唯恐不及；郑愁予不为时髦洋诗所祟魅，安…",
+          "link": "http://www.infzm.com/contents/296256",
+          "publishedOn": "2025-06-20T11:55:06.000Z",
+          "wordCount": 99,
+          "title": "黄维樑 | 创制比喻的巧匠：纪念郑愁予",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/296277",
+          "author": null,
+          "description": "2025-06-20 19:39:22\n日前，中央层面深入贯彻中央八项规定精神学习教育工作专班、中央纪委办公厅通报了内蒙古自治区人大财政经济委员会分党组成员、副主任委员、自治区国资委正厅长级干部魏栓师等人违规吃喝、严重违反中央八项规定精神问题。\n经查，5月6日，魏栓师陪同其亲属到内蒙古科技大学包头医学院二附院就诊，随后与二附院原党委书记王秋枫、二附院介入科主任郭俊到包头市第四医院放射科原主任贺玉玺（已退休，拟返聘二附院介入科工作）在二附院的办公室叙旧。贺玉玺提出5月7日聚餐，魏栓师表示由其准备酒水并支付餐费。5月7日晚，魏栓师、贺玉玺、郭俊、王秋枫以及包头医学院正处级干部石继海，包头市公安局包神铁路公安分局党委书记、局长栗占山，二附院消化内科副主任江振宇等人在包头市某宾馆聚餐。当晚，魏栓师自带白酒，魏栓师、郭俊、王秋枫、江振宇等人饮用白酒，贺玉玺、石继海、栗占山未饮酒，餐费由魏栓师安排私营企业主支付。聚餐结束后，王秋枫又组织郭俊、江振宇到其家附近烧烤店继续聚餐饮酒。5月8日6时许，郭俊在家中死亡。魏栓师等人得知郭俊死亡消息后，商议共同出资与郭俊家属私下了结，双方因金额存在较大分歧，郭俊家属提出要举报。5月15日，魏栓师主动向自治区纪委监委报告了相关情况。\n问题发生后，内蒙古自治区纪委监委组织开展调查，给予相关责任人处理处分。本应给予魏栓师撤销党内职务、政务撤职处分，因发现其还涉嫌其他严重违纪违法问题，已对其立案审查调查并采取留置措施，将一并处理；本应给予贺玉玺政务撤职处分，鉴于其已退休，按照专业技术岗位六级调整退休待遇；给予王秋枫、石继海、江振宇党内严重警告处分；给予栗占山党内警告处分。包头医学院二附院党委书记王占黎履行全面从严治党主体责任不力，党委委员、纪委书记云鹰履行监督责任不力，给予二人诫勉处理。\n魏栓师身为正厅级党员领导干部，在深入贯彻中央八项规定精神学习教育期间，带头违规聚餐饮酒、带头违反中央八项规定精神，造成严重后果和恶劣影响；涉案干部一边参加学习教育、一边接受违规宴请，对中央八项规定精神置若罔闻，是典型的目无法纪、顶风违纪，性质极为严重，教训极为惨痛。这表明，个别党员干部甚至是领导干部政治意识、纪法观念极其淡薄，对全面从严治党的认识极不清醒，对领导干部在党风廉政建设中所担负的特殊重要责任极不重视，在高压态势下仍然“吃”心不改、酒瘾难戒。这反映出有些地方和单位吃喝歪风陋习根深蒂固，违规吃喝禁而未绝；反映出有些地方和单位推进学习教育不严不实，对集中整治违规吃喝的要求不在乎不上心；反映出有些地方和单位落实全面从严治党主体责任缺失、监督责任缺位，严的氛围没有真正形成。必须动真碰硬、重拳纠治违规吃喝顽瘴痼疾。\n当前，学习教育正处于关键节点。各级党组织要坚决扛起主体责任，持续一体推进学查改，推动学习教育走深走实。要认真落实党中央关于集中整治违规吃喝的要求，坚持以案为鉴，引导党员干部把自己摆进去，对照案例进行检视反思，认清违规吃喝问题的本质和危害，把握公与私的界限。要围绕集中整治违规吃喝的重点任务，对顶风违纪的依规依纪从严从重查处。要压实以案促改促治责任，强化以案示警，加大风腐同查同治力度。要区分正常餐饮消费与违规吃喝，不搞层层加码，不搞简单化、“一刀切”，防止走偏变样。党员领导干部要以身作则、以上率下，带头抵制违规吃喝歪风。指导组和督导组要发挥“利剑”作用，加强对违规吃喝等突出问题集中整治的指导督导。",
+          "link": "http://www.infzm.com/contents/296277",
+          "publishedOn": "2025-06-20T11:55:06.000Z",
+          "wordCount": 75,
+          "title": "违规吃喝、严重违反中央八项规定精神！魏栓师等人被中央层面通报",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/296271",
+          "author": null,
+          "description": "2025-06-20 18:43:29\n\n\n伦敦警方此前通报里的邹某豪照片。\n\n终身监禁、最少需服刑24年，伦敦时间2025年6月19日，伦敦法院公布了英国伦敦大学学院博士生邹某豪的刑期，这意味着最早到2048年，他才有可能被假释出狱。\n超过7万人同时在互联网上观看了这场庭审的直播。在过去数月，邹某豪连环性侵案备受公众关注，一方面是他对女性犯下了影响深远的骇人罪行，另一方面也在于他在累累罪行上，给自己编织了一个“完美人设”。\n这个在外界看来“生活优渥”“衣冠楚楚”的28岁年轻人，在2019-2024年往返于中英两国期间，以下迷药的方式性侵多名女性，并在受害者不知情时，用隐藏摄像头拍摄过程。2025年3月，伦敦法院陪审团认定邹某豪犯下了28项罪名，包括11项强奸罪，涉及10名不同女性，以及偷窥、非法拘禁、持有管制药物意图实施性犯罪等。但伦敦警方认为，邹案可能还存在多达五十余名受害者。（详见报道《“完美人设”下的连环性侵案：摄像头、“战利品”和名校留学生》）\n2025年4月2日，警方公布的案件进展显示，有23名女性联系了警方；在6月19日的庭审中，这一数字再次被检察官更新：又有一位女性联系了警方，至此，共有24名女性站出来指认邹某豪。庭审结束后，伦敦警方在面对媒体时表示，该案是他们有史以来进行过“最复杂、最具挑战性和最令人心碎”的调查之一；英国皇家检控署则说，在警方提出上诉后，检方也将继续审查并考虑进一步指控，以确保追究他的责任。\n“不要担心流程的繁琐，你们很勇敢，我们两个已经经历过庭审的受害人与你们在一起。”6月19日，邹某豪被判无期徒刑后，作为受害人参与庭审的小兰（化名）告诉南方周末记者，她依然处于疗愈阶段，但还是想对站出来的女性这样说。\n根据英格兰及威尔士刑事上诉制度，邹某豪可在判刑后28天内，就定罪和刑期提起上诉。截至发稿，未有邹提起上诉的公开信息。\n报告：邹提出化学阉…",
+          "link": "http://www.infzm.com/contents/296271",
+          "publishedOn": "2025-06-20T10:55:06.000Z",
+          "wordCount": 89,
+          "title": "连环性侵案犯被判终身监禁，庭上曾提化学阉割",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/296211",
+          "author": null,
+          "description": "2025-06-20 18:00:00\n2025年，中美关税摩擦、俄乌冲突、中东战乱等“黑天鹅”事件频发，但全球追逐技术的热情并未消减。“全球IT支出呈现出超预期增长态势。”6月17日，IDC中国区总裁霍锦洁在IDC Directions：ICT市场趋势论坛（北京站）上表示。\n\n图片来源：IDC\n\n在AI领域，IDC的统计显示，2024年全球人工智能（AI）IT总投资规模为3158亿美元，2028年有望增至8159亿美元，五年复合增长率为32.9%。聚焦生成式AI（Generative AI），到2028年市场规模将达2842亿美元，五年复合增长率或达63.8%。\nAI技术正在以势不可挡的态势袭来。其中，包括汽车在内的智能终端是用户感知极为强烈的领域。随着AI智能程度更高，生成式AI从曾经的“玩具”升级为现在的“工具”，在智能驾驶、智能座舱等人机交互层面快速迭代。\n更“拟人”的技术革命\n技术发展从来都不是一蹴而就。在1960-1970年代的半导体、系统和小型机时代，英特尔、IBM、苹果、微软、甲骨文等科技企业初露锋芒，点亮了技术革命的火种。\n1980-1990年代，PC与互联网兴起，戴尔、Adobe、联想、华为，以及亚马逊、谷歌、腾讯、新浪等公司快速崛起。此时，市场上开始出现中国企业的身影，它们大多通过一对一“模仿”的方式，参与这场全球科技竞赛。\n2000-2010年代，Facebook、百度、阿里巴巴、京东、Twitter（X）、抖音、微信等引领云计算、电商以及社交媒体的浪潮。\n时间来到2020年代，ChatGPT引爆生成式AI革命，随之而来的，是中国乃至全球展开“百模大战”。在美国实施芯片出口管制之下，DeepSeek在算法层面的革新，让中国AI公司看到了与海外领跑者并肩的可能。\n回看过去六十余年，会发现技术与人类的交互愈发密切。“10年左右，全球就会出现一轮技术变革，…",
+          "link": "http://www.infzm.com/contents/296211",
+          "publishedOn": "2025-06-20T10:25:06.000Z",
+          "wordCount": 93,
+          "title": "AI，让智能终端更加“拟人”",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/296273",
+          "author": null,
+          "description": "2025-06-20 18:05:40\n2025年6月18日，三峡船闸迎来运行22周年。据交通运输部长江三峡通航管理局统计，自2003年6月18日正式向社会船舶开放通航以来，三峡船闸累计运行21.5万闸次，通过船舶107.4万余艘次、旅客1229.1万余人次，过闸货运量达22.4亿吨，充分助力长江“黄金水道”释放“黄金效益”。\n\n\n6月18日，在湖北宜昌，船舶有序通过三峡双线五级船闸（无人机照片）。\n\n\n6月18日，在湖北宜昌，船舶有序通过三峡双线五级船闸（无人机照片）。\n\n\n6月18日，在湖北宜昌，船舶有序通过三峡双线五级船闸（无人机照片）。\n\n\n6月18日，在湖北宜昌，船舶有序通过三峡双线五级船闸（无人机照片）。\n\n\n6月17日，在湖北宜昌，船舶有序通过三峡双线五级船闸。\n\n\n船舶行驶在三峡坝前的湖北省宜昌市夷陵区太平溪水域（6月17日摄，无人机照片）。",
+          "link": "http://www.infzm.com/contents/296273",
+          "publishedOn": "2025-06-20T10:25:06.000Z",
+          "wordCount": 82,
+          "title": "三峡船闸通航22年货运量超22亿吨",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/296134",
+          "author": null,
+          "description": "2025-06-20 17:00:00\n\n\n\n日本樱花只开花不结果。视觉中国|图\n说起樱花这几年在国内遍地开花，笔者颇有此感。2024年我在北京某个原为明清园林的古典公园散步，就发现园内到处是樱花，甚至主打的文创周边也是樱花冰淇淋。买来尝了一口，发现居然是草莓味的——这一点我倒是早有心理准备，因为樱花本身根本就没有任何味道，一切“樱花味”食品，都是靠食用香精，配合食品研发人员的“脑洞大开”随意调配。\n虽然大部分现代甜品，都是靠香精来调味，但像樱花味这样完全靠想象造出来的味道，也算非常罕见了。估计这个冰淇淋的设计者，觉得樱花的粉色看上去很有草莓味儿，就拿草莓香精调了个差不多的出来敷衍交差。所以别看宣传樱花味的零食这么多，从汽水、蛋糕，到糖果、冰淇淋样样精致粉嫩，但实际味道五花八门，且和樱花没有任何关系。以笔者的经验，除草莓味外，调配成樱桃味的最常见，毕竟这俩是一家人——无论是樱花还是樱桃，其实都不是特指某个种，而是对蔷薇科李属樱亚属的泛称：其中有好果子吃的就统称为“樱桃”，没有好果子吃的就统称为“樱花”，就是这么简单粗暴！\n原产中国 樱分两支\n樱桃要结果，自然也得开花，而且樱桃花之美丽也不逊于樱花；但是反过来，樱花很多干脆就不结果。而即便能结果，樱花果也是又小又难吃，基本没有食用价值，樱花中最有代表性的山樱就是如此。\n至于樱亚属的老家，倒确实在中国没有错，只是那时候地球上还没有人类：基因测序发现，樱亚属大概起源于几百万年前的喜马拉雅山脉到中国西南地区。大概在800万年到200万年前，当时喜马拉雅山脉迅速抬起，东亚季风格局奠定，多样的地形和多变的气候，为樱桃和樱花的祖先，提供了滋生壮大的温床。\n后来，樱亚属族群一分为二，一支向东，越过横断山脉，进入长江、闽江以及川滇山区，逐渐演化出果实小而多汁的中国樱桃（Prunus pseudocerasus）及其近缘种，并自然扩散到了朝鲜半…",
+          "link": "http://www.infzm.com/contents/296134",
+          "publishedOn": "2025-06-20T09:25:07.000Z",
+          "wordCount": 92,
+          "title": "“没有好果子吃”的樱花，中国古人不想种",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/296176",
+          "author": null,
+          "description": "2025-06-20 16:00:00\n38岁，创业抉择的十字路口。\n一个是在原有金融服务赛道的业务延展，已组建成熟团队，投资人也已就位。\n一个是全新赛道，自己是个门外汉，老板让你来担纲内部创业。\n怎么选？\n2018年，徐涛选择后者，成立了一家名为连信科技的公司。最早，他们试图用心理学+AI技术的方式，切入心理健康领域。\n七年过去，连信科技的业务从心理健康延伸至社会治理、民生服务、企业互联等众多领域，做出了中国首个心理学应用垂直领域通过国家备案的“洞见人和”大模型，成为少有的心理大数据智能应用公司，打造了能够理解物理世界中人类行为与心理倾向的智能分析系统，实现对人的全面刻画，包括人格特质、认知模式、行为倾向、决策风格、风险隐患（健康与社会风险）、能力品质、心理诉求等维度，结合“人、事、地、物、情”等实际场景与业务诉求，可以赋能政府、企业、个体以关键决策和实际应用。\n\n连信科技展示的“洞见人和”大模型\n客户接踵而至。\n他们也找到了自己的新定位——做中国的Palantir（PLTR.O）。\nPalantir是一家2003年成立的美国大数据分析公司，由硅谷传奇投资人、企业家、PayPal创始人之一的彼得·蒂尔（Peter Thiel）牵头创办，早期与美国情报界合作，协助反恐和调查，因帮助找出本·拉登而声名鹊起，现在服务于政府和商业领域的多个行业。2020年，Palantir登陆纳斯达克，是一家市值超过3300亿美元（截至2025年6月18日）的上市公司。\nPalantir是从大数据起家，连信科技则是从心理学和AI出发——自称是“AI领域最懂心理学，心理学领域最懂AI”的团队。\n连信科技的公司发展，也是“AI+心理学”在中国的应用探索之路。公司持续投入研发，建数据库，一直亏损，直到2024年终于盈亏持平。有朋友问徐涛，扛着这么大的压力去建自己的核心能力，现在看来是对的，但这中间你有…",
+          "link": "http://www.infzm.com/contents/296176",
+          "publishedOn": "2025-06-20T08:25:08.000Z",
+          "wordCount": 91,
+          "title": "连信科技，想要成为中国的Palantir",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/296254",
+          "author": null,
+          "description": "2025-06-20 16:08:44\n《南方周末散文写作训练营第二季》（第2期）马上就要开营了！这几天已经有部分学员陆续进入社群。\n\n他们中有不少是有一定经验的写作者，或是多年散文写作者，希望跟随一线散文家继续精进散文写作；或是其他文体的写作者，希望从散文中汲取营养，拓宽文字疆域。\n\n也不乏南周书院的老学员，希望继续在这里接受文学教育，寻回当年的文学梦。\n\n\n\n更有许多各行各业的文学爱好者，他们是教师、医生、学生、宝妈、摄影师、设计师、退休人员.......希望用文字更好表达生活、救赎自我。\n\n\n\n梁实秋说：“有一个人便有一种散文。”\n我们的每一次呼吸、每一滴泪水、每一次未曾说出的思念，都可能散落在“我手写我心”的文字里。散文以它独有的细腻与真实，记录着人类最本质的情感脉动。\n无论哪种题材，生老病死，离散重逢；无论哪种情绪，欣喜交集，落寞哀愁，都能在散文中找到它们独特的美学价值。\n如果你也想从心出发，用散文书写自己在这个世间的生命痕迹，不妨加入我们。6月25日正式开课！\n我们特邀刘亮程、蒋蓝、胡竹峰、沈念、苏沧桑、江子，6位创作经验20年以上的国内当代非常优秀的散文家，花费半年打磨出《南方周末散文写作训练营第二季|六位散文家的文字盛宴》课程。与我们一起，用心表达世界，以文对抗时间。\n\n\n开营倒计时！\n一年仅此一期！现在报名，即刻入群\n点击上图，立即加入学习↑\n\n01\n散文是如梦飞翔的艺术\n\n我年轻时写诗，后写散文，再写小说。散文成就了我的文学，是因为有长达十多年的诗歌写作铺垫。那个后来写成散文的村庄世界，我用诗歌一遍遍地试探过。\n\n我对自己的诗歌失望时，写起了散文。其实，对我而言，诗歌和散文甚至小说间，并没有沟壑般的边界，我只是用自己成熟的诗歌语言，写散文又写小说。散文让我变得更加自由自在。写散文比我写诗时感受到更多的诗意。严格地说我只写了一本真正意义上的散文《一个人的村…",
+          "link": "http://www.infzm.com/contents/296254",
+          "publishedOn": "2025-06-20T08:25:08.000Z",
+          "wordCount": 203,
+          "title": "开营倒计时！跟着6位知名散文家写散文是怎样的体验？",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/296252",
+          "author": null,
+          "description": "2025-06-20 16:14:32",
+          "link": "http://www.infzm.com/contents/296252",
+          "publishedOn": "2025-06-20T08:25:08.000Z",
+          "wordCount": 69,
+          "title": "清华大学回应女教授被树砸身亡",
+          "imageUrl": null
+        },
         {
           "id": "http://www.infzm.com/contents/296239",
           "author": null,
@@ -17749,16 +17926,6 @@
           "wordCount": 74,
           "title": "德甲联赛俱乐部宣布樊振东加盟 樊振东：期待新挑战新环境新胜利",
           "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/294843",
-          "author": null,
-          "description": "2025-06-01 08:00:00\n\n获取更多RSS：\nhttps://feedx.net \nhttps://feedx.site",
-          "link": "http://www.infzm.com/contents/294843",
-          "publishedOn": "2025-06-01T00:25:06.000Z",
-          "wordCount": 88,
-          "title": "祠堂幼儿园：73岁的“大姐”园长，过半的留守儿童",
-          "imageUrl": null
         }
       ]
     },
@@ -17767,6 +17934,16 @@
       "feedUrl": "http://flowingdata.com/feed",
       "siteUrl": "https://flowingdata.com",
       "articles": [
+        {
+          "id": "https://flowingdata.com/?p=78863",
+          "author": "Nathan Yau",
+          "description": "For the Pudding, Alvin Chang uses the CANDOR corpus to explore our feelings…\nTags: Alvin Chang, conversation, Pudding, strangers",
+          "link": "https://flowingdata.com/2025/06/20/feelings-when-strangers-talk-for-30-minutes/",
+          "publishedOn": "2025-06-20T10:01:19.000Z",
+          "wordCount": 1485,
+          "title": "Feelings when strangers talk for 30 minutes",
+          "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/06/talking-to-strangers.png"
+        },
         {
           "id": "https://flowingdata.com/?p=78909",
           "author": "Nathan Yau",
