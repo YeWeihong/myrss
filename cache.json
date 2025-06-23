@@ -6,6 +6,21 @@
       "siteUrl": "https://bestblogs.dev/zh/feeds",
       "articles": [
         {
+          "id": "23e47d",
+          "author": "Bryan Boreham",
+          "description": "📌 一句话摘要\n            \n本文深入解析 Prometheus 中 PromQL 查询的内部机制，涵盖解析、执行和输出过程，并提供优化查询性能的见解。\n📝 详细摘要\n            \n本文由 Prometheus 维护者和 Grafana Labs 杰出工程师撰写，深入探讨了 PromQL（Prometheus 查询语言）的复杂性。文章旨在通过分解从查询执行到数据检索和输出的过程，揭示 PromQL 查询的内部工作原理。作者分享了在 PromCon 2024 上题为“深入 PromQL 查询：理解机制”的会议中获得的见解，并在本博客文章中扩展了关键点。\n\n文章首先概述了 PromQL，强调了其在指定数据计算的指标和操作中的作用。它区分了即时查询和范围查询，并提供了每种查询的可视化示例。PromQL 的核心组件，包括选择表达式、函数、聚合和运算符，都进行了简要解释。\n\n接下来详细介绍了解析阶段，其中文本 PromQL 查询被转换为抽象语法树 (ASTs)。本节包括了一个简单查询如何被解析为树结构的视觉表示。\n\n然后探讨了执行阶段，重点介绍了 PromQL 引擎如何处理 AST。这包括在索引中查找序列、检索单个数据点（样本）以及处理不同类型的函数和聚合。文章还涵盖了二元运算符的机制，包括标签匹配和序列连接。\n\n输出阶段讨论了 PromQL 查询通常如何通过 Prometheus HTTP API 发送，以及结果以 JSON 格式返回的方式。它还涉及错误处理和查询执行统计的收集。\n\n文章最后提出了进一步探索的建议，包括使用 OpenTelemetry、Jaeger 和 Grafana Tempo 等追踪和分析工具来深入了解查询执行。还推荐使用 Grafana 的构建模式和 PromLens 来学习和优化 PromQL 查询。\n💡 主要观点\n            \nPromQL 概述\n                         PromQL 用于指定数据计算的指标和操作，有两种主要查询类型：即时查询和范围查询。\n                    \n\n                        解析 PromQL 查询\n                         文本 PromQL 查询由解析器转换为抽象语法树 (ASTs)，这是查询执行前的关键步骤。\n                    \n\n                        执行机制\n                         PromQL 引擎处理 AST，在索引中查找序列，检索样本，并处理各种函数和聚合。二元运算符涉及标签匹配和序列连接。\n                    \n\n                        输出和错误处理\n                         PromQL 查询通过 Prometheus HTTP API 发送，结果以 JSON 格式返回。还讨论了错误处理和查询执行统计。\n                    \n\n                        深入见解的高级工具\n                         追踪和分析工具如 OpenTelemetry、Jaeger 和 Grafana Tempo 可以提供更深入的查询执行见解。推荐使用 Grafana 的构建模式和 PromLens 来学习和优化 PromQL 查询。\n                    \n💬 文章金句\n            \nPromQL 查询的目的是表达你想要使用的指标以及你想要对这些指标执行的操作，以计算结果。\nPromQL 由解析器处理以创建抽象语法树 (AST)，引擎执行该树，从存储中提取数据，然后输出结果。\n二元运算符可能是 PromQL 中最计算密集的部分，因为构建哈希表和查找匹配的过程在每个时间步都会重复。\nPrometheus 使用 OpenTelemetry 进行追踪，因此如果你有像 Jaeger 或 Grafana Tempo 这样的分布式追踪系统，你可以使用它来查看单个查询并了解它们的执行方式。\n虽然我希望这篇博客文章和我的演讲是有帮助的资源，但我知道你可以更深入地探讨这个话题。\n📊 文章信息\n            \nAI 评分：90\n精选文章：是\n来源：Grafana Labs\n作者：Bryan Boreham\n分类：软件编程\n语言：英文\n阅读时间：11 分钟\n字数：2574\n标签：\n                    \n                        PromQL, Prometheus, 查询语言, 监控, 性能优化",
+          "link": "https://www.bestblogs.dev/zh/article/23e47d",
+          "publishedOn": "2025-06-23T16:07:36.000Z",
+          "wordCount": 328,
+          "title": "深入 PromQL：探究 Prometheus 查询机制",
+          "enclosure": {
+            "url": "https://grafana.com/media/blog/promql-query/promql-diagram.png",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://grafana.com/media/blog/promql-query/promql-diagram.png"
+        },
+        {
           "id": "2c386d",
           "author": "十字路口Crossing",
           "description": "📌 一句话摘要\n            \na16z 文章总结：在 AI 产品快速迭代时代，将“势能”而非传统护城河作为增长和竞争壁垒。\n📝 详细摘要\n            \n文章基于 a16z 最新观点，分析了消费者 AI 产品领域当前缺乏传统护城河的现状。指出由于模型和基础设施的快速变化，产品迭代速度至关重要，“速度”是核心竞争力。在此背景下，提出“势能”（Momentum）成为新的竞争壁垒。文章详细阐述了六种行之有效、能快速获取和维持产品势能的新营销策略：将黑客松转变为具备传播效应的“表演”、大胆进行社交实验、与其他 AI 产品构建“联盟式发布”、与有影响力的 AI 原生 KOL 合作、制作高质量且具传播性的产品发布视频、以及“Build in Public”透明化地分享产品进展和数据。这些策略旨在帮助 AI 创业公司在拥挤且快速变化的市场中脱颖而出，抢占用户心智并持续增长。\n💡 主要观点\n            \n在快速变化的 AI 领域，传统护城河难以建立，速度是关键。\n                         由于 AI 底层技术和模型迭代极快，产品需要快速推出、迭代，抢占用户心智，而非依赖缓慢构建的传统壁垒。\n                    \n\n                        “势能”成为 AI 产品在市场中脱颖而出的关键壁垒。\n                         持续的产品发布和迭代，通过营销活动积累并维持增长和用户关注的动能，是应对激烈竞争的有效方式。\n                    \n\n                        创新营销策略如“表演式黑客松”能产生病毒传播。\n                         将开发者活动公开化、娱乐化，利用 AI 工具降低门槛，通过社交媒体放大影响力，制造文化热点。\n                    \n\n                        大胆的社交挑战和实验可以低成本快速引发热议。\n                         通过设计互动性强、有话题性的社交活动，鼓励用户参与和传播，吸引关注和讨论。\n                    \n\n                        AI 产品间的“联盟式发布”能汇聚能力并交叉用户。\n                         不同 AI 工具通过合作捆绑功能或联合发布，提供更完整的解决方案，同时互相背书，扩大用户基础。\n                    \n\n                        与 AI 原生 KOL 和 Builders 合作更能触达核心用户。\n                         寻找在特定 AI 社区有影响力的早期用户和开发者，让他们成为产品的实际布道者，建立基于社区的忠诚度。\n                    \n\n                        高质量的产品演示视频是“秀而非讲”的关键。\n                         用直观、有吸引力的视频展示产品能力，比传统公关更有效，易于社交媒体传播，由 Builders 主导更佳。\n                    \n\n                        “Build in public” 透明化构建有助于积累势能和引发竞争。\n                         公开分享产品进展、数据甚至失败经验，能建立社区参与感，吸引关注，并良性刺激竞品加速迭代。\n                    \n💬 文章金句\n            \n在 AI 领域，通常是谁先构建、谁迭代最快、谁分发最好，谁就能获胜。\n在当今的 AI 领域，即使你已经飞上云层，你仍然需要比竞争对手更努力地拍打翅膀。\n黑客松曾经是小众的、面向开发者的短期冲刺活动。如今它们已成为公共表演的舞台。\n在 AI 领域，是: show， don't pitch。\n另一个优势：让 AI-native builders 和 designers 为你代言。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：十字路口Crossing\n作者：十字路口Crossing\n分类：人工智能\n语言：中文\n阅读时间：16 分钟\n字数：3973\n标签：\n                    \n                        AI产品增长, Consumer AI, 势能, 市场营销策略, 增长策略",
@@ -2941,16 +2956,6 @@
           "wordCount": 6560,
           "title": "From Sharing One Typewriter to Toppling a Corrupt President: How PCIJ Has Reshaped Watchdog Reporting in the Philippines",
           "imageUrl": "https://gijn.org/wp-content/uploads/2025/06/Screenshot-2025-06-02-at-9.46.22 AM-771x535.png"
-        },
-        {
-          "id": "https://gijn.org/?p=2284728",
-          "author": "Andrew Lehren, Nikolia Apostolou,",
-          "description": "GIJN has created a reporting guide for journalists worldwide so they can research and produce compelling stories on how countries and companies seek to exert influence abroad.",
-          "link": "https://gijn.org/resource/guide-investigating-foreign-lobbying/",
-          "publishedOn": "2025-06-04T07:00:29.000Z",
-          "wordCount": 11913,
-          "title": "GIJN Guide to Investigating Foreign Lobbying",
-          "imageUrl": "https://gijn.org/wp-content/uploads/2025/06/1920x1080-771x434.png"
         }
       ]
     },
@@ -2959,6 +2964,76 @@
       "feedUrl": "https://rsshub.rssforever.com/tencent/news/author/5505476",
       "siteUrl": "https://new.qq.com/omn/author/5505476",
       "articles": [
+        {
+          "id": "https://view.inews.qq.com/a/20250623V02F5M00",
+          "author": "谷雨实验室",
+          "description": "",
+          "link": "https://view.inews.qq.com/a/20250623V02F5M00",
+          "publishedOn": "2025-06-23T01:05:51.000Z",
+          "wordCount": 258,
+          "title": "65岁农村妇女的活法：无论有没有钱，一定要多出去看看",
+          "imageUrl": "https://inews.gtimg.com/news_ls/Oqo7pd2aXoJOIXitlWUzrqxqtfOW1ye5yfBpQv8nYQvOIAA_7201280/0"
+        },
+        {
+          "id": "https://view.inews.qq.com/a/20250623V02EU300",
+          "author": "谷雨实验室",
+          "description": "",
+          "link": "https://view.inews.qq.com/a/20250623V02EU300",
+          "publishedOn": "2025-06-23T01:05:03.000Z",
+          "wordCount": 258,
+          "title": "65岁农妇为旅游在工地做美缝赚钱",
+          "imageUrl": "https://inews.gtimg.com/news_ls/O3gtMtuEP-gUMgQeysLFdNBPaElYlnnvZBCUTtQseyxUIAA_7201280/0"
+        },
+        {
+          "id": "https://view.inews.qq.com/a/20250623V02EE300",
+          "author": "谷雨实验室",
+          "description": "",
+          "link": "https://view.inews.qq.com/a/20250623V02EE300",
+          "publishedOn": "2025-06-23T01:03:56.000Z",
+          "wordCount": 258,
+          "title": "大病不用治，麦子阿姨后半生只想把钱花在旅游上",
+          "imageUrl": "https://inews.gtimg.com/news_ls/O51Bghg2j_2sQmMqv609_Qhg3Jd3MTphIHqyKILGR25yAAA_7201280/0"
+        },
+        {
+          "id": "https://view.inews.qq.com/a/20250623V02E5X00",
+          "author": "谷雨实验室",
+          "description": "",
+          "link": "https://view.inews.qq.com/a/20250623V02E5X00",
+          "publishedOn": "2025-06-23T01:03:05.000Z",
+          "wordCount": 258,
+          "title": "麦子阿姨：只要我想，就没有做不到的",
+          "imageUrl": "https://inews.gtimg.com/news_ls/OzR5do7CS8JetrucEN2PNhoUBdPEr5iZEbtalfLn4pKLAAA_7201280/0"
+        },
+        {
+          "id": "https://view.inews.qq.com/a/20250623V02E0S00",
+          "author": "谷雨实验室",
+          "description": "",
+          "link": "https://view.inews.qq.com/a/20250623V02E0S00",
+          "publishedOn": "2025-06-23T01:02:29.000Z",
+          "wordCount": 258,
+          "title": "农村姑娘曾学裁缝开班办学改变命运，结婚后仍被困了一生",
+          "imageUrl": "https://inews.gtimg.com/news_ls/O2TxvoK11DNhAY1IDA8TcZNmTiNSh4qMnGDaZxHZQU-RwAA_7201280/0"
+        },
+        {
+          "id": "https://view.inews.qq.com/a/20250623V02DMO00",
+          "author": "谷雨实验室",
+          "description": "",
+          "link": "https://view.inews.qq.com/a/20250623V02DMO00",
+          "publishedOn": "2025-06-23T01:00:44.000Z",
+          "wordCount": 258,
+          "title": "12岁女孩因照顾弟弟妹妹辍学，却称再来一次还会做同样的选择",
+          "imageUrl": "https://inews.gtimg.com/news_ls/OOAN31nAu0mR5bIv8NwnCKFm4vLjgldWuymn12Nf8sRO4AA_7201280/0"
+        },
+        {
+          "id": "https://view.inews.qq.com/a/20250623V02DCU00",
+          "author": "谷雨实验室",
+          "description": "",
+          "link": "https://view.inews.qq.com/a/20250623V02DCU00",
+          "publishedOn": "2025-06-23T00:59:33.000Z",
+          "wordCount": 258,
+          "title": "麦子阿姨像男的一干活，父亲却说：要是个男的就好了",
+          "imageUrl": "https://inews.gtimg.com/news_ls/OtOq0mehQ1_SXoBCm53tkZoupY0RDO6B0dyKaJwWoK8PsAA_640360/0"
+        },
         {
           "id": "https://view.inews.qq.com/a/20250620V07FT400",
           "author": "谷雨实验室",
@@ -3335,16 +3410,6 @@
           "wordCount": 4654,
           "title": "美国下边这五国，已经离不开中国了｜地球知识局",
           "imageUrl": "https://inews.gtimg.com/om_ls/Oav_-lUD47b57KJDmFdG8K4i64whRQO-CNBHOsPBEUfcsAA_640330/0"
-        },
-        {
-          "id": "https://view.inews.qq.com/a/20250604A03GQS00",
-          "author": "地球知识局",
-          "description": "地球知识局\n文字 | 按时吃饭\n校对 | 朝乾 编辑 | 哈\n\n在内蒙古大兴安岭深处，有一个地方，叫根河，它还有另一个名字，中国冷极。根河最低气温能达到零下58度，是中国有记录以来的最低值。这里也几乎是最北的地方，中国纬度最高的漠河就在他隔壁。\n\n▼\n   \n高纬、严寒、远离经济中心，根河在中国庞大的商品和物流网络中，只能归类为边缘地带。在中国，和根河类似的成百上千个边缘地区，都有一个共同特点，“难以包邮”。\n   \n▲图注：根河的冬天特别长，冰雪交加，难以行车\n\n内蒙古，难在哪？\n\n如今大部分中国人都已经习惯了包邮，那是因为我们都生活在“包邮区”，毕竟中国“包邮区”规模之大，世所罕见。\n\n包邮区并不能代表任何的单一指标，他是物流、基建、人口、经济等一大堆原因结出的“果”。\n\n我们最早的包邮区仅限于江浙沪，后来随着交通物流和经济协作越来越细密，逐渐扩展到整个东部+中部，同时向下延伸到乡镇甚至村落，但他也有一个扩展极限，这里面最重要的制约因素就是——人口。\n   \n▲图注：人口密集+交通网络发达地区的消费者\n更早体会到了网购快递包邮的便利\n（杭州东站 图：图虫创意）\n\n中国虽然人口极多，但分布也落差极大，胡焕庸线两边，土地是四六开，但人口是九一开。人口不足，同样一套基础设施就很难摊薄成本，所以西部北部等边远地区，基本全是“包邮困难户”，根河，以及他所在的整个内蒙古，都是包邮困难的典型。\n\n▼\n   \n\n内蒙古的难，首先是地太大了，面积相当于5个英国；然后是人太少，密度只有全国的七分之一；再就是自然环境非常复杂，沙漠、戈壁、草原、森林样样都有。\n\n最后还要加上一个——太长了，地理跨度太大，整个自治区没有首位度很高的经济中心，别的省份可以把强省会作为物流中心辐射全省，内蒙古就做不到。\n   \n▲图注：太大，也太长了，很散装！\n\n这些困难，一个接一个都推高了内蒙古的物流成本。这就导…",
-          "link": "https://view.inews.qq.com/a/20250604A03GQS00",
-          "publishedOn": "2025-06-04T03:05:01.000Z",
-          "wordCount": 4160,
-          "title": "内蒙古，这么多年来终于实现了！｜地球知识局",
-          "imageUrl": "https://inews.gtimg.com/om_ls/OViXHnABis22dbxgdcr4fffVAcxqrXcmx5cMObjwtxUc8AA_640330/0"
         }
       ]
     },
@@ -3530,6 +3595,46 @@
       "feedUrl": "https://rsshub.rssforever.com/tencent/news/author/8QMc3Hhc74cevD%252FR",
       "siteUrl": "https://new.qq.com/omn/author/8QMc3Hhc74cevD%2FR",
       "articles": [
+        {
+          "id": "https://view.inews.qq.com/a/20250623V095UH00",
+          "author": "晚点LatePost",
+          "description": "很多企业做体育营销，都想押中短期流量，最大化影响力。伊利为什么选择投入大、产出慢的营销思路？还总能把体育营销玩出花？",
+          "link": "https://view.inews.qq.com/a/20250623V095UH00",
+          "publishedOn": "2025-06-23T14:14:04.000Z",
+          "wordCount": 258,
+          "title": "体育营销，伊利的“笨”方法",
+          "imageUrl": "https://inews.gtimg.com/news_ls/Ot45GiQvBa7pFXzjCBK_ULHvy8AqCP6BISirEuxINBk0wAA_7201280/0"
+        },
+        {
+          "id": "https://view.inews.qq.com/a/20250623A090V800",
+          "author": "晚点LatePost",
+          "description": "未来会有好用的通用人形机器人，但它无法解决所有问题。\n\n\n\n文丨李梓楠\n编辑丨程曼祺\n\n\n具身智能产业还处在分歧多于共识的状态。最基础的外观就百花齐放，带双腿、带轮子的，身高分布在 1.3 米到 1.8 米的区间；至于机器人大脑，现有技术路线分歧更大，行业中大部分人甚至还无法准确描述面对的问题是什么。\n\n与大部分追求确定性的供应商不同，芯片供应商地瓜机器人在具身智能技术路线仍未明确且收敛的情况下就已入局。\n\n地瓜机器人 CEO 王丛说这很符合地平线做事的思路——选择够难够长期，最好当下还不大但未来可能很大的赛道做，“在没有人竞争的地方竞争”。\n\n地瓜机器人孵化于地平线的机器人事业部，原本职责是在自动驾驶以外，给地平线的芯片寻找客户。2023 年末，看到大模型技术加持下机器人的进步后，地平线机器人事业部从独立成地瓜机器人，意为地平线结的瓜。\n\n和当年地平线进入智能汽车市场类似，智能机器人虽然是一个目前总规模不大的新兴市场，但这里也有巨头徘徊：如英伟达就正在机器人市场主推 Jetson 嵌入式系统，它是一套包含 CPU、GPU、内存、 闪存和电源管理系统等核心模块的机器人端侧电脑。\n\n“人形机器人可能成为历史上最大的产业，它面临的挑战也一样大，” 黄仁勋在今年 3 月的 GTC 大会上说。\n\n英伟达的优势是开发生态。地瓜做的一个重要工作也是做开发工具、办具身智能相关比赛：“先把生态做起来，让创业者用到我们的工具，才可能让客户主动来找你，而不是你去找客户。” 王丛说。\n\n   \n\n地瓜机器人的 RDK S100 开发者套件。来源：地瓜机器人。\n\n\n这是地平线在汽车市场里曾经的成功实践：2019 年起，地平线开始重点投入开发智能驾驶工具链，让下游智驾客户或车企客户能把地平线的产品用得更好。目前，地平线是中国市场最大的智驾计算方案供应商。\n\n我们在近期对话了地瓜机器人 CEO 王丛，…",
+          "link": "https://view.inews.qq.com/a/20250623A090V800",
+          "publishedOn": "2025-06-23T13:48:46.000Z",
+          "wordCount": 6095,
+          "title": "从地平线拆分后，地瓜机器人怎么做具身智能卖水人丨具身智能对话",
+          "imageUrl": "https://inews.gtimg.com/om_ls/O_NzC6huPHFIF9K6o3WqpnFWUGuELh0fh_3mtzEi1vSegAA_640330/0"
+        },
+        {
+          "id": "https://view.inews.qq.com/a/20250623A08V1E00",
+          "author": "晚点LatePost",
+          "description": "社区团购式微，即时零售战场方兴未艾。\n\n\n\n文丨沈方伟\n编辑丨管艺雯\n\n\n许久没有新变化的社区团购战场，仅有的两位全国玩家在一周内都有了大调整。\n\n市场第一名多多买菜目前一年成交额 2000 亿元，但增长已接近天花板、仍处于盈亏平衡线，最新的动作是开始提升配送时效，做类似即时零售的生意；第二名美团优选一年成交额 1000 亿元出头，持续在减亏，但 2024 年以它为代表的新业务仍亏损大约 50 亿元，如今终于宣布要大幅收缩覆盖区域。\n\n《晚点 LatePost》独家获悉，美团优选在 6 月 23 日 13 时宣布，美团优选次日达自提模式退出亏损区域。这代表美团优选将关闭大多数省区，传统的社区团购业务只剩下广东、浙江两省。\n\n本次调整后，美团优选正式员工将转岗至小象超市、美团快驴或美团其他业务部门。优选此前积累的供应链转为支持小象超市和美团快驴，两个业务将加速开城，进一步扩大市场规模。除进入更多市场，小象超市也在积极尝试各种新业务，如重新开设线下社区门店，效仿盒马 NB 、奥乐齐的折扣模式。\n\n我们独家了解到，小象超市在今年加速扩张，内部认为山姆已经开城或计划开城的市场都值得进入，因为山姆已经验证这些城市有足够多有购买力的消费者，而小象有错位竞争的机会。\n\n美团优选之外，美团食杂零售现存的两个全国性业务，小象超市卖生鲜零售商品，一小时内送货上门，证明了可盈利且具备优秀的成长性。美团快驴涉足的餐饮供应链生意虽然艰难，但也已经实现了盈亏平衡。\n\n\n社区团购的模式困境：美团优选只留下两省，多多买菜多次试水新业务\n\n\n据我们了解，这次美团优选将仅保留浙江、广东两省业务，此前最多的时候，美团优选一度覆盖二十多个省市、超过 2000 个县市。本次保留的浙江、广东是美团优选最优势的两个省，已经实现盈利。其他被放弃的省份多为份额较低，继续投入也难以盈利的市场。\n\n过去很长一段时间，美团优选一…",
+          "link": "https://view.inews.qq.com/a/20250623A08V1E00",
+          "publishedOn": "2025-06-23T13:17:08.000Z",
+          "wordCount": 2282,
+          "title": "美团优选退出亏损省份，小象超市成为新希望",
+          "imageUrl": "https://inews.gtimg.com/news_ls/OYofwcjXsLHZVv5xoFN_lQsb9nLZm-a4ExhLcpApJturoAA_640330/0"
+        },
+        {
+          "id": "https://view.inews.qq.com/a/20250623A08T8M00",
+          "author": "晚点LatePost",
+          "description": "淘宝成为阿里消费业务的大入口，饿了么和飞猪加入中国电商事业群。\n\n\n\n文丨管艺雯 邱豪\n编辑丨黄俊杰\n\n\n6 月 23 日上午 9 点，阿里巴巴集团 CEO 吴泳铭发布全员邮件，宣布即日起饿了么、飞猪合并入阿里中国电商事业群，吴泽明继续担任饿了么董事长兼 CEO，庄卓然任飞猪 CEO ，两人都向蒋凡汇报。\n\n吴泳铭称，飞猪、饿了么将继续保持公司化管理模式，但业务决策执行以电商事业群集中目标、统一作战，是 “从电商平台走向大消费平台的战略升级”。\n\n从 2018 年被收购至今，饿了么都跟淘宝天猫分属不同的业务单元，协作需要跨业务单元进行。淘宝做即时配送的淘鲜达要自己找骑手，饿了么也从没有获得过淘宝首屏的流量曝光。\n\n今年 4 月底上线的 “淘宝闪购 x 饿了么” 是双方首次密切合作，也是一次吴泳铭口中的 “饱和式投入”—— 4 亿多人每天打开的淘宝直接在首屏加入外卖入口；电商业务负担主要外卖补贴费用，吸引用户在 618 到来前每天打开淘宝；饿了么接住激增的新订单。淘宝闪购联合饿了么每日的配送单量从 2000 多万单上涨到 4000 万单，再到今日宣布超 6000 万单，仅用了不到两个月。\n\n飞猪、饿了么并入阿里中国电商事业群后，几乎所有具备消费属性的业务都已经聚拢在了淘宝应用内，以淘宝作为主阵地，由电商事业群负责人蒋凡指挥，而不是过去通过集团层面来协同。\n\n这一次，阿里没有像往常一样高调提出战略转型，但启动了一个可以被称为 “一个淘宝” 的战略转型。类似曾经的 “One Ford”“One Microsoft”，或者今年启动的 “一个吉利”，这次转变是在巨变的竞争格局下，一个领先的大公司的重新聚焦。\n\n擅长组织调整的阿里集团过去十多年经历了 “集中 - 分散 - 集中 - 分散 - 集中” 的多轮调整。不过我们接触的多位阿里人士都觉得这次不太一样，以往是 “一个阿里，多个入口…",
+          "link": "https://view.inews.qq.com/a/20250623A08T8M00",
+          "publishedOn": "2025-06-23T13:06:55.000Z",
+          "wordCount": 2144,
+          "title": "“一个淘宝”：阿里没有宣布的战略转型",
+          "imageUrl": "https://inews.gtimg.com/om_ls/OyzYDJgExI9dZ9F5Z6TDNzfYHf55Wd4geEEJGTjAsM4o8AA_640330/0"
+        },
         {
           "id": "https://view.inews.qq.com/a/20250622A06E4H00",
           "author": "晚点LatePost",
@@ -4302,16 +4407,6 @@
           "publishedOn": "2025-06-04T11:34:35.000Z",
           "wordCount": 650,
           "title": "AI Pin 们折戟后，第二代 AI 硬件闷声发了大财",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.geekpark.net/news/350052",
-          "author": null,
-          "description": "大模型推动的 AI 工具进入生活，最大的呼声可能不是写字楼的「牛马」白领，而是学校中的学生们，因为用 ChatGPT 生成一份作文或者短论文，实在是太轻松了。\n正因如此，大模型诞生后， 很多老师最快的反应是「禁用 AI」，或者重新定义作弊规范 。\n但有一些人很快意识到：真正的危险，可能不是作弊，而是学生们， 正在把大脑的「学习过程」本身，全面外包给 AI 。\n看起来，写作业更容易了，成绩上去了。但一个令人焦虑的问题也同时出现：当学生越来越依赖 AI 写作、答题、总结、思考时，他们到底还在「学习」吗？\n又或者，在 AI 时代，学生还需要「学习」吗？\n \n01\n看上去学了，实际上没学\n \n自 2022 年底推出 ChatGPT 以来，OpenAI 可能也不得不承认，他们最忠实的一批用户，是学生。\n回顾过去两年，媒体一度爆出 OpenAI 用户增长陷入停滞，但一到 9 月份，用户数量又大幅增长，波动的原因很简单—— 学生开学了，暑假结束了 。\nAI 改变教育的第一个动作，就是把「完成作业」这件事变得异常轻松，不会就问 AI。\n一项调查显示，到 2024 年底，已约有七成美国青少年使用过生成式人工智能工具，超过一半青少年用 AI 来帮助完成家庭作业。\n国内也有不少调查说明 AI 在校园使用的普遍性。DeepSeek 诞生之前，学生会直接使用文心一言、豆包等本土 AI 工具。\n写论文、读书报告，做数学题，看起来学生作业完成得越来越漂亮，但问题来了——他们真的学会了吗？\n宾夕法尼亚大学的研究团队 2024 年做了一个真实实验：\n一群高中生在学数学时被分为三组，一组用自由使用基于 GPT-4 的 AI 聊天机器人，一组用「GPT Tutor」（不给答案只给引导），还有一组不使用 AI。\n结果，在练习阶段，自由使用 AI 组表现最优秀，几乎完胜。\n但当进入最终考试， 不准使用 AI 辅助，…",
-          "link": "http://www.geekpark.net/news/350052",
-          "publishedOn": "2025-06-04T05:43:19.000Z",
-          "wordCount": 861,
-          "title": "用 AI 读书、学习，大脑会萎缩吗？",
           "imageUrl": null
         }
       ]
@@ -5439,6 +5534,66 @@
       "siteUrl": "https://wechat2rss.xlab.app/feed/8d839de8dd3290a1f1be7a94423cccb30c1b087d.xml",
       "articles": [
         {
+          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654602547&idx=1&sn=67f084172fa1104a633a9bf4f4cd0275",
+          "author": null,
+          "description": "少一点套路，多一点真诚。",
+          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654602547&idx=1&sn=67f084172fa1104a633a9bf4f4cd0275",
+          "publishedOn": "2025-06-23T16:01:00.000Z",
+          "wordCount": 264,
+          "title": "今年的京东618，让我发现这哥们能处",
+          "imageUrl": null
+        },
+        {
+          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654602547&idx=2&sn=f22db6579f5c8f2a2819a67aba78cbb8",
+          "author": null,
+          "description": "该治治了。",
+          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654602547&idx=2&sn=f22db6579f5c8f2a2819a67aba78cbb8",
+          "publishedOn": "2025-06-23T16:01:00.000Z",
+          "wordCount": 264,
+          "title": "罗马仕爆雷后，感觉充电宝行业天快塌了。。。",
+          "imageUrl": null
+        },
+        {
+          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654602547&idx=3&sn=ae0b505dc2123c04e0b9c21fe3429a9a",
+          "author": null,
+          "description": "就在周末，美国出手一口气端掉了伊朗的关键核设施之后，伊朗人也立马掏出了自己的应对方式。",
+          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654602547&idx=3&sn=ae0b505dc2123c04e0b9c21fe3429a9a",
+          "publishedOn": "2025-06-23T16:01:00.000Z",
+          "wordCount": 264,
+          "title": "伊朗说要封锁霍尔木兹海峡，为什么全世界会抖三抖？",
+          "imageUrl": null
+        },
+        {
+          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654602547&idx=4&sn=2cd745cd6eb4432c91f0ecbba52e7189",
+          "author": null,
+          "description": "有一种喜事丧办的美。",
+          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654602547&idx=4&sn=2cd745cd6eb4432c91f0ecbba52e7189",
+          "publishedOn": "2025-06-23T16:01:00.000Z",
+          "wordCount": 264,
+          "title": "今日最佳：中西别碰撞了。",
+          "imageUrl": null
+        },
+        {
+          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654602547&idx=5&sn=b36b57be6d9772f2ff3a3ec806d3d9dc",
+          "author": null,
+          "description": "聊一聊",
+          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654602547&idx=5&sn=b36b57be6d9772f2ff3a3ec806d3d9dc",
+          "publishedOn": "2025-06-23T16:01:00.000Z",
+          "wordCount": 264,
+          "title": "聊一聊：你印象最深刻的文章是哪篇？",
+          "imageUrl": null
+        },
+        {
+          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654602547&idx=6&sn=51ef4a5aa01f17d095128f125b0b3dfb",
+          "author": null,
+          "description": "今天是6月23日，农历五月廿八。",
+          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654602547&idx=6&sn=51ef4a5aa01f17d095128f125b0b3dfb",
+          "publishedOn": "2025-06-23T16:01:00.000Z",
+          "wordCount": 264,
+          "title": "饿了么飞猪并入阿里电商事业群，美团加码小象超市，特斯拉Robotaxi上线，Switch2 HDR涉假，这就是今天的其他大新闻！",
+          "imageUrl": null
+        },
+        {
           "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654602444&idx=1&sn=50d280962b9e239b02b3ea728560f863",
           "author": null,
           "description": "商机过去了，又或许是还没到。",
@@ -6555,6 +6710,56 @@
       "feedUrl": "https://rsshub.rssforever.com/nationalgeographic/latest-stories",
       "siteUrl": "https://www.nationalgeographic.com/pages/topic/latest-stories",
       "articles": [
+        {
+          "id": "https://www.nationalgeographic.com/travel/article/explore-alaskas-national-forests",
+          "author": "Stephanie Vermillion",
+          "description": "The Alaska Cabins Project aims to make traveling to Alaska's wilderness easier and more inclusive.   \nA new project in the Chugach and Tongass National Forests will make overnights in Alaska’s wilderness less intimidating for travelers looking for “soft” adventures in the wild.\n    \nOvernighting in Alaska’s wilderness is about to get easier. The Alaska Cabins Project, a joint initiative from the Forest Service and the National Forest Foundation, will bring 25 new, easily reachable abodes to the untamed Tongass and Chugach national forests by 2027. Several have already opened—or will open—this year.\n    \nThe project marks a milestone for the state. “This is the largest expansion of public use cabins on Alaska’s national forests in 50 years,” says Patrick Shannon, the NFF’s Pacific Northwest…",
+          "link": "https://www.nationalgeographic.com/travel/article/explore-alaskas-national-forests",
+          "publishedOn": "2025-06-23T20:20:32.000Z",
+          "wordCount": 8992,
+          "title": "Alaska’s untamed wilderness is about to get more accessible",
+          "imageUrl": "https://i.natgeofe.com/n/56387f43-179c-4abd-84d8-69b1f9ece084/T73MXX_1_16x9.jpg?w=1200"
+        },
+        {
+          "id": "https://www.nationalgeographic.com/culture/article/gangapur-india-ice-cream-farmers",
+          "author": "Brian Kevin, Federico Borella, Michela Balboni",
+          "description": "When Shahrukh Shah was a boy, the small, dusty city of Gangapur, India, wasn’t known for much. It was an agricultural town, a hub for the region’s many farmers, and Shah’s family grew corn and wheat on three acres nearby. But farming was never easy on the plains of central Rajasthan—India’s largest state and among its driest—and as Shah got older, it became tougher still, with the rainy seasons more erratic, droughts more frequent, and water for irrigation harder to come by.\n    \nThen, around 2014, when Shah was a teenager, his father decided to give up farming during the parched four-month summer in favor of the business that has since put Gangapur on the map: ice cream.\n    \n(8 ice cream styles from around the world.)\n     https://interactives.natgeofe.com/high-touch/ngm-2507-India-ice-c…",
+          "link": "https://www.nationalgeographic.com/culture/article/gangapur-india-ice-cream-farmers",
+          "publishedOn": "2025-06-23T19:25:41.000Z",
+          "wordCount": 7018,
+          "title": "The improbable city where ice cream is king",
+          "imageUrl": "https://i.natgeofe.com/n/3e191954-1091-437e-b432-eb4cca046f45/STOCKPKG_MF4148_F1020685_16x9.jpg?w=1200"
+        },
+        {
+          "id": "https://www.nationalgeographic.com/travel/article/best-bookshops-to-visit-uk",
+          "author": "Sarah Barrell",
+          "description": "This port town indie store includes a ‘study’ with co-working desks and an upstairs cafe.    \nIndependent Bookshop Week was celebrated across the UK this June — we’ve selected four shops worth a literary pilgrimage.\n     \nThis article was produced by National Geographic Traveller (UK).\n     \nWith summer bringing Independent Bookshop week to UK shores, we’re celebrating bookstores that are well worth travelling to. From a hilltop spot in York to a cool cafe hangout in London’s East End and far beyond, we’ve selected independently run shops that continue to draw book-lovers to towns and cities across the UK and Ireland. Many of these have been recognised by the Independent Bookshop of the Year award, past or present, and all are lovely places to linger over a good read, graphic novel or open…",
+          "link": "https://www.nationalgeographic.com/travel/article/best-bookshops-to-visit-uk",
+          "publishedOn": "2025-06-23T19:25:40.000Z",
+          "wordCount": 6849,
+          "title": "7 of the best bookshops to visit in the UK",
+          "imageUrl": "https://i.natgeofe.com/n/52af0028-52fc-423f-b9e7-a70c2818ec33/2024-Christmas-window_16x9.jpg?w=1200"
+        },
+        {
+          "id": "https://www.nationalgeographic.com/travel/article/copenpay-program-copenhagen",
+          "author": "Leila Najafi",
+          "description": "Responsible travelers are rewarded through the fairly new CopenPay program after they engage in good deeds such as picking up trash in one of Copenhagen’s green spaces.   \nWith overtourism concerns hitting cities across Europe, this new initiative aims to encourage eco-friendly behavior by offering free or discounted food, drinks, and cultural experiences.\n    \nImagine a city that rewards you for making sustainable choices—ride a bike instead of driving to receive free admission to a museum, walk 5,000 steps to get a free cup of coffee, or collect trash from the harbor to earn a free kayak ride. That’s what Copenhagen is doing through its new CopenPay initiative.\n    \nCopenPay encourages visitors to make environmentally friendly choices in exchange for free or discounted local experiences,…",
+          "link": "https://www.nationalgeographic.com/travel/article/copenpay-program-copenhagen",
+          "publishedOn": "2025-06-23T19:25:40.000Z",
+          "wordCount": 8393,
+          "title": "This city rewards travelers—just for being responsible",
+          "imageUrl": "https://i.natgeofe.com/n/4c4d1f98-f70a-4a3f-9bb8-9186b68bf1b6/CopenPay-2025---Plogging_16x9.jpg?w=1200"
+        },
+        {
+          "id": "https://www.nationalgeographic.com/history/article/scopes-monkey-trial",
+          "author": "Erin Blakemore",
+          "description": "Jock the monkey listens in on the Scopes 'Monkey' trial verdict in Washington DC on July 21, 1923. The Scopes trial was one of the most covered court cases in US history, and the first US trial to be broadcast on national radio.    \nIn 1925, a small-town trial became a national spectacle, pitting faith against science. Here's what to know about the lasting legacy of the Scopes 'Monkey' Trial.\n    \nWas Charles Darwin’s theory of evolution scientific fact or dangerous, anti-Christian heresy? In 1925, one young teacher became a target of a law outlawing teaching evolution in schools—and a central figure in the fight to teach evidence-based science. \n    \nTwenty-four-year-old John T. Scopes didn’t remember if he’d actually taught evolution to his high school students in Rhea County, Tennessee—…",
+          "link": "https://www.nationalgeographic.com/history/article/scopes-monkey-trial",
+          "publishedOn": "2025-06-23T19:25:40.000Z",
+          "wordCount": 11473,
+          "title": "What was the Scopes 'Monkey' Trial?",
+          "imageUrl": "https://i.natgeofe.com/n/e2b3e9ef-77b9-4b71-b744-4a6925a0d079/GettyImages-163646792_16x9.jpg?w=1200"
+        },
         {
           "id": "https://www.nationalgeographic.com/science/article/first-images-vera-rubin-observatory-astronomy-space",
           "author": "Paola Rosa-Aquino",
@@ -7985,6 +8190,86 @@
       "feedUrl": "https://news.un.org/feed/subscribe/en/news/all/rss.xml",
       "siteUrl": "https://news.un.org/en/",
       "articles": [
+        {
+          "id": "https://news.un.org/en/story/2025/06/1164816",
+          "author": null,
+          "description": "On day six of the 59th Session of the Human Rights Council (HRC) in Geneva, the Council heard urgent updates on rising internal displacement driven by organised crime, escalating genocide risks and the trafficking of women in the domestic work sector.",
+          "link": "https://news.un.org/feed/view/en/story/2025/06/1164816",
+          "publishedOn": "2025-06-23T12:00:00.000Z",
+          "wordCount": null,
+          "title": "Human Rights Council hears concerns over displacement, genocide risks and migrant trafficking",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/19-06-2025-UNHCR-Haiti-01.jpg/image560x340cropped.jpg",
+            "length": "43856",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/19-06-2025-UNHCR-Haiti-01.jpg/image560x340cropped.jpg"
+        },
+        {
+          "id": "https://news.un.org/en/story/2025/06/1164806",
+          "author": null,
+          "description": "Tobacco use still claims over seven million lives a year, the World Health Organization warned on Monday, calling for greater efforts to limit its use amid rising interference from the global tobacco industry.",
+          "link": "https://news.un.org/feed/view/en/story/2025/06/1164806",
+          "publishedOn": "2025-06-23T12:00:00.000Z",
+          "wordCount": null,
+          "title": "Tobacco control efforts protect three-quarters of the world’s population, WHO report finds",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/17-06-2025-japan-smoking.jpg/image560x340cropped.jpg",
+            "length": "35402",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/17-06-2025-japan-smoking.jpg/image560x340cropped.jpg"
+        },
+        {
+          "id": "https://news.un.org/en/story/2025/06/1164771",
+          "author": null,
+          "description": "Afghanistan is already grappling with immense humanitarian and economic challenges and growing instability in the wider region following airstrikes by Israel and the United States in Iran is compounding the situation, the UN’s top envoy in the country told the Security Council on Monday.",
+          "link": "https://news.un.org/feed/view/en/story/2025/06/1164771",
+          "publishedOn": "2025-06-23T12:00:00.000Z",
+          "wordCount": null,
+          "title": "Senior envoy warns Iran-Israel conflict is deepening crisis in Afghanistan",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/20-05-2025-UNFPA-Afghanistan-01.jpg/image560x340cropped.jpg",
+            "length": "44688",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/20-05-2025-UNFPA-Afghanistan-01.jpg/image560x340cropped.jpg"
+        },
+        {
+          "id": "https://news.un.org/en/story/2025/06/1164786",
+          "author": null,
+          "description": "The United Nations has condemned a suicide bombing on Sunday at a Damascus church that killed at least 25 worshippers, including women and children during mass, as a “heinous crime”.",
+          "link": "https://news.un.org/feed/view/en/story/2025/06/1164786",
+          "publishedOn": "2025-06-23T12:00:00.000Z",
+          "wordCount": null,
+          "title": "UN condemns ‘heinous’ terrorist attack at Damascus church that killed dozens",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/23-06-2025-UNICEF-Syria.jpg/image560x340cropped.jpg",
+            "length": "37204",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/23-06-2025-UNICEF-Syria.jpg/image560x340cropped.jpg"
+        },
+        {
+          "id": "https://news.un.org/en/story/2025/06/1164781",
+          "author": null,
+          "description": "In April 2024, China broke the average temperature record that month. The following month, it was the same - and then again in August. And September. And November.",
+          "link": "https://news.un.org/feed/view/en/story/2025/06/1164781",
+          "publishedOn": "2025-06-23T12:00:00.000Z",
+          "wordCount": null,
+          "title": "Asia is warming twice as fast as the rest of the world",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/20-06-2025-ADB-Viet-Nam.jpg/image560x340cropped.jpg",
+            "length": "45793",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/20-06-2025-ADB-Viet-Nam.jpg/image560x340cropped.jpg"
+        },
         {
           "id": "https://news.un.org/en/story/2025/06/1164776",
           "author": null,
@@ -11940,16 +12225,6 @@
           "wordCount": 1157,
           "title": "WWDC25 前瞻：值得关注的看点，我们想聊的期待",
           "imageUrl": "https://cdnfile.sspai.com/2025/6/4/article/6aabb977-dae5-5a4c-97c8-fd49c4ea0f5b.jpeg"
-        },
-        {
-          "id": "https://sspai.com/post/99303",
-          "author": "大盗",
-          "description": "智能灯光系统主要包含灯光的开关、调光、场景、感应等各种控制，是智能家居最基础的系统之一，也是很多新用户接触智能家居的第一步。查看全文",
-          "link": "https://sspai.com/post/99303",
-          "publishedOn": "2025-06-04T06:55:19.000Z",
-          "wordCount": 907,
-          "title": "基于 KNX 的智能照明系统，设计师是这样考虑的",
-          "imageUrl": "https://cdnfile.sspai.com/2025/05/17/529742c85c90e7180ac222d07fc29d34.png"
         }
       ]
     },
@@ -12186,16 +12461,6 @@
           "publishedOn": "2025-06-05T05:02:03.000Z",
           "wordCount": 402,
           "title": "李公明︱一周书记：从图像中发现……天文学家的椅子及社会文化史",
-          "imageUrl": null
-        },
-        {
-          "id": "https://www.thepaper.cn/newsDetail_forward_30911977",
-          "author": null,
-          "description": "《清承明制：明清国家治理与社会变迁》，陈宝良著，广西师范大学出版社｜大学问，2025年2月出版，467页，98.00元\n\n\n清承明制，向来是明清史研究的经典命题之一。王朝鼎革之际的制度延续，常被简化为官僚体系或法典的照搬（谈迁《北游录》），而社会肌理中更深层的承袭与变动，则往往湮没于宏大叙事之下。陈宝良教授的新著《清承明制：明清国家治理与社会变迁》（广西师范大学出版社，2025年，以下简称《清承明制》），恰似一柄精巧的柳叶刀，以三十多年的持续研究功力，三编十二章共四十万字的规模，剖开了这一经典命题的厚重表皮，将显微镜对准明清社会不同的“毛细管”，幕府、镖局、会馆、帮派、塾师、清客、帮闲、僧人、尼姑以及芸芸众生，这些看似边缘的群体及其衍生出来的制度，成为理解清承明制中的世俗密码。陈教授素以阅读广博饮誉学界，其治史风格兼具考据派的严谨与叙事派的灵动，擅长从文集、笔记、日记乃至文学作品中打捞信息碎片，以其深厚的明史功底驾驭全局，再以社会史与文化史的针线，将其缝缀成一幅鲜活的全景图（见陈宝良《明代社会生活史》）。《清承明制》亦不例外，既有对“幕府人事”“镖局起源”“会馆起源”“天地会渊源”的开创性和颠覆性考证，又有对“阴司诉讼”“清客帮闲”“禅武侠僧”“花禅娼尼”的文学化解读，更以世俗化为轴，串联起国家治理的理性化、社会组织的复杂化与个体生活的欲望化。若说传统制度史构建了骨架的话，《清承明制》则为明清社会补足了血肉与魂魄。另外，由于《清承明制》每一章的标题不仅文雅得体，美学色彩也非常明显，使我不自觉地沉浸在这种文学化的浪漫叙事之中，随之而走进这本书的历史现场，去探寻清承明制的历史真谛。\n世俗化的双面绣：国家治理的理性与荒诞\n首先，让我们走进上编国家治理，这四章截取了明清帝国治理的两大层面：一是国家治理中的信息系统，二是国家治理中的法治系统。按照传统制度史的写法，这两大系统的核心应集…",
-          "link": "https://www.thepaper.cn/newsDetail_forward_30911977",
-          "publishedOn": "2025-06-04T06:02:03.000Z",
-          "wordCount": 255,
-          "title": "吴才茂｜《清承明制》的“世俗密码”：一部非典型制度史的雄心与柔情",
           "imageUrl": null
         }
       ]
@@ -17895,36 +18160,6 @@
           "wordCount": 74,
           "title": "月薪3000，奶茶费500：办公室轮流请奶茶怎么破？",
           "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/290121",
-          "author": null,
-          "description": "2025-06-03 19:00:00\nESG（环境、社会和治理）概念提出二十余年，商业环境发生巨大变化，企业需在产品质量、气候变化、透明治理、社会公正等领域交出答卷。然而，当前ESG发展存在披露流于表面、实践深度不足、小圈子自说自话等问题。\n\n南方周末发起中国ESG生态圈调研，希望对行业进行摸底，洞察问题、探析前路，勾勒中国ESG发展现状与未来。",
-          "link": "http://www.infzm.com/contents/290121",
-          "publishedOn": "2025-06-04T06:55:06.000Z",
-          "wordCount": 96,
-          "title": "共建ESG生态",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/294992",
-          "author": null,
-          "description": "2025-06-04 14:00:42\n飞机从早春的上海起飞，降落在永远是夏季的巴厘岛，好像一进玄关就被殷勤地披上了不透风的雨衣，一下子有了不由分说来自热带的燥热。我需要风。这种烦躁旋即被入关处一特别的接机牌上三个醒目的中文字“小马哥”所带来的清风吹走了。\n接机人没有写客人的名字，而是写着自己可爱的诨号。“小马哥”是印尼人，确切来说是印尼爪哇人，但能说一口流利的马来西亚口音的华语。他皮肤黝黑，嘴角永远上扬，不是在酝酿一场大笑，就是还沉浸在上一波大笑后的余波里。他白天在海上冲浪了大半天，长日将尽时到机场来上一个班，带着些意思意思的随意。\n从努拉莱伊国际机场出来的那条高速公路在落日时分非常美，云很有意思，使劲往高里长，一撮撮，好像蛋筒冰淇淋般气象万千。我被这迷人的天象和可爱的司机所鼓舞，不再烦躁，我当时并不知晓，小马哥将带来什么“画风”，我还沉浸在刚抵异乡的兴奋情绪中。\n灵修之地遇话痨\n小马哥驾车带我前往乌布的酒店。在这个被太平洋和印度洋合抱起来的岛屿，原本只有火山、热带雨林、梯田，这些年来则慢慢被数字游牧民、疗愈师、灵修者填满，而乌布正是这些人的大本营。\n上世纪70年代随着嬉皮文化在西方盛行，巴厘岛吸引了大量追求自然、自由和精神体验的背包客，乌布的自然环境与传统巴厘印度教文化，为冥想、瑜伽和另类疗法提供了理想背景。随着伊丽莎白·吉尔伯特的畅销书《Eat Pray Love》在2006年出版及其电影在2010年上映，朱丽叶·罗伯茨扮演的伊丽莎白在乌布寻找灵性和平静的故事，更使乌布成为全球灵修爱好者的朝圣地。我并非灵修爱好者，但也向往平静安宁和内省生活。\n\n\n稻田边，鸡蛋花树下休憩的农人  摄影 毛豆子\n我请教了小马哥的大名，他叫Maruto，来自爪哇，已经在巴厘岛生活多年。有一天，中国游客取他名字第一个音，叫他“小马哥”，于是他变成了小马哥。他知道周润发，不过最爱甄子丹。\n从机…",
-          "link": "http://www.infzm.com/contents/294992",
-          "publishedOn": "2025-06-04T06:25:08.000Z",
-          "wordCount": 110,
-          "title": "巴厘岛，“女神”的客厅",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/294996",
-          "author": null,
-          "description": "2025-06-04 12:00:00\n近日，胖东来集团诉某消费者的名誉权案有了结果。5月28日，河南省许昌市魏都区人民法院当庭宣判：判决段某在其个人社媒账号发布宣读书面道歉信的视频，道歉信的具体内容需经法院审核，发布后30日内不得删除；段某赔偿胖东来各项经济损失共计40万元。一审宣判后，原被告双方都表示暂不考虑上诉。\n根据法院查明信息，2025年1月30日（农历大年初二），段某向胖东来反馈其从胖东来生活广场店购买的女士红色内裤出现掉色、穿后过敏等现象。2月2-3日胖东来工作人员与段某沟通、协商、致歉，并陪同其就医检查，并支付了一千多元医疗费。胖东来还下架了相关商品。\n2月4日，段某在社交账号发布了视频，质疑胖东来销售的商品存在质量问题。随后，胖东来下架更多相关深色衣物，并将部分商品送检，花费检测费用14万多元。检测结果显示相关商品均符合标准。胖东来随后起诉段某侵犯名誉权，许昌市魏都区法院对此案作出了上述判决。\n这一判决被媒体报道后，引起了舆论极大关注。一来是40万元在同类案件中堪称“天价赔偿”，二来，一些网友担心，消费者正常的评价监督权利可能受到限制。\n根据消费者权益保护法，消费者享有对商品和服务进行监督的权利。这一权利显然包括在社交媒体上发文质疑商品和服务的质量。有网友认为，段某2月4日在社交媒体上发布质疑视频，胖东来2月6日将相关商品送检，法院以此后的检测结果显示商品合格为由，认定段某早前发布的视频没有事实依据，可能会加重消费者监督的注意义务，也就是要有事实依据只能先送检，而送检在很多情况下对消费者来说是很难完成的任务。\n法院判决段某侵犯胖东来名誉权的主要理由，在于段某此前发布的视频显示，她之前多次出现过敏情况，无法核实其穿着案涉衣物后出现过敏情况是因为衣物质量存在问题。当然，过敏问题成因复杂，甚至在医学上都没有明确界定。\n另一方面，衣物是否“掉色”严重以至于不符合相关标准，则是有相对客观的标准的。色牢度是染色织物的一项重要指标，色牢度不合格，则织物在洗涤、汗渍等情况下会出现严重的掉色现象。在段某发布的视频中，她买的内衣在洗涤时出现明显的掉色，把水都染红了。实情如此的话，这一衣物至少在色牢度这个指标上就不合格。\n不过，胖东来的送检结果显示，送检的衣物全部达标。那就存在一种可能，段某的视频有可能存在造假夸大，是“构陷式维权”。\n段某的一个抖音账号拥有一百多万粉丝，虽然她发布相关视频的账号是只有几万个粉丝的“小号”，但其视频的播放量、点赞量、评论量与分享量也分别达到了千万、十万、万与十万级，声量极大，无异于在大广场上拿着高音喇叭指控。因此其不实指控就不能仅仅局限于“乌龙维权”的范畴，需要承担法律责任。其维权的真实动机也不免让外界怀疑：究竟是为了商品质量“较真”，还是为了蹭热点吸引眼球，赚取一波流量。\n纵观整个事件，段某的诉求可谓“功夫在诗外”。因为段某发布视频的传播量巨大，段某的行为除了民事侵权之外，甚至已触犯刑法中的“诽谤罪”。\n企业在遭遇类似“造假式维权”“构陷式维权”碰瓷时往往“有苦说不出”，在多数情况下宁愿选择“给钱平事”，这一点在本案中也有所体现：胖东来本已退货、道歉、赔偿乃至支付医药费，在实质上选择了“息事宁人”，但仍然未能阻止段某继续“发难”。不难想见的是，如果听任这种“构陷式维权”持续下去，将不只是直接损害民营企业的利益，还会营造“向下沉沦”的营商环境。\n2024年10月，最高检发布依法惩治利用网络暴力侵犯企业合法权益典型案例。经济犯罪检察厅副厅长张建忠介绍，目前存在不法分子以“舆论监督”为名威胁企业、敲诈敛财，利用企业对舆情传播、声誉受损的畏惧心态，编造虚假负面信息，讹取所谓“封口费”。这就是以“维权”之名、行敛财之实的“造假式维权”，严重者涉嫌敲诈勒索与诈骗犯罪，甚至还形成了团队化、产业化的犯罪团伙。\n因此，此次胖东来胜诉具有很大的积极意义，这标志着对类似“构陷式维权”“造假式维权”的严惩。“赔偿各项损失40万元”足以让构陷者找不到足够的套利空间，从而震慑他们远离这个一本万利乃至无本万利的“赛道”，让更多的心存不轨者知进退。本案也再次显示，法律应当长出牙齿，维护公平交易、诚实信用的市场原则，方能保护所有市场主体的利益。",
-          "link": "http://www.infzm.com/contents/294996",
-          "publishedOn": "2025-06-04T04:25:06.000Z",
-          "wordCount": 95,
-          "title": "胖东来名誉权案胜诉：不能让“构陷式维权”无本万利",
-          "imageUrl": null
         }
       ]
     },
@@ -17933,6 +18168,16 @@
       "feedUrl": "http://flowingdata.com/feed",
       "siteUrl": "https://flowingdata.com",
       "articles": [
+        {
+          "id": "https://flowingdata.com/?p=78914",
+          "author": "Nathan Yau",
+          "description": "Jonathan Tirone, reporting for Bloomberg:\nNotably absent from the latest International Atomic Energy…\nTags: Bloomberg, Iran, nuclear, satellite imagery",
+          "link": "https://flowingdata.com/2025/06/23/satellite-imagery-shows-avoided-nuclear-reactors-in-iran/",
+          "publishedOn": "2025-06-23T17:48:37.000Z",
+          "wordCount": 1481,
+          "title": "Satellite imagery shows avoided nuclear reactors in Iran",
+          "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/06/avoided-sites-bloomberg-.png"
+        },
         {
           "id": "https://flowingdata.com/?p=78878",
           "author": "Nathan Yau",
@@ -18152,16 +18397,6 @@
           "wordCount": 1564,
           "title": "✚ Caring Data",
           "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/05/caring-featured.png"
-        },
-        {
-          "id": "https://flowingdata.com/?p=78740",
-          "author": "Nathan Yau",
-          "description": "There is always ample discussion about progressive tax rates in the United States.…\nTags: Datawrapper, Europe, taxes",
-          "link": "https://flowingdata.com/2025/06/04/progressive-tax-rates-in-western-europe/",
-          "publishedOn": "2025-06-04T07:31:07.000Z",
-          "wordCount": 1489,
-          "title": "Progressive tax rates in Western Europe",
-          "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/05/progressive-taxes.png"
         }
       ]
     },
