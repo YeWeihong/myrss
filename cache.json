@@ -2689,36 +2689,6 @@
             "length": "0"
           },
           "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/e79d522d-110b-4a85-ca09-a12420c93700/cover"
-        },
-        {
-          "id": "9c2997",
-          "author": "互联网大数据团队",
-          "description": "📌 一句话摘要\n            \n深度解析 vivo Pulsar Producer 数据发送原理，并分享性能调优实践。\n📝 详细摘要\n            \n本文是 vivo Pulsar 万亿级消息处理实践系列的首篇，专注于 Pulsar 客户端 Producer 的数据发送机制和性能调优。文章详细剖析了 Producer 发送消息的 12 个关键步骤，并对创建 Producer、确定目标分区、消息堆积控制、Batch 打包、消息压缩、Pending 队列和消息传输等核心环节进行了深入原理分析，结合了代码片段和 Pulsar 的设计理念。为了应对大规模消息处理中的性能和稳定性挑战，文章分享了 vivo 在大规模实践中总结出的 Producer 参数调优经验，强调了批量发送、数据压缩和 RoundRobin 路由等策略对提升单机处理性能和保障系统稳定的重要作用。全文技术细节丰富，理论联系实践，对使用或优化 Pulsar Producer 具有较高的参考价值。\n💡 主要观点\n            \nPulsar Producer 数据发送流程包含创建、构造、路由、堆积控制等 12 个步骤\n                         清晰的流程图解和步骤说明，帮助理解消息从创建到发送的核心过程，为深入分析打下基础。\n                    \n\n                        核心机制如 Batch、压缩、Pending 队列是保障高性能和可靠性的关键\n                         详细解释了 Batch 打包、压缩、Pending 队列的设计原理和作用，揭示了 Producer 内部如何处理消息以优化吞吐和可靠性。\n                    \n\n                        参数调优应聚焦批量发送、数据压缩和 RoundRobin 策略，以提升单机处理性能\n                         结合实践经验，指出影响 Producer 性能的最关键参数和策略，为用户提供明确的调优方向和性能提升手段。\n                    \n\n                        消息堆积控制（maxPendingMessages/memoryLimit）是保障客户端稳定的重要手段\n                         强调了流量控制和内存限制对防止 Producer 过载、保障系统稳定性的作用，并提示了 memoryLimit 的注意事项，这对生产环境应用至关重要。\n                    \n💬 文章金句\n            \nPulsar 是新一代的云原生消息中间件，由 Apache 软件基金会孵化和开源。\n在 Pulsar 中，PartitionedProducerImpl 用于将多个 ProducerImpl 对象包装成为一个逻辑生产者，以便向 Partitioned Topic 发送消息时能够批量操作。\nProducer 不可能无限接收新的消息，如果某些分区数据发送较慢，消息就会堆积在 Prouducer 缓存中...\n另外在数据传输过程中，无论是使用 Pulsar Producer 的同步发送还是异步发送，在消息传输环节本质上都是使用 netty 将消息异步的从客户端发送到服务端...\nPulsar Producer 使用\"ACK 跟踪机制\"来实现对 Broker 返回的 ACK 确认消息的处理...\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：vivo互联网技术\n作者：互联网大数据团队\n分类：软件编程\n语言：中文\n阅读时间：48 分钟\n字数：11854\n标签：\n                    \n                        消息中间件, Apache Pulsar, 分布式系统, Netty, Producer",
-          "link": "https://www.bestblogs.dev/zh/article/9c2997",
-          "publishedOn": "2025-06-04T12:01:00.000Z",
-          "wordCount": 325,
-          "title": "vivo Pulsar 万亿级消息处理实践（1）-数据发送原理解析和性能调优",
-          "enclosure": {
-            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/a7e92be0-8358-455f-ea2d-00402fd5da00/cover",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/a7e92be0-8358-455f-ea2d-00402fd5da00/cover"
-        },
-        {
-          "id": "936a2b",
-          "author": "闻乐",
-          "description": "📌 一句话摘要\n            \nOpen CaptchaWorld 平台揭示 SOTA 多模态 Agent 在真实网页验证码任务上成功率低，远低于人类水平。\n📝 详细摘要\n            \n文章介绍了 MetaAgentX 团队构建的 Open CaptchaWorld 平台，这是首个专注于测试多模态 Agent 解决网页人机验证（CAPTCHA）能力的开放研究平台。研究发现，尽管当前 SOTA 多模态模型在静态感知任务表现出色，但在真实网页交互场景下，如解决 20 类现代验证码，其平均成功率仅为 5%-40%（GPT-4o 也被难住），远低于人类的 93.3%。文章指出，现有主流 Agent 评估基准普遍回避含验证码的网页，忽略了实际任务中的关键障碍。Open CaptchaWorld 通过真实交互、多样化验证码样本和引入“CAPTCHA Reasoning Depth”新指标，系统评估 Agent 的视觉理解、认知规划和动作控制能力。研究还分析了 Agent 失败原因（如过度分解任务）并提供了成本-性能权衡分析，强调未来 Agent 需提升长序列任务动态交互能力，并呼吁研究界正视 CAPTCHA 挑战。\n💡 主要观点\n            \n当前 SOTA 多模态 Agent 在真实网页验证码任务上面临严重挑战\n                         通过 Open CaptchaWorld 平台的实测显示，最新模型的成功率显著低于人类，表明 Agent 在复杂交互和多步规划方面存在明显短板。\n                    \n\n                        现有主流 Agent 评估基准普遍忽略了验证码这一现实障碍\n                         许多 Benchmarks 刻意跳过含验证码的网页，未能真实反映 Agent 在实际网页环境中部署时遇到的普遍问题。\n                    \n\n                        Open CaptchaWorld 提供系统性评估工具和新指标\n                         该平台包含多样化、交互真实的验证码，并引入推理深度指标，为全面评估 Agent 解决复杂交互任务的能力提供有效手段。\n                    \n💬 文章金句\n            \n当前最强多模态 Agent 连验证码都解不了？\n实测结果显示：人类平均成功率达 93.3% ，SOTA 多模态模型平均仅 5%-40%不等。\n验证码从不是'特例'，而是任何实际任务中不可回避的存在...\n过去（的验证码研究）更聚焦静态识别，对交互、多步规划与状态跟踪能力评估严重不足。\n当前 Agent 的真实'短板'------长序列任务动态交互和规划交互能力；\n📊 文章信息\n            \nAI 评分：90\n精选文章：是\n来源：量子位\n作者：闻乐\n分类：人工智能\n语言：中文\n阅读时间：12 分钟\n字数：2952\n标签：\n                    \n                        AI Agent, CAPTCHA, 多模态模型, Benchmark, AI评估",
-          "link": "https://www.bestblogs.dev/zh/article/936a2b",
-          "publishedOn": "2025-06-04T09:04:02.000Z",
-          "wordCount": 335,
-          "title": "GPT-4o 连验证码都解不了？？SOTA 模型成功率仅 40%",
-          "enclosure": {
-            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/6251d9ff-f17c-49e0-6db9-111b30905900/cover",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/6251d9ff-f17c-49e0-6db9-111b30905900/cover"
         }
       ]
     },
@@ -3950,6 +3920,16 @@
       "siteUrl": "http://mainssl.geekpark.net/rss.rss",
       "articles": [
         {
+          "id": "http://www.geekpark.net/news/350743",
+          "author": null,
+          "description": "雷军：没有计划造油车\n6 月 23 日消息，今日有网友在小米创办人、董事长兼 CEO 雷军的评论区询问：「雷总，咱啥时候组建车队？」，雷军回复称：「这是油车的比赛。我们没有计划造油车。」\n在该条博文中，雷军祝贺 ROWE 车队 98 号 BMW M4 GT3 EVO，从第 17 位发车勇夺今年纽博格林 24 小时耐力赛总冠军，这也是 BMW M 品牌第 21 次夺冠。\n\n \n小米 YU7 将于 6 月 26 日正式发布上市，一共有 9 种颜色，有跑车色系、时尚色系、豪华色系和经典色系。小米汽车今天早些时候还宣布，小米 YU7 将全系标配激光雷达、天际屏全景显示、后排 135° 电动座椅、800V 碳化硅高压平台、700TOPS 辅助驾驶算力、连续可变阻尼减振器等。（来源：CnBeta）\n微信悄悄修改语音发送界面，网友喊「丑」登顶微博热搜\n6 月 23 日消息，今日晚间，「微信语音 丑」话题登顶微博热搜，部分网友吐槽微信最新修改的语音发送界面。\n最新的微信语音发送界面将左右两个圆形按钮改成了长条形，并将「转文字 发送」文案修改为「滑到这里 转文字」，文字「松开 发送」也放置到了按钮中。\n\n \n▲ 新版微信语音发送界面\n从界面对比来看，新版微信语音发送界面增加了对滑动操作的文字引导，并提高了两个按钮的操作易用性，预计是为了中老年用户考量。（来源：IT 之家）\n雷军：周四的小米人车家全生态发布会将推出「面向下一个时代的个人智能设备」\n6 月 23 日消息，小米创办人、董事长兼 CEO 雷军今日宣布，6 月 26 日的小米人车家全生态发布会上，除了小米 YU7、小折叠手机 Xiaomi Flip2、搭载玄戒 O1 旗舰芯片的小米平板 7S Pro，还将有一款「面向下一个时代的个人智能设备」。他表示，这次新品比较多，时间比较长，请大家提前做好准备。\n\n \n据 IT 之家此前报道，今日…",
+          "link": "http://www.geekpark.net/news/350743",
+          "publishedOn": "2025-06-24T01:00:15.000Z",
+          "wordCount": 748,
+          "title": "雷军：将发布面向下一个时代的智能设备；特斯拉无人出租车安全问题引发关注；微信新版语音界面「丑」上热搜 | 极客早知道",
+          "imageUrl": null
+        },
+        {
           "id": "http://www.geekpark.net/news/350735",
           "author": null,
           "description": "马斯克念叨了 10 年的自动驾驶，特斯拉的 Robotaxi 终于上路了。\n当地时间 6 月 22 日，特斯拉的 Robotaxi 在美国得州首府奥斯汀市正式开启服务。首批 Robotaxi 的投放量大约在 10-20 辆，初期将优先邀请一批投资人和社媒 KOL 参与体验。\n由于去年发布的双门「真·无人车」Cybercab 尚未正式量产，首批 Robotaxi 先由现役版量产 Model Y 提供服务。这意味着目前的 Robotaxi 仍然配备了方向盘和加速、制动踏板，并且每辆车还在副驾驶配备了一位安全员，运营范围也有一些地理限制。\n马斯克在 X 平台表示，首批乘客每次行程的固定费用为 4.20 美元，但这更像是个「尝鲜价」，长期费用未知。目前在奥斯汀，谷歌旗下的自动驾驶公司 Waymo 和 Uber 合作运营的 Robotaxi 也已经投入市场。根据 TechCrunch 此前报道，在 4.3-9.3 公里的区间里，Waymo 每公里的费用为 3.50 美元。\n\n科技博主分享Robotaxi出行体验：16公里，22分钟 | 图片来源：X\n和目前市面上主流的 Robotaxi 相比，特斯拉的解题思路有两个核心的区别：\n第一，相比目前 Waymo、萝卜快跑等主流 Robotaxi 方案，特斯拉首次采用「量产车型」+FSD 软件直接进行无人车运营，无须加装复杂的感知硬件以及重新开发新的软件。这让硬件和研发成本都有望显著降低。\n第二，特斯拉试图通过首批 Robotaxi 的运营来优先吸引更多「车主」（而不是「用户」）。如果这个模式可以跑通，那么特斯拉无须先自己掏钱买车再投放给市场，而是有望直接从传统国营出租车公司转型成滴滴和 Uber 这样的出行平台。\n所以，尽管在形态上还有些「遗憾」，但这并不影响特斯拉 Robotaxi 依然是整个自动驾驶和无人车行业里最受关注的事件。\n目前，…",
@@ -4398,23 +4378,13 @@
           "wordCount": 847,
           "title": "ChatGPT 推「AI 转录」整理功能；Manus 推出文生视频功能；小鹏、华为合作今日揭晓",
           "imageUrl": null
-        },
-        {
-          "id": "http://www.geekpark.net/news/350073",
-          "author": null,
-          "description": "过去两年，以 AI pin 为代表的第一代 AI 硬件产品陆续诞生时，喊出的口号是「杀死智能手机」、「比安卓好用很多倍」。赚足了全世界科创圈的目光。\n而当下，似乎不再有「AI 硬件」创业者，将「取代手机」视作目标了。\n即便是手握最先进模型的 OpenAI，在斥资 65 亿美元收购前苹果首席设计师创办公司，高调宣布打造「AI 驱动的设备」时，也明确表示，新设备并非 iPhone 的替代品，而是「尝试以新的方式与 AI 互动」。行业普遍猜测，这更像是一款 AI 陪伴硬件。\n\nAI Pin 试图将人工智能别在身上，产品上市后口碑崩塌，退货率极高，公司最终被惠普收购｜图片来源：Humane\n同样，Google CEO 桑达尔·皮查伊最近提出的「通用机器人将是电脑、手机后的下一代革命性平台」的预言，也没有激起多少波澜。\n转眼间，第一代 AI 硬件在产品体验和营收上，以「翻车」的阶段性结果收场。打造「下一代革命性的平台」的梦想依然诱人，但已经不再是当下最令创业者和投资人们心动的商业叙事。\n与之形成鲜明对比的是，另一批专注于细分场景、垂直需求的「AI 硬件」正在兑现 AI 的潜力。它们不追求大而全的颠覆，而是用 AI 解决细分场景的具体问题，并取得了令人瞩目的成绩，比如说：\n提供录音和 AI 转写、总结的 AI 硬件 plaude，据传去年营收 7000 万美元左右；\n能够语音聊天的「小智 AI」项目，在 3 个月的时间里，基本靠用户 DIY，接入设备增长了 20 万台，几乎以每月翻倍的速度在增加；\n专注会议场景的讯飞 AI 耳机，营收每年翻倍，用户突破了 100 万；\n能拍照的 meta 的 AI 眼镜出货量已经超过 200 万台；\n支持商家在各个细分场景落地 AI 硬件的服务商涂鸦智能，其 2025 年第一季度财报显示，总营收约为 7470 万美元，实现创纪录的 GAAP 净利润；\n…",
-          "link": "http://www.geekpark.net/news/350073",
-          "publishedOn": "2025-06-04T11:34:35.000Z",
-          "wordCount": 650,
-          "title": "AI Pin 们折戟后，第二代 AI 硬件闷声发了大财",
-          "imageUrl": null
         }
       ]
     },
     {
       "title": "北青深一度 via zmonster on Inoreader",
       "feedUrl": "https://feedpress.me/bqs",
-      "siteUrl": "https://www.inoreader.com/stream/user/1005939773/tag/%E5%8C%97%E9%9D%92%E6%B7%B1%E4%B8%80%E5%BA%A6?7f99=1750433689/view/html",
+      "siteUrl": "https://www.inoreader.com/stream/user/1005939773/tag/%E5%8C%97%E9%9D%92%E6%B7%B1%E4%B8%80%E5%BA%A6?f878=1750726776/view/html",
       "articles": [
         {
           "id": "http://www.inoreader.com/article/3a9c6e7722a0196c",
@@ -8191,6 +8161,70 @@
       "siteUrl": "https://news.un.org/en/",
       "articles": [
         {
+          "id": "https://news.un.org/en/story/2025/06/1164836",
+          "author": null,
+          "description": "In a world grappling with growing crises, deepening inequalities, and eroding trust in global institutions, the United Nations has launched an ambitious effort to strengthen how it serves people everywhere. The UN80 Initiative, unveiled in March by Secretary-General António Guterres, is a system-wide push to streamline operations, sharpen impact, and reaffirm the UN’s relevance for a rapidly changing world.",
+          "link": "https://news.un.org/feed/view/en/story/2025/06/1164836",
+          "publishedOn": "2025-06-23T12:00:00.000Z",
+          "wordCount": null,
+          "title": "UN80 Initiative: What it is – and why it matters to the world",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/assets/2019/06/06-04-19-un-charter.jpg/image560x340cropped.jpg",
+            "length": "30075",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/assets/2019/06/06-04-19-un-charter.jpg/image560x340cropped.jpg"
+        },
+        {
+          "id": "https://news.un.org/en/story/2025/06/1164831",
+          "author": null,
+          "description": "In front of a multimedia exhibit at United Nations Headquarters entitled “Reviving the Spirit of San Francisco,” Secretary-General António Guterres welcomed home the UN Charter which was signed in 1945 in the Californian city.",
+          "link": "https://news.un.org/feed/view/en/story/2025/06/1164831",
+          "publishedOn": "2025-06-23T12:00:00.000Z",
+          "wordCount": null,
+          "title": "80 years later, the UN Charter is a ‘living miracle,’ Secretary-General says",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/assets/2015/06/22124/image560x340cropped.jpg",
+            "length": "51093",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/assets/2015/06/22124/image560x340cropped.jpg"
+        },
+        {
+          "id": "https://news.un.org/en/story/2025/06/1164826",
+          "author": null,
+          "description": "UN Secretary-General António Guterres is “deeply alarmed” by the further escalation of the conflict in the Middle East, his Spokesperson said in a statement on Monday.",
+          "link": "https://news.un.org/feed/view/en/story/2025/06/1164826",
+          "publishedOn": "2025-06-23T12:00:00.000Z",
+          "wordCount": null,
+          "title": "Guterres condemns Iran attack on US airbase in Qatar",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/19-11-2021_Qatar_Doha_Unsplash.jpg/image560x340cropped.jpg",
+            "length": "45943",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/19-11-2021_Qatar_Doha_Unsplash.jpg/image560x340cropped.jpg"
+        },
+        {
+          "id": "https://news.un.org/en/story/2025/06/1164821",
+          "author": null,
+          "description": "Since fighting erupted in Sudan in April 2023, more than two million children have been displaced by the brutal war between rival militaries there.",
+          "link": "https://news.un.org/feed/view/en/story/2025/06/1164821",
+          "publishedOn": "2025-06-23T12:00:00.000Z",
+          "wordCount": null,
+          "title": "Bearing the brunt of war: UNICEF chief meets some of Sudan’s 700,000 child refugees crossing into Chad",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/28-04-2023-UNICEF-Chad-Sudan.jpg/image560x340cropped.jpg",
+            "length": "17648",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/28-04-2023-UNICEF-Chad-Sudan.jpg/image560x340cropped.jpg"
+        },
+        {
           "id": "https://news.un.org/en/story/2025/06/1164816",
           "author": null,
           "description": "On day six of the 59th Session of the Human Rights Council (HRC) in Geneva, the Council heard urgent updates on rising internal displacement driven by organised crime, escalating genocide risks and the trafficking of women in the domestic work sector.",
@@ -9976,134 +10010,6 @@
             "type": "image/jpeg"
           },
           "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/04-06-2025-gaza4.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164026",
-          "author": null,
-          "description": "As coral reefs bleach, fish stocks collapse, and sea temperatures break records, world leaders are heading to the French Riviera — not for leisure, but for one of the most urgent diplomatic gatherings of the year.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164026",
-          "publishedOn": "2025-06-04T12:00:00.000Z",
-          "wordCount": null,
-          "title": "The world’s oceans are dying. Can a UN summit in Nice turn the tide?",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/29-05-2025-World-Ocean-Day-Competition-10.jpg/image560x340cropped.jpg",
-            "length": "38493",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/29-05-2025-World-Ocean-Day-Competition-10.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164061",
-          "author": null,
-          "description": "Haiti has been gripped by spiralling gang violence ever since the 2021 assassination of President Jovenel Moïse. The subsequent unrest has displaced one million people, more than half of them children, according to the International Organization for Migration (IOM).",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164061",
-          "publishedOn": "2025-06-04T12:00:00.000Z",
-          "wordCount": null,
-          "title": "Top UN advocate sounds alarm over sexual violence crisis in gang-ravaged Haiti",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/07-12-2024-HAITI-IDP%20CAMP%20PAP-UNICEF-UNI701778.jpg/image560x340cropped.jpg",
-            "length": "28609",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/07-12-2024-HAITI-IDP%20CAMP%20PAP-UNICEF-UNI701778.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164056",
-          "author": null,
-          "description": "A draft resolution calling for an immediate and permanent ceasefire in Gaza failed to pass in the UN Security Council on Wednesday after the United States cast its veto – blocking the initiative backed by all ten elected members of the Council.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164056",
-          "publishedOn": "2025-06-04T12:00:00.000Z",
-          "wordCount": null,
-          "title": "US vetoes Security Council resolution demanding permanent ceasefire in Gaza",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/04-06-2025-UN-Photo-SC-wideview.jpg/image560x340cropped.jpg",
-            "length": "51350",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/04-06-2025-UN-Photo-SC-wideview.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164036",
-          "author": null,
-          "description": "After weeks of negotiations, the Council’s ten elected members have initiated a new draft resolution on Gaza as the humanitarian crisis deepens by the day. It calls for an immediate, unconditional and permanent ceasefire, the unconditional release of hostages held by Hamas and others and the immediate lifting of all aid restrictions. We’re joining live coverage from our Meetings Coverage Section and UN News app users can follow here.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164036",
-          "publishedOn": "2025-06-04T12:00:00.000Z",
-          "wordCount": null,
-          "title": "SECURITY COUNCIL LIVE: Ambassadors to vote on new ceasefire resolution",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/03-06-2025_UNFPA_Gaza-02.jpg/image560x340cropped.jpg",
-            "length": "49987",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/03-06-2025_UNFPA_Gaza-02.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164046",
-          "author": null,
-          "description": "Every year, 400 million tonnes of plastic are produced worldwide, according to the UN. Half of this plastic is designed to be used only once, and only 10 per cent is recycled.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164046",
-          "publishedOn": "2025-06-04T12:00:00.000Z",
-          "wordCount": null,
-          "title": "World Environment Day: UN sounds alarm on plastic pollution crisis",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/06-06-23_Freshwater_lakes_rivers_Pawan_Prasad.jpg/image560x340cropped.jpg",
-            "length": "34239",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/06-06-23_Freshwater_lakes_rivers_Pawan_Prasad.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164016",
-          "author": null,
-          "description": "The General Assembly on Wednesday elected a new slate of members to the UN Economic and Social Council (ECOSOC), the principal body responsible for coordinating the Organization’s work on sustainable development and economic issues.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164016",
-          "publishedOn": "2025-06-04T12:00:00.000Z",
-          "wordCount": null,
-          "title": "United States, Ukraine among new members elected to UN Economic and Social Council",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/04-06-2025-UN-Photo-ECOSOC-chamber.jpg/image560x340cropped.jpg",
-            "length": "40512",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/04-06-2025-UN-Photo-ECOSOC-chamber.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164021",
-          "author": null,
-          "description": "Dozens of bodies have been discovered at official and unofficial detention sites in Libya. The grim findings confirm deep concerns about abuse and torture at the facilities, according to the UN human rights chief Volker Türk.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164021",
-          "publishedOn": "2025-06-04T12:00:00.000Z",
-          "wordCount": null,
-          "title": "‘Our worst held fears are being confirmed’: Dozens of bodies discovered in Libya mass graves",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/12-10-2021-UNICEF-UN052606-migrants.jpg/image560x340cropped.jpg",
-            "length": "73884",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/12-10-2021-UNICEF-UN052606-migrants.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164011",
-          "author": null,
-          "description": "Amid reports of yet another deadly attack on a school in Gaza on Wednesday, the UN’s top aid official Tom Fletcher welcomed growing international calls for lifesaving aid work by established agencies to resume in the war-torn enclave.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164011",
-          "publishedOn": "2025-06-04T12:00:00.000Z",
-          "wordCount": null,
-          "title": "Gaza: UN relief chief welcomes growing support for aid teams to resume vital work",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/04-06-2025-gaza2.jpg/image560x340cropped.jpg",
-            "length": "45290",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/04-06-2025-gaza2.jpg/image560x340cropped.jpg"
         }
       ]
     },
@@ -11401,36 +11307,6 @@
           "wordCount": 13337,
           "title": "【重温】歪脑｜35年了 不同世代的“六四”纪念 —— 以个体的坚韧 对抗政治高压与时光无情",
           "imageUrl": "https://chinadigitaltimes.net/chinese/files/2024/06/截屏2024-06-04-20.33.57.png"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=718634",
-          "author": "既要又要还要",
-          "description": "Science在其线上新闻专栏Science Insider报道了一项令人震惊的研究发现：近3年来，利用美国健康与营养调查等公开数据库发表的低质量论文数量激增，其中超过92%的论文由中国研究人员贡献。",
-          "link": "https://chinadigitaltimes.net/chinese/718634.html",
-          "publishedOn": "2025-06-04T11:46:27.000Z",
-          "wordCount": 13148,
-          "title": "自科在线｜Science：近3年，垃圾论文激增，92%来自中国",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/image-1749037399194.png"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=718618",
-          "author": "既要又要还要",
-          "description": "6月4日前后，英国驻华使馆、德国驻华使馆、加拿大驻华使馆等在微博发表了纪念六四的内容。6月4日，网友询问微博智搜、豆包AI、DeepSeek“1989年6月4日中国发生了什么事”，均无法得到任何结果。",
-          "link": "https://chinadigitaltimes.net/chinese/718618.html",
-          "publishedOn": "2025-06-04T09:39:21.000Z",
-          "wordCount": 13193,
-          "title": "【图说天朝】36年前的今天发生了什么？",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/image-1749028613231.png"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=718653",
-          "author": "既要又要还要",
-          "description": "长平：今天的中国，甚至整个世界，都开起了历史的倒车。所以在大多数时候，这个理由就是要习惯在绝望中抗争。我们抗争不是因为一定会取得胜利，而是因为即便不能获胜，抗争仍然是有意义的。这就是六四给我的人生信条......",
-          "link": "https://chinadigitaltimes.net/chinese/718653.html",
-          "publishedOn": "2025-06-04T09:21:47.000Z",
-          "wordCount": 13158,
-          "title": "【Cdt关注】德国之声｜专访长平：假如我可以回到“八九六四”",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/image-1749057097715.png"
         }
       ]
     },
@@ -11476,6 +11352,16 @@
       "feedUrl": "https://sspai.com/feed",
       "siteUrl": "https://sspai.com",
       "articles": [
+        {
+          "id": "https://sspai.com/post/100506",
+          "author": "少数派编辑部",
+          "description": "三星发布 Exynos 2500 处理器，网易有道开源「子曰 3」数学模型等。查看全文",
+          "link": "https://sspai.com/post/100506",
+          "publishedOn": "2025-06-24T00:27:03.000Z",
+          "wordCount": 859,
+          "title": "派早报：QQ 超级会员话费会员业务终止，联发科发布天玑 8450 芯片等",
+          "imageUrl": "https://cdnfile.sspai.com/2025/6/24/article/ca5012e9-ce84-44a7-dc48-e060b5b8f4e2.png"
+        },
         {
           "id": "https://sspai.com/post/100490",
           "author": "少数派编辑部",
@@ -12215,16 +12101,6 @@
           "wordCount": 787,
           "title": "派早报：OpenAI 升级 Codex、Adobe 发布 Android 版 PS 等",
           "imageUrl": "https://cdnfile.sspai.com/05/06/2025/article/628f4861-4108-c07d-676b-531c48c1d8ee.jpeg"
-        },
-        {
-          "id": "https://sspai.com/post/99884",
-          "author": "少数派编辑部",
-          "description": "3月26日，Apple发布了2025年WWDC（全球开发者大会）的正式举办时间——北京时间6月10日至14日，将在线向所有开发者免费开放，开发者与学生们也将有机会于大会开幕当天参与在ApplePark ...查看全文",
-          "link": "https://sspai.com/post/99884",
-          "publishedOn": "2025-06-04T09:25:27.000Z",
-          "wordCount": 1157,
-          "title": "WWDC25 前瞻：值得关注的看点，我们想聊的期待",
-          "imageUrl": "https://cdnfile.sspai.com/2025/6/4/article/6aabb977-dae5-5a4c-97c8-fd49c4ea0f5b.jpeg"
         }
       ]
     },
@@ -13229,46 +13105,6 @@
           "wordCount": 324,
           "title": "心理上连续经历某件事的「刺激」，一般会导致「更敏感」还是能够「脱敏」？",
           "imageUrl": null
-        },
-        {
-          "id": "https://daily.zhihu.com/story/9781603",
-          "author": null,
-          "description": "为什么食物被定义成加热后是「熟」的，未经过加热就是生的，「熟」的本质到底是什么？\n知乎用户，用最通俗的语言说最好玩的食品营养学\n查看知乎原文\n\n\n\n从古至今，加热→煮熟 这个设定关乎到人类的生存和进化。\n来源：Pexels\n首先是食品安全：天然食物，并没有我们认为的那样安全。\n一、熟食：人类对天然食物的「第一道防线」\n历史上，我们用无数生命换来了一个朴实又重要的原则\n——加热、煮熟食物，是避免致病菌(微生物)、寄生虫和的抗营养因子风险最简单的方法。\n为什么这么说呢？\n在今天，大部分人应该都没有经历过群体性的食物中毒事件，我们来回顾一下历史：\n19 世纪以前的牛奶是不加热的，因为人们觉得加热会破坏生牛奶的「珍贵营养」。\n这些不加热的生牛奶，就成了牛型结核病 (肺痨、痨病) 向人类、特别是婴幼儿传播的重要途径。\n据一份 19 世纪的统计数据，60-80%的牛奶样本检出了结核病毒。\n仅是英国一个国家，每年就有约 1.2 万人死于牛型结核病，相当一部分是 5 岁以下的婴幼儿——助长了结核病「人类顶级杀手」、「白色恐怖」的威名。\n直到 1882 年，巴斯德发明了巴氏灭菌法，\n30 分钟的 65-75℃加热就能干掉牛奶中大部分致病菌，将牛奶的致病率降低 90%以上。\n\n对于寄生虫的杀伤力，喜欢鱼生、福寿螺等食物的吃货们应该有所耳闻。\n2006 年，北京市发生了一件轰动全国的事件：\n有 87 名食客因为吃了一道「凉拌螺肉」的菜而入院\n罪魁祸首就是没有彻底煮熟的凉拌福寿螺肉\n——一只福寿螺里面可以携带 3000-6000 个寄生虫。\n其实，通过简单的加热 (＞95℃，10 分钟)就可以灭杀掉福寿螺里面的寄生虫。\n但福寿螺的肉质也会变得又硬又难嚼，没人爱吃了。\n同样常见的还有鱼生这道菜，特别是鱼肉的安全性没法保障时。\n\n总的来说，加热、煮熟食物是我们避免食物中毒最简单、有效的手段，也是我们对…",
-          "link": "https://daily.zhihu.com/story/9781603",
-          "publishedOn": "2025-06-04T12:37:59.369Z",
-          "wordCount": 393,
-          "title": "为什么食物设计成热的时候熟，而不是冷的时候熟？「熟」到底是什么？",
-          "imageUrl": null
-        },
-        {
-          "id": "https://daily.zhihu.com/story/9781589",
-          "author": null,
-          "description": "温哥华的小麦克，大洋彼岸的华文媒体人，喜欢吃蛙肉，进步主义者和传统文化复兴者\n查看知乎原文\n\n\n\n1995 年的一天，为了探寻《永乐大典》正本的下落，中科院研究人员采用微重力测量方法，对嘉靖皇帝陵寝永陵地宫进行勘测。结果发现永陵地宫虽然与已经发掘的定陵地宫结构一样，但面积却比定陵地宫要大，足以放下《永乐大典》正本。假设《永乐大典》正本就在永陵地宫，那么这就意味着完全可以弥补现存《永乐大典》副本几乎流失在海外的历史遗憾。\n\n之所以说《永乐大典》正本很可能就存在永陵地宫，主要原因在于嘉靖皇帝生前对《永乐大典》爱不释手。根据《明实录》的记载，为了能随时翻阅《永乐大典》，嘉靖专门下旨令太监在他的书桌和床头前放数册，看完后即时更新。1562 年紫禁城一度发生火灾，嘉靖不惜在一夜之间连下三道圣旨，要求无论如何也不能损坏《永乐大典》。当这次风波平息以后，嘉靖下旨让徐阶，高拱和张居正三人挂帅，组织书生重抄《永乐大典》，是为《永乐大典》副本。为了保证质量，嘉靖规定每人每天只能抄写三页，但必须一字不差，直到五年后的 1567 年 3 月才结束重抄工作。\n\n但就在 1566 年 12 月，嘉靖皇帝病逝，享年 60 岁。离奇的是，直到 1567 年 3 月，灵柩才安放进永陵地宫，与此同时随着《永乐大典》重抄工作结束，即位的隆庆皇帝也对参与抄写的书生进行奖赏，可就在这以后再也不见《永乐大典》正本的下落。如果参照之前明朝皇帝的葬礼，从去世到下葬十三陵，来回路程不会超过一个月时间，而三个月时间足够三个来回了。很明显嘉靖的棺木在等待《永乐大典》重抄工作结束，一旦大功告成，不排除《永乐大典》正本作为陪葬品，与嘉靖棺材一起送到永陵地宫。\n另外从永陵建设来看，其陵园也有足够面积放下《永乐大典》正本。首先在 1536 年为了兴建永陵，嘉靖皇帝调用的士兵人数超过 10 万人，在十个月内开销更达到了白银 300 万两，因此从占地面积来看，永陵为十三陵第二大陵寝，仅次于明成祖朱棣长陵。其次在营建地宫的时候，根据嘉靖旨意，工部是仿照长陵地宫九重法宫结构而建，且在建设的时候专门预留了空间，而这也为《永乐大典》正本可能安放在永陵地宫埋下伏笔。\n\n至于现在海内外保存的《永乐大典》副本，之后的命运也是令人唏嘘不已。从明朝隆庆年间开始，《永乐大典》副本一直存放在皇史宬，直到清朝雍正年间转移至翰林院，使用樟木和铜皮制成的金匮安置。但从清朝中后期开始，《永乐大典》副本被人为监守自盗，按照 10 两白银一册的价格卖给洋人。而在 1900 年八国联军入侵北京的时候，《永乐大典》副本经历了毁灭性打击，最后在民国时期只剩下 64 册。\n如今国家图书馆馆藏《永乐大典》副本共有 161 册，这当中还有相当一大部分是上世纪五十年代由苏联政府归还的，海外各大学，图书馆和博物馆则藏有 400 余册，加在一起也远远赶不上《永乐大典》真正的册数 11095 册。因此从研究角度来看，时机成熟发掘永陵地宫很有必要，如果能从中出土《永乐大典》正本全版，那么将是当年最大考古发现，可以及时整理出版，让《永乐大典》再度流传。\n\n\n\n\n\n查看知乎讨论",
-          "link": "https://daily.zhihu.com/story/9781589",
-          "publishedOn": "2025-06-04T12:37:59.165Z",
-          "wordCount": 158,
-          "title": "永乐大典还有可能出土完整版本吗？",
-          "imageUrl": null
-        },
-        {
-          "id": "https://daily.zhihu.com/story/9781605",
-          "author": null,
-          "description": "瞎扯 · 有哪些演员以一己之力直接定义了历史人物的形象?\n知乎日报\n查看知乎原文\n\n\n\n\nQ：有哪些演员以一己之力直接定义了历史人物的形象?\n@枯萎的左手 ：据说有次王刚老师陪外地朋友参观恭王府， 门口大爷看到他说：「和大人您终于回来了！」\nQ：为什么现在的药品名都不直接写明治什么病，而是用一堆奇怪的音译名？\n@迷茫时代 ：医生拿一个针管配药， 病人：「这是什么？」 医生：「呜呼啦洞开·除你疾病。」\nQ：怎么看待期末考试前最后一周才开始学习的大学生？\n@孟家拉牛的马 ：所以大学本科实际只需要两个月就能结业， 加上本科毕业设计，总计一学期就够了， 其他时间都是在促进消费和维持社会稳定。\nQ：为何在《西游记》中，东海龙王第一次见孙悟空称其为上仙？\n@蓝天风车 ：你不带氧气瓶去东海海底逛一圈，哪怕是狗刨，你回来了我也叫你上仙。\nQ：用一句话证明你现在正在上大学?\n@JMIH ：我见过凌晨 0 、 1 、 2 、 3 、 4 、 5 、 6 、 7 点打游戏的舍友。",
-          "link": "https://daily.zhihu.com/story/9781605",
-          "publishedOn": "2025-06-04T12:37:59.096Z",
-          "wordCount": 213,
-          "title": "瞎扯 · 如何正确地吐槽",
-          "imageUrl": null
-        },
-        {
-          "id": "https://daily.zhihu.com/story/9781597",
-          "author": null,
-          "description": "七小七，脚踏实地，仰望星空。心有猛喵，细嗅鱼干。\n查看知乎原文\n\n\n\n有，但是不多。\n首先，地球可能真的会被晚年的太阳吞没。\n不过，即使真的有那么一天，这个“将”字也过于长了。至少也要 75.9 亿年之后。\n有人肯定想问了，人类才出现多久，怎么能知道几十亿年之后的事呢？这个在天文学上其实并不难。因为像太阳这样的恒星，内部构造其实非常单纯：是个主要由氢构成的气体球，内部进行着氢聚变反应。\n因此，宇宙中与太阳质量相近的恒星，它们的演化规律是一样的。我们只需要观测不同年龄下与太阳相似质量恒星的样子，就能拼凑出太阳一生的轨迹。\n类太阳恒星的演化轨迹\n目前。太阳正处于它的星生中年，位于“主序星”阶段。这个时期的太阳，只有核心的氢元素在进行聚变反应，大小和光度基本保持稳定，变化非常微小。这也是太阳一生中最漫长的时光。\n而随着太阳核心的氢元素越烧越少，核反应会逐渐向外扩展，参加反应的氢元素增加。这会导致核反应变得剧烈，太阳的光度就会上升，也就是越来越亮了。\n等到 40 亿年后，太阳核心的氢元素消耗的差不多了，核反应扩展到壳层。那里的核反应更加剧烈，太阳的亮度会增加，体积膨胀，表面温度下降从而变红，来到自己的星生晚年，成为一颗“红巨星”。\n届时，太阳的亮度会变成现在的 1000 倍以上，半径最大可以达到现在的 256 倍。\n变成红巨星的太阳，半径会扩张到现在的 200 倍以上\n太阳目前的半径是 696300 公里，扩大 256 倍，是 1.78 亿公里，要略大于目前的地日距离（1.496 亿公里）。吞掉地球似乎妥妥了。\n但地球在这几十亿年里也没闲着，它也在努力“自救”，想方设法“流浪”。由于太阳在不断丢失质量，这会导致地球的轨道向外扩张。计算表明，地球轨道最多扩大到 2.2 亿公里，最终，轨道距离还是略大于太阳的最大半径的。\n看上去似乎逃过一劫哈？\n其实并没有。\n因为太阳与地球间的潮汐相互作用，地球最终仍然会被“吸”进太阳中。不过，那时太阳也已经行将就木，即将迎来自己最终的归宿 -- 外壳扩散成为一朵漂亮的行星状星云，内核坍缩成为一颗白矮星。\n因此，太阳和地球也算得上是同归于尽，“同年同月同日死”了吧。\n行星状星云 Jones-Emberson 1，太阳未来也会变成这样\n当然，我们也并不需要等到太阳真的吞掉地球那一天。\n目前观测表明，太阳正在逐渐变亮，核心的亮度每 1 亿年增加约 1%。10 亿年后，地球上的水就会被太阳完全蒸发掉，届时人类估计就无法在地球上生存了。\n不过，那可是 10 亿年啊！是个相当相当长的长度了。\n最早的人属动物“能人”，生活在距今 250 万年前，它们刚能熟练使用石器。\n10 亿年，是人类历史长度的 400 倍。所以啊，10 亿年后的人类跟我们应该已经不是一个物种了吧。现在替 10 亿年后的另外一个物种担心，怎么不算是一种“杞人忧天”呢。\n能人的复原图，看上去感觉更像猩猩呢\n\n\n\n\n查看知乎讨论",
-          "link": "https://daily.zhihu.com/story/9781597",
-          "publishedOn": "2025-06-04T12:37:59.020Z",
-          "wordCount": 182,
-          "title": "如何看待马斯克称地球将被太阳焚化，我们需要成为多行星文明？他的说法有科学依据吗？",
-          "imageUrl": null
         }
       ]
     },
@@ -13486,16 +13322,6 @@
           "wordCount": 12777,
           "title": "A nasogenital tale",
           "imageUrl": "https://images.aeonmedia.co/images/fb60ec28-dcca-4fcd-9604-a2a422bc2ba9/essay-2b0gryw.jpg?width=1200&quality=75&format=auto"
-        },
-        {
-          "id": "urn:id:7976",
-          "author": "Aeon Video",
-          "description": "Decades after Soviet nuclear testing, communities living near ‘atomic lakes’ in Kazakhstan confront the legacy of radiation \n - by Aeon Video\n Watch at Aeon",
-          "link": "https://aeon.co/videos/in-kazakhstan-atomic-lakes-still-scar-the-landscape-decades-after-soviet-nuclear-tests?utm_source=rss-feed",
-          "publishedOn": "2025-06-04T10:01:00.000Z",
-          "wordCount": 3494,
-          "title": "Atomic secrets",
-          "imageUrl": "https://images.aeonmedia.co/images/2f7a97d1-e78a-4766-8095-3757f5be9f13/atomic-secrets-landscape-1.jpg?width=1200&quality=75&format=auto"
         }
       ]
     },
@@ -14401,6 +14227,26 @@
       "feedUrl": "https://feedx.site/rss/infzm.xml",
       "siteUrl": "http://infzm.com",
       "articles": [
+        {
+          "id": "http://www.infzm.com/contents/296470",
+          "author": null,
+          "description": "2025-06-24 09:00:00\n\n四川省广安市1-4月国有资源（资产）有偿使用收入0.22亿元，降幅88.97%。视觉中国/图\n2025年6月20日，财政部官网发布了1-5月财政收支情况。\n全国一般公共预算收入9.6万亿元，同比下降0.3%。其中，税收收入7.9万亿元，同比下降1.6%；非税收入1.7万亿元，同比增长6.2%。\n与上年同期相比，非税收入增速下滑了4.1%。\n一般公共预算收入，是政府收入的支柱，它包括税收和非税收入两部分。过去一段时期，税收收入承压，非税收入却保持着较高增速，带动了一般公共预算收入的增长。\n2023年，全国税收收入决算，是年初预算的97.9%；非税收入决算，是年初预算的110.3%。\n2024年，全国税收收入同比下降3.4%，非税收入同比增长25.4%。\n过去五个月，非税收入增速为什么会放缓？\n非税收入，包括国有资源（资产）有偿使用收入、罚没收入、专项收入、行政事业性收费收入等。\n其中，国有资源（资产）有偿使用收入是推动增长的主要来源。也就是盘活国有资源和资产。\n2024年全国非税收入同比增长25.4%，财政部解释，主要是部分中央单位上缴专项收益和地方多渠道盘活资源资产，拉高非税收入增幅约24个百分点。\n中央单位上缴专项收益难以被外界所知，但各地普遍会公布盘活资源资产情况。\n南方周末记者曾统计过2023年各地级市一般公共预算收入情况。四川、贵州、黑龙江、河北等省，部分城市的非税收入罕见地超过了税收收入，呈现倒挂态势。这些城市普遍民营企业欠发达，税收收入增长乏力。\n以黑龙江为例，13个地级市里，齐齐哈尔、佳木斯、七台河、牡丹江、黑河5座城市非税收入超过了税收收入。例如，2023年，牡丹江税收收入32.84亿元，非税收入达到55.45亿元。\n在收入倒挂的城市中，非税收入增长主要来自盘活国有资产的收入。\n“有6个县的国有资产处置收入超过了税收收入。”河北省审计厅发布的《关于2023年度省级预算执行和其他财政收支的审计工作报告》写道，32个县的国有资产处置收入，占非税收入比重超50%。其中，8个县占比超80%，最高达94.82%。\n为何盘活国有资产变得如此重要？\n过去一段时期，土地出让收入锐减，急需新的财源弥补政府日益增长的刚性支出。2020-2024年间，全国土地出让收入从8.4万亿元下滑至4.87万亿元，下跌了42%。\n在税源难以扩大的情况下，盘活国有资产成为了地方政府更为急迫的选择，“副作用”也最小。\n2022年开始，各级政府对盘活存量资产，展现出了前所未有的支持力度。\n当时，国务院办公厅、国家发展改革委办公厅相继发文，鼓励地方盘活存量资产。落到地方后，省、市、县三级政府，都出台了不同力度的支持方案，部分地区还设立了盘活存量资产指标，并纳入考核评价体系。\n上海市长宁区政府公布的一份《国有资产盘活情况明细表》显示，资产类别包括房屋、土地、车辆、办公设备家具、大型仪器设备、其他资产。盘活方式分为单位内部挖潜、调剂利用、对外出租、转让及其他。\n简而言之，盘活国有资产的方式主要有三种：租、售、融。过去几年，各地政府通过多种形式盘活了手中的国有资产，时至今日，能够被盘活的资产数量已经变少，盘活难度也在上升。\n也因为2024年的较高基数，部分地区国有资源（资产）有偿使用收入出现下滑。\n福建省2025 年1-3月非税收入549.94亿元，下降0.9%。其中，国有资源（资产）有偿使用收入227.66亿元，下降13.8%。\n四川省广安市1-4月非税收入4.06亿元，比上年同期减少1.93亿元。其中，国有资源（资产）有偿使用收入0.22亿元，比上年同期减少1.74亿元，降幅88.97%。\n粤开证券首席经济学家罗志恒向南方周末记者解释，“国有资源（资产）有偿使用收入类似于‘土地财政’，存在不可持续风险。政府将未来数十年的产权收益一次性拍卖，不能成为获取经常性、稳定性财政收入的手段。”\n国有资产盘活过程中存在的问题，也导致其收入易受影响。\n例如，2024年1月，贵州省毕节市公共资源交易中心撰文介绍，在国有存量资产盘活过程中，存在资产收益不及时上缴、合同条款设置不合理、巨大国有资产流失等问题。\n值得注意的是，政府强化对罚没收入的管控，或许也是导致非税收入增速下降的原因之一。\n2025年1月，国务院办公厅发布《关于严格规范涉企行政检查的意见》，针对行政检查事项多、频次高、随意性大，以及任性检查、运动式检查、以各种名义变相检查等突出问题，要求加强依法行政，确保行政检查于法有据、严格规范、公正文明、精准高效，进一步优化营商环境。\n吉林省财政厅公布的6月财政收支简报显示，1-5月，全省罚没收入23.6亿元，下降14.2%，主要是上年同期侦破大案要案取得一次性收入较多。",
+          "link": "http://www.infzm.com/contents/296470",
+          "publishedOn": "2025-06-24T01:25:05.000Z",
+          "wordCount": 88,
+          "title": "非税收入增速下滑4.1%｜说政经事",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/296474",
+          "author": null,
+          "description": "2025-06-24 08:00:00\n人能看见光和万物，是因为有感官器官和光源。就人的感光器官眼睛和大脑来说，由于感受光的能力有限，有一些光能看到，如阳光，还有一些光看不到，如X光、紫外线（需要特殊设备才能看到）。就光源来说，有自然光源和人造光源，前者如阳光、月光、火焰等，后者如各种人造灯具发出的光，如白炽灯、LED灯光等。\n在自然光源中，除了阳光、月光外，还有一些生物，如水母、萤火虫也会发光。早就有研究人员指出，凡是活着的生物都有可能发光，包括动物、植物、微生物和人。在形而上的意义上，“人死如灯灭”证明人活着会发光。现在，一项新的研究从形而下的角度证实，人活着就会发光，只是人的祼眼看不到人自身发出的光而已，就像人的听力只能听到强度为0-130dB、频率为20-20000Hz的声音一样，超出这些范围的声音都听不到。\n\n发光的水母。视觉中国|图\n人看不到的生物光是指生物存活时发出的生物超弱光子发射（ultra-weak photon emission, UPE），要用特殊的仪器才可以检测到，活着的生物每秒有数十或数百个光子发射。早在2020年，巴西坎皮纳斯州立大学的一个研究团队就发现，绿豆、玉米和小麦的单个发芽幼苗的总光子数会随幼苗生长时间而变化，植物的生长与UPE呈线性相关，不同的植物的生长与UPE有不同的线性关系，因此可以作为评估幼苗早期发育健康状态的一种标准。\n现在，加拿大卡尔加里大学和加拿大国家研究委员会的研究人员用更先进的成像设备——电子倍增感光耦合组件（EMCCD）相机来对生物体进行拍摄实验，这种相机可以捕捉到单光子。研究人员不仅捕获到小鼠的UPE，而且能拍摄到植物的UPE，并且观察到活体小鼠的UPE强度明显高于死去的小鼠。而在植物中，UPE受到温度、伤害以及化学物质处理等多种因素的影响，展现出不同的变化特征。\n已经有很多研究发现，所有生物（如细胞培养物、细菌、…",
+          "link": "http://www.infzm.com/contents/296474",
+          "publishedOn": "2025-06-24T00:25:06.000Z",
+          "wordCount": 85,
+          "title": "活着就要发光",
+          "imageUrl": null
+        },
         {
           "id": "http://www.infzm.com/contents/296486",
           "author": null,
@@ -18130,36 +17976,6 @@
           "wordCount": 81,
           "title": "长债暴跌，日本经济怎么了？",
           "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/295018",
-          "author": null,
-          "description": "2025-06-04 20:00:00\n\n2024年6月9日，武汉，流浪猫狗爱心认养活动在凯德广场武胜店举行（图文无关）。视觉中国/图\n在北京市公安局网上平台“云展示”约24小时后，5个月大的流浪狗“小胆儿”有新家了，“小胆儿”是新主人起的名字。\n“小胆儿”是那种村口最常见的土狗模样，黄色、长脸，嘴凸得像“自行车座”。大约在领养信息公布的前一周，“小胆儿”被送到了位于昌平区七里渠的北京市公安局犬类留检所（下称留检所）。\n多份调研报告显示，中国流浪狗数量高达4000万只。作为四千万分之一的“小胆儿”是幸运的，在留检所，它这么快就找到了新主人，归功于幽默的介绍文案：“胆小，内心慌得一批，外表却稳如老狗。”\n\n北京市公安局上线了待领流浪狗页面，文案轻松活泼，深受网友欢迎。北京市公安局网站截图\n“没想到会这么火。”文案来自爱犬志愿者老赵。2023年，他的金毛犬“路飞”因癌症去世，他一度想花高价克隆宠物，走访多家救助机构后，最终领养了两只金毛犬。\n近二十年来，留检所只开放线下领养，长期禁止拍照，老赵尝试在小红书上分享领养信息，助推了线上领养平台的开通。\n对城市流浪狗，清理还是救助？恐犬与爱犬人士各执一词，收容机构也备受争议。对于留检所这样的官方管理的收容机构，曾遭受着狗狗“只能活7天”等嘲讽；私人的“爱心救助小院”或保护组织，募集善款的金额及用途也常受质疑。\n云展示让领养代替购买，更加透明、可行，“小胆儿”们顺利找到了新家，长期封闭、忌惮镜头的留检所，正在小心翼翼地敞开怀抱，而流浪狗的系统管理制度，仍待完善。\n每个字都是对“毛孩子”的爱\n留检所里，“小胆儿”名唤编号“1-1号”。老赵大约花了5个小时，写了它和其他24只狗狗的简介，发在“平安北京”微信公众号的“待领养犬”信息里。\n1排20的边牧：“与它对视的话甚至可以感受到那种令人伤心的平静感，是一条很讲究很通人性的老狗。”\n1排16…",
-          "link": "http://www.infzm.com/contents/295018",
-          "publishedOn": "2025-06-04T12:25:07.000Z",
-          "wordCount": 89,
-          "title": "流浪狗领养文案火了，可心动，别冲动",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/295013",
-          "author": null,
-          "description": "2025-06-04 18:00:00\n \n\n南京市宁双路，一家科技公司打出的“数据力是第一推动力”标语。（视觉中国|供图）\n“各个局的自主性很强，愿意给你某些数据就给，不愿意给就说上级部门规定不能给。”林玲是西南地区某国企智算中心的工作人员，经常需要跨部门调取数据，但总是遇到类似问题。\n\n前述“共享难题”有望解决。2025年6月3日，国务院对外公布《政务数据共享条例》（以下简称“共享条例”），其将于2025年8月1日起施行。\n共享条例首次以行政法规的形式明确了政务数据共享的相关内容，明确实行统一目录管理，建立政务数据共享标准体系，推进政务数据共享工作标准化、规范化。\n从立法的角度来看，北京交通大学特聘教授张向宏认为，共享条例的出台“具有里程碑的意义”。\n张向宏告诉南方周末记者，目前在数据安全和发展统筹方面，有三部法律、两部条例与数据安全相关，但没有一部专门的法律或条例是促进数据共享、开放、运营的，“我们不能只有强调安全的法律，没有促进发展的法律。”\n目录统一”非常关键“ \n政务数据共享，首先要解决收集难题。林玲最常遇到的问题是，同一个数据，不同的部门统计标准不一样，呈现结果也不一样。\n比如人口数据，公安系统只针对特定时段、查看某个限定区域内的实时人流数据，以提前预防人员疏散、避免发生踩踏事件。但对于旅游部门，他们想掌握的是游客的性别、年龄段、驻留景点人数排名及时长排名、消费额度阶梯等等，帮助分析本地旅游业态。\n实践中，不同部门多次要求报送，不仅会造成数据的重复填报，还会加重基层负担。\n在林玲所在的地区，企业每年会在多个系统填报数据。比如，一家企业既是高新技术企业，又是规上企业，就需要每年在企业信用信息公示系统（税务局）、火炬高技术系统（工信部）、统计云联网直报系统（国家统计局）分别填写企业相关信息，其中一些信息为重复统计。\n林玲收到过一份由国家发展改革委、工业和信息化部和…",
-          "link": "http://www.infzm.com/contents/295013",
-          "publishedOn": "2025-06-04T10:25:06.000Z",
-          "wordCount": 94,
-          "title": "政务数据难”流动“：国务院为共享立法",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/294091",
-          "author": null,
-          "description": "2025-06-04 16:00:00\n\n（IC Photo/图）\n近段时间，“办公室轮流请奶茶窒息”成为热搜话题，职场人用“窒息”形容这种互请文化。表面上看，互请奶茶是当代职场的社交润滑剂，可如果互请奶茶演变为一种循环，月薪未涨而奶茶支出飙升，打工人也是苦不堪言。\n新生代打工人渴望平等、低负担的社交模式，却又不敢打破轮流请奶茶的循环，担心被被贴上“不合群”“不懂事”等标签。这场职场的“甜蜜风暴”，亟需破局。\n轮流请奶茶成KPI\n职场里的请奶茶，最初往往源自一些朴素的善意。\n比如新人入职时为了快速融入团队，可以用几杯奶茶打开话匣子；项目结束后，同事们想简单庆祝，可借分享甜饮传递喜悦……这种初衷里没有复杂的社交计算，就像学生时代同桌分享零食，大家通过很朴素的分享建立连接。\n跟其他形式相比，请喝奶茶也算得上职场中不错的社交形式——不需要专门组织聚餐，不用协调所有人的时间，简单快捷就能冲淡职场里公事公办的冷感。\n试想这样一个场景，疲惫的工作午后，同事捧着奶茶聚在休息区，聊两句工作外的闲事，开几个轻松的玩笑，这种非正式的交流，确实比会议室里的正襟危坐更能拉近距离。今天我为大家买单，明天你请大家，一来一往中，团队成员之间的情感得以在互动中加深。\n然而，当轮流请奶茶从偶尔的互动演变成固定流程，问题就开始浮现。\n最直接的困扰，是团队规模带来的经济压力。如果团队只有三五个人，偶尔请一次或许还能接受；但如果扩大到十几人甚至更多，一次请客就要花费两三百元，这对月薪小几千的普通打工人来说是一笔不小的开支。尤其是刚入职的年轻人或经济压力较大的同事，请喝中奶茶俨然是“社交税”，意味着要缩减其他必要的生活开销。\n更无语的是，轮流请奶茶一旦循环起来，就很难停下。今天你请，明天他请，一轮接一轮，仿佛变成一种隐形的职场KPI，手机日历中自动标注着“轮到自己请客的日期”，工资到账后首先计算的不是生活开销，而是…",
-          "link": "http://www.infzm.com/contents/294091",
-          "publishedOn": "2025-06-04T08:25:07.000Z",
-          "wordCount": 74,
-          "title": "月薪3000，奶茶费500：办公室轮流请奶茶怎么破？",
-          "imageUrl": null
         }
       ]
     },
@@ -18168,6 +17984,16 @@
       "feedUrl": "http://flowingdata.com/feed",
       "siteUrl": "https://flowingdata.com",
       "articles": [
+        {
+          "id": "https://flowingdata.com/?p=78936",
+          "author": "Nathan Yau",
+          "description": "Allen Frances, a psychiatrist who chaired the group to update the Diagnostic and…\nTags: Allen Frances, autism, New York Times, vaccination",
+          "link": "https://flowingdata.com/2025/06/23/autism-definition-changed-which-led-to-rise-in-diagnoses/",
+          "publishedOn": "2025-06-23T22:36:45.000Z",
+          "wordCount": 1641,
+          "title": "Autism definition changed, which led to rise in diagnoses",
+          "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/01/logo-lone-square512x512.png"
+        },
         {
           "id": "https://flowingdata.com/?p=78914",
           "author": "Nathan Yau",
