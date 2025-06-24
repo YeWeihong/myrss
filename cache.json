@@ -2619,61 +2619,6 @@
             "length": "0"
           },
           "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/b0d62c9c-2bdb-4dd8-162f-749c24501100/cover"
-        },
-        {
-          "id": "409919",
-          "author": "言犀",
-          "description": "📌 一句话摘要\n            \n探讨 Deep Search/Research 概念及其在代码领域的应用，提出基于 Agent 的仓库代码深度理解方案。\n📝 详细摘要\n            \n文章首先定义了 Deep Search（侧重查找）和 Deep Research（侧重研究与产出）的概念，并对比了其与传统 RAG 的区别，指出 Deep Search 更强调深度挖掘与全面洞察。接着，文章调研了当前商业（OpenAI， Google， xAI）和开源（如 OpenDeepResearch， Search-o1）的 Deep Search/Research 方案，并详细阐述了一种针对代码领域的 Deep Search 架构，该架构包含 Query Enhancement， Staged Summary， Need New Query， Code Information 等模块，旨在克服传统 RAG 在复杂代码仓库问答中的局限性。文章最后展示了该方案在仓库问答中的效果截图，并规划了未来通过训练专用代码搜索 Agent 来提升能力，旨在应用于 CodeFuse 的需求生码等场景。\n💡 主要观点\n            \nDeep Search/Research 超越传统 RAG，强调深度挖掘与全面洞察。\n                         传统 RAG 单次检索可能遗漏关键信息，Deep Search 通过多轮迭代和深度分析，获取更全面、高质量的信息用于 LLM 生成。\n                    \n\n                        复杂代码仓库问答需 Deep Search 而非简单 RAG。\n                         企业级代码库与业务逻辑紧密耦合，需要深度理解用户意图和业务上下文，弥补传统 RAG 表层语义匹配的不足。\n                    \n\n                        提出的 Deep Search 架构通过模块化提升代码检索与理解能力。\n                         Query 增强、分阶段总结、需求补充查询等模块协同工作，优化输入 LLM 的信息质量，提高代码检索精度和分析能力。\n                    \n\n                        未来将研发专用代码搜索 Agent 提升性能。\n                         通过领域知识注入和推理能力专项训练，构建更智能的代码搜索 Agent，应对复杂代码逻辑和多步推理。\n                    \n💬 文章金句\n            \nDeep Search（深度思考）：更侧重\"找\"的过程，它的目标是把相关信息尽可能全面、深入地挖掘出来。\n为克服这些限制，我们提出 Deep Search 方案。该方案通过融合代码库中的业务上下文信息，对用户查询进行深度解析，超越表层语义匹配，发现与用户根本需求最为匹配的代码及其相关信息，从而显著提升检索的精准度和相关性\n我们设计的 Deep Search 专注于代码检索领域，能够深度理解用户查询意图，精确匹配并定位最相关的代码片段。\n为克服上述限制并实现更高水平的代码搜索智能化，我们的下一阶段核心任务是开发和训练一个专门的代码搜索智能体（Code Search Agent）。\n📊 文章信息\n            \nAI 评分：90\n精选文章：是\n来源：阿里云开发者\n作者：言犀\n分类：软件编程\n语言：中文\n阅读时间：16 分钟\n字数：3987\n标签：\n                    \n                        Deep Search, 代码搜索, AI Agent, RAG, LLM",
-          "link": "https://www.bestblogs.dev/zh/article/409919",
-          "publishedOn": "2025-06-05T00:31:00.000Z",
-          "wordCount": 330,
-          "title": "Deep Search 如何理解业务仓库代码？",
-          "enclosure": {
-            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/7581ba0e-db56-46c3-e4a9-78227c33a200/cover",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/7581ba0e-db56-46c3-e4a9-78227c33a200/cover"
-        },
-        {
-          "id": "b59124",
-          "author": "前端早读课",
-          "description": "📌 一句话摘要\n            \n文章分享了在固定资源下扩展 React 服务端渲染能力，通过优化负载均衡和实现客户端兜底的实践经验。\n📝 详细摘要\n            \n本文详细记述了作者在应对 React 服务器端渲染（SSR）服务日益增长的访问量时所经历的扩展实践。项目背景是传统单体应用向 React/Redux 组件化架构迁移，并选择将 SSR 提取为独立的 Node.js 服务。在固定硬件资源的约束下，作者团队面临流量增长导致的响应时间飙升，特别是随机负载均衡策略带来的问题。文章深入分析了随机负载均衡的低效性，对比了轮询和最短队列等策略，最终选择了 Fabio + 轮询的折中方案。这一优化显著改善了服务实例间的负载均匀性，并有效降低了高峰时段的响应延迟。接着，为了应对极端流量和不可预测的增长，作者提出并实现了一种创新的客户端渲染兜底机制。在高负载时，该机制将初始渲染任务智能地转移到浏览器执行，利用客户端资源实现了约 8 倍的系统容量扩展，有效保障了服务的弹性。文章还讨论了负载丢弃机制的必要性及其在 Node.js 中的实现挑战，并介绍了通过 I/O 与 Worker 分离架构实现及时削峰的方案。最后，文章分析了组件缓存的巨大性能潜力，但也警示了其引入的复杂缓存失效和维护问题，强调了谨慎使用的必要性。整体而言，文章提供了宝贵的实战经验和深入的问题分析，特别是对于在高约束环境下优化和扩展 Node.js SSR 服务具有重要的参考价值。\n💡 主要观点\n            \n随机负载均衡在高流量下会导致严重的负载不均和高延迟\n                         请求的随机分配无法确保各服务实例负载均匀，导致部分实例过载请求排队，显著增加响应时间，尤其在高百分位延迟上体现明显。\n                    \n\n                        采用更有效的负载均衡策略能显著提升系统吞吐和响应稳定性\n                         轮询或最短队列等策略能更均匀地分配请求，避免单点过载，有效解决了因随机负载均衡引起的高延迟问题。\n                    \n\n                        客户端渲染兜底在高负载时是有效的弹性扩展手段\n                         在高流量或服务器资源紧张时，将初始渲染从服务端转移到客户端执行，能利用用户资源，保持服务稳定性，有效扩展系统容量。\n                    \n\n                        Node.js 中的负载丢弃需精心设计以快速响应\n                         Node.js 的事件循环特性可能延迟丢弃响应，通过 I/O 与 Worker 分离架构可实现更及时的负载削减，避免级联故障。\n                    \n\n                        组件级缓存虽快但引入了复杂的缓存失效和维护问题\n                         细粒度的组件缓存能极大地加速渲染，但错误的缓存策略或组件变动可能导致数据错误、SEO 问题甚至服务崩溃，需谨慎使用。\n                    \n💬 文章金句\n            \n我想重点谈谈那些真正带来明显改进的 \"关键优化点\"，以及一些隐蔽但令人着迷的 \"踩坑\" 经历。\n从图表可以清楚看出，流量越大，响应时间越高。\n但这这就是事实：随机负载均衡根本无法实现负载均衡！\n计算机科学只有两个难题：缓存失效 和 命名。------Phil Karlton\n最终实现效果是：一个请求被渲染，后续请求如果超过上限，就立即被丢弃，然后再渲染下一个请求。\n📊 文章信息\n            \nAI 评分：90\n精选文章：是\n来源：前端早读课\n作者：前端早读课\n分类：软件编程\n语言：中文\n阅读时间：51 分钟\n字数：12609\n标签：\n                    \n                        React SSR, 性能优化, 负载均衡, 系统扩展, Node.js",
-          "link": "https://www.bestblogs.dev/zh/article/b59124",
-          "publishedOn": "2025-06-05T00:05:00.000Z",
-          "wordCount": 327,
-          "title": "【第 3522 期】扩展 React 服务端渲染的能力",
-          "imageUrl": "https://www.bestblogs.dev/zh/article/b59124/opengraph-image?c5b4e9f48bc65b64"
-        },
-        {
-          "id": "081967",
-          "author": "伊风",
-          "description": "📌 一句话摘要\n            \nSam Altman 分享最新 AI 观点，强调企业应立刻行动，Agent 将成工作基本单位，并透露未来“完美模型”愿景。\n📝 详细摘要\n            \n文章总结了 Sam Altman 在 Snowflake 峰会炉边对谈中的核心观点。他首先强调，面对 AI 快速迭代，企业应停止观望，立即开始实践和试错，这是领先同行的关键。其次，他预测 AI Agent 将成为未来工作的基本单位，能处理更复杂、长周期的任务，甚至可能催生“AI 科学家”。他分享了 Codex 带来的“AGI 时刻”感受，并描述了心中“完美模型”的特质：体积小、超人推理、极速、万亿上下文、工具全访问。最后，他讨论了记忆与检索的重要性，以及投入巨大算力解决复杂难题（如 RNA 研究）的潜力。整场对话信息密度高，为技术从业者提供了来自 OpenAI 领导者的战略视角和对 AI 未来发展的预测。\n💡 主要观点\n            \n企业应立即行动，停止观望等待 AI 技术成熟\n                         技术快速迭代背景下，率先下注、快速学习和试错的企业将明显领先于犹豫不决的同行，抓住技术红利。\n                    \n\n                        AI Agent 将成为未来工作的基本单位，能处理复杂任务\n                         Agent 将从目前的“实习生”进化为能自主完成长周期、跨阶段任务的“资深工程师”，改变工作方式和效率。\n                    \n\n                        未来“完美模型”将具备超人推理和强大能力\n                         设想中的模型体积小、推理能力极强、运行快、上下文窗口大，并能访问各种工具，极大拓展 AI 应用边界。\n                    \n\n                        巨大算力与 AI 结合有望解决人类重大科学难题\n                         将海量算力投入最困难、最有价值的问题，结合 AI 推理能力，可能在科学发现等领域取得突破性进展。\n                    \n💬 文章金句\n            \n当技术快速迭代时，赢家往往是那些能够迅速试错、降低失败成本、提升学习速度的公司。\n那些尽早下注、快速试验的企业，表现明显优于观望和等待的同行。\n未来工作的基本单位，是 AI Agent。\n未来的工作，可能不是“你完成 10 个任务”，而是“你指挥 10 个智能体”，再去微调它们的成果。\n从理念上说，我们追求的是这样一个模型------体积很小，但拥有超人级别的推理能力，运行速度极快，有一万亿 tokens 的上下文窗口，并能访问你能想象的所有工具。\n📊 文章信息\n            \nAI 评分：90\n精选文章：是\n来源：51CTO技术栈\n作者：伊风\n分类：商业科技\n语言：中文\n阅读时间：27 分钟\n字数：6564\n标签：\n                    \n                        人工智能, Agent, 大语言模型, AGI, 企业AI应用",
-          "link": "https://www.bestblogs.dev/zh/article/081967",
-          "publishedOn": "2025-06-05T00:00:00.000Z",
-          "wordCount": 334,
-          "title": "奥特曼：Codex 让我感到 AGI！最新谈话罕见透露下一代“完美模型”，大胆预测 Agent 明年突破边界！",
-          "enclosure": {
-            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/bc9bfd6a-eb96-4b7f-07f6-bbab94601c00/cover",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/bc9bfd6a-eb96-4b7f-07f6-bbab94601c00/cover"
-        },
-        {
-          "id": "7e9126",
-          "author": "LlamaIndex",
-          "description": "📌 一句话摘要\n            \nLlamaIndex 推出一款新型 AI 代理，以高准确性解决复杂的电子表格处理问题。\n📝 详细摘要\n            \nLlamaIndex 推出一款新的表格代理，旨在自动化处理杂乱、人类可读的电子表格，这对于传统 AI 方法来说是一个重大挑战。与 text-to-CSV 或简单的 RAG 不同，该代理采用了一种“先解析后推理”的架构。它利用强化学习进行语义结构解析，并使用配备定制工具的专业化子代理来执行准确的数据转换和直接的自然语言问答。基准测试表明，它超越了 OpenAI Code Interpreter 等通用工具，在复杂财务数据上实现了超过 95% 的准确性。目前处于私人预览阶段，它针对审计、税务、财务和保险领域的企业痛点，实现了对大量复杂电子表格文件的自动化处理。\n💡 主要观点\n            \n复杂电子表格是传统 AI 面临的主要挑战。\n                         电子表格的设计着眼于人类可读性，具备视觉结构、格式中的上下文和复杂表格，这使得简单的文本提取或 RAG 难以实现自动化。\n                    \n\n                        新颖的“先解析后推理”架构实现高准确性。\n                         该代理首先利用 RL 对电子表格进行语义解析以构建结构化映射，然后使用专业化代理和工具进行推理、计算和转换。\n                    \n\n                        在真实世界数据上实现最先进的性能。\n                         基准测试显示，在复杂财务电子表格上准确率超过 95%，显著超越了 OpenAI Code Interpreter 等通用 LLM 工具。\n                    \n\n                        解决当前需要手动处理的关键企业工作流程。\n                         该代理旨在解决审计、税务、财务和保险等行业中涉及大量手动电子表格处理的核心痛点，从而实现自动化并提高效率。\n                    \n💬 文章金句\n            \n2025 年将继续是专业化代理之年。\n电子表格……是 AI 系统面临的最具挑战性的文档类型之一。\n传统方法……会灾难性失败。这就像把撕碎的文档递给别人，让他们理解一份复杂的财务报告。\n与其尝试将电子表格理解强行纳入现有方法论，我们构建了一个全新的架构，将电子表格视为需要语义理解的可视文档。\n通过将电子表格解析为语义结构并利用工具增强代理对其进行推理，我们实现了显著更高的准确性和一致性。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：LlamaIndex Blog\n作者：LlamaIndex\n分类：人工智能\n语言：英文\n阅读时间：4 分钟\n字数：835\n标签：\n                    \n                        AI 代理, 表格处理, LlamaIndex, 企业数据, 数据转换",
-          "link": "https://www.bestblogs.dev/zh/article/7e9126",
-          "publishedOn": "2025-06-05T00:00:00.000Z",
-          "wordCount": 330,
-          "title": "推出表格代理，现已开放私人预览 — LlamaIndex - 构建企业数据知识助手",
-          "enclosure": {
-            "url": "https://cdn.sanity.io/images/7m9jw85w/production/89380b5946452462d6c4a91f8109f705dc044c82-1080x1080.png",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://cdn.sanity.io/images/7m9jw85w/production/89380b5946452462d6c4a91f8109f705dc044c82-1080x1080.png"
         }
       ]
     },
@@ -3581,6 +3526,26 @@
       "siteUrl": "https://new.qq.com/omn/author/8QMc3Hhc74cevD%2FR",
       "articles": [
         {
+          "id": "https://view.inews.qq.com/a/20250624A07USW00",
+          "author": "晚点LatePost",
+          "description": "“6 月淡季里我们增长了 42%，但外贸真正的爆点是 AI。”\n\n\n\n文丨郑可书 管艺雯\n编辑丨管艺雯\n\n\n6 月 11 日，中美最新一轮贸易谈判在伦敦结束，双方在原则上达成协议框架。自 2 月美国对华加征 “芬太尼” 关税以来，这场贸易战已经持续四个月，期间美国对华加征的关税税率一度高达 145%。\n\n没人敢断言贸易战的结局。动荡的国际环境下，常识尤为稀缺和重要。5 月中旬，我们在杭州采访阿里国际站总裁张阔。他三次谈到一组数据：1999 年，中国制造业产值占全球比例是 6%；近两年，这个数字已经涨至 30%。他说，世界上没有其他国家的供应链能在短期内填补这 30% 的空白，所以他抛出自己眼中的常识 —— 145% 的关税不会长久。\n\n他多次提及的另一组数据是，1999 年，民营企业在中国出口额中的占比不到 2%，2018 年贸易战期间，这个数字保持在 46%，而 2024 年，数字已经涨到 65%。这是中国企业韧性的体现 —— 他们拥有全世界最好的生产力、性价比和服务，很难被替代。\n\n事实印证了他的判断。5 月 12 日，中美在瑞士日内瓦举行的经贸高层会谈结束后，双方发表联合声明，美国 2 月以来对华加征的关税，在未来 90 天里降低到 30%。\n\n最近，我们又跟张阔聊了聊关税降低后的最新进展，他告诉我们：随着关税下调，外贸订单重新开始活跃。618 刚结束，阿里国际站的订单同比增长了 42%，其中美国市场的增速恢复到了关税前的水平，25%。涨的不仅是美国，欧洲、拉美、亚洲都涨了。\n\n但全球贸易大环境持续动荡是一个长期趋势，在张阔看来，转化率提升是涨的关键 —— 这代表商家交易的小环境变好了。平台的交易基础设施、物流能力、金融支付能力的升级、加上 AI 能力接入搜索推荐和商家供给的提升，带动了订单和交易额的增长。\n\n2025 年，张阔有一半多的时间在海外调研。他 1980 …",
+          "link": "https://view.inews.qq.com/a/20250624A07USW00",
+          "publishedOn": "2025-06-24T10:07:42.000Z",
+          "wordCount": 4943,
+          "title": "对话阿里国际站张阔：全球贸易越动荡，越需要尊重常识",
+          "imageUrl": "https://inews.gtimg.com/om_ls/O9K8zv3_OBGD5sbiGZfvH3yoQvuSX-XFK4R3orNOAVew8AA_640330/0"
+        },
+        {
+          "id": "https://view.inews.qq.com/a/20250624A05N5P00",
+          "author": "晚点LatePost",
+          "description": "绝大多数的奢侈品牌都是时间的朋友，而目前的老铺更像是资本的合伙人。\n\n\n文丨胡昊\n\n或许，老铺黄金的聪明之处就在于，他没有给自身品牌做明确定位或对标，这种有意营造出的模糊感或独特性，恰恰是助推其形成目前资本价格和舆论热度的重要催化剂。\n\n尽管 “古法黄金” 这一标签反映出老铺所属的行业赛道和业务属性，但从资本市场 100 倍的 PE 水平和媒体舆论时常将其对标爱马仕门店坪效的呈现结果来看，市场对老铺的想象力可能早已跳脱出了金铺/金饰行业的一般商业逻辑。\n\n现在老铺所展现的一个概念或可能性是，其更像是一个拥有强大势能潜力（或 “点石成金” 能力）的品牌运营商，填补的是基于中国本土奢侈品或高端品牌的市场空缺，这可能是国内上市公司范围内的独一份。\n\n当然，老铺对此并不会做任何的回应或解释，因为尽可能维持这种神秘感的存在，或许是对其现阶段商业效益和资本收益最优的选择。\n\n所以，任它东西南北风，相比于这个时代公司创始人们纷纷走上前台，老铺黄金创始人徐高明或许更愿意静处、喝茶、和念佛。\n\n这背后的逻辑其实跟奢侈品这门生意的内涵不无关系，奢侈品牌向外界传递的信息往往都围绕其品牌的文化传承、服务的阶级人群、以及创始人的传奇故事等，这些内容或内涵可能是目前老铺并不具备的禀赋。\n\n而从更务实的角度来看，为了维持高增长或尽力匹配其如今的市值，老铺可能更在意的是这一轮黄金周期的存续时间还有多久，如何最大化利用这一轮黄金周期来帮助提升其毛利率水平？\n\n只要老铺未来的毛利率能够达到行业的可比水平，那么其作为中国本土奢侈品或高端品牌的商业逻辑就能得到数据上的体现和支撑，可能，这才是对其品牌传播最有利的方式。\n\n这篇文章将从展现老铺如何做到奢侈品行业可比毛利率的方法，来切入其未来一段时间内可能要面临的大致运营状况（其短期内的毛利率可能会有较为明显的提升）。\n\n更具体来说就是，老铺在提前大额买入现货黄金和押…",
+          "link": "https://view.inews.qq.com/a/20250624A05N5P00",
+          "publishedOn": "2025-06-24T09:04:54.000Z",
+          "wordCount": 4861,
+          "title": "40%毛利率不是终点，老铺黄金短期内还要涨",
+          "imageUrl": "https://inews.gtimg.com/om_ls/OGMXG_z09aI00BEqKMl9el1sD9BO0xSCB2JqB7KNwL1osAA_640330/0"
+        },
+        {
           "id": "https://view.inews.qq.com/a/20250623V095UH00",
           "author": "晚点LatePost",
           "description": "很多企业做体育营销，都想押中短期流量，最大化影响力。伊利为什么选择投入大、产出慢的营销思路？还总能把体育营销玩出花？",
@@ -4392,16 +4357,6 @@
           "publishedOn": "2025-06-05T08:12:29.000Z",
           "wordCount": 891,
           "title": "Anthropic「切断」Windsurf，AI Coding 成 AI 巨头「代理人之战」",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.geekpark.net/news/350074",
-          "author": null,
-          "description": "Mac 版 ChatGPT 变身生产力神器：AI 录音 + 云文件洞察，打造团队协作最佳助手\n6 月 5 日消息，科技媒体 9to5Mac 发布博文，报道称 OpenAI 公司重点服务于团队和小型企业，全力推动 ChatGPT 转型为真正的生产力助手。\nOpenAI 公司宣布自昨日开始，ChatGPT Team、Enterprise 和 Edu 用户在使用  Mac 版 ChatGPT 应用时，将看到提示工具旁新增的「录音」（Record）按钮。\n用户点击后，应用会立即启动一个小部件，录制音频并实时转录。转录内容随后被整理成结构化笔记，包括整体摘要、关键点、行动事项和未解问题等。\n这项功能的独特之处在于，它无需像 Notion 或 Zoom 的会议机器人那样以参与者身份加入会议，而是直接通过设备监听并生成笔记。\n在推出录音模式后，OpenAI 还为云存储服务，同步推出内置集成功能，目前已支持 Google Drive、Dropbox、OneDrive、Box 和 SharePoint 等平台。（来源：IT 之家）\n\n马斯克：SpaceX 今年收入将达 155 亿美元\n6 月 4 日消息，据外媒路透社报道，SpaceX 首席执行官埃隆·马斯克近日宣称，该公司 2025 年收入预计将达到约 155 亿美元，其中来自美国国家航空航天局（NASA）的合同收入约为 11 亿美元。\n此外，他还提出一项「或许有趣的里程碑」：到 2026 年，SpaceX 的商业航天收入将超过 NASA 的全年预算。\n据悉，随着卫星带宽成本从每吉比特每秒 3 亿美元降至约 2 万美元（下降 99.9%），私营企业正通过技术创新和规模效应重塑行业格局。ARK 资本预测，未来卫星互联网及延展业务的市场空间可达 1300 亿美元，涵盖手机直连、家庭上网、海运通信等场景。（来源：环球网科技）\n \nWindsurf…",
-          "link": "http://www.geekpark.net/news/350074",
-          "publishedOn": "2025-06-05T00:19:38.000Z",
-          "wordCount": 847,
-          "title": "ChatGPT 推「AI 转录」整理功能；Manus 推出文生视频功能；小鹏、华为合作今日揭晓",
           "imageUrl": null
         }
       ]
@@ -6656,6 +6611,16 @@
       "siteUrl": "https://www.nationalgeographic.com/pages/topic/latest-stories",
       "articles": [
         {
+          "id": "https://www.nationalgeographic.com/science/article/faith-kipyegon-record-running-nike",
+          "author": "Christopher Solomon",
+          "description": "7.65 seconds. \n    \nThat’s the amount of time that Kenyan Faith Kipyegon needs to shave from her world record time in order to become the first woman to run the mile in under 4 minutes.  \n    \nKipyegon, a three-time gold medalist, has spent months training for an exhibition on Thursday in Paris where she’ll take a crack at the mythic sub-four barrier. An attempt, she says, to “cement her legacy.”   \n    \nThe event, dubbed Breaking4, is being staged by Nike, Kipyegon's sponsor. To help her make history, everyone from physiologists to shoe designers have rallied to find ways to help her trim every hundredth of a second possible—some of which make the run ineligible for official world records.  \n    \nIt’s a tricky task. The mile is short enough that small benefits have little time to accrete …",
+          "link": "https://www.nationalgeographic.com/science/article/faith-kipyegon-record-running-nike",
+          "publishedOn": "2025-06-24T12:39:03.000Z",
+          "wordCount": 12001,
+          "title": "An LED track, super shoes, and a suit made from Aeronodes",
+          "imageUrl": "https://i.natgeofe.com/n/b33267d2-b249-49e0-9a34-a7608b9ae24e/MM10379_250603_242_16x9.jpg?w=1200"
+        },
+        {
           "id": "https://www.nationalgeographic.com/travel/article/chicago-best-fine-dining-restaurants",
           "author": "Aimee Levitt",
           "description": "This article was produced by National Geographic Traveller (UK).\n     \nFrom beef sandwiches to Michelin-star-seeking menus — TV show The Bear’s fictional restaurant has given us a story arc that, in many ways, mirrors the real-life culinary history of the city it’s set in. Just as the Original Beef of Chicagoland was transformed from a sauce-splattered sandwich bar into the show’s titular fine-dining venture, so too has Chicago evolved from a meatpacking capital to one of America’s pioneering food cities.\n    \nOne upon a time, fine dining in the Windy City mostly consisted of steak and potatoes. Then in 1987, Charlie Trotter opened his eponymous restaurant in Lincoln Park. Using French and Japanese techniques and lots of fresh vegetables, Trotter — like The Bear’s chef, Carmy — was determi…",
@@ -7823,6 +7788,20 @@
       "siteUrl": "https://www.natgeomedia.com/science/article",
       "articles": [
         {
+          "id": "https://www.natgeomedia.com/environment/article/content-18231.html",
+          "author": null,
+          "description": "澳洲塔龍加動物園（Taronga Zoo）的實驗室內，靜置著一排排充滿液態氮的儲槽，裡面存放來自大堡礁的珊瑚細胞。這裡是全球最大的冷凍珊瑚庫，牠們凍結於時間長河，宛若「諾亞方舟」，靜候甦醒的契機。\n去（2024）年底，科學家首度成功以冷凍的珊瑚精子讓新鮮的卵子受精，培育出珊瑚寶寶。新一代的珊瑚已重回大堡礁，目前生長狀況良好。\n\n                    \n珊瑚的時光暫停鍵\n五彩繽紛的珊瑚礁是海洋生物的重要棲地，然而全球暖化導致海水升溫、珊瑚白化。2023年~2025年的大規模白化事件影響全球84%的珊瑚，橫跨太平洋、印度洋和大西洋，而大堡礁也在近8年歷經了五次白化事件。\n塔龍加動物園的低溫多樣性生物庫（CryoDiversity Bank）是全球最大的冷凍珊瑚庫。2011年以來，每年在珊瑚大量產卵期間蒐集上兆個細胞。分離出的精子與冷凍保護劑混合後冰存在-196°C，代謝停止，細胞得以無限期保存。卵子含有較多水分與脂肪，目前的技術尚未成熟，因此未能冰存。\n大堡礁有近400種珊瑚，冰封版「諾亞方舟」儲存了30多種。澳洲塔隆加保育協會（TCSA）保育科學主管歐布萊恩（Justine O'Brien）告訴《澳聯社》（AAP），珊瑚種類繁多，需要決定優先順序，「耐熱並且具有造礁功能的珊瑚是首選」。\n「我們在牠們的生理時鐘按下暫停鍵。希望藉由大家的努力，保住大堡礁美麗的多樣性」，歐布萊恩說。\n\n                    \n耐熱珊瑚重返大堡礁\n這項創新證實有效，塔龍加保育協會去年底使用冷凍保存的珊瑚精子，成功地讓新鮮的珊瑚卵子受精。緊接著，他們與澳洲海洋科學研究所（AIMS）合作，在海洋模擬中心（SeaSim）培育珊瑚寶寶，最後送回大堡礁。\n\n.g_AD_970_250_InArticle_responsive{width:300px;height:250px;}\n@media(min-width: 1100px){.g_AD_970_250_InArticle_responsive{width:100%;}}\n\n\n\n\n\n\n\n\n\n初步研究報告顯示，回到大堡礁的珊瑚正茁壯成長中，成為珊瑚礁復育的重要里程碑。科學家期待這項突破每年能為大堡礁增添數百萬更耐熱的珊瑚。\n \n參考資料\nAFP（2025年6月4日），Coral frozen in time throws lifeline for Great Barrier Reef\nAAP（2025年3月19日），Cryo-born corals thrive on reef in win for restoration\nOceanographic Magazine（2024年12月20日），World's first cryo-born coral babies planted on Great Barrier Reef\nGreat Barrier Reef Foundation（2024年12月18日），Cryo-born coral babies deployed for the first time on the Great Barrier Reef\n本文轉載自「環境資訊中心」網站，內容由許多專家學者及民間環團，提供國內外環境教育與環保資訊；主題涵蓋全球變遷、溫室氣體控制、環保生活、環境汙染防治、生態保育、能源節約與能源效率、綠建築等各面向。期許能替沒有選票的山林、濕地、海洋、土地發聲。\n\n                    \n#大堡礁\n#冰凍諾亞方舟\n#珊瑚寶寶",
+          "link": "https://www.natgeomedia.com/environment/article/content-18231.html",
+          "publishedOn": "2025-06-22T16:00:00.000Z",
+          "wordCount": 490,
+          "title": "冰凍諾亞方舟守護大堡礁 試管珊瑚寶寶回歸海洋 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權",
+          "enclosure": {
+            "url": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18231/2025062368397185.jpg",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18231/2025062368397185.jpg"
+        },
+        {
           "id": "https://www.natgeomedia.com/science/article/content-18232.html",
           "author": null,
           "description": "喝可樂治偏頭痛是流傳已久的民間療法，很多患者都覺得有用。為什麼可樂能有效緩解疼痛症狀？來看看專家的說法。\n\n                    \n每當我覺得偏頭痛快發作時，就會喝些有咖啡因的飲料，像是一大杯可樂。\n根據專家估計，有14%到15%的人跟我一樣患有偏頭痛。偏頭痛是全球健康問題的主因之一，許多人因偏頭痛不適必須請假及就醫。目前已有不少治療偏頭痛的藥物，不過很多長期偏頭痛患者都有自己深信不疑的偏方。\n其中一種偏方，就是飲用含有咖啡因的汽水（例如可樂）。我很好奇，科學家是否認同汽水的成分有助緩解即將發生的偏頭痛？結果還真的有用──或者說，至少科學家認為可樂對某些人有幫助。芝加哥西北大學費恩伯格醫學院的神經學家凱瑟琳．卡羅爾（Katherine Carroll）表示：「喝可樂確實是有一些醫學根據。」\n這或許就是為什麼近期社群媒體上瘋傳「麥當勞偏頭痛套餐」這種偏方，也就是大杯可樂配上大份薯條的組合。\n汽水未必能完全消除偏頭痛之苦，也不應當成藥物的替代品，不過專家表示這種療法確實有些用處。\n\n                    \n為什麼偏頭痛發作時會想喝汽水？\n偏頭痛和其他類型的頭痛不同，其中一個差異是偏頭痛通常有四個不同階段：前驅期（prodrome）、預兆期（aura）、頭痛期和緩解期（postdrome）。\n\n.g_AD_970_250_InArticle_responsive{width:300px;height:250px;}\n@media(min-width: 1100px){.g_AD_970_250_InArticle_responsive{width:100%;}}\n\n\n\n\n\n\n\n\n\n前驅期就是頭痛發作的幾小時到幾天前，此時人們常會突然想吃某些食物，或許是身體想藉由攝取特定食物來解決病因、緩解偏頭痛而發出的訊號。\n著有《疼痛欲裂：頭痛的內幕》（Sp…",
@@ -8109,6 +8088,38 @@
       "feedUrl": "https://news.un.org/feed/subscribe/en/news/all/rss.xml",
       "siteUrl": "https://news.un.org/en/",
       "articles": [
+        {
+          "id": "https://news.un.org/en/story/2025/06/1164846",
+          "author": null,
+          "description": "At least 410 Palestinians have been killed by the Israeli military while trying to fetch from controversial new aid hubs in Gaza – a likely war crime – the UN human rights office, OHCHR, said on Tuesday.",
+          "link": "https://news.un.org/feed/view/en/story/2025/06/1164846",
+          "publishedOn": "2025-06-24T12:00:00.000Z",
+          "wordCount": null,
+          "title": "Gaza: Over 400 Palestinians killed around private aid hubs, UN rights office says",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/15-05-2025_WHO_Gaza-01.jpg/image560x340cropped.jpg",
+            "length": "27307",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/15-05-2025_WHO_Gaza-01.jpg/image560x340cropped.jpg"
+        },
+        {
+          "id": "https://news.un.org/en/story/2025/06/1164686",
+          "author": null,
+          "description": "Telling the time on the Moon is more complicated than you might think, but answering the question is becoming more important amid a resurgent interest in lunar exploration. The UN is helping to ensure the Moon is governed in a coordinated and peaceful way, and agreeing on a time zone is a central element of international discussions.",
+          "link": "https://news.un.org/feed/view/en/story/2025/06/1164686",
+          "publishedOn": "2025-06-24T12:00:00.000Z",
+          "wordCount": null,
+          "title": "What time is it on the Moon? It’s all relative…",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/19-06-2025-NASA-Apollo-17-lunar-rover.jpg/image560x340cropped.jpg",
+            "length": "34998",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/19-06-2025-NASA-Apollo-17-lunar-rover.jpg/image560x340cropped.jpg"
+        },
         {
           "id": "https://news.un.org/en/story/2025/06/1164836",
           "author": null,
@@ -9968,6 +9979,46 @@
       "siteUrl": "https://chinadigitaltimes.net/chinese",
       "articles": [
         {
+          "id": "https://chinadigitaltimes.net/chinese/?p=719086",
+          "author": "既要又要还要",
+          "description": "某些平台起初对这“爱国流量”睁只眼闭只眼，任其如野草般疯长，浇灌以放纵的算法肥水。可夜壶终究是夜壶，用得顺手时搁在床底，一旦臊气冲天熏坏了体面，便成了亟需清理的卫生问题。当“伪史”的荒诞开始反噬主流叙事，当国际笑柄的标签越贴越牢，夜壶的命运已经注定。",
+          "link": "https://chinadigitaltimes.net/chinese/719086.html",
+          "publishedOn": "2025-06-24T10:32:42.000Z",
+          "wordCount": 13143,
+          "title": "不正确｜西方伪史论，夜壶一身骚",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/image-1750760817892.png"
+        },
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=719084",
+          "author": "既要又要还要",
+          "description": "美国和伊朗，孰强孰弱，应该是个人都能正确判断。所以如果伊朗跟美国打起仗来，直接说伊朗赢了，那怕是有点太不尊重读者。但可以对文字稍加润色，给人一种“伊朗赢了”的感觉，也好让他们的少数拥堵，内心里暗自窃喜。比如一家顶流媒体把双方达成停火协议写成“伊朗停火”，再加以这样的描述......",
+          "link": "https://chinadigitaltimes.net/chinese/719084.html",
+          "publishedOn": "2025-06-24T10:23:45.000Z",
+          "wordCount": 13122,
+          "title": "天涯行路｜差点以为是伊朗赢了，美国投降了",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/image-1750760382137.png"
+        },
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=719070",
+          "author": "既要又要还要",
+          "description": "一位年仅31岁的清华博士后，在归国不到一年后坠楼身亡，留下“无产主义者怕死对吗”的手写遗书。作为留美归来，怀抱赤子之心的高知青年，何赵祥睿试图向政府表达诉求，却因为不了解国内情况而被“境外势力”四字诛心，在人生最后的72小时内，他的心理状况急转直下......",
+          "link": "https://chinadigitaltimes.net/chinese/719070.html",
+          "publishedOn": "2025-06-24T10:05:47.000Z",
+          "wordCount": 13233,
+          "title": "水瓶纪元｜何以清白：归国清华博士后之死",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/image-1750758440096.png"
+        },
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=719058",
+          "author": "既要又要还要",
+          "description": "0ujXByOpKClR3ZM：我正在玩，之前还播出过我玩这个游戏的片段....这个游戏是在中国男女尖锐对立的背景下产生的，而这个男女对立的形成，中国政府首先负有不可推卸的责任。正是其在计划生育和文化宣传上的多次失误形成了今天的局面。",
+          "link": "https://chinadigitaltimes.net/chinese/719058.html",
+          "publishedOn": "2025-06-24T08:37:16.000Z",
+          "wordCount": 13073,
+          "title": "【立此存照】左右互搏？《捞女游戏》Vs《情感反诈模拟器》",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/image-1750746091021.png"
+        },
+        {
           "id": "https://chinadigitaltimes.net/chinese/?p=719065",
           "author": "elijah",
           "description": "“2952全票通过呢？”",
@@ -11272,6 +11323,16 @@
       "siteUrl": "https://sspai.com",
       "articles": [
         {
+          "id": "https://sspai.com/post/100523",
+          "author": "Matrix机器人",
+          "description": "除了首页时间流和侧栏的精选展位，少数派Matrix社区还有很多优秀内容因条件所限无法得到有效曝光，因此我们决定重启Matrix周报，并在此基础上添加更多社区内容、作者投稿新玩意呈现给大家。🖊️季度创作 ...查看全文",
+          "link": "https://sspai.com/post/100523",
+          "publishedOn": "2025-06-24T09:33:49.000Z",
+          "wordCount": 1018,
+          "title": "社区速递 098 | 一周热评、派友最爱的口碑改编剧、社区文章与新玩意",
+          "imageUrl": "https://cdnfile.sspai.com/6/24/2025/article/09a5abef-3d70-48ac-3959-0ad4824adc75.png"
+        },
+        {
           "id": "https://sspai.com/post/100511",
           "author": "机核GCORES",
           "description": "本文首发于机核公众号，少数派经授权转载，仅对文章格式略作调整。《死亡搁浅》系列是由日本游戏制作人小岛秀夫携旗下工作室KojimaProductions打造的原创游戏IP作品，游戏融合动作、潜行及社交玩 ...查看全文",
@@ -12030,16 +12091,6 @@
           "wordCount": 605,
           "title": "西昌：少数民族底色、千年文明印记与火箭升空的震颤",
           "imageUrl": "https://cdnfile.sspai.com/2025/6/5/article/dd085a95-f2b4-2c7a-29fb-eb944d9dfee6.jpeg"
-        },
-        {
-          "id": "https://sspai.com/post/99922",
-          "author": "少数派编辑部",
-          "description": "理光推出 Ricoh360 Theta A1 全景相机、Epic 游戏商城将启用新分成模式等。查看全文",
-          "link": "https://sspai.com/post/99922",
-          "publishedOn": "2025-06-04T23:32:44.000Z",
-          "wordCount": 787,
-          "title": "派早报：OpenAI 升级 Codex、Adobe 发布 Android 版 PS 等",
-          "imageUrl": "https://cdnfile.sspai.com/05/06/2025/article/628f4861-4108-c07d-676b-531c48c1d8ee.jpeg"
         }
       ]
     },
@@ -13112,6 +13163,16 @@
       "feedUrl": "http://aeon.co/feed.rss",
       "siteUrl": "https://aeon.co",
       "articles": [
+        {
+          "id": "urn:id:7973",
+          "author": "Zala &amp; Asad Nariman",
+          "description": "Women in Afghanistan are prisoners in their own homes. This is the story of Marjan, married at 12 to a Taliban fighter \n - by Zala & Asad Nariman\n Read at Aeon",
+          "link": "https://aeon.co/essays/the-story-of-a-girl-sold-into-marriage-with-a-taliban-leader?utm_source=rss-feed",
+          "publishedOn": "2025-06-24T10:00:00.000Z",
+          "wordCount": 25738,
+          "title": "Taliban bride",
+          "imageUrl": "https://images.aeonmedia.co/images/cf5932d6-8696-4a48-9e0e-92b01fd7c556/ifinal-essay-afghan_stories_1.jpg?width=1200&quality=75&format=auto"
+        },
         {
           "id": "urn:id:8107",
           "author": "Aeon Video",
@@ -14186,6 +14247,76 @@
       "feedUrl": "https://feedx.site/rss/infzm.xml",
       "siteUrl": "http://infzm.com",
       "articles": [
+        {
+          "id": "http://www.infzm.com/contents/296545",
+          "author": null,
+          "description": "2025-06-24 19:47:16\n6月24日，广东主流媒体全面启动系统性变革，南方报业传媒集团（南方日报社）“集成式”推出20项改革计划、56条具体举措，全面激发创新活力，强化用户服务，扩大传播效果，引发各界广泛关注。\n暨南大学新闻与传播学院院长、教授、博士生导师支庭荣在《南方报业推进主流媒体系统性变革路线图：打造立足于South的S型体系、S型方案、S型路径》一文中指出，主流媒体的系统性变革，就是要推动维度的全面升级、升维，从而带动新闻内容生产力的大幅度提升。\n南方报业系统性变革闪烁着三个关键字：提升的升、深化改革的深，还有生机勃勃的生。南方报业的“一报两端”（南方日报、南方+、South）或许可以概括为3S战略，即着力打造三大媒体平台：主报、主端和外宣旗舰，这是立足于祖国南方、立足于粤港澳大湾区的媒体航母舰队。\n文章主要内容如下：\n推进主流媒体的系统性变革，必然要带来我国媒体全行业的一次体系优化、品质升级、境界跃迁和凤凰涅槃。主流媒体的系统性变革，就是要推动维度的全面升级、升维，从而带动新闻内容生产力的大幅度提升。\n以一体化改革树立媒体领域的“双一流”标杆\n南方报业的系统性变革思路，包含着两个重点突破方向：一是强化以用户为导向的内容生产和传播；二是以体制机制改革、传播效果评价驱动激发和增强队伍的活力，有效扩大优质内容和服务产能，在供给侧实现巨大的爆发。\n系统性变革的两个侧重点——打造一流产品和打造一流的人才队伍，构成了媒体领域的“双一流”。“双一流”成为推动媒体变革的两大抓手。前端是一流的产品，是推出用户喜爱的、日常喜欢运用的产品，是磨炼出具有影响力、穿透力、竞争力、持久黏着力的产品。后端是人才，是培养勇敢善战的、善用新技术的、团队化的、有活力的人才队伍，来作为产品和服务的强大支撑。\n“双一流”意味着以一流的产品为先导，以一流的人才为保障，强调的是全体系的高度适配…",
+          "link": "http://www.infzm.com/contents/296545",
+          "publishedOn": "2025-06-24T12:25:06.000Z",
+          "wordCount": 117,
+          "title": "支庭荣：南方报业系统性变革的S型体系、方案、路径",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/296478",
+          "author": null,
+          "description": "2025-06-24 20:00:00\n\n吴大帝孙权像（唐·阎立本《古帝王图》局部）。\n古来研究《周易》的著作汗牛充栋，可是还有太多的疑问没有解决，至今聚讼不已。除了围绕《周易》的注疏和专门研究著作可供研读外，其他典籍中也多有关于《周易》的材料，比如《左传》《国语》中的占筮实例，很早就被学者注意到，用以研究春秋战国时期的占筮方法和当时人们对易学一些基本概念和术语的解释。杨树达更把先秦两汉古籍中关于《周易》的零星记载勾稽出来，编为《周易古义》，为从其他角度理解《周易》，或者说是跳出易学来研究《周易》，提供了某种助力。\n几年前，我曾应同事的要求，在线上作过一个“《周易》快速入门”的讲座，介绍关于《周易》的一些基本知识，当时因为时间限制，有些事先准备的材料没有讲出来，其中就包括我搜集的《三国志》中有关《周易》的资料。近日重新检视，发现这些东西还是很有意思的，而至今未见有人论及，故草成此文，以公诸同好。\n《三国志·三少帝纪》记载，甘露元年四月，高贵乡公曹髦幸太学，与诸儒亲自讨论《周易》《尚书》和《礼记》，其中关于《周易》的部分为辨析基本易理，足证皇帝曹髦的易学水平非常高，可惜的是，这些易学修养并未在后来他同司马昭的政治斗争中发挥作用，他还是太年轻，冲动之下，小不忍而乱大谋，把自家性命和曹氏江山都提前断送了。\n《三国志》卷二十九《方技·管辂传》记载了管辂的大量占筮实例，大部分都很神奇，比较接近江湖的技术派，与传统的解易方法大不相侔。易学的传承，大概很早就分成了学院派和江湖派，各有各的看家本领。与皇帝曹髦讨论易理的易学博士淳于俊，和在民间享有大名的管辂，由于路数不同，很难放在一个平面上比较其高下。管辂的个别筮例，易学名家尚秉和的著作曾经论及，读者可以参看（《尚秉和易学全书》，张善文校理，中华书局，2020）。我的这篇小文，既不讨论渊深的易理，也不讨论技术层面的象数推导过程，而是择其中间…",
+          "link": "http://www.infzm.com/contents/296478",
+          "publishedOn": "2025-06-24T12:25:06.000Z",
+          "wordCount": 103,
+          "title": "张继海 | 《周易》如何在古人生活中发生影响：三国时期几个《易》占实例",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/296530",
+          "author": null,
+          "description": "2025-06-24 19:00:00\n\n电影《酱园弄·悬案》剧照。资料图\n“酱园弄（lòng）不是弄（nòng）。”2025年6月16日，上海国际电影节大师班的现场，陈可辛如是纠正了对谈人三次。\n这里的“弄”指的是上海的弄堂，陈可辛的新片《酱园弄·悬案》就发生其中。故事改编自发生在80年前的一段真人真事，1945年3月，上海新昌路酱园弄发生了一起谋杀案：一对结婚近十年的夫妻，女方詹周氏杀了长期吃喝嫖赌并且家暴自己的丈夫詹云影，并且将其分尸数块……\n这桩颇有奇情色彩的案件在当时引发了巨大的讨论，普通民众和知识分子都参与了进来，有人认为案件性质恶劣，要求重判詹周氏；也有人深深同情她的遭遇，甚至为她撰文辩护。由于当时已接近日本投降，詹周氏的命运也和飘摇的时代绑定在一起，被判处死刑后判决又被废除。\n在经过几次漫长的审讯和翻案后，詹周氏被判处15年刑期。1949年新中国成立后，她和监狱的其他服刑人员一起被新政府接收，在监狱中表现良好，出狱后过上了平静的生活，并且没有再返回上海。\n据说，1990年代还有记者去采访她，但她对当年的事情不再提及，此时她也早就不被称为詹周氏，而是拥有了自己的姓名——周慧珍。\n不论从什么角度来看，酱园弄杀夫案都是一桩具有传奇色彩的故事，甚至被称为“民国四大奇案之一”，因此当陈可辛宣布要将其拍摄成影视剧的时候，就很受媒体关注。\n原名为《酱园弄杀夫案》的项目主要改编自小说家蒋峰的作品《翻案》，曾经两度立项，但在2017年被陈可辛叫停，他自觉拍摄一部高成本的文艺片很可能无法收回成本。在经过几年的沉淀后，陈可辛决定将其改编成一部更具有类型元素的作品，2022年，陈可辛成立了一家新的制片公司Changin’Pictures，立足于整个亚洲市场，并将开发的原创内容卖给海外的流媒体平台。\n其中，他宣布由章子怡主演的《酱园弄杀夫案》就是其中最为重磅的一部，最初的计划是拍摄一…",
+          "link": "http://www.infzm.com/contents/296530",
+          "publishedOn": "2025-06-24T11:25:08.000Z",
+          "wordCount": 96,
+          "title": "陈可辛：导演只有一部电影的机会",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/296514",
+          "author": null,
+          "description": "2025-06-24 18:00:59\n\n重庆一家泡泡玛特线下门店销售的LABUBU玩偶。视觉中国图\n历经一轮“高烧”，潮玩LABUBU的二手价格有所回跌。据媒体报道，在某二手交易平台，LABUBU3.0盲盒价格普跌约50%。但即便如此，热潮仍未完全退去。\n北京大学新闻与传播学院教授胡泳长期从事互联网和新媒体研究。据他观察，这一轮LABUBU的爆红，与过往潮流的形成并无本质不同：能够风靡一时的，常常是令人熟悉又新奇的事物。它的背后，则总有时尚工业的影子。\n复旦大学新闻学院副教授崔迪此前研究粉丝与流行文化。在他看来，LABUBU的流行反映了“叙事的退场”。比起有宏大叙事背景的IP，人们似乎更青睐LABUBU这样，故事背景不强、缺乏宏大叙事的IP。\n“当下的环境中，人们可能会感到疏离、破碎，没有统一性的期待。这种缺乏叙事，但要素突出的东西，反而更容易流传。”崔迪说。\n既熟悉，又新奇\n南方周末：LABUBU族群的形象给你留下的第一印象是怎样的？\n胡泳：第一印象而言，我觉得LABUBU族群是小丑娃，挺丑的。另外，它还有点怪。一般来说，可爱和怪是对立的，但是LABUBU族群把可爱和怪弄到一起了。\n崔迪：我会想到暴力熊，还有KAWS这些此前大热的玩偶。我觉得，之前的潮流萌文化还是比较单纯美好，童真的那一面比较明显，不管是Hello Kitty，还是布朗熊，它们单纯以呆萌为主。但是，后来的潮玩就有了黑化的特征，或者开始与暗黑色彩融合，所以我认为它们是有暗黑和童真结合的矛盾性。\n南方周末：LABUBU外观设计上的特点会影响到它的流行吗？\n胡泳：动物行为学家康拉德·劳伦兹在1943年提出，人类有一种幼儿图式，就是说人类一旦见到特别可爱的小动物或者婴儿，就很容易被唤起要保护、养育它的欲望，这有利于其后代存活。\n这一点在LABUBU族群身上就有所体现。它的眼睛很大，表情很夸张，身体非常小，这就是…",
+          "link": "http://www.infzm.com/contents/296514",
+          "publishedOn": "2025-06-24T10:25:05.000Z",
+          "wordCount": 100,
+          "title": "从LABUBU火爆谈流行文化：时尚工业与“叙事的退场”",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/296532",
+          "author": null,
+          "description": "2025-06-24 17:13:58\n长安城之大，容不下一个孤独的灵魂。因为做事认真，不懂官场潜规则，李善德被上司贬谪，被同行欺凌，却也一直秉承初心，不改颜色，在泥泞中艰难前行，只为能守护女儿平安长大。\n李善德本就背着房贷，为人木讷老实，命运却并未对他有丝毫眷顾。正所谓“麻绳专挑细处断，厄运专找苦命人”，“荔枝使”这个要命的差事，从天而降，重重砸在了他的头上。人在家中坐，祸从天上来。他望着新宅里那株已然枯死的桂树，手中紧攥着“荔枝鲜”的催命文书。这一刻，大唐天宝年间的这个九品小吏，被无情地抛入了一个鲜血淋漓的伦理困局。\n若他此时选择自尽，岭南至长安五千里的驿路上便不会累死马匹、耗尽民财，右相杨国忠的爪牙也失去了借机盘剥百姓的由头。然而，若他赴死，年幼的女儿袖儿将沦为孤雏，那些押上性命助他完成任务的峒人、胡商、骑手们也会随之坠入万劫不复的深渊。\n电视剧《长安的荔枝》如同锋利的刀刃，撕开了盛唐繁华锦绣的外衣，将一介“荔枝使”的生死抉择化作一面多棱镜，清晰映照出个体存亡与苍生疾苦之间的永恒撕扯。当我们跟随李善德踉跄的脚步，穿越岭南的瘴疠之地和官场的暗礁险滩，先秦诸子穿越千年的诘问便轰然响在耳边。这或许是我们每个人都会遇到的问题，当利己与利他如同水火般不容，凡人该如何在绝境中守护灵魂的重量？\n李善德的绝境，源于一场精心设计的官僚骗局。上司将“荔枝煎”的文书篡改为“荔枝鲜”，把这个看似不可能完成的转运任务，硬生生扣在了这位老实巴交的小吏头上。若他拒绝，全家将因“抗旨”之罪而被灭门；若他接受，无疑是踏上了一条看似注定无法生还的不归路。但命运就是如此爱捉弄人，在一次次的计算与尝试下，他竟绝处逢生，找到了荔枝转运之法。\n然而，李善德每向长安靠近一里，脚底便多一道血痕。他比任何人都清楚，自己求生的执念，正渐渐化作绞杀无辜者的绳索。女儿袖儿稚嫩的脸庞和亡妻锦娘的嘱托，如同一根根芒刺，扎进他颤…",
+          "link": "http://www.infzm.com/contents/296532",
+          "publishedOn": "2025-06-24T09:55:06.000Z",
+          "wordCount": 93,
+          "title": "《长安的荔枝》：当利己与利他水火不容，凡人守护灵魂的重量",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/296538",
+          "author": null,
+          "description": "2025-06-24 17:17:28\n\n2025年6月24日，广东省珠海市中级人民法院一审公开宣判湖南省政协原党组副书记、副主席戴道晋受贿、利用影响力受贿案，对被告人戴道晋以受贿罪判处死刑，缓期二年执行，剥夺政治权利终身，并处没收个人全部财产；以利用影响力受贿罪判处有期徒刑四年，并处罚金人民币四十万元，决定执行死刑，缓期二年执行，剥夺政治权利终身，并处没收个人全部财产。对被告人戴道晋犯罪所得财物及其孳息依法予以追缴，上缴国库，不足部分，继续追缴。\n\n经审理查明：2000年至2024年，被告人戴道晋利用担任湖南省郴州市委常委、副市长、市长、市委书记，湖南省政府党组成员、副秘书长、办公厅主任、秘书长、副省长，湖南省政协党组成员、副书记、副主席等职务上的便利，为有关单位和个人在企业经营、项目承揽、职务调整晋升等事项上提供帮助，直接或者通过其亲属非法收受财物共计折合人民币1.07亿余元。2021年下半年至2023年，戴道晋退休后利用原担任湖南省副省长，湖南省政协党组副书记、副主席等职权或者地位形成的便利条件，通过其他国家工作人员职务上的行为，为他人在项目承揽、工程款结算等事项上谋取不正当利益，直接或者通过其亲属非法收受财物共计折合人民币366万余元。\n\n珠海市中级人民法院认为，被告人戴道晋的行为构成受贿罪、利用影响力受贿罪。戴道晋受贿数额特别巨大，并使国家和人民利益遭受特别重大损失，论罪应当判处死刑；其利用影响力受贿数额特别巨大，亦应依法惩处，并与其所犯受贿罪并罚。鉴于戴道晋受贿犯罪中有未遂情节，到案后如实供述罪行，主动交代监察机关尚未掌握的大部分受贿事实及利用影响力受贿事实，其利用影响力受贿罪构成自首；认罪悔罪，积极退赃，犯罪所得财物及其孳息大部分已追缴到案，具有法定、酌定从轻或者减轻处罚情节，对其所犯受贿罪判处死刑，可不立即执行；对其所犯利用影响力受贿罪，可以减轻处罚。法庭遂作出上述判决。\n\n\n\n获取更多RSS：\nhttps://feedx.net \nhttps://feedx.site",
+          "link": "http://www.infzm.com/contents/296538",
+          "publishedOn": "2025-06-24T09:55:06.000Z",
+          "wordCount": 69,
+          "title": "湖南省政协原副主席戴道晋一审被判死缓",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/296528",
+          "author": null,
+          "description": "2025-06-24 16:25:38\n海南琼海一17岁女生失联事件引发社会关注。6月24日，琼海市公安局发布通报，6月21日14时29分，琼海市公安局接到林某某报警称，其女儿李某栏6月20日晚离开学校后失联，请求帮助寻找。接报后，公安局迅速组织警力调阅监控、走访学校，联合政府相关部门和社会救援力量全力开展搜寻工作。\n6月23日上午11时，公安机关在琼海市嘉积镇万泉河路月亮湾小区附近河道内发现一具遗体，与6月20日晚李某栏失踪时衣着一致，经现场勘查衣着完整，体表无外伤。通过DNA检验，确认死者系失联学生李某栏。经走访调查死者家属、医院医生，确认李某栏近期在多家医院诊断患有抑郁症（有多家医院就诊记录）。综合目前调查情况，初步排除刑事案件。下一步，公安机关将继续开展调查并配合相关部门做好善后工作。\n请大家尊重逝者及其家属隐私，不造谣、不信谣、不传谣，愿逝者安息。\n\n\n\n\n获取更多RSS：\nhttps://feedx.net \nhttps://feedx.site",
+          "link": "http://www.infzm.com/contents/296528",
+          "publishedOn": "2025-06-24T08:55:06.000Z",
+          "wordCount": 68,
+          "title": "海南警方通报：确认死者是失联学生李某栏",
+          "imageUrl": null
+        },
         {
           "id": "http://www.infzm.com/contents/295899",
           "author": null,
@@ -18064,26 +18195,6 @@
           "publishedOn": "2025-06-05T01:25:06.000Z",
           "wordCount": 96,
           "title": "2025“香会”的声音、生意与敌意",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/295026",
-          "author": null,
-          "description": "2025-06-05 08:00:00\n当裁判的哨声淹没在十三城球迷山呼海啸的呐喊里，一场席卷全网的现象级狂欢正在江苏大地上演！这不是英超，也不是中超，而是被网友们戏称为“苏超”的江苏十三市足球联赛。\n\n这里奉行“比赛第一，友谊第十四”的江湖铁律，每一场较量都弥漫着“没有假球，全是世仇”的硝烟味。城市间的“梁子”成了最佳助燃剂，球迷的创意更是喷薄而出：常州与扬州的对决，被冠以“炒饭德比”；宿迁与徐州的对抗，被戏称“楚汉争霸”；南京与无锡的恩怨化为“盐水鸭VS水蜜桃”，甚至衍生出南京、南通、灌南、戴南四城“谁是真南哥”的身份混战……\n\n江苏“十三太保”如何靠梗引爆流量？地域“世仇”背后藏着怎样的城市密码？官方下场“整活”又玩出了怎样的文旅融合？南方周末带你深入解码。",
-          "link": "http://www.infzm.com/contents/295026",
-          "publishedOn": "2025-06-05T00:25:06.000Z",
-          "wordCount": 79,
-          "title": "靠玩梗成顶流，“苏超”凭什么破圈？",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/295004",
-          "author": null,
-          "description": "2025-06-05 08:00:00\n因纯净水代工一事，宗馥莉和娃哈哈集团再度被推上舆论风口浪尖。\n而农夫山泉（09633.HK）董事长钟睒睒近期的言论——“农夫山泉目前的所有产品是无法代工的”，更是将该事件进一步升温。\n表面上看，这似乎是一个“纯净水是否可以代工”的问题讨论。但内里，却是新任接班人宗馥莉在娃哈哈更进一步的内部改革。\n一般而言，生产代工往往是企业自身产能不足情况下的选择。娃哈哈在5月的回应中，也确实这样解释：“去年因水产品市场需求快速增长，故产品结构对应调整，导致公司出现产能紧张，我们迅速启动了应对措施，委托代工厂生产同时进行自有设备改造与投资新建工厂……”\n然而不寻常的是，娃哈哈一面外委代工，另一方面却在关厂减产。21世纪经济报道记者获悉，从今年年初以来，娃哈哈已关停了18家分厂的生产线，涉及深圳、重庆、天津、陕西咸阳、浙江衢州、江西吉安等地分厂。\n值得注意的是，上述被关停的18家工厂，均非“宏胜系”公司。而广州恒枫饮料有限公司、贵阳宏胜恒枫饮料有限公司、成都宏胜恒枫饮料有限公司等“宏胜系”公司，近年来却在“逆势”拓展纯净水产线。\n一面关停，一面增产，其间体现着宗馥莉对于娃哈哈改革的方向和思路。在正式接管娃哈哈集团近300天来，宗馥莉对公司的改革也逐渐走向深水区。\n纯净水代工的双重争议\n这次风波的起因，是娃哈哈委托今麦郎生产纯净水。\n21世纪经济报道记者获得的资料显示，从2024年5月开始，娃哈哈集团便委托了今麦郎食品股份有限公司旗下河源今麦郎、咸宁今麦郎、天长今麦郎、眉山今麦郎、桐庐今麦郎、汤阴今麦郎等分公司，进行娃哈哈品牌纯净水的加工生产。\n以某份娃哈哈纯净水标签为例，该水的受委托方为今麦郎饮品（河源）有限公司，生产许可证编号对应的产地包括今麦郎饮品眉山有限公司、今麦郎饮品股份有限公司天长分公司、今麦郎饮品（咸宁）有限公司。\n此番代工风波之所以持续发…",
-          "link": "http://www.infzm.com/contents/295004",
-          "publishedOn": "2025-06-05T00:25:06.000Z",
-          "wordCount": 133,
-          "title": "宗馥莉改革渐入深水区：左手关厂代工，右手“宏胜系”扩产｜娃哈哈风波调查⑤",
           "imageUrl": null
         }
       ]
