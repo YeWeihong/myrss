@@ -2519,66 +2519,6 @@
             "length": "0"
           },
           "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/d5da41fc-b2df-4880-d6b1-70067e89c400/cover"
-        },
-        {
-          "id": "f2e1b2",
-          "author": "InfoQ 中文",
-          "description": "📌 一句话摘要\n            \n深度剖析 AutoMQ 如何基于 S3 重构 Kafka 存储层，解决对象存储带来的技术挑战，实现低成本、高弹性云原生 Kafka。\n📝 详细摘要\n            \n文章深度剖析了将 Apache Kafka 构建在对象存储（如 S3）上的技术可行性与挑战。指出传统 Kafka 的计算存储耦合、数据复制和跨可用区流量等问题在高弹性云环境中带来的成本及运维困境。在此背景下，以开源项目 AutoMQ 为例，详细阐述了如何应对对象存储带来的高延迟、高 IOPS 成本、缓存管理、元数据管理、Kafka 协议兼容性、Shared Nothing 与 Shared Disk 融合、吞吐量以及跨 AZ 流量成本等关键挑战。AutoMQ 通过引入 WAL+S3 分层存储、数据批处理与 Compaction、分层缓存系统（Log Cache/Block Cache）、基于 Kraft 的元数据管理以及重写存储层并引入 Stream 抽象等一系列创新技术，在保障 Kafka 兼容性的同时，有效降低了成本并提升了弹性。文章分析严谨，技术细节丰富，对理解 Kafka 云原生演进和基于对象存储构建分布式系统有重要参考价值。\n💡 主要观点\n            \nAutoMQ 采用 WAL+S3 架构和分层缓存优化读写性能\n                         利用 WAL 降低写入延迟，异步上传 S3；Log/Block Cache 分层缓存热温数据，提升读取命中率，平衡性能与成本。\n                    \n\n                        数据批处理和 Compaction 降低对象存储请求成本并优化读取\n                         写入前批量生成 SSO/SO 对象，后台 Compaction 合并小对象，减少 GET 次数，提高同一 Partition 数据的物理集中度和顺序读效率。\n                    \n\n                        AutoMQ 重写存储层并在 Kafka 协议栈上引入 Stream 抽象实现兼容性\n                         保留 Kafka 核心逻辑，通过 Meta/Data/Txn streams 在对象存储上实现 Partition 语义及元数据管理，适配对象存储特性。\n                    \n\n                        通过多层级限流和 S3 WAL 机制解决吞吐量和跨 AZ 成本\n                         区分流量优先级进行限流保障服务质量；Producer 写入同 AZ Broker，数据先入 S3 WAL 再由 Leader 读取，最小化跨 AZ 流量。\n                    \n💬 文章金句\n            \n为什么要把数据转移到 S3 上？... 为了降低成本。\nAutoMQ 通过 WAL+S3 的架构实现低延迟。\n构建在对象存储上的系统需要比 Kafka 更多的元数据。\nKafka 替代方案还必须具备一个关键能力：让用户可以毫无障碍地从 Kafka 切换到新方案。\n确保 Producer 总是与同一 AZ 中的 Broker 通信。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：InfoQ 中文\n作者：InfoQ 中文\n分类：软件编程\n语言：中文\n阅读时间：27 分钟\n字数：6749\n标签：\n                    \n                        Kafka, 对象存储, S3, 软件架构, 分布式系统",
-          "link": "https://www.bestblogs.dev/zh/article/f2e1b2",
-          "publishedOn": "2025-06-06T07:54:00.000Z",
-          "wordCount": 341,
-          "title": "深度剖析将 Kafka 构建在 S3 上的技术挑战与最佳实践",
-          "enclosure": {
-            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/50f97b3b-afd8-43fb-a7c2-ba663509c100/cover",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/50f97b3b-afd8-43fb-a7c2-ba663509c100/cover"
-        },
-        {
-          "id": "6c0057",
-          "author": "营销交易技术团队",
-          "description": "📌 一句话摘要\n            \n探讨了大模型时代 Agent 工程化挑战，提出 Agent 定义、协作机制及 Agent 平台建设思考。\n📝 详细摘要\n            \n文章深入分析了在大模型时代构建 Agent 系统的工程化挑战与能力需求。作者首先将 LLM 时代的技术分层映射到 Java 时代，重新定义了 Agent、Tool、Prompt、数据、微调模型和评测集为核心业务资产。接着，文章借鉴微服务架构演进，预测 Agent 系统也将从单体走向多 Agent 协作，并探讨了任务分配、协作模式和冲突解决机制。针对 Agent 协作和 Tool 调用，作者详细分析了 MCP 协议的优劣，并提出工程侧需补充公网/内网、用户态权限控制、工具快速接入及长工具列表优化等能力。最后，文章指出 Agent 框架需要配套问题理解、记忆召回、知识库、评测等能力，并基于此构思了 Agent 平台的核心模块，为 Agent 体系的深入融入提供了思考方向。\n💡 主要观点\n            \n大模型时代需重塑业务核心资产概念\n                         Agent、Tool、业务 Prompt、业务数据、微调模型和评测集是新时代关键资产，是业务产品建设和 Agent 平台能力围绕的核心。\n                    \n\n                        Agent 系统将向多 Agent 协作演进\n                         借鉴微服务拆分经验，复杂任务将由多个专业 Agent 协同完成，需要设计任务分配、协作模式和冲突解决机制。\n                    \n\n                        MCP 协议需工程补充以构建健壮 Agent 平台\n                         当前 MCP 标准偏薄，需在权限控制（公网/内网、用户态）、工具快速接入、长工具列表优化等方面加强平台能力建设。\n                    \n\n                        全面的 Agent 平台需多种配套能力支持\n                         除了协作和工具调用，Agent 平台还需集成知识库管理、记忆管理、模型市场、链路追踪、评测微调等关键能力。\n                    \n💬 文章金句\n            \n大模型时代的核心业务资产应该是 Agent 的抽象、Tool 的抽象，业务 Prompt 的设计，业务数据的供给，微调后的模型，完整评测集。\n本文中对 Agent 的定义是一个能够完成一定范围内人类任务的系统，在这个范围内，万物皆 Agent。\n在 Agent 系统的发展上，应该也会有类似的演进路径，从最开始一个 Agent 做大做强，到领域知识逐渐厚重，催生出更多 Agent 来帮助共同实现某个任务。\n既然单体 Agent 到多 Agent 协作是必然的客观演进规律，那么就有必要看一下多 Agent 协作模式。\n当前 MCP 协议并没有用户态信息，这会导致有些只对指定用户开放使用的工具无法做用户级的鉴权。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：大淘宝技术\n作者：营销交易技术团队\n分类：软件编程\n语言：中文\n阅读时间：13 分钟\n字数：3226\n标签：\n                    \n                        Agent工程, 大模型, 多Agent协作, MCP协议, AI平台",
-          "link": "https://www.bestblogs.dev/zh/article/6c0057",
-          "publishedOn": "2025-06-06T07:16:00.000Z",
-          "wordCount": 325,
-          "title": "Agent 工程能力思考记录",
-          "enclosure": {
-            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/7c4109af-c797-4199-d156-a0b544d32400/cover",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/7c4109af-c797-4199-d156-a0b544d32400/cover"
-        },
-        {
-          "id": "4621c6",
-          "author": "卡尔的AI沃茨",
-          "description": "📌 一句话摘要\n            \n实测即梦 3.0“智能参考”看图改图功能，展示其在文字添加修改、复杂设计及原图一致性保持上的强大能力。\n📝 详细摘要\n            \n本文对即梦 3.0 图片模型新增的“智能参考”功能进行了深度实测，重点展示了其在“看图改图”方面的突破。通过“100 镜”实测，文章详细演示了如何使用该功能轻松实现图片的文字添加、修改文字、复杂设计（如海报生成）以及高质量的原图一致性保持。实测结果表明，该功能在文字与背景融合、设计感生成方面表现出色，尤其在人脸一致性上也有显著提升，这极大地降低了图像编辑和设计的门槛，让非专业用户也能轻松实现复杂图像处理。文章提供了具体的使用步骤和丰富的视觉案例，证明了其在实际内容创作，尤其是社媒和电商领域的巨大应用潜力，认为它是填补了现有 AIGC 工具在“从有到优”方面空白的重要一步。\n💡 主要观点\n            \n即梦 3.0“智能参考”显著提升图像编辑和设计效率\n                         用户可通过上传图片并结合文本提示，便捷地进行文字增改、风格调整和元素叠加，大幅简化复杂图像处理流程。\n                    \n\n                        功能在文字处理与原图风格融合方面表现突出\n                         新增文字能完美融入原图，修改文字也能保持原有风格，有效解决了非专业人士处理图片文字的痛点。\n                    \n\n                        高质量的原图一致性保持，拓展 AIGC 应用边界\n                         尤其在修改幅度不大的情况下，能高度保留原图人物特征和场景细节，使现有图片素材具备更强的二次创作价值。\n                    \n💬 文章金句\n            \n这个原图的风格和一致性保持，是我目前用过最好的垫图，而且还有了即梦 3.0 的中文能力加持，真的太有意思了。\n添加的文字不管是字体还是颜色还是样式都和原图完！美！融！合！在！一！起！\n至少在我这种 PS 半吊子选手这里，真的可以告别 PS 了。\n这真的不是已经在投入使用的海报吗？连某抖的风格都延续了。\n即梦 3.0 图片模型的智能参考，就是这个出口。从今天起，你积累的每一张好图，每一套设计好的 IP，每一个细节完美的 Logo，都会有更新的生命力。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：卡尔的AI沃茨\n作者：卡尔的AI沃茨\n分类：人工智能\n语言：中文\n阅读时间：15 分钟\n字数：3745\n标签：\n                    \n                        AI图像生成, 图生图, 即梦3.0, 智能参考, 图像编辑",
-          "link": "https://www.bestblogs.dev/zh/article/4621c6",
-          "publishedOn": "2025-06-06T06:34:00.000Z",
-          "wordCount": 318,
-          "title": "100 镜实测即梦 3.0 新功能“看图改图”，一致性精细到头发丝级了",
-          "enclosure": {
-            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/d85295b3-13f5-48b2-0e17-da2203544300/public",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/d85295b3-13f5-48b2-0e17-da2203544300/public"
-        },
-        {
-          "id": "8b3037",
-          "author": "机器之心",
-          "description": "📌 一句话摘要\n            \n谷歌更新 Gemini 2.5 Pro 模型，性能超越对手且价格更优。\n📝 详细摘要\n            \n文章报道了谷歌对其 Gemini 2.5 Pro 模型进行的重大更新。新版本在编码、推理、科学等多个基准测试中超越了包括 OpenAI O3 在内的竞争对手，并在 LMArena 和 WebDevArena 榜单上取得领先地位。同时，新模型的定价极具竞争力，输入/输出成本远低于 O3、Claude Opus 和 Grok 3。文章还提到新版本改进了输出风格和结构，增加了开发者可控的“思考预算”功能，并展示了定性对比测试结果。新模型目前已通过 Google AI Studio、Vertex AI 和 Gemini 应用提供。\n💡 主要观点\n            \nGemini 2.5 Pro 更新后在多项基准测试中性能领先。\n                         在编码、推理、综合性能等关键指标上超越主要竞争模型，证明了其强大的技术能力，为用户提供了性能更优的选择。\n                    \n\n                        新模型提供了显著的成本优势。\n                         与市场上其他领先模型相比，Gemini 2.5 Pro 的输入和输出 token 定价更低，降低了开发者和企业的 AI 应用成本。\n                    \n\n                        模型输出质量和开发者控制能力提升。\n                         改进了模型的响应风格和结构，使其更自然、灵活；新增思考预算功能，帮助开发者更好地管理成本和延迟。\n                    \n💬 文章金句\n            \n在保持 o3 四分之一以下的低价格的同时，在编码（Aider Polyglot）、推理能力（HLE）、科学（GPQA）等各项基准测试中超越 o3，实现更优性能！\n以 Gemini 输入每百万 token 1.25 美元，输出 10 美元的价格为基准，成本优势一目了然。\n值得一提的是，新版本中还增加了思考预算，让开发人员能够更好地控制成本和延迟，目前其他模型都还没有这个功能。\n谷歌更新后的 Gemini 2.5 Pro 是少数能正确推理出此问题答案的模型之一。\n目前已经可以在 Google AI Studio、Vertex AI 和 Gemini 应用中使用。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：机器之心\n作者：机器之心\n分类：人工智能\n语言：中文\n阅读时间：13 分钟\n字数：3021\n标签：\n                    \n                        大型语言模型, Google Gemini, 模型性能, AI基准测试, 模型定价",
-          "link": "https://www.bestblogs.dev/zh/article/8b3037",
-          "publishedOn": "2025-06-06T06:13:43.000Z",
-          "wordCount": 349,
-          "title": "深夜突袭！谷歌 Gemini 2.5 Pro 更新蝉联榜一：推理超越 o3，编程超越 opus4 ｜ 机器之心",
-          "enclosure": {
-            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/f6c1d0a5-3401-4bec-74ad-b2af1ac8a500/cover",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/f6c1d0a5-3401-4bec-74ad-b2af1ac8a500/cover"
         }
       ]
     },
@@ -2826,16 +2766,6 @@
           "wordCount": 4530,
           "title": "How We Revealed Mega-Polluters Taking Advantage of Green Loans",
           "imageUrl": "https://gijn.org/wp-content/uploads/2025/06/shutterstock_2172519343-771x550.jpg"
-        },
-        {
-          "id": "https://gijn.org/?p=2281976",
-          "author": "Ramadani Saputra",
-          "description": "For veteran journalist Wahyu Dhyatmika, Indonesia's intensely challenging press climate is a wake-up call for the media to retool its business model and refocus on serving the public.",
-          "link": "https://gijn.org/stories/interview-wahyu-dhyatmika-independent-journalism-indonesia/",
-          "publishedOn": "2025-06-06T07:00:21.000Z",
-          "wordCount": 6430,
-          "title": "‘Make-or-Break Moment’: Wahyu Dhyatmika on the Growing Threats Confronting Independent Journalism in Indonesia",
-          "imageUrl": "https://gijn.org/wp-content/uploads/2025/06/shutterstock_2467236065-771x514.jpg"
         }
       ]
     },
@@ -4268,16 +4198,6 @@
           "wordCount": 804,
           "title": "王自如解释投身 AI：确实来钱快；雷军：给1万车主免费培训智驾；身家缩水股价暴跌，马斯克向美总统低头｜极客早知道",
           "imageUrl": null
-        },
-        {
-          "id": "http://www.geekpark.net/news/350135",
-          "author": null,
-          "description": "马斯克和特朗普互喷四天了，这次他俩是彻底闹掰了。\n这场闹剧的主舞台是马斯克自家平台 X，夹杂着《华尔街日报》、CBS 等主流媒体的「煽风点火」，堪称近期最精彩的真人秀，也是各大社交媒体的流量密码。\n因为骂战过于激烈，要素过多，高潮迭起，让主流媒体喜闻乐见，吃瓜群众目瞪口呆。\n\n哪怕在大洋彼岸的微博，这俩人都是最近的热搜常客｜图源：微博  \n\n\n上周，马斯克还是白宫的「第一哥们」，特朗普在 5 月 30 日还高调送别马斯克从政府效率部卸任，不舍地说：「伊隆将永远与我们同在，一路提供帮助。」结果不到三天，俩人就翻脸比翻书还快。\n马斯克直接化身「反川先锋」，特朗普也直接开喷「伊隆烦死人了。」而这场闹剧里，最大的受害者竟然是：特斯拉。\n这究竟是权力的游戏，还是利益的不均？\n\n\n01\n铁哥们扔起键盘是真狠\n\n\n故事的开端是 6 月 3 日。虽说马斯克经常在 X 上有些「暴论」，但那天他在 X 平台上连发 25 条帖子，喊着「KILL THE BILL！」。\n他不是在表达对《杀死比尔》的喜爱，而是极力反对特朗普力推的「大而美」（Big Beautiful Bill）税收与支出法案。\n\n「大而美」法案核心就是：把美债上限直接拉高 4 万亿美元，再通过基建和减税让美国「再次伟大」。\n马斯克作为 DOGE 前负责人，吭哧几个月都没减下来 1 万亿的政府赤字，这法案简直是狠狠打他的脸。\n马斯克一开口就是老键盘侠了，他称「受不了了，这项巨大、令人愤怒、充满杂碎的（pork-filled）国会支出法案，是一个令人恶心的可憎事物（disgusting abomination）。投票支持它的人真该感到羞耻。」\n随后称「大而美法案一通过，美国经济就得『再次垮塌』」。马斯克没说的是：他本人正是资本市场上最大的玩家之一。\n\n马斯克还不忘给粉丝们算账，他称「大而美法案」是「离谱、充斥着政治献金的支出法案」它将…",
-          "link": "http://www.geekpark.net/news/350135",
-          "publishedOn": "2025-06-06T06:27:02.000Z",
-          "wordCount": 504,
-          "title": "马斯克特朗普四天撕破脸，特斯拉血亏 1 万亿",
-          "imageUrl": null
         }
       ]
     },
@@ -4309,21 +4229,6 @@
           "publishedOn": "2025-06-10T08:28:43.000Z",
           "wordCount": 734,
           "title": "起底AI数字人“王建国” | 深度报道",
-          "enclosure": {
-            "length": "1337",
-            "type": "image/png",
-            "url": "https://static.ws.126.net/163/frontend/images/logo-netease-114.png"
-          },
-          "imageUrl": "https://static.ws.126.net/163/frontend/images/logo-netease-114.png"
-        },
-        {
-          "id": "http://www.inoreader.com/article/3a9c6e772b0dc03a",
-          "author": null,
-          "description": "记者/朴云\n\n编辑/郝鸣\n     \n 轮椅上的洛洛\n轮椅上的洛洛看起来瘦瘦小小，萎缩的双腿搭在轮椅的踏板上。在轮椅前那块印着“我写的书”的纸板上方，她支起小支架，整齐地摆着自己写的三本书。当有读者来要签名时，她用两根左手手指握笔，一笔一划写上名字和祝福语。为了控制力道和笔的方向，有时她不得不用嘴咬住手腕处的衣袖。二十年来，她像这样一笔一画写下了三本书，记录自己的经历和感悟。\n2014年，在为自己买了第一台电动轮椅四年后，可以自己出行的她“密谋”了一场出走。离开家乡承德和父母，独自踏上来北京的路。十年来，她每天在南锣鼓巷或后海卖书，试图过上三毛那样的旅行者生活。但困顿常常围绕着她，经济的窘迫和生活的压力让她一度“失去拼劲”，想要放掉自己的“流浪”作家梦。\n直到去年底，她连着三天守在大冰的快手直播间，曲折地争取到连麦的机会，在这个“树洞”里向大冰讲述了自己的故事……半年后，有些坚持仍在，但一些改变也随之发生……\n     \n 在快手直播间大冰与洛洛连麦\n \n    \n “树洞”里捡拾一粒麦种\n在北京，洛洛的一天从“装车”开始。\n每天她用一个大旅行书包，最多能装上四十本书，挂在轮椅上，从家里出发去南锣鼓巷或后海。最好的时候，带去的三十几本书都卖光了，她早早带着空书包回家。也有时候，直到晚上，那些蹲下来翻书的人也没带走一本。\n2024年的冬天，洛洛仍旧在巷子里摆摊。那是她来北京的第十年。\n天气冷，一整天都不开张，有时一天只入账二三十块钱。为了支付房租和家政阿姨的工资，她不得不透支账单，也会找朋友借钱。\n焦虑裹挟着她。书卖不动，她也不想继续呆在外面，回到家里坐着发呆，什么都不想做，“毫无拼劲”。她怕自己坚持不下去，再次回到父母身边。“我觉得回去意味着一场溃败，所有经历的这一切都失去了意义，我还想坚持……”\n早在2022之后，卖书就陷入瓶颈，洛洛的生活也陷入新的困境。因为生活需要辅助…",
-          "link": "https://c.m.163.com/news/a/K1CFDBEI0512BN99.html?from=subscribe",
-          "publishedOn": "2025-06-06T06:01:13.000Z",
-          "wordCount": 704,
-          "title": "在大冰“树洞”里重拾作家梦，一个轮椅女孩摆摊卖书的十年 | 深度报道",
           "enclosure": {
             "length": "1337",
             "type": "image/png",
@@ -5403,6 +5308,76 @@
       "feedUrl": "https://wechat2rss.xlab.app/feed/8d839de8dd3290a1f1be7a94423cccb30c1b087d.xml",
       "siteUrl": "https://wechat2rss.xlab.app/feed/8d839de8dd3290a1f1be7a94423cccb30c1b087d.xml",
       "articles": [
+        {
+          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654603129&idx=1&sn=66acb9c9987af952cea4e23dd9d6bdc6",
+          "author": null,
+          "description": "轻装上阵，却处处到位。",
+          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654603129&idx=1&sn=66acb9c9987af952cea4e23dd9d6bdc6",
+          "publishedOn": "2025-06-25T16:00:00.000Z",
+          "wordCount": 264,
+          "title": "vivo刚出的这台折叠屏，我愿称它为“苹果最佳搭子”！",
+          "imageUrl": null
+        },
+        {
+          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654603129&idx=2&sn=a426f644c3586cd117d41f45d7513e2c",
+          "author": null,
+          "description": "这生态拉满了",
+          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654603129&idx=2&sn=a426f644c3586cd117d41f45d7513e2c",
+          "publishedOn": "2025-06-25T16:00:00.000Z",
+          "wordCount": 264,
+          "title": "看完这次大会，我觉得这个App可能没有听不到的歌。",
+          "imageUrl": null
+        },
+        {
+          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654603129&idx=3&sn=ddd0c2733014b2a2681eab9a516df265",
+          "author": null,
+          "description": "好消息，下半年还有。",
+          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654603129&idx=3&sn=ddd0c2733014b2a2681eab9a516df265",
+          "publishedOn": "2025-06-25T16:00:00.000Z",
+          "wordCount": 264,
+          "title": "购车补贴要停了，再不买车直接亏 2 万？",
+          "imageUrl": null
+        },
+        {
+          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654603129&idx=4&sn=47aa9de926ead212886a021d9eddb40e",
+          "author": null,
+          "description": "N网没有倒闭，但它可能要变质了。",
+          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654603129&idx=4&sn=47aa9de926ead212886a021d9eddb40e",
+          "publishedOn": "2025-06-25T16:00:00.000Z",
+          "wordCount": 264,
+          "title": "靠热爱活了24年的全球知名网站，最后还是败给了资本。",
+          "imageUrl": null
+        },
+        {
+          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654603129&idx=5&sn=aad165ab4e6be1924ce27f1ac81c059b",
+          "author": null,
+          "description": "一模一样。",
+          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654603129&idx=5&sn=aad165ab4e6be1924ce27f1ac81c059b",
+          "publishedOn": "2025-06-25T16:00:00.000Z",
+          "wordCount": 264,
+          "title": "今日最佳：睡成赵本山了。",
+          "imageUrl": null
+        },
+        {
+          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654603129&idx=6&sn=26e0ef029ba4f214f35590a06748b4dd",
+          "author": null,
+          "description": "聊一聊",
+          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654603129&idx=6&sn=26e0ef029ba4f214f35590a06748b4dd",
+          "publishedOn": "2025-06-25T16:00:00.000Z",
+          "wordCount": 264,
+          "title": "聊一聊：你最离不开手机里的哪一个功能？",
+          "imageUrl": null
+        },
+        {
+          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654603129&idx=7&sn=6be499e5700f74a0c5c54ad978ca1a78",
+          "author": null,
+          "description": "今天是6月25日，农历六月初一。",
+          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654603129&idx=7&sn=6be499e5700f74a0c5c54ad978ca1a78",
+          "publishedOn": "2025-06-25T16:00:00.000Z",
+          "wordCount": 264,
+          "title": "特斯拉Robotaxi频发违规超速，苹果称零佣金惩罚过重，英特尔回应关停汽车业务，小米YU7三班倒生产，这就是今天的其他大新闻！",
+          "imageUrl": null
+        },
         {
           "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654602746&idx=1&sn=c618c582bcf5e8ef27bd6798f2a7adf4",
           "author": null,
@@ -8016,6 +7991,70 @@
       "feedUrl": "https://news.un.org/feed/subscribe/en/news/all/rss.xml",
       "siteUrl": "https://news.un.org/en/",
       "articles": [
+        {
+          "id": "https://news.un.org/en/story/2025/06/1164936",
+          "author": null,
+          "description": "It’s been 10 years since the Addis Ababa Action Agenda was established to support the implementation of the 2030 Agenda for Sustainable Development.",
+          "link": "https://news.un.org/feed/view/en/story/2025/06/1164936",
+          "publishedOn": "2025-06-25T12:00:00.000Z",
+          "wordCount": null,
+          "title": "Sevilla conference on development financing shows optimism for multilateralism",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/23-06-2021_UNDP_Nepal.jpg/image560x340cropped.jpg",
+            "length": "72484",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/23-06-2021_UNDP_Nepal.jpg/image560x340cropped.jpg"
+        },
+        {
+          "id": "https://news.un.org/en/story/2025/06/1164931",
+          "author": null,
+          "description": "The head of the International Atomic Energy Agency (IAEA) said on Wednesday that his “number one priority” is for its inspectors to return to Iran’s nuclear sites to evaluate damage caused by recent bombing and to verify stockpiles of highly enriched uranium.",
+          "link": "https://news.un.org/feed/view/en/story/2025/06/1164931",
+          "publishedOn": "2025-06-25T12:00:00.000Z",
+          "wordCount": null,
+          "title": "Iran: Return to inspections top priority for UN nuclear agency",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/22-06-2025-IAEA-GROSSI.jpg/image560x340cropped.jpg",
+            "length": "22088",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/22-06-2025-IAEA-GROSSI.jpg/image560x340cropped.jpg"
+        },
+        {
+          "id": "https://news.un.org/en/story/2025/06/1164926",
+          "author": null,
+          "description": "The UN Secretary-General has warned that the world today is failing to protect civilians from mass atrocity crimes, calling for a renewed global commitment to the Responsibility to Protect – a principle adopted two decades ago that remains, in his words, “a moral imperative” and “an unfulfilled promise.”",
+          "link": "https://news.un.org/feed/view/en/story/2025/06/1164926",
+          "publishedOn": "2025-06-25T12:00:00.000Z",
+          "wordCount": null,
+          "title": "Responsibility to Protect: An unfulfilled promise, a ray of hope",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/25-06-2025-UNICEF-child_school.jpg/image560x340cropped.jpg",
+            "length": "19626",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/25-06-2025-UNICEF-child_school.jpg/image560x340cropped.jpg"
+        },
+        {
+          "id": "https://news.un.org/en/story/2025/06/1164921",
+          "author": null,
+          "description": "When Sila, a young woman from Idlib in Syria, was three years-old, she woke up to missiles falling around her, forcing her and her family to flee their home.",
+          "link": "https://news.un.org/feed/view/en/story/2025/06/1164921",
+          "publishedOn": "2025-06-25T12:00:00.000Z",
+          "wordCount": null,
+          "title": "‘A moral failure’: Security Council hears about grave violations against children caught in war",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/24-06-2025-UNICEF-Gaza-03.jpg/image560x340cropped.jpg",
+            "length": "27042",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/24-06-2025-UNICEF-Gaza-03.jpg/image560x340cropped.jpg"
+        },
         {
           "id": "https://news.un.org/en/story/2025/06/1164906",
           "author": null,
@@ -11263,26 +11302,6 @@
           "wordCount": 13169,
           "title": "【404文库】三联生活周刊｜海棠作者被异地传唤：耽美作品涉罪的边界与争议",
           "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/43-1.jpg"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=718677",
-          "author": "unknown",
-          "description": "就这个意义来讲，两个人的互撕很有建设性。有人看到特斯拉股票大跌呼吁夺走马斯克的手机，这大可不必，相反，人们应该鼓励他们发言。",
-          "link": "https://chinadigitaltimes.net/chinese/718677.html",
-          "publishedOn": "2025-06-06T05:06:58.000Z",
-          "wordCount": 13106,
-          "title": "张3丰的世界｜言论自由是独裁的天敌",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/04/IMG_2931.png"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=718675",
-          "author": "unknown",
-          "description": "阅读全文：https://www.dw.com/zh/%E9%95%BF%E5%B9%B3%E8%A7%82% […]",
-          "link": "https://chinadigitaltimes.net/chinese/718675.html",
-          "publishedOn": "2025-06-06T05:03:17.000Z",
-          "wordCount": 13003,
-          "title": "每日一语 2025.6.5",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/6.5.jpg"
         }
       ]
     },
@@ -12067,16 +12086,6 @@
           "wordCount": 914,
           "title": "本周看什么 | 最近值得一看的 8 部作品",
           "imageUrl": "https://cdnfile.sspai.com/2025/6/6/article/c5c2b370-5c0c-eb8f-fdad-a22b4463b2d7.png"
-        },
-        {
-          "id": "https://sspai.com/post/98275",
-          "author": "SIMON_",
-          "description": "还记得第一次踏上日本土地时的心跳加速吗？也许是站在东京车站人潮涌动的月台上，也许是某个清晨推开京都町家的纸门，看见斜阳洒在青苔上的那一刻。在我长居日本五年之后，我常常被周围的朋友问起这样一个问题：第一 ...查看全文",
-          "link": "https://sspai.com/post/98275",
-          "publishedOn": "2025-06-06T07:35:01.000Z",
-          "wordCount": 615,
-          "title": "共创 | 一本「常旅之人也愿收藏」的攻略书：《日本全境漫游计划》上线",
-          "imageUrl": "https://cdnfile.sspai.com/2025/6/6/article/ed8a8244-0901-8650-7814-77fa8383d913.png"
         }
       ]
     },
@@ -12303,26 +12312,6 @@
           "publishedOn": "2025-06-07T05:02:04.000Z",
           "wordCount": 86,
           "title": "梁山评《不可计算》︱一种数字技术的反向思考",
-          "imageUrl": null
-        },
-        {
-          "id": "https://www.thepaper.cn/newsDetail_forward_30892052?commTag=true",
-          "author": null,
-          "description": "《斯人斯土：费孝通的一生》，张冠生著，生活·读书·新知三联书店2025年4月出版，430页，79.00元\n\n\n1938年，著名人类学家马林诺夫斯基（Bronislaw Malinowski）在为其得意弟子费孝通的Peasant Life in China（又名《江村经济》）一书所作的序言中，曾这样写道：\n“此书虽以中国人传统的生活为背景，然而它并不满足于复述静止的过去。它有意识地紧紧抓住现代生活最难以理解的一面，即传统文化在西方影响下的变迁。作者在科学研究中勇于抛弃一切学院式的装腔作势。他充分认识到，要正确地解决实际困难，知识是必不可少的。”（费孝通：《江村经济》，生活·读书·新知三联书店2021年版，序言，19-20页）\n马林诺夫斯基的此番评论实质上引出一个核心问题：面对中西之间的互动、碰撞和融合，如何才能构建一种符合中国实际的知识？\n而张冠生关于费孝通（1910—2005）的传记《斯人斯土：费孝通的一生》（以下引用此书仅标注页码），通过描述这样一位根植乡土的知识分子的漫漫人生，由此也启发人们，唯有扎根于足下这片土地，才能真正理解中国。这也正如费孝通关于自己人生志业的说明：我要努力去了解中国，为的是想解决中国的问题。\n大转型时代\n要理解费孝通的这一志业，无法脱离于近代中国的大转型。\n费孝通出生于1910年，那是一个秩序不断发生变动的时代。自“戊戌变法”至民国初年政治动荡，传统秩序趋于解体，新秩序并未建立，不断变动的秩序对现代中国产生深刻影响。关于这段历史的特征，张灏曾将其概括为“深层危机”：在政治上，传统政治秩序的基本体制“普世皇权”由动摇而瓦解，中国由此陷入空前的政治解体危机之中；在文化上，代表传统中国人基本公共信仰与价值取向的儒家思想逐渐解体，这带来了前所未有的“文化深层危机”。（张灏：《五四与中共革命：中国现代思想史上的激化》，《“中研院”近代史研究所集刊》2012…",
-          "link": "https://www.thepaper.cn/newsDetail_forward_30892052?commTag=true",
-          "publishedOn": "2025-06-06T08:02:03.000Z",
-          "wordCount": 212,
-          "title": "赵刘洋评《斯人斯土》︱根植乡土的漫漫人生",
-          "imageUrl": null
-        },
-        {
-          "id": "https://www.thepaper.cn/newsDetail_forward_30892052",
-          "author": null,
-          "description": "《斯人斯土：费孝通的一生》，张冠生著，生活·读书·新知三联书店2025年4月出版，430页，79.00元\n\n\n1938年，著名人类学家马林诺夫斯基（Bronislaw Malinowski）在为其得意弟子费孝通的Peasant Life in China（又名《江村经济》）一书所作的序言中，曾这样写道：\n“此书虽以中国人传统的生活为背景，然而它并不满足于复述静止的过去。它有意识地紧紧抓住现代生活最难以理解的一面，即传统文化在西方影响下的变迁。作者在科学研究中勇于抛弃一切学院式的装腔作势。他充分认识到，要正确地解决实际困难，知识是必不可少的。”（费孝通：《江村经济》，生活·读书·新知三联书店2021年版，序言，19-20页）\n马林诺夫斯基的此番评论实质上引出一个核心问题：面对中西之间的互动、碰撞和融合，如何才能构建一种符合中国实际的知识？\n而张冠生关于费孝通（1910—2005）的传记《斯人斯土：费孝通的一生》（以下引用此书仅标注页码），通过描述这样一位根植乡土的知识分子的漫漫人生，由此也启发人们，唯有扎根于足下这片土地，才能真正理解中国。这也正如费孝通关于自己人生志业的说明：我要努力去了解中国，为的是想解决中国的问题。\n大转型时代\n要理解费孝通的这一志业，无法脱离于近代中国的大转型。\n费孝通出生于1910年，那是一个秩序不断发生变动的时代。自“戊戌变法”至民国初年政治动荡，传统秩序趋于解体，新秩序并未建立，不断变动的秩序对现代中国产生深刻影响。关于这段历史的特征，张灏曾将其概括为“深层危机”：在政治上，传统政治秩序的基本体制“普世皇权”由动摇而瓦解，中国由此陷入空前的政治解体危机之中；在文化上，代表传统中国人基本公共信仰与价值取向的儒家思想逐渐解体，这带来了前所未有的“文化深层危机”。（张灏：《五四与中共革命：中国现代思想史上的激化》，《“中研院”近代史研究所集刊》2012…",
-          "link": "https://www.thepaper.cn/newsDetail_forward_30892052",
-          "publishedOn": "2025-06-06T05:02:05.000Z",
-          "wordCount": 212,
-          "title": "赵刘洋评《斯人斯土》︱根植乡土的漫漫人生",
           "imageUrl": null
         }
       ]
@@ -18162,46 +18151,6 @@
           "wordCount": 87,
           "title": "全球史学者杨斌：在“边缘地带”打量中国与世界",
           "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/295155",
-          "author": null,
-          "description": "2025-06-06 15:00:00\n\n电影《碟中谍8：最终清算》（2025年）剧照。资料图\n单元剧式的系列影视作品，随着系列的发展，很多都会逐渐脱离现实世界，形成一套属于自己的叙事模式与行为逻辑。而这种模式在系列后期，也会在很大程度上取代故事，成为系列的主体。\n例如经典美剧《老友记》一开始只是六个纽约年轻人之间的故事。到后来，罗斯的书呆子、乔伊的笨、菲比的特立独行等等，都已经到了远超常人的地步。而这些夸张的性格，也成为了《老友记》后几季引发故事与制造笑点的主要来源。\n汤姆·克鲁斯主演的《碟中谍》系列也是如此。\n1996年上映的《碟中谍》，是一部以悬疑和最终结局的翻转作为主要剧情卖点的谍战动作电影。其剧本甚至被批评“太过复杂”。而到了系列的后几部电影，当汤姆·克鲁斯饰演的特工伊森·亨特成为该系列电影的代名词之后，《碟中谍》也开始有了属于这个系列自己的故事模式。\n这个模式就是以伊森·亨特为绝对主导的“神偷”电影。在这个模式下，伊森·亨特会陷入反派制造的各种各样的困境当中。而为了破解这一困境，伊森需要按照反派的要求，潜入各种戒备森严的地方，盗取一件只有伊森能够拿到的物品。并且在反派利用这件物品实现自己最终的邪恶目的之前，击败反派。\n在这一模式下，《碟中谍》系列的看点，就在于伊森在盗取物品，以及最终击败反派的过程。而所谓的“困境”，只是为了给伊森行动的一个理由，以及为观众营造出紧张且紧迫的氛围。伊森所盗取的物品，也只是一个驱动接下来与反派对决的“麦高芬”罢了。在最终对决中，这一“麦高芬”也起到了让观众能够直观地理解伊森战胜反派的指示器的作用。\nAI题材，剧本也是找AI写的？\n\n\n电影《碟中谍8：最终清算》中的主角伊森（左）和反派盖布瑞尔（右）。资料图\n在《碟中谍8：最终清算》（以下简称《碟中谍8》）与其前作《碟中谍7：致命清算》（以下简称《碟中谍7》）当中，这种模式化到达了该系…",
-          "link": "http://www.infzm.com/contents/295155",
-          "publishedOn": "2025-06-06T07:55:07.000Z",
-          "wordCount": 91,
-          "title": "《碟中谍8》：AI时代的套路与情怀",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/295157",
-          "author": null,
-          "description": "2025-06-06 15:21:13\n美国总统特朗普与美国企业家、前“政府效率部”负责人马斯克矛盾公开后，5日迅速升级为隔空骂战。\n特朗普威胁削减马斯克相关企业的政府补贴和合同，特斯拉市值立即蒸发超1500亿美元。\n从2024年7月马斯克公开支持特朗普到关系破裂，不到一年的时间，两人就因为一项被冠名“大而美”的法案，走向彻底反目。\n特朗普与马斯克决裂 开启隔空骂战\n\n6月5日，埃隆·马斯克回怼特朗普：“大错特错，这项法案一次也没有给我看过，而且是在深夜迅速通过的！”\n特朗普：对马斯克“非常失望”\n6月5日，美国总统特朗普谈及马斯克，称不知道还能不能与其保持良好的关系。特朗普当天表示，对马斯克“非常失望”。\n特朗普称，马斯克对特朗普政府撤销电动汽车“强制令”感到很不高兴。\n特朗普当天还表示，埃隆·马斯克了解“宏大而美丽”法案的内部运作，且对此毫无异议，直到发现要撤销电动汽车“强制令”才意识到问题。\n马斯克：大错特错 法案没给我看过\n在特朗普发表对马斯克的评价后，马斯克迅速在社交媒体上回应并反驳称，“大错特错，这项法案一次也没有给我看过，而且是在深夜迅速通过的！”\n特朗普：马斯克疯了\n似乎是回应马斯克的批评，美国总统特朗普随后又在其社交媒体平台“真实社交”上发文称，埃隆·马斯克已开始“失去耐性”。特朗普称他要求马斯克离开，撤销了马斯克强推的电动汽车“强制令”，结果“马斯克疯了”。\n\n特朗普声称，马斯克几个月前就知道特朗普会撤销电动汽车“强制令”。此外，特朗普还对马斯克发出威胁，他表示，在数十亿美元的预算中，最简单的省钱方法就是终止埃隆·马斯克的政府补贴和合同。\n而特朗普在发文中所说的“撤销了马斯克强推的电动汽车‘强制令’”，正是税改法案中的一项。此番马斯克与特朗普之间骂战的开端，正源于5月22日美国会众议院通过的税改法案。\n所谓“大而美”的税改法案，却是“劫贫济富”+推高债务…",
-          "link": "http://www.infzm.com/contents/295157",
-          "publishedOn": "2025-06-06T07:55:07.000Z",
-          "wordCount": 146,
-          "title": "从亲密无间到骂战不休，一文读懂马斯克与特朗普如何反目成仇",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/295139",
-          "author": null,
-          "description": "2025-06-06 14:00:00\n我家两个儿子，相差三岁半。两年前，他们一个高中毕业，一个初中毕业。\n“高考只是检验你知识面的一个环节而已，尽力而为就行，只要努力过，结果不重要。”两年前的这个时候，我们一家四口坐在餐厅里喝早茶，面对高考日期的临近，我嘴上这样安慰老大，但是我看似微笑的表情下，有一颗极度焦虑的内心。\n老大刚过完叛逆期，已经有了自己的人生目标，每次回校前，我一如既往地拍着他宽厚的肩膀，开玩笑地鼓励他：“君君，虽说高考不是人生的分水岭，但是养兵千日，用兵一时，你要抱着只要学不死，就往死里学的狠劲对待高考，这样也不枉十年寒窗苦读的日子。”大男孩咧开一排大门牙，稀疏的胡须随着嘴唇的牵扯一下子拉开了距离，镜片后的眼睛眯成了一条线，老大伸出右手，做出OK姿势，自信地回答：“好的，妈妈，没问题。”\n另一头，面对比高考更残酷的中考压力，叛逆期的老二选择了躺平，把自己关在书房里，美其名曰上网课。真实的情况，从他对待学习的态度，我们已经心知肚明，尽管我使用了各种软硬兼施的方法，最后还是一筹莫展，我的心啊，整天焦急得像热锅上的蚂蚁。\n刚开始，老公面对老二的叛逆，静下心来分析他的问题出在哪里，是不是妈妈平时宠溺和放任不管，导致学习成绩下降。作为学霸的爸爸，强摁心头的焦虑，收拾心情。重拾那些课本上的知识，用职业经理人的耐心去引导老二重回学习的轨道，立志挽救和挖掘藏在孩子基因库深处的学霸本能。\n一个月下来，老公垂头丧气地说：“减少对他的期望值吧，再教下去，我怕我会发疯。唉，我已经尽力去做好自己的本职任务，再说读书也不是人生唯一的出路，每个人有每个人的人生，只要不给社会添堵，其他的只能顺其自然。”\n回想刚步入中年，满屏都是中年危机的说辞，我们那个时候还是父慈子孝的时节，孩子们还是把父母当偶像崇拜，一家其乐融融，何来危机？我们甚至怀疑所谓的中年危机是不是一部分人的无病呻吟？\n当高考真的…",
-          "link": "http://www.infzm.com/contents/295139",
-          "publishedOn": "2025-06-06T06:25:09.000Z",
-          "wordCount": 93,
-          "title": "高考是一次成人礼",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/295152",
-          "author": null,
-          "description": "2025-06-06 12:00:00\n\n2025年5月9日，山西省临汾市，襄汾县城区生态景色。视觉中国｜图\n\n临汾治理空气污染的决心，杜建军是从“活儿变少”了开始感受到的。\n这位山西临汾市襄汾县融海物流运输有限公司负责人敏锐地发现，2021年襄汾县加大焦化厂关停力度之后，他们焦炭运输企业“基本都不在本地拉活儿了”。\n作为汾渭平原上的大气污染防治重点城市，临汾受产业结构和地形的双重影响，PM2.5等空气污染指标一度排在全国“倒十”。钢铁、焦化等涉煤行业贡献了本地主要的PM2.5排放，减排首当其冲。\n最新的消息是，2025年3月，临汾在山西省率先印发《临汾市细颗粒物（PM2.5）三年达标攻坚方案（2025—2027年）》（下称《攻坚方案》）。《攻坚方案》提出的51项重点任务指向这样一个目标：到2027年，PM2.5年均浓度力争达到35微克/立方米以下。\n不到三年的时间里，要达到这一目标，临汾能否够得到？\n资源型城市的达标努力\n对临汾而言，达标的任务并不简单。\n和许多重工业、资源密集型城市一样，临汾空气质量改善之路一路走来，并不容易。治理空气污染的第一步，是摸清家底。\n2019年，根据生态环境部和国家大气污染防治攻关联合中心要求，临汾市委托中国环境科学研究院组建的专家团队对其空气污染进行源解析，希望找到空气污染源头，对症下药。\n研究发现，临汾PM2.5排放贡献得最多的是钢铁，其次是焦化，均为涉煤行业。中国环境科学研究院研究者在2020年发表的文章给出了具体数据，临汾市焦化和钢铁行业排放PM2.5约6916.9吨，占总排放量超1/4，达到26.2%。\n2017-2022年6年间，临汾在钢铁，电力以及焦化行业下了硬功夫，打出了超低排放改造、落后产能淘汰、能源结构调整的组合拳：煤炭先进产能占比提升至84%，焦化先进产能占比提升至59.59%，钢铁先进产能占比提升至70%。\n以焦化行业…",
-          "link": "http://www.infzm.com/contents/295152",
-          "publishedOn": "2025-06-06T04:25:07.000Z",
-          "wordCount": 88,
-          "title": "临汾剑指PM2.5达标，一场资源型城市的大考",
-          "imageUrl": null
         }
       ]
     },
@@ -18449,16 +18398,6 @@
           "wordCount": 1591,
           "title": "Reduced sampling for Consumer Price Index estimates",
           "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/01/logo-lone-square512x512.png"
-        },
-        {
-          "id": "https://flowingdata.com/?p=78695",
-          "author": "Nathan Yau",
-          "description": "Chess grandmaster Magnus Carlsen played against 143,000 people in a single game. The…\nTags: Associated Press, chess, crowds, Magnus Carlsen",
-          "link": "https://flowingdata.com/2025/06/06/magnus-carlsen-chess-match-against-the-wisdom-of-crowds-ends-in-a-draw/",
-          "publishedOn": "2025-06-06T07:39:54.000Z",
-          "wordCount": 1594,
-          "title": "Magnus Carlsen chess match against the wisdom of crowds ends in a draw",
-          "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/01/logo-lone-square512x512.png"
         }
       ]
     },
@@ -18467,6 +18406,16 @@
       "feedUrl": "http://www.pewresearch.org/feed",
       "siteUrl": "https://www.pewresearch.org/",
       "articles": [
+        {
+          "id": "https://www.pewresearch.org/?p=261843",
+          "author": "Jcoleman",
+          "description": "Explore how adults in the U.S. and 35 other countries compare religiously and spiritually when it comes to affiliation, prayer, afterlife beliefs and more.\nThe post Spirituality and Religion: How Does the U.S. Compare With Other Countries? appeared first on Pew Research Center.",
+          "link": "https://www.pewresearch.org/religion/2025/06/25/spirituality-and-religion-us-comparison-to-other-countries/",
+          "publishedOn": "2025-06-25T17:50:46.000Z",
+          "wordCount": 6286,
+          "title": "Spirituality and Religion: How Does the U.S. Compare With Other Countries?",
+          "imageUrl": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/06/PR_2025.06.25_spirituality-religion-us-interactive_featured.jpg?w=1200&h=628&crop=1"
+        },
         {
           "id": "https://www.pewresearch.org/?p=262939",
           "author": "Janakee Chavda",
