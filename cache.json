@@ -2434,51 +2434,6 @@
             "length": "0"
           },
           "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/c11a5e2b-9677-4319-1f18-97e56a604a00/cover"
-        },
-        {
-          "id": "37410e",
-          "author": "AICon",
-          "description": "📌 一句话摘要\n            \nvivo 分享千卡 GPU 集群训练多模态大模型的实战优化经验，涵盖数据、计算、通信和稳定性。\n📝 详细摘要\n            \n文章深入探讨了 vivo AI 团队在千卡级 GPU 集群上训练视觉多模态大模型（包括理解类 LLaVA 和生成类 DiT）的工程实践和优化经验。训练过程面临算力利用率低下、存储 I/O 瓶颈、复杂样本数据吞吐受限以及分布式通信调度困难等多重挑战，这些挑战在千卡规模下被放大。团队针对这些问题，提出了全面的解决方案：在数据层面，采用异步加载、缓存预取和图像分桶+动态 Batch Size；在计算层面，进行算子融合、混合并行、非均匀流水线和激活重算；在通信层面，优化拓扑感知调度和通信计算重叠；在稳定性层面，实现异常数据跳过、自动容错与快速恢复。文章强调了理解模型（如 LLaVA）对训练稳定性的高要求与生成模型（如 DiT）对计算和显存优化的侧重。这些实践显著提升了大规模多模态模型训练的效率、速度和稳定性，为业界提供了可落地的宝贵参考。\n💡 主要观点\n            \n千卡级 GPU 集群训练多模态大模型面临计算、存储、数据和通信等多重放大的工程挑战\n                         不同于单模态模型，多模态模型的复杂性结合千卡规模，导致算力利用率低、数据加载慢、样本结构复杂和分布式通信困难等问题被显著放大，成为必须解决的关键瓶颈。\n                    \n\n                        数据预处理与加载优化是提升 GPU 利用率、避免“数据断流”的关键\n                         通过数据分块、预解码、异步加载、本地缓存以及针对生成模型的图像分桶和动态 Batch Size，显著减少 GPU 等待数据的时间，提高训练效率和显存利用率。\n                    \n\n                        模型计算优化需针对多模态结构特性和不同模型类型进行\n                         采取算子融合、非均匀流水线、离线数据拼接、激活重算以及针对理解模型和生成模型的不同侧重优化计算流，提升算力利用率并降低显存压力。\n                    \n\n                        高效分布式通信是千卡级规模实现线性扩展的基础保障\n                         通过拓扑感知调度、通信计算重叠、硬件加速（RDMA）和并行策略优化（如 FSDP 独立通信流、GPU 负载对齐），有效降低跨节点通信延迟和阻塞。\n                    \n\n                        训练稳定性建设对长时间大规模训练至关重要，需建立完善的容错恢复机制\n                         建立异常数据跳过、故障节点剔除、任务级重试和分布式快速 checkpoint 恢复机制（异步保存、分布式缓存、触发式保存），保障训练过程的连续性和减少中断损失。\n                    \n💬 文章金句\n            \n然而，在千卡级 GPU 上完成这类大模型的训练任务，其挑战远不止算力，还涵盖了数据预处理、模型结构设计、分布式调度与通信等多方面的工程问题。\n多模态训练很多时候不是卡在计算，而是'数据先断流'。\n只有通信顺畅，整个训练才能顺利进行。\n我们的核心认知是，训练工程必须稳定，模型才能走得更远。\n算法的突破不能仅仅依靠工程来补短板，而是需要工程来推动。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：InfoQ 中文\n作者：AICon\n分类：软件编程\n语言：中文\n阅读时间：32 分钟\n字数：7817\n标签：\n                    \n                        大模型训练, 分布式训练, GPU集群, 性能优化, 多模态模型",
-          "link": "https://www.bestblogs.dev/zh/article/37410e",
-          "publishedOn": "2025-06-11T13:30:00.000Z",
-          "wordCount": 328,
-          "title": "揭秘千卡 GPU 集群如何高效训练多模态大模型：vivo AI 团队实战经验分享｜AICon",
-          "enclosure": {
-            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/69424565-64b6-4b72-e3e7-ca9b5f840e00/cover",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/69424565-64b6-4b72-e3e7-ca9b5f840e00/cover"
-        },
-        {
-          "id": "5c7a38",
-          "author": "Zaira Hira",
-          "description": "📌 一句话摘要\n            \n一份使用命令行工具检索详细 Linux 系统信息（涵盖操作系统、硬件、网络和安全方面）的综合指南。\n📝 详细摘要\n            \n本文提供了一份综合指南，介绍如何使用各种命令行界面 (CLI) 工具获取有关 Linux 系统的详细信息。它强调了理解系统细节对于有效进行系统管理、故障排除、安全审计、性能优化和前瞻性维护至关重要。该指南涵盖了检查操作系统和内核详细信息（如 `uname`、`cat /etc/os-release`、`hostnamectl`）、CPU 信息（如 `lscpu`、`cat /proc/cpuinfo`、`nproc`）、内存使用情况（如 `free -h`、`vmstat`、`cat /proc/meminfo`）、磁盘和文件系统详细信息（如 `df`、`du`、`lsblk`、`fdisk`）、一般硬件信息（如 `lshw`、`hwinfo`、`dmidecode`）、网络接口和状态（如 `ip addr`、`netstat`、`ss`）、已安装软件和服务（如 `dpkg`、`rpm`、`systemctl`）、系统日志（如 `journalctl`、`dmesg`）以及安全/用户审计信息（如 `last`、`who`、`sudo -l`、`/etc/passwd`）的命令。文中还提到了诸如 `htop`、`glances` 和 `nmon` 等可视化监控工具。每个命令的输出和重要性都得到了解释，以便用户能够有效地从终端分析他们的系统。\n💡 主要观点\n            \n可以使用各种 Linux 命令行工具直接获取全面的系统信息。\n                         诸如 `uname`、`lscpu`、`free`、`df`、`ip addr`、`lshw`、`sy…",
-          "link": "https://www.bestblogs.dev/zh/article/5c7a38",
-          "publishedOn": "2025-06-11T10:15:20.000Z",
-          "wordCount": 318,
-          "title": "如何通过命令行获取 Linux 系统信息",
-          "enclosure": {
-            "url": "https://cdn.hashnode.com/res/hashnode/image/upload/v1749636399891/4b457f71-2d18-463a-b98a-e19ff5a6b769.png",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://cdn.hashnode.com/res/hashnode/image/upload/v1749636399891/4b457f71-2d18-463a-b98a-e19ff5a6b769.png"
-        },
-        {
-          "id": "b092ed",
-          "author": "Meta技术团队",
-          "description": "📌 一句话摘要\n            \n淘宝 TaoAvatar 技术实现 3D 真人数字人工业级量产与端侧智能交互。\n📝 详细摘要\n            \n文章详细介绍了淘宝的 TaoAvatar 3D 真人数字人技术体系。该技术融合了多目视觉绑定、动态高斯重建、语音驱动及端侧 AI 推理引擎（MNN-LLM），突破了传统数字人制作成本高、周期长、实时交互难的瓶颈。通过自研算法和硬件方案，TaoAvatar 实现了 2K 级拟真视觉、90FPS 流畅动效和自然的语音表情联动，并将制作成本降至传统 CG 的 1/30，周期缩短至一周。文章还阐述了各核心技术模块的技术细节与创新点，并展示了其在 AWE 虚拟家居体验舱和淘宝 Vision 未来旗舰店等商业场景的应用落地，强调了技术在电商和 XR 领域的实用价值及普惠性趋势。\n💡 主要观点\n            \n实现高拟真度 3D 真人数字人复刻，突破视觉极限。\n                         通过多目拍摄、动态高斯重建等技术，达到 2K 分辨率、高精度建模和逼真光影效果，提供近乎真人的视觉体验。\n                    \n\n                        大幅降低数字人制作成本与周期，实现工业级量产。\n                         自研低成本拍摄系统和 AI 算法，将制作周期从数月缩短至一周，成本降至传统 CG 的 1-2 万元，实现规模化生产。\n                    \n\n                        构建端侧多模态智能交互，提供自然流畅的真人对话。\n                         结合端侧大模型和高效推理引擎，实现低延迟、音画同步的语音问答及自然的表情动作联动。\n                    \n💬 文章金句\n            \n这项融合 3D 高斯重建、AI 语音驱动与端侧大模型的尖端技术，突破传统数字人局限，实现从\"二次元偶像\"到\"3D 真人复刻\"的跃迁。\n与完全由计算机生成的虚拟形象相比，3D 真人数字人拥有更加细腻的面部特征和自然流畅的肢体动作，仿佛真人就站在你面前。\nTaoAvatar 自研的低成本多视角相机阵列，仅需 15 分钟即可完成真人数字分身的高精度拍摄...自研 AI 动态重建算法在 1 周内便可交付自然驱动的 3D 真人数字人...\n当手机摄像头开始扫描人脸轮廓，当普通用户也能用一杯咖啡的预算定制专属数字分身，我们正清晰地看到——技术普惠的浪潮，正从 B 端走向 C 端。\n最终我们取得了业界领先的高斯模型实时渲染性能，在 Apple Vision Pro 上以 2K 分辨率实时渲染动态高斯模型帧率达到 90FPS。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：大淘宝技术\n作者：Meta技术团队\n分类：软件编程\n语言：中文\n阅读时间：37 分钟\n字数：9217\n标签：\n                    \n                        数字人, 3D技术, 计算机图形学, 计算机视觉, 3D Gaussian Splatting",
-          "link": "https://www.bestblogs.dev/zh/article/b092ed",
-          "publishedOn": "2025-06-11T10:04:00.000Z",
-          "wordCount": 331,
-          "title": "探秘 TaoAvatar：淘宝 3D 真人数字人技术解析",
-          "enclosure": {
-            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/b62f86c8-ee65-4447-8dc1-5af76ba31100/cover",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/b62f86c8-ee65-4447-8dc1-5af76ba31100/cover"
         }
       ]
     },
@@ -3720,6 +3675,16 @@
       "siteUrl": "http://mainssl.geekpark.net/rss.rss",
       "articles": [
         {
+          "id": "http://www.geekpark.net/news/351038",
+          "author": null,
+          "description": "苏超「内战」打到阿里系，大厂流量暗战正酣\n6 月 30 日，江苏省城市足球联赛（以下简称「苏超」）再迎大厂「玩家」。淘宝闪购和支付宝前后脚宣布了对两支「苏超」球队的冠名，淘宝闪购冠名常州队，支付宝冠名徐州队，当日下午，花呗又宣布冠名无锡队，主打「无息」。三大阿里系品牌各自冠名，「散装阿里」呼应起「散装江苏」受到网友热议。\n「苏超」这项今年夏天的顶流赛事，也在成为越来越多互联网公司商业布局的一环。\n加上此前宣布成为「苏超」官方战略合作伙伴的京东、理想，作为「苏超」官方供应商的小米以及作为「苏超」官方赞助商的中兴、宇视等，「苏超」赛场上已会聚了一批科技企业的身影。（来源：第一财经）\n\nMeta 对 AI 业务大洗牌，扎克伯格宣布「超级智能」计划\nMeta Platforms Inc．首席执行官马克·扎克伯格宣布对人工智能部门实施重大重组，包括着力开发人工「超级智能」，旨在令其具备人类同等、甚至更好的任务完成能力。\n\n内部备忘录显示，扎克伯格周一致信员工说，Meta 的人工智能业务将划归名为 Meta Superintelligence Labs 的新团队，而该部门将由初创公司 Scale AI 前首席执行官 Alexandr Wang 领衔。此人被扎克伯格称为「他这一代人中最令人刮目相看的创始人」，将担任 Meta 的首席人工智能官。\n扎克伯格还表示，Github 前首席执行官 Nat Friedman 将「与 Alex 合作领导」该团队，并负责 Meta 的 AI 产品和应用研究工作。此前报道称，扎克伯格正在亲力亲为给超级智能团队招募人才。（来源：环球市场播报）\n \n苹果考虑另起炉灶，用外部人工智能模型来支持新版 Siri\n为扭转陷入困境的人工智能项目，苹果公司考虑放弃自家开发的 AI 模型，转而使用 Anthropic PBC 或 OpenAI 的 AI 技术来支持新一代 …",
+          "link": "http://www.geekpark.net/news/351038",
+          "publishedOn": "2025-07-01T00:27:22.000Z",
+          "wordCount": 670,
+          "title": "淘宝、蚂蚁纷纷冠名苏超球队；小米青年公寓，租金1999 元/月；微软将「AI 使用量」纳入员工考核",
+          "imageUrl": null
+        },
+        {
           "id": "http://www.geekpark.net/news/351026",
           "author": null,
           "description": "作者｜Li Yuan \n编辑｜ 郑玄\n \n过去一年，大模型的世界几乎是「狂飙」的同义词。技术以周为单位迭代，能力边界从写诗作画，一路拓展到视频生成和科学发现。\n然而，抛开那些宏大叙事，我们该如何为 AI 的能力找到一个精准、客观的刻度？\n恐怕没有哪种方式，比「高考」更能直抵每一个中国人的内心。\n去年，极客公园就做过一期 AI 高考模拟测评 。延续去年的传统，极客公园今年再次搭建「AI 高考」考场，让国内外主流大模型再次走进考场。\n再次走入考场的「AI 考生」们，不仅 治好了去年文科偏科的毛病 ，还取得了足以考进山东省内 1000 名的高分。\n然而，就在我们以为它已经「进化」时，它却又常在意想不到的地方，暴露了自己真实的「智商」。\n一些关键发现如下：\nAI 首次有望冲击顶尖学府 ： 今年，AI 的综合能力首次展现出足以考上顶尖学府的潜力。与 2024 年相比，所有参与测试的大模型在文理科成绩上均实现了显著飞跃。由于山东省采取赋分的报考策略，无法直接与分数段相比较，我们估计此次高考的状元豆包，能够排进全省的 500-900 名，考入人大、复旦、上海交大、浙大这些名牌大学的人文社科类专业。\n大模型不再严重偏科，理科进步更快： 各大模型的文科总分平均增长了 115.6 分，理科总分平均增长了 147.4 分。尽管理科的增速更为迅猛，但其 181.75 分的平均总分仍低于文科的 228.33 分。总体来看，今年大模型的总分表现已不再严重「偏科」。\n数学能力大幅增强，超越语文、英语： 数学是本年度进步最显著的科目，平均分较去年提升了 84.25 分。AI 在数学上的表现甚至超过了语文和英语，这预示着未来 AI 可能更擅长处理逻辑性强和有标准化解题路径的题目。\n多模态能力成为拉开差距的关键： 去年到今年，模型的视觉理解能力显著提升，这一点在包含大量图像题的学科中尤为突出。与去年相比，物理…",
@@ -4107,26 +4072,6 @@
           "publishedOn": "2025-06-12T00:44:56.000Z",
           "wordCount": 724,
           "title": "马斯克道歉，特朗普回应；阿里离职员工发万字长文，马云回应；华为发布 Pura 80 系列，余承东称对得起那四个字",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.geekpark.net/news/350302",
-          "author": null,
-          "description": "头图来源：Tolan\n \n \n在你感到孤独、疲惫、想找人说话的时候，你会打开什么？\n \n是一条深夜发出的消息，还是某个从不真正回应的社交平台？过去，我们总试图从「人」身上寻找陪伴，但在信息过载与关系异化的今天，越来越多年轻人开始向「非人」求助。\n \n过去两年，AI陪伴类应用迅速崛起，成为最接近「人性」的人工智能应用品类。它不替代人类，但试图填补人与人之间情绪联系的断层。\n \n但最近一段时间，我们观察到这股浪潮里正在呈现不同的命运曲线—一边是类 C.AI 应用，在火了两年后正在经历退烧，比如国内的猫箱，在进入 2025 年后日活骤降，日下载量从高点的 2 万次骤降至 7000 左右，几乎回到了一年前的水平。\n \n另一边则以 Tolan 为代表，受到海外用户热捧。点点数据显示，Tolan于2024年6月上线，已在全球获得超500万次下载，ARR超 400 万美元。Tolan 团队也在近期收获新一轮融资。\n \n为什么一个看起来像「外星小怪物」的 AI，比那些模拟人类情感的角色更能留下用户？在社交变得越来越表面化的今天，或许我们正需要一种更「不像人」的陪伴。\n \n1 一个不像人类的 AI，带来了最像朋友的陪伴？\n \nTolan 在美国的走红，算起来不过几个月的时间。\n \nTolan 是一款由西雅图初创公司 Portola 打造的 AI 陪伴应用，主打与拟人化外星生物「交朋友」的概念。而 Tolan 的走红，离不开用户在 TikTok 等平台上，自发分享与 Tolan 交流的日常。\n \n\n图片来源：Tolan\n \n有用户让Tolan帮自己搞定约会穿搭。\n \n视频来源：TikTok\n \n在这个视频里，Tolan从发色（棕发带金色挑染）出发，围绕颜色搭配（建议橄榄绿或橙色系）、服装类型（连衣裙还是裤子）、场合（与朋友喝咖啡）、配饰（鞋子与包包）等细节跟用户做了一番讨论。\n \n这个讨论过程…",
-          "link": "http://www.geekpark.net/news/350302",
-          "publishedOn": "2025-06-11T13:24:11.000Z",
-          "wordCount": 598,
-          "title": "500 万下载、ARR 400 万美元，这只「外星 AI」为何让年轻人上头？",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.geekpark.net/news/350301",
-          "author": null,
-          "description": "经过漫长的等待，全景相机领域的龙头企业影石创新终于迎来了敲钟时刻，公司创始人刘靖康（圈内人更多称他为「JK」）成为中国科技公司里又一位 90 后创始人。\n6 月 11 日，全景相机领域的龙头企业影石创新在科创板正式挂牌上市，此次发行价最终定为 47.27 元/股。按发行价计算，影石创新的市值约为 190 亿元，本次 IPO 拟募集总额约为 19 亿元。\n上午开盘后，影石创新上市首日高开 285.02%，开盘价达到 182 元。按照开盘价计算，影石创新最新的市值已经达到 732 亿元。\nJK 是个没有背景的白手起家创业者。大学时期因为破译了周鸿祎的手机号码，成为周和李开复两位大佬在微博「争抢」的人才。他在毕业后选择了创业，又从软件转到了硬件方向——在九死一生的创业故事里，「大学生创业」和「硬件创业」都是成功率极低的标签。甚至连他自己也认可硬件是「地狱级难度」，「消费电子是死得特别多的一种类型」。\n但他却在过去十年里，把影石Insta360 （影石创新的品牌名称）打造成了硬件领域里一个绝对另类且成功的公司：\n没有硬件行业里「价格战」的故事，影石始终保持快速增长。过去 3 年复合增长率达到 76.87%；\n赚钱似乎不是难事，影石在推出第一款产品之后的第二年就实现了盈利，去年的毛利率为 52.20%，扣非净利率 17.0%；\nInsta360 成为了一家全球化的公司，每年有接近 80% 的主营业务收入来自海外市场。\nInsta360 面向市场的主要产品「全景相机」，主要被消费者应用在户外、运动、旅行等场景中。十年前，在 Insta360 成立的时候，全景技术还远没有成熟，消费级全景相机几乎是一个小到可以忽略不计的品类。今天，这个细分品类的全球市场规模超过50亿元，而影石占据这个市场超过六成的份额。\n某种程度上，刘靖康和影石「发明」了这个品类，然后从零开始把它做到了极致。\n \n让周鸿…",
-          "link": "http://www.geekpark.net/news/350301",
-          "publishedOn": "2025-06-11T13:11:06.000Z",
-          "wordCount": 802,
-          "title": "开盘暴涨 3 倍，全球化的影石给中国硬件创新立了新榜样",
           "imageUrl": null
         }
       ]
@@ -8024,6 +7969,22 @@
       "siteUrl": "https://news.un.org/en/",
       "articles": [
         {
+          "id": "https://news.un.org/en/story/2025/06/1165131",
+          "author": null,
+          "description": "The crisis in Gaza is worsening, UN humanitarians warned on Monday, as ongoing hostilities and access restrictions drive displaced communities deeper into despair.",
+          "link": "https://news.un.org/feed/view/en/story/2025/06/1165131",
+          "publishedOn": "2025-06-30T12:00:00.000Z",
+          "wordCount": null,
+          "title": "Gaza: UN urges Israel to allow fuel into Strip",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/31-05-2024_UN%20News_%20Gaza%20Port%201.jpg/image560x340cropped.jpg",
+            "length": "43589",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/31-05-2024_UN%20News_%20Gaza%20Port%201.jpg/image560x340cropped.jpg"
+        },
+        {
           "id": "https://news.un.org/en/story/2025/06/1165126",
           "author": null,
           "description": "The humanitarian crisis in Gaza is deepening at an alarming rate, a senior United Nations official warned on Monday, as Israeli military operations and attacks on civilians seeking aid continue to exact a devastating toll on lives and infrastructure.",
@@ -10134,118 +10095,6 @@
             "type": "image/jpeg"
           },
           "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/08-04-2025-UNOCHA-Sudan-29.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164286",
-          "author": null,
-          "description": "Nearly 1.3 million people have been forced to flee gang violence in Haiti and seek refuge elsewhere within the Caribbean country, the International Organization for Migration (IOM) said Wednesday.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164286",
-          "publishedOn": "2025-06-11T12:00:00.000Z",
-          "wordCount": null,
-          "title": "Gang violence displaces a record 1.3 million Haitians",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/11-06-2025-IOM-Haiti.jpg/image560x340cropped.jpg",
-            "length": "65684",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/11-06-2025-IOM-Haiti.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164271",
-          "author": null,
-          "description": "People in the Gaza Strip are getting hungrier because of the “very limited” volume of food being allowed in, UN aid agencies reiterated on Wednesday.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164271",
-          "publishedOn": "2025-06-11T12:00:00.000Z",
-          "wordCount": null,
-          "title": "Rising hunger in Gaza highlights urgent need for ‘unfettered’ aid supplies",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Graphics%20Library/10-06-2025_UNNews_Gaza_Market_02.jpg/image560x340cropped.jpg",
-            "length": "37758",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Graphics%20Library/10-06-2025_UNNews_Gaza_Market_02.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164276",
-          "author": null,
-          "description": "Civilian deaths and injuries in the first five months of 2025 were nearly 50 per cent higher than the same period last year, UN rights experts tasked with monitoring abuses in war-torn Ukraine said on Wednesday in their latest report.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164276",
-          "publishedOn": "2025-06-11T12:00:00.000Z",
-          "wordCount": null,
-          "title": "Ukraine: Ongoing Russian strikes continue alarming civilian casualty trend",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/17-04-2025-Ukraine-attacks-03.jpg/image560x340cropped.jpg",
-            "length": "39016",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/17-04-2025-Ukraine-attacks-03.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164261",
-          "author": null,
-          "description": "With 2024 confirmed as the hottest year on record, the World Health Organization (WHO) has issued a stark warning: the climate crisis is also a health crisis – and it’s already claiming lives.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164261",
-          "publishedOn": "2025-06-11T12:00:00.000Z",
-          "wordCount": null,
-          "title": "Climate emergency is a health crisis ‘that is already killing us,’ says WHO",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/24-07-2024-Unsplash-Taiwan.jpg/image560x340cropped.jpg",
-            "length": "16616",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/24-07-2024-Unsplash-Taiwan.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164251",
-          "author": null,
-          "description": "At the Third UN Ocean Conference in Nice, the “catch of the day” wasn’t a seabass or a red mullet – it was a figure: 35 per cent. That’s the share of global fish stocks now being harvested unsustainably, according to a new UN report released Wednesday.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164251",
-          "publishedOn": "2025-06-11T12:00:00.000Z",
-          "wordCount": null,
-          "title": "‘Plenty of fish in the sea’? Not anymore, say UN experts in Nice",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/27-05-2025-Ocean-Story-02.jpg/image560x340cropped.jpg",
-            "length": "48704",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/27-05-2025-Ocean-Story-02.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164211",
-          "author": null,
-          "description": "12-year-old Tenasoa crawls to work every day at a mine in eastern Madagascar where she collects two kilos of the shiny mineral mica each day. She cannot walk because of a physical disability.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164211",
-          "publishedOn": "2025-06-11T12:00:00.000Z",
-          "wordCount": null,
-          "title": "The world pledged to end child labour by 2025: So why are 138 million kids still working?",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/10-06-2025-UNICEF-Madagascar.jpg/image560x340cropped.jpg",
-            "length": "46436",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/10-06-2025-UNICEF-Madagascar.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164246",
-          "author": null,
-          "description": "Survivors of a people-smuggling operation gone wrong in the Red Sea have recounted how they were forced off their boat far from the coast of Djibouti and left to swim for their lives.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164246",
-          "publishedOn": "2025-06-11T12:00:00.000Z",
-          "wordCount": null,
-          "title": "At least eight die in Red Sea tragedy as smugglers force migrants overboard",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/04-05-2021-IOM-Djibouti-tragedy-06.jpg/image560x340cropped.jpg",
-            "length": "44874",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/04-05-2021-IOM-Djibouti-tragedy-06.jpg/image560x340cropped.jpg"
         }
       ]
     },
@@ -10254,6 +10103,26 @@
       "feedUrl": "https://morss.it/:proxy/https://chinadigitaltimes.net/chinese/feed",
       "siteUrl": "https://chinadigitaltimes.net/chinese",
       "articles": [
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=718882",
+          "author": "老子到处说",
+          "description": "永无归宿的风: 看完了娄的电影，仿佛又经历了一遍五年前的恐惧和悲恸，看到小女孩哭着喊妈妈，更是痛苦地不能自已。为什么很多人都那么健忘，美化过去的记忆。这两天我又刀片嗓了，刚才发着烧看完电影，感觉一切都不真实，难道这样的生活是正常的吗，出卖时间赚钱，生出孩子作为软肋，被房车教育套牢，日复一日苟活",
+          "link": "https://chinadigitaltimes.net/chinese/718882.html",
+          "publishedOn": "2025-07-01T01:39:14.000Z",
+          "wordCount": 13413,
+          "title": "【中国哭墙】千年暗室，一灯即明。你和罗医生都是我们凡人的守护神（6月1日-6月30日，2025年）",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2020/03/Screenshot-2020-03-13-10.48.21.png"
+        },
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=719017",
+          "author": "南方街头运动员",
+          "description": "报告称，藏区的寄宿学校有约80万至90万名6至18岁藏族儿童，以及约10万名4至6岁儿童就读的寄宿幼儿园。",
+          "link": "https://chinadigitaltimes.net/chinese/719017.html",
+          "publishedOn": "2025-06-30T23:36:16.000Z",
+          "wordCount": 13166,
+          "title": "【Cdt报告汇】人权组织：80万藏族儿童进入寄宿学校强制“同化”，四岁儿童离家住校讲普通话（外二篇）",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2023/06/Sanctioning-China-in-a-Taiwan-Crisis-Scenarios-and-Risks-final-e1687617982910.jpg"
+        },
         {
           "id": "https://chinadigitaltimes.net/chinese/?p=719240",
           "author": "elijah",
@@ -11563,16 +11432,6 @@
           "wordCount": 13149,
           "title": "情况比较复杂｜村民抵制19.38亿项目，有关部门“还去人家娘家威胁”？",
           "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/8c0a203a15ed22825355f85574eab02cd2a154e1.webp"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=718787",
-          "author": "既要又要还要",
-          "description": "他们的愿望要圆满得多，只想取“韦神”身上成功的一面——读北大，同时让孩子身体健全，毕业能拥有远大前程，升官发财。 他们在膜拜韦神的同时，心中可能也暗自满足：我的孩子实际上比他强多了，他们通过“膜拜韦神”，实际上确证的是自己的优势地位。",
-          "link": "https://chinadigitaltimes.net/chinese/718787.html",
-          "publishedOn": "2025-06-11T09:50:00.000Z",
-          "wordCount": 13063,
-          "title": "张3丰的世界｜你们造一个“韦神”，不过是爱自己",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/image-1749634685567.png"
         }
       ]
     },
@@ -11628,6 +11487,26 @@
       "feedUrl": "https://sspai.com/feed",
       "siteUrl": "https://sspai.com",
       "articles": [
+        {
+          "id": "https://sspai.com/post/100704",
+          "author": "少数派编辑部",
+          "description": "LG 结束所有手机相关服务，微软确认 Windows 11 下一版定名为 25H2 等。查看全文",
+          "link": "https://sspai.com/post/100704",
+          "publishedOn": "2025-06-30T22:19:16.000Z",
+          "wordCount": 818,
+          "title": "派早报：腾讯、网易发布暑期未成年人限玩日历等",
+          "imageUrl": "https://cdnfile.sspai.com/2025/7/1/article/d9ca574e-df28-a3f9-1887-5417155348c5.png"
+        },
+        {
+          "id": "https://sspai.com/post/100703",
+          "author": "板斧",
+          "description": "欢迎来到「本月玩什么」，本栏目将从作者个人角度出发，独立挑选一些本月新发售的游戏作品/内容做简要介绍、评论，不保证收录覆盖面，且并非每一款都是笔者推荐游玩的，主要涵盖PlayStation、Xbox、 ...查看全文",
+          "link": "https://sspai.com/post/100703",
+          "publishedOn": "2025-06-30T20:58:28.000Z",
+          "wordCount": 801,
+          "title": "本月玩什么 | DS2、NS2、PEAK、Deltarune",
+          "imageUrl": "https://cdnfile.sspai.com/2025/07/01/15b46bcfe65741b16c8deb9dace9aa73.jpg"
+        },
         {
           "id": "https://sspai.com/post/100691",
           "author": "少数派编辑部",
@@ -12297,16 +12176,6 @@
           "wordCount": 794,
           "title": "派早报：华为发布多款新品、红魔发布电竞平板 3 Pro 等",
           "imageUrl": "https://cdnfile.sspai.com/12/06/2025/article/0c6e25d5-6697-750c-f4a3-8f2dd4deccb1.jpeg"
-        },
-        {
-          "id": "https://sspai.com/post/100130",
-          "author": "克莱德",
-          "description": "如果真要说 Android 16 正式版更新了什么，我只能说「为下一次更新准备好」。查看全文",
-          "link": "https://sspai.com/post/100130",
-          "publishedOn": "2025-06-11T09:30:00.000Z",
-          "wordCount": 751,
-          "title": "具透｜Android 16 正式版评测：为 M3E 准备好",
-          "imageUrl": "https://cdnfile.sspai.com/2025/6/11/article/5050fea3-ed3c-99c0-e3c1-fb0020ebb04f.jpeg"
         }
       ]
     },
@@ -13578,16 +13447,6 @@
           "wordCount": 12179,
           "title": "Incredible testimonies",
           "imageUrl": "https://images.aeonmedia.co/images/54f10bd6-587d-4742-9a52-4b11a8f18e74/essay-kj1gf2.jpg?width=1200&quality=75&format=auto"
-        },
-        {
-          "id": "urn:id:8075",
-          "author": "Aeon Video",
-          "description": "By transforming documents of colonial classification into fantastical paintings, the racist imagery of Carl Linnaeus is reborn \n - by Aeon Video\n Watch at Aeon",
-          "link": "https://aeon.co/videos/defying-classification-fantastical-artworks-reframe-the-racism-of-carl-linnaeus?utm_source=rss-feed",
-          "publishedOn": "2025-06-11T10:01:00.000Z",
-          "wordCount": 3482,
-          "title": "Firelei Báez: an open horizon",
-          "imageUrl": "https://images.aeonmedia.co/images/3d331334-32c9-4268-9431-fc8ffc988582/firelei-baez-an-open-horizon-landscape-1.jpg?width=1200&quality=75&format=auto"
         }
       ]
     },
@@ -14413,6 +14272,16 @@
       "feedUrl": "https://feedx.site/rss/infzm.xml",
       "siteUrl": "http://infzm.com",
       "articles": [
+        {
+          "id": "http://www.infzm.com/contents/297051",
+          "author": null,
+          "description": "2025-07-01 09:00:00\n在存款利率“节节败退”之际，“聪明钱”正涌入预期收益更高的银行理财市场。\n2025年6月13日，中国人民银行（下称“央行”）公布的最新金融数据显示，5月份，非银行业金融机构存款（下称“非银存款”）增加3.07万亿元，环比新增1.19万亿元。南方周末新金融研究中心研究员调研对比历史数据发现，此新增额创下了近10年同期新高。\n作为观察存款结构的关键指标，非银存款系指银行理财子公司、基金公司、保险公司和证券公司等金融机构在商业银行体系内的存款。通常情况下，因利率走低触发的百姓和企业的“存款搬家”是致使非银存款增加的重要原因之一。\n与央行公布的上述数据相呼应，包括华源证券、中信证券在内的多家机构也纷纷估测，截至5月底，银行理财规模超过31万亿元，跃上历史高位。\n在资金纷纷涌入之时，各理财公司竞相降低管理费率，意图借此增强产品吸引力。南方周末新金融研究中心研究员透过法询金融理财网查询得知，6月份以来，多家理财公司密集披露公告，宣布旗下多款产品开展费率优惠，涉及固定管理费、销售服务费和托管费等多个品类。部分产品管理费率优惠后低至0.01%/年。这意味着1万元的理财产品一年管理费仅1元。\n与此同时，部分理财公司亦通过增配权益类资产及丰富资产配置策略的方式，以求在广谱利率下行、固收类资产资本利得空间不断收窄的“夹缝”中拔高产品收益。但亦有多家理财公司频繁下调多款产品业绩基准，以不断重建理财产品“随行就市”的定价之锚，引导投资者降低收益预期。\n上述现象表明，一场紧迫逼仄的变革正以明牌之势生发于银行理财市场。在这场变革中，以“低波稳健”见长的银行理财如何实现突围？权益类资产是否为新配置方向？脱胎于银行的理财子公司应如何提高权益市场的投研能力？\n南方周末新金融研究中心研究员调研多项行业权威数据、多家银行理财子公司和业内权威专家发现，包括工银理财、南银理财和…",
+          "link": "http://www.infzm.com/contents/297051",
+          "publishedOn": "2025-07-01T01:25:06.000Z",
+          "wordCount": 140,
+          "title": "跃上31万亿元历史高点，银行理财“夹缝中”谋变",
+          "imageUrl": null
+        },
         {
           "id": "http://www.infzm.com/contents/297049",
           "author": null,
@@ -18162,146 +18031,6 @@
           "wordCount": 95,
           "title": "如愿当选韩国总统，李在明的复仇剧要上演了吗？",
           "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/295518",
-          "author": null,
-          "description": "2025-06-11 21:00:00\n2025年5月15日，一个来自美国费城儿童医院、宾夕法尼亚大学佩雷尔曼医学院和加州大学伯克利分校等机构的研究团队在美国基因与细胞治疗学会上披露，他们利用碱基编辑技术对一名出生即被诊断患有罕见遗传病的婴儿进行体内基因编辑，成功减轻了该患儿的症状，有望将它从死亡的边缘拯救回来。这一针对患有遗传病的婴儿进行个性化基因编辑治疗的相关细节，也同时公布在了国际著名医学期刊《新英格兰医学杂志》上。\n\n首个接受体内基因编辑治疗的婴儿。 （图片来源：费城儿童医院网站）\n这名婴儿罹患一种名为氨基甲酰磷酸合成酶1缺乏症的极罕见遗传病。氨基甲酰磷酸合成酶1缺乏症的主要原因是对应的基因发生了点突变，即单个碱基由鸟嘌呤(G)突变成了腺嘌呤(A)，提前产生了终止密码子，导致肝细胞无法合成正常的氨基甲酰磷酸合成酶1。没有这种酶的帮助，肝脏无法完全分解其蛋白质代谢的副产物，引发氨在体内大量积聚，会对大脑和肝脏造成严重损害。这种遗传病的发生概率在每 130 万新生儿中仅约1人，极其罕见。一旦患有这种遗传病，一般会在出生后24-48小时内表现出严重的高氨血症，如果没能在婴儿早期进行肝脏移植，约有50%的患儿会夭折。即使侥幸成活，患儿也需要长期在医院接受持续的监控，并给予强效的氮清除药物，以及在日常饮食中对蛋白质摄入进行严格限制。\n这名婴儿出生后不久就表现出嗜睡和呼吸窘迫等氨基甲酰磷酸合成酶1缺乏症的典型症状，血氨浓度高达正常值上限的50倍以上，在采取氮清除药物治疗后，血氨浓度有所下降。随后，基因检测显示该患儿罹患氨基甲酰磷酸合成酶1缺乏症，由于病情持续恶化，来自美国费城儿童医院和宾夕法尼亚大学佩雷尔曼医学院的医生决定对其采取基因编辑治疗，他们与合作者一道共同开发出基于碱基编辑器的个性化基因编辑治疗方案。\n首先，研究人员从患儿体内分离出细胞系，利用细胞系筛选出最高效和最精准…",
-          "link": "http://www.infzm.com/contents/295518",
-          "publishedOn": "2025-06-11T13:25:09.000Z",
-          "wordCount": 91,
-          "title": "美国科学家基因编辑拯救一名患病婴儿",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/295470",
-          "author": null,
-          "description": "2025-06-11 20:00:00\n\n华盛顿麦金利科技高中校园。1951年，徐小虎在此完成了高中学业。资料图\n库特纳家当时在华盛顿东北区最大的天主教院后面，离华府的天主教大学也不远。附近住的都是天主教家庭。过来跟库特纳两个大哥玩的小朋友中有两位和我年纪差不多的男孩子愿意教我打棒球。我们就爬过铁网墙到天主教院底下的大草坪上打棒球玩儿。厄娃阿姨一开始立刻把我登记到华盛顿西北区一个叫作乙玛库拉塔（纯洁）学校（Immaculata Preparatory School ）的天主教学校去上学。在那里，修女们马上开始准备让我受礼入天主教会。我天天留在学校里上天主教课程。在这个课程里，我们必须相信修女老师们所说的一切，但有些是非常难让人相信的：包括“圣父圣子圣灵”的三圣中的圣灵是一只鸟。这个我没办法相信，也告诉修女说，小虎不能真正地相信它是一只下雨就会温温臭臭的活的鸟。修女们说，是的，它是一只纯白的鸽子。可是，不管我怎么身心渴望能够相信这种深奥的说法，始终都无法获得信仰。这也就成了大家担心的一个问题，因为它与我们心底的直觉有关，而我的信仰程度牵涉大家当时在准备的洗礼。\n于是，隔壁威尔逊两兄弟的哥哥鲍比·威尔逊就自愿晚上带我翻墙到山坡上的天主教堂里去。我俩在那里跪下祈求信心一小时左右，连续去了九个晚上，这种过程称为Novena（连续九天的祷告）。一直过去祈祷念了九夜，还是没有办法相信这个庞大无疆的精神是一只鸟。总之，九个晚上，我们两个人非常浪漫地跪在一起祈求信心。但我始终无法相信圣灵是一只鸟。\n这个消息最后报给了学校的老师。信仰建立失败导致修女老师们因此觉得无法给我洗礼，无法让我进入天主教会，也就没有理由继续去上那个远远的私立学校了。这样，我也蛮开心离开这个得让母亲付学费的学校；省了我们家庭那么多经费。我很乐意转学到近得多的东北市区公立男女中学——麦金利科技高中（McKinley Te…",
-          "link": "http://www.infzm.com/contents/295470",
-          "publishedOn": "2025-06-11T12:25:07.000Z",
-          "wordCount": 103,
-          "title": "徐小虎：华府的公立高中 | 到此的路程",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/295522",
-          "author": null,
-          "description": "2025-06-11 19:16:20\n中国地震台网正式测定：06月11日19时00分在台湾台东县海域（北纬23.33度，东经121.72度）发生5.8级地震，震源深度20千米。",
-          "link": "http://www.infzm.com/contents/295522",
-          "publishedOn": "2025-06-11T11:55:08.000Z",
-          "wordCount": 65,
-          "title": "台湾台东县海域发生5.8级地震，震源深度20千米",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/295489",
-          "author": null,
-          "description": "2025-06-11 19:00:00\n腾讯音乐对喜马拉雅的收购落定。\n2025年6月10日，腾讯音乐宣布与喜马拉雅签署并购协议，计划全资收购喜马拉雅。\n具体来看，本次交易总额为12.6亿美元的现金；腾讯音乐将发行的A类普通股形式的股票，其总数不超过截至不晚于交易交割前五个工作日的工作日当天公司已发行及发行在外的普通股总数的5.1986%；在交割时及之后将分批向创始股东（如并购协议所定义）发行的不超过总股数0.37%的该等A类普通股。此外，根据并购协议，喜马拉雅将进行与交易有关若干现有业务的重组。\n而交易的交割取决于相关监管部门的批准及若干其他交割前提条件。\n需要注意的是，这只是腾讯音乐近期收购一隅。\n5月30日，韩国娱乐巨头HYBE通过场外大宗交易方式，向腾讯音乐旗下香港法人出售其所持全部SM娱乐股份。此次交易金额约为2433亿韩元，约合人民币12.9亿元，占SM娱乐股份的9.38%。\n这代表着，腾讯音乐以9.38%的持股比例成为SM娱乐第二大股东，仅次于韩国互联网公司Kakao。\n美东时间6月10日，腾讯音乐美股开盘后股价一度上涨，此后处于波动状态。\n流量焦虑？\n种种收购背后是，腾讯音乐再次陷入流量焦虑。\n在2025年一季度，腾讯音乐营收73.56亿元，同比增长8.7% ；调整后净利润22.26亿元，同比增长22.8%。\n业绩增长背后是，腾讯音乐付费会员业务高速增长。\n在一季度，腾讯音乐在线音乐收入同比增长15.9%至58亿元。其中，订阅收入同比增长16.6%至42.2 亿元，在线付费用户数同比增长8.3%至1.229亿 ，单个付费用户月均收入（ARPPU） 环比提升0.3元至11.4元。该项业务主要推力来自SVIP（超级会员）的增长和更审慎的促销活动。广告、艺人周边及线下演出也带动了非订阅收入的增长。\n可代价也是明显的。一季度，腾讯音乐在线音乐服务月活同比下滑4.0%…",
-          "link": "http://www.infzm.com/contents/295489",
-          "publishedOn": "2025-06-11T11:25:07.000Z",
-          "wordCount": 107,
-          "title": "腾讯音乐收购喜马拉雅，靠并购走出流量焦虑？",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/295520",
-          "author": null,
-          "description": "2025-06-11 19:05:00\n\n一家车企的新能源汽车停车场。视觉中国/图\n2025年6月10日晚，一汽集团、东风集团、广汽集团、赛力斯集团、比亚迪等多家车企宣布，承诺对供应商的支付账期不超过60天。\n次日上午，小米汽车、小鹏汽车、理想汽车、零跑汽车、长城汽车、奇瑞汽车也宣布跟进。\n车企们表示，此举是为了积极响应落实国务院《保障中小企业款项支付条例》和中国汽车工业协会《关于维护公平竞争秩序促进行业健康发展的倡议》，以加速产业链资金周转效率，保障产业链供应链稳定，发挥领军企业担当，促进汽车产业高质量发展。\n《保障中小企业款项支付条例》（下称《条例》）是6月1日发布的，重点提到整治行业滥用供应链金融手段恶意延长付款账期等乱象。\n《条例》规定，大型企业从中小企业采购货物、工程、服务，应当自货物、工程、服务交付之日起60日内支付款项；机关、事业单位和大型企业迟延支付中小企业款项的，应当支付逾期利息。双方对逾期利息的利率有约定的，约定利率不得低于合同订立时1年期贷款市场报价利率；未作约定的，按照每日利率万分之五支付逾期利息。\n增收不增利\n对供应商的支付账期不超过60天，被视作车圈打响“反内卷”第一枪。\n因“价格战”频发，国内汽车行业利润逐年下降。\n根据国家统计局的数据，中国汽车制造业的利润率水平从2017年的7.8%，一路降至2023年的5.0%；2024年进一步降至4.4%。同时，利润绝对值也显著下滑，全行业利润总额从2017年的6833亿元，跌至2023年的5086亿元。\n5月31日，中国汽车工业协会发布《关于维护公平竞争秩序促进行业健康发展的倡议》。倡议称，5月23日以来，某车企率先发起大幅降价活动，多家企业跟进效仿，引发新一轮“价格战”恐慌。无序“价格战”加剧恶性竞争，将进一步挤压企业利润空间，进而影响产品质量和售后服务保障，不仅阻碍行业自身健康发展，也将危害消费者权…",
-          "link": "http://www.infzm.com/contents/295520",
-          "publishedOn": "2025-06-11T11:25:07.000Z",
-          "wordCount": 79,
-          "title": "支付账期不超过60天，车圈打响“反内卷”第一枪",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/295464",
-          "author": null,
-          "description": "2025-06-11 18:00:36\n2025年6月8日，许其亮同志遗体在京火化，习近平等党和国家领导人到八宝山革命公墓送别。\n作为许其亮同志担任空军司令员时期的空军对外宣传办公室第一任主任，作为党的十八大后履职的空军第一任新闻发言人，看着微信朋友圈纷纷转发缅怀许其亮同志的信息，一些关于许其亮同志的故事一一浮现……\n首创“飞行清华班”，让飞行精英有机会当院士\n新华社播发的《许其亮同志生平》称，许其亮毕业于空军第五航空学校，大专学历。许其亮同志早年就读于山东省青少年业余航空学校，15岁时学飞行。这位“从一线飞出来”的高级将领，非常重视军事飞行人才培养，历史性打造了一系列“飞行员培养品牌工程”。\n\n年轻时的许其亮。（作者供图）\n首创“飞行清华班”，就是许其亮同志的创新之作。有一次空军党委研究飞行员培养工作时，许其亮动情地说：“现在很多行业都有院士，军事飞行领域为什么不能有院士呢？难道不是博士硕士研究生、不精通英语和几门外语、公开渠道发不了论文的人，就没有资格、没有机会当院士吗？我们要勇于并努力去创造条件，让军事飞行精英人才，有机会也有可能当院士！”\n2011年9月13日，新华社播发消息《清华园走来一批年轻的“空军蓝”》，就是许其亮首创“飞行清华班”的历史记录。当天，空军与清华大学联合培养飞行学员签约仪式在清华园举行。在许其亮同志大力推动下，当年首批联合培养的飞行学员，依据清华大学招收本科生的各省投档高考分数线，按照歼击机和轰炸机等机种的身体标准条件，从新招理科高中生飞行学员中择优选拔。\n“飞行清华班”联合培养，采取“3＋1”模式进行。先在清华大学航天航空学院学习3年的科技文化知识，后在空军航空大学学习1年的航空理论知识，并完成跳伞和初级飞行训练。\n9月13日开课第一天，许其亮在清华园会见首批“清华班”飞行学员。他说，飞行员是空军战斗力的主体，也是高级指挥员的重要来源，在空军建…",
-          "link": "http://www.infzm.com/contents/295464",
-          "publishedOn": "2025-06-11T10:25:07.000Z",
-          "wordCount": 83,
-          "title": "“问君可有梦，我梦在蓝天”",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/295499",
-          "author": null,
-          "description": "2025-06-11 17:01:31\n6月11日，山东神头镇人民政府发布情况通报。6月9日傍晚，神头镇遭遇强对流极端天气，风力超过11级。神头镇中心小学3名学生被高空坠物砸伤。学校第一时间组织就医，两名学生伤势较轻，一名学生经全力救治无效死亡。",
-          "link": "http://www.infzm.com/contents/295499",
-          "publishedOn": "2025-06-11T09:25:06.000Z",
-          "wordCount": 66,
-          "title": "遭遇强对流极端天气，山东3名学生被高空坠物砸中致1死2伤",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/295495",
-          "author": null,
-          "description": "2025-06-11 17:03:29\n\n当地时间2025年6月7日，冲突之下的美国洛杉矶。视觉中国|图\n洛杉矶爆发大规模抗议的时候，我已经乘坐火车来到了位于美国东海岸的老城巴尔的摩。此刻，真渴望自己仍在位于南加大附近的公寓里，或许我开窗就可以听见街头示威者的呼声，或许警用直升飞机又会吵得我睡不着觉，或许我可以出门看看，我认识的那些移民是否安好。\n在搬离洛杉矶前的两周，我认识了一位新邻居，安东尼。他大概四五十岁的样子，胳膊和腿脚都非常粗壮，来自委内瑞拉。因为每天走过他工作的仓房，相互微笑致意，而后就知晓了彼此的名字，有一天安东尼忽然叫住我：“我喜欢做菜，明天这个时候你会不会走过这里？如果会，我做两份手撕牛肉（carne mechada），给你一份？”\n我接受了他的好意。第二天，我路过安东尼所在的仓房，他让我在门口等一下，然后从轿车的后备箱取出一个保温的午餐包，拉开拉链，两个一样的午餐盒，而后，他很认真地教会我念“carne mechada”，说是学会了这个词，以后想吃这道菜，可以去委内瑞拉餐厅点。\n正好也是他的午餐时间，他端着他的那份午餐盒，走出门外，锁好铁闸，而后我俩就倚着铁门，站在人行道上边吃边聊。和很多新来的委内瑞拉移民不同，他已经在美国十多年了（“我早就预见了我们的经济要出大问题”），做过长途卡车司机、保安、诊所助理，他的前妻和儿子不适应美国的生活，已经回到了国内。他的儿子在念中学，以后想主修计算机。\n我担心有任何误会，便告诉他自己很快要搬去马里兰州，他有些伤感——“我们才刚认识”——但很快告诉我，开卡车的时候他去过马里兰州，那边郁郁葱葱。\n吃完饭，他回仓房取出手提电脑，给我看他在闲暇时间做的景观设计图，他自学成才，目前只是把这些设计图挂在网上，希望以此寻找客户。\n“另一间仓房的工人跟我说，我应该试试抖音，说不定可以有更多人看到。”\n这些年在美国，最让我感动的莫过于…",
-          "link": "http://www.infzm.com/contents/295495",
-          "publishedOn": "2025-06-11T09:25:06.000Z",
-          "wordCount": 86,
-          "title": "钱佳楠：洛杉矶的愤怒 | 洛城机密",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/295504",
-          "author": null,
-          "description": "2025-06-11 17:11:08\n“别哭，你们是好样的！”广东队获得十五运会U16女足亚军\n6月10日晚，第十五届全国运动会足球项目女子16岁以下组比赛（U16女足赛）迎来最后一个比赛日，广东队与上海队在广州天河体育中心体育场上演巅峰对决。经过激战，广东队0比1不敌上海队，获得亚军。\n\n\n广东队和上海队均被看作本届赛事最大的夺冠热门，前者作为东道主，以五战全胜的战绩闯入决赛；后者则是4胜1负，同样发挥亮眼。这场决赛共吸引了20186名球迷进入天河体育场观赛，创造了该年龄段国内女足赛事的最高上座纪录。\n\n坐拥主场之利的广东队派出了和上一轮完全一样的首发阵容，开场后采取高位逼抢的战术抢占进攻主动。第10分钟，广东队一脚远射令上海队门将扑救脱手，前锋温紫怡抢点差点得手。第20分钟，广东队采取和上轮一样的换人战术，用陈沁瑜替换了温紫怡。换人后，广东队的进攻更加猛烈。\n\n第33分钟，广东队前场发出界外球到上海队大禁区前沿，陈沁瑜二次抢点突入上海队禁区，上海队球员忙乱中从后伸脚绊倒了陈沁瑜，当值主裁判顾春含果断吹罚点球。广东队由刘钰可主罚，可惜点球射得太正被上海队门将白水灵将球扑在怀里。半场战罢，广东队与上海队以0比0战平。\n\n下半场开始后，上海队明显加强攻势和逼抢的力度，广东队防线风声鹤唳。下半场20分钟后，广东队站稳了脚跟，重新与上海队战成均势。65分钟后，两队均有一名球员受伤被迫换人。第74分钟，上海队凭借身体优势形成一波攻势，5号球员蔡鑫林被广东队14号球员杨睿雪在禁区内铲倒，主裁判吹罚点球，7号球员成宛迪左脚推射一蹴而就，帮助上海队获得领先。1比0的比分也保持到了比赛结束，最终上海队以1比0小胜广东队，夺得本届全运会首个竞体项目的金牌，广东队获得亚军。\n\n\n在当天下午的季军争夺战中，江苏队以3比1战胜山东队，获得铜牌。值得一提的是，十五运会的奖牌“同心跃”于10日上午正式发布。\nU16女足赛是全运会历史上首次设立的竞赛项目，这是十五运会首个开赛的竞体项目，也是广州赛区首个正式比赛项目。U16女足赛的举行，为接下来将开展的十五运会各项赛事取得“开门红”。\n在当晚的决赛中，广东男篮主帅杜锋，球员胡明轩、徐杰、杜润旺也来到天体为广东队助阵。杜锋表示，广东女足一路闯进决赛不容易，拼劲十足，希望赛事能给全国球迷带来快乐。他认为，三大球应该相互支持，相互促进。\n采写：南方+记者 许仪 梁时禹\n摄影：南方+记者 姚志豪\n剪辑：南方+记者 周鑫宇",
-          "link": "http://www.infzm.com/contents/295504",
-          "publishedOn": "2025-06-11T09:25:06.000Z",
-          "wordCount": 98,
-          "title": "广东队获得十五运会U16女足赛亚军",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/295505",
-          "author": null,
-          "description": "2025-06-11 17:13:32\n当地时间6月9日至10日，中美经贸中方牵头人、国务院副总理何立峰与美方牵头人、美国财政部长贝森特及商务部长卢特尼克、贸易代表格里尔在英国伦敦举行中美经贸磋商机制首次会议。双方进行了坦诚、深入的对话，就各自关心的经贸议题深入交换意见，就落实两国元首6月5日通话重要共识和巩固日内瓦经贸会谈成果的措施框架达成原则一致，就解决双方彼此经贸关切取得新进展。\n何立峰表示，本次会议是在两国元首今年6月5日战略共识指引下开展的一次重要磋商。中方对中美经贸问题的态度和立场是明确的、一贯的。中美经贸关系的本质是互利共赢，中美在经贸领域合则两利、斗则俱伤。贸易战没有赢家，中方不愿打，但也不怕打。双方应通过平等对话、互利合作解决经贸分歧，中方对经贸磋商是有诚意的，也是有原则的。下一步，双方要按照两国元首通话达成的重要共识和要求，进一步发挥好中美经贸磋商机制作用，不断增进共识、减少误解、加强合作。中方重申，双方应相向而行，言必行、行必果，拿出恪守承诺的诚信精神和切实履行共识的努力行动，共同维护来之不易的对话成果，继续保持沟通对话，推动中美经贸关系行稳致远，为世界经济注入更多确定性和稳定性。\n美方表示，本次会议取得积极成果，进一步稳定了双边经贸关系，将按照两国元首通话要求，与中方相向而行，共同落实好本次会议共识。",
-          "link": "http://www.infzm.com/contents/295505",
-          "publishedOn": "2025-06-11T09:25:06.000Z",
-          "wordCount": 75,
-          "title": "中美经贸磋商机制首次会议在英国伦敦举行",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/295421",
-          "author": null,
-          "description": "2025-06-10 17:00:00\n\n林徽因的成绩单。（汤禹成/图）\n墙上排列了23张肖像，22张是男性照片，林徽因是唯一的女性，像印象中那样短发齐耳。这是1924年的大学入学照，她才20岁。\n23张肖像，包括了1918年到1941年间宾夕法尼亚大学建筑系所有中国学生，被展示在2022年一个展览上。这群年轻人毕业后，将所学带回当时动荡不安的中国，影响中国建筑教育、建筑设计甚至城市发展至今。\n展览开幕那天，宾大设计学院院长弗雷德里克·斯坦纳来巡场，他注意到，那位唯一的女性，也是唯一没有获得建筑学学位的人——照片下方标注人物的在校年份和所获学位，林徽因的照片下方写着：B.F.A.——Bachelor of Fine Arts，艺术学学士。原因很简单，1920年代的建筑系不招女学生。\n斯坦纳不是第一次听说林徽因。早在2005年，他在清华大学教书，就被一次又一次介绍梁思成和林徽因的故事。2016年，他初到宾大担任院长，第一次了解到林徽因获得的只是艺术学位。三年后，他又在上海参加了一场关于梁林夫妇的展览，“展览只是将他们当作一对夫妇呈现”。\n以前，他并没有为林徽因打抱不平。这一次有点不同，当那张唯一的女性的照片，和22位男性同行陈列在一起时，某种视觉冲击、现实感突然袭来。“我再一次意识到她不仅是里面唯一的女性，也是唯一没获得建筑学学位的人。不知为何，这让我更加在意这件事了，也更清楚地意识到问题的存在。”2024年6月的一天，斯坦纳对南方周末回忆。\n“我们必须改变这件事。”他对身边两位策展人说。\n\n林徽因侧身坐在一座佛像前，神情专注，执笔记录着什么。（宾大设计学院官网/图）\n“林非常特别”\n“在那个时期，没有其他女性能达到她这样的程度，连接近都没有。”\n       \n“不对的事情就应该修正，如此而已。”在费城，斯坦纳说起这件事始终轻描淡写。\n但这样“修正错误”其实很罕见，宾大上一…",
-          "link": "http://www.infzm.com/contents/295421",
-          "publishedOn": "2025-06-11T08:55:06.000Z",
-          "wordCount": 107,
-          "title": "为一位中国女孩打抱不平",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/295472",
-          "author": null,
-          "description": "2025-06-11 16:29:25",
-          "link": "http://www.infzm.com/contents/295472",
-          "publishedOn": "2025-06-11T08:55:06.000Z",
-          "wordCount": 69,
-          "title": "桂林通报“一名六年级男生坠楼”",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/295436",
-          "author": null,
-          "description": "2025-06-11 16:00:27\n\n2025年6月5日，王飞涉恶案二审在北京市高院开庭。（网络资料图）\n一场原本并不复杂的“一房二卖”纠纷，最终演变成刑事案件。\n北京市昌平区的开发商贾文贵，因资金链断裂，向外借款2000万元，抵押物为12套小产权别墅。\n贾文贵违约后，债主之子王飞去收别墅，并将别墅对外售卖。\n北京市第一中级人民法院一审认为，王飞的确不知道这12套别墅曾被出售，但其在获知原买家开始维权后，故意隐瞒实情，继续卖给新业主，构成合同诈骗罪。王飞等人被认定为恶势力团伙，王飞本人也被判处无期徒刑，他不服判决，提起上诉。2025年6月5日，此案在北京市高院二审开庭。\n王飞对别墅是否有占有权，刑案一审法院未作出直接认定，而是认定王飞没有处置权。\n但占有是处置的前提。在刑案一审宣判10天之前，关联的民事诉讼也有了结果，法院认定王飞对别墅系“瑕疵占有”。\n何为瑕疵占有？瑕疵占有并不是无权占有，一般指占有存在缺陷。受访学者分析，在司法实践中，瑕疵占有在城乡接合部、违法建筑纠纷中普遍存在，且在法理和司法实践中均存在一定争议。\n借款2000万元，“砍头息”600万元\n麻峪村是北京北六环外的一个小山村，行政隶属昌平区崔村镇，紧邻十三陵景区。\n根据公开报道，2005年前后，昌平区兴起了一股小产权房建设潮。此类房产的土地性质多系集体土地，在实践中一般只能办理房产证，不能像商品房一样办理国有土地使用证。\n因在用地、建设许可等方面存在诸多违规问题，后来各地政府部门多次清理整治小产权房。不过，小产权房因售价远低于商品房，始终“屡禁不绝”。\n贾文贵就是在这一背景下修建小产权房的，项目名称为玉墅馆。\n李广洞曾于2010年至2015年任麻峪村村主任，2015年之后又当过几年村支书。按照他后来对公安机关的说法，玉墅馆所在的88.43亩土地原本是他个人于2006年以每亩2200元的价格从村里租来的，…",
-          "link": "http://www.infzm.com/contents/295436",
-          "publishedOn": "2025-06-11T08:25:07.000Z",
-          "wordCount": 95,
-          "title": "一房二卖引发一桩涉恶案：争议瑕疵占有",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/295493",
-          "author": null,
-          "description": "2025-06-11 16:10:35\n今天（6月11日），教育部发展规划司发布《关于拟同意设置本科高等学校的公示》。\n公示显示，根据《中华人民共和国高等教育法》《普通高等学校设置暂行条例》《普通本科学校设置暂行规定》《本科层次职业学校设置标准（试行）》等有关规定以及第八届全国高等学校设置评议委员会考察评议结果，经教育部党组会议审议，拟同意设置大湾区大学等10所学校，现予公示。\n公示时间为2025年6月11日至6月17日。其间，如对设置学校有不同意见，请署名反映。\n通信地址：北京市西城区大木仓胡同37号，教育部发展规划司，邮编：100816\n传真：010-66020442\n电子邮箱：ghsszc@moe.edu.cn\n拟同意设置本科高等学校名单↓↓↓",
-          "link": "http://www.infzm.com/contents/295493",
-          "publishedOn": "2025-06-11T08:25:07.000Z",
-          "wordCount": 84,
-          "title": "大湾区大学要来了，教育部拟同意设置10所高校",
-          "imageUrl": null
         }
       ]
     },
@@ -18589,16 +18318,6 @@
           "wordCount": 1559,
           "title": "Airlines sell passenger flight data to Customs and Border Protection",
           "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/01/logo-lone-square512x512.png"
-        },
-        {
-          "id": "https://flowingdata.com/?p=78796",
-          "author": "Nathan Yau",
-          "description": "RJ Andrews and Attila Bátorfy highlight information graphics from Signal, the Nazi propaganda…\nTags: Attila Batorfy, Nazi, propaganda, RJ Andrews",
-          "link": "https://flowingdata.com/2025/06/11/nazi-propaganda-charts/",
-          "publishedOn": "2025-06-11T11:13:01.000Z",
-          "wordCount": 1522,
-          "title": "Nazi propaganda charts",
-          "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/05/propaganda-graphics-scaled.png"
         }
       ]
     },
