@@ -2729,51 +2729,6 @@
             "length": "0"
           },
           "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/f900f2a6-6d23-48ec-cabb-be9ee7196f00/cover"
-        },
-        {
-          "id": "052787",
-          "author": "Simon Willison",
-          "description": "📌 一句话摘要\n            \n分析了 AI 助手结合私有数据访问、暴露于不受信任的内容以及外部通信时存在的关键安全风险（即致命三要素）。\n📝 详细摘要\n            \n本文识别并解释了 AI 助手系统中一个重要的安全漏洞，称为“致命三要素”。当助手拥有对私有数据的访问权限，暴露于不受信任的外部内容（如网页或电子邮件），并具有对外通讯（可能导致数据泄露）的能力时，就会出现这种威胁。核心问题在于，LLM 本质上会遵循它们处理的任何内容中存在的指令，包括来自不受信任来源的恶意指令。本文提供了大量针对 Microsoft Copilot、GitHub 和 Google AI Studio 等主要平台的攻击示例。它警告说，传统的“安全防护机制”对于这种形式的提示注入导致的数据泄露是不可靠的。关键在于，AI 助手的用户需要理解这种风险，并避免配置具有致命三要素组合的系统。因为对于用户自定义的工具配置，供应商无法完全保证安全。\n💡 主要观点\n            \n功能的“致命三要素”为 AI 助手创造了关键的安全风险。\n                         结合私有数据访问、不受信任的内容处理和外部通信，攻击者可以很容易地欺骗助手窃取用户数据。\n                    \n\n                        LLM 会无差别地执行其接收到的任何指令，无论这些指令是否来自可信来源。\n                         这种基本行为意味着来自不受信任来源的恶意指令可以覆盖用户意图，并命令助手执行有害操作。\n                    \n\n                        当前的防护措施解决方案对于此类攻击不够可靠。\n                         供应商的安全措施可能无法提供 100% 的保护，特别是当用户组合来自不同来源的工具时，用户意识至关重要。\n                    \n\n                        AI 助手系统的用户必须主动避免致命三要素以确保他们的安全。\n                         由于供应商无法防范所有潜在的工具组合，因此用户有责任配置他们的助手以防止这种危险的设置。\n                    \n💬 文章金句\n            \n未能理解这一点可能会让攻击者窃取您的数据。\n如果您的助手结合了这三个功能，攻击者可以很容易地欺骗它访问您的私有数据并将其发送给该攻击者。\nLLM 无法可靠地区分指令的重要性，无论它们来自哪里。\n保持安全的唯一方法是完全避免那种致命三要素的组合。\n作为这些系统的用户，您需要了解这个问题。LLM 供应商无法提供完全的保障！\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：Simon Willison's Weblog\n作者：Simon Willison\n分类：人工智能\n语言：英文\n阅读时间：5 分钟\n字数：1245\n标签：\n                    \n                        安全, AI 助手, 提示注入, 数据泄露, LLM",
-          "link": "https://www.bestblogs.dev/zh/article/052787",
-          "publishedOn": "2025-06-16T13:20:43.000Z",
-          "wordCount": 316,
-          "title": "AI 助手的致命三要素：私有数据、不受信任的内容和外部通信",
-          "enclosure": {
-            "url": "https://static.simonwillison.net/static/2025/lethaltrifecta.jpg",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://static.simonwillison.net/static/2025/lethaltrifecta.jpg"
-        },
-        {
-          "id": "afbaa7",
-          "author": "去哪儿DBA团队",
-          "description": "📌 一句话摘要\n            \n文章全面解析 Redis 高并发缓存设计，深入探讨雪崩/穿透/击穿/热 key/大 key 等问题及多种解法，并分享去哪儿网实战优化案例与成效。\n📝 详细摘要\n            \n本文深度分析了在高并发系统架构中 Redis 作为核心缓存面临的挑战与应对策略。首先阐述了 Redis 实现高并发的技术基础及在极限场景下的性能问题。接着详细介绍了单机、主从、Cluster 等部署模式，并剖析了官方 Cluster 模式的痛点。文章重点聚焦于缓存雪崩、缓存穿透、缓存击穿、缓存打满、热 Key、Big Key 等六大典型问题，逐一解析其成因，并提供了多样的最佳实践解决方案，包括数据校验、缓存空值、布隆过滤器、逻辑过期、互斥锁、本地缓存、多副本、Lazy Free/UNLINK 等。最后，通过去哪儿网的真实案例，详细展示了在“五一”大促期间如何运用逻辑过期、热 key 多副本、本地缓存、随机过期时间、资源隔离等策略成功应对亿级请求，并用优化前后的关键指标对比（CPU 峰值、命中率、回源 QPS、响应耗时）印证了优化成效。文章内容系统全面，理论结合实践，具有很高的参考价值。\n💡 主要观点\n            \nRedis 应对高并发需结合架构设计和正确使用策略。\n                         尽管 Redis 单节点性能强大，但在千万级并发和特定场景下，仅靠基础部署不足以应对。文章强调必须结合深入的架构设计（如 Cluster、多机房部署）和针对热点、大 Key 等问题的正确使用及优化策略，才能真正构建\"顶得住\"的高并发缓存系统。\n                    \n\n                        详细解析缓存雪崩、穿透、击穿等六大典型问题及通用解决方案。\n                         文章系统性剖析了缓存雪崩、穿透、击穿、打满、热 Key、Big Key 这六大高并发缓存面临的典型问题，深入分析其发生场景和危害，并提供了数据校验、布隆过滤器、逻辑过期、互斥锁、多种热 Key/Big Key 处理等一系列具体、实用的最佳实践解决方案，为开发者提供了应对常见挑战的工具箱。\n                    \n\n                        去哪儿网通过综合优化策略成功应对亿级 Redis 请求。\n                         通过去哪儿网在\"五一\"大促中的实战案例，文章展示了如何综合运用逻辑过期、热 Key 多副本、本地缓存前置、随机过期等多种优化策略，成功将 Redis 单节点 CPU 峰值从 72%降至 28%，命中率从 64%提升至 96.5%，数据库回源 QPS 大幅降低，接口响应耗时减半，有力验证了文中所述优化方案在真实高并发场景下的有效性和巨大价值。\n                    \n💬 文章金句\n            \n在高并发系统架构中，Redis 是当之无愧的\"守门员\"。\n光有 Redis 还不够，它需要\"设计得好\"，更需要\"用得对\"。\n布隆过滤器，以极小空间（甚至小于 bitmap）高效存储大量元素，专注于元素存在性的快速标记。\n热 key 问题是 Redis 中常见的一个性能瓶颈，也是 Redis 性能优化的难点，即便在集群模式下进行水平扩容也无法完全解决。\n去哪儿网业务研发和 DBA 团队（以下简称技术团队）在面对性能瓶颈时，迅速采取了一系列多维度的优化方案，以提升系统性能和用户体验。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：Qunar技术沙龙\n作者：去哪儿DBA团队\n分类：软件编程\n语言：中文\n阅读时间：62 分钟\n字数：15370\n标签：\n                    \n                        缓存系统, Redis, 高并发, 性能优化, 架构设计",
-          "link": "https://www.bestblogs.dev/zh/article/afbaa7",
-          "publishedOn": "2025-06-16T10:02:00.000Z",
-          "wordCount": 326,
-          "title": "如何实现 Redis 高并发缓存？架构设计、实战案例与优化策略全解析",
-          "enclosure": {
-            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/156b3aca-581c-4450-0098-382f6e57af00/cover",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/156b3aca-581c-4450-0098-382f6e57af00/cover"
-        },
-        {
-          "id": "1912d5",
-          "author": "腾讯程序员",
-          "description": "📌 一句话摘要\n            \n鹅厂实习生分享 Agent/RAG 实战经验，详解黑科技本质、优化方法与评估工具，提供实用入门指南。\n📝 详细摘要\n            \n本文结合鹅厂实习生的亲身实践经验，以“血泪史”的幽默笔触，深入浅出地介绍了检索增强生成（RAG）和智能体（Agent）两大 AI 前沿技术。文章首先剖析了 RAG 如何解决大语言模型（LLM）的“幻觉”问题，详细解释了 RAG 的工作流程、评估指标（召回率、忠实度）及其优化策略（知识库、检索、生成）。接着，文章引入了智能体（Agent）的概念，梳理了其历史演进和 OpenAI 的五级分类，并重点阐述了基于大模型的 Agent 的核心原理、组成部分（LLM、工具调用、规划、记忆）和工作流程。文中结合实际案例（如 RAGAS 评估框架、PDF 文档解析工具对比、记忆机制的实现）提供了可操作的实践参考，并强调了规划（如 ReAct， Reflexion 框架）和记忆（如 MIPS， HNSW）在构建高性能 Agent 中的重要性。整体内容旨在帮助技术从业者理解并快速应用 Agent 和 RAG，特别从实战角度分享了经验。\n💡 主要观点\n            \nRAG 通过引入外部知识库解决 LLM 的“幻觉”问题。\n                         检索增强生成（RAG）让 AI 先查询可靠资料，再生成回答，显著提升了回答的准确性和可信度，避免凭空编造。\n                    \n\n                        优化 RAG 需从知识库、检索策略和生成策略三方面入手。\n                         通过结构化知识、混合检索、查询重写、引用增强等方法，可有效提升 RAG 的召回率和忠实度，文章提供了具体的技术手段和评估指标 RAGAS 作为指导。\n                    \n\n                        Agent 是能感知、决策、执行、学习的 AI 系统，具备自主完成复杂任务的能力。\n                         Agent 结合 LLM、工具、规划和记忆，代表 AI 发展的重要方向，区别于简单使用 LLM，能够自主地与环境交互并实现用户目标。\n                    \n\n                        区分简单使用 LLM 和真正具备智能体特性（Agentic）是关键。\n                         一个系统是否 Agentic 取决于其自主决策能力，从简单路由输入到自主构建工具和使用记忆，体现了 AI 能力的层级跃升。\n                    \n\n                        规划和记忆是构建高性能 Agent 的关键组成部分。\n                         规划（如 ReAct， Reflexion）使 Agent 能分解任务、反思学习；记忆（短期/长期）配合高效检索方法（如 HNSW）支持 Agent 获取和利用历史信息，是实现自主行为和持续优化的基础。\n                    \n💬 文章金句\n            \n当 AI 需要靠谱的知识而不是\"胡说八道\"时，就是我闪亮登场的时刻！\n我的全名是检索增强生成（Retrieval Augmented Generation），你可以叫我 RAG。\n我的核心能力，就是赋予 AI 这种\"查阅外部知识\"的本事！\n与其讨论 Agent，不如讨论 Agentic。\nAgent 的自我反思能力非常重要。\n记忆可以定义为用于获取、存储、保留和随后检索信息的过程。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：腾讯技术工程\n作者：腾讯程序员\n分类：软件编程\n语言：中文\n阅读时间：57 分钟\n字数：14106\n标签：\n                    \n                        Agent, RAG, LLM, 智能体, 检索增强生成",
-          "link": "https://www.bestblogs.dev/zh/article/1912d5",
-          "publishedOn": "2025-06-16T09:36:00.000Z",
-          "wordCount": 313,
-          "title": "鹅厂实习生血泪贴：Agent/RAG 黑科技，真相竟是这样！",
-          "enclosure": {
-            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/282502aa-ca0f-424b-7b42-7666e2a25800/cover",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/282502aa-ca0f-424b-7b42-7666e2a25800/cover"
         }
       ]
     },
@@ -3041,16 +2996,6 @@
           "wordCount": 4435,
           "title": "6 Tips for Launching an Investigative Podcast",
           "imageUrl": "https://gijn.org/wp-content/uploads/2025/06/shutterstock_2169645765-771x434.jpg"
-        },
-        {
-          "id": "https://gijn.org/?p=2321519",
-          "author": "Eunice Au",
-          "description": "The Global Investigative Journalism Network (GIJN) is looking for a Program Director to plan, lead, develop, and implement cutting-edge programs to foster the practice of investigative journalism across the globe. This full-time position will be part of GIJN’s management team, working to advance GIJN’s mission of supporting and strengthening investigative journalism worldwide — with special […]",
-          "link": "https://gijn.org/jobs/program-director-2/",
-          "publishedOn": "2025-06-16T10:03:40.000Z",
-          "wordCount": 1415,
-          "title": "Program Director",
-          "imageUrl": "https://gijn.org/wp-content/uploads/2025/06/Job-Vacancy-Post-Program-Director-Twitter-Post-771x434.png"
         }
       ]
     },
@@ -4134,6 +4079,16 @@
       "feedUrl": "https://www.geekpark.net/rss",
       "siteUrl": "http://mainssl.geekpark.net/rss.rss",
       "articles": [
+        {
+          "id": "http://www.geekpark.net/news/351228",
+          "author": null,
+          "description": "小米 YU7 今日起开启交付，全国 58 城用户将喜提新车\n小米汽车官微昨日发文宣布，小米 YU7 明天将正式开启全国交付，覆盖全国 58 个城市（官微暂未公布具体城市名单）。\n\n6 日上午 10:00 至 7 日晚上 24:00，小米 YU7 还将开启限时改配。锁单用户 (非准现车) 都可参与改配，如改配成功，将重新安排生产并重新计算预计交付时间。此次改配仅限 YU7 标准版 / Pro / Max 之间进行版本修改，或对 YU7 订单配置进行修改。（来源：IT 之家）\n\n降价奏效，苹果 iPhone 二季度在国内销量实现两年来首次增长\n近日，研究机构 Counterpoint Research 的一份报告显示，预计 2025 年第二季度中国智能手机销量同比略有上升，华为和苹果引领增长。\n得益于 iPhone 16 系列促销活动，尤其是 iPhone 16 Pro 和 iPhone 16 Pro Max，苹果 5 月份实现销量增长。\n也正是靠着降价这一步棋，今年第二季度，苹果 iPhone 在中国的销量实现两年来首次增长，不过反观竞争对手华为（增速 12%），增速仍要远超他们的 8%。（来源：快科技）\n \n英伟达 GeForce 宣布参展 BW2025，RTX 5080/5070 公版显卡限量发售\n英伟达昨日发布公告，宣布 7 月 11 日-7 月 13 日「GeForce 神秘登陆 Bilibili World 2025」。\n\n英伟达表示，届时将开放 RTX5080/5070 公版显卡售卖。自 7 月 5 日起，用户可登录 B 站 App 在线预约（打开 bilibili 右下角「我的」，点击推荐服务「BW 乐园」，按页面指示完成预约）。\n除此之外，英伟达还将举行多场游戏试玩会，包括暂未发售的《明末：渊虚之羽》（7 月 13 日），届时将有超过 30 名 UP 主陆续空…",
+          "link": "http://www.geekpark.net/news/351228",
+          "publishedOn": "2025-07-06T00:17:33.000Z",
+          "wordCount": 875,
+          "title": "3C 充电宝销量暴涨，商家库存告急；传美团餐饮日订单破亿；激光灭蚊器曝光，每秒杀 30 只蚊子，3569 元起",
+          "imageUrl": null
+        },
         {
           "id": "http://www.geekpark.net/news/351223",
           "author": null,
@@ -8148,6 +8103,20 @@
       "siteUrl": "https://www.natgeomedia.com/science/article",
       "articles": [
         {
+          "id": "https://www.natgeomedia.com/science/article/content-18259.html",
+          "author": null,
+          "description": "炎炎夏日，當我們準備迎接陽光、走向戶外時，就會直覺拿起防曬乳仔細塗抹。這不僅是為了防止曬黑或老化，更是為了抵禦紫外線帶來曬傷、甚至是皮膚癌的風險——根據世界衛生組織（WHO）統計，全球每年有數萬人因過度暴露於紫外線而失去生命。\n而對抗紫外線有兩種基本方法：物理性防曬與化學性防曬。\n● 物理性防曬就像為皮膚穿上一層反光背心，主要成分為二氧化鈦與氧化鋅，它能直接將紫外線反射、散射出去，保護皮膚不受侵害。\n● 而化學性防曬，則像是佈滿在皮膚上的無數個「能量轉換海綿」。它們會先將紫外線「吸收」進來，再巧妙地轉化為無害的熱能釋放掉，從而達成防護效果。\n由於化學性防曬的質地通常更輕透、不泛白，使用體驗更舒適，因此成為市面上的主流選擇。而在這群化學防曬的候選物質中，應用最廣、出鏡率最高的，就是二苯甲酮（Benzophenone, BP）家族中的二苯甲酮-3（Benzophenone-3），簡稱 BP-3。\nBP.3 對生物與環境的危害\n但出鏡率高，不代表 BP-3 沒有問題。越來越多研究發現，BP-3 的影響力遠不止於我們的皮膚表面，同時也是一種內分泌干擾物質(Endocrine disruptor chemicals, EDC，俗稱環境荷爾蒙)，會對人體產生生殖毒性及其他不良影響。\nBP3 可能打亂身體的訊號\n許多研究開始對 BP-3 提出警訊，尤其是在「內分泌干擾」方面。BP-3 的化學結構與我們體內的荷爾蒙（例如雌激素）長得很像，可以「假扮」或「干擾」荷爾蒙的正常作用，打亂原有的生理機能。\n這些影響在孕婦與新生兒身上尤其引發關注。有研究發現，孕婦體內若有較高濃度的 BP-3，可能與孕期縮短有關。另外，BP-3 對胎兒的影響似乎還存在性別差異：可能導致男嬰出生時體重較重、頭圍較大，卻對女嬰的發育產生負面影響。甚至有研究將它與一種罕見的新生兒先天性疾病「巨結腸症」連結在一起。這些發現都…",
+          "link": "https://www.natgeomedia.com/science/article/content-18259.html",
+          "publishedOn": "2025-07-04T16:00:00.000Z",
+          "wordCount": 484,
+          "title": "別讓防曬美意變環境負擔！看農業廢棄物如何變身科技材料，吸附水中有害環境荷爾蒙 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權",
+          "enclosure": {
+            "url": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18259/2025070575979977.jpg",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18259/2025070575979977.jpg"
+        },
+        {
           "id": "https://www.natgeomedia.com/environment/article/content-18183.html",
           "author": null,
           "description": "大亞電纜美麗家園基金會X台灣河溪網「鏈」起為河川發聲的公民力量\n\n                    \n陽光、空氣、水，是萬物生存的必需。「我家門前有小河」是耳熟能詳的童謠，乾淨的水是人們健康和福祉的基礎，夏日在溪水中嬉戲亦是人們對自然的想望。\n沿著河川，人們逐水而居，種植農作物，在溪流旁取水、洗菜、洗衣服…，建立家園，是文明發展的起源。臺灣得天獨厚，北有淡水河、中部有濁水溪、南部有高屏溪，更不用說遍佈全臺灣不盡其數大大小小的河川溪流，可謂臺灣人的生命之河。\n\n然而，文明演進、工業發展、技術高度開發；因為有水，就可能有水患，工程建造、河川地下化、高牆防水堤，逐漸阻隔人們與河川，使得都市中更不容易看到河川溪流；因為看不見，人們逐漸不懂得如何與河川以自然方式共存，更不知河川發生了什麼事。2019年，國立臺北大學廖桂賢教授邀集一群有心人士，為了美好家園，共同成立「台灣河溪網」，希望為人們搭起一座知識科學橋樑，讓人們重新與河川建立鏈結。\n\n                    \n「台灣河溪網」集結公民力量，一起認識河川生態、瞭解河川工程問題、並透過參與政策討論，守護臺灣河川溪流。辦理「台灣河溪學院」，開設專業河川知識課程；為監督前瞻基礎建設中的「全國水環境改善計劃」，過去舉辦「金/爛蘋果獎」，目前則針對全國的河川溪流工程，舉辦「台灣河川希望工程獎」與「失望工程名單」，不但鼓勵尊重河川生態、積極修復河川之工程計畫，也提舉不適當的案例，旨在喚起社會大眾對河川保育與復育的意識。去年，台灣河溪網協會理事之一的劉柏宏，因同時擔任「大亞電纜美麗家園基金會」董事，使得台灣河溪網認識了大亞電纜美麗家園基金會長年舉辦的「綠集合徵選」活動，更在去年獲選該徵選中最具代表性的獎項「南方精神獎」。\n「大亞電纜美麗家園基金會」自2007年開始舉辦「綠集合徵選」，至今已有十多年歷史，亦是長期關注臺灣環境、思考社會責任的企業。舉辦「綠集合徵選」正是為了以實際行動支持各地關心環境的公民團體，藉由活動及資金贊助，邀集各地專家、個人與社區，提供一個讓所有單位互相交流的平台，彼此鼓勵、串接，希望團結更大的力量，共同為打造美麗家園貢獻。去年，台灣河溪網於「鳳凰花論壇暨綠集合徵選」中，以公民科學為主題，串聯「台灣動物路死觀察網」與「步道守護網」，共同向大眾傳遞守護環境的重要性，期望推動公民參與，凝聚更多社會力量關注生態永續。\n\n                    \n廖桂賢教授表示，期望臺灣的河川溪流能夠慢慢恢復自然樣貌；即便是在人口較密集的城市，河川也不一定要水泥化，也可以有相對自然的樣貌。但河川要恢復自然或近自然樣貌，需要人們轉變水患治理的觀念，河川治理不應該僅是強調防災的單一目的，更要理解河川對人類福祉的重要性，多目標治理。\n自然的河川，可以提供多樣的「生態系服務」，例如，河川提供漁蝦蟹貝等漁獲與水資源等；河川的微氣候調節功能，可降低周遭溫度，在極端氣候下將會更為重要；河川也有社會功能，例如親水的休閒遊憩活動、水景、環境教育等。然而，傳統的治水工程導致河川溪流被水泥化，喪失許多生態系服務。若能進行河川的生態復育，將可找回許多生態系服務。\n\n                    \n此次有了「大亞集團」資助，猶如為「台灣河溪網」注入一劑強心針，明年將推出「河溪守護平台」。秘書長鄒明軒表示，「河溪守護平台」，要詳盡記錄溪流、地景原貌、用具體的圖像參與治理監督；增加公民參與，共同描繪守護地圖，喚醒一般民眾對河川的保護意識；建立社群的串聯，互相培力、資源連結，這也正是「台灣河溪網」成立時希望成為河溪守護網絡的初衷。\n「大亞集團」致力成為「友善環境、美麗家園的推手」，攜手「台灣河溪網」，串聯在地團體一同努力，共同守護家園河溪。祈願未來，「我家門前有小河」不再只是夢想，而是真真切切的美好日常。\n\n                    \n了解更多資訊：大亞電纜美麗家園基金會\n\n                    \n#大亞電纜美麗家園基金會\n#台灣河溪網\n#河溪守護平台",
@@ -10613,134 +10582,6 @@
             "type": "image/jpeg"
           },
           "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/31-05-2024_UN%20News_%20Gaza%20Port%201.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164456",
-          "author": null,
-          "description": "From the high Himalayas down to sea level, climate change is no longer a distant threat for children in Nepal and the Maldives – it is a daily struggle: landslides tear through mountain villages washing away homes and farms, while rising seas surge over island shorelines, threatening to swallow entire communities.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164456",
-          "publishedOn": "2025-06-16T12:00:00.000Z",
-          "wordCount": null,
-          "title": "From Himalayan melt to drowning shores, children lead the climate fight",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/16-06-2025-UNICEF-Maldives-01.jpg/image560x340cropped.jpg",
-            "length": "16062",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/16-06-2025-UNICEF-Maldives-01.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164466",
-          "author": null,
-          "description": "In the eastern Democratic Republic of the Congo (DRC), Rwandan-backed rebels, Congolese troops, and allied militias have all committed human rights abuses, some possibly amounting to war crimes, the UN High Commissioner for Human Rights said in Geneva on Monday.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164466",
-          "publishedOn": "2025-06-16T12:00:00.000Z",
-          "wordCount": null,
-          "title": "DR Congo: Human rights violations could amount to war crimes, UN experts say",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/13-02-2025_UNFPA_DRC-02.jpg/image560x340cropped.jpg",
-            "length": "46499",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/13-02-2025_UNFPA_DRC-02.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164451",
-          "author": null,
-          "description": "The UN Secretary-General is set to launch a global campaign to boost support for disarmament and mine action.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164451",
-          "publishedOn": "2025-06-16T12:00:00.000Z",
-          "wordCount": null,
-          "title": "Guterres to launch life-saving campaign strengthening mine action worldwide",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/22-05-2024-UNICEF-Ukraine-UNI552716.jpg/image560x340cropped.jpg",
-            "length": "19316",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/22-05-2024-UNICEF-Ukraine-UNI552716.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164446",
-          "author": null,
-          "description": "The UN refugee agency (UNHCR) announced on Monday that it is cutting global staffing costs by around 30 per cent, following a comprehensive review of its activities, spending, staffing and structure, prompted by major funding shortfalls.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164446",
-          "publishedOn": "2025-06-16T12:00:00.000Z",
-          "wordCount": null,
-          "title": "UNHCR forced to make deep cuts, despite rising needs worldwide",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/28-08-2024-UN-Photo-Filippo-Grandi.jpg/image560x340cropped.jpg",
-            "length": "33694",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/28-08-2024-UN-Photo-Filippo-Grandi.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164441",
-          "author": null,
-          "description": "Since conflict erupted in Sudan, more than a million people have fled to neighbouring South Sudan, seeking refuge from escalating violence that has displaced 12.4 million people and plunged over half the Sudanese population into food insecurity.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164441",
-          "publishedOn": "2025-06-16T12:00:00.000Z",
-          "wordCount": null,
-          "title": "Without urgent funding, global hunger hotspots are set to grow, UN warns",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/13-06-2025-UNOCHA-South-Sudan-02.jpg/image560x340cropped.jpg",
-            "length": "34174",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/13-06-2025-UNOCHA-South-Sudan-02.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164436",
-          "author": null,
-          "description": "Eighty years after the United Nations was established to end war, uphold fundamental human rights and promote justice and international law, those founding principles are increasingly under threat, the UN’s human rights chief warned on Monday.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164436",
-          "publishedOn": "2025-06-16T12:00:00.000Z",
-          "wordCount": null,
-          "title": "‘Behind each crisis, people are suffering,’ Türk tells Human Rights Council",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/30-04-2025-UNICEF-Sudan.jpg/image560x340cropped.jpg",
-            "length": "46821",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/30-04-2025-UNICEF-Sudan.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164421",
-          "author": null,
-          "description": "Facing the most severe funding shortfall in the history of humanitarian aid, UN relief chief Tom Fletcher on Monday announced a “hyper-prioritised” appeal for $29 billion to meet urgent global needs.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164421",
-          "publishedOn": "2025-06-16T12:00:00.000Z",
-          "wordCount": null,
-          "title": "Brutal cuts mean brutal choices warns UN relief chief, launching ‘survival appeal’",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/12-03-2025-UN-Photo-Tom-Fletcher.jpg/image560x340cropped.jpg",
-            "length": "26362",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/12-03-2025-UN-Photo-Tom-Fletcher.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164411",
-          "author": null,
-          "description": "After a weekend of massive strikes and counter-strikes between Tel Aviv and Tehran, the UN's human rights chief, Volker Türk on Monday condemned the violence and echoed wider calls for a negotiated end to the attacks. Meanwhile in Gaza, aid workers report that mobile communications networks continue to be cut in the shattered enclave. We'll be covering these developments and more across the UN system and beyond today, thanks for joining us. UN News app users can follow our live coverage here.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164411",
-          "publishedOn": "2025-06-16T12:00:00.000Z",
-          "wordCount": null,
-          "title": "MIDDLE EAST CRISIS: Live updates for 16 June",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/13-06-2025_UN_Iran.jpg/image560x340cropped.jpg",
-            "length": "36300",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/13-06-2025_UN_Iran.jpg/image560x340cropped.jpg"
         }
       ]
     },
@@ -12862,36 +12703,6 @@
           "wordCount": 676,
           "title": "派早报：WhatsApp 将加入广告、索尼放开部分 PC 游戏的购买限制等",
           "imageUrl": "https://cdnfile.sspai.com/17/06/2025/article/43c55bf5-6ad0-0028-cea7-bf1542fc6734.png"
-        },
-        {
-          "id": "https://sspai.com/post/87559",
-          "author": "水獭Store",
-          "description": "省流版：BANG!CASE现已面世：一款能调用iOS系统功能和快捷指令的手机壳，通过单击、双击、长按BANG!Button，即可完成一系列任务。超前预售进行中：即日起至4月8号，BANG!CASE以1 ...查看全文",
-          "link": "https://sspai.com/post/87559",
-          "publishedOn": "2025-06-16T10:26:46.000Z",
-          "wordCount": 668,
-          "title": "618 限时特惠：一键按下，开启 iPhone 效率新世代！",
-          "imageUrl": "https://cdnfile.sspai.com/2024/3/26/article/eb8fea2e-7189-78e1-8ee3-3c290342e5a3.jpeg"
-        },
-        {
-          "id": "https://sspai.com/post/100292",
-          "author": "少数派编辑部",
-          "description": "欢迎收看本期《派评》。你可以通过文章目录快速跳转到你感兴趣的内容。如果发现了其它感兴趣的App或者关注的话题，也欢迎在评论区和我们讨论。值得关注的新App虽然少数派一直在为大家发现和介绍各平台上的优质 ...查看全文",
-          "link": "https://sspai.com/post/100292",
-          "publishedOn": "2025-06-16T09:45:26.000Z",
-          "wordCount": 952,
-          "title": "派评 | 近期值得关注的 App",
-          "imageUrl": "https://cdnfile.sspai.com/2025/6/16/article/012e24ba-5fcb-e249-1624-9fadca636ac8.png"
-        },
-        {
-          "id": "https://sspai.com/prime/story/cross-platform-todo-caldav",
-          "author": "化学心情下2",
-          "description": "冲着出色的多平台支持，我曾长期使用微软待办（及其前身奇妙清单）——几乎所有主流操作系统都有客户端，并且能与Outlook邮箱深度集成。然而，自微软收购奇妙清单并将其改造为微软待办后，产品功能几乎停滞不 ...查看全文\n本文为会员文章，出自《单篇文章》，订阅后可阅读全文。",
-          "link": "https://sspai.com/prime/story/cross-platform-todo-caldav",
-          "publishedOn": "2025-06-16T09:14:40.000Z",
-          "wordCount": 1160,
-          "title": "用 CalDAV 打造跨平台待办体验",
-          "imageUrl": "https://cdnfile.sspai.com/2025/06/07/3ccd63078d6a7c5d82b402221a66f1aa.png"
         }
       ]
     },
@@ -13227,6 +13038,46 @@
       "feedUrl": "https://rsshub.rssforever.com/zhihu/daily",
       "siteUrl": "https://daily.zhihu.com",
       "articles": [
+        {
+          "id": "https://daily.zhihu.com/story/9782363",
+          "author": null,
+          "description": "研究称 2025 年或会打破高温纪录，未来 5 年地球将遇「致命高温」，有哪些依据？会对人类有何影响？\n黄河边儿，科学和教育领域答主\n查看知乎原文\n\n\n\n题目里提到的这份报告[1]，其原文在这里：\n2025–2029 年 WMO 全球年度至十年气候预测更新\n报告来自世界气象组织 WMO，每年会出一份这样的报告，报告最多给出 10 年的气候预测，数据来源是 WMO 指定的 18 家气象中心[2]。\n报告首页\n这 18 家中心有 14 家是长期合作的，如下图，其中就包括中国气象局的北京气候中心。\n给 WMO 提供气象数据的 14 家主要气象中心\n看看报告。报告的关键信息是全球加速变暖。主要的预测结果：\n第一，预测 2025-2029 年每年气温较工业前（1850-1900）高 1.2°C~1.9°C，86%概率至少 1 年升温超 1.5°C，70%概率五年均值超 1.5°C。\n第二，80%概率出现比 2024 年更热年份，1%概率单年升温破 2°C（这是首次出现非零概率，以前这项的预测都是 0）。\n这样预测的依据是什么呢？\n首先，2024 年已是历史最热年，其全球年均温度为 1.55°C ± 0.13°C，这是观测历史最高值。下图是 2024 年和近五年（2020–2024）相对于 1991–2020 年的地表气温异常。2024 年几乎全球都偏暖，尤其是北美和欧洲。\n2024 年和近五年（2020–2024）相对于 1991–2020 年的地表气温异常\n加上 2024 年初发生的厄尔尼诺，其对 2025 年具有滞后驱动作用，在没有强烈冷事件拉尼娜抵消的前提下，会使 2025 年极可能继续升温，甚至打破纪录。\n其次，这个报告采用了包括中国气象局在内的 14 个机构提供的多个模型，这些模型被用于用过去已知条件推算过去温度，用于检验模型可信度，这样的历史回测验证结果优秀，误差小，尤其是在全球年均温度预测上，相关系数极高（>0.9），见下图右上角。\n全球平均气温的预测结果\n除了全球平均气温以外，报告里还有关于极地海冰预测，全球降水预测，未来五年厄尔尼诺 / 拉尼娜预测等等。\n至于对人类的影响，1.5°C 其实是一个很关键的气温门槛，因为 2015 年签署的《巴黎协定》提出：\n尽力将全球变暖控制在 1.5°C 以内；绝不能超过 2°C（相对于工业化前，即 1850–1900 年平均温度）；\nIPCC 给过一个《1.5°C 特别报告》[3]，详细说明了超过 1.5°C 温度阈值后的影响。\n1.5°C 特别报告\n这些危害包括但不限于：海平面上升 0.4m，>70%的珊瑚礁消失，极端高温，农作物减产风险增加，热带病传播北移，生物多样性风险上升，会有上亿人陷入极端贫困。\n1.5°C 特别报告\n另外，值得一提的是，从 1.5°C 到 2°C，不是一个“缓慢过渡”，而是灾难级风险成倍放大。\n全球变暖是个必然趋势，但是人类好像也做不了什么。\n查看知乎讨论",
+          "link": "https://daily.zhihu.com/story/9782363",
+          "publishedOn": "2025-07-06T01:43:01.998Z",
+          "wordCount": 280,
+          "title": "研究称 2025 年或会打破高温纪录，未来 5 年地球将遇「致命高温」，有哪些依据？",
+          "imageUrl": null
+        },
+        {
+          "id": "https://daily.zhihu.com/story/9782359",
+          "author": null,
+          "description": "浩浩耗，我有屠龙之术，欲翻流云起舞；我有苍茫之志，欲煎七海成田；\n查看知乎原文\n\n\n\n“因为植物没有这种黑色的颜料，所以涂不出黑色的花来”\n实际上，即便我们说有看到过黑色的话，其实那种颜色也不是真正的黑色，它们实际上是较深的红色、紫色或蓝色。只不过由于花青素的存在，让这些花看起来偏黑色。比如黑色大丽花（建议不要手贱去直接搜索这个花.....因为你看到的可能跟植物本身无关），由于颜色非常深，在人眼看来就容易辨识成是黑色的，但实际上这中花的颜色呈现是多种色素综合而成的，其中花青素占了很重要的作用，但这些色素中没有黑色的色素。\n\n我们都知道，大多数植物的绿色是由叶绿素产生的，而红色、黄色和橙色是由类胡萝卜素产生的，类胡萝卜素是植物中常见的色素。但是植物就是没有天然的黑色颜料。\n\n另外，即便是作为观赏植物，黑色的花也不受主流的待见，因此在长时间的人类的育种过程中，黑色的花也不太常见。哪些被选择性地培育的植物的花，通常是可以产生一系列颜色和形状的花。\n那为什么植物就是不生产黑色的颜料呢？可能跟生态学有关，因为黑色不容易吸引昆虫来，因此不利于传粉，繁衍后代。\n植物不能动，所以必须依靠昆虫朋友们的帮忙，才能帮助它们完成传粉，授粉的过程，这样它们才能有下一代。但植物不能开口说话，怎么求助呢？开花的颜色就是其中的一种高效的方式了。\n在自然界中，黑色并不常见。那为什么黑色的动物，貌似也不少见呢？那是因为黑色对于这些动物而言，实际上是起了保护作用。黑色可以让它们在夜晚的行动根据隐蔽性，同样黑色也会让它们显得更危险，从而对捕食者起到警示作用。但是对于花来说，这种方法就不那么有效了。虽然说，也不是没有黑色的花朵（当然，也可以说不是黑色，后面会提到）。但相对而言，可以被利用来传粉的昆虫，更容易被鲜艳的花朵颜色所吸引。黑色花朵对传粉者的吸引力最小。\n\n\n\n\n\n查看知乎讨论",
+          "link": "https://daily.zhihu.com/story/9782359",
+          "publishedOn": "2025-07-06T01:43:01.969Z",
+          "wordCount": 88,
+          "title": "如何跟孩子解释「为什么黑色的花特别少见呢」？",
+          "imageUrl": null
+        },
+        {
+          "id": "https://daily.zhihu.com/story/9782356",
+          "author": null,
+          "description": "宋朝不可以随便杀牛，为什么“好汉们”却总能吃到牛肉？\n知乎用户，美食、故事和电影爱好者。临终关怀义工。\n查看知乎原文\n\n\n\n不准随便杀牛，不等于吃不了牛肉。\n像是汉朝也禁止杀牛，横人董卓楞是带头杀牛，杀的还是耕牛。不是偷偷摸摸地杀牛，吃牛。\n而是有人投靠自己时，就召集一群人来大吃特吃，搞起宴席，生怕别人不知道他杀了耕牛吃了牛肉一般，“诸豪帅有来从之者，卓为杀耕牛，与共宴乐。”\n图片来自网络，供参考\n宋朝也是这样，上有政策，下有对策。\n像董卓那样的强横，老百姓很难学，多数人也不大敢学。这样大张旗鼓的，无疑是鼓励邻里把自己给卖了。\n两宋之时，确实明文禁止屠牛杀牛。《宋会要辑稿》也有多项规定，比如，“昭牛羊司畜孳乳者并放牧之，无得宰杀。”又比如，“自今屠耕牛及盗杀牛罪不至死者，并系狱以闻，当从重断。”\n但百姓也有一些个人应对，有的是紧急情况不得不吃，有的是形成规模获取暴利，也不是别的时代，就在宋朝。\n先看第一种，紧急避险，呆萌可爱的hello kitty逼急了，也能变成老虎一战。\n《宋史》卷四百二十六列传第一百八十五，“初，民饥，多杀耕牛食之。”饿死事大，先保命要紧，被动主动地尝尝牛肉的味道，哪怕后果是“犯者皆配关中。”\n图片来自网络，供参考\n接下来是第二种，一些地方公开化的宴席吃牛现象。梁山好汉们在一些地方吃到类似的牛肉饭菜，并不奇怪。\n事实上，在宋朝的浙江秀州（今天的嘉兴市一带）搞宴席时，当地民众就爱吃牛肉，以至于“凡百筵会，必杀牛取肉，巧为庖馔，恣啖为乐。”\n秀州青龙镇盛肇，凡百筵会，必杀牛取肉，巧为庖馔，恣啖为乐。\n宋真宗时期，“浙民以牛肉为上味，不逞之辈竞于屠杀。”因为当地吃牛的人太多了，有大臣就建议说，皇上，要不就算了吧，别罚了，罚不过来啊。\n当然， 我个人发挥了一下，这是原文，“事发即逮捕滋广，请释不问罪。”\n南宋《建炎以来系年要录》也说，当时的福建、江浙等地涌现了规模化的贩牛屠宰，原文为，“福建、江浙贩牛屠宰，十百为群。”\n南宋判例汇编《名公书判清明集》，详细地记录了一些见闻，都是城里城外公然买卖牛肉的，“数日以来，闻诸道途之言，自界首以至近境，店肆之间，公然鬻卖，而城市之中亦复滔滔皆是。”\n图片来自网络，供参考\n第三种，为换取更大的利益，贩牛、偷牛、杀牛。\n前面提到，“福建、江浙贩牛屠宰，十百为群。”也是类似的情况。\n违禁屠牛吃牛肉的情况，有的就发生在北宋天子眼皮底下的开封府。\n《宋会要辑稿》记了一个经典案例，“京城无赖辈，相聚蒲博，开柜坊，屠牛马驴狗以食，销铸铜钱，为器用杂物，令开封府戒坊市谨捕之，犯者斩……”\n接下来，是南宋福建泉州的偷牛、转售、杀牛，已形成一定的灰色产业链，“……屠牛之风，与盗贼实相表里。盖屠牛者，盗杀人之牛，与承盗者之牛而屠之。”\n哦，对了，在泉州城内屠杀牛牛的人，甚至还有一些身份不大一样的人，他们是赵宋宗室子弟，相对没落的那一部分。\n相应记录出自南宋福建人陈淳《上傅寺丞论民间利病六条》，\n此间屠牛，在城是宗室不检者，乡村是亡命浮浪者。\n现在。\n我们再回头看看问题，\n宋朝不可以随便杀牛，为什么“好汉们”却总能吃到牛肉？\n当赵宋宗室的一些子弟都按捺不住，公然屠牛牟利时。\n人家梁山好汉们，或明或暗地喝酒，吃牛肉，算甚问题！\n（图片来自网络，供参考）\n查看知乎讨论",
+          "link": "https://daily.zhihu.com/story/9782356",
+          "publishedOn": "2025-07-06T01:43:01.963Z",
+          "wordCount": 126,
+          "title": "宋朝不可以随便杀牛，为什么「好汉们」却总能吃到牛肉？",
+          "imageUrl": null
+        },
+        {
+          "id": "https://daily.zhihu.com/story/9782372",
+          "author": null,
+          "description": "大模头，公众号：数学模型（ID:MATHmodels）\n查看知乎原文\n\n\n\n结论：从几何分析和进球概率上来看，上角球最刁钻也难守。但刁钻的射门角度又会带来另一个风险：球容易射到球门外或撞到球门框上。\n在点球大战中罚失点球的原因很多，但归结起来主要有两方面：门将扑救水平和主罚球员罚球的质量。点球射门的方向是影响罚球质量的重要因素。一记高质量的点球，除了要有力量外，还要有刁钻的角度。例如在 2018 年世界杯 1/8 决赛哥伦比亚对阵英格兰的点球大战中，哥伦比亚队主罚球员夸德拉多射向左上角的点球角度就非常刁钻（图 1）。这种情况下，即使守门员判断出了正确方向，也很难守得住。然而刁钻的射门角度又会带来另一个风险：球射到球门外或撞到球门框上。\n图 1 : 哥伦比亚队夸德拉多的左上角点球\n点球大战中，主罚球员到底应该往哪个方向射？研究表明[1]，守门员容易扑救的范围是有限的，这个范围近似为一个半圆（跳跃包线）区域，我们称为“扑救区”（红色），扑救区外的球门区域称为“死亡区”（图 2）。根据每个门将身高、臂长以及反应速度不同，扑救区的范围又有大有小。\n图 2: 跳跃包线和扑救区\n射向扑救区的点球被扑住的概率约为 50%，而射向死亡区的点球被扑住的概率只有不到 20%[2]。因此，点球想要让对方守门员难以扑住，就应该瞄准球门左右两侧的死亡区射门。但为了不让点球射到球门外或撞到球门框上，又应该尽可能地让球远离球门左右两侧的立柱和上方的横梁。那有没有完美的点球瞄准点，既能让守门员难以扑住，又能最大程度确保球不射到球门外？\n模型几何模型\n从图 2 中不难看出，当我们将点球的瞄准点从球门的底角往上移动到顶角时，球门死亡区的宽度逐渐增大了。因此，球门左右两侧的底角并不是最好的选择。此外，低位射门时球还很容易触及地面，这会降低球的速度并降低守门员扑球的难度。因此，点球应瞄准死亡区较高的位置，并让球尽…",
+          "link": "https://daily.zhihu.com/story/9782372",
+          "publishedOn": "2025-07-06T01:43:01.952Z",
+          "wordCount": 626,
+          "title": "为什么点球很少踢上角？",
+          "imageUrl": null
+        },
         {
           "id": "https://daily.zhihu.com/story/9782332",
           "author": null,
@@ -14233,26 +14084,6 @@
           "wordCount": 14381,
           "title": "Empire of flight",
           "imageUrl": "https://images.aeonmedia.co/images/6ff84612-5a30-433f-a8c3-bb2f1ce47620/essay-200901072106-16-wildlife-photographer-of-the-year.jpg?width=1200&quality=75&format=auto"
-        },
-        {
-          "id": "urn:id:8224",
-          "author": "Aeon Video",
-          "description": "In the ghost mine town of Sunrise, Wyoming, archaeologists uncover fragments of humanity’s earliest presence in the Americas \n - by Aeon Video\n Watch at Aeon",
-          "link": "https://aeon.co/videos/at-a-prehistoric-pigment-mine-researchers-glimpse-our-earliest-moments-in-the-americas?utm_source=rss-feed",
-          "publishedOn": "2025-06-16T10:01:00.000Z",
-          "wordCount": 3816,
-          "title": "Ochre sunrise",
-          "imageUrl": "https://images.aeonmedia.co/images/fc4bc21c-c980-457a-83d0-f2a3f7eac021/ochre-sunrise-landscape.jpg?width=1200&quality=75&format=auto"
-        },
-        {
-          "id": "urn:id:8193",
-          "author": "Ben Chu",
-          "description": "Liberal thinkers are shocked that nations are once again isolating from the world. The real surprise would be if they didn’t \n - by Ben Chu\n Read at Aeon",
-          "link": "https://aeon.co/essays/isolationism-isnt-new-and-is-fuelled-by-deep-human-desires?utm_source=rss-feed",
-          "publishedOn": "2025-06-16T10:00:00.000Z",
-          "wordCount": 15334,
-          "title": "The allure of autarky",
-          "imageUrl": "https://images.aeonmedia.co/images/1c29c6ba-e830-42d5-b962-b5352feed1d3/essay-final-ff8h8b.jpg?width=1200&quality=75&format=auto"
         }
       ]
     },
@@ -14458,6 +14289,16 @@
       "feedUrl": "https://feedx.site/rss/infzm.xml",
       "siteUrl": "http://infzm.com",
       "articles": [
+        {
+          "id": "http://www.infzm.com/contents/297361",
+          "author": null,
+          "description": "2025-07-06 08:00:00\n1996年，当我第一次来到新窑子村拍摄时，村党支部书记白整风这样介绍：“新窑子位于延安市西南8公里处的杜甫川北端，海拔1200米，归属宝塔区万花山乡管辖，不包括黑户全村共有58户人家，236口人。全村还有大家畜23头，简易公路2.5公里，耕地面积500亩。新窑子村至今没通广播，没通电话，没通邮路，没订报纸，也没人外出打工，几乎所有人都在村里老老实实地劳动种地，养家糊口，维持现有的生活。新窑子自从1982年放过最后一场电影，多年来再也没有过任何文化娱乐活动。1990年至今，也没有发展过党员、团员。几十年来，新窑子最热闹的日子就是五黄六月老天不下雨的时候，村民自发组织爬上村里最高的连云山玉皇庙进行祈雨祭祀活动。今年人均毛收入不足300元，最低的还不足100元。村委会累计欠债12.6万元。”\n这座贫困、闭塞、传统而又朴实的小山村仿佛当时中国农村的一个缩影。它的缘起可以追溯到1903年，一开始就与饥饿相关。出生于毛乌素沙漠南缘榆林神木县的13岁少年白新富为了逃避饥荒，独自翻山越岭、乞讨数月，来到古城延安，在杜甫川附近发现一处荒无人烟的小山沟。他在这里打下了第一孔窑洞，并取名为“新窑子”。开荒拓地，百年繁衍，渐渐成为一方烟火人家。我决定用镜头讲述新窑子不为人知的故事。在它的普通与平淡之下，隐隐流动着一部黄土地上代代相传、勤劳坚韧的生命传奇。\n从1996年到2025年，我先后近百次穿梭在北京与新窑子之间，在这个贫穷落后的小山沟居住了三百多个日夜，拍摄了四百多个胶卷和数万幅数字照片，撰写了近50万字的日记和村民的口述故事。这些照片不仅完整地记录和保存了新窑子三十年的发展与变迁，而且把新窑子58户人家一直拍到了116 户，把236口人一直拍到了348口，还把人均年收入从不足300元一直拍到了20000元。\n新窑子越来越富裕了，变化越来越大。\n年轻人个…",
+          "link": "http://www.infzm.com/contents/297361",
+          "publishedOn": "2025-07-06T00:25:06.000Z",
+          "wordCount": 95,
+          "title": "新窑子村的“新”与“旧”——一座中国山村的变迁史",
+          "imageUrl": null
+        },
         {
           "id": "http://www.infzm.com/contents/297355",
           "author": null,
@@ -18416,66 +18257,6 @@
           "publishedOn": "2025-06-16T13:55:07.000Z",
           "wordCount": 63,
           "title": "安徽宿州一种植户称土豆遭大批村民哄抢，警方通报",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/295890",
-          "author": null,
-          "description": "2025-06-16 20:00:00",
-          "link": "http://www.infzm.com/contents/295890",
-          "publishedOn": "2025-06-16T12:25:06.000Z",
-          "wordCount": 89,
-          "title": "江西一中学教师体罚学生？ 当地通报：已对该教师停职检查",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/295867",
-          "author": null,
-          "description": "2025-06-16 19:00:00\n近日有媒体报道称，俄罗斯正在扩大其在芬兰边境附近的军事基础设施。卫星图像显示，俄罗斯恢复或扩建了多个位于芬兰边境附近的俄军事基地，并计划增加更多的士兵和作战装备到这个区域。芬兰国防官员对此表示担心，他们认为一旦乌克兰战事平息，俄罗斯可能会在五年内将两国边境附近的驻军数量增加两倍。\n俄罗斯与乌克兰开战后，芬兰对北约的态度骤然转变。战事开始仅两个月后，近80%的芬兰民众转而支持加入北约。这种转变当然是基于现实威胁的考虑——毕竟苏芬战争的阴影始终笼罩在芬兰头上。芬兰想进一步确保国防安全，加入北约似乎理所当然，但目前在战略上看，这一选择似乎并不可靠。\n当前，美国总统特朗普对乌克兰的态度，以及对北约集体防御的有条件承诺，使芬兰并不能确定北约的集体安全机制是否真的有效。为了避免最坏的情况发生，芬兰方面希望未雨绸缪，其中最大的可能性就是启动一个新的军事同盟——北欧军事同盟组织。这个想法虽然并未被芬兰政府明确提出，却是在欧洲智库中被广泛讨论的“B计划”。\n在这个新谋划的军事同盟中，芬兰可能会转向同为北欧国家的瑞典、挪威、丹麦和英国、波罗的海三国。这些国家除了英国之外，普遍直接面对俄罗斯的军事力量。从后勤角度来看，一旦芬兰与俄罗斯爆发冲突，斯堪的纳维亚半岛国家能为芬兰提供后勤补给支持——芬兰一直倡导大幅改善北欧的连通性和基础设施，因此北欧地面的互联互通实际上已经有着比较好的基础建设支持。此外，北欧国家也有着相当不错的军事能力和军事工业体系，而英国虽然不在斯堪的纳维亚半岛，却比邻北海，军事实力不俗，还有北欧国家所不具备的情报、侦察和监视等特殊能力。\n除了上述国家之外，法国和波兰也是芬兰认为可以拉入联盟的合作伙伴。法国作为传统军事强国，且自诩为欧洲安全支柱之一，对于北欧安全的责任有着非常强的参与感。波兰则是另一个直面俄罗斯的欧洲国家，且长期与俄罗斯关系微妙。\n上述战略层面的考虑，虽然并未直接实施，却正在依托北约体系不断强化。比如，前不久在芬兰南部举行的“活力军刀25”演习，芬兰和波兰军队就承担了主要的角色，这是北约“快速反应25”演习的一部分。该演习是一系列横跨波罗的海和北欧地区的联合军事演习，旨在促进盟国之间的合作，应对未来可能来自俄罗斯的威胁。\n在“活力军刀”演习期间，波兰空降部队和芬兰部队组成的“红队”在森林中的一处简易机场执行了战术空降行动。他们扮演的假想敌伞兵迅速占领了一座战略要地的机场，旨在守住该机场，并调集来自空中运输的步兵和重型武器，从机场对战略要地发动致命突袭。\n显然，这次演习就是模拟2022年俄罗斯在基辅郊外试图夺取安东诺夫机场的战例。作为对抗的“蓝军”，芬兰第3猎兵连则负责保卫机场，牵制由波兰和芬兰伞兵组成的“红军”空中突击编队，并且在友军到达后重新集结兵力，夺回机场控制权。众所周知，乌克兰之所以能在2022年战争爆发后成功抵御俄罗斯的偷袭，离不开安东诺夫机场保卫战获得的胜利。芬兰和波兰都需要学习这方面的经验。尤其是芬兰，在过去并没有专职的伞兵突击队编制。因此，此次演习有助于让芬兰军队向波兰伞兵学习，让他们理解如何防御伞兵部队的偷袭。波兰伞兵部队前身是华约组织的精锐伞兵部队，对目标对手的思维模式和战术习惯也更为熟悉。\n\n\n获取更多RSS：\nhttps://feedx.net \nhttps://feedx.site",
-          "link": "http://www.infzm.com/contents/295867",
-          "publishedOn": "2025-06-16T11:25:06.000Z",
-          "wordCount": 93,
-          "title": "芬兰正在针对俄罗斯备战丨军事",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/295911",
-          "author": null,
-          "description": "2025-06-16 18:06:34\n\n2025年6月10日，海淀区人民检察院的电子数据审查室一瞥。（南方周末记者韩谦/图）\n\n短视频平台基层运营人员郭某某，职务不高，却手握平台账号的“生杀”大权。一年多时间里，他向4名主播违规提供快速解封、加“白名单”等帮助，作为交易，他累计收受主播行贿的300万元钱款。\n这是北京市海淀区人民检察院办理的一起案例。海淀区人民法院一审认定，郭某某犯非国家工作人员受贿罪，判处有期徒刑5年，罚金30万元。\n办理商业腐败案件时，海淀区人民检察院第二检察部主任孙鹏注意到了变化：案件多发领域从传统行业逐渐向互联网、人工智能、电商平台等高新科创行业转向，案件比例大约是四分之三。\n根据公开信息，2024年，腾讯反舞弊调查部共发现并查处触犯“腾讯高压线”案件百余起，二十余人被移送公安机关，新增永不合作的商户35家；字节跳动共辞退违规员工353人，移交司法机关追究刑事责任39人。\n在孙鹏看来，这一趋势的变化，除了与海淀区聚集诸多互联网大厂有关，更重要的原因是“互联网行业过去发展得太快了”，制度化和权力监管存在滞后，行业规则还需进一步明晰，更容易引发腐败。\n审计监察人员联盟秘书长龚成也注意到，行业里的人才正从房地产领域转向互联网行业，这种趋势与行业发展正相关。\n互联网大厂陆续公开通报公司内部的反腐败进展，也让民企反腐这个话题，逐渐为公众所知悉。一名外企监察部门从业者向南方周末记者感慨，互联网企业的反腐通告，让他们的工作越来越卷，KPI的要求也变高了，“他们发一个，我们领导一看到就会督促我们出成绩。”\n“小官巨贪”\n利用数据权限牟利的，郭某某不是个例。\n央视曾报道过一个案例：王某是杭州一家电商平台的基层运营人员，负责家具类官方旗舰店入驻的审批。商家提交店铺申请后，他具有第一道把关的初审权。在王某手中，这项权限成了上亿元的买卖。\n杭州市公安局余杭区分局在侦办时发…",
-          "link": "http://www.infzm.com/contents/295911",
-          "publishedOn": "2025-06-16T10:25:09.000Z",
-          "wordCount": 95,
-          "title": "大厂反腐：“用老鼠查老鼠”",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/295861",
-          "author": null,
-          "description": "2025-06-16 15:45:33",
-          "link": "http://www.infzm.com/contents/295861",
-          "publishedOn": "2025-06-16T08:25:08.000Z",
-          "wordCount": 79,
-          "title": "台风过境，香蕉林垮了：再过一个多月就能卖了",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/295853",
-          "author": null,
-          "description": "2025-06-16 16:00:00\n华东政法大学的宿舍楼里，施范皓彦顺着楼梯往上爬。手机揣在裤子口袋里，一层阶梯未走完，屏幕已悄然跳转到淘宝促销页。随着步伐晃动，流量监控显示流失2.96M数据。\n\n不知从何时起，“摇一摇”广告已经入侵人们的生活。这种广告形式结合了开屏广告的强制曝光与手机传感器的灵敏特性，用户一次不经意的抬手、迈步甚至指尖轻颤，传感器便得到信号，直接跳转到广告界面。\n“就像有人突然闯进你家客厅放广告。”陈昱彤说，他们无法接受这种挟持式的广告，于是与施范皓彦等校友一同组队起诉淘宝平台。同组的人都在千禧年后出生，即使是数字原住民的他们，也难以叫停手机里这些不断弹出的页面。\n在他们提交的证据视频里，放在口袋里的手机仅凭日常动作就触发跳转，加速度传感器像一双隐形的手，把人类的日常动作转化为商业流量。与起诉浏览器的先例不同，施范皓彦团队直击淘宝平台。这是他们眼中的利益链顶端，淘宝平台是广告投放方关联平台，至于打开的App只是一个载体。他们的诉讼请求是希望淘宝在广告中增加“是否跳转”的选择权，并且索赔了1元。这1元不是为了赔偿，而是为了让法院明确强制“摇一摇”的法律定性。\n“从摇一摇进淘宝比打开淘宝快。”“每次打开手机软件，我都得屏住呼吸不能手抖，一动就跳广告了。”“我最佩服丰巢App，去取件了手机就放兜里，再掏出来发现我手机自己在玩小游戏呢。”\n彼时正值“618”，密集的购物广告投放推动着公众情绪，“走路晃出十个广告”“互联网的尽头是电商”……相关讨论甚至多含辱骂，有人还将能屏蔽此类广告作为挑选手机的重要标准。但施范皓彦理解这些情绪——大家都想夺回看广告的主动权。\n\n关于“摇一摇”广告的漫画。视觉中国丨图\n乙方：广告原来不是这样的\n小时候看过的广告，仍让陈昱彤印象深刻。她至今都能哼唱出OPPO手机的广告歌，没有歌词，但是旋律动听，当时一下课她就和同学们一起哼唱。那…",
-          "link": "http://www.infzm.com/contents/295853",
-          "publishedOn": "2025-06-16T08:25:08.000Z",
-          "wordCount": 88,
-          "title": "摇一摇手机就触发广告，注意力争夺战谁是赢家",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/295881",
-          "author": null,
-          "description": "2025-06-16 16:11:47\n山西省第十四届人民代表大会第四次会议于2025年6月16日选举卢东亮为山西省人民政府省长。",
-          "link": "http://www.infzm.com/contents/295881",
-          "publishedOn": "2025-06-16T08:25:08.000Z",
-          "wordCount": 66,
-          "title": "卢东亮当选山西省省长",
           "imageUrl": null
         }
       ]
