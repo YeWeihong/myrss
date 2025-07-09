@@ -2649,51 +2649,6 @@
             "length": "0"
           },
           "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/3c1f9481-ccd8-4ad6-d9ee-c5430a30f400/cover"
-        },
-        {
-          "id": "b347a9",
-          "author": "飞樰",
-          "description": "📌 一句话摘要\n            \n探讨阿里云服务领域 Agent 构建实践，分享解决 Agent 不稳定、规划、领域集成和响应速度等挑战的方法论及调优路径。\n📝 详细摘要\n            \n文章基于阿里云服务领域 Agent 的实践经验，深入剖析了当前 Agent 技术落地面临的核心挑战。首先梳理了 Agent 概念的广义与狭义之争，指出实际应用中需要平衡理想化的自主智能体与可控的任务代理。随后详细阐述了 Agent 运行效果不稳定、规划权衡（自主规划 vs Workflow）、领域信息集成困难及响应速度慢这四大主要痛点，并针对性地提出了解决方案：通过 AI 辅助优化 Prompt、结合 Workflow 与 Multi-Agent 架构权衡规划、运用 RAG/外部技能/领域模型训练集成领域知识、以及代码预转换/推理加速/模型小型化提升性能。最后，文章总结了一个从原型构建到持续调优的 Agent 演化路径图，为技术从业者构建高可用性 Agent 提供了实用的方法论参考。\n💡 主要观点\n            \nAgent 概念存在广义与狭义之分，落地实践需平衡自主性和可控性。\n                         狭义的 Agent 是理想化的智能体，自主性强但稳定性差；广义 Agent 是自动化任务代理，可控性高。实际落地需结合两者优点。\n                    \n\n                        Agent 落地面临稳定性、规划权衡、领域信息集成、响应速度四大挑战。\n                         Prompt 不稳定、自主规划难控、领域知识缺失、大模型推理慢是 Agent 从概念走向实用的主要障碍。\n                    \n\n                        结合 AI 辅助 Prompt、混合规划模式和领域模型训练可提升 Agent 可用性。\n                         利用 AI 优化 Prompt，通过 Workflow 与 Multi-Agent 架构实现内外部平衡，借助领域知识注入提高专业性。\n                    \n\n                        通过代码优化、推理加速和模型小型化可有效提升 Agent 响应速度。\n                         减少大模型参与比例、应用高性能推理技术、选用或蒸馏小参数模型，能在保证效果前提下加快运行效率。\n                    \n\n                        Agent 构建是持续调优过程，应循序渐进从原型走向复杂架构和定制训练。\n                         从低成本 Prompt 原型开始，逐步引入 Workflow、Multi-Agent、直至领域模型训练，根据场景要求投入成本实现效果提升。\n                    \n💬 文章金句\n            \n狭义的 Agent 定义，目前来看还是一种\"技术理想主义\"，是一个我们需要不断努力为之奋斗的、美好的目标。\n很显然会看到一个规律：LLM 自主规划的智能化程度越高，可控性越低，而 Workflow 编排的可控性越高，则智能化则越低。\n如果想要实现上面曲线图里的中间状态，就需要做到 LLM 自主规划与 Workflow 相结合，也就是使用 Multi-Agent（多智能体）架构来实现。\n这种\"内可控、外自主\"的模式就是一种基于 Multi-Agent 实现的模式。\n从使用提示词开始构建原型，到 Workflow 的构造、Multi-Agent 架构设计、模型的训练和调优，这个成本是随之不断的在上升的，但理想情况下，Agent 的运行效果也是随着成本的投入在不断得到提升...\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：阿里云开发者\n作者：飞樰\n分类：软件编程\n语言：中文\n阅读时间：50 分钟\n字数：12285\n标签：\n                    \n                        Agent, Agent构建, Agent调优, 大语言模型, Prompt Engineering",
-          "link": "https://www.bestblogs.dev/zh/article/b347a9",
-          "publishedOn": "2025-06-20T00:31:00.000Z",
-          "wordCount": 329,
-          "title": "如何构建和调优高可用性的 Agent？浅谈阿里云服务领域 Agent 构建的方法论",
-          "enclosure": {
-            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/afebdc7d-96df-4f91-5fbd-74af0ef2ef00/cover",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/afebdc7d-96df-4f91-5fbd-74af0ef2ef00/cover"
-        },
-        {
-          "id": "8144f0",
-          "author": "作者: 美团信息安全团队",
-          "description": "📌 一句话摘要\n            \n美团技术团队分享了升级至 JDK 17 的关键特性，以及结合 ZGC 在实际服务中实现的显著性能提升与成本节约。\n📝 详细摘要\n            \n这篇文章来自美团技术团队，深入探讨了从广泛使用的 Java 8 升级到长期支持版本 JDK 17 的价值和实践经验。文章首先总结了 JDK 9 到 17 引入的核心特性，包括 var 局部变量类型推断、密封类、Record 类、优化的 switch 表达式、文本块、instanceof 模式匹配、NullPointerExceptions 优化以及集合/Stream/Optional 的增强等语言层面改进；同时也介绍了 HttpClient、jpackage、进程相关 API 等新工具和 API。文章的重点在于垃圾回收器的改进，特别是 ZGC。作者详细阐述了 ZGC 的低停顿特性及其与 CMS/G1 的原理差异，并通过美团内部两个核心服务（智能决策系统和内容安全核心服务）的实际升级案例和性能对比数据（如 TP9999/TP999 延迟、CPU 占用、服务失败率、元空间使用等），有力证明了 JDK 17 + ZGC 带来的显著性能提升和稳定性改善，以及由此带来的机器成本下降约 10%。最后，文章提供了升级过程中的一些实践建议，强调兼容性问题解决和性能测试的重要性。整体而言，文章结合理论介绍和翔实的实践数据，为考虑升级高版本 JDK 和优化 GC 的技术团队提供了宝贵的参考。\n💡 主要观点\n            \nJDK 17 引入多项语言及 API 特性提升开发效率与代码质量\n                         新的语法糖和 API 如 var、record、文本块、HttpClient 等，简化了代码编写，提高了可读性和功能性，减少了样板代码。\n                    \n\n                        ZGC 是低停顿垃圾回收器，尤其适用于大内存服务\n                         ZGC 通过并发标记、转移和重定位，将停顿时间控制在毫秒级别，有效解决了传统 GC 在大堆内存场景下的性能瓶颈。\n                    \n\n                        美团实践证明，JDK 17+ZGC 显著改善服务性能与稳定性并降低成本\n                         智能决策和内容安全服务的案例表明，升级后 TP9999/TP999 延迟、CPU 占用、失败率、元空间使用均有明显优化，并带来 10%的机器成本下降。\n                    \n\n                        升级高版本 JDK 需要重点关注兼容性并进行充分性能测试\n                         特别是与现有中间件、依赖库的兼容性问题，需要细致的安装部署、问题排查和基于实际流量的性能验证。\n                    \n💬 文章金句\n            \n升级后服务性能和稳定性指标也得到巨大的飞跃，同时机器成本可以下降约 10%，升级 JDK 版本收益十分明显。\n目前正处在 AI 时代的爆发期，Java AI SDK 的最小支持版本为 JDK 17，这让升级 JDK 版本变得更具价值。\nZGC 在标记、转移和重定位阶段几乎都是并发的，这是 ZGC 实现停顿时间小于 10ms 目标的最关键原因。\nZGC 几乎所有暂停都只依赖于 GC Roots 集合大小，停顿时间不会随着堆的大小或者活跃对象的大小而增加。\n与 ZGC 对比，G1 的转移阶段完全 STW 的，且停顿时间随存活对象的大小增加而增加。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：美团技术团队\n作者：作者: 美团信息安全团队\n分类：软件编程\n语言：中文\n阅读时间：37 分钟\n字数：9080\n标签：\n                    \n                        JDK升级, Java 17, ZGC, 性能优化, GC优化",
-          "link": "https://www.bestblogs.dev/zh/article/8144f0",
-          "publishedOn": "2025-06-20T00:00:00.000Z",
-          "wordCount": 333,
-          "title": "JDK 高版本特性总结与 ZGC 实践",
-          "enclosure": {
-            "url": "https://p0.meituan.net/meituantechblog/95ae6ec72bf744c4bf5662a8a92b2a5682808.png",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://p0.meituan.net/meituantechblog/95ae6ec72bf744c4bf5662a8a92b2a5682808.png"
-        },
-        {
-          "id": "91e9f9",
-          "author": "Latent.Space",
-          "description": "📌 一句话摘要\n            \nNoam Brown 访谈：规模化测试时间计算、推理和多智能体系统是迈向 AGI 的关键途径。\n📝 详细摘要\n            \n本文重点介绍了 OpenAI 首席研究员 Noam Brown 的播客访谈要点，该访谈聚焦于 AI 规模化的下一个前沿。Brown 认为，随着像 GPT-4 这样的模型出现，该领域现在正处于测试时间规模化的时代，在此阶段，在推理过程中投入更多计算资源能够显著提升推理能力。他讨论了推理如何改善 AI 对齐，以及如何泛化到超出具有易于可验证奖励的任务之外的场景。访谈还深入探讨了多智能体系统，将其与人类文明通过合作与竞争发展的方式进行类比，表明 AI 遵循类似路径可能带来远超当前限制的能力。Brown 强调，他们在多智能体系统方面的方法遵循‘苦涩的教训’（Bitter Lesson） 原则，即侧重于规模化而非启发式方法。最后，文章探讨了规模化测试时间计算的挑战（成本、实际时间），并对比了自博弈在简单零和博弈与复杂开放式环境中的有效性，强调需要新的范式，而不仅仅是规模化现有方法。\n💡 主要观点\n            \n推理是一种涌现能力，需要基础模型达到最小规模。\n                         只有当模型足够大、能力足够强（如 GPT-4） 时，测试时间计算带来的显著推理效益才变得明显，这类似于在复杂思维之前需要基础智能。\n                    \n\n                        规模化测试时间计算和多智能体系统对于未来 AI 发展至关重要。\n                         除了模型规模和数据之外，让 AI 能够“思考”更长时间（测试时间计算）以及进行合作/竞争式交互（多智能体系统）被视为释放高级能力的关键途径。\n                    \n\n                        多智能体 AI 交互可能孕育出“AI 文明”。\n                         与人类文明通过集体努力在数千年里建立起来的方式相比，允许 AI 合作和竞争可能会带来远超当前个体 AI 限制的涌现能力。\n                    \n\n                        自博弈的有效性受到环境结构的限制。\n                         虽然自博弈在双人零和博弈（如围棋/国际象棋） 中收敛于最优策略，但在更复杂、开放式环境中的应用和收敛保证则不太明确。\n                    \n\n                        心智理论等隐性理解随着模型规模的发展而出现。\n                         足够大的模型不是通过显式建模其他智能体，而是通过规模化隐性地发展出对智能体、动机和环境的复杂理解。\n                    \n💬 文章金句\n            \n我认为被低估的一点是，模型，即预训练模型，需要达到一定能力水平才能真正从这种额外的思考中获益。\n在我们发布 Cicero 后，许多 AI 安全社区 的人对这项研究以及它的工作方式感到非常满意，因为它是一个非常可控的系统……我们认为这可能是通过这些系统实现安全的绝佳方式。\n我认为这是一个存在证明，表明这些模型可以在没有易于可验证奖励的任务中取得成功。\n实际上，我认为，如果这些模型变得足够智能，它们就会发展出心智理论之类的能力……而这些模型只是通过规模化和更广泛的能力行为隐性地发展出这种能力。\n如果你能让它们在很长一段时间内与数十亿 AI 合作和竞争，并基本上建立起一个文明，那么它们能够产生和回答的事物将远远超出我们今天拥有的 AI 所能实现的水平。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：Latent Space\n作者：Latent.Space\n分类：商业科技\n语言：英文\n阅读时间：85 分钟\n字数：21084\n标签：\n                    \n                        推理, 多智能体系统, AI 规模化, LLM, OpenAI",
-          "link": "https://www.bestblogs.dev/zh/article/91e9f9",
-          "publishedOn": "2025-06-19T21:06:05.000Z",
-          "wordCount": 321,
-          "title": "将测试时间计算规模化至多智能体文明：Noam Brown",
-          "enclosure": {
-            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/c2fcd024-1f1e-4207-0dad-33833e4cfa00/cover",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/c2fcd024-1f1e-4207-0dad-33833e4cfa00/cover"
         }
       ]
     },
@@ -2931,16 +2886,6 @@
           "wordCount": 5200,
           "title": "From Data to Storytelling: Concept and Design Tips from the Financial Times’ John Burn-Murdoch",
           "imageUrl": "https://gijn.org/wp-content/uploads/2025/06/John-Burn-Murdoch-1-771x505.jpg"
-        },
-        {
-          "id": "https://gijn.org/event/uncovered-conference-2025/",
-          "author": null,
-          "description": "",
-          "link": "https://gijn.org/event/uncovered-conference-2025/",
-          "publishedOn": "2025-06-20T00:15:47.000Z",
-          "wordCount": 723,
-          "title": "UNCOVERED Conference 2025",
-          "imageUrl": "https://gijn.org/wp-content/themes/gijn/card.jpg"
         }
       ]
     },
@@ -4005,6 +3950,16 @@
       "siteUrl": "http://mainssl.geekpark.net/rss.rss",
       "articles": [
         {
+          "id": "http://www.geekpark.net/news/351341",
+          "author": null,
+          "description": "过去三年，我们听了太多关于「AI 如何重塑企业办公」的想象。但真正的变化，往往是从一个个打工人开始的——用 AI 写报告、润色外语邮件、总结会议内容、分析数据……AI 工具已经悄然渗透进日常的工作流。\n问题也随之而来：这些「AI 工作流」大多停留在个人层面，它们往往游离在企业的数字办公系统之外。尤其是对那些没有自研系统的中小企业而言，从豆包、DeepSeek 等应用中生成内容，再复制回飞书、邮箱、PPT 的操作，已经成为员工的日常。\n系统未打通的麻烦不仅是「复制粘贴」的低效，对管理者来说，更意味着 AI 的价值止步于「个体提效」，难以演化为组织级的智能化升级。这种割裂的根源，是办公平台自身尚未完成对 AI 的深度进化。\n7 月 9 日，飞书在 2025 未来大会上发布了一系列即插即用的 AI 工具，并邀请多家企业分享他们如何将这些工具无缝嵌入业务日常，实现真正意义上的智能化办公。\n\n飞书 CEO 谢欣丨来自：飞书\n这不只是一次产品发布，更像是数字办公从「AI ready」走向「AI 真正落地」的分水岭。\n让 AI 能力「长」在业务里\n如果说过去一年，企业还在摸索「如何把 AI 用起来」，那么飞书则在试图回答另一个问题：AI 到底应该「长」在哪里？\n在今年的飞书未来大会上，「多维表格」无疑是其 AI 产品阵列中最具代表性的升级亮点之一。它不再只是传统意义上的数据库工具，也不止于「基于数据库打造的业务系统」这一定位，而是开始进化为一个可实现 AI 自动化的业务中台——企业让 AI 真正落地办公场景的「基础设施」。\n从性能上看，多维表格的底层数据库能力实现了新一轮跃升：单表容量提升至 1000 万行，计算速度比去年快了 10 倍，支持千人级并发协作。这为承载复杂业务流程提供了扎实的技术底座。\n但真正构成飞跃的，是 AI 工具模块和「应用模式」的双重升级。去年上线的「AI 字段捷径…",
+          "link": "http://www.geekpark.net/news/351341",
+          "publishedOn": "2025-07-09T12:35:49.000Z",
+          "wordCount": 536,
+          "title": "组织先用好 AI，再谈 AI 改变组织",
+          "imageUrl": null
+        },
+        {
           "id": "http://www.geekpark.net/news/351324",
           "author": null,
           "description": "2024 年，低空经济是当下中国科技与产业界最受瞩目的风口之一。连续两年写入政府工作报告，低空经济正在快速从政策设想变成城市现实。产业界普遍认为，它有望接棒数字经济，成为中国下一个万亿级新赛道。\n而在这个处于爆发前夜的产业中，一家来自空天信息领域的企业——中科星图，正在悄然建立起一套涵盖空域管理、飞行服务和城市空中交通的技术底座。\n在近日举办的空天信息大会上，中科星图系统性发布了其「星图低空云」战略，并展示了一系列基于自研技术底座的低空经济产业应用。我们得以窥见这家老牌空天企业如何从「遥看地球」到「管住低空」，以基础设施构建者的身份切入并试图重塑低空经济的产业格局。\n\n2025 空天信息大会暨中科星图生态发展打会丨来自：中科星图  \n \n从天到空：空天信息企业为何「低飞」？ \n \n中科星图成立于 2006 年，长期专注于遥感数据处理、地理信息平台和数字地球建设，是空天信息领域的「国家队」。那么，为什么这样一家「天上看地」的公司会把视线投向「城市上空」？\n答案在于「延伸」而非「转型」。\n低空经济的繁荣，离不开高精度、高时效的空间数据、空域建模与飞行调度能力。中科星图所擅长的天基遥感、空天网格计算、数字孪生等技术，恰好可以服务于低空场景——以厘米级精度建图、秒级运算与全域感知，支撑无人机领航、航线规划、安全避障等关键应用。\n另一方面，国家政策的持续利好也在不断推高产业信心。2024 年以来，多个省份已设立低空经济发展试点，像中科星图这样的央企科技公司，其政企协同能力和全国落地能力正成为稀缺资源。\n7 月 8 日的空天信息大会上，中科星图与包括河南省南阳市人民政府、成都锦江经开区、海口市龙华区、南昌市红谷滩区等 15 家低空经济示范区签约，进一步在全国范围拓展低空经济应用的试点落地。\n\n中科星图低空区域战略签约丨来自：2025 空天信息大会  \n \n正如中科星图董事长许光銮在大会…",
@@ -4442,16 +4397,6 @@
           "publishedOn": "2025-06-21T00:33:43.000Z",
           "wordCount": 770,
           "title": "传苹果考虑收购 Perplexity，恶补 AI；微信测朋友圈评论表情包回复；Meta 推出新智能眼镜，2900 元起",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.geekpark.net/news/350610",
-          "author": null,
-          "description": "机器人明星企业宇树被曝 C 轮融资落定：中国移动、腾讯、锦秋、阿里、蚂蚁、吉利共同领投，估值超 100 亿\n6 月 19 日消息，据晚点 LatePost 爆料，宇树科技已于近期完成了去年底开启的 C 轮融资，由中国移动旗下基金、腾讯、锦秋、阿里、蚂蚁和吉利资本共同领投，宇树的大部分老股东跟投。宇树投前估值目前超过 100 亿元人民币。\n爆料提到，今年 1 月初，中国移动、蚂蚁和一些大型产业方就在积极洽谈，几家主要潜在投资方计划出资 1 亿-3 亿元不等。而进入今年 2 月后，宇树 C 轮投后估值逐渐上涨，融资结构也相应变化。\n据多方行业信息，今年上半年，宇树部分老股交易的估值已超过 150 亿元人民币。熟知宇树科技融资事项的人士对新浪科技表示，「融资最近确实完成了」。\n今年 5 月，宇树科技向合作伙伴发布通知，因公司发展需要，杭州宇树科技有限公司即日起名称变更为杭州宇树科技股份有限公司。原公司所有业务由「新公司名称」继续经营，原公司签订的所有合同继续有效。对此，宇树相关负责人作出回应：这是公司运营方面的常规变更。（来源：IT 之家）\n\n谷歌 Gemini 客户端新增 AI 视频上传分析功能，支持 iOS / 安卓平台\n谷歌现已为其 Gemini AI 客户端新增视频上传分析功能，用户将自己的应用更新至最新版本（IT之家注：iOS 用户需更新至 1.2025.2362302 版本，安卓用户需更新 Google 应用至 16.24 正式版）即可看到相应视频上传选项，无需订阅 Gemini 会员即可使用。\n\n据介绍，在用户上传视频后，Gemini 会根据用户的提示词对视频内容进行逐帧分析，以回答用户提出的内容。例如用户可以将自己的监控摄像头录屏上传 Gemin 内，同时询问「视频是在什么时候拍摄的」，Gemini 便会根据视频中的时间码并结合视频内的环境情况给出自己的见解。\n需…",
-          "link": "http://www.geekpark.net/news/350610",
-          "publishedOn": "2025-06-20T00:31:47.000Z",
-          "wordCount": 706,
-          "title": "微信上线「短剧」小程序；传宇树C 轮融资估值超 100 亿，腾讯阿里吉利联投；OpenAI 警告：高生物武器风险模型将出现",
           "imageUrl": null
         }
       ]
@@ -8186,6 +8131,22 @@
       "siteUrl": "https://news.un.org/en/",
       "articles": [
         {
+          "id": "https://news.un.org/en/story/2025/07/1165351",
+          "author": null,
+          "description": "A leading UN trade official warned on Tuesday that the United States’ decision to delay the end of a tariff suspension by a few weeks risks prolonging global uncertainty and undermining long-term investments and commercial contracts.",
+          "link": "https://news.un.org/feed/view/en/story/2025/07/1165351",
+          "publishedOn": "2025-07-08T12:00:00.000Z",
+          "wordCount": null,
+          "title": "US tariff delay deepens trade uncertainty, warns top UN economist",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/08-07-2025-ILO-Garment-Industry.jpg/image560x340cropped.jpg",
+            "length": "40828",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/08-07-2025-ILO-Garment-Industry.jpg/image560x340cropped.jpg"
+        },
+        {
           "id": "https://news.un.org/en/story/2025/07/1165350",
           "author": null,
           "description": "Anaemia remains one of South Asia’s quietest but most pervasive health crises, disproportionately affecting the region’s poorest women and girls – and with 18 million more cases projected by 2030, experts say urgent, unified action is critical.",
@@ -10113,6 +10074,36 @@
       "siteUrl": "https://chinadigitaltimes.net/chinese",
       "articles": [
         {
+          "id": "https://chinadigitaltimes.net/chinese/?p=719474",
+          "author": "既要又要还要",
+          "description": "自从2023年鼠头鸭脖事件，我就发现一种我称之为“最新的系统性舆情处置模式”的东西。一旦检测到“负面舆情”，这种局部的问题，就被升格为系统性的问题。这个“系统”很可能是以“市”为单位，而消灭“负面舆情”，就成为“市”的整体任务。",
+          "link": "https://chinadigitaltimes.net/chinese/719474.html",
+          "publishedOn": "2025-07-09T11:45:28.000Z",
+          "wordCount": 13139,
+          "title": "亮见｜天水幼儿园事件反思：地方舆情处置到了走火入魔的地步",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/07/image-1751965896956.png"
+        },
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=719470",
+          "author": "既要又要还要",
+          "description": "假如有机会，看一看十几二十年前的新闻吧。当年人们也惊讶于，为什么会有人往奶粉里放三聚氰胺。假如时代有记忆，它就应该原谅我，我已经没有眼泪为天水的孩子哭泣了。",
+          "link": "https://chinadigitaltimes.net/chinese/719470.html",
+          "publishedOn": "2025-07-09T11:14:31.000Z",
+          "wordCount": 13125,
+          "title": "西坡原创｜我已经没有眼泪为天水的孩子哭泣了",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/07/image-1752055829250.png"
+        },
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=719464",
+          "author": "既要又要还要",
+          "description": "我现在认真地提出，天水幼儿园铅中毒事件中的“颜料说”有疑点。首先，园方使用含铅颜料制作糕点的动机不足。食用色素本身的价格非常低廉，即使将它替换成颜料，能够带来的差价是极为有限的......",
+          "link": "https://chinadigitaltimes.net/chinese/719464.html",
+          "publishedOn": "2025-07-09T08:37:03.000Z",
+          "wordCount": 13156,
+          "title": "纽太普同学｜天水幼儿园铅中毒事件中的“颜料说”疑点",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/07/image-1752048842178.png"
+        },
+        {
           "id": "https://chinadigitaltimes.net/chinese/?p=719461",
           "author": "既要又要还要",
           "description": "颜色不查病毒了，颜色开始查人性。你把底层打工人打造成“风险人群”，再用算法开除他们的人权。外卖小哥不是不守规则，他们是不被允许有规则。",
@@ -11521,36 +11512,6 @@
           "wordCount": 13042,
           "title": "基本常识｜以色列打伊朗，和俄罗斯打乌克兰有什么区别吗？",
           "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/image-1750410795316.png"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=718984",
-          "author": "温都尔汗空管",
-          "description": "1985年5月，苏共通过决议规定，所有党和行政组织坚定且广泛地加强同酗酒的斗争。于是，一场关于酒精的全民斗争开始了。",
-          "link": "https://chinadigitaltimes.net/chinese/718984.html",
-          "publishedOn": "2025-06-19T23:00:46.000Z",
-          "wordCount": 13143,
-          "title": "黔驴技不穷｜苏联禁酒令，一场关于酒精的全民斗争是如何烂尾的？",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/777.png"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=718986",
-          "author": "温都尔汗空管",
-          "description": "饮酒活动惩治都这么严格，那对200万耳环想必更要铁拳出击",
-          "link": "https://chinadigitaltimes.net/chinese/718986.html",
-          "publishedOn": "2025-06-19T22:46:02.000Z",
-          "wordCount": 13068,
-          "title": "每日一语 2025.6.19",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/2025.6.19.png"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=718982",
-          "author": "温都尔汗空管",
-          "description": "毁掉一个女性有多容易？造黄谣就可以。当铺天盖地的谣言席卷而来，当悄无声息的辟谣草草收场。看不见的暴力过后，被构陷的女性，正在承受远超肉体的精神凌迟。",
-          "link": "https://chinadigitaltimes.net/chinese/718982.html",
-          "publishedOn": "2025-06-19T21:14:34.000Z",
-          "wordCount": 13230,
-          "title": "一凡｜因为染了粉色头发，名校女孩被审判致死",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/654.png"
         }
       ]
     },
@@ -11588,16 +11549,6 @@
           "wordCount": null,
           "title": "国产 AI 网页开发工具：豆包 AI 编程简单测评",
           "imageUrl": null
-        },
-        {
-          "id": "http://www.ruanyifeng.com/blog/2025/06/weekly-issue-353.html",
-          "author": null,
-          "description": "这里记录每周值得分享的科技内容，周五发布。\n本杂志开源，欢迎投稿。另有《谁在招人》服务，发布程序员招聘信息。合作请邮件联系（yifeng.ruan@gmail.com）。\n封面图\n\n6月17日晚，重庆举行超大规模无人机表演，共有11787架无人机，上图是其中一个场景\"天上的重庆\"。（via）\n苹果的\"液态玻璃\"是为了 AR\n上周，苹果公司发布了新的设计风格\"液态玻璃\"（liquid glass）。\n\n这种风格使用液体玻璃，作为控件（上图）。早先的扁平化风格，被一股脑抛弃。\n下图左面是原来扁平化风格的 iPhone，右面是这次测试版的液态玻璃。\n\n我知道的绝大部分人，对这种新风格都是差评，觉得不好看。大家想不通，为什么苹果要在屏幕上，添加一个额外的半透明玻璃层。\n甚至有人说，如果乔布斯看到 iPhone 变成这样，会解雇所有人（下图）。\n\n那么，到底为什么呢，苹果好端端的，突然要大改界面？\n官方完全回避这个问题，我倒是看到一篇解读，提出了一个很有见解的猜测。\n他说，苹果这样做，压根不是为了审美，而是为了下一代的空间计算，也就是 AR。\n现在的计算设备，都是二维的平面交互，用户面对一个扁平的屏幕，所以适合二维的扁平化风格。\n但是，对于 AR 设备，用户进入的是一个 3D 空间，接触的东西都是立体的，所以需要一个立体的界面。\nAR 设备没有屏幕，只有空间。屏幕不重要，空间才重要。\n液态玻璃就是一个空间设计，目的是让界面有一个实体，让你感觉每个按钮都是一个有体积的实物。并且，它半透明，不会遮住后面，从而产生空间层次感。\n从这个角度，苹果的界面设计副总裁 Alan Dye 对液态玻璃的介绍，就很容易解读。\n每个元素都经过精心设计，赋予了它们物理感：它们具有维度，能够动态响应光线，并投射阴影。\n苹果的 AR 设备，目前只有 Vision Pro 头盔。\n\n液态玻璃界面，应该最初是为了这…",
-          "link": "http://www.ruanyifeng.com/blog/2025/06/weekly-issue-353.html",
-          "publishedOn": "2025-06-20T00:08:10.000Z",
-          "wordCount": null,
-          "title": "科技爱好者周刊（第 353 期）：苹果的\"液态玻璃\"是为了 AR",
-          "imageUrl": null
         }
       ]
     },
@@ -11606,6 +11557,16 @@
       "feedUrl": "https://sspai.com/feed",
       "siteUrl": "https://sspai.com",
       "articles": [
+        {
+          "id": "https://sspai.com/post/100867",
+          "author": "Vanilla",
+          "description": "本文将从视觉与界面变化、系统级功能增强、原生应用更新改进这三个方面来展开，帮助大家详细地了解 Apple 在最近这两个测试版中所做出的改变。查看全文",
+          "link": "https://sspai.com/post/100867",
+          "publishedOn": "2025-07-09T09:30:00.000Z",
+          "wordCount": 732,
+          "title": "iOS 26 Beta 2 & Beta 3 值得关注的新特性",
+          "imageUrl": "https://cdnfile.sspai.com/2025/7/9/article/80e6ea46-9900-9376-7339-d1de05e6b818.png"
+        },
         {
           "id": "https://sspai.com/post/100701",
           "author": "西鸽",
@@ -13398,6 +13359,16 @@
       "siteUrl": "https://aeon.co",
       "articles": [
         {
+          "id": "urn:id:1155",
+          "author": "Aeon Video",
+          "description": "Solitary inmates find calm in nature videos in an experiment reflecting the human need to connect with the natural world \n - by Aeon Video\n Watch at Aeon",
+          "link": "https://aeon.co/videos/what-do-screens-depicting-serene-natural-scenes-mean-to-those-living-in-lock-up?utm_source=rss-feed",
+          "publishedOn": "2025-07-09T10:01:00.000Z",
+          "wordCount": 3547,
+          "title": "Blue room",
+          "imageUrl": "https://images.aeonmedia.co/images/4709dfe8-eca1-4b4a-a620-58f521b9751e/blue-room-landscape-2.jpg?width=1200&quality=75&format=auto"
+        },
+        {
           "id": "urn:id:8246",
           "author": "Sandrine Parageau",
           "description": "René Descartes, the founder of modern philosophy, was furiously condemned by his contemporaries. Why did they fear him? \n - by Sandrine Parageau\n Read at Aeon",
@@ -13590,6 +13561,56 @@
       "feedUrl": "https://feedx.site/rss/infzm.xml",
       "siteUrl": "http://infzm.com",
       "articles": [
+        {
+          "id": "http://www.infzm.com/contents/297605",
+          "author": null,
+          "description": "2025-07-09 20:00:00\n\n1949年的郑振铎（左）与叶圣陶。\n1944年，困居上海的郑振铎，出售了三批藏书以维持一家人的生计，就在如此“奇窘”之中，他还有能力出版《明季史料丛书》和《长乐郑氏汇印传奇》两套大丛书。赞助郑振铎出版事业的友人，便是1940年之后频繁出现于郑振铎日记中的“叔平”“张君”，《求书日录》中“带着侠义之气概”的“张叔平先生”。\n在嘉业堂主人刘承幹口中，张叔平却是“声气甚广”的恶霸。张氏将1940年“文献保存同志会”无力购下的嘉业堂宋元善本囊括一尽，且有能耐将六年来深陷日军管控的南浔藏书运至上海。但后来刘、张各不相让，终成买卖纠纷，双方搬出汪伪高官“斗法”，未分胜负，延至抗战胜利后，经过顾毓绣、蒋复璁等出面调解，方告平息。而张叔平在获得嘉业堂藏书之后，转手分批卖出，从而导致今天的嘉业堂旧藏书流散于浙江、香港、澳门、美国等地，这些书上还盖有“张叔平”朱文方印。\n在1944年的上海沦陷区，这么一位各方面都“兜得转”的厉害角色，一定不是一介书生或者一名商人。如果我们顺着郑振铎日记提供的线索，向历史档案深处探寻，这时候，一个“三面间谍”的灰色身影，便渐渐浮现。\n\n刘承幹（1882—1963）。\n一、张子羽：晚清重臣张百熙的公子\n张叔平的真名张振鋆（1897-1970），晚号“蜷厂”，子羽、任庵、穉潜、忍安皆为其字。他的父亲是清光绪年间的一品大员张百熙，京师大学堂（北京大学前身）的创办人。张子羽为张百熙侧室杨氏所生次子，1907年其父病逝时，年方九岁，后随其母南归长沙故里，于1915年考入北京大学文科。毕业后，张子羽投笔从戎，1928年任南京中央军校政训处秘书，曾在蒋介石军事委员会侍从室任职。此人行踪飘忽不定，目前较为清晰的文献是1946年张氏为汉奸周佛海暗通重庆一事出庭作证时留下的。马平《大成殿审周佛海》（《西南日报》1946年10月30日）记录：…",
+          "link": "http://www.infzm.com/contents/297605",
+          "publishedOn": "2025-07-09T12:25:07.000Z",
+          "wordCount": 106,
+          "title": "吴真 | 三面张叔平与嘉业堂售书纠纷",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/297683",
+          "author": null,
+          "description": "2025-07-09 18:40:49\n2025年6月第5周，227家上市公司曝光风险事件312起，风险指数302.15，其中治理风险占33.5%，环境风险占9.7%，社会风险占56.8%。与上周相比，风险事件数和风险指数显著增加。\n中国铁建ESG风险级别达到V级，位居本期风险榜首；恒久科技因财务造假被处罚，相关责任人遭市场禁入，值得关注。\n具体来看，中国铁建旗下多家公司因发生生产安全事故被罚，例如，中铁十八局集团有限公司被江门市蓬江区应急管理局先后处以70万元和30万元行政处罚，相关处罚累计推高了中国铁建的风险指数。\n建筑行业项目规模大、施工环境复杂，高空、地下作业易引发安全事故，因此，安全生产是建筑企业的核心ESG议题。作为特大型建筑企业，中国铁建在安全生产方面的投入巨大，且近三年来持续增加。但安全防线不可一日松懈。数据显示，2022年至2024年，中国铁建因公死亡人数依次为12人、10人、9人。如何将安全生产监督考核制度和作业手册，落实到各级单位和作业人员的日常中，依然是中国铁建面临的考验。\n恒久科技为完成业绩承诺，在2019年至2021年的年报中实施系统性财务数据造假，虚增收入和利润，最终案发，恒久科技被江苏证监局处以800万元罚款，3名责任人合计被处以1750万元罚款，并被采取不同年限的证券市场禁入措施。",
+          "link": "http://www.infzm.com/contents/297683",
+          "publishedOn": "2025-07-09T11:25:07.000Z",
+          "wordCount": 74,
+          "title": "善择ESG风险跟踪第92期｜227家公司暴露ESG风险，恒久科技财务造假被罚800万元",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/297679",
+          "author": null,
+          "description": "2025-07-09 19:00:00\n\n2021年9月21日，北京王府井书店摆放的《中华人民共和国刑事诉讼法》。（视觉中国|供图）\n素有“人权法”和“小宪法”之称的刑事诉讼法修改，已被列入十四届全国人大常委会立法规划，这不仅是当前刑事诉讼法学研究的重要课题，也是社会各界广泛关注的议题。虽然在“改什么”的问题上，目前众说纷纭，但有一点可以肯定，那就是应当将加强人权保障作为本次修法的基本目标。这既是充分尊重刑事诉讼制度发展规律的必然要求，也是认真落实“坚持正确人权观，加强人权执法司法保障”顶层设计的应有之义，还是积极回应“人民群众新要求新期待”的必由之路。\n尽管颁布于1979年的刑事诉讼法在历经1996年、2012年、2018年3次规模不等的修改后，其科学化、公正化和民主化的程度已得到了大幅提升，中国刑事司法领域的人权保障水平也取得了显著进展。不过，加强人权刑事司法保障，是一个长期复杂的系统工程，不可能一蹴而就，需要持续用力、久久为功。特别是，我国刑事诉讼程序的设计一直存在着“以自然人为中心”“以人身权为中心”“以方便专门机关办案为中心”“以侦查为中心”等几个方面的特征，还在很大程度上制约着我国人权刑事司法保障尤其是刑事被追诉人权利保障的水平。\n虽然，正确的人权观要求刑事诉讼立法建立均衡的权利保护体系，并维持刑事诉讼构造的动态平衡，从而使包括被害人和被追诉人在内的所有诉讼参与人都能享有一些基本的程序权利，但是，由于刑事诉讼中的控辩双方存在着一种“天然不平等”，因此，加强被追诉人的权利保障，才被认为是历次刑事诉讼制度改革需要重点解决的问题。未来，或应以解决突出问题为目标，并以顶层设计和实践探索相结合为路径，着重从以下几个方面，强化人权刑事司法保障尤其是被追诉人的权利保障。\n 回应“以审判为中心”\n“以审判为中心”的改革是一场关乎刑事诉讼构造优化的深层变革，但由于诸多原因，其实施…",
+          "link": "http://www.infzm.com/contents/297679",
+          "publishedOn": "2025-07-09T11:25:07.000Z",
+          "wordCount": 92,
+          "title": "刑诉法修改：需进一步消除“天然不平等”|法眼",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/297661",
+          "author": null,
+          "description": "2025-07-09 19:00:00\n2025年4月18日，由苏州市工信局指导，苏州市企业服务中心（供应链对接服务中心）主办，友达、友达数位、友达智汇、友达数位企业可持续发展研究院联合协办的“链动绿色，韧性启航”2025供应链年度公开课暨可持续转型实践私享会在苏州友达光电国际会议厅举行。来自政府、企业、学术界的70余位嘉宾现场参与活动，200余嘉宾线上参与。共同探讨供应链可持续转型的前沿趋势与实践路径，为行业绿色发展注入新活力。\n这是在苏州市政府支持下，友达联合生态伙伴举办的系列平台活动之一。作为世界领先的创新显示技术与解决方案提供商和产业链核心企业，友达光电积极发挥可持续领导力，助力供应商、客户绿色低碳转型，并通过绿色智能解决方案，与合作伙伴共同推动经济社会可持续发展。\n\n从内生到外化\n推动绿色增长正在成为全球主要经济体的共同选择。为扶持本土绿色产业，以及抢占绿色低碳发展制高点，欧美发达经济体开始将更高标准的环境保护和碳排放要求纳入贸易和投资协定，以气候变化、ESG为主题的新型国际贸易体系逐步形成，全生命周期绿色管理成为全球企业维持竞争力的必要条件。\n友达视全球绿色低碳转型为企业发展机遇，积极开拓绿色产品市场，与供应链持续优化节能，并致力发展再生料使用、包材回收等循环经济，与客户共同营销绿色价值，凝聚绿色溢价的减碳目标，与更多全球价值链伙伴共同迎接绿色永续新时代。\n回应外部倡议，深入推动碳减排。友达通过提升能源效率及考量整个生命周期来实践低碳与循环生产模式，逐年降低碳排放总量，朝着净零目标持续努力。在净零减碳的实践路径上，友达承诺的第一阶段SBTi减碳目标(以2018年为基准，于2025年达成绝对减碳25%)，已提前于2022年达标。展望更积极的低碳转型愿景，友达继续以1.5度升温情境，提出以2021为基准年，于2030年达成组织碳排(范围1+2)绝对减碳42%的目标；…",
+          "link": "http://www.infzm.com/contents/297661",
+          "publishedOn": "2025-07-09T11:25:07.000Z",
+          "wordCount": 155,
+          "title": "从绿色行动到共创价值：友达如何助力经济社会可持续｜2025年度CSR观察案例⑥",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/297653",
+          "author": null,
+          "description": "2025-07-09 18:00:00\n\n2025年7月3日，泰国曼谷，泰国国王玛哈·哇集拉隆功（右二）和素提达王后（右）在王室典礼上，为泰国代理总理素里亚（中）及其新内阁成员举行宣誓就职仪式，其中包括泰国新任文化部长佩通坦（左）和泰国副总理普坦（左二）。视觉中国/图\n\n2025年7月3日下午，泰国政府在总理府召开内阁特别会议，宣布由副总理兼内政部长普坦代理总理职务。\n\n两天前，泰国宪法法院以佩通坦可能违宪为由，决定暂停其总理职权，直至作出裁决。佩通坦被停职后，71岁的副总理兼交通部长素里亚代行总理之职。“临时上岗”不到两天，泰国代总理便再度换人。\n三天三任总理，泰国政坛的走马灯式变动举世震惊。\n38岁的佩通坦，是泰国前总理他信·西那瓦之女，于2024年8月在议会选举中脱颖而出，成为泰国最年轻的总理。她也是继姑姑英拉之后，泰国第二位女总理。\n然而任职不到一年，数度目睹家族权力兴衰的佩通坦，便再度陷入家族的政治命运轮回——他信因政变被赶下台，英拉被宪法法院罢免，如今佩通坦也和家族长辈一样，面临执政危机。\n佩通坦能否打破家族命运枷锁，挺过宪法法院调查？泰国新一轮政治危机，是否预示着他信家族政治舞台的终结？这不仅关乎佩通坦个人政治前途，也牵动整个泰国政局的未来走向。\n“事实上，在脆弱的民主制度和根深蒂固的专制统治下，泰国陷入混乱境地并非巧合。宪法法院暂停佩通坦总理职务，延续了过去二十多年解散主要政党、推翻民选政府的惯常模式。”泰国朱拉隆功大学政治学与国际关系教授提提南·蓬苏迪拉克向南方周末记者分析，保守派精英曾通过让他信结束流亡回归的“超级协议”，阻止进步派“前进党”组阁，后又试图推翻为泰党政府，意图彻底终结他信家族的政治影响力。\n“录音门”引爆泰国政坛\n佩通坦被停职，源于与柬埔寨参议院主席、前总理洪森的一通私人通话。\n2025年6月15日，泰柬边境冲突剑拔弩张之际，佩通坦以私人…",
+          "link": "http://www.infzm.com/contents/297653",
+          "publishedOn": "2025-07-09T10:25:06.000Z",
+          "wordCount": 90,
+          "title": "三天三任总理：动荡中的泰国政坛，被围猎的他信家族？",
+          "imageUrl": null
+        },
         {
           "id": "http://www.infzm.com/contents/297647",
           "author": null,
@@ -17197,6 +17218,16 @@
       "feedUrl": "http://flowingdata.com/feed",
       "siteUrl": "https://flowingdata.com",
       "articles": [
+        {
+          "id": "https://flowingdata.com/?p=79128",
+          "author": "Nathan Yau",
+          "description": "Life expectancy and priorities changed. People stay single longer, marry later, divorce less, and widow older. \nTags: marriage",
+          "link": "https://flowingdata.com/2025/07/09/marital-status-shifts-in-the-united-states/",
+          "publishedOn": "2025-07-09T11:25:45.000Z",
+          "wordCount": 1651,
+          "title": "Marital Status Shifts in the United States",
+          "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/07/marital-status-featured-shifts.png"
+        },
         {
           "id": "https://flowingdata.com/?p=78940",
           "author": "Nathan Yau",
