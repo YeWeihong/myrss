@@ -6,6 +6,36 @@
       "siteUrl": "https://bestblogs.dev/zh/feeds",
       "articles": [
         {
+          "id": "b5d941",
+          "author": "Robert Cepa",
+          "description": "📌 一句话摘要\n            \nCloudflare 阐述了其为何选择 TimescaleDB (PostgreSQL 扩展) 以伸缩其零信任产品组合中的分析与报告能力，侧重于简化设计，避免过度超前优化。\n📝 详细摘要\n            \n本文详细阐述了 Cloudflare 在为其零信任产品组合构建分析与报告能力过程中的实践。作者推崇“简单至上”的架构理念，强调不必要的复杂性和过度超前优化所带来的成本。最初，他们曾考虑采用 ClickHouse 实现高吞吐量数据接入，但发现其运维负担对于他们最初的特定需求而言过高。随后，他们尝试利用纯 PostgreSQL 进行分析，并详细介绍了诸如多列索引策略（时间戳置于最后，高区分度列优先）以及预计算聚合等优化实践，以提升查询性能。尽管这些 PostgreSQL 优化带来了显著的性能提升，但他们在自动物化视图和手动分区方面面临挑战。最终，他们选择了 TimescaleDB (PostgreSQL 扩展)，因为它能与现有的 PostgreSQL 生态系统无缝集成，并提供诸如列存储和稀疏索引等专用功能，从而在保证系统简洁性的同时，显著提升了原始数据查询性能。\n💡 主要观点\n            \n采用“简单至上”的架构理念可以避免过度超前优化，并降低运营开销。\n                         优先采用最简化的组件进行初始产品发布，能够加速交付、测试与学习过程，并将复杂性延迟到确有需要时再引入，从而降低维护成本和潜在的中断风险。\n                    \n\n                        纯 PostgreSQL 可以针对时序分析进行优化，但对于大规模原始数据查询存在局限性。\n                         诸如特定的多列索引排序方式（时间戳置于最后）和预计算聚合等技术能够显著提升查询性能，但 PostgreSQL 的原生分区限制可能会阻碍大规模原始数据集的伸缩。\n                    \n\n                        TimescaleDB 为在 PostgreSQL 生态系统中伸缩时序分析能力提供了一种务实的解决方案。\n                         通过利用 TimescaleDB 作为 PostgreSQL 扩展，团队可以获得专业的时序功能（如列存储和稀疏索引）和高性能，而无需引入全新的数据库系统，从而简化了技术栈。\n                    \n💬 文章金句\n            \n作为工程师，我们很容易陷入为可能永远不会发生的场景进行设计的陷阱。\n我们难以准确预测未来需求，每一个新增组件都意味着更高的潜在成本。\nClickHouse 是一辆需要专业赛道才能发挥性能的跑车，而我们需要的只是日常代步车。\n为了获得时间范围查询的最佳性能，我们遵循以下列顺序规则：时间戳列始终置于最后。其他列为前导列，按其区分度排序，从最高区分度的列开始。\nTimescaleDB 被打包为 PostgreSQL 扩展，它可以与其无缝共存，从而可以访问整个 Postgres 生态系统。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：The Cloudflare Blog\n作者：Robert Cepa\n分类：软件编程\n语言：英文\n阅读时间：17 分钟\n字数：4161\n标签：\n                    \n                        架构设计, 数据库, PostgreSQL, TimescaleDB, ClickHouse",
+          "link": "https://www.bestblogs.dev/zh/article/b5d941",
+          "publishedOn": "2025-07-08T14:00:00.000Z",
+          "wordCount": 323,
+          "title": "TimescaleDB 如何助力我们伸缩分析与报告能力",
+          "enclosure": {
+            "url": "https://cf-assets.www.cloudflare.com/zkvhlag99gkb/7v2ZEj7hmq6Xx5lyO3N8o9/fd40f3f9689b10459f2e26c9775c8a87/OG_Share_2024__66_.png",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://cf-assets.www.cloudflare.com/zkvhlag99gkb/7v2ZEj7hmq6Xx5lyO3N8o9/fd40f3f9689b10459f2e26c9775c8a87/OG_Share_2024__66_.png"
+        },
+        {
+          "id": "423a5b",
+          "author": "笔记侠",
+          "description": "📌 一句话摘要\n            \n提炼彼得·德鲁克《卓有成效的管理者》核心思想，阐述有效管理者必须遵循的 8 个习惯，强调效能是可习得的修炼。\n📝 详细摘要\n            \n本文作为彼得·德鲁克《卓有成效的管理者》一书的深度解读与摘编，深入剖析了其关于“卓有成效的管理者”的核心理念，指出管理者无需具备特定性格魅力，而应遵循八项可习得的惯常做法。这些习惯涵盖了获取必要知识（探究必须做的事、对企业正确的事）、制定行动计划（明确结果、考虑约束、设置检查点、时间管理），以及将计划转化为行动（承担决策责任、承担沟通责任、专注于机会而非问题、召开高效会议）。文章强调效用是一种纪律，管理者应系统化地审视自身并持续改进，以提升组织整体绩效，并以“我们”而非“我”来思考和行动，先倾听后发言，最终实现卓有成效的管理。整体内容条理清晰，引人深思，对各层级管理者具有普遍指导意义。\n💡 主要观点\n            \n有效性是可习得的修炼，而非天生特质\n                         德鲁克强调管理者效能源于一系列可遵循的实践习惯，与个人性格无关，任何人通过学习和练习都能变得有效。\n                    \n\n                        管理者需聚焦于“必须做的事”和“对企业正确的事”\n                         这是获取知识的关键，要求管理者排除干扰，确定优先任务并严格遵守，同时以企业整体利益为导向进行决策。\n                    \n\n                        行动计划是知识转化为行动的桥梁与时间管理的基础\n                         管理者必须明确期望结果、考虑约束、设置检查点，并以此作为时间管理的基础，确保计划的灵活性和可衡量性。\n                    \n\n                        决策、沟通、机会聚焦和高效会议是行动落地的核心\n                         这些是管理者将计划转化为实际产出的关键环节，强调了责任、信息流动、积极心态和效率的重要性。\n                    \n\n                        以“我们”而非“我”来思考和行动，并强调先倾听后发言\n                         管理者需将组织利益置于个人之上，承担最终责任，并始终秉持倾听的姿态，这是有效管理者的重要品格和行为准则。\n                    \n💬 文章金句\n            \n有效可以学会，也必须学会。\n有效管理者不会因此分心，他们会千方百方聚焦于一项任务。\n知识在转化为行动之前对管理者毫无用处，但管理者在行动之前必须规划好自己的路线。\n优秀管理者专注于机会而不是问题。当然，问题必须解决，不能藏着掖着，但不管多么有必要，解决问题都不会创造成果，充其量是防止损失。只有利用好机会，才能产生成果。\n不要用“我”来思考或说话，要用“我们”来思考和说话。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：笔记侠\n作者：笔记侠\n分类：商业科技\n语言：中文\n阅读时间：24 分钟\n字数：5900\n标签：\n                    \n                        管理学, 领导力, 德鲁克, 高效管理, 个人成长",
+          "link": "https://www.bestblogs.dev/zh/article/423a5b",
+          "publishedOn": "2025-07-08T13:31:00.000Z",
+          "wordCount": 313,
+          "title": "德鲁克：有效管理者，8 大习惯",
+          "enclosure": {
+            "url": "https://wechat2rss.bestblogs.dev/img-proxy/?k=0a577c93&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FJ7zQIB9yUNTn5ricLOXQ6RKM3NxueL2TPOibuk05sB8O2f6GhLQm3ocB1ppmnSEBjN8CtOv8CvvHuTZ3P1DOQibLg%2F640%3Fwx_fmt%3Dpng%26from%3Dappmsg",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://wechat2rss.bestblogs.dev/img-proxy/?k=0a577c93&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FJ7zQIB9yUNTn5ricLOXQ6RKM3NxueL2TPOibuk05sB8O2f6GhLQm3ocB1ppmnSEBjN8CtOv8CvvHuTZ3P1DOQibLg%2F640%3Fwx_fmt%3Dpng%26from%3Dappmsg"
+        },
+        {
           "id": "8de0f17",
           "author": "徐文浩，任鑫",
           "description": "📌 一句话摘要\n            \n探讨 AI 创业中的核心挑战、市场策略（如“抢跑”）、人机协作模式重塑及人类专家价值的不可替代性。\n📝 详细摘要\n            \n本期《AI 炼金术》深度剖析了 AI 浪潮下的创业实战与思考。两位资深 AI 创业者任鑫和徐文浩，从广告投放、产品开发、市场营销到工作流程优化等多个维度，分享了 AI 应用带来的机遇与挑战。节目强调，当前 AI 产品成功的关键在于创造让用户惊叹的“魔法时刻”，并采取“抢跑”策略，即预判大模型能力升级，提前布局应用场景。同时，AI 正深刻改变传统工作模式，要求个人和组织从被动工具使用转向主动提供高质量上下文，并围绕人机协作重塑工作流程，向异步化、计划导向转变。播客也深入探讨了人类专家的不可替代性，指出专家价值不仅在于显性知识，更在于提供“信任感”、决策捷径、隐性经验和“品味”（Taste），这些是 AI 短期内难以企及的“护城河”。尽管 AI 在提升学习效率和自动化明确任务方面潜力巨大，但在深层次领域知识和人类偏好判断上仍存在局限。最后，节目呼吁技术从业者和创业者持续适应、积极面对挑战，把握 AI 带来的变革机遇，并关注其潜在的伦理和社会影响。\n💡 主要观点\n            \nAI 产品需创造“魔法时刻”并采用“抢跑”策略\n                         成功的 AI 产品需提供惊艳的用户体验以实现病毒式传播，并通过预判大模型能力升级，提前布局应用场景，抓住技术成熟的“临门一脚”引爆市场。\n                    \n\n                        AI 时代工作流需重塑为异步和计划导向\n                         高效利用 AI 要求从被动工具使用转变为主动提供高质量上下文，并围绕人机协作优化流程，将任务规划与执行分离，减少上下文切换的脑力消耗。\n                    \n\n                        人类专家的核心价值在于信任、隐性知识与“品味”\n                         AI 虽能提供全面分析，但在复杂问题、非公开知识、主观偏好和信任建立上存在局限，人类专家凭借经验、直觉和“品味”仍不可替代。\n                    \n\n                        AI 提升学习效率但无法完全替代深层专业判断\n                         AI 可加速入门级到中等水平的学习，但达到专家级别仍需人类指导和判断，尤其在涉及非纸面化知识和复杂情境时，人机协作是最佳模式。\n                    \n💬 文章金句\n            \nAI 是人类历史上最激动人心的技术革命，也是我们这一代人最大的挑战与机遇。\n专家价值无法替代：AI 无法完全取代领域专家，因为专家的核心价值不仅在于知识，更在于提供'信任感'和决策捷径。\n'抢跑'是有效策略：许多成功的 AI 应用，本质上是'抢跑'策略的胜利。它们预判大模型即将到来的能力升级，提前准备好应用场景，在模型升级的瞬间，将新能力包装成惊艳的产品功能。\n我称之为这个 AI 是今天 AI 带来的能力是带来能力导致大家的工作习惯要把一个同步的工作习惯变成个异步的工作习惯。\nAI 最先取代的其实就是你当一份工作，如果它里面大量的东西是基于所谓品味直觉，或者你要读空气，或者你要有一些隐性经验，甚至你要喝茅台，反正就各种各样这种事情的话，它相对来讲它的未来的价值还是存在。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：AI炼金术\n作者：徐文浩，任鑫\n分类：人工智能\n语言：中文\n阅读时间：10 分钟\n字数：2283\n标签：\n                    \n                        AI创业, 商业策略, 大型语言模型, AI产品设计, 市场营销, 工作流优化, 人机协作, 抢跑策略, 专家价值, 企业管理",
@@ -34,6 +64,51 @@
             "length": "0"
           },
           "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/55128276-5a7f-49ab-0eaf-aeba64cdf400/cover"
+        },
+        {
+          "id": "e51c01",
+          "author": "赛博禅心",
+          "description": "📌 一句话摘要\n            \n文章详细纪实 2025 年 6 月 AI 行业重大事件，揭示海外发展停滞、国产 AI 全面爆发以及开源技术狂潮的“90 天定律”周期。\n📝 详细摘要\n            \n本月刊深入剖析了 2025 年 6 月全球 AI 行业的关键动态，通过“90 天定律”的视角，指出海外顶尖模型发布放缓，为国产模型提供了宝贵的追赶窗口期，并引发了开源技术狂潮。文章详细梳理了模型、图像、视频、音频、3D、机器人和应用等多个 AI 子领域的最新进展，强调了中国公司在多模态模型、图像编辑、视频生成、音频合成以及 AI 编程工具等方面的显著突破和领先态势，尤其是在 Sora 和 GPT-Image-1 等技术被迅速破解后，国产 AI 的快速崛起。同时，文章观察到 AI 应用公司开始自研模型，以及资本市场对 AI 行业的狂热投资，特别是 Meta 的大手笔。文中还收录了 106 件 AI 行业大事记，包括具体模型发布、应用上线、融资并购等，并附有专业点评，为读者提供了全面且及时的行业全景图。\n💡 主要观点\n            \n海外模型停滞为国产 AI 提供了关键的追赶和超越窗口期\n                         在顶尖海外模型发布放缓的背景下，字节、智源等中国公司在多模态推理、图像编辑、视频生成等领域取得显著进展，展现出强大的追赶能力。\n                    \n\n                        中国公司已全面破解并超越多项前沿 AI 技术\n                         文章指出，GPT-Image-1 的秘密在 3 个月内被中国公司完全破解，Sora 开创的视频领域也逐渐被中国模型占据，显示国产 AI 的快速学习与创新能力。\n                    \n\n                        AI 应用与模型开发边界日益模糊，终将殊途同归\n                         越来越多的应用公司开始开发自己的 AI 模型，预示着未来模型与应用不再是泾渭分明的赛道，企业将根据自身优势实现双向发展。\n                    \n\n                        垂直领域 AI 模型和 Agent 应用潜力巨大，竞争激烈\n                         夸克高考模型、网易数学模型等垂直领域模型的出现，以及 AI 编程和浏览器 Agent 的分化，表明 AI 正深入各行各业，带来激烈的竞争和用户体验的提升。\n                    \n💬 文章金句\n            \n这个月顶尖海外模型只有 o3-Pro 发布，给了国产模型一个窗口期，迎头赶上。\nOpenAI 应该想不到，最早由 Sora 开拓的视频领域，现今已是中国人的天下。\n未来，模型公司开发应用，而应用公司开发模型将会变得相当普遍。从今往后，可能不必再区分一家公司是从事应用还是模型，只是起点不同，最终殊途同归。\nAI IDE 真的是兵家必争之地，而 Mistral 从模型层面找到了差异性。\n对于 AI 应用公司，过度依赖某个闭源模型是一项重大风险因素。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：赛博禅心\n作者：赛博禅心\n分类：人工智能\n语言：中文\n阅读时间：592 分钟\n字数：147850\n标签：\n                    \n                        AI行业动态, 国产AI, 开源AI, AI模型, AI应用",
+          "link": "https://www.bestblogs.dev/zh/article/e51c01",
+          "publishedOn": "2025-07-08T07:25:00.000Z",
+          "wordCount": 346,
+          "title": "90 天定律：从落后到突围，国产 AI 的崛起周期｜赛博月刊 2507",
+          "enclosure": {
+            "url": "https://wechat2rss.bestblogs.dev/img-proxy/?k=ad25a742&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F2icSMc1VBIYqUZVWsuzazTkQjsb3ZHF17uStNAC7KnO3kVuZ4QXuZXeGwurmGCt7XmL17Q5sZ5O6TggsKjlk3eg%2F0%3Fwx_fmt%3Djpeg",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://wechat2rss.bestblogs.dev/img-proxy/?k=ad25a742&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F2icSMc1VBIYqUZVWsuzazTkQjsb3ZHF17uStNAC7KnO3kVuZ4QXuZXeGwurmGCt7XmL17Q5sZ5O6TggsKjlk3eg%2F0%3Fwx_fmt%3Djpeg"
+        },
+        {
+          "id": "ece92a",
+          "author": "阿里云开发者",
+          "description": "📌 一句话摘要\n            \n全面综述大模型近两年发展，从参数规模论转向效率、推理和智能体三大支柱。\n📝 详细摘要\n            \n文章深入探讨了大型语言模型（LLM）自 2023 年 GPT-4 发布以来的演进路径。它首先指出“唯参数规模论”的局限性，并分析了当前领域对效率、推理能力和智能体化的迫切需求。文章详细阐述了混合专家（MoE）架构和新型注意力机制（如 MLA、闪电注意力）如何解决效率瓶颈，以及“推理时计算”（Thinking）范式的兴起及其对模型性能的提升，并强调了强化学习在其中角色的转变。随后，文章探讨了 AI 智能体通过工具使用实现从“思考”到“行动”的飞跃。最后，文章对比了各大 AI 实验室的架构哲学和竞争格局，并展望了具身智能和后 Transformer 架构的未来发展方向，将现代 AI 架构归结为效率、推理和智能体三大支柱。\n💡 主要观点\n            \nLLM 发展已从单纯追求规模转向效率、推理和智能体三大支柱\n                         早期 GPT-4 代表的“唯参数规模论”已显局限，新范式更注重通过架构创新提升效率、强化模型逻辑推理能力，并使其能与外部环境交互。\n                    \n\n                        效率提升是当前 LLM 架构创新的核心，通过 MoE 和新型注意力机制实现\n                         混合专家（MoE）架构显著降低推理成本，新型注意力机制（如 MLA、线性注意力）突破长上下文处理瓶颈，为模型扩展和复杂推理奠定基础。\n                    \n\n                        推理阶段的“思考”计算成为新的 AI 性能增长点，强化学习在其中扮演关键角色\n                         模型在生成答案前进行内部思考（CoT），极大提升复杂任务表现，强化学习则从对齐工具演变为教授模型推理的核心方法，改变了 AI 经济模型。\n                    \n\n                        智能体能力是推理能力的自然延伸，使模型能自主使用工具执行复杂任务\n                         模型在具备强大推理和规划能力后，通过与外部工具（如网页搜索、代码执行）交互，将智能转化为实际行动，走向更广阔的应用场景。\n                    \n\n                        随着模型专业化，SOTA 定义不再单一，各 AI 实验室形成差异化竞争格局\n                         传统基准测试饱和，新基准更侧重复杂推理和智能体执行，促使各模型根据自身架构和战略在特定领域形成 SOTA，市场日益成熟和多样化。\n                    \n💬 文章金句\n            \n唯参数规模论的范式，迎来了深刻反思和系统性挑战。\n效率的提升是实现经济可行的推理模型的前提，而强大的推理能力则是构建有效智能体的基石。\n混合专家（Mixture-of-Experts， MoE）架构是这一时期应对效率挑战最核心的策略之一。\n这个新范式将计算开销的重心从预训练阶段部分转移到了推理阶段。核心理念是，模型在生成最终答案之前，花费额外计算资源来生成一段内部的思考链（CoT）。\n回顾 2023 年至 2025 年 6 月的这段关键时期，可以清晰地看到，大型语言模型领域完成了一次深刻的战略转向。它不再是单一地追求规模（Scale），而是转向了一个由三大新支柱构成的、更加复杂和强大的多维发展策略：效率、推理、智能体。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：阿里云开发者\n作者：阿里云开发者\n分类：软件编程\n语言：中文\n阅读时间：41 分钟\n字数：10199\n标签：\n                    \n                        大语言模型, AI发展趋势, 混合专家模型, 注意力机制, AI推理",
+          "link": "https://www.bestblogs.dev/zh/article/ece92a",
+          "publishedOn": "2025-07-08T00:31:00.000Z",
+          "wordCount": 303,
+          "title": "万字综述，讲一讲这两年大模型这整个领域到底发展了哪些方面",
+          "enclosure": {
+            "url": "https://wechat2rss.bestblogs.dev/img-proxy/?k=d5a0b073&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FZ6bicxIx5naJRQG5PibjvpnJicjzoVbZrqiaNYCyFgb34RhsuCae8Ed7MgDn75WCBhVTgGsZhd6nJseO4P5IqibdMVg%2F640%3Fwx_fmt%3Djpeg%26from%3Dappmsg",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://wechat2rss.bestblogs.dev/img-proxy/?k=d5a0b073&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FZ6bicxIx5naJRQG5PibjvpnJicjzoVbZrqiaNYCyFgb34RhsuCae8Ed7MgDn75WCBhVTgGsZhd6nJseO4P5IqibdMVg%2F640%3Fwx_fmt%3Djpeg%26from%3Dappmsg"
+        },
+        {
+          "id": "7def9c",
+          "author": "Carlos Arguelles",
+          "description": "📌 一句话摘要\n            \nCarlos Arguelles 分享亚马逊高速增长的见解，强调危机、规模和成熟度如何作为工程效率投资的关键拐点。\n📝 详细摘要\n            \n本文基于亚马逊高级首席工程师 Carlos Arguelles 的演讲，详细阐述了亚马逊 30 倍增长期间，工程效率上的多个拐点。Arguelles 回忆了 2011 年黑色星期五因服务规模不足和 Oracle 数据库故障引发的危机，这直接推动了公司级负载与性能测试基础设施的建设。他强调“永远不要浪费一场重大危机”这一原则，将其视为关键投资的催化剂。演讲中，他指出了三种主要拐点：工程师数量的增长放大了“繁琐工作”的影响，并使自动化更具合理性；组织危机则为变革创造了紧迫性；而成熟度将重心从快速扩张转向收敛，并促使更严格的卓越运营关卡得以实施，例如强制代码审查、金丝雀发布和代码覆盖率。Arguelles 解释说，即使是很小的低效问题，在规模化后也会转化为巨大的“软件工程师年”损失，因此对效率的投资极具价值。这些见解源于他在微软、Amazon 和 Google 的丰富经验，为扩展工程团队提供了宝贵的经验教训。\n💡 主要观点\n            \n利用危机作为关键工程投资的催化剂\n                         重大的运营故障虽然代价高昂，但会带来紧迫感，并证明构建必要的基础设施（如强大的负载和性能测试）是合理的。否则，由于 perceived 的时间限制，这些基础设施的优先级可能会被降低。\n                    \n\n                        量化工程“繁琐工作”，以证明大规模效率投资的合理性\n                         即使是很小的、频繁的低效率（例如，每天 10 秒的手动操作），在庞大的工程团队中也会迅速累积，突显了自动化的价值，能够节省大量的软件工程师年。\n                    \n\n                        组织成熟度需要战略收敛和更严格的运营关卡\n                         随着公司的发展，整合重复工具并实施强制流程（如代码审查、金丝雀发布和代码覆盖率）对于保持质量、安全性和稳定性至关重要，即使这会带来一些摩擦。\n                    \n💬 文章金句\n            \n永远不要浪费一场重大危机。\n在 Amazon 的规模下，每天都要做的 10 秒小事累计起来相当于 35 个软件工程师年的生产力。\n有时，拐点在于收敛，而非扩张。这意味着要弃用旧事物，删除无用代码，这让我非常高兴。\n随着公司和工程师数量的增长，可能出现的问题也会增多，因此必须设置一些关卡。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：InfoQ\n作者：Carlos Arguelles\n分类：软件编程\n语言：英文\n阅读时间：25 分钟\n字数：6240\n标签：\n                    \n                        工程效率, 卓越运营, 组织增长, 扩展, 技术增长",
+          "link": "https://www.bestblogs.dev/zh/article/7def9c",
+          "publishedOn": "2025-07-08T00:00:00.000Z",
+          "wordCount": 318,
+          "title": "亚马逊 30 倍增长下的工程效率拐点",
+          "enclosure": {
+            "url": "https://res.infoq.com/presentations/amazon-growth-productivity/en/card_header_image/carlos-arguelles-twitter-card-1751622085660.jpg",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://res.infoq.com/presentations/amazon-growth-productivity/en/card_header_image/carlos-arguelles-twitter-card-1751622085660.jpg"
         },
         {
           "id": "c7151d5",
@@ -169,6 +244,21 @@
             "length": "0"
           },
           "imageUrl": "https://wechat2rss.bestblogs.dev/img-proxy/?k=2f25b353&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FYEhakvKZjXnRuS1k2EK6wB0FfkgAZDwZVqyyOI1O9IJjicZoibvYLibvEj2HkNgR1CKfeCmVaoibffA3z3ffdVD66Q%2F0%3Fwx_fmt%3Djpeg"
+        },
+        {
+          "id": "936e58",
+          "author": "前端早读课",
+          "description": "📌 一句话摘要\n            \n详细阐述了 Node.js 在 2025 年向 ESM、内置 Web API、Worker 线程等现代开发模式的转变与实践。\n📝 详细摘要\n            \n本文展望了 Node.js 在 2025 年的现代开发趋势，深入探讨了其在多方面的关键转变。内容涵盖了从模块系统（ESM、`node:`前缀、顶层 await）到内置 Web API（Fetch、AbortController）的演进，大幅减少了对外部依赖的需求。文章还详细介绍了内置测试功能、更先进的异步编程模式（如 AsyncIterator）和高级流处理（Web Streams 互操作性）。此外，它阐述了 Worker 线程在 CPU 密集型任务中的并行处理能力、优化开发体验（Watch 模式、.env 支持）、增强的安全性（权限模型）与性能监控、简化的应用分发（单文件应用）、现代化的错误处理与诊断（结构化错误、diagnostics_channel），以及包管理与模块解析的进步（Import Maps、动态导入）。文章为开发者提供了构建高效、健壮 Node.js 应用的全面指南。\n💡 主要观点\n            \nES Modules 与内置 Web API 成为 Node.js 开发新标准\n                         采用 ESM 及`node:`前缀提升模块管理和与 Web 标准一致性；Fetch API 等内置 Web API 减少外部依赖，简化 HTTP 请求和异步操作取消，提高开发效率。\n                    \n\n                        Node.js 内置工具极大提升开发与测试效率\n                         内置测试运行器、`--watch`模式和`.env`文件支持简化了开发配置，提供即时反馈，无需依赖第三方工具，使得开发流程更顺畅。\n                    \n\n                        高级异步模式与 Worker 线程是构建高性能应用的基石\n                         结合`async/await`、`Promise.all`实现并发，利用 AsyncIterator 处理事件流；Worker 线程解决 CPU 密集型任务阻塞主线程问题，实现真正并行，提升应用响应性。\n                    \n\n                        现代 Node.js 强化了应用的安全、性能监控与部署能力\n                         通过实验性权限模型增强安全控制，内置性能监控工具简化性能瓶颈定位，同时支持单文件应用打包，极大简化了部署和分发流程。\n                    \n\n                        优化了包管理、模块解析及错误处理机制\n                         Import Maps 和动态导入提升了模块加载灵活性与项目维护性；结构化错误处理和诊断通道则提供了更深入的错误分析与应用监控能力。\n                    \n💬 文章金句\n            \n现代的 Node.js 更加拥抱 Web 标准，减少对外部依赖的需求，并带来了更直观的开发体验。\nnode: 前缀不仅仅是个约定，它明确告诉开发者和工具：这是导入 Node.js 的内置模块，而不是来自 npm 的第三方包。\n这个测试框架最大的优势在于，它无缝集成在 Node.js 的开发流程中。\n这种模式让你可以充分利用多核 CPU 的性能，同时保留 async/await 带来的简洁逻辑，构建既高效又易维护的服务端应用。\nNode.js 从一个简单的 JavaScript 运行时，逐步演进为功能强大、生态完善的现代开发平台。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：前端早读课\n作者：前端早读课\n分类：软件编程\n语言：中文\n阅读时间：24 分钟\n字数：5790\n标签：\n                    \n                        Node.js, JavaScript生态, ES Modules, Web标准, 异步编程",
+          "link": "https://www.bestblogs.dev/zh/article/936e58",
+          "publishedOn": "2025-07-07T00:01:00.000Z",
+          "wordCount": 349,
+          "title": "【第 3544 期】2025 年现代 Node.js 开发模式",
+          "enclosure": {
+            "url": "https://wechat2rss.bestblogs.dev/img-proxy/?k=37944eb4&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FmeG6Vo0Meviaty5iczlS0IZ82ibjVQ2Dc7PO4s9ib7qwYsFticibJkYDjXzWVdLy8xdApHib7rAmIfkiciaRF0JTUNDyiaEw%2F0%3Fwx_fmt%3Djpeg",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://wechat2rss.bestblogs.dev/img-proxy/?k=37944eb4&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FmeG6Vo0Meviaty5iczlS0IZ82ibjVQ2Dc7PO4s9ib7qwYsFticibJkYDjXzWVdLy8xdApHib7rAmIfkiciaRF0JTUNDyiaEw%2F0%3Fwx_fmt%3Djpeg"
         },
         {
           "id": "d05848",
@@ -2619,21 +2709,6 @@
             "length": "0"
           },
           "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/fef1310a-010a-4b25-b3d7-a61ddf461700/cover"
-        },
-        {
-          "id": "d8e977",
-          "author": "暗涌",
-          "description": "📌 一句话摘要\n            \n创新工场汪华认为 AI 时代核心是“实现”，创业者应抓住垂直高价值机会和模型红利黄金期。\n📝 详细摘要\n            \n文章总结了创新工场联合 CEO 汪华在一次大会上的演讲内容。他首先区分了移动互联网时代与 AI 时代的根本范式差异：前者重“连接”，后者重“实现”，即能真正“把事做完”。汪华指出，大厂仍倾向于沿用移动互联网的旧范式（广度、体量），这为创业者留下了巨大的、做深做透垂直领域、追求单用户高价值的新机会。他强调，当前正处于 AI“模型红利”的黄金期，特别是推理模型和多模态模型能力飞速提升，为创业提供了前所未有的工具和杠杆。汪华提到，利用 AI 能力达到千万美元年收入（ARR）的速度比 SaaS/PaaS 时代快 5-10 倍，toC 应用约需要 5 万付费用户，toB 应用甚至只需几十个付费用户。建议创业者趁未来一年内的红利期，聚焦垂直、高价值、全球化的市场，结合行业 know-how，利用模型能力解决具体痛点，而非追求用户体量，成为细分领域的隐形冠军。Agent 和多模态是当前最具潜力的模型洼地。\n💡 主要观点\n            \nAI 时代核心是“实现”，而非移动互联网时代的“连接”\n                         AI 的能力在于能够完成具体任务和交付价值，而非仅仅连接信息或用户，这为创业者开辟了占更大价值比例的“实现”环节。\n                    \n\n                        创业应转向垂直高价值市场，追求单用户收入而非体量\n                         不同于移动互联网的广度竞争，AI 创业新范式是深度垂直，关注如何通过解决具体问题为少量高价值用户创造收入，达到收入里程碑的速度大幅加快。\n                    \n\n                        当前正经历模型红利黄金期，特别是 Agent 和多模态\n                         基础模型能力（如推理、工具调用、多模态）的快速进步提供了前所未有的杠杆，创业者可利用此优势迅速在垂直领域建立壁垒。\n                    \n\n                        需趁模型能力爆发期，快速找到垂直洼地并深挖\n                         模型红利期约有一年，创业者应抓住时机，结合行业知识，将模型能力应用到具体痛点，快速做出惊艳产品和获取第一批用户/收入。\n                    \n\n                        AI 创业应放眼全球，聚焦各行各业的具体问题\n                         全球市场和传统行业的痛点是 AI 应用的巨大蓝海，创业者应放弃互联网思维，深入行业，解决越具体的问题越容易成功，有机会成为细分领域的隐形冠军。\n                    \n💬 文章金句\n            \nAI 和移动互联网最大的区别不是连接，而是实现。\n旧范式本质上是追求体量，新范式追求的是单用户的高价值。\n有生之年一波最大的红利，就是模型红利。\n一年之内是模型红利增长的黄金期，是吃头一口汤的黄金期。\n现在真的是遍地是黄金的时间，就看大家能不能找到一个金矿，再深深地往下挖。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：暗涌Waves\n作者：暗涌\n分类：商业科技\n语言：中文\n阅读时间：30 分钟\n字数：7281\n标签：\n                    \n                        AI创业, 商业策略, 人工智能, 模型红利, Agent",
-          "link": "https://www.bestblogs.dev/zh/article/d8e977",
-          "publishedOn": "2025-06-19T09:21:00.000Z",
-          "wordCount": 313,
-          "title": "汪华的最新预言：AI 时代和移动互联网的最大区别是实现，而非连接",
-          "enclosure": {
-            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/e6e509de-f3ce-46e5-b992-b03839b51700/cover",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/e6e509de-f3ce-46e5-b992-b03839b51700/cover"
         }
       ]
     },
@@ -3934,6 +4009,26 @@
       "feedUrl": "https://www.geekpark.net/rss",
       "siteUrl": "http://mainssl.geekpark.net/rss.rss",
       "articles": [
+        {
+          "id": "http://www.geekpark.net/news/351302",
+          "author": null,
+          "description": "Manus 回应裁员传闻：自身经营效率考量，调整部分业务团队\n7 月 8 日消息，针对近期流传的公司大规模裁员传闻，AI Agent（智能体）平台 Manus 方面向澎湃新闻记者回应称，「基于公司自身经营效率考量，我们决定对部分业务团队进行调整。公司将继续专注核心业务发展，提升整体运营效率。」\n此前，社交平台上曾传出 Manus 对旗下部分国内业务进行裁员，并将核心技术人员迁往新加坡总部的消息。今年 6 月，Manus 产品负责人张涛曾公开表示公司总部已从中国迁至新加坡。\n今年 5 月，有外媒报道称，Manus 背后的公司蝴蝶效应在由美国风险投资公司 Benchmark 领投的一轮融资中筹集了 7500 万美元，估值达到 5 亿美元。不过，该投资目前正接受美国财政部的审查。\n信息显示，Manus 背后的公司 Butterfly Effect (Hong Kong) Limited 于 2023 年在香港成立，对北京红色蝴蝶科技有限公司拥有 100% 的实际控制权。后者由肖弘创立于 2022 年，曾推出主攻海外市场的 AI 浏览器插件 Monica，目前法定代表人为冯琼花。变更记录显示，肖弘已于 2023 年 3 月退出该公司股东。（来源：IT 之家）\n\n古尔曼：苹果硬件工程主管约翰・特努斯被内部推举为库克接班人，最有可能接任 CEO 职位\n7 月 9 日消息，彭博社马克・古尔曼今日发文，讨论了苹果 CEO 的下一任人选。\n\n在此之前，业界认为现任 COO 杰夫・威廉姆斯（Jeff Williams）是库克接班人的最佳人选，但 威廉姆斯已宣布将于今年年底退休，而且他只比库克小两岁。\n苹果内部人士告诉古尔曼：苹果董事会希望有一位像库克和乔布斯一样，至少能留任十年的高管。\n尽管库克并未透露自己将任职多久（除了对杜阿・利帕表示「还有一段时间」），但接近他的内部人士认为，他至少还会担…",
+          "link": "http://www.geekpark.net/news/351302",
+          "publishedOn": "2025-07-09T00:30:18.000Z",
+          "wordCount": 1164,
+          "title": "Manus 回应裁员传闻；京东外卖：今天起再砸超百亿元；余承东首次回应「开车睡觉」：已自首",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.geekpark.net/news/351301",
+          "author": null,
+          "description": "2025年刚刚过半，各大汽车厂商也交出了自己的「年中成绩单」。\n这张成绩单可谓是「一半火焰，一半海水」，充满了看点。有的「学霸」一骑绝尘，比如比亚迪和上汽，半年就卖出了超过200万辆车；而我们熟知的「新势力」阵营里，有人欢喜有人忧，零跑成了销量冠军，小鹏、小米增速喜人，理想稳步前进，而蔚来则面临着不小的压力。\n2025 上半年中国汽车市场究竟发生了什么？到年底，又会有哪家厂商可能在汽车大战下半场被彻底淘汰？\n新势力分化：零跑登顶，蔚来「焦虑」\n今年上半年的「期中考」，战况异常激烈。头部「学霸」们，通过不断升级自己的「技能点」来巩固优势，追赶者则试图上演逆袭大戏。\n毫无疑问，全班第一的宝座依然属于比亚迪。上半年狂卖 214.6万辆，同比增长33%，这个成绩让所有对手都望尘莫及。\n不过，即便强大如比亚迪，在国内也并非高枕无忧。吉利就像一位实力强劲的「同桌」，开始「抢」走比亚迪在一些细分市场的份额。吉利上半年销量达141万辆，同比增长47%，创下历史新高。尤其新能源汽车，销量同比暴增126%。因为成绩优异，吉利甚至自信地将全年目标上调到了300万辆。\n\n2025上半年车企销量与目标完成率 | 图片来源：极客公园制作\n新势力阵营的竞争，名次可能瞬息万变。\n今年上半年的新势力销冠，是零跑汽车。上半年它交付了22.17万辆，坐上了榜首。零跑的「必杀技」是高配低价，用10万元级的价格，给你通常在更贵车上才有的技术和配置。\n理想汽车（20.38万辆）的表现一如既往的稳健，但年度目标完成率只有31.9%，说明它虽然卖得不少，但离自己定下的「小目标」还有很大距离。\n相比之下，小鹏（19.72万辆）则上演了「触底反弹」——仅用半年时间，销量就超过了2024年全年，它也是新势力中唯一一家年度销售目标完成率过半的同学。\n作为现象级网红的小米汽车，延续了其「顶流」表现。上半年，小米交付量超过15万辆。…",
+          "link": "http://www.geekpark.net/news/351301",
+          "publishedOn": "2025-07-09T00:12:24.000Z",
+          "wordCount": 386,
+          "title": "2025车市大洗牌：有人半年卖出200万辆，有人却快掉队了",
+          "imageUrl": null
+        },
         {
           "id": "http://www.geekpark.net/news/351297",
           "author": null,
@@ -8160,6 +8255,70 @@
       "siteUrl": "https://news.un.org/en/",
       "articles": [
         {
+          "id": "https://news.un.org/en/story/2025/07/1165349",
+          "author": null,
+          "description": "As relentless attacks continue to damage homes and communities across Ukraine, the UN refugee agency (UNHCR) has now helped repair over 40,000 war-damaged homes – marking a major step in helping displaced families return and recover.",
+          "link": "https://news.un.org/feed/view/en/story/2025/07/1165349",
+          "publishedOn": "2025-07-08T12:00:00.000Z",
+          "wordCount": null,
+          "title": "Ukraine: UN refugee agency helps repair homes amid ongoing conflict",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/11-03-2024-UNICEF-Ukraine-01.jpg/image560x340cropped.jpg",
+            "length": "57331",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/11-03-2024-UNICEF-Ukraine-01.jpg/image560x340cropped.jpg"
+        },
+        {
+          "id": "https://news.un.org/en/story/2025/07/1165348",
+          "author": null,
+          "description": "On the eve of the fourteenth anniversary of its independence, South Sudan – the world’s youngest country – is experiencing its worst and longest cholera outbreak.",
+          "link": "https://news.un.org/feed/view/en/story/2025/07/1165348",
+          "publishedOn": "2025-07-08T12:00:00.000Z",
+          "wordCount": null,
+          "title": "South Sudan’s longest cholera outbreak enters critical stage",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/assets/2017/07/27664/image560x340cropped.jpg",
+            "length": "58531",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/assets/2017/07/27664/image560x340cropped.jpg"
+        },
+        {
+          "id": "https://news.un.org/en/story/2025/07/1165347",
+          "author": null,
+          "description": "UN humanitarians have warned that the catastrophic conditions in Gaza are worsening, as tents, schools, homes and medical facilities come under attack, and fuel supplies run out.",
+          "link": "https://news.un.org/feed/view/en/story/2025/07/1165347",
+          "publishedOn": "2025-07-08T12:00:00.000Z",
+          "wordCount": null,
+          "title": "Gaza: Hospitals rationing critical supplies, ambulances stalling",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/25-06-2025-UNICEF-Gaza-03.jpg/image560x340cropped.jpg",
+            "length": "35242",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/25-06-2025-UNICEF-Gaza-03.jpg/image560x340cropped.jpg"
+        },
+        {
+          "id": "https://news.un.org/en/story/2025/07/1165346",
+          "author": null,
+          "description": "The UN’s flagship platform on artificial intelligence opened in Geneva on Tuesday, launching four days of high-level dialogue, cutting-edge demonstrations and urgent calls for inclusive AI governance. The event comes as autonomous and generative systems evolve faster than regulatory frameworks can keep pace.",
+          "link": "https://news.un.org/feed/view/en/story/2025/07/1165346",
+          "publishedOn": "2025-07-08T12:00:00.000Z",
+          "wordCount": null,
+          "title": "UN summit confronts AI’s dawn of wonders and warnings",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/08-07-2025-ITU-AI-good-summit-03.jpg/image560x340cropped.jpg",
+            "length": "41912",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/08-07-2025-ITU-AI-good-summit-03.jpg/image560x340cropped.jpg"
+        },
+        {
           "id": "https://news.un.org/en/story/2025/07/1165345",
           "author": null,
           "description": "At the UN General Assembly on Tuesday, survivors of the Srebrenica genocide joined top officials in marking 30 years since thousands of Bosnian Muslims were systematically killed in the worst atrocity on European soil since World War II. The affirmed the need to counter denial, support survivors and promote lasting peace.",
@@ -9998,134 +10157,6 @@
             "type": "image/jpeg"
           },
           "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/assets/2017/02/26788/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164646",
-          "author": null,
-          "description": "Last year, 41,370 grave violations against children were documented and verified by the United Nations, according to the Secretary-General's annual report on children in armed conflict, released on Thursday.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164646",
-          "publishedOn": "2025-06-19T12:00:00.000Z",
-          "wordCount": null,
-          "title": "‘We are at a point of no return’: grave violations against children surge for third year",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/18-06-2025-UNNews-Gaza-Debris1.jpg/image560x340cropped.jpg",
-            "length": "51899",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/18-06-2025-UNNews-Gaza-Debris1.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164631",
-          "author": null,
-          "description": "Global investment fell a full 11 per cent to $1.5 trillion last year – it’s a huge blow for developing nations, the UN trade agency, UNCTAD, said on Thursday.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164631",
-          "publishedOn": "2025-06-19T12:00:00.000Z",
-          "wordCount": null,
-          "title": "World News in Brief: Global investment plunges, hurricane season in Haiti, rising cholera and hunger in South Sudan",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/15-09-2021_MINUSTAH_Haiti.jpg/image560x340cropped.jpg",
-            "length": "76494",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/15-09-2021_MINUSTAH_Haiti.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164626",
-          "author": null,
-          "description": "Of the 122 million people globally displaced by persecution, violence or human rights violations, 42.7 million are refugees who have fled across borders, according to new data from the UN refugee agency (UNHCR).",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164626",
-          "publishedOn": "2025-06-19T12:00:00.000Z",
-          "wordCount": null,
-          "title": "World Refugee Day: telling their stories",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/28-12-2021_Uganda_Refugees_Hoima_Celebration.jpg/image560x340cropped.jpg",
-            "length": "42960",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/28-12-2021_Uganda_Refugees_Hoima_Celebration.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164621",
-          "author": null,
-          "description": "Sexual violence in conflict is a tactic of war, torture and terror. It does not only devastate survivors but also tears apart families and communities. The trauma, shame and stigma are borne by victims, not perpetrators – echoing across generations.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164621",
-          "publishedOn": "2025-06-19T12:00:00.000Z",
-          "wordCount": null,
-          "title": "Long after the guns fall silent, conflict-related sexual violence leaves lasting scars",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/13-06-2025-PAHO-WHO-Haiti-01.jpg/image560x340cropped.jpg",
-            "length": "26175",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/13-06-2025-PAHO-WHO-Haiti-01.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164616",
-          "author": null,
-          "description": "As deadly missile exchanges between Israel and Iran enter a second week, the United Nations is sounding alarm over the growing toll on civilians, warning of mass displacement and regional instability.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164616",
-          "publishedOn": "2025-06-19T12:00:00.000Z",
-          "wordCount": null,
-          "title": "UN warns of mounting humanitarian toll as Israel-Iran hostilities continue",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/26-02-2025-UNOHCHR-Turk-01.jpg/image560x340cropped.jpg",
-            "length": "22357",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/26-02-2025-UNOHCHR-Turk-01.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164611",
-          "author": null,
-          "description": "Just days before Israel launched a bombing campaign against Iran, the UN watchdog agency monitoring Iran’s nuclear activities warned that the country was in violation of its non-proliferation commitments.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164611",
-          "publishedOn": "2025-06-19T12:00:00.000Z",
-          "wordCount": null,
-          "title": "Monitoring Iran and promoting peaceful nuclear use – IAEA role explained",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/21-09-2020_IAEA_nuclear-safeguards.jpg/image560x340cropped.jpg",
-            "length": "68754",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/21-09-2020_IAEA_nuclear-safeguards.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164601",
-          "author": null,
-          "description": "Of the 700 million people worldwide living in extreme poverty, 40 per cent live in conflict-affected or fragile settings and this is on track to worsen, UN Secretary-General António Guterres told the Security Council on Thursday.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164601",
-          "publishedOn": "2025-06-19T12:00:00.000Z",
-          "wordCount": null,
-          "title": "Development is ‘the first line of defense against conflict,’ Guterres tells Security Council",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/27-02-2025_UNFPA_Yemen-03.jpg/image560x340cropped.jpg",
-            "length": "39190",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/27-02-2025_UNFPA_Yemen-03.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164596",
-          "author": null,
-          "description": "More than 100 days into Israel’s complete fuel blockade in Gaza, UN agencies still in the shattered enclave warned on Thursday that vital services are only “hours away” from shutting down.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164596",
-          "publishedOn": "2025-06-19T12:00:00.000Z",
-          "wordCount": null,
-          "title": "Gaza: As last fuel supplies run out, aid teams warn of catastrophe",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/19-06-2025_Gaza-01.jpg/image560x340cropped.jpg",
-            "length": "49055",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/19-06-2025_Gaza-01.jpg/image560x340cropped.jpg"
         }
       ]
     },
@@ -10134,6 +10165,36 @@
       "feedUrl": "https://morss.it/:proxy/https://chinadigitaltimes.net/chinese/feed",
       "siteUrl": "https://chinadigitaltimes.net/chinese",
       "articles": [
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=719451",
+          "author": "温都尔汗空管",
+          "description": "7月2日，汉堡连锁品牌“牛约堡”被曝门店后厨卫生状况触目惊心，蟑螂成群爬行。但形成鲜明反差的，是其亮眼的商业版图。这个创立仅5年的品牌已在全国155城开出超1800家门店。",
+          "link": "https://chinadigitaltimes.net/chinese/719451.html",
+          "publishedOn": "2025-07-08T23:10:16.000Z",
+          "wordCount": 13219,
+          "title": "深水财经社｜牛约堡“塌房”，怎么官方账号都不见了？",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/07/post-719451-686d3cb4dc4eb.png"
+        },
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=719449",
+          "author": "温都尔汗空管",
+          "description": "整篇通报看下来，你会发现一个奇特的现象。明明是你们铁路系统自己的调度失误引发了这场事故，结果在通报里一笔带过。反倒是把焦点全对准了那个砸窗的乘客，还对他进行了“批评教育”。",
+          "link": "https://chinadigitaltimes.net/chinese/719449.html",
+          "publishedOn": "2025-07-08T22:49:41.000Z",
+          "wordCount": 13170,
+          "title": "大何崛起｜虽然我们撞了车，但表扬了自己，还教育了你",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/07/lvke.png"
+        },
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=719445",
+          "author": "温都尔汗空管",
+          "description": "从那些热点公共事件中退后一步，傅国涌有了时间和空间，通过写作换取一些收入，他曾经告诉过我，每天他都要至少写几千字，否则心理不安。在这个过程中，很多朋友给予了他帮助，他也影响了大量的朋友。",
+          "link": "https://chinadigitaltimes.net/chinese/719445.html",
+          "publishedOn": "2025-07-08T21:30:16.000Z",
+          "wordCount": 13117,
+          "title": "温克坚｜隐者傅国涌开窗归去",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/07/DCCBE17F8D4136429957612BEA1A07CEAE3C8809_size32_w600_h399.jpeg"
+        },
         {
           "id": "https://chinadigitaltimes.net/chinese/?p=719453",
           "author": "温都尔汗空管",
@@ -11533,36 +11594,6 @@
           "wordCount": 13122,
           "title": "捉刀时间max｜塔西佗陷阱：你们为什么不相信朝廷呢？",
           "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/123.png"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=718977",
-          "author": "既要又要还要",
-          "description": "在眼下的伊以战争中，伊朗最为惧怕的，可能还是特朗普所威胁的，对最高宗教领袖哈梅内伊的“斩首行动”。虽然伊朗官方已经宣布做好了在最高宗教领袖牺牲之后坚持对以斗争的准备。但任谁都能看出，这场斩首如果执行，会提前引爆伊朗国内的政局分裂......",
-          "link": "https://chinadigitaltimes.net/chinese/718977.html",
-          "publishedOn": "2025-06-19T11:56:44.000Z",
-          "wordCount": 13139,
-          "title": "海边的西塞罗｜强硬的表象下，伊朗可打的牌已经不多了",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/image-1750334144646.png"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=718975",
-          "author": "既要又要还要",
-          "description": "趋势已经非常明显。从愿望的角度说，我们真的希望有一种机制，能约束核武器的拥有与使用。但现实却非常无奈，在一个碎片化的丛林时代，不但无法建立这种有效的机制，甚至原来一些能多少起点作用的约束也越来越形同虚设。",
-          "link": "https://chinadigitaltimes.net/chinese/718975.html",
-          "publishedOn": "2025-06-19T11:35:06.000Z",
-          "wordCount": 13133,
-          "title": "老孙荐读｜以伊冲突背后那个致命因素",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/04/IMG_2931.png"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=718971",
-          "author": "既要又要还要",
-          "description": "你永远可以相信…..",
-          "link": "https://chinadigitaltimes.net/chinese/718971.html",
-          "publishedOn": "2025-06-19T11:17:16.000Z",
-          "wordCount": 13068,
-          "title": "每日一语 2025.6.18",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/04/IMG_2931.png"
         }
       ]
     },
@@ -11618,6 +11649,16 @@
       "feedUrl": "https://sspai.com/feed",
       "siteUrl": "https://sspai.com",
       "articles": [
+        {
+          "id": "https://sspai.com/post/100864",
+          "author": "少数派编辑部",
+          "description": "微软改进 Microsoft Edge 渲染性能，Raspberry Pi 相机模块 3 传感器组件上市等。查看全文",
+          "link": "https://sspai.com/post/100864",
+          "publishedOn": "2025-07-09T00:27:53.000Z",
+          "wordCount": 708,
+          "title": "派早报：钉钉发布 AI 表格、Gmail 上线订阅管理功能等",
+          "imageUrl": "https://cdnfile.sspai.com/2025/7/9/article/d30f8d0d-0d8e-7ba5-fbce-4621260a2aaf.png"
+        },
         {
           "id": "https://sspai.com/prime/story/inside-release-notes-250708",
           "author": "少数派编辑部",
@@ -12227,16 +12268,6 @@
           "wordCount": 819,
           "title": "派早报：Midjourney 推出图生视频模型 V1，徕卡推出自有品牌胶卷等",
           "imageUrl": "https://cdnfile.sspai.com/2025/6/20/article/8b7886e6-cdb5-dec8-58f3-7b5b44758f09.png"
-        },
-        {
-          "id": "https://sspai.com/post/100406",
-          "author": "少数派编辑部",
-          "description": "关于栏目很多读者都会好奇少数派的编辑们到底平时都「买了啥」。我们希望通过「编辑部的新玩意」介绍编辑部成员们最近在用的新奇产品，让他们自己来谈谈这些新玩意的使用体验究竟如何。@老麦：蔚来ET9价格：租电 ...查看全文",
-          "link": "https://sspai.com/post/100406",
-          "publishedOn": "2025-06-19T09:11:42.000Z",
-          "wordCount": 693,
-          "title": "新玩意 212｜少数派的编辑们最近买了啥？",
-          "imageUrl": "https://cdnfile.sspai.com/6/19/2025/article/2a51f922-7a48-99f1-7c11-5923b49030b9.png"
         }
       ]
     },
@@ -13518,26 +13549,6 @@
           "wordCount": 14825,
           "title": "Merveilleux-scientifique",
           "imageUrl": "https://images.aeonmedia.co/images/99a916b2-fd22-4de4-bc1c-ddf2bbba9e2b/essay-18_renard.jpg?width=1200&quality=75&format=auto"
-        },
-        {
-          "id": "urn:id:8206",
-          "author": "Aeon Video",
-          "description": "Join a Romanian family as they prepare for winter in the mountains and reflect on the richness of a slower way of life \n - by Aeon Video\n Watch at Aeon",
-          "link": "https://aeon.co/videos/life-moves-slowly-in-a-romanian-mountain-village-shaped-by-care-and-the-seasons?utm_source=rss-feed",
-          "publishedOn": "2025-06-19T10:01:00.000Z",
-          "wordCount": 3371,
-          "title": "But the flowers remain",
-          "imageUrl": "https://images.aeonmedia.co/images/dfec4cd6-022c-4387-ad69-757da9537c18/but-the-flowers-remain-landscape-1.jpg?width=1200&quality=75&format=auto"
-        },
-        {
-          "id": "urn:id:8183",
-          "author": "Allison J Pugh",
-          "description": "Our crisis of work and technology is one in which too many people feel that nobody sees them as a fellow human being \n - by Allison J Pugh\n Read at Aeon",
-          "link": "https://aeon.co/essays/our-crisis-is-not-loneliness-but-human-beings-becoming-invisible?utm_source=rss-feed",
-          "publishedOn": "2025-06-19T10:00:00.000Z",
-          "wordCount": 16546,
-          "title": "The unseen",
-          "imageUrl": "https://images.aeonmedia.co/images/cbaf202a-d44e-4818-a122-85aeb2868b46/essay-jon-tyson-tmmhgykwcne-unsplash.jpg?width=1200&quality=75&format=auto"
         }
       ]
     },
@@ -13552,6 +13563,26 @@
       "feedUrl": "https://feedx.site/rss/infzm.xml",
       "siteUrl": "http://infzm.com",
       "articles": [
+        {
+          "id": "http://www.infzm.com/contents/297597",
+          "author": null,
+          "description": "2025-07-09 09:00:00\n近日偶遇几位同事，闲聊到孩子，他们的孩子恰好今年高考，其中两个小孩拿到了650分的高分。这个分数，在我的印象里，除了北大、清华、上交、浙大、复旦等几所公认的国内顶级名校，其他985高校，只要不是最热门的专业，基本上可以随便挑。\n我以为，同事和孩子面对的困惑是选择去哪所985高校，去哪座城市，攻读什么专业。但出乎我的意料，两位同事告诉我，他们基本上不会选择离开广东，他们纠结的点在于，要不要下定决心去深圳，填报南方科技大学（下文简称“南方科大”）或深圳理工大学。\n他们给出的理由是：除了五大名校外的其他985高校，其实差别不会太大，与其去一个无论对于他们还是对于孩子都不熟悉、缺乏关键人脉关系的城市，还不如留在本省，方方面面有个关照。说到填报的学校，他们有些许犹豫，但他们大概率会优先选择去深圳，优先考虑南方科大或深圳理工。\n南方科大和深圳理工是新成立的大学，都位于深圳。经历改革开放近50年的蜕变，深圳一跃成为全国重要的科技创新中心，一流科技企业云集鹏城。单论教育资源，从前，深圳只有深圳大学一所像样的大学，近十年，北大、清华、哈工大等高校竞相落户深圳设立深圳分校区，加之深圳市政府全力支持南方科大和深圳理工的发展与建设，发展势头十分迅猛。\n从近年实际录取分数线看，南方科大、深圳理工已经接近或持平于不少985高校了。与我同事持相同观点的家长不在少数，他们觉得，深圳的求学环境更好，发展前景更光明，让孩子去深圳求学，是更好的选择。\n这与我一位老乡的选择高度类似，他女儿今年的高考分数达到了不少211高校的录取线，但他们思前想后，最后还是填报了作为普通本科院校的深圳大学，只因深圳大学在深圳，只因深圳大学由经济富足的深圳市政府主管。\n传统认知上的高校资源分布格局正在发生深度重塑。一个至关重要的原因是深圳市政府财政资源更加雄厚，愿意花大力气发展南方科大和深圳理工。南方科大和深圳理工能够给出足够诱人的薪资待遇，能够从全球范围内网罗与吸引到足够多的高水平人才。在高校竞争日趋激烈之下，“重金之下，必有勇夫”“人往高处走”等市场规则在深圳这座市场经济标杆与示范城市体现得淋漓尽致，“有钱，任性，愿意砸钱，就有能力挖到更多的高层次人才”，虽然嘴上不说，但行动上就是这么做的。\n从名气上看，南方科大是“双一流”高校，深圳理工目前还不是。这样看，深圳很务实，很接地气，他们不那么在乎学校的名气，更在乎与看重学校的师资配置，及专业设置的前沿性与创新性。南方科大的王牌专业包括数学、物理、化学、生物工程、计算机科学与技术，深圳理工的王牌专业有材料科学与工程、计算机科学与技术、生物医药、机器人工程与自动化等。不难看出，两所学校的总体专业定位是以理工科为主，目标是培养高层次创新型人才，开设的专业多为关乎国计民生的行业。\n两所学校都全面借鉴国际化办学模式，全面开展双语教学，全面推行小班制教学，教学团队动辄是院士（含外籍院士）及知名教授，科研氛围异常浓厚。学生从大一开始就可以接触到来自世界各地的顶级学术大师；学生从大一开始就浸润在崇尚科研、求真务实、鼓励探索与发现、频繁文化交流与学术互动的校风中；学生大三甚至大二就可以频繁出入各类实验室做实验搞科研，出入深圳各类互联网大厂开展实习与其他实践。这样的高校，能够让学生在大学四年甚至更长周期发生根本性的蜕变与质变。试问，这样的高校，怎能不受广大学霸家长们的青睐与欢迎？\n让“深造”的意义不止于继续学习，还延伸到就业——留在深圳继续发展，深圳一直亲力亲为。你来我的城市念大学，毕业了，你想深造就继续在这里深造，不想深造就在我城市里的大厂就业，把优质人才的就业问题安排得妥妥的，让年轻人为深圳的发展与振兴服务。\n与深圳的南方科大及深圳理工类似，在另一座新型标杆城市杭州，也成立了一所新的大学——西湖大学，发展势头也是如日中天。\n这必然给传统985高校及传统985高校云集的北、上、广、武汉、西安等城市带来巨大压力，正所谓“逆水行舟，不进则退”。余以为，传统名校及传统名校云集的城市应该好好思量思量：在“大学战争”时代已经来临的情况下，城市、高校与专业三者博弈中，城市是否愈来愈重要？地方高校如何在选拔优秀人才及培养高端人才方面敢作敢为？大学如何与属地城市形成良好的互哺关系？大学定位与专业设置如何更科学、更具战略性与前瞻性？既有大学排名与评价机制要不要做出革新与调整？\n\n• （作者系广州大学社会学系教授，本文仅为作者个人观点，不代表本报立场）",
+          "link": "http://www.infzm.com/contents/297597",
+          "publishedOn": "2025-07-09T01:25:08.000Z",
+          "wordCount": 96,
+          "title": "新大学的吸引力为何比肩老牌名校？",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/297561",
+          "author": null,
+          "description": "2025-07-09 08:00:00\n“分红险，谜一样的存在”。这是消费者因分红险不透明和不确定的分红而产生的感觉。\n但这边厢，不少寿险公司为争夺客户而“内卷式”竞相提高分红率。\n史上最严分红险“限高令”近日正式出台，力遏此股风气。2025年6月18日，国家金融监督管理总局人身保险监管司下发《关于分红险分红水平监管意见的函》（下称《意见函》），要求各保险公司审慎确定各产品年度分红水平，对分红险分红水平“限高”，避免分红水平进行“内卷式”竞争，以此提升分红保险可持续经营水平。\n南方周末新金融研究中心研究员调研发现，无独有偶，香港也几乎同步祭出了分红险“限高令”。7月1日起，香港所有保险公司和保险经纪公司均需遵循香港保监局发布的《分红保单利益演示利率上限指引》（下称《指引》），对香港分红险演示利率进行“限高”，港元和非港元（包括美元）分红保单演示利率（预期收益率）分别不得超过6%和6.5%。\n中国内地此次为何对分红险实施“限高令”？如何限高？现存75家寿险公司中，多少家公司将受限？它将对分红险业务乃至保险行业有何影响？如何保护消费者合法权益？南方周末新金融研究中心研究员综合运用定性和定量研究方法，在统计60家寿险公司分红险的基础上，访谈多名业内专家。调研发现，此次新规意在防止“高息内卷”，而设定分红上限是各国通行做法。与此同时，新规采用分级管理方式，将有效避免“一刀切”，促进优胜劣汰。\n分红承诺不是画饼\n何为分红险？这是一种兼具保障和投资双重属性的保险产品。在保障的基础上，投保人有机会分享保险公司的经营成果，获得红利分配。\n其收益由保证收益和浮动收益两部分组成。保证收益，即固定返还部分；浮动收益，是保险公司根据分红险产品的业务经营状况，每年实际派发的红利。按照派发红利的方式，可以分为增额红利（也被称作“英式分红”）和现金红利（也被称作“美式分红”）。后者在中国大陆地区较为常见…",
+          "link": "http://www.infzm.com/contents/297561",
+          "publishedOn": "2025-07-09T00:25:13.000Z",
+          "wordCount": 139,
+          "title": "分红险遭遇史上最严“限高令”，最多46家寿险公司未失自主权",
+          "imageUrl": null
+        },
         {
           "id": "http://www.infzm.com/contents/297559",
           "author": null,
@@ -17110,86 +17141,6 @@
           "publishedOn": "2025-06-19T14:25:06.000Z",
           "wordCount": 93,
           "title": "华北平原上的贝拉·塔尔",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/296196",
-          "author": null,
-          "description": "2025-06-19 20:59:27",
-          "link": "http://www.infzm.com/contents/296196",
-          "publishedOn": "2025-06-19T13:25:06.000Z",
-          "wordCount": 79,
-          "title": "陈彼得：欠成都一首歌，把我的《游子吟》献给它",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/296190",
-          "author": null,
-          "description": "2025-06-19 20:12:22\n近日，社交平台上兴起了一股吃“人类饲料”的风潮。所谓“人类饲料”，实则是一款含有多种食物研磨粉的代餐产品。其品牌创始人表示：“这一产品主要是受狗粮启发，它含有蛋白质、脂肪、维生素、膳食纤维等各种营养元素。吃的时候不需要任何烹饪手段，只需温水冲泡，等上3分钟，就能获得几个小时的生命续航。”\n这种快捷的吃饭方式，在社交平台上收获了一大批忠实粉丝。粉丝们认为，食用“人类饲料”无需开火、无需排队吃饭或等外卖，省时省力，能为自己的休息争取更多时间。但也有网友提出质疑：“如果不能吃美食，那人生又有什么意义？”“这样的代餐产品和预制菜有啥区别？”\n• 大家吃饭时，首要考虑的因素是“快捷”还是“好吃为上”？你如何看待这样的“人类饲料”？你会选择购买吗？欢迎在下方评论区写下你的想法，送你上热评！\n\n\n获取更多RSS：\nhttps://feedx.net \nhttps://feedx.site",
-          "link": "http://www.infzm.com/contents/296190",
-          "publishedOn": "2025-06-19T12:25:07.000Z",
-          "wordCount": 76,
-          "title": "受狗粮启发的“人类饲料”走红，你会用它代替正餐吗？",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/296186",
-          "author": null,
-          "description": "2025-06-19 19:12:10\n先给大家看几张图！\n\n\n\n\n\n《星球大战》黑武士、《冰雪奇缘》艾莎和《玩具总动员》巴斯光年，你以为这是某张官方剧照，其实这些都是一款叫Midjourney的生成式AI制作的。\n\nMidjourney是一家总部位于旧金山的初创公司，为付费订阅用户（月费从10美元到120美元不等）生成AI图像。\n用户只需在该公司网站或其Discord聊天机器人中输入想看的内容描述，Midjourney便会生成图像。如果对结果不满意，Midjourney社区成员制作了大量技巧视频，指导用户如何构思更有效的提示词。其最新模型V7已于今年4月发布。根据该公司1月8日在Discord上发布的公告，它还在探索视频生成功能。\n\n这对于很多自媒体创作者来说，这是一款性价比很高AI软件，效果几乎可以逼近各种好莱坞大片。但正是出于此，Midjourney惹怒了好莱坞大厂了。\n近日，迪士尼和环球影业两大好莱坞巨头联手起诉人工智能图像生成器公司Midjourney，指控其对其知识产权进行了“生成无数未经授权的复制品”。这标志着大型好莱坞制片厂首次介入当前围绕人工智能（AI）的法律纠纷。\n\n这两家好莱坞巨头指控Midjourney进行了“蓄意和故意”的版权侵权。\n\n他们向美国加利福尼亚中区联邦地区法院提交的长达110页的诉状，将Midjourney描述为一个“深不见底的剽窃池”，其运作“如同虚拟自动售货机，源源不断地生成迪士尼和环球享有版权的著名角色的未经授权复制品”。\n\n为了佐证这一论点，诉状中包含了数十组Midjourney生成图像与受版权保护角色图像的并排截图对比，这些角色包括史莱克、艾莎、小黄人、钢铁侠、达斯·维达、辛普森一家等。“\n\n\n\n\n诉状辩称，Midjourney的行为威胁要“颠覆美国版权法的基石性激励机制，正是这些机制推动了美国在电影、电视及其他创意艺术领域的领导地位。”\n\n迪士尼和环球要求获得损害赔偿以及Midjourney的利润，具体金额“根据证据确定”。目前有一个替代方案——要求按每部被侵权作品最高15万美元的法定赔偿金进行赔偿。\n\nMidjourney这下算是彻底被盯上了。有一说一，Midjourney以“提升人类想象力”为愿景，却未经许可将海量创作者作品纳入训练集，本质是将个人创作转化为私有模型资产，确实有问题。\n\n迪士尼与环球的诉讼，远非“版权警察”的常规执法，而是对AI技术滥用的一次战略反攻。无论结果如何，此案都将成为分水岭：\n若原告胜诉：将加速AI行业从“野蛮爬取”转向“授权合规”，内容方获得议价权，但可能抬高创新门槛；若被告胜诉：则宣告数据自由时代的来临，传统版权体系面临崩塌，迫使创作者依赖新型收入模式。\n\n\n\n目前好莱坞跟AI的关系其实很复杂。在2023年，美国编剧工会（WGA）和美国演员工会（SAG-AFTRA）针对好莱坞制片厂发起了罢工，原因就是大家都在担心AI取代了他们的工作。\n\n事实上，好莱坞大厂一直在偷偷用AI来降本增效，今年《艾米莉亚·佩雷斯》《粗野派》等奥斯卡入围影片都用了AI修正配音。\n\n很多大导演已经开始着手自己的AI团队了，比如《黑天鹅》的导演达伦·阿罗诺夫斯基专注于AI的工作室Primordial Soup正与谷歌的DeepMind合作制作短片，而《阿凡达》的导演詹姆斯·卡梅隆则加入了Stability AI的董事会。\n\n\n\n传统的影视制作和AI的矛盾，如何调和，暂且还需要静观其变。",
-          "link": "http://www.infzm.com/contents/296186",
-          "publishedOn": "2025-06-19T11:55:06.000Z",
-          "wordCount": 97,
-          "title": "好莱坞大厂破大防了？正式向生成式AI开炮",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/296184",
-          "author": null,
-          "description": "2025-06-19 19:12:14\n尼罗河流经千里沙漠，古埃及文明在此萌发壮大。站在金字塔之巅鸟瞰地表遗存，曾经的风起云涌，透过历史的尘埃重新浮现。\n南都、N视频记者在“金字塔之巅：古埃及文明大展”现场，见证了一场穿越时空的“对话”，也遇到不少慕名前来的全国各地的游客。\n788件珍贵文物自2024年7月19日正式向公众开放，于2025年8月17日结束。上海博物馆提供的数据显示，截至目前，这一展览已吸引200万人次观看，实现总营收5.8亿元。到展览闭幕时，上博预计累计观众或突破250万人次、展览总收入有望超过7亿元，成为当之无愧的“顶流”。展览最后一周，上博还将开启 “不眠夜”模式，创造全球博物馆168小时连续开放的世界纪录。\n上海博物馆馆长褚晓波向南都、N视频记者表示，博物馆不仅是大都市的公共文化空间，更是“中外文明从彼此凝视，到开展对话”的公共外交空间。同时，上博也在积极推动中国文化“走出去”，相辅相成、共同促进了不同文明互鉴。\n\n“法老的国度”展厅现场。图片来源：上海博物馆\n一票难求的大展\n一展跨亚非，这是一次两大古老文明的“顶峰”相见。\n作为上海博物馆“对话世界”文物艺术大展系列第四展，“金字塔之巅：古埃及文明大展”于2024年7月19日正式向公众开放，展期将近13个月，延续至2025年8月17日。\n这一展览由上海博物馆、埃及最高文物委员会联合举办，不仅是上海博物馆有史以来最大规模的特展，也是有史以来全球最大规模、亚洲最高等级的埃及文物出境展。\n特展汇集了788件古埃及文明不同时期的珍贵文物，包括图坦卡蒙、阿蒙涅姆赫特三世以及拉美西斯二世等法老雕像，成套木乃伊棺，女王金饰以及萨卡拉地区新发现的彩绘木棺、动物木乃伊和雕像等重磅展品。这些文物中最重的一件重达3吨，最高的一件高达2.4米。\n\n萨卡拉考古遗址出土的彩绘人形棺。图片来源：上海博物馆\n这些文物中超过95%的文…",
-          "link": "http://www.infzm.com/contents/296184",
-          "publishedOn": "2025-06-19T11:55:06.000Z",
-          "wordCount": 145,
-          "title": "“上博现象”启示录：超200万人次参观的展览是怎样炼成的",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/296138",
-          "author": null,
-          "description": "2025-06-19 19:00:00\n近日，财政部社会保障司负责人在国务院新闻办公室举行的新闻发布会上表示，正在积极配合相关部门抓紧建立实施育儿补贴制度，有关工作正在加快推进。\n近年来，随着中国出生人口大幅下降，人口政策转向鼓励生育。2016年全面放开两孩，出生人口出现了短暂的增长，但很快再次下滑，即使2021年实施三孩政策，也没能扭转趋势。2022年中共二十大提出“建立生育支持政策体系，实施积极应对人口老龄化国家战略”。\n生育和养育成本过高，是影响年轻夫妻决定少生甚至不生孩子的重要因素之一。发放育儿补贴、对育儿家庭进行直接的经济支持，是鼓励生育的重要举措之一。2025年国务院政府工作报告中明确提出，要制定促进生育政策，发放育儿补贴。\n事实上，一些地方政府已经出台了生育或者育儿补贴政策。2021年，四川攀枝花市就在全国率先推出为生育两孩及以上的户籍家庭发放育儿补贴，每月每孩发放500元，直到孩子3岁。随后有不少城市跟进。国家卫生健康委2024年10月介绍，全国已有23个省份在不同层级探索实施生育补贴制度。\n一些地方的育儿补贴取得了不错的效果。2024年推出大手笔鼓励生育政策（三孩可获补贴超16万元，包括12万元购房券，3年每月1000元育儿补贴等）的湖北省天门市，2024年出生人口同比增加1050人、增幅17%。2025年3月出台“超预期”育儿补贴政策（一孩一次性补贴1万元，二孩三孩每年补贴1万元，二孩补贴5年，三孩补贴10年）的内蒙古呼和浩特市，政策效果“达到预期”，据媒体报道，截至5月18日，呼和浩特市育儿补贴提交申请2830人，近期咨询准备把户口迁移至呼和浩特市的人数也显著增加，说明育儿补贴政策增强了外来人口落户的吸引力。\n地方政府出台育儿补贴政策，有其吸引外来人口的考虑。毕竟有了人口，尤其是年轻人口，城市消费才能繁荣，经济才能发展。近年来，吸引外来人口落户已经成为不少地方政府的重要目标。但是，育儿补贴依赖于地方政府的财政实力。有些地方政府财政收入不高，难以支持育儿补贴。公众对地方育儿补贴政策的持续性也持怀疑态度。再者，地方性的补贴政策，也可能导致出现“薅完羊毛”就走人的情况，这也限制了地方政府出台补贴政策的积极性。\n促进生育政策应该具有全国统一性，应该由中央政府出台统一的基本生育补贴和育儿补贴。中央的育儿补贴制度应该尽快出台，越快越好。当然也不排除地方政府在全国性政策的基础上，再出台额外补贴，来吸引人口迁入并生育。\n当然，生育补贴不是灵丹妙药，不能指望这一项政策就能提高生育率。鼓励生育还需要综合施策。比如推动实施免费学前教育，这也是2025年政府工作报告中明确提出的目标。现在幼儿园虽然已经告别了入园难，但是考虑到生育孩子的多数是年轻人，收入本来就有限，保教费对年轻家庭来说还是一笔不小的开支，幼儿园免费可以进一步降低其养育和教育负担，解决其后顾之忧。\n再比如进一步落实房屋租售同权，为租房居住者提供包括子女入学等同等的公共服务。现在很多城市已经放开了落户限制，鼓励外来人口落户。但是，落户之后子女要入学，还是要有自有房产，租房居住则无法享受就近入学等公共服务。这也会打击年轻人生育的积极性。因为生育多孩，就需要更大的房子居住，房价虽然已经下降，但年轻人要买大房子也还是不容易。只有为年轻家庭提供可以负担的、足以容纳更多人口的大房子，才能鼓励他们生育更多子女。这需要为多孩年轻家庭提供更多购房补贴，或者为他们提供长期稳定的租赁住房，并落实租售同权。\n总而言之，促进生育已经刻不容缓，一切有利于鼓励生育的政策，都应该尽快出台、尽快落实。",
-          "link": "http://www.infzm.com/contents/296138",
-          "publishedOn": "2025-06-19T11:25:06.000Z",
-          "wordCount": 94,
-          "title": "加快推进育儿补贴，综合施策鼓励生育",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/296166",
-          "author": null,
-          "description": "2025-06-19 18:00:00\n\n1933年3月，第三批故宫文物正在南迁搬运。（受访者供图）\n陈列在故宫博物院里的文物，有一段不太为人熟知的历史。1933年至1947年间，为避日军战火的摧残，它们曾被打包装箱，迁移到中国的西南一带。这些被称为“国宝”的经书典籍、古物珍奇，待过南京朝天宫的库房，也曾贮存在陕西汉中的文庙、四川峨眉的大佛寺。\n2021年起，为了讲述这段文物南迁史，作家祝勇决定写下长篇小说《国宝》。他对小说的成色颇为看重，每隔一段时间，就请人民文学出版社编辑打印一稿出来，在上面修改、校订，前前后后的稿子摞起来“有一人高”。小说第一部的修改时间横跨将近一年半，比整本初稿的写作时间更长。\n祝勇原本犹豫，是否要为小说取名《国宝》。\n“国宝”的说法并不是考古文博界的专业术语，它们通常被称为“文物”，但祝勇转念一想，他写的不只是那些在故宫南迁时一路向南的万余件文物，与此同时也指代那一辈故宫人，在运转文物时，艰难卓绝的精神遗产。“说这些人的精神是国宝，是当之无愧的。”\n祝勇在故宫工作多年，借由写作，他得以倾听将近一百年前，完成文物南迁的故宫前辈的心跳，书中也留下只有熟悉故宫的人才能捕捉到的空间细节。小说的开篇，文物临出发时正值雪夜，祝勇写道，故宫屋脊上的雪积累到一定重量，轰然坠跌，造成大面积雪崩，“那是一种只有在故宫的雪夜里才能听到的、巨大而空洞的回响。”\n写作这样一本历史小说，难免要在浩如烟海的文献材料中寻踪觅迹，祝勇遵循大事不虚、小事不拘的原则，描摹乱世之中，不同身份背景的人和国宝间千丝万缕的联系：\n小说的主人公那文松，为护送文物南迁，自此和北平城的妻儿远隔千里；军人蓝星宇原是军阀孙殿英部下，和孙一起盗掘慈禧墓，获得珍宝后，躲进深山老林安家，后来日军进犯，他不再安于一己生活，将盗来的国宝换成抗战物资；赝品制造师郎山岳，私藏古画真迹，战乱年代却难以凭一己之力保存，最…",
-          "link": "http://www.infzm.com/contents/296166",
-          "publishedOn": "2025-06-19T10:25:07.000Z",
-          "wordCount": 92,
-          "title": "祝勇写故宫文物南迁：“写出不同人在时局里的选择”",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/296132",
-          "author": null,
-          "description": "2025-06-19 16:18:19\n  \n\n孟水昌用日记记录纪检部门、南阳市委领导约见他的过程。（南方周末记者翟星理|摄）\n\n过去三年，孟水昌寄出了一百四十多封举报信。\n这位80岁的老人，曾在河南省许昌市、南阳市两地当过市级检察院检察长，2008年10月退休，退休前的职务是南阳市人大常委会副主任。\n孟妻陈曼也是退休干部。她寄出的举报信更多，超过两百封。\n三百余封举报信背后，是一个家族与当地官场的恩怨。2021年，陈曼因涉嫌寻衅滋事被拘留，后被取保候审。此后，孟、陈两家多人被卷入一场风波，他们的大儿子因受贿罪获刑七年半，二儿子被开除公职。陈曼的一个外甥、一个侄子也相继被卷入。\n作为“反击”，他们举报市级公安局长，尽管证据不足；为了“捞人”，他们结交司法掮客。\n对抗最激烈时，2023年10月，孟水昌与南阳官场公开决裂：在短视频平台上拿着身份证反映一家人的遭遇。\n一出博弈大戏在当地上演。老检察长公开举报之后，市委书记出面“灭火”，系列案件一度迎来转机，但在关键时刻，市委书记落马，其所推动的“灭火”工作再陷僵局。  \n举报合伙人涉黑\n2007年1月，陈曼的外甥徐申计划与人合伙收购许昌一家淀粉厂，合伙人李建明在许昌的社会闲散人员中颇有名气。\n合作方案是，淀粉厂收购金额为900万元，李建明、徐申和另外一名投资人各出资300万元。淀粉厂产权面积将近9万平方米，收购后可以开发商业项目，也可以出租，商业前景向好。\n徐申没有和李建明打过交道，便找来在南阳市公安局工作的表哥孟浩。\n孟浩是孟水昌、陈曼的二儿子，警校毕业后曾在许昌市公安局工作，1999年调至南阳市公安局。\n孟浩一见面就认出了李建明。2025年5月21日，孟浩告诉南方周末记者，他在许昌工作时曾打击处理过李建明。\n既然李建明的经历复杂，按照常理，这次合作就不应该继续推进。可按照孟浩的说法，李建明已经“洗白”，且淀粉厂项目具有商业前景…",
-          "link": "http://www.infzm.com/contents/296132",
-          "publishedOn": "2025-06-19T08:55:08.000Z",
-          "wordCount": 92,
-          "title": "“举报家族”的300余封控告信：缠斗、决裂与“捞人”迷局",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/296130",
-          "author": null,
-          "description": "2025-06-19 16:00:00\n从2025年6月13日凌晨开始，以色列对伊朗境内发动了一系列的军事打击。以色列军方表示，以空军正在对伊朗境内数十个与核计划和其他军事设施相关的目标发动空袭。\n随后以色列总理内塔尼亚胡发表电视讲话称，不久前以色列发起了针对伊朗核设施的军事行动，旨在阻止伊朗对以色列的威胁，以军的行动目标是“打击伊朗核设施、弹道导弹工厂和军事能力”。此次行动将持续数日，直至消除这一威胁为止。\n伊朗则于13日发起报复行动。双方你来我往，进行了多轮攻防。\n以色列对伊朗的突袭行动，标志着中东局势的重大升级，且跟此前以色列与伊朗的两次交手不同，这次以色列不打算点到为止——他们似乎想彻底摧毁伊朗的核能潜力和远程反击能力。\n除此之外，以色列针对伊朗军队高级将领采取精准斩首战术，导致伊朗武装部队总参谋长、革命卫队（IRGC）司令及多名高级将领死亡。内塔尼亚胡更是公开喊话，号召伊朗民众推翻现政府。\n\n据伊朗伊斯兰共和国通讯社2025年6月13日报道，伊朗伊斯兰革命卫队总司令萨拉米等多名革命卫队指挥官、核科学家在以色列发动的袭击中身亡。图为伊朗伊斯兰革命卫队总司令萨拉米（图：新华社）\n以色列为什么要在这个时候动手？\n从以色列目前公布的信息来看，发动此次进攻是为了阻止伊朗发展核武器，并消除其弹道导弹攻击能力。以色列国防军发言人表示，以色列“别无选择”，只能攻击伊朗，他声明德黑兰的核计划是一个“迫在眉睫的生存威胁”，并可能对全球构成威胁。\n以色列总理内塔尼亚胡在发动袭击后公开表示：“伊朗已生产出足够制造9枚原子弹的高浓缩铀，并在近几个月采取了前所未有的措施，试图将其武器化，并在短时间内制造出核武器。”\n虽然以方并未提供相关的证据，然而2025年6月12日国际原子能机构投票通过决议，近20年来首次宣布伊朗违反了《不扩散核武器条约》，并且作出谴责。国际原子能机构不久前发布的报告显示…",
-          "link": "http://www.infzm.com/contents/296130",
-          "publishedOn": "2025-06-19T08:25:08.000Z",
-          "wordCount": 87,
-          "title": "“以色列在伊朗拥有非常强的内部行动能力，这是情报界公开的秘密”",
           "imageUrl": null
         }
       ]
