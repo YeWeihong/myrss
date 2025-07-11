@@ -6,6 +6,66 @@
       "siteUrl": "https://bestblogs.dev/zh/feeds",
       "articles": [
         {
+          "id": "ec6aa3",
+          "author": "Netflix Technology Blog",
+          "description": "📌 一句话摘要\n            \nNetflix Tudum 架构通过从基于 Kafka 的 CQRS 迁移到 RAW Hollow，显著提升了内容传播速度和读写一致性。\n📝 详细摘要\n            \n本文详细介绍了 Netflix Tudum 的架构演进，最初采用服务端驱动 UI (SDUI) 架构，重点是从基于 Kafka 的最终一致性 CQRS 模式演变为利用 Netflix 内部 RAW Hollow 数据库的更高性能模型。最初，Tudum 采用 CQRS 来分离编辑写入路径和访客读取路径，利用 Kafka 实现事件驱动的数据传播。然而，这种设置导致内部内容预览存在数分钟延迟，主要由于多步骤流程和低效的近缓存失效导致，阻碍了编辑效率。为了解决这个问题，Tudum 采用了 RAW Hollow，这是一种创新的内存、同地共存的压缩对象数据库。通过将 RAW Hollow 直接集成到读路径服务中，该架构消除了对 Kafka、页面数据服务和外部键值存储的需求。这种简化使得编辑器的数据传播时间大大缩短（秒而不是分钟），并显著加快了首页构建时间（从约 1.4 秒到约 0.4 秒）。文章强调了 RAW Hollow 在内存占用方面的效率及其为内部用户提供强大的读后写一致性的能力，同时保持了公共消费的高可用性，强调了在分布式系统中减少 I/O 和简化缓存的优势。\n💡 主要观点\n            \n从最终一致性过渡到强一致性大大减少了内容传播延迟。\n                         基于 Kafka 的 CQRS 架构导致编辑内容更新延迟数分钟，而 RAW Hollow 解决方案实现了近乎即时的预览，这对于内部工作流程至关重要。\n                    \n\n                        用内存、同地共存的数据库替换外部数据服务简化了架构并提高了性能。\n                         通过集成 RAW Hollow，Tudum 消除了多服务跳转和 I/O 操作，从而大大减少了请求时间和整体系统复杂性。\n                    \n\n                        将整个数据集保存在内存中可以克服常见的缓存挑战，尤其是失效问题。\n                         RAW Hollow 通过在应用内存中提供完整的压缩数据集，避免了复杂的缓存失效问题，从而简化数据管理。\n                    \n💬 文章金句\n            \n这种架构的一个主要缺点是，进行编辑和观察到该编辑反映在网站上的延迟。\nRAW Hollow 是由 Netflix 开发的一种创新的内存、同地共存的压缩对象数据库，旨在处理支持强大读后写一致性的中小型数据集。\n在我们简化的架构中，我们取消了页面数据服务、键值存储和卡夫卡基础设施，转而使用 RAW Hollow。\n编写者和编辑可以在几秒钟内预览更改，而不是几分钟，同时仍然为 Tudum 访问者保持高可用性和内存缓存 --- 两全其美。\n最小化顺序操作的数量可以显著减少响应时间。I/O 往往是性能的主要敌人。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：Netflix TechBlog\n作者：Netflix Technology Blog\n分类：软件编程\n语言：英文\n阅读时间：6 分钟\n字数：1421\n标签：\n                    \n                        架构设计, CQRS (命令查询职责分离), 分布式系统, 性能优化, 内存数据库",
+          "link": "https://www.bestblogs.dev/zh/article/ec6aa3",
+          "publishedOn": "2025-07-10T19:35:32.000Z",
+          "wordCount": 359,
+          "title": "Netflix Tudum 架构演进：从 CQRS (Kafka) 到 RAW Hollow",
+          "enclosure": {
+            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/0c57d643-d901-496d-dd6d-146193dd8e00/cover",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/0c57d643-d901-496d-dd6d-146193dd8e00/cover"
+        },
+        {
+          "id": "b41190",
+          "author": "Anton Dort-Golts",
+          "description": "📌 一句话摘要\n            \nQuicksilver v1.5：Cloudflare 的全球键值存储 (K/V 存储) 演进，旨在提升规模、一致性和效率。\n📝 详细摘要\n            \n本文详细介绍了 Cloudflare 的 Quicksilver 键值存储从 v1 到 v1.5 的演进过程，其主要驱动力是在快速扩展的全球分布式网络中，对磁盘空间优化日益增长的需求。文章阐述了最初的 Quicksilver v1 如何依赖于每个服务器上的完整数据复制，但随着 Cloudflare 数据规模的增长，这种方式变得越来越低效。为了解决这个问题，Quicksilver v1.5 引入了一种更为复杂的设计，其中包含两种新的服务器角色：存储完整数据集的“副本节点”和充当持久缓存的“代理节点”。代理节点能够智能地淘汰未使用的数​​据，从而释放磁盘空间，尤其是在资源受限的叶子节点上。接下来，作者深入探讨了在此过渡期间遇到的三个主要技术挑战。首先，是实现一种使用 RocksDB 的强大持久缓存机制，该机制通过压缩过滤器进行管理，实现 LRU 淘汰（最近最少使用淘汰算法），并受到硬性限制的保护。其次，在异步复制环境中保持顺序一致性，这对客户端信任至关重要。这一目标通过多版本并发控制 (MVCC) 来实现，以处理副本数据落后于代理的情况；同时，代理上采用“滑动窗口”方法来管理代理数据领先于副本时的最新更新。最后，文章还介绍了如何通过在代理上实现键和值分离，并利用 Bloom 过滤器进行快速内存检查，从而有效地处理大量“负查找”（即对不存在的键的请求）。文章最后简要介绍了使用 Consul 的服务发现机制，该机制确保代理能够可靠地定位分布式系统中的副本。\n💡 主要观点\n            \n引入副本和代理角色显著优化了全球分布式键值存储中的磁盘空间使用。\n                         这种设计允许较小的数据中心（叶子节点）通过仅缓存热点键来减少存储，从而避免了在所有地方存储完整数据集的低效率，同时仍然确保数据的可用性。\n                    \n\n                        多版本并发控制 (MVCC) 和滑动窗口机制对于在异步全球复制中保持顺序一致性至关重要。\n                         MVCC 通过提供历史键版本来处理副本数据落后于代理的情况，而滑动窗口机制确保代理即使在代理数据领先于副本时，也能提供最新的更新。\n                    \n\n                        在代理上分离键和值提供了一种有效的解决方案，用于处理大量负查找。\n                         这种方法利用 Bloom 过滤器在内存中快速检查，以确定键是否存在。这避免了因缓存未命中而查询副本所带来的性能下降和网络开销。\n                    \n💬 文章金句\n            \n我们意识到在每台服务器上存储完整数据集是低效的。由于统一的设计，在一个区域或数据中心访问的数据会在全球范围内复制，即使它在其他地方从未被访问过。\n从一开始，Quicksilver 就为客户端提供了顺序一致性：如果键 A 在键 B 之前写入，则不可能先读取键 B 而不读取键 A。我们致力于在新设计中保持这一保证。\n有了 MVCC，我们不再为每次更新覆盖默认列族中键的最新值。相反，我们在 RocksDB 中引入了一个新的 MVCC 列族，其中所有更新都存储有相应的复制索引。\n唯一有问题的键是那些最近更新的键，代理已经知道这些键，但副本不知道。基于这个洞察，我们意识到这个问题应该在代理端而不是在副本端解决。这就是所谓的滑动窗口方法。\n最后，我们决定实施键和值分离，将所有键存储在代理上，但仅持久化缓存键的值。从缓存中逐出键实际上会导致删除其值。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：The Cloudflare Blog\n作者：Anton Dort-Golts\n分类：软件编程\n语言：英文\n阅读时间：15 分钟\n字数：3509\n标签：\n                    \n                        分布式系统, 键值存储, Cloudflare, 系统架构, 一致性模型",
+          "link": "https://www.bestblogs.dev/zh/article/b41190",
+          "publishedOn": "2025-07-10T14:00:00.000Z",
+          "wordCount": 323,
+          "title": "Quicksilver v2：全球分布式键值存储的演进（第一部分）",
+          "enclosure": {
+            "url": "https://cf-assets.www.cloudflare.com/zkvhlag99gkb/kMeaPyhRGdSISGQJDOomy/d0c2e97e80042121689c9c6dc28a8fee/OG_Share_2024__69_.png",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://cf-assets.www.cloudflare.com/zkvhlag99gkb/kMeaPyhRGdSISGQJDOomy/d0c2e97e80042121689c9c6dc28a8fee/OG_Share_2024__69_.png"
+        },
+        {
+          "id": "2a5441",
+          "author": "InfoQ 中文",
+          "description": "📌 一句话摘要\n            \n快手高欢深度解读多模态理解在 AIGC 视频生成中的核心作用、技术挑战与实践方案，并展望未来发展。\n📝 详细摘要\n            \n文章深入剖析了多模态理解技术在当前 AIGC（特别是视频生成）爆发背景下的关键作用。作者首先介绍了文生视频、图生视频、视频编辑等主流 AIGC 产品形态，并以快手可灵为例展示了其应用。接着，详细阐述了 AIGC 多模态理解与传统理解的差异，强调其在全面感知与转述方面的目标，并探讨了 DiT 等主流模型架构中语义信息注入方式。文章还深入探讨了训练和推理阶段多模态理解面临的挑战，如数据标注与用户输入与训练分布一致性问题，并提出了通过强化学习进行 Query 改写以及利用 Reward Model 评估生成质量等解决方案。最后，文章从模型选型、数据处理、评测体系三个维度给出了提升多模态理解能力的具体建议，并展望了长视频生成、ID 指代一致性以及 AI 角色与 AGI 的未来发展方向。\n💡 主要观点\n            \n多模态理解是 AIGC 视频生成可控性的核心支撑\n                         AIGC 中的多模态理解旨在全面感知与转述，将用户意图和画面信息准确注入生成模型，而非仅追求特定任务的榜单效果，显著提升生成内容的准确性与可控性。\n                    \n\n                        提升多模态理解能力需从模型、数据、评测三维发力\n                         关键在于选择信息损失最小的模型架构，精细化数据处理（特别是 Captioning 和用户输入改写），并构建客观、全面且能抵御 Reward Hacking 的评测体系。\n                    \n\n                        长视频生成与角色 ID 一致性是 AIGC 视频未来的重要挑战\n                         当前 AIGC 视频时长有限，未来需解决剧情连贯性、描述合理性及主角 ID 在长视频中保持稳定等难题，这需要多模态理解与 DiT 等技术更深层次的协同。\n                    \n💬 文章金句\n            \n多模态理解技术在这些 AI 原生应用背后承担着支撑性的作用，显著提升了 AIGC 的可控性。\nAIGC 的多模态理解则更倾向于全面感知与转述，目标是将我所有的想象以及画面中呈现的内容，通过特定的表征方式注入到 DIT 模型中，以便后续生成。\n在选择模型时，我们需要考虑其架构是否能够最大程度地减少信息损失。\n如果评测方法不当，整个迭代过程可能会朝着错误的方向发展，这显然不是我们所期望的。\n未来，数字人是否能够真正成为 AI 角色，代替现实中的人为我们提供必要的支持。或许那时，我们就能迎来真正的 AGI。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：InfoQ 中文\n作者：InfoQ 中文\n分类：软件编程\n语言：中文\n阅读时间：31 分钟\n字数：7748\n标签：\n                    \n                        AIGC, 视频生成, 多模态理解, DiT, Reward Model",
+          "link": "https://www.bestblogs.dev/zh/article/2a5441",
+          "publishedOn": "2025-07-10T07:41:00.000Z",
+          "wordCount": 320,
+          "title": "快手高欢深度解读：多模态理解如何成为 AIGC 视频生成的“幕后功臣”？",
+          "enclosure": {
+            "url": "https://wechat2rss.bestblogs.dev/img-proxy/?k=48020a22&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FYriaiaJPb26VP3QoTCW0Q6ugGtJdYMjUxNkZHzTicQicIDHqGumHcy78qGcApQJP688TWl7Bc61BfrNicibAw6OfDDPw%2F640%3Fwx_fmt%3Dpng%26from%3Dappmsg",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://wechat2rss.bestblogs.dev/img-proxy/?k=48020a22&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FYriaiaJPb26VP3QoTCW0Q6ugGtJdYMjUxNkZHzTicQicIDHqGumHcy78qGcApQJP688TWl7Bc61BfrNicibAw6OfDDPw%2F640%3Fwx_fmt%3Dpng%26from%3Dappmsg"
+        },
+        {
+          "id": "370095",
+          "author": "深思圈",
+          "description": "📌 一句话摘要\n            \n文章深入探讨了顶级 AI Agent 产品选择“反框架”路线的技术内幕，倡导基于 AI 基本单元构建智能应用，以应对 AI 领域快速变化和框架抽象的局限性。\n📝 详细摘要\n            \n本文基于 Langbase 创始人兼 CEO Ahmad Awais 的深度洞察，揭示了 Cursor、Perplexity 等领先 AI Agent 产品为何放弃传统 AI 框架，转而采用“反框架”路线，直接基于 AI 基本单元进行构建。文章指出，在 AI 技术快速迭代的背景下，框架的过度抽象反而成为创新和规模化的障碍，导致臃肿、迭代缓慢和技术锁定。作者详细介绍了 AI 基本单元（如 Memory、Thread、Tools 等）的威力及其可组合性，并展示了八种基于这些基本单元构建的 AI Agent 架构模式，涵盖了从增强型 LLM 到编排器-工作者等多种复杂场景。文章强调，这种方法提供了更高的透明度、可控性、性能和可扩展性，降低了 AI 开发的认知负担，并预测这将是未来 AI 开发生态的必然选择，有助于企业更快响应市场变化。\n💡 主要观点\n            \n传统 AI 框架的抽象在快速变化的 AI 领域可能成为创新和规模化的障碍。\n                         AI 技术迭代速度极快，预先定义的框架抽象容易过时，导致开发者被锁定在特定抽象层，难以快速适应新技术突破，影响开发效率和灵活性。\n                    \n\n                        AI Agent 应基于可组合、专业化的基本单元构建，实现透明和高可控性。\n                         通过将复杂 AI 功能分解为 Memory、Tools 等独立单元，开发者能像搭积木一样灵活组合，系统更易理解、调试和优化，且天然支持水平扩展。\n                    \n\n                        文章展示了八种基于基本单元组合的架构模式，覆盖了 AI Agent 的生产实践需求。\n                         这些模式（如 Agent 路由器、编排器-工作者）提供了应对不同复杂任务的通用设计语言，展现了基本单元在构建高性能、灵活 AI 应用方面的强大潜力。\n                    \n💬 文章金句\n            \n在快速变化的 AI 时代，框架的抽象可能反而成为了创新和规模化的最大障碍。\n最好的 AI agent 应该像搭积木一样用基本单元组装，而不是被框架的抽象层束缚。\nAmazon S3 之所以能够支撑起整个云计算生态，不是因为它提供了复杂的对象存储框架，而是因为它提供了极其简单的基本单元：上传数据和下载数据。\n这些基本单元的美妙之处在于它们的可组合性和专业性。每个单元都专注于解决一个特定问题，并在这个问题上做到极致，然后通过灵活组合来构建复杂功能。\n与其使用臃肿的框架来构建 agent，不如像搭积木一样用基本单元造出属于你自己的\"Agent Stack\"。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：深思圈\n作者：深思圈\n分类：人工智能\n语言：中文\n阅读时间：25 分钟\n字数：6088\n标签：\n                    \n                        AI Agent, AI基本单元, 无框架开发, 架构设计, 大语言模型",
+          "link": "https://www.bestblogs.dev/zh/article/370095",
+          "publishedOn": "2025-07-10T01:51:00.000Z",
+          "wordCount": 334,
+          "title": "揭秘 Cursor、Perplexity、Lovable 的技术内幕：为什么它们都选择\"反框架\"路线",
+          "enclosure": {
+            "url": "https://wechat2rss.bestblogs.dev/img-proxy/?k=ad9676a3&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FCpibNcoQfQmxwL9Ba0E4GndtDAzEyibCwOBqXg2OlPtv5YB4aia8SIhcbKylmlH0cDGwEnicKQF2wlOdbvts3Kxa7g%2F640%3Fwx_fmt%3Dpng",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://wechat2rss.bestblogs.dev/img-proxy/?k=ad9676a3&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FCpibNcoQfQmxwL9Ba0E4GndtDAzEyibCwOBqXg2OlPtv5YB4aia8SIhcbKylmlH0cDGwEnicKQF2wlOdbvts3Kxa7g%2F640%3Fwx_fmt%3Dpng"
+        },
+        {
           "id": "9c7a30",
           "author": "前端早读课",
           "description": "📌 一句话摘要\n            \n文章详细阐述了渐进式 JSON 的概念，通过广度优先的分块传输和占位符机制，实现数据流的逐步解析，并将其与 React Server Components 的核心机制相结合，提升了数据传输效率和用户体验。\n📝 详细摘要\n            \n文章深入探讨了“渐进式 JSON”这一创新数据传输技术，旨在解决传统 JSON 传输中客户端必须等待完整数据才能解析的问题。作者首先对比了传统 JSON 和简单的“流式 JSON”的局限性，指出它们都受限于深度优先的传输模式，导致数据延迟和不完整性。随后，文章核心介绍了渐进式 JSON 的概念，即通过广度优先的方式，先传输数据骨架和占位符，再逐步、乱序地填充具体数据，客户端可利用 Promise 等机制处理未就绪部分，实现数据的渐进式解析和使用。文章进一步探讨了“内联”和“提取”等优化策略，以平衡传输效率和数据复用。最重要的是，文章揭示了渐进式 JSON 与 React Server Components (RSC) 的核心机制高度契合，解释了 RSC 如何利用这种数据流机制逐步构建和渲染 UI，并通过 `` 机制优雅地管理加载状态，实现 UI 展示节奏与数据到达节奏的分离。文章强调了渐进式数据流的普适性及其在提升应用性能和用户体验方面的巨大潜力。\n💡 主要观点\n            \n渐进式 JSON 通过广度优先传输实现数据逐步解析\n                         传统 JSON 和简单流式 JSON 均需等待完整数据才能解析，而渐进式 JSON 允许客户端在接收到部分数据时即可开始处理，有效提升了响应速度和用户体验。\n                    \n\n                        占位符与 Promise 机制优雅处理数据不完整状态\n                         文章提出使用占位符表示未加载数据，并结合 Promise 机制在客户端处理这些不完整部分，使得应用能够持续工作而无需等待全部数据就绪。\n                    \n\n                        渐进式 JSON 是 React Server Components (RSC) 的核心机制\n                         该技术与 RSC 的原理高度一致，使得 UI 能够逐步加载和渲染，并通过 `` 组件实现声明式的加载状态管理，优化了前端应用的性能和用户感知。\n                    \n💬 文章金句\n            \n介绍了 Progressive JSON 的概念，它是一种改进传统 JSON 传输方式的技术，允许在服务器端生成数据时即时传输到客户端，而不需要等待整个 JSON 对象完成后再发送。\n通过采用广度优先、分块传输的方式，客户端可以逐步处理这些数据。只要客户端能处理一部分是 '未就绪' 的情况（用 Promise 表示），其他部分也能照常使用，这就比传统方式更高效！\n这种方法的一个有趣结果是，它还为我们提供了一种减少输出流中重复内容的自然方式。\n上面介绍的这种方法，其实就是 React Server Components（RSC）背后的核心机制。\n我希望更多工具也能采用这种 '渐进式数据流' 机制。如果你发现客户端总是要等服务器 '处理完所有事情' 才能开始工作，那就是一个适合用流式传输的场景。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：前端早读课\n作者：前端早读课\n分类：软件编程\n语言：中文\n阅读时间：21 分钟\n字数：5106\n标签：\n                    \n                        前端开发, JSON, 数据传输, 流式传输, React Server Components",
@@ -14,6 +74,21 @@
           "wordCount": 337,
           "title": "【第 3547 期】渐进式 JSON",
           "imageUrl": "https://www.bestblogs.dev/zh/article/9c7a30/opengraph-image?c5b4e9f48bc65b64"
+        },
+        {
+          "id": "671683",
+          "author": "新智元",
+          "description": "📌 一句话摘要\n            \nHugging Face 开源了强大的 30 亿参数 SmolLM3 模型，具备 128k 超长上下文和双推理模式，并首次公开了从训练到对齐的全链路工程细节。\n📝 详细摘要\n            \n文章详细介绍了 Hugging Face 最新发布的 SmolLM3 大型语言模型，该模型以 30 亿参数在小模型中脱颖而出，支持 128k 超长上下文和独特的双推理模式（think/no_think），并实现了全链路（训练、对齐、架构、数据）100%开源。文章深入阐述了 SmolLM3 在 Llama 架构基础上的多项关键优化，如 GQA 机制、NoPE 编码、文档内注意力屏蔽和稳定性优化。此外，还详细解析了其多阶段数据混合策略、中期训练（长上下文扩展与推理中间训练）以及后训练阶段的监督微调和基于 APO 的偏好对齐。评估结果显示，SmolLM3 在多项基准测试中超越了同参数量模型，并逼近 40 亿参数模型的性能。文章最后提供了详细的本地运行代码示例，强调了工程细节在模型开发中的关键作用，为小型高性能 LLM 的开发提供了宝贵的参考范本。\n💡 主要观点\n            \nSmolLM3 在 30 亿参数量级实现 SOTA 性能，逼近 40 亿参数模型。\n                         SmolLM3 在知识、推理、数学、编程及多语言等多个基准测试中表现卓越，尤其在长上下文任务中突出，证明小模型通过工程优化也能达到领先水平。\n                    \n\n                        Hugging Face 首次公开全链路模型构建方案，推动小模型开发透明化。\n                         从预训练架构、数据混合、中期训练到后训练的监督微调与偏好对齐，所有细节和代码数据均开源，为业界提供了可复现的“训练-微调-对齐”范式。\n                    \n\n                        引入 GQA、NoPE、APO 等创新技术，显著提升模型效率和能力。\n                         GQA 降低 KV 缓存开销，NoPE 提升长文本处理，APO 提供更稳定的对齐优化，这些工程细节是 SmolLM3 实现高性能和多功能（如双推理模式、工具调用）的关键。\n                    \n💬 文章金句\n            \n重磅开源！新一代最强小模型 SmolLM3 横空出世：30 亿参数，支持 128k 长上下文！而且训练、对齐、架构、数据等全链路，Hugging Face 这次 100%开放------堪称真「Open AI」。\n模型规模不是唯一答案，工程细节才是制胜关键！\nSmolLM3 不仅展示了完整的「训练-微调-对齐」开源范式。\nSmolLM3 同时支持指令模式和推理模式，需要分别评估其表现，并与具备相同能力的其他模型做比较。\nSmolLM3 在推理能力和效率之间找到了最佳平衡点。\n📊 文章信息\n            \nAI 评分：94\n精选文章：是\n来源：新智元\n作者：新智元\n分类：人工智能\n语言：中文\n阅读时间：20 分钟\n字数：4800\n标签：\n                    \n                        大语言模型, 小模型, Hugging Face, 模型训练, 模型架构",
+          "link": "https://www.bestblogs.dev/zh/article/671683",
+          "publishedOn": "2025-07-09T10:03:00.000Z",
+          "wordCount": 337,
+          "title": "最强 3B「小钢炮」，代码数据全公开！推理随意开关，128k 超长上下文",
+          "enclosure": {
+            "url": "https://wechat2rss.bestblogs.dev/img-proxy/?k=892bce64&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FUicQ7HgWiaUb2Sc2W1GlyXaiaZ6I6C0ESHPicRNVfxJaic5YtZhRzgncQgiaPuzZO8BLg7EuawykjcoibLJnjBWmf4PCw%2F640%3Fwx_fmt%3Djpeg%26from%3Dappmsg",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://wechat2rss.bestblogs.dev/img-proxy/?k=892bce64&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FUicQ7HgWiaUb2Sc2W1GlyXaiaZ6I6C0ESHPicRNVfxJaic5YtZhRzgncQgiaPuzZO8BLg7EuawykjcoibLJnjBWmf4PCw%2F640%3Fwx_fmt%3Djpeg%26from%3Dappmsg"
         },
         {
           "id": "0ad934",
@@ -26,6 +101,36 @@
           "imageUrl": "https://www.bestblogs.dev/zh/article/0ad934/opengraph-image?c5b4e9f48bc65b64"
         },
         {
+          "id": "488ca1",
+          "author": "魔搭ModelScope社区",
+          "description": "📌 一句话摘要\n            \n谷歌 Gemma 3n 正式开源，作为全新端侧多模态大模型，可在 2GB 内存设备运行，重点提升编码和推理能力，并支持多模态输入输出。\n📝 详细摘要\n            \n文章详细介绍了谷歌最新开源的端侧多模态大模型 Gemma 3n 的正式版本。该模型基于 Gemini 技术，专为资源受限设备设计，最低可在 2GB 内存上高效运行，并显著提升了编码和推理能力。Gemma 3n 支持文本、图像、视频和音频等多模态输入及文本输出，采用动态参数激活技术，提供 5B 和 8B 两种规格，实际内存占用相当于传统 2B 和 4B 模型。文章还提供了模型训练数据、输入输出格式、详细基准测试结果，并展示了在内容创作、研究教育等领域的广泛应用。此外，文章提供了基于 ModelScope 和 ms-swift 的 GPU 运行、模型微调及推理代码示例，方便开发者快速上手。\n💡 主要观点\n            \nGemma 3n 实现端侧高效运行，大幅降低硬件门槛\n                         通过动态参数激活等创新架构，Gemma 3n 能以极低内存占用（2GB）运行，使得高性能多模态 AI 能在边缘设备上普及，拓展了应用边界。\n                    \n\n                        模型在编码和推理能力上显著提升\n                         Gemma 3n 在代码和数学数据集上进行了大量训练，基准测试结果显示其在 LiveCodeBench、Codegolf 等编码和推理任务上表现优异，增强了模型解决复杂问题的能力。\n                    \n\n                        支持多模态输入，扩展了模型应用场景\n                         Gemma 3n 能够处理文本、图像、视频和音频等多源数据，使其在内容创作、智能助手、研究教育等领域具备广泛应用潜力，提升了实用性。\n                    \n💬 文章金句\n            \nGemma 3n 模型专为在资源有限的设备上高效执行而设计。它们能够处理多模态输入，包括文本、图像、视频和音频 输入，并生成文本输出，提供了预训练和指令调优变体的开放权重。\nGemma 3n 模型采用动态参数激活技术降低硬件负载，本次开源版本提供 5B（E2B）与 8B（E4B）两种规格。通过针对设备端的专属架构创新，可分别以传统 2B、4B 参数规模模型相当的内存运行，其实际运算量显著低于标称参数总量。\n这些模型在一个包含多种来源的大约 11 万亿个 token 的数据集上进行了训练。训练数据的知识截止日期为 2024 年 6 月。\nGemma-3n-E4B-it 在各行各业和各个领域都有广泛的应用。\nms-swift 已经支持了 gemma-3n 系列模型的微调。ms-swift 是魔搭社区官方提供的大模型与多模态大模型训练部署框架。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：魔搭ModelScope社区\n作者：魔搭ModelScope社区\n分类：人工智能\n语言：中文\n阅读时间：12 分钟\n字数：2984\n标签：\n                    \n                        大语言模型, 多模态AI, 端侧AI, Gemma 3n, 模型优化",
+          "link": "https://www.bestblogs.dev/zh/article/488ca1",
+          "publishedOn": "2025-07-09T08:29:00.000Z",
+          "wordCount": 332,
+          "title": "Gemma 3n 正式版开源：谷歌全新端侧多模态大模型，2GB 内存就能跑，重点提升编码和推理能力！",
+          "imageUrl": "https://www.bestblogs.dev/zh/article/488ca1/opengraph-image?c5b4e9f48bc65b64"
+        },
+        {
+          "id": "aca5d8",
+          "author": "InfoQ 中文",
+          "description": "📌 一句话摘要\n            \n资深程序员分享使用 Claude Code 构建 macOS 应用经验，实现 95%代码自动生成，探讨 AI 编码工具对开发效率和未来 IDE 形态的颠覆。\n📝 详细摘要\n            \n文章详细介绍了拥有 16 年经验的资深程序员 Indragie Karunaratne 如何利用 Anthropic 的 AI 编码助手 Claude Code，仅手写不到 1000 行代码便成功开发出一款 2 万行的 macOS 原生应用 Context。作者强调了 Claude Code 作为终端原生 IDE 的独特优势，以及其在代码生成、UI 构建、模拟数据生成乃至自动化发布脚本方面的强大能力。文章深入探讨了“上下文工程”的重要性，即通过提供详细规范和引导来最大化 AI 输出质量。作者还分享了通过 CLAUDE.md 文件优化 AI 行为的实践经验，并展望了 AI 编码工具对未来 IDE 形态和开发者生产力带来的深远影响，认为 AI 能极大提升个人副业项目的交付效率。\n💡 主要观点\n            \nAI 编码工具能极大幅度提升开发效率，甚至取代传统 IDE。\n                         Claude Code 通过自动化 95%的代码生成，使得 2 万行应用仅需手写不到 1000 行，显著缩短项目交付周期，尤其适合个人副业项目，极大提升了开发者的生产力。\n                    \n\n                        “上下文工程”是有效利用 AI 编码智能体的核心策略。\n                         通过提供详细规范、CLAUDE.md 文件、主动引导模型思考（如“极致地思考”），可以显著提高 AI 生成代码的质量和准确性，避免低质量输出，这是人机协作的关键。\n                    \n\n                        AI 编码工具的能力远超代码编写，可覆盖开发全生命周期。\n                         Claude Code 不仅能生成功能代码和 UI，还能协助生成模拟数据、自动化发布脚本，甚至协助调试和规划，极大扩展了开发者的能力边界和项目交付范围。\n                    \n💬 文章金句\n            \nContext 几乎 100% 由 Claude Code 构建而成。引导 Claude 构建软件仍然需要一定技巧而且得多选几次，但对于这个拥有 2 万行代码的应用来说，粗略估算我亲自手写的部分还不到 1000 行。\n这不光是因为模型本身更强了，还因为它们融合了思维链（CoT）提示。也就是说，我们可以用模糊的描述、不完整的句子以及糟糕的拼写和语法来提示模型，并保证它仍能相对准确地理解要求，并将问题拆分成一系列执行步骤。\n我相信，未来的 IDE 将专注于帮助开发者预置智能体的上下文并设置反馈循环，这对帮助智能体成功完成编码至关重要。\n对我来说，这次体验中最令人兴奋的部分并不是我开发的应用本身，而是我又能够随时随地编程、发布完善的副业项目了。这就像每天多给了我 5 个小时，而相应的每月只需要支付 200 美元。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：InfoQ 中文\n作者：InfoQ 中文\n分类：软件编程\n语言：中文\n阅读时间：30 分钟\n字数：7298\n标签：\n                    \n                        AI编码, Claude Code, 开发者工具, 生产力提升, LLM应用",
+          "link": "https://www.bestblogs.dev/zh/article/aca5d8",
+          "publishedOn": "2025-07-09T05:31:00.000Z",
+          "wordCount": 368,
+          "title": "16 年老程序员用 Claude Code 搞副业：我只手敲了 1000 行，剩下 95% 代码靠自动生成",
+          "imageUrl": "https://www.bestblogs.dev/zh/article/aca5d8/opengraph-image?c5b4e9f48bc65b64"
+        },
+        {
+          "id": "28e547",
+          "author": "阿里技术",
+          "description": "📌 一句话摘要\n            \n阿里淘工厂实践基于多智能体系统构建了自适应测试解决方案，实现了从需求分析到测试执行的全流程自动化，显著提升了研发效率和质量。\n📝 详细摘要\n            \n文章深入探讨了电商行业高并发背景下传统测试模式面临的效率低下、人力依赖和风险累积等痛点，并提出了基于 Agentic AI 的多智能体自适应测试新范式。该范式通过多智能体间的分布式协同，实现了需求分析、用例编写、测试执行、结果记录与报告生成的全流程自动化闭环，大幅提升了测试时效和质量防御能力。文章详细介绍了多智能体测试框架的构建，包括知识共享与表达、知识生产和知识存储三大循环环节，以及需求分析、代码及配置分析、测试用例生成、测试数据构造与脚本执行、测试知识生产与沉淀等具体实现细节。淘工厂的实践数据显示，该系统在实际需求交付场景中已取得显著效果，用例生成准确率和执行成功率均有提升，并重塑了测试工程师与智能体之间的协作关系。文章最后展望了知识库智能运维体系的完善和生产关系的重构，强调了智能体在垂类领域的应用价值。\n💡 主要观点\n            \nAgentic AI 重构传统测试范式，实现全流程自动化闭环。\n                         文章指出传统测试模式效率低下、人力依赖、风险累积等痛点，通过多智能体系统实现需求分析、用例编写、测试执行、结果报告的全流程自动化，显著提升效率和质量。\n                    \n\n                        构建多智能体协作框架，核心在于知识共享、生产与存储的循环进化。\n                         系统将智能体拟人化为“应届生团队”，通过知识共享与表达、知识生产、知识存储三大环节形成闭环，确保系统持续学习、优化和适应业务变化。\n                    \n\n                        淘工厂实践验证了智能体在需求交付场景的显著效能提升与生产关系革新。\n                         通过实际案例展示了智能体在需求交付中的应用，实现了测试准确率、执行成功率的提升，并推动测试工程师从执行者向策略制定者转型，重塑人机协作模式。\n                    \n💬 文章金句\n            \n基于 Agentic AI 的新测试范式可以更好地应对这些挑战，新范式对比传统测试范式有如下特点：协同模式升级、质量防御体系重构、生产关系革新。\n我们在设计开发过程中，也拟人化地思考智能体，把智能体当成一个刚入职的应届生 小 A 君。\n多智能体系统收到用户传入的需求变更文档+代码变更 id，通过多智能体协作实现需求分析+测试分析+用例生成+测试执行，最终产出测试报告。\n多智能体范式必将带来生产力跃迁爆发：以数据知识库、大模型算法与算力，实现测试任务并行化与流程智能化。\n当每个测试同学都拥有一堆专业的\"虚拟应届生\"时，应该更高维度、全面思考质量保障策略和风险防范的课题。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：阿里技术\n作者：阿里技术\n分类：软件编程\n语言：中文\n阅读时间：30 分钟\n字数：7278\n标签：\n                    \n                        智能测试, 自动化测试, 多智能体, Agentic AI, 大语言模型",
+          "link": "https://www.bestblogs.dev/zh/article/28e547",
+          "publishedOn": "2025-07-09T00:31:00.000Z",
+          "wordCount": 313,
+          "title": "基于智能体的自适应测试系统 - 淘工厂实践",
+          "imageUrl": "https://www.bestblogs.dev/zh/article/28e547/opengraph-image?c5b4e9f48bc65b64"
+        },
+        {
           "id": "181635",
           "author": "前端早读课",
           "description": "📌 一句话摘要\n            \n深入探讨了 CKEditor 5 通过 tree-shaking 优化和新安装方式，成功将 JavaScript 包体积缩减 40% 的实践过程和关键技巧。\n📝 详细摘要\n            \n文章详细介绍了 CKEditor 5 团队如何通过一系列深入的包体积优化措施，成功将编辑器捆绑包大小减少了 40%。作者首先阐述了 CKEditor 5 在高度模块化和多样化分发场景下遇到的包体积挑战，特别是新引入的元包（meta-package）在简化安装的同时，最初反而增加了体积。随后，文章深入剖析了精细化 tree-shaking 的关键策略，包括识别并重构带有副作用的代码、利用 `/* #__PURE__ */` 注释、将编译目标升级到 ES2022 以优化静态字段的打包方式，以及在 `package.json` 中合理使用 `sideEffects` 字段处理外部依赖。文中还介绍了团队自研的 Sonda 工具在分析和定位体积问题中的应用。最后，文章强调了建立持续的包体积回归监控机制的重要性，并通过自动化报告确保优化成果的长期稳定性，并为其他 JavaScript 库的开发者提供了一份实用的优化清单。\n💡 主要观点\n            \n复杂模块化库在简化安装时可能面临包体积膨胀的挑战\n                         CKEditor 5 通过引入元包简化了开发者集成，但因“barrel 文件”模式和副作用代码，初期导致体积增大，凸显了大型库在便捷性与性能间的权衡。\n                    \n\n                        精细化 Tree-shaking 需识别并消除代码副作用\n                         通过重构全局变量、使用`#__PURE__`注释标记纯函数、升级 ES 编译目标（如 ES2022）以优化静态字段，以及利用 `package.json` 的 `sideEffects` 字段，可显著提升代码的可剔除性。\n                    \n\n                        持续的包体积回归监控是确保优化成果的关键\n                         建立自动化的体积差异分析和报告机制，如结合 Sonda 工具的 JSON 输出，能及时发现并定位体积回退问题，保障项目性能的长期稳定。\n                    \n💬 文章金句\n            \n没有什么代码，比 '没有代码' 更快。\n一个基本原则是：导入路径越精确，就越不容易引入多余代码，也更容易让打包工具识别并剔除未使用的内容。\n即使使用了 ES 模块语法，只要代码带有副作用（side effects），就不能被安全地移除。\n包体积优化不是一次性的事情，它需要持续监控。\n即使我们已经做了很多优化，仍然发现一些类无法如预期那样被 tree-shake。源代码看不出原因，但观察生成后的打包代码就一目了然了。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：前端早读课\n作者：前端早读课\n分类：软件编程\n语言：中文\n阅读时间：101 分钟\n字数：25132\n标签：\n                    \n                        包体积优化, Tree-shaking, JavaScript 性能, 前端构建, CKEditor 5",
@@ -34,6 +139,21 @@
           "wordCount": 358,
           "title": "【第 3546 期】如何让 CKEditor 缩小 40% 的：一次深入的包体积优化探索",
           "imageUrl": "https://www.bestblogs.dev/zh/article/181635/opengraph-image?c5b4e9f48bc65b64"
+        },
+        {
+          "id": "9acc49",
+          "author": "Biao Zhang, Paul Suganthan, Ben Hora",
+          "description": "📌 一句话摘要\n            \nGoogle 推出了 T5Gemma，这是一个高效的编码器-解码器 LLM 新集合。它通过调整预训练的仅解码器 Gemma 模型开发而成，实现了卓越的质量-效率权衡。\n📝 详细摘要\n            \n本文揭示了 T5Gemma，这是一系列基于 Gemma 2 框架构建的新型编码器-解码器大型语言模型。与流行的仅解码器架构不同，T5Gemma 利用一种独特的“模型自适应”技术，将预训练的仅解码器模型转换为编码器-解码器模型。这种方法解决了编码器-解码器架构中未被充分挖掘的潜力，由于其高推理效率和更丰富的输入表示，该架构在摘要、翻译等任务中表现出色。这种自适应还允许灵活的配置，包括“不平衡”模型（例如，一个 9B 编码器和一个 2B 解码器），以微调质量-效率的权衡。实验表明，T5Gemma 模型始终优于或匹配其仅解码器同类产品，在 SuperGLUE 和 GSM8K 等基准测试中占据质量-推理效率的前沿。这种自适应不仅提供了更好的基础模型，而且在指令微调后显着提高了性能。Google 已在 Hugging Face、Kaggle 和 Vertex AI 上发布了各种大小和配置的 T5Gemma 检查点，鼓励进一步的研究和开发。\n💡 主要观点\n            \nT5Gemma 推出了一种新的编码器-解码器 LLM 集合，该集合通过从预训练的仅解码器模型进行自适应构建。\n                         This innovative technique leverages existing powerful decoder-only models (like Gemma 2) to create efficient encoder-decoder architectures， addressing …",
+          "link": "https://www.bestblogs.dev/zh/article/9acc49",
+          "publishedOn": "2025-07-09T00:00:00.000Z",
+          "wordCount": 332,
+          "title": "T5Gemma：新型编码器-解码器 Gemma 模型",
+          "enclosure": {
+            "url": "https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/HeroBlog-meta.2e16d0ba.fill-1200x600.png",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/HeroBlog-meta.2e16d0ba.fill-1200x600.png"
         },
         {
           "id": "b5d941",
@@ -3844,6 +3964,16 @@
       "feedUrl": "https://www.geekpark.net/rss",
       "siteUrl": "http://mainssl.geekpark.net/rss.rss",
       "articles": [
+        {
+          "id": "http://www.geekpark.net/news/351405",
+          "author": null,
+          "description": "乐道 L90 发布，三排 SUV，租电定价 19.39 万起\n7 月 10 日，蔚来公司旗下品牌「乐道」发布了第二款车型乐道 L90。车长 5145mm、轴距 3110mm，比蔚来主品牌旗舰车型 ES8 还要再大一点，是目前蔚来集团里尺寸最大的一款车。\n\n乐道 L90 没有小米 YU7 那样超级吸睛的外观，但李斌表示，得益于蔚来多年的技术积累，L90 可以解决传统三排 SUV 无法解决的痛点，将成为这个细分市场产品中的「变革者」。发布会上，李斌扮演了超级劳模的角色，单人演讲超过 160 分钟。\nL90 定价 27.99 万元起，依托于蔚来的换电体系，这台车的起售门槛还可以进一步下探。如果采取电池租用方案购买，这辆车的起售价仅 19.39 万元，跌破 20 万元门槛。（来源：极客公园）\n\nYouTube 将更新政策，打击 AI 批量生成低质内容牟利行为\n7 月 10 日消息，YouTube 正准备更新其平台政策，进一步限制创作者通过「非真实」内容获取收益的能力。这类内容包括批量生成的视频和其他重复性内容，随着 AI 技术的发展，此类内容的制作门槛大幅降低，数量也迅速增长。\n\n根据 YouTube 官方帮助页面的说明，新的政策将于 7 月 15 日正式生效，届时 YouTube 合作伙伴计划（YouTube Partner Program, YPP）的变现规则将加入更明确的内容规范，帮助创作者更清楚地了解哪些内容可以变现，哪些则不符合标准。\n尽管具体的政策条文尚未公布，但 YouTube 强调，平台一直要求创作者上传「原创」且「真实」的内容。此次更新旨在帮助创作者更清晰地识别当前环境下何为「非真实」内容。（来源：搜狐科技）\n \n蚂蚁国际计划把 Circle 的稳定币纳入其区块链平台\n北京时间 7 月 10 日消息，据知情人士透露，蚂蚁集团正与 Circle Internet G…",
+          "link": "http://www.geekpark.net/news/351405",
+          "publishedOn": "2025-07-11T00:22:11.000Z",
+          "wordCount": 653,
+          "title": "罗马仕中层曝问题充电宝内幕；传 OpenAI 计划推出浏览器产品；邓紫棋首部科幻小说预售",
+          "imageUrl": null
+        },
         {
           "id": "http://www.geekpark.net/news/351403",
           "author": null,
@@ -8147,6 +8277,70 @@
       "siteUrl": "https://news.un.org/en/",
       "articles": [
         {
+          "id": "https://news.un.org/en/story/2025/07/1165367",
+          "author": null,
+          "description": "Systematic rape and sexual violence are being used as weapons of war in Darfur, the International Criminal Court (ICC) warned on Thursday, as part of a widening investigation into what its Deputy Prosecutor said are escalating atrocities against civilians in the conflict-ridden region.",
+          "link": "https://news.un.org/feed/view/en/story/2025/07/1165367",
+          "publishedOn": "2025-07-10T12:00:00.000Z",
+          "wordCount": null,
+          "title": "International Criminal Court: War crimes, systematic sexual violence ongoing in Darfur",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/21-04-2025-UNICEF-Sudan-13.jpg/image560x340cropped.jpg",
+            "length": "47754",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/21-04-2025-UNICEF-Sudan-13.jpg/image560x340cropped.jpg"
+        },
+        {
+          "id": "https://news.un.org/en/story/2025/07/1165360",
+          "author": null,
+          "description": "When Natalia Kanem reflects on her eight-year tenure at the helm of the UN reproductive health agency, she doesn’t begin with global statistics, boardroom breakthroughs, or even memories of her visits to refugee camps.",
+          "link": "https://news.un.org/feed/view/en/story/2025/07/1165360",
+          "publishedOn": "2025-07-10T12:00:00.000Z",
+          "wordCount": null,
+          "title": "She fought for the girl the world left behind: Natalia Kanem’s UN legacy",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/10-07-2025-UNFPA-Natalia-Kanem-03.jpg/image560x340cropped.jpg",
+            "length": "37845",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/10-07-2025-UNFPA-Natalia-Kanem-03.jpg/image560x340cropped.jpg"
+        },
+        {
+          "id": "https://news.un.org/en/story/2025/07/1165366",
+          "author": null,
+          "description": "UN agencies on Thursday warned of devastating recent attacks across Ukraine due to Russian strikes, record civilian casualties recorded last month – and growing deprivation facing children under fire across the country.",
+          "link": "https://news.un.org/feed/view/en/story/2025/07/1165366",
+          "publishedOn": "2025-07-10T12:00:00.000Z",
+          "wordCount": null,
+          "title": "UN warns of record civilian casualties in Ukraine",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/07-07-2025-UNOCHA-Ukraine-06.jpg/image560x340cropped.jpg",
+            "length": "59967",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/07-07-2025-UNOCHA-Ukraine-06.jpg/image560x340cropped.jpg"
+        },
+        {
+          "id": "https://news.un.org/en/story/2025/07/1165365",
+          "author": null,
+          "description": "The head of the UN Children’s Fund (UNICEF) has voiced deep dismay over the “unconscionable” killing of children during an aid distribution in the central Gaza Strip on Thursday.",
+          "link": "https://news.un.org/feed/view/en/story/2025/07/1165365",
+          "publishedOn": "2025-07-10T12:00:00.000Z",
+          "wordCount": null,
+          "title": "UNICEF deplores ‘unconscionable’ killing of families lining up for aid in Gaza",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/08-07-2025-UNICEF-Gaza-01.jpg/image560x340cropped.jpg",
+            "length": "50394",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/08-07-2025-UNICEF-Gaza-01.jpg/image560x340cropped.jpg"
+        },
+        {
           "id": "https://news.un.org/en/story/2025/07/1165364",
           "author": null,
           "description": "Devastating funding cuts from international donors are hitting countries hardest affected by HIV — but many are showing remarkable resilience and determination to keep progress alive.",
@@ -10017,86 +10211,6 @@
             "type": "image/jpeg"
           },
           "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/27-11-2023_UNICEF_Chad.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164741",
-          "author": null,
-          "description": "The UN Secretary-General António Guterres described the United States’ bombing of three nuclear sites in Iran as a “dangerous escalation” on Saturday following eight days of deadly strikes and counter strikes between Tehran and Tel Aviv.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164741",
-          "publishedOn": "2025-06-21T12:00:00.000Z",
-          "wordCount": null,
-          "title": "UN chief ‘gravely alarmed’ by US bombing of Iranian nuclear sites",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/03-04-2025-UN-Photo-Antonio-Guterres.jpg/image560x340cropped.jpg",
-            "length": "27909",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/03-04-2025-UN-Photo-Antonio-Guterres.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164736",
-          "author": null,
-          "description": "In an age marked by conflicts, disease, dysfunction and mental health challenges, yoga offers a steady, time-trusted path to help find calm and harmony within – and without.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164736",
-          "publishedOn": "2025-06-21T12:00:00.000Z",
-          "wordCount": null,
-          "title": "‘One Earth, One Health’: Yoga Day provides respite in a tumultuous world",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/21-06-2025_UN_Yoga_Day_1.jpg/image560x340cropped.jpg",
-            "length": "56008",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/21-06-2025_UN_Yoga_Day_1.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164731",
-          "author": null,
-          "description": "Senior UN officials reiterated an appeal for urgent restraint on Saturday as conflict spiral between Israel and Iran, amid a wider regional crisis exacerbated by Israel’s war in Gaza and the worsening humanitarian situation facing Palestinian civilians.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164731",
-          "publishedOn": "2025-06-21T12:00:00.000Z",
-          "wordCount": null,
-          "title": "UN reiterates call for urgent de-escalation amid Iran-Israel conflict, worsening Gaza crisis",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/18-06-2025-UNICEF-Gaza-04.jpg/image560x340cropped.jpg",
-            "length": "42810",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/18-06-2025-UNICEF-Gaza-04.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164531",
-          "author": null,
-          "description": "A growing network of online communities known collectively as the “manosphere” is emerging as a serious threat to gender equality, as toxic digital spaces increasingly influence real-world attitudes, behaviours, and policies, the UN agency dedicated to ending gender discrimination has warned.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164531",
-          "publishedOn": "2025-06-21T12:00:00.000Z",
-          "wordCount": null,
-          "title": "Why is the manosphere on the rise? UN Women sounds the alarm over online misogyny",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/04-11-2021-UNSPLASH-by%20Anthony%20Tran.jpg/image560x340cropped.jpg",
-            "length": "30556",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/04-11-2021-UNSPLASH-by%20Anthony%20Tran.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/06/1164681",
-          "author": null,
-          "description": "Once the exclusive domain of a handful of technologically advanced countries, outer space is now within the reach of emerging nations from the Global South, as costs fall and technology becomes more widely available.",
-          "link": "https://news.un.org/feed/view/en/story/2025/06/1164681",
-          "publishedOn": "2025-06-21T12:00:00.000Z",
-          "wordCount": null,
-          "title": "From the Global South to the stars: A new space race",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/19-06-2025-NASA-Surya-Satellite.jpg/image560x340cropped.jpg",
-            "length": "14516",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/19-06-2025-NASA-Surya-Satellite.jpg/image560x340cropped.jpg"
         }
       ]
     },
@@ -11534,26 +11648,6 @@
           "wordCount": 13255,
           "title": "冷杉RECORD｜小镇青年罗帅宇",
           "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/image-1750582679295.png"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=719020",
-          "author": "既要又要还要",
-          "description": "长安的荔枝，千里之外运到贵妃嘴里的新鲜荔枝，其实在路上，在经过的道道驿站，在通过的层层关卡，那时，就早已腐败不堪了。层层加码或许能得到新鲜的结果，但在过程里，已经层层腐败了，一骑红尘妃子笑，无人知是烂荔枝。",
-          "link": "https://chinadigitaltimes.net/chinese/719020.html",
-          "publishedOn": "2025-06-21T08:52:41.000Z",
-          "wordCount": 13128,
-          "title": "王五四｜新鲜的长安荔枝，腐败的长安吏制",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/image-1750495770651.png"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=719019",
-          "author": "既要又要还要",
-          "description": "如果有时间学点历史，也会发现，责任制并不会阻止错案的发生。因为听领导的话，办了错案，“被追责”只是未来的一种可能性。而不听领导的话，“被穿小鞋”则是眼前的现实问题。两害相权，显然眼下不得罪领导才是立身之道。更重要的是，追责的前提，是要先认定出一个错案。换言之，只要没错案，自然就没追责。而只要领导还没有倒台，错案就很难被认定。",
-          "link": "https://chinadigitaltimes.net/chinese/719019.html",
-          "publishedOn": "2025-06-21T08:38:47.000Z",
-          "wordCount": 13138,
-          "title": "念兹集｜关于刑讯逼供的“说谎者悖论”",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/046A8FDF1FCC642B32CAAE54DD38CC9B804A381B_size18_w525_h350.jpeg"
         }
       ]
     },
@@ -11562,6 +11656,16 @@
       "feedUrl": "http://feeds.feedburner.com/ruanyifeng",
       "siteUrl": "http://www.ruanyifeng.com/blog/",
       "articles": [
+        {
+          "id": "http://www.ruanyifeng.com/blog/2025/07/weekly-issue-356.html",
+          "author": null,
+          "description": "这里记录每周值得分享的科技内容，周五发布。\n本杂志开源，欢迎投稿。另有《谁在招人》服务，发布程序员招聘信息。合作请邮件联系（yifeng.ruan@gmail.com）。\n封面图\n\n6月24日，深圳开展消防演习，无人机喷水，进行高层建筑灭火。（via）\n公司强推 AI 编程，我该怎么办\n前两天，\"黑客新闻\"论坛有一个求助帖。\n程序员求助，公司强制使用 AI 编程，他不想用，怎么办。\n下面七嘴八舌，大家说了很多想法。这是现在的热点问题，我今天就来分享这个帖子。\n\n2025年的现实就是，AI 编程（AI coding）已经从实验室技术变为成熟技术，无法回避了。\n它自动写代码，成本低、产出快，公司管理层不可能不推广。程序员就很尴尬了，跟 AI 是合作竞争关系，既要用好 AI，又要防止岗位被它抢走。\n求助帖这样写道：\n我是一个高级工程师，已经在公司工作五年了。公司越来越推崇快速工程，CEO 和 CTO 都对 AI 编程痴迷不已。\n公司强制大家使用 AI 编程，甚至提倡让 AI 生成单元测试，对于失败的测试用例，也是扔给 AI 处理，而不是手动解决，以加快开发速度、产品尽早上线。\n我考虑辞职，不想参与这种流程，成为不写代码、只写提示的\"提示工程师\"，眼睁睁看着自己的技术停滞或退化。我也不想两三年后，负责维护一堆由 AI 生成的意大利面条代码。\n我想听听大家的意见，怎么应对公司推行 AI 编程。\n网友的看法，总结起来就是三种选择，都有一定的道理。换成你，会怎么选择？\n选择一：听从内心\n如果你确实精疲力竭，那就离开吧。即使你还能忍，做一份自己讨厌的工作，也很快会精疲力竭。\n最糟糕的情况是，你平时在公司里，表面上假装对 AI 充满热情，但心里又不愿意，那真的是煎熬。\n放任自流的 AI 编程会快速积累技术债，最终导致项目失败。公司迟早会要求你，修复 AI 造成的代码混乱，如果你回答唯一解决方…",
+          "link": "http://www.ruanyifeng.com/blog/2025/07/weekly-issue-356.html",
+          "publishedOn": "2025-07-11T00:00:44.000Z",
+          "wordCount": null,
+          "title": "科技爱好者周刊（第 356 期）：公司强推 AI 编程，我该怎么办",
+          "imageUrl": null
+        },
         {
           "id": "http://www.ruanyifeng.com/blog/2025/07/weekly-issue-355.html",
           "author": null,
@@ -11599,6 +11703,16 @@
       "feedUrl": "https://sspai.com/feed",
       "siteUrl": "https://sspai.com",
       "articles": [
+        {
+          "id": "https://sspai.com/post/100949",
+          "author": "少数派编辑部",
+          "description": "Perplexity 正式推出 Comet 浏览器、JEDEC 发布 LPDDR6 新标准等。查看全文",
+          "link": "https://sspai.com/post/100949",
+          "publishedOn": "2025-07-11T00:24:23.000Z",
+          "wordCount": 801,
+          "title": "派早报：Apple 开启返校季优惠、马斯克发布 Grok 4 等",
+          "imageUrl": "https://cdnfile.sspai.com/11/07/2025/article/eb5cdaaa-2994-66be-ed63-02588d8b8519.png"
+        },
         {
           "id": "https://sspai.com/post/100938",
           "author": "少数派编辑部",
@@ -13543,6 +13657,16 @@
       "feedUrl": "https://feedx.site/rss/infzm.xml",
       "siteUrl": "http://infzm.com",
       "articles": [
+        {
+          "id": "http://www.infzm.com/contents/297481",
+          "author": null,
+          "description": "2025-07-11 08:00:00\n\n《经济学人》6月28日\n战争不能赢得中东的和平\n美国近日对伊朗展开军事行动，其中使用14枚掩体穿透炸弹和三十多枚巡航导弹，对伊朗的核设施造成了损害。但这种打击并不能完全摧毁伊朗的核设施，也无法消除伊朗掌握的核知识。美国的目的在于延缓伊朗的核计划，让伊朗认识到发展核武器不值得。美国需要与伊朗达成全面的核协议，通过外交手段解决核问题。美国可以利用其在中东的影响力，推动中东国家通过贸易和投资解决争端，而不是通过战争。以色列在中东地区的军事优势使其能够对周边威胁采取强硬措施，但以色列应该像1973年战争后与埃及和解，以及2020年与阿拉伯国家签署《亚伯拉罕协议》那样，与相关国家达成类似协议，实现地区和平。这需要以色列承认巴勒斯坦的国家地位，并放弃永久战争状态。《经济学人》认为，特朗普在推动中东和平方面有潜力，他可以利用自己在共和党内的影响力，推动以色列与伊朗之间的谈判。但如果特朗普失去兴趣，情况将变得黯淡。\n\n《纽约客》7月7日\n论文的终结\nAlex，一位原本对艺术感兴趣但后来转向会计专业的学生，坦诚地分享了他如何依赖AI来处理几乎所有类型的写作，从学术论文到约会短信，甚至大学申请。Alex展示了一个AI生成的论文样本，这篇论文在艺术史课程中获得了A-的成绩，尽管Alex自己对论文内容的理解并不深入。这引发了关于学术诚信和教育本质的讨论。尽管他有些内疚，但他认为这是一种现实的应对策略。自2022年ChatGPT发布以来，AI能轻松生成文本，“二手思考”成为常态，许多大学试图限制其使用，但难以奏效。AI生成的论文虽然能获高分，学生对内容却未必真能理解。这让教育面对学术诚信与学习意义的双重考验：一些学生和教授认为使用AI完成作业是作弊行为，而另一些人则认为这是一种可以接受的工具，类似于使用搜索引擎。随着AI技术的发展，教育机构开始探索如何将AI融入教学中，例如通过提供个性化的AI账户来辅助学生的学习。面对AI的挑战，一些教授选择回归传统的笔试和蓝皮书考试，以确保学生的作业是原创的。而另一些教授则强调写作过程的重要性，鼓励学生通过草稿、反馈和修订来提高写作能力。\n\n《巴伦周刊》6月30日\n经济停滞中的日本牛市\n在全球大范围经济停滞的背景下，日本股市表现出色。许多投资者或许可以选择在美日贸易局势未明朗前先行获利了结，特别是考虑到美国即将对日本汽车加征25%的关税，这将令日本出口遭受新一轮打击。2024年，日本为控制创新高的主权债务大幅削减政府支出，经济陷入停滞。日本国内也有多重挑战：7月参议院选举自民党可能失去席位，进一步加剧政治不确定性。通胀转型带来的阵痛愈发明显——米价一年翻番，引发抢购，农民老龄化和合作社管理失误使短缺雪上加霜。瑞银预计，日本经济最快要到2026年才可能恢复增长，2025年下半年或将出现技术性衰退。与此同时，美日正就关税问题展开最后博弈，涉及约400亿美元、占GDP约1%的对美汽车出口。日本虽然拥有造船、武器采购等谈判筹码，但国内政治压力让政府的妥协空间有限。结构性人口变化也冲击经济：老年人因养老金增长滞后饱受通胀压力，而35岁以下年轻人因实际收入提升，创业热情高涨。随着长达30年的通缩结束，家庭和企业正积极投入更高回报的项目。此外，日本企业的股东回报明显改善，索尼、三菱、日立等已承诺大规模回购股票，反映它们对后市充满信心。",
+          "link": "http://www.infzm.com/contents/297481",
+          "publishedOn": "2025-07-11T00:25:04.000Z",
+          "wordCount": 91,
+          "title": "AI生成的论文得了A丨刊中人",
+          "imageUrl": null
+        },
         {
           "id": "http://www.infzm.com/contents/297273",
           "author": null,
@@ -16911,76 +17035,6 @@
           "publishedOn": "2025-06-21T14:25:06.000Z",
           "wordCount": 84,
           "title": "关于那某某茜有关情况核查通报",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/296302",
-          "author": null,
-          "description": "2025-06-21 20:00:00\n1980年4月19日，至少有5万人自发参加了让-保罗·萨特的葬礼。其中大部分拥挤在街道两侧，从医院到蒙帕纳斯公墓，仅有3公里。还有不少人在墓地守候，有人爬上雕塑的头顶，有人被挤得掉进刚挖好的墓穴。\n医院的门打开，拉着萨特灵柩的小卡车缓缓驶出，车上的鲜花堆成小山。随着车往前行驶，簇拥的人群也开始移动，像海浪起伏。他们手拉手向前走。这位长眠的老人留下的警句，似乎在推动着海浪：“存在先于本质”，“人被判自由；因为一旦被抛入世界，他就对自己所做的一切负责”。1968年，席卷巴黎的五月风暴中，萨特也走上了街头，成为年轻人的精神导师。\n棺椁降下，有人给波伏娃搬来一把椅子，她坐下，疲惫，茫然。萨特把她称作“海狸”。波伏娃扔下一枝鲜花，她已经不能再做更多。随之是雨点般的鲜花落下。6年后，波伏娃的骨灰安葬在了萨特身边。生前，他们保持着开放式关系，死后反而被牢牢绑定。\n\n1978年萨特和波伏娃在意大利罗马。视觉中国丨图\n萨特并不忌惮死亡。1905年6月21日，也就是距今120年前，他出生时，父亲便病入膏肓了。父亲让-巴蒂斯为了看大海，进入了海军军官学校，却在东南亚染上疟疾。萨特在《文字生涯》里，戏谑地描述父母的结合，父亲“娶她为妻，并飞快地让她生下一个孩子，这就是我，从此他便想到死神那里求得一个栖身之地”。那时，萨特的母亲安娜-玛丽年仅20岁，因为日夜忧心忡忡地照顾病人，奶水断了。襁褓中的萨特还闹起了肠炎。\n他称母亲“既无经验，又无人指点”，“在两个奄奄一息的陌生人之间疲于奔命”。小萨特活了下来，一直活到74岁。父亲在他1岁零3个月时死去。“我父亲一死，安娜-玛丽和我，我们突然从共同的噩梦中苏醒过来。我的病好了，而我们母子之间却产生了一桩误会：她带着母爱重新养育她从未真正离开过的儿子，而我却在一个陌生女人的膝盖上重新认识了母亲。”当然，1岁零3个月的孩子…",
-          "link": "http://www.infzm.com/contents/296302",
-          "publishedOn": "2025-06-21T12:25:08.000Z",
-          "wordCount": 97,
-          "title": "萨特诞生120周年：未完成和已终结的",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/296298",
-          "author": null,
-          "description": "2025-06-21 19:00:00\n近日，上海市公安局一场新闻发布会，让电动自行车管理再次成为公众关注的焦点。据《法治日报》报道，上海市公安局在2025年6月11日举行的新闻发布会上表示，2024年以来，上海涉非机动车亡人事故在所有亡人交通事故中占比近七成。而上海公安局发布的几起典型案例，都涉及电动自行车违法肇事。\n电动自行车以其节能、快捷，成为备受欢迎的交通工具，全国保有量已经超过4亿辆。电动自行车在给人们带来方便的同时，也造成了越来越多的问题。首当其冲的是交通事故增加。《中国统计年鉴2024》显示，2019-2023年期间，涉及电动自行车的交通事故死亡人数年均增长率达5.85％；全交通方式死亡人数有所降低，而电动自行车的死亡人数则逐年递增。\n电动自行车事故增加，有多重因素。据上海市公安局的数据，非机动车肇事违法主因排名前三位的，分别是违反交通信号通行（占29.1%）、未按规定让行（占13.4%）和超速（占9.6%）。而这也正是电动自行车管理中的难点。\n违反交通信号通行，主要就是俗称的“闯红灯”，电动自行车因为闯红灯与汽车相撞造成人员伤亡的事故层出不穷。未按规定让行则是电动自行车骑车人不遵守交通规则，动辄逆行、占据机动车道行驶等等，发生事故的概率自然也大大增加。\n为什么电动自行车骑车人更容易视交通规则如无物呢？一个原因是之前对电动自行车管理不够严格。电动自行车被认为是自行车，归属于非机动车，骑车人不需要经过专门的驾驶训练，不需要学习交通法规，不需要考驾照，之前电动自行车甚至不需要上牌。这一方面让电动自行车的骑车人驾驶水平和交通安全意识参差不齐，另一方面，对于违反交通法规的骑车人，也很难被查处。这让很多骑车人有了侥幸心理，肆意违规，很少会被抓到，即使抓到，处罚也非常轻微。\n另外，归属于非机动车的电动自行车，受到交通安全法的特殊保护，如果与汽车发生交通事故，即使是电动自行…",
-          "link": "http://www.infzm.com/contents/296298",
-          "publishedOn": "2025-06-21T11:25:06.000Z",
-          "wordCount": 92,
-          "title": "上海非机动车亡人事故占七成：电动自行车管理要有堵有疏",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/296304",
-          "author": null,
-          "description": "2025-06-21 18:40:01\n6月21日，据网信北京官方消息：近日，北京大学助理教授韦东奕食堂就餐遭多人轮番拍摄的视频引发社会高度关注。“贴脸拍摄”“围堵跟拍”等侵扰行为，引发媒体与网民强烈谴责，公众呼吁守护人才安静的学术环境。\n自6月初韦东奕开通网络账号以来，针对假冒仿冒其账号吸粉引流、恶意营销牟利等乱象，北京市网信办部署，指导抖音、快手、微博等网站平台依法依规、从严从快处置，累计清理违规账号超5000个。针对近期“自媒体”跟拍盯拍、恶意蹭热行为，网信部门开展核查，督导属地网站平台全面排查、分类处置，坚决铲除无底线博流量土壤。截至目前，已集中清理盯拍蹭热等信息4699条，关停违规直播间32个，对740个实施恶意拍摄、歪曲解读的“自媒体”账号采取禁言、限制营利、关闭等处置措施。\n“自媒体”治理是净化网络生态的系统性、长期性工程。北京市网信办将持续深化专项整治，强化常态化治理，加强部门协同联动，线上线下一体打击违规行为。同时，指导属地平台完善长效管理机制，引导“自媒体”创作者树立“正能量才是大流量”理念，共同营造风清气正的网络空间。\n\n\n\n获取更多RSS：\nhttps://feedx.net \nhttps://feedx.site",
-          "link": "http://www.infzm.com/contents/296304",
-          "publishedOn": "2025-06-21T10:55:06.000Z",
-          "wordCount": 72,
-          "title": "韦东奕就餐遭“贴脸拍摄” ，北京网信办：超5000个账号被清理",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/296296",
-          "author": null,
-          "description": "2025-06-21 18:00:00\n“天上治污、地上育人”，这是中国工程院院士、清华大学环境学院教授贺克斌对自己过去35年工作的总结。1990年博士毕业后，他一直坚持在教学和科研的第一线。\n2025年6月18日下午，国务院新闻办公室举行“新征程上的奋斗者”中外记者见面会，请优秀教师代表与中外记者见面交流。包括贺克斌在内，来自学前教育、义务教育、职业教育、高等教育阶段的5位老师出席了发布会。\n贺克斌从事大气污染治理工作，“最近大家可能感觉到中国的蓝天越来越多了，空气也越来越清新，老百姓的获得感也越来越强了，科技手段在其中发挥了非常重要的作用。”贺克斌介绍，其团队长期的野外观测、数字模拟和排放追踪，找准了雾霾的病状、病因和病源，“对症下药”，获得了非常明显的效果。\n作为老师，贺克斌给几千名学生讲过课，培养的硕士生、博士生超过了100人，“他们当中已有十几位在国内外著名的大学和研究机构担任教授和研究员，成为生态环境领域的佼佼者”。\n作为科学家和高校教师，关于科教融合、产学研结合，贺克斌有着自己的看法：“老师的视野有多宽，学生的舞台就有多大。”\n在他看来，首先就是要把自己的研究和国家的重大需求紧密结合起来。“我所在的团队以及我们的学生，在国家治理大气污染，特别是蓝天保卫战过程中，经历了一次又一次的硬仗，他们在解决实际问题的过程中，得到了理论学习和实践锻炼，也取得了越来越多国际领先研究成果。”\n其次，一定要给学生提供非常真实的场景去学习和锻炼。贺克斌表示，在国家治理大气污染，特别是蓝天保卫战过程当中，老师和学生们学到了非常多的实际知识。\n比如，他们在研究洛杉矶烟雾事件和伦敦烟雾事件的过程中，有一批优秀的学生代表发现中国东部地区出现的污染现象跟历史上的伦敦和洛杉矶事件是不一样的，“学生发现这里既有气也有液还有固，是多相态反应”。\n在历史上洛杉矶烟雾事件中，美国科学家创立了大气光化学理论，伦敦烟雾事件中，欧洲科学家创立了云化学理论。在中国，他们根据跨相态或者多相态这种反应，提炼为“霾化学”理论。贺克斌觉得，这不仅给学生提供了信心，也为他们未来的职业生涯提供了更宝贵的新的研究方向。同时，这也是国家支持的。\n此外，还要通过学科交叉，给学生提供未来发展的空间。\n贺克斌有多年的留学和国际交流经历。“大家可能知道，中国是全球工业门类最全的经济体，但大家不太了解的是，我们的很多行业曾经处于技术跨度最大的状态。”贺克斌说，比如钢铁工业，宝武集团拥有世界上最先进的生产工艺，但是曾经一段时间存在大量类似于地条钢这样高耗能、高排放的工艺。“现在我们的燃煤电厂拥有世界上超临界、超超临界最先进的燃烧技术，但曾经我们仅有取暖锅炉、茶浴炉这样最基本技术水平的燃烧装置。”\n贺克斌认为，中国的环境质量亟须改善，面临的是世界上最复杂的污染源排放体系，要解决好这个问题，一方面要充分吸收国际先进的经验，另一方面更需要紧密结合中国国情。\n贺克斌及其团队的研究课题最近几年连续两次入选中国生态环境十大科技进展，累计五十余人次入选世界高被引科学家和中国高被引学者榜单。\n贺克斌经常跟学生讲，他们今天所经历的实验数据、研究数据，最终会成为中国参与和引领全球环境治理的底气。",
-          "link": "http://www.infzm.com/contents/296296",
-          "publishedOn": "2025-06-21T10:25:08.000Z",
-          "wordCount": 88,
-          "title": "院士贺克斌： 中国面临世界上最复杂的污染源排放体系",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/296275",
-          "author": null,
-          "description": "2025-06-21 17:00:00",
-          "link": "http://www.infzm.com/contents/296275",
-          "publishedOn": "2025-06-21T09:25:08.000Z",
-          "wordCount": 86,
-          "title": "独家专访王菀之：21世纪港乐的魅力",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/296294",
-          "author": null,
-          "description": "2025-06-21 15:52:02\n2025年全国高考结束\n31个省份高考成绩查询时间\n陆续公布↓↓↓\n\n在高考成绩公布前\n考生和家长可以提前开始做以下准备↓↓↓\n结合考生的兴趣爱好、职业规划以及自身优势，初步确定目标院校和专业范围。\n收集目标院校招生信息，包括高校的招生章程、专业设置，了解历年录取分数线、位次等数据，了解目标院校的招生政策和专业要求。\n关注所在省份招生考试院发布的招生计划和政策解读，及时掌握最新的招生动态。\n每年高考，总会有些不良机构或不法分子趁机寻找诈骗机会。对此，多个省份发布提示，提醒考生和家长警惕涉考骗局，不要轻信非官方渠道发布的不实信息和一些高收费的志愿填报辅导机构，谨防上当受骗。",
-          "link": "http://www.infzm.com/contents/296294",
-          "publishedOn": "2025-06-21T08:25:06.000Z",
-          "wordCount": 87,
-          "title": "高考放榜倒计时丨6月23日起，各地开始高考查分",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/296258",
-          "author": null,
-          "description": "2025-06-21 16:00:06\n稻米是中国人的当家食粮。虽然中国人食用的大米中籼稻（主要产于湿热的南方地区）占了大部分，但生长于寒冷地区的粳稻更让人喜爱，如东北大米。因为籼稻米黏性较差，直链淀粉含量较高，米饭偏硬，粳稻米黏性较好，直链淀粉含量较低，米饭较软。在口感上，粳稻米好于籼稻米。\n\n生长于寒冷地区的水稻有其自身的遗传机制。视觉中国|图\n决定粳稻优良品质的因素有多种，其中，耐寒基因是一个重要因素。2025年5月22日，中国科学院遗传与发育生物学研究所的一个研究团队在《细胞》杂志在线发表论文，提出中国东北大米的耐寒机理是表观遗传。\n决定水稻的耐寒性状的基因既有特定DNA序列的变化，也有表观遗传而产生的耐寒基因。表观遗传是指DNA序列不发生变化的情况下，生物性状的遗传信息通过DNA甲基化、染色质构象改变等途径来表达，并且传递给后代的一种遗传机制。\n研究团队对来自中国北方的31个水稻品种的耐寒性进行了研究，发现黑龙江省农垦科学院水稻研究所培育的垦稻8（KenDao8，KD8）对寒冷比较敏感，在较冷的环境中生长时，产生的可育种子数量较少。研究团队对该品种进行水稻品种繁殖研究。先将它们放置于零下15摄氏度的密室中7天，然后再转移到自然环境中生长。从这个品种结籽最多的水稻上收集种子，然后用这些种子种出的水稻放到先前同样的低温状态下繁殖。\n研究人员进行了三代耐寒育种试验，每一代都选择耐寒性更高的稻穗，经过三代耐寒育种试验，获得了结实率更高的植株，命名为KD8-3C，意为“三代冷”。之后，通过检测发现，这种水稻的耐寒性在KD8-3C的后代中持续存在。在继续该实验的五代中，这些水稻一直保持着耐寒能力。\nKD8-3C的耐寒性当然是基因决定的，但是，是基因突变还是其他原因并不清楚。为了排除这种适应性变化是基因突变，即DNA序列变化导致的，研究团队对这些水稻以及未受低温处理因而未获得相同耐寒性的水稻进行了基因组测序，结果发现，这两类水稻并没有出现任何有助于耐寒性的基因序列差异，说明基因序列并没有发生变化。\n这种情况提示了另一种可能，耐寒水稻可能存在表观遗传差异。与不耐寒的水稻品种相比，研究人员在耐寒的KD8-3C水稻品种中发现了一个特定基因，称为获得性耐寒性-1基因（acquired cold tolerance 1，ACT1）。这个基因的DNA序列并没有任何改变，但是其启动子区域的DNA甲基化水平更低。\n研究团队发现，在正常温度下生长的水稻，降低ACT1基因启动子区域的DNA甲基化水平，能够让水稻更好地耐受寒冷压力，而恢复DNA甲基化，这些水稻就会失去耐受寒冷的能力。\n这种耐寒的具体机制是，寒冷抑制了甲基转移酶MET1b，导致ACT1基因的启动子去甲基化。去甲基化后，冷响应因子Dof1与ACT1基因结合效率提高了3倍，因而ACT1基因编码的阿拉伯半乳聚糖蛋白能够稳定细胞膜，提高应对寒冷的能力。这表明，表观遗传改变而非DNA序列改变（基因突变）与耐寒性之间有直接因果关系。\n此后，研究团队在全国各地的131个水稻品种中寻找ACT1基因启动子甲基化水平的变化。结果显示，在寒冷的东北地区种植的大多数水稻品种（粳稻）的ACT1基因启动子甲基化水平显著更低，而在温暖的华南地区种植的大多数水稻品种（籼稻）的ACT1基因启动子则存在大量甲基化。\n这也表明，水稻在北迁过程中，呈现出ACT1基因启动子甲基化水平的逐步降低。因此，水稻的耐寒特征可能是被选择出来的，由此促进了水稻从热带地区向北迁移，也让寒冷地区的粳稻获得了更好的品质，黏性好，更好吃。",
-          "link": "http://www.infzm.com/contents/296258",
-          "publishedOn": "2025-06-21T08:25:06.000Z",
-          "wordCount": 87,
-          "title": "水稻耐寒的新发现",
           "imageUrl": null
         }
       ]
