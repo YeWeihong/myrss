@@ -2724,66 +2724,6 @@
             "length": "0"
           },
           "imageUrl": "https://blog.langchain.com/content/images/2025/06/GtRmoOqaUAEXH2i.jpeg"
-        },
-        {
-          "id": "23e47d",
-          "author": "Bryan Boreham",
-          "description": "📌 一句话摘要\n            \n本文深入解析 Prometheus 中 PromQL 查询的内部机制，涵盖解析、执行和输出过程，并提供优化查询性能的见解。\n📝 详细摘要\n            \n本文由 Prometheus 维护者和 Grafana Labs 杰出工程师撰写，深入探讨了 PromQL（Prometheus 查询语言）的复杂性。文章旨在通过分解从查询执行到数据检索和输出的过程，揭示 PromQL 查询的内部工作原理。作者分享了在 PromCon 2024 上题为“深入 PromQL 查询：理解机制”的会议中获得的见解，并在本博客文章中扩展了关键点。\n\n文章首先概述了 PromQL，强调了其在指定数据计算的指标和操作中的作用。它区分了即时查询和范围查询，并提供了每种查询的可视化示例。PromQL 的核心组件，包括选择表达式、函数、聚合和运算符，都进行了简要解释。\n\n接下来详细介绍了解析阶段，其中文本 PromQL 查询被转换为抽象语法树 (ASTs)。本节包括了一个简单查询如何被解析为树结构的视觉表示。\n\n然后探讨了执行阶段，重点介绍了 PromQL 引擎如何处理 AST。这包括在索引中查找序列、检索单个数据点（样本）以及处理不同类型的函数和聚合。文章还涵盖了二元运算符的机制，包括标签匹配和序列连接。\n\n输出阶段讨论了 PromQL 查询通常如何通过 Prometheus HTTP API 发送，以及结果以 JSON 格式返回的方式。它还涉及错误处理和查询执行统计的收集。\n\n文章最后提出了进一步探索的建议，包括使用 OpenTelemetry、Jaeger 和 Grafana Tempo 等追踪和分析工具来深入了解查询执行。还推荐使用 Grafana 的构建模式和 PromLens 来学习和优化 PromQL 查询。\n💡 主要观点\n            \nPromQL 概述\n                         PromQL 用于指定数据计算的指标和操作，有两种主要查询类型：即时查询和范围查询。\n                    \n\n                        解析 PromQL 查询\n                         文本 PromQL 查询由解析器转换为抽象语法树 (ASTs)，这是查询执行前的关键步骤。\n                    \n\n                        执行机制\n                         PromQL 引擎处理 AST，在索引中查找序列，检索样本，并处理各种函数和聚合。二元运算符涉及标签匹配和序列连接。\n                    \n\n                        输出和错误处理\n                         PromQL 查询通过 Prometheus HTTP API 发送，结果以 JSON 格式返回。还讨论了错误处理和查询执行统计。\n                    \n\n                        深入见解的高级工具\n                         追踪和分析工具如 OpenTelemetry、Jaeger 和 Grafana Tempo 可以提供更深入的查询执行见解。推荐使用 Grafana 的构建模式和 PromLens 来学习和优化 PromQL 查询。\n                    \n💬 文章金句\n            \nPromQL 查询的目的是表达你想要使用的指标以及你想要对这些指标执行的操作，以计算结果。\nPromQL 由解析器处理以创建抽象语法树 (AST)，引擎执行该树，从存储中提取数据，然后输出结果。\n二元运算符可能是 PromQL 中最计算密集的部分，因为构建哈希表和查找匹配的过程在每个时间步都会重复。\nPrometheus 使用 OpenTelemetry 进行追踪，因此如果你有像 Jaeger 或 Grafana Tempo 这样的分布式追踪系统，你可以使用它来查看单个查询并了解它们的执行方式。\n虽然我希望这篇博客文章和我的演讲是有帮助的资源，但我知道你可以更深入地探讨这个话题。\n📊 文章信息\n            \nAI 评分：90\n精选文章：是\n来源：Grafana Labs\n作者：Bryan Boreham\n分类：软件编程\n语言：英文\n阅读时间：11 分钟\n字数：2574\n标签：\n                    \n                        PromQL, Prometheus, 查询语言, 监控, 性能优化",
-          "link": "https://www.bestblogs.dev/zh/article/23e47d",
-          "publishedOn": "2025-06-23T16:07:36.000Z",
-          "wordCount": 328,
-          "title": "深入 PromQL：探究 Prometheus 查询机制",
-          "enclosure": {
-            "url": "https://grafana.com/media/blog/promql-query/promql-diagram.png",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://grafana.com/media/blog/promql-query/promql-diagram.png"
-        },
-        {
-          "id": "f9049c",
-          "author": "宝玉",
-          "description": "📌 一句话摘要\n            \n探讨 AI 编程如何通过降低迭代成本改变先设计后编码或先实现再重构的传统编程范式。\n📝 详细摘要\n            \n文章分析了传统软件开发中，由于不确定性导致“先设计后编码”与“先实现再重构”两种模式都面临挑战、难以简单选择的困境。作者指出，AI 编程极大地缩短了从设计到编码的成本和时间，使得基于不确定性进行快速迭代和调整变得更容易。AI 编程下的新范式是“先设计（提示词）-> 生成代码 -> 验证 -> 调整设计（提示词） -> 重新生成”，其中提示词充当了轻量级的详细设计文档。这种模式降低了代码调整的心理负担，让开发者能更关注系统整体设计。文章强调了配合 AI 编程需要有良好的源码管理、不惧回滚重生成（尤其对大错误）、以及加强代码审查和测试的重要性。最后，作者指出新人可能更容易适应这种新模式，而经验丰富的开发者需要耐心调整心态。\n💡 主要观点\n            \nAI 编程极大地降低了代码生成和调整成本。\n                         AI 能够快速根据提示词生成代码，使得基于不确定性进行快速迭代和验证成为可能，降低了传统模式下修改代码的成本。\n                    \n\n                        提示词在 AI 编程中充当了简化的详细设计文档。\n                         开发者可以将设计思路转化为 AI 可理解的提示词，快速生成初步代码，取代了编写厚重详细设计文档的需求，实现轻量级设计。\n                    \n\n                        AI 编程强调迭代、源码管理、代码审查和测试。\n                         AI 生成代码后需要频繁验证和调整，这要求开发者拥抱回滚和重生成的策略，并加强人为的代码审查和测试环节，确保代码质量和适应性。\n                    \n\n                        经验丰富的开发者适应 AI 编程需要耐心和时间。\n                         相比没有历史包袱的新人，有多年经验的开发者可能更难调整旧有习惯和心态，需要时间和耐心去适应和掌握 AI 辅助开发的新模式。\n                    \n💬 文章金句\n            \n当我使用 AI 编程时，有一点很大的变化就是极大的缩短了从设计到编码的成本和时间。\n这里的\"提示词\"充当的就是以前的\"详细设计文档\"的作用，但是可以简化许多，只要 AI 能看得懂就行，怎么写都可以。\nAI 生成代码更多会变成像 AI 画图，不停的生成新版本，不满意调整提示词重新生成，或者换一个模型重新生成。\n小错误才继续修复，稍微大一点错误直接回滚修改提示词或者换模型后重新生成，不要舍不得那点 Tokens，比起浪费的时间来不值钱。\n对于新人来说，去适用 AI 编程反而比较容易，但是对于有很多年编程经验的人，反而难以调整自己。\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：宝玉的分享\n作者：宝玉\n分类：商业科技\n语言：中文\n阅读时间：7 分钟\n字数：1690\n标签：\n                    \n                        AI编程, 软件开发流程, 架构设计, 详细设计, 代码重构",
-          "link": "https://www.bestblogs.dev/zh/article/f9049c",
-          "publishedOn": "2025-06-23T15:59:11.000Z",
-          "wordCount": 313,
-          "title": "先设计再写代码，还是先实现再重构？AI 编程让这种选择变的简单",
-          "enclosure": {
-            "url": "https://baoyu.io/api/og?heading=%E5%85%88%E8%AE%BE%E8%AE%A1%E5%86%8D%E5%86%99%E4%BB%A3%E7%A0%81%EF%BC%8C%E8%BF%98%E6%98%AF%E5%85%88%E5%AE%9E%E7%8E%B0%E5%86%8D%E9%87%8D%E6%9E%84%EF%BC%9FAI+%E7%BC%96%E7%A8%8B%E8%AE%A9%E8%BF%99%E7%A7%8D%E9%80%89%E6%8B%A9%E5%8F%98%E7%9A%84%E7%AE%80%E5%8D%95&summary=%E5%9C%A8%E4%BC%A0%E7%BB%9F%E6%89%8B%E5%B7%A5%E7%BC%96%E7%A8%8B%E6%97%B6%E4%BB%A3%EF%BC%8C%E7%BB%8F%E5%B8%B8%E4%BC%9A%E6%9C%89%E4%BA%89%E8%AE%BA%EF%BC%9A%E5%85%88%E6%8A%8A%E5%90%84%E7%A7%8D%E7%BB%86%E8%8A%82%E8%AE%BE%E8%AE%A1%E6%B8%85%E6%A5%9A%E5%86%8D%E5%8A%A8%E6%89%8B%E5%86%99%E4%BB%A3%E7%A0%81%EF%BC%9F%E8%BF%98%E6%98%AF%E5%85%88%E5%AE%9E%E7%8E%B0%EF%BC%8C%E5%AE%9E%E7%8E%B0%E5%90%8E%E5%86%8D%E5%9B%9E%E8%BF%87%E5%A4%B4%E6%9D%A5%E7%A1%AE%E5%AE%9A%E8%AE%BE%E8%AE%A1%E9%87%8D%E6%9E%84%E4%BB%A3%E7%A0%81%E3%80%82%0A&type=Translations&mode=light",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://baoyu.io/api/og?heading=%E5%85%88%E8%AE%BE%E8%AE%A1%E5%86%8D%E5%86%99%E4%BB%A3%E7%A0%81%EF%BC%8C%E8%BF%98%E6%98%AF%E5%85%88%E5%AE%9E%E7%8E%B0%E5%86%8D%E9%87%8D%E6%9E%84%EF%BC%9FAI+%E7%BC%96%E7%A8%8B%E8%AE%A9%E8%BF%99%E7%A7%8D%E9%80%89%E6%8B%A9%E5%8F%98%E7%9A%84%E7%AE%80%E5%8D%95&summary=%E5%9C%A8%E4%BC%A0%E7%BB%9F%E6%89%8B%E5%B7%A5%E7%BC%96%E7%A8%8B%E6%97%B6%E4%BB%A3%EF%BC%8C%E7%BB%8F%E5%B8%B8%E4%BC%9A%E6%9C%89%E4%BA%89%E8%AE%BA%EF%BC%9A%E5%85%88%E6%8A%8A%E5%90%84%E7%A7%8D%E7%BB%86%E8%8A%82%E8%AE%BE%E8%AE%A1%E6%B8%85%E6%A5%9A%E5%86%8D%E5%8A%A8%E6%89%8B%E5%86%99%E4%BB%A3%E7%A0%81%EF%BC%9F%E8%BF%98%E6%98%AF%E5%85%88%E5%AE%9E%E7%8E%B0%EF%BC%8C%E5%AE%9E%E7%8E%B0%E5%90%8E%E5%86%8D%E5%9B%9E%E8%BF%87%E5%A4%B4%E6%9D%A5%E7%A1%AE%E5%AE%9A%E8%AE%BE%E8%AE%A1%E9%87%8D%E6%9E%84%E4%BB%A3%E7%A0%81%E3%80%82%0A&type=Translations&mode=light"
-        },
-        {
-          "id": "5c2a81",
-          "author": "王熠明",
-          "description": "📌 一句话摘要\n            \n文章详细介绍了 AI 智能体工具调用标准协议 MCP 及其在 Dify 平台上的应用实践。\n📝 详细摘要\n            \n本文深入解析了 Model Context Protocol (MCP)，将其与传统大模型 Function Call 方法进行对比，阐述了 MCP 如何通过标准化接口解决工具调用碎片化问题，促进智能体生态繁荣。文章介绍了 MCP 的 Host、Client、Server 架构及其工作原理，并通过 Dify 平台的 MCP 插件展示了如何轻松连接各类 MCP 服务。文中列举了魔搭社区、高德地图、智谱搜索等国内支持 MCP 的应用服务，并提供了一个保姆级教程，指导读者在 Dify 上搭建一个基于 MCP 的 12306 火车票查询智能体，证明了 MCP 在提升 AI 应用能力和降低开发门槛方面的巨大潜力。\n💡 主要观点\n            \nMCP 协议通过标准化接口解决大模型工具调用碎片化问题\n                         相比依赖复杂且非标准的 Prompt 进行 Function Call，MCP 提供统一规范，使不同大模型能以相同方式调用海量外部工具，极大降低开发难度，促进生态发展。\n                    \n\n                        Dify 平台通过 MCP 插件简化 AI 智能体的搭建过程\n                         Dify 的插件化架构支持集成 MCP 服务，用户只需配置 MCP 插件并连接 Server 地址，即可在 Dify 工作流或 Agent 应用中调用各种工具，提升开发效率。\n                    \n\n                        国内平台和应用积极拥抱 MCP，已形成初步的应用生态\n                         魔搭社区提供托管的 MCP 广场，高德地图、智谱搜索等提供 MCP 服务接口，为开发者和用户提供了丰富的工具选择和便利的使用方式。\n                    \n\n                        基于 Dify 和 MCP 搭建的智能体能实现准确且实用的功能\n                         通过连接 12306 MCP 服务并在 Dify 中配置 Agent，可以实现高效准确的火车票查询功能，验证了 MCP 在实际应用中的有效性和价值。\n                    \n💬 文章金句\n            \n而一旦大语言模型能操作工具... 它就升级成为智能体 Agent，能更好地帮助人类。\nMCP 协议就像 Type-C 扩展坞，让海量的软件和工具，能够插在大语言模型上，供大模型调用。\nMCP 为【大模型】与【外部数据和工具】的【无缝集成】提供了标准化协议和平台。\n不同的浏览器，用相同的 HTTP 协议，就可以访问海量的网站。不同的大模型，用相同的 MCP 协议，就可以调用海量的外部工具。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：Datawhale\n作者：王熠明\n分类：人工智能\n语言：中文\n阅读时间：29 分钟\n字数：7074\n标签：\n                    \n                        AI智能体, MCP, 工具调用, Dify, 大语言模型",
-          "link": "https://www.bestblogs.dev/zh/article/5c2a81",
-          "publishedOn": "2025-06-23T14:51:00.000Z",
-          "wordCount": 329,
-          "title": "Dify MCP 保姆级教程来了！",
-          "enclosure": {
-            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/d9d082d8-1691-400b-d2c9-9d5882390e00/cover",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/d9d082d8-1691-400b-d2c9-9d5882390e00/cover"
-        },
-        {
-          "id": "c6ff1f",
-          "author": "Damilola Oniyide",
-          "description": "📌 一句话摘要\n            \n一篇关于如何在渐进式 Web 应用中使用 Service Worker 和 Workbox 库实现离线能力的教程。\n📝 详细摘要\n            \n本文提供了关于构建具有离线功能的渐进式 Web 应用 ( PWA) 的详细指南，解决了标准 Web 应用在网络依赖性方面的限制。文章定义了 PWA 是什么及其关键特性，如可靠性、可安装性和响应性，并解释了核心组件，包括 Web App Manifest、 HTTPS 和 Service Worker。作者强调了使用 Google 的 Workbox 库简化 Service Worker 实现相对于手动编码的优势，介绍了不同的 Workbox 模块，如路由、策略、预缓存和过期策略。文章的后半部分通过一个实用的、分步示例，演示了项目设置、 HTML 结构、 CSS 样式、 JavaScript 配置、 Manifest 创建，以及将 Workbox 集成到一个简单的天气 PWA 项目中，从而得到一个功能齐全支持离线应用。\n💡 主要观点\n            \n PWA 使用标准 Web 技术提供可靠、可安装且引人入胜的应用般体验。\n                         渐进式 Web 应用弥合了 Web 应用与原生应用之间的差距，提供离线访问、主屏幕安装和推送通知等功能，无需通过应用商店下载。\n                    \n\n                         Service Worker 充当后台代理，通过拦截网络请求和缓存资源来实现离线功能。\n                         这些脚本独立于主浏览器线程运行，管理缓存策略、后台同步和推送通知，确保即使没有网络连接也能获取内容。\n                    \n\n                         Workbox 通过预构建模块和最佳实践简化了 Service Worker 开发。\n                         这个 Google 库简化了缓存、路由和预缓存等复杂任务，减少了样板代码，帮助开发者更轻松地构建高效且稳定的 Service Worker。\n                    \n💬 文章金句\n            \n PWA 将 Web 的强大功能带到您的指尖，提供移动应用的体验。\n PWA 是一种 Web 应用，它结合了 Web 和移动应用的优点。\n在 PWA 中， Service Worker 是一个 JavaScript 文件，它在后台运行，独立于您的主应用，并充当网络代理。\n Workbox 是 Google 的一个库，它通过让开发者专注于重要的事情，而无需担心 Service Worker 的复杂部分，从而简化了工作。\n workbox-precaching... 通过在 Service Worker 的安装阶段存储静态资源来处理预缓存。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：freeCodeCamp.org\n作者：Damilola Oniyide\n分类：软件编程\n语言：英文\n阅读时间：23 分钟\n字数：5522\n标签：\n                    \n                        PWA, Service Worker, Workbox, Web 开发, 离线能力",
-          "link": "https://www.bestblogs.dev/zh/article/c6ff1f",
-          "publishedOn": "2025-06-23T13:57:56.000Z",
-          "wordCount": 353,
-          "title": "如何在渐进式 Web 应用中使用 WorkBox 实现 Service Worker",
-          "enclosure": {
-            "url": "https://cdn.hashnode.com/res/hashnode/image/upload/v1750687028879/b12e57cb-290a-4562-8584-95eb5713a871.png",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://cdn.hashnode.com/res/hashnode/image/upload/v1750687028879/b12e57cb-290a-4562-8584-95eb5713a871.png"
         }
       ]
     },
@@ -3444,6 +3384,16 @@
       "siteUrl": "https://new.qq.com/omn/author/8QMf33ZY5YwduT%2FQ",
       "articles": [
         {
+          "id": "https://view.inews.qq.com/a/20250712A04J1K00",
+          "author": "人物",
+          "description": "这里是《人物》的「见好」栏目，本期的主题是「夏天到了，我开始心甘情愿吃草」。\n\n每到夏天，饭桌上就悄悄换了一套节奏：不再炒得热气腾腾，也不再追求浓油赤酱。打开冰箱，只想吃点凉的、酸的、绿的；手指滑到外卖App，不由自主地点下了凉面、沙拉和果切。\n\n当我们向读者发出征集，希望获得一些夏日的轻食灵感时，收到的投稿却更像是一份「夏日身体使用说明书」。\n\n有些人，是身体先发出提示的——热到没胃口，只想吃点冷的、酸的、爽口的；有些人，在高温的通勤和格子间中，努力探寻一顿不需要动脑、不容易犯困的打工续命餐；有些人，把食物当作夏天的坐标，一提到凉面、苦瓜、绿豆汤，就一秒被带回小时候电风扇前的晚饭桌。\n\n「清淡」不是一场饮食革命，也不是某种自律挑战。它更像是人们在热浪、疲倦和琐碎里，为自己设下关于「好好吃饭」的提醒——饭可以不丰盛，但要舒服；人可以偷懒，但要用心对待每一餐。\n\n这些清爽的饭菜，就是苦夏里的一点人生滋味。\n\n \n\n\n策划、文｜Dai\n编辑｜姚璐\n图｜（除特殊标注外）受访者提供\n\n\n\n🍴清爽，是一种生理召唤🍴\n\n@流野 22岁 漳州\n夏天不能没有绿豆仙草西米露。我喜欢食物的口感和原味，不加奶不加糖，我都能连吃三碗。\n\n   \n\n@阿金 19岁 大连\n沙拉也能做得口感丰富。简单的芝麻菜、生菜搭配一些桃子或者蜜瓜块，再配上火腿坚果碎、橄榄油、葡萄酒醋以及布拉塔奶酪。在天气炎热不愿意开火的情况下，不失为一顿美餐。\n\n   \n\n@Lola 28岁 北京\n最喜欢吃的轻食是「西红柿」。更具体地说，西红柿这种水果兼蔬菜的神奇存在，无论大小、品种和做法，我都爱。在夏天，我爱上了逛早市，早市的西红柿品种多样，价格划算，品质也不错。买点小番茄回家泡盐水洗一洗直接生吃，一天能干掉小半盆；买几个草莓柿子，午觉醒来吃一个，提神醒脑；买几个最便宜的大番茄，做疙瘩汤或凉拌，清爽又满足。\n\n   \n\n@\ud83e…",
+          "link": "https://view.inews.qq.com/a/20250712A04J1K00",
+          "publishedOn": "2025-07-13T02:00:00.000Z",
+          "wordCount": 5610,
+          "title": "夏天到了，我们开始心甘情愿吃草",
+          "imageUrl": "https://inews.gtimg.com/om_ls/OyX-TvefJu1SkjBSThJ3T7DMMbuBmTETKIlm3YqwCJ1GIAA_640330/0"
+        },
+        {
           "id": "https://view.inews.qq.com/a/20250711A052PY00",
           "author": "人物",
           "description": "在淘天内部乃至业界，很多人认为这个技术团队是最接近AI技术，也最神秘的一群人。他们到底是谁？如何通过技术与数亿消费者对话？\n\n曾经，算法工程师被调侃为「码农」「程序猿」，生活单调，每天与代码为伴，穿着格子衬衫，发际线比同龄人靠后，过着两点一线的日子。但这些「刻板印象」显然不适用于这支年轻、充满朝气的团队，他们的故事，或许可以打破外界对技术人的固有想象。\n\n文｜许言\n编辑｜李天宇\n\n好玩的，会玩的\n\n狼人悍跳预言家，假意报出平民的金水身份。预言家发言有漏洞，被抗推出局。狼人自刀，女巫没有救他。狼人自爆发言，声称自己要伪装好人骗取信任……6月30日，一个普通的工作日下午，杭州阿里巴巴总部正在直播一场特别的狼人杀比赛，参赛选手是淘天集团技术团队的员工。\n\n不过，参赛的并不是他们本人，而是他们设计出的「Agent」（智能体）——由各种AI大模型驱动的AI狼人杀选手。这场AI对决，是淘天集团第四届技术节「硬核少年技术节4.0」的亮点之一。\n\n比赛中，AI像人一样在深度思考、辩驳、隐藏身份。有时，它也会暴露弱点：无法百分百预判策略，甚至会直接说出「我要隐藏狼人身份」这样的话。这是一次有趣的尝试，算法工程师们正在探索，如何让AI变得更有趣、更「人性化」。\n\n在技术节上，工程师们不仅设计了AI版狼人杀，还开发了AI版「谁是卧底」，以及许多奇思妙想的黑客松项目。例如，有人用AI还原了爷爷的影像和声音，让逝去的亲人以另一种方式陪伴家人；另一个上班族都感兴趣的是「上工宝鉴」，通过AI分析工位风水，判断书籍和植物的摆放是否会影响工作运势。\n\n   \n\n这样的尝试，淘天集团的技术团队已经坚持了四年。「淘天集团」这个名字听起来或许有些陌生，但如果提到淘宝、天猫、阿里妈妈、淘宝直播、闲鱼、1688，你就会明白，它是阿里巴巴旗下的科技公司，承载了中国人线上购物的主要场景。而这些算法工程师的任务，就是帮助几…",
@@ -3799,46 +3749,6 @@
           "wordCount": 4861,
           "title": "40%毛利率不是终点，老铺黄金短期内还要涨",
           "imageUrl": "https://inews.gtimg.com/om_ls/OGMXG_z09aI00BEqKMl9el1sD9BO0xSCB2JqB7KNwL1osAA_640330/0"
-        },
-        {
-          "id": "https://view.inews.qq.com/a/20250623V095UH00",
-          "author": "晚点LatePost",
-          "description": "很多企业做体育营销，都想押中短期流量，最大化影响力。伊利为什么选择投入大、产出慢的营销思路？还总能把体育营销玩出花？",
-          "link": "https://view.inews.qq.com/a/20250623V095UH00",
-          "publishedOn": "2025-06-23T14:14:04.000Z",
-          "wordCount": 258,
-          "title": "体育营销，伊利的“笨”方法",
-          "imageUrl": "https://inews.gtimg.com/news_ls/Ot45GiQvBa7pFXzjCBK_ULHvy8AqCP6BISirEuxINBk0wAA_7201280/0"
-        },
-        {
-          "id": "https://view.inews.qq.com/a/20250623A090V800",
-          "author": "晚点LatePost",
-          "description": "未来会有好用的通用人形机器人，但它无法解决所有问题。\n\n\n\n文丨李梓楠\n编辑丨程曼祺\n\n\n具身智能产业还处在分歧多于共识的状态。最基础的外观就百花齐放，带双腿、带轮子的，身高分布在 1.3 米到 1.8 米的区间；至于机器人大脑，现有技术路线分歧更大，行业中大部分人甚至还无法准确描述面对的问题是什么。\n\n与大部分追求确定性的供应商不同，芯片供应商地瓜机器人在具身智能技术路线仍未明确且收敛的情况下就已入局。\n\n地瓜机器人 CEO 王丛说这很符合地平线做事的思路——选择够难够长期，最好当下还不大但未来可能很大的赛道做，“在没有人竞争的地方竞争”。\n\n地瓜机器人孵化于地平线的机器人事业部，原本职责是在自动驾驶以外，给地平线的芯片寻找客户。2023 年末，看到大模型技术加持下机器人的进步后，地平线机器人事业部从独立成地瓜机器人，意为地平线结的瓜。\n\n和当年地平线进入智能汽车市场类似，智能机器人虽然是一个目前总规模不大的新兴市场，但这里也有巨头徘徊：如英伟达就正在机器人市场主推 Jetson 嵌入式系统，它是一套包含 CPU、GPU、内存、 闪存和电源管理系统等核心模块的机器人端侧电脑。\n\n“人形机器人可能成为历史上最大的产业，它面临的挑战也一样大，” 黄仁勋在今年 3 月的 GTC 大会上说。\n\n英伟达的优势是开发生态。地瓜做的一个重要工作也是做开发工具、办具身智能相关比赛：“先把生态做起来，让创业者用到我们的工具，才可能让客户主动来找你，而不是你去找客户。” 王丛说。\n\n   \n\n地瓜机器人的 RDK S100 开发者套件。来源：地瓜机器人。\n\n\n这是地平线在汽车市场里曾经的成功实践：2019 年起，地平线开始重点投入开发智能驾驶工具链，让下游智驾客户或车企客户能把地平线的产品用得更好。目前，地平线是中国市场最大的智驾计算方案供应商。\n\n我们在近期对话了地瓜机器人 CEO 王丛，…",
-          "link": "https://view.inews.qq.com/a/20250623A090V800",
-          "publishedOn": "2025-06-23T13:48:46.000Z",
-          "wordCount": 6095,
-          "title": "从地平线拆分后，地瓜机器人怎么做具身智能卖水人丨具身智能对话",
-          "imageUrl": "https://inews.gtimg.com/om_ls/O_NzC6huPHFIF9K6o3WqpnFWUGuELh0fh_3mtzEi1vSegAA_640330/0"
-        },
-        {
-          "id": "https://view.inews.qq.com/a/20250623A08V1E00",
-          "author": "晚点LatePost",
-          "description": "社区团购式微，即时零售战场方兴未艾。\n\n\n\n文丨沈方伟\n编辑丨管艺雯\n\n\n许久没有新变化的社区团购战场，仅有的两位全国玩家在一周内都有了大调整。\n\n市场第一名多多买菜目前一年成交额 2000 亿元，但增长已接近天花板、仍处于盈亏平衡线，最新的动作是开始提升配送时效，做类似即时零售的生意；第二名美团优选一年成交额 1000 亿元出头，持续在减亏，但 2024 年以它为代表的新业务仍亏损大约 50 亿元，如今终于宣布要大幅收缩覆盖区域。\n\n《晚点 LatePost》独家获悉，美团优选在 6 月 23 日 13 时宣布，美团优选次日达自提模式退出亏损区域。这代表美团优选将关闭大多数省区，传统的社区团购业务只剩下广东、浙江两省。\n\n本次调整后，美团优选正式员工将转岗至小象超市、美团快驴或美团其他业务部门。优选此前积累的供应链转为支持小象超市和美团快驴，两个业务将加速开城，进一步扩大市场规模。除进入更多市场，小象超市也在积极尝试各种新业务，如重新开设线下社区门店，效仿盒马 NB 、奥乐齐的折扣模式。\n\n我们独家了解到，小象超市在今年加速扩张，内部认为山姆已经开城或计划开城的市场都值得进入，因为山姆已经验证这些城市有足够多有购买力的消费者，而小象有错位竞争的机会。\n\n美团优选之外，美团食杂零售现存的两个全国性业务，小象超市卖生鲜零售商品，一小时内送货上门，证明了可盈利且具备优秀的成长性。美团快驴涉足的餐饮供应链生意虽然艰难，但也已经实现了盈亏平衡。\n\n\n社区团购的模式困境：美团优选只留下两省，多多买菜多次试水新业务\n\n\n据我们了解，这次美团优选将仅保留浙江、广东两省业务，此前最多的时候，美团优选一度覆盖二十多个省市、超过 2000 个县市。本次保留的浙江、广东是美团优选最优势的两个省，已经实现盈利。其他被放弃的省份多为份额较低，继续投入也难以盈利的市场。\n\n过去很长一段时间，美团优选一…",
-          "link": "https://view.inews.qq.com/a/20250623A08V1E00",
-          "publishedOn": "2025-06-23T13:17:08.000Z",
-          "wordCount": 2282,
-          "title": "美团优选退出亏损省份，小象超市成为新希望",
-          "imageUrl": "https://inews.gtimg.com/news_ls/OYofwcjXsLHZVv5xoFN_lQsb9nLZm-a4ExhLcpApJturoAA_640330/0"
-        },
-        {
-          "id": "https://view.inews.qq.com/a/20250623A08T8M00",
-          "author": "晚点LatePost",
-          "description": "淘宝成为阿里消费业务的大入口，饿了么和飞猪加入中国电商事业群。\n\n\n\n文丨管艺雯 邱豪\n编辑丨黄俊杰\n\n\n6 月 23 日上午 9 点，阿里巴巴集团 CEO 吴泳铭发布全员邮件，宣布即日起饿了么、飞猪合并入阿里中国电商事业群，吴泽明继续担任饿了么董事长兼 CEO，庄卓然任飞猪 CEO ，两人都向蒋凡汇报。\n\n吴泳铭称，飞猪、饿了么将继续保持公司化管理模式，但业务决策执行以电商事业群集中目标、统一作战，是 “从电商平台走向大消费平台的战略升级”。\n\n从 2018 年被收购至今，饿了么都跟淘宝天猫分属不同的业务单元，协作需要跨业务单元进行。淘宝做即时配送的淘鲜达要自己找骑手，饿了么也从没有获得过淘宝首屏的流量曝光。\n\n今年 4 月底上线的 “淘宝闪购 x 饿了么” 是双方首次密切合作，也是一次吴泳铭口中的 “饱和式投入”—— 4 亿多人每天打开的淘宝直接在首屏加入外卖入口；电商业务负担主要外卖补贴费用，吸引用户在 618 到来前每天打开淘宝；饿了么接住激增的新订单。淘宝闪购联合饿了么每日的配送单量从 2000 多万单上涨到 4000 万单，再到今日宣布超 6000 万单，仅用了不到两个月。\n\n飞猪、饿了么并入阿里中国电商事业群后，几乎所有具备消费属性的业务都已经聚拢在了淘宝应用内，以淘宝作为主阵地，由电商事业群负责人蒋凡指挥，而不是过去通过集团层面来协同。\n\n这一次，阿里没有像往常一样高调提出战略转型，但启动了一个可以被称为 “一个淘宝” 的战略转型。类似曾经的 “One Ford”“One Microsoft”，或者今年启动的 “一个吉利”，这次转变是在巨变的竞争格局下，一个领先的大公司的重新聚焦。\n\n擅长组织调整的阿里集团过去十多年经历了 “集中 - 分散 - 集中 - 分散 - 集中” 的多轮调整。不过我们接触的多位阿里人士都觉得这次不太一样，以往是 “一个阿里，多个入口…",
-          "link": "https://view.inews.qq.com/a/20250623A08T8M00",
-          "publishedOn": "2025-06-23T13:06:55.000Z",
-          "wordCount": 2144,
-          "title": "“一个淘宝”：阿里没有宣布的战略转型",
-          "imageUrl": "https://inews.gtimg.com/om_ls/OyzYDJgExI9dZ9F5Z6TDNzfYHf55Wd4geEEJGTjAsM4o8AA_640330/0"
         }
       ]
     },
@@ -6777,66 +6687,6 @@
           "wordCount": 264,
           "title": "重庆无堂食商家需能公示食品加工过程，京东物流参与外卖配送，拼多多增尺码随心换服务，小米申请玄戒O2商标，这就是今天的其他大新闻！",
           "imageUrl": null
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654602547&idx=1&sn=67f084172fa1104a633a9bf4f4cd0275",
-          "author": null,
-          "description": "少一点套路，多一点真诚。",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654602547&idx=1&sn=67f084172fa1104a633a9bf4f4cd0275",
-          "publishedOn": "2025-06-23T16:01:00.000Z",
-          "wordCount": 264,
-          "title": "今年的京东618，让我发现这哥们能处",
-          "imageUrl": null
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654602547&idx=2&sn=f22db6579f5c8f2a2819a67aba78cbb8",
-          "author": null,
-          "description": "该治治了。",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654602547&idx=2&sn=f22db6579f5c8f2a2819a67aba78cbb8",
-          "publishedOn": "2025-06-23T16:01:00.000Z",
-          "wordCount": 264,
-          "title": "罗马仕爆雷后，感觉充电宝行业天快塌了。。。",
-          "imageUrl": null
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654602547&idx=3&sn=ae0b505dc2123c04e0b9c21fe3429a9a",
-          "author": null,
-          "description": "就在周末，美国出手一口气端掉了伊朗的关键核设施之后，伊朗人也立马掏出了自己的应对方式。",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654602547&idx=3&sn=ae0b505dc2123c04e0b9c21fe3429a9a",
-          "publishedOn": "2025-06-23T16:01:00.000Z",
-          "wordCount": 264,
-          "title": "伊朗说要封锁霍尔木兹海峡，为什么全世界会抖三抖？",
-          "imageUrl": null
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654602547&idx=4&sn=2cd745cd6eb4432c91f0ecbba52e7189",
-          "author": null,
-          "description": "有一种喜事丧办的美。",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654602547&idx=4&sn=2cd745cd6eb4432c91f0ecbba52e7189",
-          "publishedOn": "2025-06-23T16:01:00.000Z",
-          "wordCount": 264,
-          "title": "今日最佳：中西别碰撞了。",
-          "imageUrl": null
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654602547&idx=5&sn=b36b57be6d9772f2ff3a3ec806d3d9dc",
-          "author": null,
-          "description": "聊一聊",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654602547&idx=5&sn=b36b57be6d9772f2ff3a3ec806d3d9dc",
-          "publishedOn": "2025-06-23T16:01:00.000Z",
-          "wordCount": 264,
-          "title": "聊一聊：你印象最深刻的文章是哪篇？",
-          "imageUrl": null
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654602547&idx=6&sn=51ef4a5aa01f17d095128f125b0b3dfb",
-          "author": null,
-          "description": "今天是6月23日，农历五月廿八。",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654602547&idx=6&sn=51ef4a5aa01f17d095128f125b0b3dfb",
-          "publishedOn": "2025-06-23T16:01:00.000Z",
-          "wordCount": 264,
-          "title": "饿了么飞猪并入阿里电商事业群，美团加码小象超市，特斯拉Robotaxi上线，Switch2 HDR涉假，这就是今天的其他大新闻！",
-          "imageUrl": null
         }
       ]
     },
@@ -8044,26 +7894,6 @@
           "wordCount": 11473,
           "title": "What was the Scopes 'Monkey' Trial?",
           "imageUrl": "https://i.natgeofe.com/n/e2b3e9ef-77b9-4b71-b744-4a6925a0d079/GettyImages-163646792_16x9.jpg?w=1200"
-        },
-        {
-          "id": "https://www.nationalgeographic.com/science/article/first-images-vera-rubin-observatory-astronomy-space",
-          "author": "Paola Rosa-Aquino",
-          "description": "Perched high in the foothills of Chile’s Andes mountains, a revolutionary new space telescope has just taken its first pictures of the cosmos—and they’re spectacular. \n    \nAstronomers are excited about the first test images released from the Vera C. Rubin Observatory, which show the universe in unprecedented detail, from violent cosmic collisions to faraway nebulas.\n    \n“It's really a great instrument. Its depth and large field of view will allow us to take really nice images of stars, especially faint ones,” says Christian Aganze, a galactic archeologist at Stanford University who will use the observatory’s data to study the formation and evolution of the Milky Way. “We are truly entering a new era.”\n    \nThe observatory has a few key components: A giant telescope, called the Simonyi Su…",
-          "link": "https://www.nationalgeographic.com/science/article/first-images-vera-rubin-observatory-astronomy-space",
-          "publishedOn": "2025-06-23T12:39:21.000Z",
-          "wordCount": 10656,
-          "title": "These are the first images from Earth’s giant new telescope",
-          "imageUrl": "https://i.natgeofe.com/n/3dfb71bf-7a98-4a87-87b4-af0fd7d084eb/NSF-DOE_Rubin_Virgo_cluster_1_Im3crop1_16x9.jpg?w=1200"
-        },
-        {
-          "id": "https://www.nationalgeographic.com/travel/article/why-puerto-rico-should-be-your-next-food-destination",
-          "author": "Zoe Bell",
-          "description": "Puerto Rico imports 85% of its food — an issue that became even more apparent after Hurricane Maria. “Teaching people how to grow food, for us, that’s a rebel act,” says Efrén David Robles, owner of small, family-run farm&nbsp;Frutos Del Guacabo.    \nThe Caribbean island’s cuisine combines African, Indigenous and Spanish influences to create dishes of distinction.\n    \nMore than 500 years of complex history shines through in Puerto Rico’s cuisine — a dynamic mix of Spanish, African and Indigenous culinary traditions. Many of Puerto Rico’s most famous dishes focus on hearty starches, like plantain and yuca, infused with the herby flavours of the island’s favourite condiment, sofrito. Restaurants across the historic capital, San Juan, give a fine-dining twist to classic dishes such as toston…",
-          "link": "https://www.nationalgeographic.com/travel/article/why-puerto-rico-should-be-your-next-food-destination",
-          "publishedOn": "2025-06-23T12:39:21.000Z",
-          "wordCount": 12758,
-          "title": "Why Puerto Rico should be your next food destination",
-          "imageUrl": "https://i.natgeofe.com/n/6bfe9b8c-e6e0-4dd8-a62c-b459e0db25a5/tasteof_GettyImages-2196852665_ukHR_16x9.jpg?w=1200"
         }
       ]
     },
@@ -8309,62 +8139,6 @@
             "type": "image/jpeg"
           },
           "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18241/2025062684036801.jpg"
-        },
-        {
-          "id": "https://www.natgeomedia.com/science/article/content-18240.html",
-          "author": null,
-          "description": "天文學家利用ALMA成功偵測到歐特雲彗星C/2014 UN271（Bernardinelli-Bernstein）的分子活動，這是目前觀測到的最大且第二遙遠的活躍彗星。\nC/2014 UN271的直徑約140公里，是大多數已知彗星的數十倍以上。目前已知最大的長周期彗星為直徑96公里的C/2002 VQ 94與74公里的海爾─波普彗星，唯一已知比C/2014 UN 271更大的活躍彗星是半人馬小天體95P/Chiron，直徑約215公里。C/2014 UN271來自歐特雲，自2014年以來一直在海王星（29.9AU）軌道內，並在2022年9月進入天王星（18.3AU）軌道內，預計將在2031年到達近日點（11AU），但仍位於土星軌道外側。\n\n                    \n過去科學界對於這類寒冷且遙遠天體的行為所知甚少，而此次觀測揭示了從彗星核心噴出的複雜且變化多端的一氧化碳氣體噴流，這也是首次直接證實彗星在如此遠離太陽（16.6AU）的地方，其活躍狀態的驅動機制。當C/2014 UN271仍遠離太陽時，ALMA透過偵測其大氣中的一氧化碳氣體所發出的熱輻射來進行觀測。多虧ALMA具備極高的靈敏度與解析度，科學家得以聚焦於來自如此寒冷且遙遠天體的微弱訊號。\n\n                    \n本次研究建立於先前ALMA的觀測基礎，該研究首次測定UN271巨大核心的大小。此次新發現則進一步測量逸散物質的熱輻射，以計算彗星大小及其核心周圍塵埃的總量。研究團隊得出的核心大小與塵埃質量數值與前一次ALMA觀測結果一致，並再次確認這是人類迄今發現最大的歐特雲彗星。ALMA對這些訊號的精確測量能力為這顆遙遠冰凍巨型天體描繪出更清晰的輪廓。\n這項發現不僅是首次在這顆創紀錄彗星中偵測到分子氣體逸散現象，也難得提供了來自太陽系最外層天體的化學組成與動態的珍貴觀察機會。隨著 C/2014 UN271持續接近太陽，科學家預期會有更多凍結氣體開始昇華，進一步透露其原始成分與早期太陽系的樣貌。這類發現有助於解答一些根本問題，例如地球與其水源的起源，以及其他地區可能形成宜居環境的條件。（編譯／王庭萱）\n \n資料來源：ALMA\n\n.g_AD_970_250_InArticle_responsive{width:300px;height:250px;}\n@media(min-width: 1100px){.g_AD_970_250_InArticle_responsive{width:100%;}}\n\n\n\n\n\n\n\n\n\n論文資料（開放取用）：Nathan X. Roth et al, The First Detection of Molecular Activity in the Largest Known Oort Cloud Comet: ALMA Imaging of C/2014 UN271 (Bernardinelli–Bernstein) at 16.6 au from the Sun, The Astrophysical Journal Letters (2025). DOI: 10.3847/2041-8213/add526\n本文轉載自臺北市立天文科學教育館網站。\n\n                    \n#ALMA\n#歐特雲彗星\n#C/2014 UN271",
-          "link": "https://www.natgeomedia.com/science/article/content-18240.html",
-          "publishedOn": "2025-06-23T16:00:00.000Z",
-          "wordCount": 515,
-          "title": "ALMA揭露史上最大歐特雲彗星的祕密 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權",
-          "enclosure": {
-            "url": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18240/2025062486257233.jpg",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18240/2025062486257233.jpg"
-        },
-        {
-          "id": "https://www.natgeomedia.com/science/article/content-18239.html",
-          "author": null,
-          "description": "有一隻迷你臘腸犬在野外存活529天，你的狗可以嗎？專家說這取決於某些特質。\n\n                    \n今年4月底，澳洲阿得雷德海岸附近的坎加魯島上發現一隻名叫瓦勒麗（Valerie）的迷你臘腸犬，牠既健康又機警，而且當時已經走失529天。\n瓦勒麗在2023年11月前往該島度假期間與家人失散，但出乎意料的是，牠在野外甚至增重大約1.8公斤。\n非營利組織坎加拉野生動物救援的負責人賈里德．卡倫（Jared Karran）說：「牠走失時是一隻瘦巴巴的小臘腸狗，回來時卻擁有鼓鼓的肌肉。」卡倫也公布瓦勒麗獲救的影片。「牠就是一隻你會想看到的最健康的狗，擁有完美的牙齒、毛髮及皮膚。」\n瓦勒麗在叢林生活期間變得聲名大噪，追蹤牠的人得知牠在5月與家人團聚時也非常高興。\n不過，有些人想知道牠是怎麼做到的。牠是純屬走運，還是在人類身邊生活及演化數千年的寵物狗真的能在沒有我們的情況下存活？\n這個嘛，答案依個體而異。\n專攻人類與動物之間關係的生物倫理學家潔西卡．皮爾斯（Jessica Pierce）說：「我不認為〔這則故事〕有那麼令人意外或驚奇。」皮爾斯的著作《狗的世界》（A Dog’s World）深入探討如果人類從地球上消失，狗會發生什麼事。\n\n.g_AD_970_250_InArticle_responsive{width:300px;height:250px;}\n@media(min-width: 1100px){.g_AD_970_250_InArticle_responsive{width:100%;}}\n\n\n\n\n\n\n\n\n\n「牠能成功存活令人驚奇，因為牠的前半生都是一隻受人照料的寵物狗，所以牠以前沒有發展出自行存活所需的技能。」皮爾斯澄清說：「但顯然這些技能完整保留在本能中。」\n杜克犬類認知實驗室的杜克幼犬托兒所主任凡妮莎．伍茲（Vanessa Woods）撰有《狗的天…",
-          "link": "https://www.natgeomedia.com/science/article/content-18239.html",
-          "publishedOn": "2025-06-23T16:00:00.000Z",
-          "wordCount": 575,
-          "title": "狗需要人才能存活嗎？真相可能很傷人 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權",
-          "enclosure": {
-            "url": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18239/2025062485074649.jpg",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18239/2025062485074649.jpg"
-        },
-        {
-          "id": "https://www.natgeomedia.com/environment/article/content-18231.html",
-          "author": null,
-          "description": "澳洲塔龍加動物園（Taronga Zoo）的實驗室內，靜置著一排排充滿液態氮的儲槽，裡面存放來自大堡礁的珊瑚細胞。這裡是全球最大的冷凍珊瑚庫，牠們凍結於時間長河，宛若「諾亞方舟」，靜候甦醒的契機。\n去（2024）年底，科學家首度成功以冷凍的珊瑚精子讓新鮮的卵子受精，培育出珊瑚寶寶。新一代的珊瑚已重回大堡礁，目前生長狀況良好。\n\n                    \n珊瑚的時光暫停鍵\n五彩繽紛的珊瑚礁是海洋生物的重要棲地，然而全球暖化導致海水升溫、珊瑚白化。2023年~2025年的大規模白化事件影響全球84%的珊瑚，橫跨太平洋、印度洋和大西洋，而大堡礁也在近8年歷經了五次白化事件。\n塔龍加動物園的低溫多樣性生物庫（CryoDiversity Bank）是全球最大的冷凍珊瑚庫。2011年以來，每年在珊瑚大量產卵期間蒐集上兆個細胞。分離出的精子與冷凍保護劑混合後冰存在-196°C，代謝停止，細胞得以無限期保存。卵子含有較多水分與脂肪，目前的技術尚未成熟，因此未能冰存。\n大堡礁有近400種珊瑚，冰封版「諾亞方舟」儲存了30多種。澳洲塔隆加保育協會（TCSA）保育科學主管歐布萊恩（Justine O'Brien）告訴《澳聯社》（AAP），珊瑚種類繁多，需要決定優先順序，「耐熱並且具有造礁功能的珊瑚是首選」。\n「我們在牠們的生理時鐘按下暫停鍵。希望藉由大家的努力，保住大堡礁美麗的多樣性」，歐布萊恩說。\n\n                    \n耐熱珊瑚重返大堡礁\n這項創新證實有效，塔龍加保育協會去年底使用冷凍保存的珊瑚精子，成功地讓新鮮的珊瑚卵子受精。緊接著，他們與澳洲海洋科學研究所（AIMS）合作，在海洋模擬中心（SeaSim）培育珊瑚寶寶，最後送回大堡礁。\n\n.g_AD_970_250_InArticle_responsive{width:300px;height:250px;}\n@media(min-width: 1100px){.g_AD_970_250_InArticle_responsive{width:100%;}}\n\n\n\n\n\n\n\n\n\n初步研究報告顯示，回到大堡礁的珊瑚正茁壯成長中，成為珊瑚礁復育的重要里程碑。科學家期待這項突破每年能為大堡礁增添數百萬更耐熱的珊瑚。\n \n參考資料\nAFP（2025年6月4日），Coral frozen in time throws lifeline for Great Barrier Reef\nAAP（2025年3月19日），Cryo-born corals thrive on reef in win for restoration\nOceanographic Magazine（2024年12月20日），World's first cryo-born coral babies planted on Great Barrier Reef\nGreat Barrier Reef Foundation（2024年12月18日），Cryo-born coral babies deployed for the first time on the Great Barrier Reef\n本文轉載自「環境資訊中心」網站，內容由許多專家學者及民間環團，提供國內外環境教育與環保資訊；主題涵蓋全球變遷、溫室氣體控制、環保生活、環境汙染防治、生態保育、能源節約與能源效率、綠建築等各面向。期許能替沒有選票的山林、濕地、海洋、土地發聲。\n\n                    \n#大堡礁\n#冰凍諾亞方舟\n#珊瑚寶寶",
-          "link": "https://www.natgeomedia.com/environment/article/content-18231.html",
-          "publishedOn": "2025-06-22T16:00:00.000Z",
-          "wordCount": 490,
-          "title": "冰凍諾亞方舟守護大堡礁 試管珊瑚寶寶回歸海洋 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權",
-          "enclosure": {
-            "url": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18231/2025062368397185.jpg",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18231/2025062368397185.jpg"
-        },
-        {
-          "id": "https://www.natgeomedia.com/science/article/content-18232.html",
-          "author": null,
-          "description": "喝可樂治偏頭痛是流傳已久的民間療法，很多患者都覺得有用。為什麼可樂能有效緩解疼痛症狀？來看看專家的說法。\n\n                    \n每當我覺得偏頭痛快發作時，就會喝些有咖啡因的飲料，像是一大杯可樂。\n根據專家估計，有14%到15%的人跟我一樣患有偏頭痛。偏頭痛是全球健康問題的主因之一，許多人因偏頭痛不適必須請假及就醫。目前已有不少治療偏頭痛的藥物，不過很多長期偏頭痛患者都有自己深信不疑的偏方。\n其中一種偏方，就是飲用含有咖啡因的汽水（例如可樂）。我很好奇，科學家是否認同汽水的成分有助緩解即將發生的偏頭痛？結果還真的有用──或者說，至少科學家認為可樂對某些人有幫助。芝加哥西北大學費恩伯格醫學院的神經學家凱瑟琳．卡羅爾（Katherine Carroll）表示：「喝可樂確實是有一些醫學根據。」\n這或許就是為什麼近期社群媒體上瘋傳「麥當勞偏頭痛套餐」這種偏方，也就是大杯可樂配上大份薯條的組合。\n汽水未必能完全消除偏頭痛之苦，也不應當成藥物的替代品，不過專家表示這種療法確實有些用處。\n\n                    \n為什麼偏頭痛發作時會想喝汽水？\n偏頭痛和其他類型的頭痛不同，其中一個差異是偏頭痛通常有四個不同階段：前驅期（prodrome）、預兆期（aura）、頭痛期和緩解期（postdrome）。\n\n.g_AD_970_250_InArticle_responsive{width:300px;height:250px;}\n@media(min-width: 1100px){.g_AD_970_250_InArticle_responsive{width:100%;}}\n\n\n\n\n\n\n\n\n\n前驅期就是頭痛發作的幾小時到幾天前，此時人們常會突然想吃某些食物，或許是身體想藉由攝取特定食物來解決病因、緩解偏頭痛而發出的訊號。\n著有《疼痛欲裂：頭痛的內幕》（Sp…",
-          "link": "https://www.natgeomedia.com/science/article/content-18232.html",
-          "publishedOn": "2025-06-22T16:00:00.000Z",
-          "wordCount": 557,
-          "title": "喝可樂能緩解偏頭痛？對某些人來說，還真的有用！ - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權",
-          "enclosure": {
-            "url": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18232/2025062374640985.jpg",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18232/2025062374640985.jpg"
         }
       ]
     },
@@ -8428,20 +8202,6 @@
             "type": "image/jpeg"
           },
           "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18252/2025070178353937.jpg"
-        },
-        {
-          "id": "https://www.natgeomedia.com/science/article/content-18239.html",
-          "author": null,
-          "description": "有一隻迷你臘腸犬在野外存活529天，你的狗可以嗎？專家說這取決於某些特質。\n\n                    \n今年4月底，澳洲阿得雷德海岸附近的坎加魯島上發現一隻名叫瓦勒麗（Valerie）的迷你臘腸犬，牠既健康又機警，而且當時已經走失529天。\n瓦勒麗在2023年11月前往該島度假期間與家人失散，但出乎意料的是，牠在野外甚至增重大約1.8公斤。\n非營利組織坎加拉野生動物救援的負責人賈里德．卡倫（Jared Karran）說：「牠走失時是一隻瘦巴巴的小臘腸狗，回來時卻擁有鼓鼓的肌肉。」卡倫也公布瓦勒麗獲救的影片。「牠就是一隻你會想看到的最健康的狗，擁有完美的牙齒、毛髮及皮膚。」\n瓦勒麗在叢林生活期間變得聲名大噪，追蹤牠的人得知牠在5月與家人團聚時也非常高興。\n不過，有些人想知道牠是怎麼做到的。牠是純屬走運，還是在人類身邊生活及演化數千年的寵物狗真的能在沒有我們的情況下存活？\n這個嘛，答案依個體而異。\n專攻人類與動物之間關係的生物倫理學家潔西卡．皮爾斯（Jessica Pierce）說：「我不認為〔這則故事〕有那麼令人意外或驚奇。」皮爾斯的著作《狗的世界》（A Dog’s World）深入探討如果人類從地球上消失，狗會發生什麼事。\n\n.g_AD_970_250_InArticle_responsive{width:300px;height:250px;}\n@media(min-width: 1100px){.g_AD_970_250_InArticle_responsive{width:100%;}}\n\n\n\n\n\n\n\n\n\n「牠能成功存活令人驚奇，因為牠的前半生都是一隻受人照料的寵物狗，所以牠以前沒有發展出自行存活所需的技能。」皮爾斯澄清說：「但顯然這些技能完整保留在本能中。」\n杜克犬類認知實驗室的杜克幼犬托兒所主任凡妮莎．伍茲（Vanessa Woods）撰有《狗的天…",
-          "link": "https://www.natgeomedia.com/science/article/content-18239.html",
-          "publishedOn": "2025-06-23T16:00:00.000Z",
-          "wordCount": 574,
-          "title": "狗需要人才能存活嗎？真相可能很傷人 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權",
-          "enclosure": {
-            "url": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18239/2025062485074649.jpg",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18239/2025062485074649.jpg"
         }
       ]
     },
@@ -8505,20 +8265,6 @@
             "type": "image/jpeg"
           },
           "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18252/2025070178353937.jpg"
-        },
-        {
-          "id": "https://www.natgeomedia.com/science/article/content-18239.html",
-          "author": null,
-          "description": "有一隻迷你臘腸犬在野外存活529天，你的狗可以嗎？專家說這取決於某些特質。\n\n                    \n今年4月底，澳洲阿得雷德海岸附近的坎加魯島上發現一隻名叫瓦勒麗（Valerie）的迷你臘腸犬，牠既健康又機警，而且當時已經走失529天。\n瓦勒麗在2023年11月前往該島度假期間與家人失散，但出乎意料的是，牠在野外甚至增重大約1.8公斤。\n非營利組織坎加拉野生動物救援的負責人賈里德．卡倫（Jared Karran）說：「牠走失時是一隻瘦巴巴的小臘腸狗，回來時卻擁有鼓鼓的肌肉。」卡倫也公布瓦勒麗獲救的影片。「牠就是一隻你會想看到的最健康的狗，擁有完美的牙齒、毛髮及皮膚。」\n瓦勒麗在叢林生活期間變得聲名大噪，追蹤牠的人得知牠在5月與家人團聚時也非常高興。\n不過，有些人想知道牠是怎麼做到的。牠是純屬走運，還是在人類身邊生活及演化數千年的寵物狗真的能在沒有我們的情況下存活？\n這個嘛，答案依個體而異。\n專攻人類與動物之間關係的生物倫理學家潔西卡．皮爾斯（Jessica Pierce）說：「我不認為〔這則故事〕有那麼令人意外或驚奇。」皮爾斯的著作《狗的世界》（A Dog’s World）深入探討如果人類從地球上消失，狗會發生什麼事。\n\n.g_AD_970_250_InArticle_responsive{width:300px;height:250px;}\n@media(min-width: 1100px){.g_AD_970_250_InArticle_responsive{width:100%;}}\n\n\n\n\n\n\n\n\n\n「牠能成功存活令人驚奇，因為牠的前半生都是一隻受人照料的寵物狗，所以牠以前沒有發展出自行存活所需的技能。」皮爾斯澄清說：「但顯然這些技能完整保留在本能中。」\n杜克犬類認知實驗室的杜克幼犬托兒所主任凡妮莎．伍茲（Vanessa Woods）撰有《狗的天…",
-          "link": "https://www.natgeomedia.com/science/article/content-18239.html",
-          "publishedOn": "2025-06-23T16:00:00.000Z",
-          "wordCount": 574,
-          "title": "狗需要人才能存活嗎？真相可能很傷人 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權",
-          "enclosure": {
-            "url": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18239/2025062485074649.jpg",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18239/2025062485074649.jpg"
         }
       ]
     },
@@ -11859,46 +11605,6 @@
           "wordCount": 13073,
           "title": "【立此存照】左右互搏？《捞女游戏》Vs《情感反诈模拟器》",
           "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/image-1750746091021.png"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=719065",
-          "author": "elijah",
-          "description": "“2952全票通过呢？”",
-          "link": "https://chinadigitaltimes.net/chinese/719065.html",
-          "publishedOn": "2025-06-23T15:46:55.000Z",
-          "wordCount": 13068,
-          "title": "每日一语 2025.6.23",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/2025.6.23.png"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=719063",
-          "author": "elijah",
-          "description": "媒体懒于报道，民众不再围观，学校的食品安全事件仍然在发生，但已经一切都趋于平静，如同死水一般的平静。",
-          "link": "https://chinadigitaltimes.net/chinese/719063.html",
-          "publishedOn": "2025-06-23T15:38:23.000Z",
-          "wordCount": 13116,
-          "title": "玖奌杂货铺｜学校食堂的臭猪肉",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/nBxY-huxwryv3901457.jpg"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=719061",
-          "author": "elijah",
-          "description": "相较2023年统计公报中27.44万所幼儿园、4092.98万的在园幼儿数，2024年全国幼儿园数量同比减少了2万多所，在园儿童数量减少了500多万。",
-          "link": "https://chinadigitaltimes.net/chinese/719061.html",
-          "publishedOn": "2025-06-23T15:30:29.000Z",
-          "wordCount": 13101,
-          "title": "数据开放｜最新消息！我国幼儿园在园儿童数量较上一年减少500万！",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/t0_0X20X570X400424c06bd-7243-4bc7-8485-8739c76ae5fa.jpg"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=719059",
-          "author": "elijah",
-          "description": "学校食堂这点破事儿，都持续多少年了，要真想杜绝劣质食材，早就做到了，哪可能隔三差五往热搜里蹦。之所以出现现在这种局面，说白了一句话：不想改变。",
-          "link": "https://chinadigitaltimes.net/chinese/719059.html",
-          "publishedOn": "2025-06-23T14:56:39.000Z",
-          "wordCount": 13129,
-          "title": "竹不倒｜改什么改，继续作！",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/06/640-5.webp"
         }
       ]
     },
@@ -11954,6 +11660,16 @@
       "feedUrl": "https://sspai.com/feed",
       "siteUrl": "https://sspai.com",
       "articles": [
+        {
+          "id": "https://sspai.com/post/100943",
+          "author": "克莱德",
+          "description": "在Pixel设备上打开Googleapp中的新闻链接、在Windows设备上打开开始菜单中的网络搜索结果，这两件事有一个共同的结果，即系统会「装傻」忽略你当前的默认浏览器设置，调用自家浏览器（Chro ...查看全文",
+          "link": "https://sspai.com/post/100943",
+          "publishedOn": "2025-07-13T03:00:00.000Z",
+          "wordCount": 689,
+          "title": "一日一技 | 用欧盟纯净版 Windows 11，享真正的数字选择权",
+          "imageUrl": "https://cdnfile.sspai.com/2025/7/13/article/e53a2703-3749-4be8-3b69-d6c1ae142000.jpeg"
+        },
         {
           "id": "https://sspai.com/post/100869",
           "author": "hb_alpha",
@@ -12602,6 +12318,16 @@
       "siteUrl": "http://thepaper.cn",
       "articles": [
         {
+          "id": "https://www.thepaper.cn/newsDetail_forward_31166580",
+          "author": null,
+          "description": "米歇尔·埃斯帕涅（章静绘）\n\n\n米歇尔·埃斯帕涅（Michel Espagne），德语文化研究专家，巴黎高等师范学院教授，法国国家科研中心名誉研究员，曾任“日耳曼地区”研究所主任和“文化迁变卓越研究中心”主任。埃斯帕涅长期从事德国思想史与文化史、法德关系和文化迁变相关研究，是文化迁变理论创始人之一，因对法德关系的研究曾获2011年盖-吕萨克-洪堡奖（Prix Gay-Lussac Humboldt）。他出版了多部专著，代表作为《笔迹：海涅手稿中泛神论的构建》（Federstriche.  Die Konstruktion des Pantheismus in Heines Arbeitshandschriften）、《海涅时代巴黎的德国犹太人：阿什肯纳兹犹太人的迁移》（Les Juifs allemands de Paris à l'époque de Heine: la translation ashkénaze）、《法德文化迁变》（Les transferts culturels franco-allemands）、《未越莱茵河：十九世纪法国哲学家眼中的德国》（En deçà du Rhin: l'Allemagne des philosophes français au XIXesiècle）、《作为文化迁变的艺术史：安东·施普林格的旅程》（L'histoire de l'art comme transfert culturel: l'itinéraire d'Anton Springer）、《琥珀与化石：十九至二十世纪人文科学领域中的德俄迁变》（L'ambre et le fossile: transferts germano-russes dans les sciences humaines XIXe-XXesiècle）。此外，他还主编或合编了《德国之镜》（Le…",
+          "link": "https://www.thepaper.cn/newsDetail_forward_31166580",
+          "publishedOn": "2025-07-13T02:02:03.000Z",
+          "wordCount": 361,
+          "title": "米歇尔·埃斯帕涅谈文化迁变与法德关系",
+          "imageUrl": null
+        },
+        {
           "id": "https://www.thepaper.cn/newsDetail_forward_31130947",
           "author": null,
           "description": "编者按：从1989 年开始，上海古籍社启动抢救出版流失海外的敦煌西域文献文物项目，1992 年开始出书，三十多年来，已经出版了俄国、法国、英国从敦煌、新疆、黑水城等地掠取的文献、文物资料图录数百册。其中俄藏敦煌文献十七册，俄藏黑水城文献三十一册，预计2026年出齐。可以说，这是新中国成立以来通过摄影方式发表图版最多的古代写本文献出版项目。蒋维崧先生撰文回忆了俄藏敦煌、黑水城文献出版前后与俄方交往的点滴轶事，可以一窥当年筚路蓝缕的艰辛。本篇为第三篇。\n\n志存高远，不让须眉——怀念克平教授\n克平（К. Кепинг，1937-2002，女）是俄罗斯科学院圣彼得堡东方文献研究中心的研究员。她出生于中国天津，其父是白卫军军官。十月革命后，他与克平的母亲结婚。她母亲是东正教信徒。1945-1954年克平在天津俄罗斯移民社团办的学校接受了小学与中学教育。这时，俄罗斯在中国的传教团体被莫斯科主教废除，克平全家也被遣返苏联。克平先是进入塔什干的中亚国立大学，不久便转入列宁格勒国立大学（下简称列大）东方系的中文专业。1959年在列大毕业后，被列宁格勒东方研究分所聘为科研人员。\n1960年，克平婚后生了双胞胎的儿子，虽然后来发生了婚变，但她很快重新投入科学研究，她进入函授研究生阶段，开始研究久已消亡的西夏语。她供职的东方研究所书库存有科兹洛夫（П. К. Козлов）探险队从中国发掘携归苏联的大批西夏文文献，俗称哈剌浩特特藏。苏俄学者伊凤阁（А. И. Иванович）、聂历山（Н. А. Невский）在这个领域的研究贡献是被世界学界高度赞扬为先驱的。学术研究需要一代又一代的继续努力——薪火相传。在克恰诺夫、萨弗罗诺夫（М. В. Софронов）的基础上，克平对西夏语的语言系统提出了自己的解释。她对西夏典籍《文海》的内容、词汇、文字以及语言现象作了最详细的阐述。这些研究成果发表后，…",
@@ -12908,6 +12634,46 @@
       "feedUrl": "https://rsshub.rssforever.com/zhihu/daily",
       "siteUrl": "https://daily.zhihu.com",
       "articles": [
+        {
+          "id": "https://daily.zhihu.com/story/9782531",
+          "author": null,
+          "description": "沙漏，公众号：沙漏国际音乐简介才是我真正的名片\n查看知乎原文\n\n\n\n由于天性敏感，成长至今我一直都在与强烈的情绪做对抗。管理情绪是我无时无刻都在做的事情，因为我相信：“ 驾驭情绪 = 驾驭人生。” \n如果一个人无法管理自己的情绪，任由情绪控制自己，不仅会伤到身边的人，更会伤到自己。无法控制情绪，有时候比生活无法自理后果更严重。\n当你意识到这个问题的存在，就已经是一件非常好的事情。以下是这些年我整理的一套对我自己适用的方法：\n1. 认识情绪 - 情绪圆盘\n应该有许多人和我一样，小时候并没有人教过我们情绪的种类。我在这几年养育自己的孩子时，因为他不会说话，所以我必须观察他的表情和动作，再给他的情绪进行命名，才知道如何去处理他的情绪。\n也就是在这个时候，我意识到我根本就不具备 “ 开心 ” “ 伤心 ” “ 生气 ” 等基础情绪词汇以外的词汇。这也就导致我在最初处理我孩子的情绪时，只能手忙脚乱的什么都给他，直到给到他要的那个东西为止。\n联想到我小时候，一件事情刺激了我的情绪时，我的大脑死机时只会会发生 “冻结 ” “ 攻击 ” “ 逃跑 ” 三种原始状态。为了高效识别我那还不会说话的孩子的需要，我第一次在人生中向自己提问，到底情绪有多少种？\n在无意间，我看到了这个：\n\n这张图叫作情绪圆盘（Emotion Wheel），又叫情绪之轮、情感轮盘、情绪图谱，最早由美国心理学家 Robert Plutchik 提出。他认为情绪像颜色一样有核心原色，也有混合、层级与强度。\n情绪圆盘的目的是帮助我们从模糊的 “我不太舒服” “我很烦”中，精准识别出情绪的种类、强度与成因，从而提升自我理解、沟通能力和情绪调节力。\n最基本的感受，Plutchik 定义为 8 种“情绪原色”：喜悦、信任、恐惧、惊讶、悲伤、厌恶、愤怒、期待。此外，还有衍生情绪与细化表达让情绪的定义更加丰富多彩。\n词汇量的限制让我们…",
+          "link": "https://daily.zhihu.com/story/9782531",
+          "publishedOn": "2025-07-13T04:35:40.191Z",
+          "wordCount": 293,
+          "title": "为什么有时候无法控制自己的情绪？",
+          "imageUrl": null
+        },
+        {
+          "id": "https://daily.zhihu.com/story/9782525",
+          "author": null,
+          "description": "祥昊，任何让人不开心的东西都是坏东西。\n查看知乎原文\n\n\n\n让我们看下香蕉君の成熟之路。\n首先，我们都知道，香蕉苹果猕猴桃芒果等属于典型的呼吸跃变型水果。\n就是在绿熟期即可摘下，放一段时间自己会成熟。\n与之对应的就是非呼吸跃变型水果，比如樱桃草莓葡萄荔枝，\n出道即巅峰，多放一天坏一天。\n\n而促使呼吸跃变型水果成熟启动的主要信号分子大家都知道——乙烯[1]。\n乙烯的合成始于甲硫氨酸，\n想合成乙烯需要经过三次转化。\n首先是在 S - 腺苷甲硫氨酸合成酶作用下转化为 S - 腺苷甲硫氨酸（SAM），\n然后在 ACC 合成酶（ACS）催化下生成 1 - 氨基环丙烷 - 1 - 羧酸（ACC），\n最后在 ACC 氧化酶（ACO）作用下形成乙烯。\n乙烯生物合成与信号传导通路图 b 为信号传导通路图\n这个过程随着温度上升呼吸作用的加强而飙升，\n最终到达顶峰后迅速下降，被称为跃变期。[2]\n香蕉成熟度里乙烯和呼吸强度的速率，可以看到到了后期断崖式上升，下降\n而在这之前，香蕉刚被摘下来时还是只青涩的蕉，\n注意啦，\n青涩不是形容词，而是叙述词。\n此时果肉里 70%-80%是淀粉，结构紧密不说，\n这类淀粉人的肠胃很难消化吸收，可以说是又硬又难吃。\n同时，果肉里还含有不少单宁（鞣酸）和果胶，\n有小伙伴讲了：\n单宁我知道，干红葡萄酒里有，喝嘴里会产生褶皱感。\n没错，单宁具有强收敛作用，\n不光会让嘴巴产生褶皱感，还可能影响肠道功能，\n咱常吃的生柿子就含有不少，\n简单的说，吃起来不光涩，吃多了还容易便秘。\n所以生香蕉就压根不能吃，更不能减肥。\n香蕉皮就更别说了，果皮塞满了叶绿素 a 和 b，整个看起来是绿油油的，\n同时细胞壁由果胶基质 - 纤维素 - 半纤维素构成坚挺的网络，导致香蕉皮此时很硬，甚至很难扒开。\n这个阶段被称为青熟期。\n香蕉没法吃，但是已经满足收获的条件了。\n收获好的香蕉被运往全国各地，\n此时一段焦灼的小调响起，又到了奥德彪拉香蕉的时间。\n\n正常来说香蕉在树上会受到乙烯的刺激，触发自我催化。\nACC 合成酶（ACS）和 ACC 氧化酶（ACO）基因表达上调，\n使乙烯爆发式增长，激活 ERF 转录因子调控成熟基因，\n此时，呼吸速率显著提高。\n乙烯激活了香蕉内部的淀粉酶、糖苷酶，淀粉水解为可溶性糖，果肉变软变甜。[3]\n香蕉表皮的叶绿素 a 和 b 被叶绿素酶降解，导致绿色褪去，\n成熟香蕉果皮力度叶绿素和可溶性固形物含量，可以看到叶绿色消失，而可溶性固形物大大增加。\n类胡萝卜素合成开始增加，类黄酮含量上升，使果皮被显现出黄色，\n部分品种还会积累花青素，出现红香蕉。[4]\n红香蕉长这样，变红是因为花青素。\n再之后,,,,,\n多聚半乳糖醛酸酶 (polygalaturonase，PG)催化果胶分子中的 α-1,4- 半乳糖苷键裂解，\n使得果胶降解，香蕉软了。\nα-L- 阿拉伯呋喃糖苷酶（α-L-Arabinofuranosidase, α-L-Af）降解细胞壁多糖中的阿拉伯糖残基，\n导致果胶溶解和细胞壁结构松散，香蕉更软了。[5]\n纤维素酶（Cellulase，CEL）和β-D- 木聚糖苷酶活性增强，干掉香蕉皮细胞壁中的部分骨架结构，\n使纤维素半纤维素降解，香蕉更更软了。\n香蕉皮中还积累了部分抗性淀粉，也也被降解成可溶性糖，用于给果皮代谢供能。\n更更更软了，所以，香蕉皮软了，也薄了。\n但是没变强。\n正常来说，这个过程随着气温升高而加快，\n香蕉在 20°C 和 30°C 里各种酶的变化，可以看到温度越高曲线越高\n但是过了 30°C 后，高温会抑制叶绿素酶的发挥，\n导致出现香蕉果肉熟了，果皮还是绿色的情况。[6]\n香蕉在 20°C 和 30°C 果实硬度和果皮色度变化，可以明显看到 30°C 果实软了，但是果皮颜色还是绿色。\n由于香蕉摘下后自然产出的乙烯含量明显降低，\n所以会在袋子里放入含有乙烯利（2- 氯乙基磷酸）的纸片。\n在运输过程中缓慢产出乙烯，模拟这一过程。\n常见乙烯利卡片，类似一张小纸片。\n而除了乙烯，呼吸作用也是促使香蕉后熟的重要原因。\n所以提高环境中的二氧化碳浓度（大概在 4% - 6% ），\n降低氧气浓度（大约 2% - 5% ）会显著提高香蕉的保鲜期。\n这就是气调储藏的原理。\n气调包装听着挺高大上，咱也挺常见，香蕉箱里那个透明袋就是气调袋。\n香蕉气调袋\n当然了，万事皆有度，\n人工乙烯过度催熟，\n除了会因催熟不均导致部分单宁等物质未完全转化，使一些不是特别熟的香蕉发涩。\n还会导致香蕉后熟过快，\n而香蕉成熟的过程中代谢前体分解的过程会产生挥发性酯类化合物，是香蕉香味的来源。\n后熟过快会使得这些酯类化合物产出过少，失去香味。\n这就是为啥感觉有的香蕉熟了特别特别香，而有些香蕉却没味的原因。\n香蕉从青熟到成熟后的过程。\n那么，现在。\n大声告诉我，香蕉君变软变黄的原因是哈？！！！！\n是乙烯吗？\n不，是哲♂学！！！！！！\n\n\n\n\n\n查看知乎讨论",
+          "link": "https://daily.zhihu.com/story/9782525",
+          "publishedOn": "2025-07-13T04:35:39.031Z",
+          "wordCount": 313,
+          "title": "为什么没熟透的香蕉总是皮厚肉少，而熟透的香蕉总是薄皮肉多？",
+          "imageUrl": null
+        },
+        {
+          "id": "https://daily.zhihu.com/story/9782530",
+          "author": null,
+          "description": "猫盟CFCA，中国12种本土猫科动物，一种都不能少\n查看知乎原文\n\n\n\n动物行为学的祖师爷康拉德·洛伦茨在他出版于 1963 年的《论攻击》一书里，也对热带鱼的颜色之鲜艳多变惊叹不已：\n\n\n所以这些鱼为什么有如此鲜艳的颜色呢？在潜水中，洛伦茨发现，这些鲜明的鱼有三个特性：\n1、它们定居在固定的地盘。\n2、它们用凶猛的攻击保护领地。\n3、除了捕食者猎食以外，它们只攻击同类的鱼。\n在实验室里，也出现了同样的现象，一个水族箱不能容下两条色彩鲜艳的鱼，否则会自相残杀到一条死去为止。\n为了进一步研究，洛伦茨和他的研究伙伴 Doris Zumpe 订做了一个两立方米的特大水缸，这样这些鱼都可以得到足够的空间建立自己的地盘。他们放进了 25 种小鱼，每种四条。Zumpe 经过统计发现，虽然鱼缸里同类的鱼只占很少的比例，每种鱼同类和异类之间咬架的频次之比为 85:15。\n所以答案就很明确了，鲜艳的色彩是同类互相争夺地盘时发出的信号，表示“别惹我！”。色彩越鲜明，同类越能清楚地感知到这一信息。\n\n那么为什么是热带的鱼而不是别的地方的鱼呢？下面是猫盟编辑的推测，未必全可信，但我想不会特别离题的。\n生物拥有两条基本的化学性质：\n1，所有生物控制生化活动的酶都对温度敏感，所以超出或者低于它们的最适温度，生命活性都会大打折扣。\n2，所有生物的生化活动都离不开水。\n另外还要加上第三条，大部分食物链是从绿色植物和藻类（光合作用）开始的，所以大部分生物离不开阳光。\n因此生命在什么样的地方最繁盛？集齐适宜的水、热、光三大因素的地方。所以庄稼在夏天生长而不是在冬天。\n热带的浅海就是具有丰富的水、热、光资源的地方。结果是这里的生物量和生物多样性都非常高，这是一个生命非常拥挤，或者说“卷”的地方。\n“卷”的环境有什么特征？\n你遭受到的压力大多是来自其他人，而不是来自物理环境的。\n同理，在一个生物密度非常高，生物之间的互动非常多的环境里，生物受到的自然选择大多是来自其他生物。\n于是在这种环境下，生物演化出大量的信号发给其他生物，颜色就是常用的一种发信号的方式。除了表示“从我的地盘滚开！”的颜色，还有表示“我有毒”的警告色。顺便一提，这些信号不一定意味着相互仇视，比如雄性动物可能有鲜艳颜色来吸引雌性，会给大鱼抓寄生虫的清洁鱼和清洁虾，也有鲜艳的条纹作为“医生制服”。\n类似的演化逻辑也适用于热带雨林。\n\n\n\n\n猫盟在云南考察中拍下的一些色彩鲜艳的动植物。\n反过来在缺乏某一条件的环境，比如冰原、荒漠，动物的颜色就要单调得多。\n而光照条件差的环境比如深海，不仅生物的数量少，而且视觉信号也很难发出，也就是“深海里黑咕隆咚，大家谁也看不见谁，随便长长就得了”。\n但是要说明这个原则不是绝对的。比如以色彩鲜艳著称的鸡形目鸟，很多都不是生活在热带地区。比如六盘山的气候属于温带半湿润大陆性气候，我们在这里拍到了很多的红腹锦鸡。\n\n\n\n\n\n查看知乎讨论",
+          "link": "https://daily.zhihu.com/story/9782530",
+          "publishedOn": "2025-07-13T04:35:39.016Z",
+          "wordCount": 141,
+          "title": "为什么热带鱼的颜色五彩缤纷，其它地带的就没有那么鲜艳呢",
+          "imageUrl": null
+        },
+        {
+          "id": "https://daily.zhihu.com/story/9782524",
+          "author": null,
+          "description": "远叔，心理咨询师/ 咨询请联系v：jyxfd001\n查看知乎原文\n\n\n\n众多回答都告诉题主了，回避型依恋的特征不愿意和爱人亲密。这种不愿意体现在高度的亲密回避，以及极低的被弃焦虑，而这两个点也正是 AAS（成人依恋量表）中的两个维度。\n作为咨询师，我会通过认知行为理论和客体关系理论来讲一下这两点到底意味着什么。\n首先先从认知行为模式（Cognitive Behavior Therapy）的角度来说一下。亲密回避很好理解，就是避免与你有“过度”的亲密接触。因为这些亲密接触，都会给 TA 一种不安感。\n一、回避亲密的根源在于自我否定\n这种不安是来自于童年婴儿时期的，TA 的父母因为照顾得并不好，所以让 TA 内心深处一直对自己说：\n我不够好，没有人会来帮助我。\n慢慢随着他长大，这个内心想法开始逐渐演化成了一种很自然的想法，或者说是生活规则。由于没有人来帮助我。所以，万事不能靠别人，只能靠自己。最终演化为：\n别人介入一定会坏事，只有自己是能信任的人\n所以通过这个思考回路，TA 也会觉得在感情中也不能靠别人。也就是说，在亲密关系中，TA 依然认为相信别人，或者“过度”依赖别人，会导致“坏事”。所以为了避免这种情况，TA 就会刻意的保持一种若即若离的状态。\n内心深处：我不够好，没人会帮助我\n行为习惯：别人不可相信，只能相信自己\n情绪感受：一旦亲密就会感觉到不安全\n\nTA 之所以会表现出不耐烦以及烦躁，甚至故意做出故意疏远你的行为。其实就是因为 TA 一直都是靠自己生活的，从小到大这已经深深的刻进了 TA 的行为模式之中。所以一旦你和 TA 靠的太近，就会让 TA 陷入一种非常陌生的环境之中。\n当我们进入一个完全陌生的环境中时，也会全身肌肉紧绷，随时准备逃跑。而 TA 在亲密关系中，也就相当于进入了一个 TA 完全不适应的环境之中，让 TA 产生了应激反应：\n本能的排斥并且想要回避你。…",
+          "link": "https://daily.zhihu.com/story/9782524",
+          "publishedOn": "2025-07-13T04:35:38.852Z",
+          "wordCount": 530,
+          "title": "当回避型依恋开始回避你时她（他）的内心活动是怎样的？",
+          "imageUrl": null
+        },
         {
           "id": "https://daily.zhihu.com/story/9782503",
           "author": null,
@@ -13979,6 +13745,36 @@
       "feedUrl": "https://feedx.site/rss/infzm.xml",
       "siteUrl": "http://infzm.com",
       "articles": [
+        {
+          "id": "http://www.infzm.com/contents/297939",
+          "author": null,
+          "description": "2025-07-13 12:00:00\n第三方支付机构江湖突变。是否还能在“牌桌之上”成为这个行业每一家机构面临的生死之问。\n2025年7月4日，中国人民银行（下称“人行”）公布的首批非银行支付机构《支付业务许可证》续展（换证）公示信息显示，13家非银支付机构支付牌照有效期变更为“长期”，6家机构牌照续展状态变更为“被中止审查”，或“不予续展”，或“申请主动退出”。\n南方周末新金融研究中心研究员查证，这是2024年5月1日《非银行支付机构监督管理条例》（下称《条例》）正式施行后的首次续牌公示，亦是人行首度拟批准续展有效期为“长期”的《支付业务许可证》。已废止的《非金融机构支付服务管理办法》规定，支付机构每次续展有效期为5年。\n当“能否留在牌桌上”成为生死之问时，非银支付业合规度有何新趋势？上述13家非银支付机构的合规度更高？\n南方周末新金融研究中心研究员统计分析南方周末“牧羊犬—中国金融业合规云平台”（下称“牧羊犬平台”）数据库发现，2025年上半年，在罚单总量和罚金总额依然高企的情况下，非银支付机构大额罚单量暴涨。罚金超100万元的大额罚单量，已超2024年全年此类罚单总量。\n南方周末新金融研究中心研究员认为，此次续展标志着非银支付牌照管理进入全新阶段。与此同时，监管机构通过动态退出机制，加速行业出清与资源整合，推动支付牌照价值回归。\n半年罚单罚金逼近2024年全年\n因散而乱，非银支付行业一直处于监管高压之下。非银支付行业罚单与罚金亦因此长期呈现持续高企态势。南方周末新金融研究中心研究员统计分析牧羊犬平台数据库发现，2021年至2024年期间，该行业每年罚单总量稳定在100张左右，罚金总额均超1亿元。但2025年上半年，行业罚单量已达86 张，罚金总额1.58亿元。仅半年时间，上述两项指标已逼近2024年全年水平。\n\n2021年-2025年上半年非银支付行业罚单情况\n细分…",
+          "link": "http://www.infzm.com/contents/297939",
+          "publishedOn": "2025-07-13T04:25:05.000Z",
+          "wordCount": 127,
+          "title": "生死之线落定，预付卡机构包揽千万元级罚单",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/297881",
+          "author": null,
+          "description": "2025-07-13 11:00:00\n\n导演张琪在片场 图/受访者提供\n或许是由于紧张，或许是酒精作用，导演张琪5月底在中国电影资料馆的《大风杀》映后对谈中有点晕乎，一贯轻声、缓慢的讲话听起来愈发轻柔。上台前，他空腹喝了两杯威士忌以缓解紧张，结果放松过头。\n\n然而，松过劲却带来意外的坦诚，他当众吐露了此前从未讲过的一些故事。比如，自己2006年来北京上大学，就是抱着做导演的梦想，越想靠近，却发现离得越远，一度放弃。“这么美好的一个事物，是不是我把它留在很远的地方（就好）。”又谈到了死亡。人为什么会怕死？即使有人告诉我们死亡是什么，我们为什么仍然不相信？当我们害怕死亡时，我们究竟在害怕什么？\n他三年前开始创作一个故事，里面就有两个从死人堆里过来的人。一个是匪首赵北山，赤足出场，越狱后发现手下人已经貌合神离，放任他们互相残杀；一个是警察夏然，从战场独自生还，驻守荒镇，产生各种羁绊却再一次经历了所有同伴的死亡。\n故事中所有人都在小镇忙崖被大风围困，那是1995年，多变和不安不仅仅指向时代背景，同样来自人内心的冲突。张琪一直对困境中的人感到好奇，“我们到底被什么困住了。”\n2025年4月，这部名为《大风杀》的电影入围了北京国际电影节天坛奖主竞赛单元，最终摘得最佳男配角和最佳编剧奖，也获得影评人的喜爱，拿到场刊最高分；5月，全国公映，6月，转到全国艺术电影放映联盟，继续放映。\n\n电影《大风杀》\n《大风杀》有出色的类型片外貌，西部小镇、警匪枪战，毫不避讳地呈现凛冽的暴力和死亡。但是，它最终走向了一个非典型类型片，没有英雄叙事，每个人物都带着自己的命题，虚无、勇敢、理想主义，他们不提供正义战胜邪恶的快感，也不提供答案。两种气质混杂，确实有所龃龉，也足够新颖。\n\n资料馆那场对谈后不久，我去位于胡同的工作室拜访张琪。他处在手头工作进入尾声的闲暇时刻，胡同幽静，猫咪穿梭，墙上张贴的海报显示着…",
+          "link": "http://www.infzm.com/contents/297881",
+          "publishedOn": "2025-07-13T03:25:04.000Z",
+          "wordCount": 83,
+          "title": "一个平和的导演在电影中铺满死亡",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/297835",
+          "author": null,
+          "description": "2025-07-13 10:00:00\n\n2024年，成都一老茶铺，居民正在打麻将。视觉中国|图\n成都的茶馆可以说是一个麻将的世界，特别是在世纪之交，许多街边的茶铺，实际上已经变成了麻将馆。打麻将成为当时成都人，特别是老年人的日常生活方式。当然，这种风行的娱乐方式，也被批评为“麻将疯”，引起了不少的纠纷，甚至还在成都引发过关于生活方式的大讨论。下面只是记录一些我看到的打麻将的片段。\n2000年7月11日，我路过和尚街梦思茶园，看到生意兴隆。两间屋，十几张茶桌，都挤满了老人们，当然也有几个中年人，可以说是“座无虚席”。这是一个典型的“麻将茶铺”，只喝茶不打麻将在这里是没有位置的，每张桌子都在打麻将。这种茶馆并不提供散客喝茶，而只是给打麻将的人提供服务，就是说至少一桌4个人。因为这家茶馆的规模并不大。打麻将4个人占一张桌子，如果有人喝茶要占桌子的话，就要影响生意，所以就干脆不提供喝茶服务。\n在这里打麻将的人应该都是附近的居民。因为在家里打麻将有很多麻烦，一是没有麻将桌，另外大家的居住条件都不是很好。来了这么多人，喝水、招待、上厕所，这些都会有一定的问题。而这些麻将馆收费都相对低廉，所以给这些老人提供了一个非常好的娱乐场所。\n第二天，我又去了成温立交桥旁的峨影茶园。街口立有一茶园的招牌，成温立交桥在成都的西边，为成都到温江的一个交通要道。附近是峨眉电影制片厂，这个茶馆叫峨影茶园，不知是否和电影制片厂有关系。也可能是峨影的家属开办的，或者是这个房产属于峨影，等等。成都市档案馆也离这里不远。正因为离成都市档案馆近，在成都市档案馆看档案，中午档案馆休息的时候，我就去茶馆吃饭和午休。所以它才碰巧成为了我考察的对象。我考察的大多数茶馆，都没有刻意地选择，带有某种偶然性。所以在成都市档案馆附近的茶馆，我考察得最多。除了一些成都特别有名的茶馆，像大慈寺的文博大茶园，人民公园的鹤鸣茶馆，会展中心…",
+          "link": "http://www.infzm.com/contents/297835",
+          "publishedOn": "2025-07-13T02:25:04.000Z",
+          "wordCount": 103,
+          "title": "王笛：麻将与休闲生活 | 日常的史诗",
+          "imageUrl": null
+        },
         {
           "id": "http://www.infzm.com/contents/297925",
           "author": null,
@@ -17128,36 +16924,6 @@
           "wordCount": 85,
           "title": "活着就要发光",
           "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/296486",
-          "author": null,
-          "description": "2025-06-23 22:51:43\n全国人大常委会法制工作委员会今天举行记者会，介绍立法工作有关情况并回答记者提问。发言人介绍，十四届全国人大常委会第十六次会议将于6月24日至27日在北京举行。会议将审议治安管理处罚法等法律议案。\n将审议治安管理处罚法等法律议案\n记者会上，发言人黄海华介绍，此次全国人大常委会会议将审议治安管理处罚法、反不正当竞争法、突发公共卫生事件应对法、海商法、法治宣传教育法、渔业法、民用航空法等草案；审议全国人大社会建设委员会关于提请审议村民委员会组织法、城市居民委员会组织法等草案的议案；审议国务院关于提请审议社会救助法、医疗保障法、食品安全法等草案的议案；审议国务院关于提请审议批准《关于建立国际调解院的公约》的议案。\n二次审议后收到8000余条意见 部分将采纳\n在今天的记者会上发言人介绍，治安管理处罚法修订草案将在全国人大常委会上进行第三次审议，修订草案二次审议稿去年6月28日至7月27日在中国人大网公布，公开征求意见期间，共收到8800多条意见，群众来信56封，部分意见将予以采纳。\n治安管理处罚法修订草案公开征求意见期间，社会公众主要就建立治安违法记录封存制度、合理设定罚款金额与拘留期限、明确处罚裁量基准、适当下调处罚年龄、提高采集人体生物样本的审批层级、与其他法律法规的衔接等提出了意见建议，部分意见将予以采纳。根据各方面意见，修订草案三次审议稿拟作几点主要修改：\n进一步规范和加强治安案件调解工作，增加规定，调解处理治安案件应当查明事实，遵循合法、公正、自愿、及时的原则。\n做好与其他有关法律、行政法规的衔接，本法有关条文中不再设置罚款处罚，同时在附则增加一款，相关主管部门依照相应规定处罚，需要给予行政拘留处罚的，由公安机关依照本法规定处理。\n将组织、胁迫未成年人在不适宜未成年人活动的经营场所从事陪酒、陪唱等有偿陪侍活动纳入治安管理处罚范畴。\n进一步明确本法和反恐怖主义法的适用，对日常工作中发现不履行治安防范责任的行为适用本法，妨害反恐工作的行为适用反恐怖主义法。\n进一步规范和保障执法，完善有关处罚程序规定，将人民警察依照本法出示的“执法证件”明确为“人民警察证”；完善关于扣押的审批手续，并增加规定当场扣押应当全程同步录音录像；进一步严格规范适用“一人执法”的情形和条件；进一步明确涉未成年人案件举行听证的情形，并增加规定涉未成年人案件听证不公开举行、听证期间不计入办案期限。\n贯彻落实党的二十届三中全会决定精神，对治安违法记录封存作出规定。\n未成年人多次违法将依法惩治\n另外，即将第三次审议的治安管理处罚法修订草案在对未成年人违反治安管理相关规定作了进一步完善。未成年人多次违法将依法惩治。\n记者会上介绍，对于未成年人违法犯罪，既不能简单地“一关了之”，也不能“一放了之”。本次治安管理处罚法修订贯彻党中央要求，按照教育和处罚相结合原则，对未成年人违反治安管理相关规定作了进一步完善。首先是适当调整不执行拘留的规定，有针对性地加大惩处力度。\n全国人大常委会法制工作委员会发言人 黄海华：现行治安管理处罚法规定，对14—16周岁以及16—18周岁初次违反治安管理的未成年人，不执行行政拘留处罚。实践中有的未成年人故意利用未成年人身份，多次违反治安管理，屡教不改，或者违法情节严重，社会反应强烈。为此本次修法规定，对14—16周岁以及16—18周岁初次违反治安管理但情节严重、影响恶劣的，或者14—16周岁一年内二次以上违反治安管理的，依法执行拘留。\n\n治安管理处罚法修订草案三审稿还与预防未成年人犯罪法做好衔接。本次修订明确规定，对因不够年龄不予治安处罚或者不执行拘留的未成年人，公安机关应当依照预防未成年人犯罪法的规定，采取相应矫治教育等措施。同时草案三审稿还对学生欺凌等违法行为做出具体规定。\n全国人大常委会法制工作委员会发言人 黄海华：依法治理学生欺凌。规定实施学生欺凌，有殴打、侮辱、恐吓等行为的，公安机关应当依法给予治安管理处罚、采取相应矫治教育等措施；同时规定学校不按规定报告或者处置严重学生欺凌的，责令改正并建议有关部门对责任人员依法予以处分，发挥好公安机关、学校在协同治理学生欺凌工作中的作用。\n\n治安管理处罚法修订草案三审稿拟增加规定，询问违反治安管理的未成年人，其监护人不能到场的，可以通知其成年亲属、所在学校代表等到场；对未成年人可能执行拘留的，可以要求举行听证。\n全国人大常委会法制工作委员会发言人 黄海华：此外，为了更好保护未成年人，净化未成年人成长环境，针对实践中存在的未成年人在酒吧、歌厅等场所从事陪酒、陪唱等有偿陪侍，危害未成年人身心健康的情况，将组织、胁迫未成年人在不适宜未成年人活动的经营场所从事陪酒、陪唱等有偿陪侍活动纳入治安管理处罚范畴。\n \n\n\n\n获取更多RSS：\nhttps://feedx.net \nhttps://feedx.site",
-          "link": "http://www.infzm.com/contents/296486",
-          "publishedOn": "2025-06-23T15:25:06.000Z",
-          "wordCount": 90,
-          "title": "治安管理处罚法修订草案将三审：未成年人多次违法将依法惩治",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/296488",
-          "author": null,
-          "description": "2025-06-23 22:52:41\n记者从甘肃省白银市靖远县了解到，受强降雨影响，6月23日18时许，靖远县永新乡新泉村新泉沟发生山洪，初步核实有4人失联。人员搜救、群众转移、隐患排查及相关处置工作正在进行。总台记者正在赶往现场。",
-          "link": "http://www.infzm.com/contents/296488",
-          "publishedOn": "2025-06-23T15:25:06.000Z",
-          "wordCount": 68,
-          "title": "甘肃靖远发生山洪灾害 初步核实有4人失联",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/296460",
-          "author": null,
-          "description": "2025-06-23 22:00:00\n\n当地时间2025年6月21日，法国巴黎，狂欢者庆祝2025年法国音乐节。视觉中国|图\n在巴黎过暑假，和意大利中年男女一起聚会，除了聊社会新闻，分享吃喝玩乐的信息，比如哪里开了物美价廉的超市，或者开了不容错过的中餐馆。我偶尔也会出于礼貌，问一句他们孩子的状况，有几个小孩，我在他们小时候见过，现在也快长成大人了。一位女性朋友吐槽了一件关于孩子的事，简直可以归为社会新闻。\n她家闺女快十六岁了，也算得上是品学兼优、让人放心的孩子。小姑娘和家人一合计，想在家里搞一个生日聚会，请的当然是玩得好的女同学。那天正好是周末，作为母亲，朋友不想碍眼，影响年轻人心情，就识趣地去了阁楼。奥斯曼时期的房子，每家在顶层有一座阁楼，之前应该是给仆人准备的。她在那里睡得好好的，结果大半夜的，孩子慌慌张张地上来，说出了点状况：一起玩的瑞士姑娘喝多了，昏了过去。于是大家打了急救电话，救护车来了，拍了拍她的脸也没把她叫醒，急救的人也急了，送去医院处理了，还好后来没什么大碍。\n最精彩的在后面。出了这样的状况，我朋友忧心忡忡，担心瑞士姑娘的父母上门讨要说法，但那对父母宽宏大量，只是打电话对我朋友送他们女儿就医的事表示感谢。他们意识到孩子可能有些问题，就一家三口一起喝酒，探讨和酒精的关系，看看怎么处理。老子讲的“行不言之教”，境界已经很高了，很了不起，而发达国家已经开始行“同醉”之教了。这真是让我朋友——思想相对落后的南欧人觉得有一丝震撼，我作为汉人，也觉得这种做法有些奇绝。欧洲的70后，作为父母，也是有些嬉皮精神在身上，比如一个女孩子年满二十了，还是和十八岁时交的男朋友在一起，她妈妈觉得不可思议：恋情居然持续了两年，难道这个年纪，男朋友不是应该经常换一换吗？另一个妈妈也惊异于自己的儿子竟然还在和少年时的女朋友交往。\n孩子的教育问题实在让人头疼，我们经常会见到教孩子教到崩溃的父母，即使是院士，面对孩子，也经常会无计可施。在新世纪，一切都被解构，虽然不是“礼崩乐坏”，但之前父母的雷霆咆哮、严厉教导已经被推翻。我们也没有办法采用之前那些方式方法。社会形成的新语言、新模式，像已经贬值的货币，没有什么价值，说了也白说，只是徒增腻烦罢了。所以只能“行不言之教”，不仅日常交流要只停留在安全区域，还要面对青春期孩子的冷眼。我们和当下一二十岁的青年之间，除了几十年的年龄差，也隔着时代的差异。我们深知过去的经验已经基本失效，只是记得自己在青春时光中的众多不适：羞怯、厌世、暴躁，所以在青年人面前经常处于一种失语状态。\n我日常面对的是中国大学生，他们之前在初中、高中不知道有什么遭遇，教导的话怕是已经听得耳朵起茧，所以我生怕一句话说错，伤害到学生，也只能赔着小心。对于该说什么，不该说什么，很没有信心，感觉走在一片雷区。只有在学生邮件中写错老师姓氏时，才敢鼓起勇气纠正一句：“实在不好意思，老师姓陈，不姓程。”因为自己的姓名，用了几十年，还是比较确信。如果有学生上课睡觉，也断然不敢像孔夫子痛斥大白天睡觉的宰予那样，斗胆直言一句：“朽木不可雕也，粪土之墙不可圬也！于予与何诛？”若是忍不住说了，怕是也要被学生告上一状，因为“朽木”“粪土”虽然形象，却有羞辱的成分。孔子虽然是万世师表，后来也只能无奈说出“于予与何诛”这样的话，意思是“我说你什么才好呢”。\n时代让每个人把重心转向自我，大家尽情炫酷，这自然妙不可言，但会全然不顾别人的感受，也是我发现的问题。一个小小的例子就是，每次收作业，为了方便大家交，都是让每位同学发到我邮箱，我打印出来，看了再讲解。作业的体例都写得很清楚，但大部分收到的邮件，普遍没有正文，只有附件发过来的作业，从形形色色的QQ网名上，比如“凌晨四点的海”“不吃鱼的喵呜”，还有其他火星文，又看不出是谁的作业，只能忍气吞声，回过去说：敢问尊姓大名？后来有一次，我去别的大学上课，也收了几份作业，作业除了用附件发过来，还有正文，竟然还有对老师的问候，并署了自己的姓名。我受宠若惊，也觉得奇怪，凭什么他们的学生那么懂事，就去问了，结果那边老师说，是自己提醒过的。我才鼓起勇气，跟学生强调了写邮件的基本礼仪，看来有时候也要行“有言”之教。\n每个人都在创造自己的时代，每一代青年都有轻浮、浅薄的一面，需要成长的时间。世界永远都属于青年人，中老年人拼命想要留住自己仅存的活力，摒弃日益弥漫的暮气。但中老年人容易厚古薄今，推崇自己的老一套道理，这自然不好。他们也要不断精进，行“无言”之教，才不会成为时代的显眼包；如果有条件的话，也可以和年轻人“沆瀣一气”，行“同醉”之教。",
-          "link": "http://www.infzm.com/contents/296460",
-          "publishedOn": "2025-06-23T14:25:08.000Z",
-          "wordCount": 98,
-          "title": "陈英：行“同醉”之教 | 意长意短",
-          "imageUrl": null
         }
       ]
     },
@@ -17672,76 +17438,6 @@
           "wordCount": 6286,
           "title": "Spirituality and Religion: How Does the U.S. Compare With Other Countries?",
           "imageUrl": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/06/PR_2025.06.25_spirituality-religion-us-interactive_featured.jpg?w=1200&h=628&crop=1"
-        },
-        {
-          "id": "https://www.pewresearch.org/?p=262939",
-          "author": "Janakee Chavda",
-          "description": "This report is a collaborative effort based on the input and analysis of the following individuals. Moira Fagan, Research AssociateSneha Gubbala, Research AnalystJacob Poushter, Associate Director, Global Attitudes Research Dorene Asare-Marfo, Senior Panel ManagerPeter Bell, Associate Director, Design and ProductionJanakee Chavda, Associate Digital ProducerLaura Clancy, Research AnalystJonathan Evans, Senior ResearcherJanell Fetterolf, Senior ResearcherShannon Greenwood, Digital […]\nThe post Acknowledgments appeared first on Pew Research Center.",
-          "link": "https://www.pewresearch.org/global/2025/06/23/acknowledgments-global-views-russia-nato/",
-          "publishedOn": "2025-06-23T14:56:56.000Z",
-          "wordCount": 5263,
-          "title": "Acknowledgments",
-          "imageUrl": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/06/PG_25.06.23_ViewsOfRussiaNATO_featured@2x.png?w=1200&h=628&crop=1"
-        },
-        {
-          "id": "https://www.pewresearch.org/?p=262936",
-          "author": "Janakee Chavda",
-          "description": "About Pew Research Center’s Spring 2025 Global Attitudes Survey Results for the survey are based on a mix of telephone, face-to-face and online interviews conducted under the direction of Gallup, Langer Research Associates and Social Research Centre. The results are based on national samples, unless otherwise noted. Read more about our international survey methodology and […]\nThe post Methodology appeared first on Pew Research Center.",
-          "link": "https://www.pewresearch.org/global/2025/06/23/methodology-global-views-russia-nato/",
-          "publishedOn": "2025-06-23T14:56:56.000Z",
-          "wordCount": 6242,
-          "title": "Methodology",
-          "imageUrl": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/06/PG_25.06.23_ViewsOfRussiaNATO_featured@2x.png?w=1200&h=628&crop=1"
-        },
-        {
-          "id": "https://www.pewresearch.org/?p=262930",
-          "author": "Janakee Chavda",
-          "description": "Classifying parties as populist Although experts generally agree that populist political leaders or parties display high levels of anti-elitism, definitions of populism vary. We use three measures to classify populist parties: anti-elite ratings from the 2019 Chapel Hill Expert Survey (CHES), Norris’ Global Party Survey and The PopuList. We define a party as populist when […]\nThe post Appendix: Classifying European political parties appeared first on Pew Research Center.",
-          "link": "https://www.pewresearch.org/global/2025/06/23/appendix-classifying-european-political-parties-2/",
-          "publishedOn": "2025-06-23T14:56:55.000Z",
-          "wordCount": 5213,
-          "title": "Appendix: Classifying European political parties",
-          "imageUrl": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/06/PG_25.06.23_ViewsOfRussiaNATO_featured@2x.png?w=1200&h=628&crop=1"
-        },
-        {
-          "id": "https://www.pewresearch.org/?p=262914",
-          "author": "Janakee Chavda",
-          "description": "Across 25 countries, a median of 45% have confidence in Zelenskyy, while an identical share do not. Ratings vary widely, from 85% confidence in Sweden to 19% in Greece.\nThe post 3. Views of Zelenskyy appeared first on Pew Research Center.",
-          "link": "https://www.pewresearch.org/global/2025/06/23/views-of-zelenskyy-2025/",
-          "publishedOn": "2025-06-23T14:56:55.000Z",
-          "wordCount": 5131,
-          "title": "3. Views of Zelenskyy",
-          "imageUrl": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/06/PG_25.06.23_ViewsOfRussiaNATO_featured@2x.png?w=1200&h=628&crop=1"
-        },
-        {
-          "id": "https://www.pewresearch.org/?p=262911",
-          "author": "Janakee Chavda",
-          "description": "Across 25 countries, a median of 79% view Russia unfavorably and 84% lack confidence in Putin. Opinions differ by age, ideology and right-wing populist party support.\nThe post 2. Views of Russia and Putin appeared first on Pew Research Center.",
-          "link": "https://www.pewresearch.org/global/2025/06/23/views-of-russia-and-putin-2025/",
-          "publishedOn": "2025-06-23T14:56:54.000Z",
-          "wordCount": 5677,
-          "title": "2. Views of Russia and Putin",
-          "imageUrl": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/06/PG_25.06.23_ViewsOfRussiaNATO_featured@2x.png?w=1200&h=628&crop=1"
-        },
-        {
-          "id": "https://www.pewresearch.org/?p=262908",
-          "author": "Janakee Chavda",
-          "description": "Majorities in 10 of 13 member nations surveyed have a positive view of NATO, though ratings have dipped in a few countries since last year.\nThe post 1. Views of NATO appeared first on Pew Research Center.",
-          "link": "https://www.pewresearch.org/global/2025/06/23/views-of-nato-2025/",
-          "publishedOn": "2025-06-23T14:56:53.000Z",
-          "wordCount": 5102,
-          "title": "1. Views of NATO",
-          "imageUrl": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/06/PG_25.06.23_ViewsOfRussiaNATO_featured@2x.png?w=1200&h=628&crop=1"
-        },
-        {
-          "id": "https://www.pewresearch.org/?p=262904",
-          "author": "Janakee Chavda",
-          "description": "Ahead of the June 2025 NATO summit, international views of Putin and Russia remain negative, while Zelenskyy gets mixed ratings overall.\nThe post NATO Viewed Favorably Across 13 Member Nations appeared first on Pew Research Center.",
-          "link": "https://www.pewresearch.org/global/2025/06/23/nato-viewed-favorably-across-13-member-nations/",
-          "publishedOn": "2025-06-23T14:56:52.000Z",
-          "wordCount": 6452,
-          "title": "NATO Viewed Favorably Across 13 Member Nations",
-          "imageUrl": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/06/PG_25.06.23_ViewsOfRussiaNATO_featured@2x.png?w=1200&h=628&crop=1"
         }
       ]
     },
