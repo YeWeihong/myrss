@@ -6,6 +6,81 @@
       "siteUrl": "https://bestblogs.dev/zh/feeds",
       "articles": [
         {
+          "id": "899561",
+          "author": "dbaplus社群",
+          "description": "📌 一句话摘要\n            \n文章深入解析了 MySQL 在内存受限环境下，通过“边读边发”机制和 InnoDB 改进型 LRU 算法，有效避免大表全表扫描导致内存溢出。\n📝 详细摘要\n            \n文章详细阐述了 MySQL 如何应对 200G 大表在 100G 内存主机上进行全表扫描而不会导致内存溢出（OOM）的问题。首先，从 Server 层角度分析，MySQL 采用“边读边发”策略，通过 net_buffer_length 参数控制每次发送的数据量，当网络栈满时会暂停读取，从而避免一次性加载全部结果集到内存。其次，文章深入探讨了 InnoDB 存储引擎的影响，重点介绍了 Buffer Pool 的工作原理。核心在于 InnoDB 对传统 LRU 算法的改进：将 Buffer Pool 划分为 New 区和 Old 区，并引入 innodb_old_blocks_time 参数，确保冷数据全表扫描时新读入的数据页优先进入 Old 区，且在短时间内不会晋升到 New 区，从而保护热点数据不被频繁淘汰，维持 Buffer Pool 的高命中率。文章还区分了`Sending data`和`Sending to client`两种`show processlist`状态的含义，提供了实用的排查建议。最终结论是 MySQL 的精巧设计使其能够高效处理远超内存容量的大表查询。\n💡 主要观点\n            \nMySQL Server 层通过“边读边发”机制避免大查询结果集占用过多内存\n                         MySQL 不会在 Server 端保存完整的查询结果集，而是获取一行发送一行，通过`net_buffer_length`控制缓冲区大小，当客户端接收慢时会阻塞发送，而非耗尽服务器内存。\n                    \n\n                        InnoDB 改进型 LRU 算法有效保护热点数据不受全表扫描影响\n                         InnoDB 将 Buffer Pool 分为 New 区和 Old 区，新读入的数据页（尤其是全表扫描的冷数据）优先进入 Old 区，并需停留一定时间才可能晋升 New 区，确保热点数据不被轻易淘汰。\n                    \n\n                        正确理解`show processlist`中的`Sending data`与`Sending to client`状态\n                         `Sending data`表示查询正在执行的任意阶段，而`Sending to client`特指服务器端网络栈写满，等待客户端接收结果的状态，有助于准确判断问题根源。\n                    \n💬 文章金句\n            \n一个查询在发送过程中，占用的 MySQL 内部的内存最大就是 net_buffer_length 这么大，不会达到 200G\n所以 MySQL 其实是'边读边发'。\n这个策略最大的收益，就是在扫描这个大表的过程中，虽然也用到了 BP，但对 young 区完全没有影响，从而保证了 Buffer Pool 响应正常业务的查询命中率。\nMySQL 采用的是边算边发的逻辑，因此对于数据量很大的查询结果来说，不会在 server 端保存完整的结果集。\n冷数据的全表扫描，对 Buffer Pool 的影响也能做到可控。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：dbaplus社群\n作者：dbaplus社群\n分类：软件编程\n语言：中文\n阅读时间：15 分钟\n字数：3729\n标签：\n                    \n                        MySQL, 内存管理, 全表扫描, InnoDB, Buffer Pool",
+          "link": "https://www.bestblogs.dev/zh/article/899561",
+          "publishedOn": "2025-07-14T23:15:00.000Z",
+          "wordCount": 347,
+          "title": "100G 内存下，MySQL 查询 200G 大表会 OOM 么？",
+          "enclosure": {
+            "url": "https://wechat2rss.bestblogs.dev/img-proxy/?k=e996a003&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FPvtqG3Z5Bh4o9dfzvBTD8W7RmBnaU7MbsFCQVhBFBYPKX8YZa2A3ugcP1qHY8ksPu8uLcDPT413OEiamJJQo2zQ%2F640%3Fwx_fmt%3Dpng%26tp%3Dwxpic%26wxfrom%3D5%26wx_lazy%3D1",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://wechat2rss.bestblogs.dev/img-proxy/?k=e996a003&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FPvtqG3Z5Bh4o9dfzvBTD8W7RmBnaU7MbsFCQVhBFBYPKX8YZa2A3ugcP1qHY8ksPu8uLcDPT413OEiamJJQo2zQ%2F640%3Fwx_fmt%3Dpng%26tp%3Dwxpic%26wxfrom%3D5%26wx_lazy%3D1"
+        },
+        {
+          "id": "8f033b",
+          "author": "宝玉",
+          "description": "📌 一句话摘要\n            \n文章理性分析了 AI 对软件开发、产品设计和内容营销的真实影响与局限性，警示“AI 无所不能”的“愚昧之巅”错觉。\n📝 详细摘要\n            \n文章深入探讨了当前 AI 浪潮对软件开发、产品设计和内容营销领域的真实影响，并对“AI 无所不能”的乐观预测进行了理性批判。作者指出，初次体验 AI 的兴奋感可能导致“蜜月期”的“愚昧之巅”错觉。文章首先肯定了 AI 在产品设计半开放式、加速 MVP 构建以及强调使用 AI 需清晰逻辑等方面的积极作用。接着，作者对 AI 在 VOC 捕捉、SEO 自动化、研发测试角色模糊化以及内容自动化生产等方面的效用持保留态度，认为其价值有待验证或存在局限。最后，作者旗帜鲜明地反驳了“普通开发者将被淘汰”、“单靠逻辑文档生成高质量代码”和“通才时代”等过于乐观的预测，强调软件工程范式尚未根本改变，以及深厚领域知识的重要性。文章呼吁从业者对 AI 保持清醒认知，避免过度依赖，并指出未来 5 年内 AI 的影响将逐步显现，但并非颠覆一切。\n💡 主要观点\n            \nAI 能显著加速产品经理和设计师的 MVP 构建效率\n                         AI 在原型生成和一次性代码编写方面表现出色，能够帮助快速构建可运行原型，从而高效验证产品设计和用户接受度，且无需担忧代码维护问题。\n                    \n\n                        使用 AI 需具备清晰逻辑，否则可能导致更多问题\n                         AI 无法替代人类思考，若使用者逻辑不清或完全依赖 AI，AI 只会盲目构建系统，可能导致大量 Bug 和低效运行，强调人类主导的重要性。\n                    \n\n                        软件开发范式未根本改变，普通开发者不会被淘汰但需转型\n                         作者驳斥了 AI 将迅速淘汰普通开发者的观点，指出短期内软件开发本质范式未变，但未来开发者需掌握与 AI 有效协作的技能。\n                    \n💬 文章金句\n            \n当你感到 AI 编程无所不能时，也许正站在“愚昧之巅”。\nAI 并不能替你思考，只会按照你的逻辑盲目地构建系统，这点无疑是真实存在的。\n短期内，软件开发本质的范式并未发生根本改变。普通研发人员不会因 AI 而被迅速淘汰，但他们的技能要求确实会有变化：未来，开发人员需要学会如何有效与 AI 协作，而不仅仅是编写代码。\n想象一下汽车引擎不断升级，即便拥有了火箭般的速度，但马路还是现在的马路，司机仍是现在的司机，车速也无法真正突破极限。\n如果没有深厚的领域知识，通才很难真正评估 AI 生成结果的质量。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：宝玉的分享\n作者：宝玉\n分类：商业科技\n语言：中文\n阅读时间：9 分钟\n字数：2112\n标签：\n                    \n                        人工智能, 软件开发, 产品设计, AI应用, 未来趋势",
+          "link": "https://www.bestblogs.dev/zh/article/8f033b",
+          "publishedOn": "2025-07-14T15:44:23.000Z",
+          "wordCount": 328,
+          "title": "当你感到 AI 编程无所不能时，也许正站在“愚昧之巅”——理性看待 AI 时代的软件开发与应用变革",
+          "enclosure": {
+            "url": "https://baoyu.io/uploads/2025-07-14-1752507727145-72f75279-2fbc-46d1-83f0-5b569d67c310.png",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://baoyu.io/uploads/2025-07-14-1752507727145-72f75279-2fbc-46d1-83f0-5b569d67c310.png"
+        },
+        {
+          "id": "cc8304",
+          "author": "Founder Park",
+          "description": "📌 一句话摘要\n            \nHinge 创始人认为 AI 虚拟伴侣是“垃圾食品”，而公司通过 AI 赋能真实约会，专注用户成功实现高速增长。\n📝 详细摘要\n            \n文章深入访谈了美国约会应用 Hinge 的 CEO Justin McLeod，阐述了 Hinge 在 AI 冲击下仍能实现高增长的核心策略。 McLeod 强调 Hinge 的北极星指标是“促成高质量的真实约会”，而非传统社交媒体的参与度或留存率，其目标是让用户找到伴侣后“删除应用”。他严厉批评 AI 虚拟伴侣为“垃圾食品”，认为其短期虽能带来慰藉，长期却会加剧孤独感，并取代真实人际关系。Hinge 将 AI 定位为辅助工具，用于提升个性化匹配（通过大语言模型和关系科学）和提供有效指导（如优化个人资料、对话技巧），以帮助用户更好地进行线下约会。文章还分享了 Hinge 独特的“为卸载而生”商业模式、通过口碑传播实现增长的经验，以及其“爱上问题而非解决方案”、“保持简单”等组织管理原则。\n💡 主要观点\n            \nHinge 的核心目标是促成高质量的真实约会，而非传统社交媒体的参与度指标。\n                         这一独特的“北极星指标”让 Hinge 专注于帮助用户找到伴侣并“删除应用”，通过口碑传播实现可持续增长，区别于追求用户时长的平台，形成了独特的竞争优势。\n                    \n\n                        AI 虚拟伴侣被视为“垃圾食品”，长期会加剧孤独感，应警惕其对真实人际关系的替代作用。\n                         创始人 Justin McLeod 强调真实社交对心理健康至关重要，认为 AI 虚拟伴侣虽然短期提供满足感，但会阻碍人们培养现实世界中的人际关系，加剧社会孤独危机。\n                    \n\n                        AI 在约会应用中应作为辅助工具，提升个性化匹配和用户指导，而非替代真实互动。\n                         Hinge 利用 AI 和大语言模型提升匹配算法的效率和质量，并为用户提供个性化建议，帮助他们优化个人资料和对话技巧，从而更容易迈出线下约会的第一步。\n                    \n\n                        “爱上问题而非解决方案”是 Hinge 产品创新的核心原则。\n                         团队被鼓励深入理解用户问题的本质和“为什么”，而不是盲目追求功能或执着于某个解决方案，这有助于打造突破性的创新产品并保持韧性。\n                    \n💬 文章金句\n            \nAI 虚拟伴侣是垃圾食品，真实长久的关系才是核心。\nHinge 的北极星指标是「促成高质量的真实约会」，而不是传统社交媒体所追求的参与度、留存率或应用内时长。创始人 Justin McLeod 认为，Hinge 的目标是让用户最终「找到伴侣，删除应用」。\n我认为，提供一个工具帮助人们做某件事或在某方面做得更好，与那个试图成为你的朋友、模仿情感、并试图与你建立情感联系的东西之间，其实有一条相当清晰的界线。我认为 AI 虚拟伴侣的做法是在玩火。\n我们希望在 Hinge 继续倡导人际关系，真实的人与人之间在现实生活中的关系，因为我认为这是人类体验中不可或缺的一部分。\n爱上问题，而不是爱上解决方案，因为你必须愿意在任何时候放弃那个解决方案，如果它不能解决你试图解决的核心问题。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：Founder Park\n作者：Founder Park\n分类：商业科技\n语言：中文\n阅读时间：46 分钟\n字数：11289\n标签：\n                    \n                        约会应用, Hinge, 商业策略, 人工智能应用, AI伦理",
+          "link": "https://www.bestblogs.dev/zh/article/cc8304",
+          "publishedOn": "2025-07-14T13:35:00.000Z",
+          "wordCount": 343,
+          "title": "年营收 5.5 亿美元、美国 Top 3 的约会应用创始人：AI 虚拟陪伴是「垃圾应用」",
+          "enclosure": {
+            "url": "https://wechat2rss.bestblogs.dev/img-proxy/?k=4152d085&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FqpAK9iaV2O3tiagxdLgMCx64jGrubHicI8xeU0iaXwEPF0hAY7KniaRgETyicRYI9TJHINr376FQUsk7GI4CssAH61TA%2F640%3Fwx_fmt%3Djpeg%26from%3Dappmsg",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://wechat2rss.bestblogs.dev/img-proxy/?k=4152d085&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FqpAK9iaV2O3tiagxdLgMCx64jGrubHicI8xeU0iaXwEPF0hAY7KniaRgETyicRYI9TJHINr376FQUsk7GI4CssAH61TA%2F640%3Fwx_fmt%3Djpeg%26from%3Dappmsg"
+        },
+        {
+          "id": "55c990",
+          "author": "Founder Park",
+          "description": "📌 一句话摘要\n            \n文章深度评测了 Perplexity Comet AI 浏览器，剖析其“思考伙伴”理念、跨页面 Agent 能力，并探讨其高昂定价与用户习惯带来的市场挑战。\n📝 详细摘要\n            \n本文详细介绍了 Perplexity 最新推出的 AI 浏览器 Comet 的实际体验与核心理念。Comet 被定位为一款“AI Agent 原生”浏览器，旨在将传统的“浏览”模式升级为“思考”，通过 Comet 助手实现跨标签页的“情境感知”和“代理执行”能力。用户可以直接向助手提问，整合多源信息，甚至让 AI 在本地完成数据提取、文档填充等复杂任务。文章将 Comet 归类为“环境重构派”AI 浏览器，区别于仅集成 AI 功能的“工具增强派”。然而，Comet 面临每月 200 美元的高昂订阅费以及用户改变根深蒂固浏览习惯的巨大挑战，这些因素可能限制其早期普及。作者认为，Comet 代表了下一代互联网入口的雏形，是对人与信息关系的一次大胆提问。\n💡 主要观点\n            \nComet 通过“情境感知”和“代理执行”将浏览器转变为智能思考伙伴。\n                         Comet 助手能够整合多标签页信息，深度理解上下文，并执行复杂指令，显著提升信息处理和工作流效率，实现从被动浏览到主动思考的转变。\n                    \n\n                        Comet 代表 AI 浏览器“环境重构派”，旨在彻底重塑人与信息的交互方式。\n                         它超越了传统浏览器作为工具的定位，试图将整个浏览环境智能化，让 AI 主动理解并执行用户意图，预示着下一代数字交互模式的到来。\n                    \n\n                        高昂定价和用户习惯惯性是 Comet 面临的主要市场挑战。\n                         每月 200 美元的订阅费和要求用户改变根深蒂固的浏览习惯，可能成为 Comet 在市场推广和用户接受度方面的巨大障碍，亟需证明其超额价值。\n                    \n💬 文章金句\n            \nComet 的核心理念是「从浏览到思考」（From Browse to thinking）。\nComet 助手此时扮演的，是一个顶级的专业助理角色\nPerplexity Comet 最大卖点在于真正做到浏览器级自动化与深度 AI 集成，让「让 AI 真正替你上网、做事」成为新一代生产力工具的现实可用场景。\n做得太保守，用户没有理由放弃成熟的 Chrome 生态；做得太激进，用户则可能因为过高的学习成本，在真正体验到其价值之前就已放弃。\n浏览器应该是一个能够「重新定义人与信息的关系」的思考伙伴。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：Founder Park\n作者：Founder Park\n分类：商业科技\n语言：中文\n阅读时间：17 分钟\n字数：4193\n标签：\n                    \n                        AI浏览器, Perplexity Comet, AI Agent, 生产力工具, 用户体验",
+          "link": "https://www.bestblogs.dev/zh/article/55c990",
+          "publishedOn": "2025-07-14T13:35:00.000Z",
+          "wordCount": 350,
+          "title": "月费 200 刀的 AI 浏览器，Perplexity Comet 的真实体验如何？",
+          "enclosure": {
+            "url": "https://wechat2rss.bestblogs.dev/img-proxy/?k=e85e89c6&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FqpAK9iaV2O3tiagxdLgMCx64jGrubHicI8x2jOZAKsSTAKQ8KFcAsTON1vZZsZpO54e2ZtcDgtvJgIpZKyLh0VDEg%2F0%3Fwx_fmt%3Djpeg",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://wechat2rss.bestblogs.dev/img-proxy/?k=e85e89c6&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FqpAK9iaV2O3tiagxdLgMCx64jGrubHicI8x2jOZAKsSTAKQ8KFcAsTON1vZZsZpO54e2ZtcDgtvJgIpZKyLh0VDEg%2F0%3Fwx_fmt%3Djpeg"
+        },
+        {
+          "id": "a600b6",
+          "author": "InfoQ 中文",
+          "description": "📌 一句话摘要\n            \n资深独立开发者分享 AI 时代产品快速上线、长期主义、自造血及流量构建经验，并提供 AI 应用出海 SOP 及未来创业方向。\n📝 详细摘要\n            \n文章总结了资深独立开发者艾逗笔在 AI 时代进行独立开发一年半的感悟和可复制经验。作者强调“天下武功，唯快不破”，鼓励快速上线验证需求，但同时告诫要坚持“长期主义”，将跑通 PMF 的产品做精。他提出独立开发者应“梦想要大，切入要小”，从垂直赛道切入，并强调通过“自己造血”来减少对资本的依赖，以及通过“构建影响力”来获取流量。文章还提供了 AI 应用出海的 SOP、技术栈、快速上线策略、ProductHunt 打榜、程序化 SEO 和 AI Wrapper 等实用指南。最后，作者指出了 AI Coding、Agent、Agent Infra 和 MCP（多模态通信协议）生态是当前值得 All-in 的 AI 创业方向，为读者提供了明确的指引。\n💡 主要观点\n            \nAI 时代独立开发需兼顾快速验证与长期主义。\n                         快速上线以验证用户需求是独立开发初期有效策略，但一旦跑通 PMF，则需坚持长期投入和打磨产品，避免浅尝辄止。\n                    \n\n                        独立开发者应选择小切入点并注重自我造血。\n                         从垂直赛道切入可降低竞争和资源压力，通过持续商业化实现自我造血，减少对外部资本的依赖，增强自身实力。\n                    \n\n                        构建个人影响力与流量池是产品推广的关键。\n                         积极在社交平台输出高质量内容，积累个人品牌和流量，能为产品冷启动和后续推广带来巨大便利。\n                    \n\n                        AI 应用开发应遵循标准化 SOP 并善用现有工具。\n                         文章提供了 AI 应用开发的技术栈、部署方式和快速上线技巧，强调利用成熟框架和模板能极大提升开发效率。\n                    \n\n                        AI Coding、Agent、Agent Infra 和 MCP 是当前 AI 创业热门方向。\n                         详细分析了这些细分领域的商业前景和切入策略，为独立开发者提供了具体的 AI 应用创业方向和生态构建思路。\n                    \n💬 文章金句\n            \n快速上线，先起飞再加油。先验证用户需求，再决定是否继续投入，是独立开发者或小团队做产品行之有效的策略之一。\n做得快不如做得精，如果快速上线跑通了 PMF，还是应该坚持做下去。长期主义是一个很好的品质，是我对后来者的建议，也是对自己的告诫。\n梦想要大，切入应该要小。独立开发者或小团队，从垂直赛道切入，不会有太大的资源整合压力，竞争更小，产品效果更收敛，粘性更高，也更容易产生正反馈。\n打铁还需自身硬，自己有实力了，才能邂逅更多的有缘人。\nAI 一年，人间十年。AI 发展很快，行业仍在早期。新的时代有新的机会，独立开发也能影响全球。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：InfoQ 中文\n作者：InfoQ 中文\n分类：软件编程\n语言：中文\n阅读时间：23 分钟\n字数：5549\n标签：\n                    \n                        独立开发, AI应用, 创业经验, 产品策略, 商业模式",
+          "link": "https://www.bestblogs.dev/zh/article/a600b6",
+          "publishedOn": "2025-07-14T07:29:00.000Z",
+          "wordCount": 334,
+          "title": "一年上线超 10 款产品，AI 时代如何做独立开发",
+          "enclosure": {
+            "url": "https://wechat2rss.bestblogs.dev/img-proxy/?k=5ceb2c7a&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FYriaiaJPb26VPHTRYUiam7U3tSMEK0RkmUzaqCmHt2qkjdv201VRozb4j8mMicSvJicMp8uzQaJl87jQ7icCR2pj8EdA%2F640%3Fwx_fmt%3Dpng%26from%3Dappmsg",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://wechat2rss.bestblogs.dev/img-proxy/?k=5ceb2c7a&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FYriaiaJPb26VPHTRYUiam7U3tSMEK0RkmUzaqCmHt2qkjdv201VRozb4j8mMicSvJicMp8uzQaJl87jQ7icCR2pj8EdA%2F640%3Fwx_fmt%3Dpng%26from%3Dappmsg"
+        },
+        {
           "id": "e3b9a6",
           "author": "鱼羊",
           "description": "📌 一句话摘要\n            \n智源研究院发布通用具身大脑 RoboBrain 2.0 和全球首个具身智能 SaaS 开源框架 RoboOS 2.0，刷新多项测评基准，加速机器人从单机智能迈向群体智能新范式。\n📝 详细摘要\n            \n文章详细介绍了智源研究院在具身智能领域的最新突破：通用具身大脑 RoboBrain 2.0 和具身智能 SaaS 开源框架 RoboOS 2.0。RoboBrain 2.0 作为面向真实物理环境的通用具身大脑，在空间理解、时间建模和长链推理能力上实现显著提升，其 32B 版本在 10 项权威具身智能基准上刷新纪录，超越现有主流模型。RoboOS 2.0 是全球首个集成 MCP 协议与无服务器架构的具身智能 SaaS 开源框架，旨在打通智能大脑与异构本体的协同通路，实现轻量化部署，并显著降低开发门槛。两者结合，推动机器人实现多智能体协作，加速具身智能从实验室走向真实场景，并已全面开源，提供模型权重、训练代码及开箱即用镜像，赋能开发者构建智能机器人系统。\n💡 主要观点\n            \nRoboBrain 2.0 在具身智能三大核心瓶颈上实现突破并刷新基准\n                         针对空间理解精度不足、时间依赖建模薄弱、长链推理能力欠缺，RoboBrain 2.0 通过模块化编码器-解码器架构和多模态数据集训练，在多项权威基准上取得 SOTA 性能。\n                    \n\n                        RoboOS 2.0 作为全球首个具身智能 SaaS 开源框架，大幅降低开发门槛\n                         其创新性集成 MCP 协议与无服务器架构，实现大脑云端优化推理部署与小脑技能免适配注册，显著简化异构本体协同，代码量仅为传统方式的 1/10。\n                    \n\n                        具身大脑与开源框架结合，加速机器人从单机迈向群体智能\n                         RoboBrain 2.0 与 RoboOS 2.0 的协同，使得多智能体协作执行任务成为可能，推动具身智能技术从实验室走向真实场景，构建具身智能“应用商店”生态。\n                    \n💬 文章金句\n            \n“通用具身大脑”RoboBrain 2.0，面向真实物理环境，集感知、推理与规划于一体。\nRoboOS 2.0，作为全球首个具身智能 SaaS 开源框架，创新性集成 MCP 协议与无服务器架构，实现轻量化部署，打通智能大脑与异构本体协同通路。\n具身大脑+跨本体大小脑协同框架，是推动机器人从“单机智能”迈向“群体智能”的有效路径，能加速具身智能技术从实验室走向真实场景。\nRoboBrain 2.0 采用模块化的编码器--解码器架构，为复杂的具身任务实现了感知、推理和规划的统一。\nRoboOS 2.0 实现了大脑云端优化推理部署与小脑技能的免适配注册机制，显著降低开发门槛，典型场景下，相关代码量仅为传统手动注册方式的 1/10。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：量子位\n作者：鱼羊\n分类：人工智能\n语言：中文\n阅读时间：15 分钟\n字数：3655\n标签：\n                    \n                        具身智能, 机器人, AI模型, 开源框架, 多模态AI",
@@ -19,6 +94,36 @@
             "length": "0"
           },
           "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/a0976ba8-6f27-434e-e408-cbc2806f8500/cover"
+        },
+        {
+          "id": "d7a907",
+          "author": "前端早读课",
+          "description": "📌 一句话摘要\n            \n本文全面解析 GitHub Actions 的工作流结构、执行生命周期及性能优化方法，并引入 CI 关键指标（CI Vitals）指导高效 CI/CD 实践。\n📝 详细摘要\n            \n文章深入剖析了 GitHub Actions 的工作流结构与执行机制，从核心概念（Workflow、Job、Step、Action、Runner）入手，详细阐述了工作流运行的生命周期，包括作业的并行执行与依赖关系、数据共享（Artifacts 与 Job Outputs）、步骤的顺序与原子性、以及重试机制。特别强调了如何通过 CI 关键指标（WET、NFR、POT）来诊断和优化工作流性能，提供了针对执行时间过长、流水线不稳定和耗时浪费等问题的具体排查方向与优化建议。文章结构清晰，示例丰富，为开发者构建和优化高效、可靠的 CI/CD 流程提供了全面的指南。\n💡 主要观点\n            \nGitHub Actions 工作流由 Workflow、Job、Step、Action、Runner 等核心组件构成。\n                         理解这些基本概念是构建和管理自动化流程的基础，它们定义了任务的组织、执行环境和可复用单元。\n                    \n\n                        工作流通过作业依赖、条件执行和数据共享机制实现复杂自动化。\n                         通过 needs 控制作业顺序，if 条件实现灵活执行，Artifacts 和 Job Outputs 则解决了作业间数据传递的隔离问题。\n                    \n\n                        引入 WET、NFR、POT 三大 CI 关键指标指导工作流性能优化。\n                         这些指标帮助开发者系统性地诊断工作流执行慢、不稳定、资源浪费等问题，并提供针对性优化策略。\n                    \n💬 文章金句\n            \nGitHub Actions 已成为自动化软件开发流程中不可或缺的工具。\nGitHub Actions 会根据作业之间的依赖关系，将它们组织成一个有向无环图（DAG），然后高效地执行这个图中的作业。\nArtifacts（构建产物）和 Caching（缓存）是 GitHub Actions 提供的两种关键机制，用于在作业之间共享构建结果或加快重复任务的执行速度。\n理解 GitHub Actions 的执行机制和 CI Vitals 的表现，你将全面掌握工作流的运行方式和性能状况，从而打造提升开发效率的自动化流程，而不是成为团队的负担。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：前端早读课\n作者：前端早读课\n分类：软件编程\n语言：中文\n阅读时间：21 分钟\n字数：5234\n标签：\n                    \n                        GitHub Actions, CI/CD, 自动化, 工作流, 性能优化",
+          "link": "https://www.bestblogs.dev/zh/article/d7a907",
+          "publishedOn": "2025-07-14T00:03:00.000Z",
+          "wordCount": 345,
+          "title": "【第 3549 期】GitHub Actions 全面解析：工作流结构完整指南",
+          "enclosure": {
+            "url": "https://wechat2rss.bestblogs.dev/img-proxy/?k=5a7b1a02&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FmeG6Vo0Meviasqvicr3eLer5RMpMDR9z4SNuuPRiaoSYBxJAt5rA18aLOBD7PT2yOFCA7nUlA3yLtHr7yNhgjCmeg%2F0%3Fwx_fmt%3Djpeg",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://wechat2rss.bestblogs.dev/img-proxy/?k=5a7b1a02&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FmeG6Vo0Meviasqvicr3eLer5RMpMDR9z4SNuuPRiaoSYBxJAt5rA18aLOBD7PT2yOFCA7nUlA3yLtHr7yNhgjCmeg%2F0%3Fwx_fmt%3Djpeg"
+        },
+        {
+          "id": "e81f74",
+          "author": "Min Choi, Janie Zhang",
+          "description": "📌 一句话摘要\n            \n宣布 `gemini-embedding-001` 在 Gemini API 和 Vertex AI 中全面可用，这是一款先进的多语言文本嵌入模型。\n📝 详细摘要\n            \nGoogle 现已在 Gemini API 和 Vertex AI 中提供 `gemini-embedding-001` 文本模型。该模型始终位于大规模文本嵌入基准评测 (MTEB) 多语言排行榜的榜首，在科学、法律、金融和编码等不同领域，性能优于之前的 Google 模型和外部产品。它支持 100 多种语言，并具有 2048 个最大输入令牌长度。一项关键创新是利用 Matryoshka Representation Learning (MRL，俄罗斯套娃表示学习)，使开发人员能够将输出维度从默认的 3072 扩展，从而优化性能和存储成本。该模型通过免费和付费层提供，价格为每 100 万个输入令牌 0.15 美元，并且与现有的 `embed_content` 端点兼容，未来将支持批量 API。建议开发人员在 2025 年 8 月/2026 年 1 月之前从较旧的实验性/传统模型迁移。\n💡 主要观点\n            \n`gemini-embedding-001` 现在作为领先的多语言文本嵌入模型全面可用。\n                         这为开发人员提供了一个高性能且通用的工具，适用于各种应用。该模型在 MTEB 等基准测试中始终名列前茅。\n                    \n\n                        该模型支持 100 多种语言，并利用 Matryoshka Representation Learning (MRL)。\n                         MRL 支持灵活的输出维度缩放，使开发人员能够根据具体的应用程序需求优化性能和成本，同时保持质量。\n                    \n\n                        它可以通过 Gemini API 和 Google AI Studio 访问，具有清晰的定价和迁移指南。\n                         这确保了开发人员易于采用，同时也指导他们从旧模型过渡到最新的、功能最强大的嵌入解决方案。\n                    \n💬 文章金句\n            \n我们的首个 Gemini Embedding 文本模型 (`gemini-embedding-001`) 现已在 Gemini API 和 Vertex AI 中向开发人员全面开放。\n自 3 月份实验性发布以来，该 Embedding 模型始终位于大规模文本嵌入基准评测 (MTEB) 多语言排行榜榜首。\n它还利用了 Matryoshka Representation Learning (MRL) 技术，该技术允许开发人员将输出维度从默认的 3072 缩小。\nGemini Embedding 模型的价格为 **每 100 万个输入令牌 0.15 美元**。\n我们强烈建议尽早将项目迁移到我们最新的模型。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：Google Developers Blog\n作者：Min Choi, Janie Zhang\n分类：软件编程\n语言：英文\n阅读时间：2 分钟\n字数：452\n标签：\n                    \n                        文本嵌入, Google, Gemini API, 机器学习, 自然语言处理",
+          "link": "https://www.bestblogs.dev/zh/article/e81f74",
+          "publishedOn": "2025-07-14T00:00:00.000Z",
+          "wordCount": 351,
+          "title": "Gemini Embedding 现已在 Gemini API 中全面可用",
+          "enclosure": {
+            "url": "https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/unnamed_42.2e16d0ba.fill-1200x600.png",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/unnamed_42.2e16d0ba.fill-1200x600.png"
         },
         {
           "id": "cf7926",
@@ -2404,66 +2509,6 @@
             "length": "0"
           },
           "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/d01e0f5b-036f-4cec-ad4f-2f242ad7bd00/cover"
-        },
-        {
-          "id": "850d0b",
-          "author": "Sumit Saha",
-          "description": "📌 一句话摘要\n            \n解释了用于连接外部数据与 AI 模型的模型上下文协议 (MCP)，以及开发者在构建自定义 MCP 服务器中的作用。\n📝 详细摘要\n            \n本手册介绍了 Anthropic 开发的模型上下文协议 (MCP)，解释了其组件：模型、上下文和协议。它强调了 MCP 对于以结构化方式向 AI 模型提供外部实时数据（如日历、数据库、文件）的必要性，这与静态的 RAG 不同。文章展示了 MCP 服务器如何充当各种数据源和 AI 应用（如 Claude、Cursor）之间的通用连接器，从而减少了每个客户端内部定制集成的负担。它将 MCP 定位为开发者构建可复用数据连接器的重要机会，并举例说明了 Google 日历和 GitHub。文章对比了 MCP 的实时数据流与 RAG 的静态文档检索。\n💡 主要观点\n            \nMCP 提供了一种向 AI 模型提供外部上下文的标准方式。\n                         该协议定义了结构化通信规则，使 AI 应用能够访问训练数据之外的实时数据源，从而提高响应相关性。\n                    \n\n                        MCP 服务器支持开发者构建通用、可复用的数据连接器。\n                         开发者可以创建连接到特定数据源的独立 MCP 服务器，允许多个支持 MCP 的 AI 客户端无需自定义客户端集成逻辑即可访问该数据。\n                    \n\n                        与 RAG 不同，MCP 通过流式传输实时数据而非检索静态内容。\n                         虽然 RAG 适用于预处理的静态文档，但 MCP 专为最新信息而设计，对于实时仪表盘或实时日程查询等动态应用至关重要。\n                    \n💬 文章金句\n            \nMCP 允许您将您的代码、数据和工具连接到 Claude 和 Cursor 等 AI 应用。\n模型上下文协议是由一家名为 Anthropic 的公司开发的……他们就是构建 Claude 的公司。\n模型不会神奇地了解您的日历、电子邮件、数据库或文件。那么，您如何让这些数据可供它们使用呢？这就是 MCP 的作用所在。\nMCP 服务器是一个颠覆者。它们不仅减轻您的工作量，还为我们这样的开发者创造了新的工作机会。\n检索增强生成是一种技术，其中 AI 模型在您提问时会访问外部“库”中的文档……MCP 非常适合需要最新信息的场景。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：freeCodeCamp.org\n作者：Sumit Saha\n分类：软件编程\n语言：英文\n阅读时间：29 分钟\n字数：7128\n标签：\n                    \n                        AI 集成, 模型上下文协议, MCP, TypeScript, Node.js",
-          "link": "https://www.bestblogs.dev/zh/article/850d0b",
-          "publishedOn": "2025-06-25T18:25:54.000Z",
-          "wordCount": 345,
-          "title": "如何使用 TypeScript 构建自定义 MCP 服务器 – 开发者手册",
-          "enclosure": {
-            "url": "https://cdn.hashnode.com/res/hashnode/image/upload/v1750868512407/95f366d3-9115-423a-8d63-66e53171931a.png",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://cdn.hashnode.com/res/hashnode/image/upload/v1750868512407/95f366d3-9115-423a-8d63-66e53171931a.png"
-        },
-        {
-          "id": "f35e67",
-          "author": "(yikai 的摸鱼笔记)",
-          "description": "📌 一句话摘要\n            \nChip Huyen 分享 AI 工程的核心概念、构建策略与评估挑战，强调从产品出发的务实方法及手动检查数据的重要性\n📝 详细摘要\n            \n文章记录了与 AI 专家 Chip Huyen 的深度对话，系统阐述了 AI 工程的定义、构建策略、评估方法和常见误区。核心观点包括：AI 工程与传统机器学习工程的区别在于从产品出发而非从数据开始；构建 AI 应用应遵循从提示工程到 RAG 再到微调的渐进路径，特别强调数据准备的重要性；评估 AI 系统极具挑战性，需要结合功能正确性、AI 辅助评估和比较评估等多种方法，同时重视人工检查与理解用户需求；常见误区包括过度使用生成式 AI 和过早采用复杂技术。文章还探讨了 AI 对软件工程未来的影响，认为 AI 不会终结编程，而是让工程师更专注于复杂问题解决，并展望了 AI 在教育、娱乐和企业组织结构优化方面的潜力。\n💡 主要观点\n            \nAI 工程从产品出发，与传统机器学习工程路径相反\n                         基础模型降低了 AI 应用门槛，使开发流程从产品到数据再到模型，更侧重工程与产品思维\n                    \n\n                        构建 AI 应用应遵循提示工程→RAG→微调的渐进路径\n                         强调从简单开始，数据准备比选择特定技术更重要，微调应是最后手段而非首选\n                    \n\n                        AI 系统评估极具挑战性，需结合多种方法\n                         包括功能正确性、AI 辅助评估和比较评估，但人工检查和理解用户需求仍不可或缺\n                    \n\n                        手动检查数据是性价比最高的活动之一\n                         通过查看实际交互样本可以发现模式，将自动化指标与真实情况联系起来\n                    \n\n                        AI 不会终结软件工程，而是改变其工作内容\n                         工程师将从编码转向更复杂的系统设计和问题解决，可能驾驭更复杂的软件系统\n                    \n\n                        AI 在教育、娱乐和企业组织结构优化方面具有巨大潜力\n                         可以支持个性化学习、创作更具智力启发性的娱乐内容，以及通过信息聚合提高企业效率\n                    \n💬 文章金句\n            \n手动检查数据是那些'价值与感知价值比率'最高的活动之一\n微调应该是最后的手段，而不是首选的第一道防线\n不是所有问题都适用同一种解决方案\n人工评估与深入理解用户需求仍不可或缺\n做好数据准备实际上能带来巨大的性能提升，远比纠结于'我应该使用哪个向量数据库'要大得多\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：yikai 的摸鱼笔记\n作者：(yikai 的摸鱼笔记)\n分类：商业科技\n语言：中文\n阅读时间：40 分钟\n字数：9869\n标签：\n                    \n                        AI工程, 机器学习工程, RAG, 提示工程, AI评估",
-          "link": "https://www.bestblogs.dev/zh/article/f35e67",
-          "publishedOn": "2025-06-25T17:30:00.000Z",
-          "wordCount": 324,
-          "title": "Chip Huyen：AI 时代，手动检查数据竟是“性价比之王”？",
-          "enclosure": {
-            "url": "https://wechat2rss.bestblogs.dev/img-proxy/?k=2764de4e&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FppoTzQq3lPia7xGpxLsNhN5F9UssoXueJHwibHWo8dEFf92Qhk8go1iaCqbHgXNA9JsOVuqjAaSdM1jbKQptGm18w%2F0%3Fwx_fmt%3Djpeg",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://wechat2rss.bestblogs.dev/img-proxy/?k=2764de4e&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FppoTzQq3lPia7xGpxLsNhN5F9UssoXueJHwibHWo8dEFf92Qhk8go1iaCqbHgXNA9JsOVuqjAaSdM1jbKQptGm18w%2F0%3Fwx_fmt%3Djpeg"
-        },
-        {
-          "id": "ab9d04",
-          "author": "大模型智能",
-          "description": "📌 一句话摘要\n            \nMiniMax 发布首个开源权重大规模混合注意力推理模型 M1，长上下文高效，复杂任务表现优异。\n📝 详细摘要\n            \n本文解读了 MiniMax 发布的 MiniMax-M1 技术报告，这是全球首个开源权重的大规模混合注意力推理模型。M1 模型创新结合了混合专家（MoE）架构与线性注意力（Lightning Attention），参数总量达 456B，原生支持 1M token 上下文，并在生成 100K token 时显著降低计算量（相对 DeepSeek R1）。模型通过大规模强化学习训练，引入了新型 CISPO 算法以提升效率并稳定训练，其中完整的 RL 训练仅需 3 周使用 512 个 H800 GPU 完成，成本约 53 万美元。评估结果显示，MiniMax-M1 在数学、编程、软件工程、工具使用和长上下文等多个基准测试中表现强大，尤其在复杂软件工程、工具使用和长上下文任务上超越多数开源甚至部分闭源模型。文章还分享了开发过程中遇到的挑战（如精度不匹配、超参数敏感性）及解决方案，并展望了模型在自动化工作流、科学研究等领域的应用潜力。\n💡 主要观点\n            \nMiniMax-M1 采用 MoE 与线性注意力混合架构。\n                         此创新结合是首个开源权重的实现，赋予模型高效的长上下文推理能力，显著降低测试时计算成本。\n                    \n\n                        新型 CISPO 算法提升强化学习训练效率与稳定性。\n                         通过裁剪重要性采样权重，克服了传统 RL 在长响应中的挑战，加速了 MiniMax-M1 的训练过程。\n                    \n\n                        模型在复杂任务如软件工程和长上下文理解上表现突出。\n                         基准测试显示，M1 在 SWE-bench、TAU-Bench 和长上下文任务上超越了多数现有开源和部分闭源模型。\n                    \n\n                        M1 原生支持高达 1M token 的超长上下文。\n                         这一特性使其特别适合处理需要深入理解和扩展推理的复杂现实世界任务，是现有开源模型的数倍。\n                    \n💬 文章金句\n            \nMiniMax 发布了 MiniMax-M1 ，这是世界上第一个开源权重的大规模混合注意力推理模型。\nM1 模型原生支持 1M token 的上下文长度，是 DeepSeek R1 上下文大小的 8 倍。\n与 DeepSeek R1 相比，M1 在生成 100K token 时大约仅消耗其 25%的 FLOPs。\n研究者提出了一种名为 CISPO 的新型强化学习算法，该算法摒弃了信任区域约束，转而通过裁剪重要性采样权重来稳定训练。\nMiniMax-M1 在智能体工具使用基准 TAU-Bench 上优于 Gemini 2.5 Pro，并在长上下文理解基准上超越了 OpenAI o3 和 Claude 4 Opus。\n📊 文章信息\n            \nAI 评分：90\n精选文章：是\n来源：大模型智能\n作者：大模型智能\n分类：人工智能\n语言：中文\n阅读时间：57 分钟\n字数：14237\n标签：\n                    \n                        大语言模型, 混合注意力, MoE, Lightning Attention, 强化学习",
-          "link": "https://www.bestblogs.dev/zh/article/ab9d04",
-          "publishedOn": "2025-06-25T16:01:00.000Z",
-          "wordCount": 315,
-          "title": "MiniMax-M1 技术报告解读",
-          "enclosure": {
-            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/7a07f627-f5f3-46ac-7d1b-5c2fa24cbe00/cover",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/7a07f627-f5f3-46ac-7d1b-5c2fa24cbe00/cover"
-        },
-        {
-          "id": "539020",
-          "author": "宝玉",
-          "description": "📌 一句话摘要\n            \n一份面向程序员的提示工程实战手册，教授如何用高效提示词提升 AI 编程助手的使用效果。\n📝 详细摘要\n            \n本文面向程序员，是一份关于如何通过高效提示词（提示工程）充分利用 AI 编程助手的实战指南。文章首先阐述了提示词质量是决定 AI 输出代码和建议好坏的关键，并系统地介绍了构建高效代码提示的基础原则，包括提供充足上下文、明确目标、分解任务、利用输入/输出示例、进行角色扮演和持续迭代等。接着，文章针对代码调试、重构和新功能实现等核心开发场景，详细解析了具体的提示模式和实用技巧，并通过“糟糕提示 vs. 改进提示”的直观对比案例，生动展示了如何通过优化提示流程，从泛泛回复获取精确、可操作的 AI 辅助结果。文中提供了大量可直接应用的提示词模板和实践指导，旨在帮助开发者显著提升日常编程效率和质量。\n💡 主要观点\n            \n提示工程是提升 AI 编程助手输出质量的关键技能\n                         能否写出高质量的提示词直接决定了 AI 生成的代码或建议是否准确、实用和富有创意，远超不当请求的泛泛回复。\n                    \n\n                        提供丰富的上下文和明确目标是高效提示的基础\n                         向 AI 清晰说明项目背景、技术栈、具体问题和预期结果，能显著提高 AI 理解能力，产出精确可操作的解决方案。\n                    \n\n                        分解复杂任务和迭代优化能提高交互效率和结果可控性\n                         将大型开发需求拆解为小步骤，并通过多轮对话逐步完善 AI 输出，更符合人类开发习惯，也避免 AI 因提示过大而混乱。\n                    \n\n                        运用角色扮演、输入/输出示例和约束锚定来引导 AI 行为\n                         通过设定 AI 角色、提供具体案例或指定限制条件，可以使 AI 响应更具针对性、风格和与项目兼容性。\n                    \n\n                        调试、重构和实现新功能场景下有针对性的提示模式\n                         文章提供了针对不同开发任务的实用提示模板和技巧，如模拟调试、寻求替代方案、分步重构和内联提示等，提高了 AI 在具体工作中的辅助效能。\n                    \n💬 文章金句\n            \nAI 输出的*质量* 在很大程度上取决于你提供的*提示词质量*。\n清晰性 和 上下文 是区分模糊建议和精确、可操作解决方案的关键。\n将复杂的大任务分解成连续的小步骤，避免因提示过于庞大或含糊而导致 AI 混乱。\n将 AI 视为一个你可以指导的伙伴------追求进步而非第一次就完美。\n总之，在使用 AI 助手进行调试时，细节和方向是你的朋友。\n📊 文章信息\n            \nAI 评分：94\n精选文章：是\n来源：宝玉的分享\n作者：宝玉\n分类：商业科技\n语言：中文\n阅读时间：79 分钟\n字数：19657\n标签：\n                    \n                        提示工程, AI编程助手, 软件开发, LLM应用, 代码生成",
-          "link": "https://www.bestblogs.dev/zh/article/539020",
-          "publishedOn": "2025-06-25T15:16:33.000Z",
-          "wordCount": 309,
-          "title": "程序员的提示工程实战手册",
-          "enclosure": {
-            "url": "https://baoyu.io/api/og?heading=%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%8F%90%E7%A4%BA%E5%B7%A5%E7%A8%8B%E5%AE%9E%E6%88%98%E6%89%8B%E5%86%8C&summary=%E5%BC%80%E5%8F%91%E8%80%85%E4%BB%AC%E6%AD%A3%E6%97%A5%E7%9B%8A%E4%BE%9D%E8%B5%96+AI+%E7%BC%96%E7%A8%8B%E5%8A%A9%E6%89%8B%E6%9D%A5%E5%8A%A0%E9%80%9F%E6%97%A5%E5%B8%B8%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E3%80%82%E8%BF%99%E4%BA%9B%E5%B7%A5%E5%85%B7%E5%8F%AF%E4%BB%A5%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8%E5%87%BD%E6%95%B0%E3%80%81%E5%BB%BA%E8%AE%AE%E9%94%99%E8%AF%AF%E4%BF%AE%E5%A4%8D%EF%BC%8C%E7%94%9A%E8%87%B3%E8%83%BD%E7%94%9F%E6%88%90%E6%95%B4%E4%B8%AA%E6%A8%A1%E5%9D%97%E6%88%96%E6%9C%80%E5%B0%8F%E5%8F%AF%E8%A1%8C%E4%BA%A7%E5%93%81%EF%BC%88MVP%EF%BC%89%E3%80%82%E7%84%B6%E8%80%8C%EF%BC%8C%E6%88%91%E4%BB%AC%E4%B8%AD%E8%AE%B8%E5%A4%9A%E4%BA%BA%E5%B7%B2%E7%BB%8F%E4%BD%93%E4%BC%9A%E5%88%B0%EF%BC%8CAI+%E8%BE%93%E5%87%BA%E7%9A%84*%E8%B4%A8%E9%87%8F*%E5%9C%A8%E5%BE%88%E5%A4%A7%E7%A8%8B%E5%BA%A6%E4%B8%8A%E5%8F%96%E5%86%B3%E4%BA%8E%E4%BD%A0%E6%8F%90%E4%BE%9B%E7%9A%84*%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%B4%A8%E9%87%8F*%E3%80%82%E6%8D%A2%E8%A8%80%E4%B9%8B%EF%BC%8C**%E6%8F%90%E7%A4%BA%E5%B7%A5%E7%A8%8B**%E5%B7%B2%E6%88%90%E4%B8%BA%E4%B8%80%E9%A1%B9%E5%BF%85%E5%A4%87%E6%8A%80%E8%83%BD%E3%80%82%E4%B8%80%E5%8F%A5%E6%8E%AA%E8%BE%9E%E4%B8%8D%E5%BD%93%E7%9A%84%E8%AF%B7%E6%B1%82%E5%8F%AF%E8%83%BD%E5%8F%AA%E4%BC%9A%E5%BE%97%E5%88%B0%E6%97%A0%E5%85%B3%E6%88%96%E6%B3%9B%E6%B3%9B%E7%9A%84%E7%AD%94%E6%A1%88%EF%BC%8C%E8%80%8C%E4%B8%80%E4%B8%AA%E7%B2%BE%E5%BF%83%E8%AE%BE%E8%AE%A1%E7%9A%84%E6%8F%90%E7%A4%BA%E5%88%99%E8%83%BD%E4%BA%A7%E5%87%BA%E6%B7%B1%E6%80%9D%E7%86%9F%E8%99%91%E3%80%81%E5%87%86%E7%A1%AE%E7%94%9A%E8%87%B3%E5%AF%8C%E6%9C%89%E5%88%9B%E6%84%8F%E7%9A%84%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E3%80%82%E6%9C%AC%E6%96%87%E5%B0%86%E4%BB%8E%E5%AE%9E%E8%B7%B5%E8%A7%92%E5%BA%A6%E5%87%BA%E5%8F%91%EF%BC%8C%E6%8E%A2%E8%AE%A8%E5%A6%82%E4%BD%95%E7%B3%BB%E7%BB%9F%E5%9C%B0%E4%B8%BA%E5%B8%B8%E8%A7%81%E7%9A%84%E5%BC%80%E5%8F%91%E4%BB%BB%E5%8A%A1%E6%9E%84%E5%BB%BA%E6%9C%89%E6%95%88%E7%9A%84%E6%8F%90%E7%A4%BA%E3%80%82%0A&type=Translations&mode=light",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://baoyu.io/api/og?heading=%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%8F%90%E7%A4%BA%E5%B7%A5%E7%A8%8B%E5%AE%9E%E6%88%98%E6%89%8B%E5%86%8C&summary=%E5%BC%80%E5%8F%91%E8%80%85%E4%BB%AC%E6%AD%A3%E6%97%A5%E7%9B%8A%E4%BE%9D%E8%B5%96+AI+%E7%BC%96%E7%A8%8B%E5%8A%A9%E6%89%8B%E6%9D%A5%E5%8A%A0%E9%80%9F%E6%97%A5%E5%B8%B8%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E3%80%82%E8%BF%99%E4%BA%9B%E5%B7%A5%E5%85%B7%E5%8F%AF%E4%BB%A5%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8%E5%87%BD%E6%95%B0%E3%80%81%E5%BB%BA%E8%AE%AE%E9%94%99%E8%AF%AF%E4%BF%AE%E5%A4%8D%EF%BC%8C%E7%94%9A%E8%87%B3%E8%83%BD%E7%94%9F%E6%88%90%E6%95%B4%E4%B8%AA%E6%A8%A1%E5%9D%97%E6%88%96%E6%9C%80%E5%B0%8F%E5%8F%AF%E8%A1%8C%E4%BA%A7%E5%93%81%EF%BC%88MVP%EF%BC%89%E3%80%82%E7%84%B6%E8%80%8C%EF%BC%8C%E6%88%91%E4%BB%AC%E4%B8%AD%E8%AE%B8%E5%A4%9A%E4%BA%BA%E5%B7%B2%E7%BB%8F%E4%BD%93%E4%BC%9A%E5%88%B0%EF%BC%8CAI+%E8%BE%93%E5%87%BA%E7%9A%84*%E8%B4%A8%E9%87%8F*%E5%9C%A8%E5%BE%88%E5%A4%A7%E7%A8%8B%E5%BA%A6%E4%B8%8A%E5%8F%96%E5%86%B3%E4%BA%8E%E4%BD%A0%E6%8F%90%E4%BE%9B%E7%9A%84*%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%B4%A8%E9%87%8F*%E3%80%82%E6%8D%A2%E8%A8%80%E4%B9%8B%EF%BC%8C**%E6%8F%90%E7%A4%BA%E5%B7%A5%E7%A8%8B**%E5%B7%B2%E6%88%90%E4%B8%BA%E4%B8%80%E9%A1%B9%E5%BF%85%E5%A4%87%E6%8A%80%E8%83%BD%E3%80%82%E4%B8%80%E5%8F%A5%E6%8E%AA%E8%BE%9E%E4%B8%8D%E5%BD%93%E7%9A%84%E8%AF%B7%E6%B1%82%E5%8F%AF%E8%83%BD%E5%8F%AA%E4%BC%9A%E5%BE%97%E5%88%B0%E6%97%A0%E5%85%B3%E6%88%96%E6%B3%9B%E6%B3%9B%E7%9A%84%E7%AD%94%E6%A1%88%EF%BC%8C%E8%80%8C%E4%B8%80%E4%B8%AA%E7%B2%BE%E5%BF%83%E8%AE%BE%E8%AE%A1%E7%9A%84%E6%8F%90%E7%A4%BA%E5%88%99%E8%83%BD%E4%BA%A7%E5%87%BA%E6%B7%B1%E6%80%9D%E7%86%9F%E8%99%91%E3%80%81%E5%87%86%E7%A1%AE%E7%94%9A%E8%87%B3%E5%AF%8C%E6%9C%89%E5%88%9B%E6%84%8F%E7%9A%84%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E3%80%82%E6%9C%AC%E6%96%87%E5%B0%86%E4%BB%8E%E5%AE%9E%E8%B7%B5%E8%A7%92%E5%BA%A6%E5%87%BA%E5%8F%91%EF%BC%8C%E6%8E%A2%E8%AE%A8%E5%A6%82%E4%BD%95%E7%B3%BB%E7%BB%9F%E5%9C%B0%E4%B8%BA%E5%B8%B8%E8%A7%81%E7%9A%84%E5%BC%80%E5%8F%91%E4%BB%BB%E5%8A%A1%E6%9E%84%E5%BB%BA%E6%9C%89%E6%95%88%E7%9A%84%E6%8F%90%E7%A4%BA%E3%80%82%0A&type=Translations&mode=light"
         }
       ]
     },
@@ -3241,6 +3286,16 @@
       "siteUrl": "https://new.qq.com/omn/author/8QMc3Hhc74cevD%2FR",
       "articles": [
         {
+          "id": "https://view.inews.qq.com/a/20250715A04N4200",
+          "author": "晚点LatePost",
+          "description": "创造自己，分发自己。\n\n\n\n文丨孙海宁\n编辑丨王姗姗\n\n\n心识宇宙（Mindverse）创始人陶芳波有一套自己的 AI 助手分类法，分类标签都是人称代词：\n\n第一类 AI 助手主攻陪伴，对应人称代词 her，就像电影《她》中承接主人公各种情绪的 “萨曼莎”；第二类助手负责执行具体任务，类似《钢铁侠》中的智能管家 “贾维斯”，对应人称代词 him。\n\n心识宇宙正在做第三类 AI 助手：me。这家公司想帮用户复制自己的 “第二自我”，构建 “身份大模型”（AI Identily Model）——一个在现有基础模型基础上，根据用户数据微调的大语言模型。它的认知、偏好、价值观和用户个人对齐，能代表用户和其他应用接口、AI 交互。\n\n创业前，陶芳波一直从事 AI 研究。他在清华读完软件工程专业本科后，赴伊利诺伊大学香槟分校攻读博士学位，专业方向是数据挖掘，即使用机器学习方法寻找复杂数据背后的结构。\n\n读博期间，陶芳波曾利用 AI 技术帮反恐机构分析恐怖组织关系网；毕业后，他先在 Facebook 挖掘社交关系；然后到阿里达摩院的神经符号实验室，用跨学科知识建模人脑。GPT-3 上线后，他辞职成立心识宇宙。\n\n为了让模型更懂用户，多数 AI 技术公司的做法是总结出用户身份信息、个人偏好，然后把它们作为上下文输入模型。陶芳波主张把用户的记忆、情感、价值观参数化，根据用户数据微调模型。他认为如果各个用户使用同样的底层模型，哪怕上下文存在差别，人机对齐的效果也有限。\n\n微调模型是参考大脑运行原理：人脑不储备细碎的知识，而是为人物、事件创建索引，由此牵连出相关人物、事件，心识宇宙用用户数据训练模型前，也会先归纳、串联数据中的关键信息。人脑每天白天缓存经历，夜晚消化记忆，心识宇宙也计划每天训练一次身份模型。\n\n相比多模态大模型、Agent ，陶芳波承认身份模型还不是一个已被行业内广泛认可的方向，…",
+          "link": "https://view.inews.qq.com/a/20250715A04N4200",
+          "publishedOn": "2025-07-15T04:43:35.000Z",
+          "wordCount": 5669,
+          "title": "AI 创业访谈⑫丨心识宇宙陶芳波：用一百份笔记，复刻 AI 版的自己",
+          "imageUrl": "https://inews.gtimg.com/om_ls/O6wDBg8yTXlUc8UTbhWqaAsS4h2yUmK_kwhZBeKk05hhYAA_640330/0"
+        },
+        {
           "id": "https://view.inews.qq.com/a/20250714A08X5300",
           "author": "晚点LatePost",
           "description": "安踏真正的稀缺性在于，他成功从渠道商手中收回了近 1 万家门店的产权。\n\n\n\n文丨胡昊\n\n\n无论是从营收规模、增长态势，还是利润结构的表现情况，近年来安踏体育都给市场呈现了一个比较完美的数据结果，其已经成为了国内鞋业、服装、及服饰领域当之无愧的巨擘，身后还未出现挑战者的身影。\n\n加上安踏在国际市场上频繁的交易动作及其品牌运作的优异结果，其又成为了世界看中国的代表性公司，高盛近期将其与腾讯、阿里、比亚迪、美的等大型集团企业一同列为 “中国民营十巨头”，背后体现的是安踏在其领域所具备的有效方法论和高竞争壁垒。\n\n   \n\n围绕安踏的这些光环，这篇文章所要聚焦的内容是，\n\n- 相比于耐克、阿迪、李宁毛利率长期均低于 50% 的行业情况，安踏突破 60% 的毛利率到底是如何做到的？\n- 其又是在什么时期/通过什么方式形成了一套 “外国品牌本土化” 的方法论？\n- 为什么其他挑战者很难效仿？\n\n通过解构这些问题和对其方法实践的理解，我们也就能够更好地判断今年安踏收购德国户外运动品牌狼爪后的大概发展模式及可能的结果，从而了解其未来的投资价值。\n\n\n安踏 DTC 模式的本质，扩充产权和计入更多收入\n\n\n同为体育用品领域的头部品牌公司，耐克、阿迪、李宁的毛利率至今仍然低于 50%，但在过去的近 10 年里，安踏的毛利率不仅超过了 50% 的同业瓶颈，并且在过去的 4 年里稳定在了超 60% 的水平。\n   \n最直接的归因是 FILA 和其他品牌的高营收及高毛利贡献。在安踏的多品牌结构中，定位高端运动时尚的 FILA 毛利率长期稳定在 70% 上下，包括迪桑特和科隆两个定位高端户外运动品牌所在的其他品牌业务的毛利率也逐步攀升至超 70%，并且 FILA 业务和其他品牌业务均属于直营模式，营收贡献过半从而拉高了安踏的整体毛利率。\n\n但令人较为疑惑的是，近年来定位大众运动品牌的安踏业务的毛利率也…",
@@ -3594,6 +3649,16 @@
       "feedUrl": "https://www.geekpark.net/rss",
       "siteUrl": "http://mainssl.geekpark.net/rss.rss",
       "articles": [
+        {
+          "id": "http://www.geekpark.net/news/351537",
+          "author": null,
+          "description": "你上一次发朋友圈是什么时候？\n不是那种工作相关的转发，不是层层标签的「分组可见」，不是图一乐的节日打卡，而是真正意义上的「在社交媒体上展示你」，分享自己的生活、情绪、观点，哪怕是一张早餐图。\n对许多人来说，这种更新频率也许已经以月计，甚至年计。仿佛只有年终总结、旅行打卡、人生大事、重要节日值得一圈，除此之外，日常内容逐渐消失了。\n这不能简单归因于「懒到只想已阅」，也并非中国独有，而是全球人民共通的「社交冷感」现象： 人们在主动逃离公共社交，从公之于众的「广场」上，躲回到更私密的群聊、私聊甚至「仅自己可见」的心里 。\n\n正如《纽约客》近期一篇长文《Are You Experiencing Posting Ennui?》所写：「我们好像已经无法想象，曾经为什么吃个早餐也要发个圈儿。」\n我们正在经历一个「发帖倦怠」（posting ennui）的时代。\n01\n发什么，都不对劲 \n十年前的微博、朋友圈、Instagram，是「看什么都值得发」的年代。\n三明治咖啡早餐、地铁自拍、书页一角、午后家居、emo 金句……这些内容甚至形成了一种风格：Ins 风。\n在那个智能手机和 4G 网络串联起的时代里，生活的一切仿佛都值得展示。\n\n这画风起码得有 10 年了｜图源：Instagram\n而 2025 年，我们却陷入了一个奇怪的悖论： 任何东西都可以发，但没有任何东西值得发 。\n《纽约客》的作者 Kyle Chayka 观察到，普通人不再轻易将生活碎片分享在平台上。「做这件事不再那么自然，甚至让人怀疑我们曾经为何觉得它自然。」文中写道。\n「现在发个自拍我都会犹豫，觉得是不是太轻浮了。」华盛顿一位酒吧服务员告诉记者。\n她在 Instagram 上发了几张自拍，又在数小时后选择删除。「当全世界都在经历悲剧的时候，我担心我看起来不合时宜。」\n这不是孤例，而是 Z 时代人的共识： 比起被看见，更不想…",
+          "link": "http://www.geekpark.net/news/351537",
+          "publishedOn": "2025-07-15T05:51:14.000Z",
+          "wordCount": 459,
+          "title": "朋友圈的沉默，是我们这代人最无声的告别",
+          "imageUrl": null
+        },
         {
           "id": "http://www.geekpark.net/news/351518",
           "author": null,
@@ -4089,8 +4154,23 @@
     {
       "title": "北青深一度 via zmonster on Inoreader",
       "feedUrl": "https://feedpress.me/bqs",
-      "siteUrl": "https://www.inoreader.com/stream/user/1005939773/tag/%E5%8C%97%E9%9D%92%E6%B7%B1%E4%B8%80%E5%BA%A6?8c32=1752206386/view/html",
+      "siteUrl": "https://www.inoreader.com/stream/user/1005939773/tag/%E5%8C%97%E9%9D%92%E6%B7%B1%E4%B8%80%E5%BA%A6?da67=1752554087/view/html",
       "articles": [
+        {
+          "id": "http://www.inoreader.com/article/3a9c6e7712eed89a",
+          "author": null,
+          "description": "记者/颜星悦 实习记者/徐岑 周妍\n编辑/宋建华\n     \n 收到停止手术通知的钱康的婆婆\n辗转浙江、江苏多家医院，排队等待20多天后，周晓终于为患病七年的父亲签下了颈深淋巴管/结-静脉吻合术（LVA）的手术同意书。这张被病患家属称为“阿尔茨海默病手术”的同意书，承载着他想让父亲重新认识家人的希望。然而，就在手术前夕，国家卫健委7月8日发布通知，在全国范围内叫停了该项手术。\n在贵州，杨怡岚的父亲杨铜术后曾短暂认出女儿，让她着实激动了一阵子；在呼和浩特，另一位患者的孙子却坦言，奶奶“和术前相比没什么变化”。这项源于一次临床意外发现、迅速在全国各地医院开展起来的手术，日前因缺乏相关临床前研究的直接证据，被按下“暂停键”。\n     \n 正在进行的LVA手术\n \n    \n 手术等待叫停\n6月23日，周晓在江南大学附属医院为父亲办理了入院手续。从5月开始，他辗转于浙江、江苏多家医院，在排队等待了20多天后，终于为父亲签下了“颈深淋巴管/结-静脉吻合术（LVA）”的手术同意书。在病患及家属口中，这项手术被直接叫做了“阿尔茨海默病手术”。\n手术定于6月27日，费用在五六万元左右，医生的态度是不鼓励也不反对周晓父亲做这个手术。“他们明明白白告诉我，这个手术是尝试，效果不能保证。”周晓说，尽管如此，为争取让父亲重新认识自己的一丝机会，他愿意尝试。\n周晓的父亲患有阿尔茨海默病已七年，今年初开始，病情加剧。父亲的双腿已无法正常用力，时常不受控制，只能坐轮椅出行，唯一认识的人就是母亲。在做检查时，老人“动来动去的定不下来”，周晓和母亲只好两人合力，才将父亲抱上CT检查台。\n检查前后进行了近一个月，父亲的认知障碍成因符合手术标准，各项指标也没问题，签下手术同意书的那一刻，周晓如释重负，他和母亲都满怀期待。\n然而没想到，6月26日，周晓收到医生通知，父亲前一天的化验指标有异常，显示父亲肺部有炎症…",
+          "link": "https://c.m.163.com/news/a/K4GMVSI30512BN99.html?from=subscribe",
+          "publishedOn": "2025-07-15T04:17:55.000Z",
+          "wordCount": 583,
+          "title": "“阿尔茨海默病手术”被叫停的背后｜深度报道",
+          "enclosure": {
+            "length": "1337",
+            "type": "image/png",
+            "url": "https://static.ws.126.net/163/frontend/images/logo-netease-114.png"
+          },
+          "imageUrl": "https://static.ws.126.net/163/frontend/images/logo-netease-114.png"
+        },
         {
           "id": "http://www.inoreader.com/article/3a9c6e771c7811fb",
           "author": null,
@@ -5118,6 +5198,16 @@
       "feedUrl": "https://wechat2rss.xlab.app/feed/3db1babbdeeb84327cf6b5315e98d5f40925ae13.xml",
       "siteUrl": "https://wechat2rss.xlab.app/feed/3db1babbdeeb84327cf6b5315e98d5f40925ae13.xml",
       "articles": [
+        {
+          "id": "https://mp.weixin.qq.com/s?__biz=MzI5MzQ0NjMyMw==&mid=2247494355&idx=1&sn=10852cad9a5fc5725127c01d3e9e3f08",
+          "author": null,
+          "description": "",
+          "link": "https://mp.weixin.qq.com/s?__biz=MzI5MzQ0NjMyMw==&mid=2247494355&idx=1&sn=10852cad9a5fc5725127c01d3e9e3f08",
+          "publishedOn": "2025-07-15T00:11:00.000Z",
+          "wordCount": 264,
+          "title": "外刊里的高级表达，如何用进英语作文？",
+          "imageUrl": null
+        },
         {
           "id": "https://mp.weixin.qq.com/s?__biz=MzI5MzQ0NjMyMw==&mid=2247494350&idx=1&sn=e492ffa0ae7884b144637bda00936190",
           "author": null,
@@ -6367,76 +6457,6 @@
           "wordCount": 264,
           "title": "12306回应充电宝新规，鸿蒙版微信登陆电脑端，豆包高考达清北录取线，鸿蒙智行删除智界立减2万元内容，这就是今天的其他大新闻！",
           "imageUrl": null
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654603129&idx=1&sn=66acb9c9987af952cea4e23dd9d6bdc6",
-          "author": null,
-          "description": "轻装上阵，却处处到位。",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654603129&idx=1&sn=66acb9c9987af952cea4e23dd9d6bdc6",
-          "publishedOn": "2025-06-25T16:00:00.000Z",
-          "wordCount": 264,
-          "title": "vivo刚出的这台折叠屏，我愿称它为“苹果最佳搭子”！",
-          "imageUrl": null
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654603129&idx=2&sn=a426f644c3586cd117d41f45d7513e2c",
-          "author": null,
-          "description": "这生态拉满了",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654603129&idx=2&sn=a426f644c3586cd117d41f45d7513e2c",
-          "publishedOn": "2025-06-25T16:00:00.000Z",
-          "wordCount": 264,
-          "title": "看完这次大会，我觉得这个App可能没有听不到的歌。",
-          "imageUrl": null
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654603129&idx=3&sn=ddd0c2733014b2a2681eab9a516df265",
-          "author": null,
-          "description": "好消息，下半年还有。",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654603129&idx=3&sn=ddd0c2733014b2a2681eab9a516df265",
-          "publishedOn": "2025-06-25T16:00:00.000Z",
-          "wordCount": 264,
-          "title": "购车补贴要停了，再不买车直接亏 2 万？",
-          "imageUrl": null
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654603129&idx=4&sn=47aa9de926ead212886a021d9eddb40e",
-          "author": null,
-          "description": "N网没有倒闭，但它可能要变质了。",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654603129&idx=4&sn=47aa9de926ead212886a021d9eddb40e",
-          "publishedOn": "2025-06-25T16:00:00.000Z",
-          "wordCount": 264,
-          "title": "靠热爱活了24年的全球知名网站，最后还是败给了资本。",
-          "imageUrl": null
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654603129&idx=5&sn=aad165ab4e6be1924ce27f1ac81c059b",
-          "author": null,
-          "description": "一模一样。",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654603129&idx=5&sn=aad165ab4e6be1924ce27f1ac81c059b",
-          "publishedOn": "2025-06-25T16:00:00.000Z",
-          "wordCount": 264,
-          "title": "今日最佳：睡成赵本山了。",
-          "imageUrl": null
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654603129&idx=6&sn=26e0ef029ba4f214f35590a06748b4dd",
-          "author": null,
-          "description": "聊一聊",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654603129&idx=6&sn=26e0ef029ba4f214f35590a06748b4dd",
-          "publishedOn": "2025-06-25T16:00:00.000Z",
-          "wordCount": 264,
-          "title": "聊一聊：你最离不开手机里的哪一个功能？",
-          "imageUrl": null
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654603129&idx=7&sn=6be499e5700f74a0c5c54ad978ca1a78",
-          "author": null,
-          "description": "今天是6月25日，农历六月初一。",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654603129&idx=7&sn=6be499e5700f74a0c5c54ad978ca1a78",
-          "publishedOn": "2025-06-25T16:00:00.000Z",
-          "wordCount": 264,
-          "title": "特斯拉Robotaxi频发违规超速，苹果称零佣金惩罚过重，英特尔回应关停汽车业务，小米YU7三班倒生产，这就是今天的其他大新闻！",
-          "imageUrl": null
         }
       ]
     },
@@ -7593,6 +7613,20 @@
       "siteUrl": "https://www.natgeomedia.com/science/article",
       "articles": [
         {
+          "id": "https://www.natgeomedia.com/environment/article/content-18285.html",
+          "author": null,
+          "description": "「朗氏喙鯨」（也被稱作熱帶瓶鼻鯨）因生活在大洋深處，少有海上目擊紀錄，被視為世上最神秘的鯨種之一。7月2日早上7時左右，黑潮海洋文教基金會就在花蓮外海發現一群罕見的朗氏喙鯨，數量超過30隻，其中包括多對共游的母子鯨。這是台灣首次在海上清楚觀察並記錄朗氏喙鯨群體，不只拍到影像，還錄下聲音，為台灣鯨豚紀錄寫下重要的一頁。\n\n                    \n近距離觀察3小時 錄到珍貴朗氏喙鯨水下聲音\n朗氏喙鯨（Indopacetus pacificus）為深潛性鯨豚，是台灣週邊海域體型最大的喙鯨，體長可超過6公尺，具明顯突出吻部與隆起額頭，臉部常有白色斑塊，辨識特徵明確，但因其生活在大洋深處，鮮少靠近人類活動範圍，就算放眼全球仍極為罕見。台灣過去也只有少數擱淺紀錄，從未有明確的海上群體觀察紀錄。\n黑潮海洋文教基金會（下簡稱黑潮）2日執行「海洋綠洲 Ocean Oasis：東海岸鯨類保育計畫」第二階段的深海物種調查時，於花蓮外海目擊到一群朗氏喙鯨，也是台灣首次在海上記錄到朗氏喙鯨群體行為。\n此次觀察地點位於花蓮港東南方約16公里處，海域水深超過3000公尺，屬於典型的大洋型深海環境。發現朗氏喙鯨群體後，船隻立即在不干擾的前提下靠近觀察，群體並未立即潛離，讓調查人員得以近距離確認物種並展開長時間記錄。\n\n                    \n這一群朗氏喙鯨數量超過30隻，其中包含多對幼鯨與成年母鯨共游，還有幾隻體型壯碩的成年雄鯨，甚至可以從照片中看見其嘴端微露的牙齒。鯨群表現出豐富的社交行為，如半身擊浪、身體磨蹭、追逐互動，還有觀察到兩隻鯨魚腹部貼著腹部疑似交配的動作。更難得的是，船上的黑潮鯨豚保育研究員，成功以水下麥克風錄到朗氏喙鯨的聲音，不僅是台灣首筆朗氏喙鯨水下聲音紀錄，對未來研究此物種的聲音通訊、生態行為與族群辨識也至關重要。\n這次觀察持續近三個小時，朗氏喙鯨順著海流快速游動，僅有一次短暫約十分鐘的集體潛水，隨後再度浮出水面繼續向外海前進。當牠們游離到離岸超過 30 公里處，調查人員才結束觀察。\n\n  \n  \n.g_AD_970_250_InArticle_responsive{width:300px;height:250px;}\n@media(min-width: 1100px){.g_AD_970_250_InArticle_responsive{width:100%;}}\n\n\n\n\n\n\n\n\n                    \n群體有公母鯨與幼鯨 推測因環境變化改變活動範圍\n對於此次調查的成果，黑潮執行長林東良指出，這次觀察到的朗氏喙鯨群體有成年雄鯨、母鯨與幼鯨，還有明顯的社交行為，「可能不只是偶然經過。」推測是像抹香鯨一樣，或受海洋環境變化改變活動範圍的，日後會持續調查留意該水域，調查人員錄到的朗氏喙鯨水下聲音，未來也可用作建立聲景監測與物種辨識。\n朗氏喙鯨是世界最神秘的鯨種之一，1926年首次以頭骨的描述命名後，直到1990年代才透過實地觀察與基因分析，正式釐清其分類與外型。朗氏喙鯨各個都是潛水高手，而花東海域海底地形陡降、洋流強勁，是魷魚等頭足類的重要棲地，也是多種深潛性鯨豚的覓食熱點。\n黑潮強調，此次觀察成果不僅填補台灣海域鯨種紀錄的空白，也證實花東外海為深海鯨豚的重要棲地，呼籲各界正視深海生態系的保育與研究價值。長期合作支持調查船隻的多羅滿賞鯨則表示，將持續配合海洋保育與學術單位的研究行動，協助蒐集東部海域的長期觀測資料，特別針對深海鯨種的行為、分布與出沒時機，建立更完整的知識系統。\n\n \n\n  \n  \n.g_AD_970_250_InArticle_responsive{width:300px;height:250px;}\n@media(min-width: 1100px){.g_AD_970_250_InArticle_responsive{width:100%;}}\n\n\n\n\n\n\n\n\n                    \n本文轉載自「環境資訊中心」網站，內容由許多專家學者及民間環團，提供國內外環境教育與環保資訊；主題涵蓋全球變遷、溫室氣體控制、環保生活、環境汙染防治、生態保育、能源節約與能源效率、綠建築等各面向。期許能替沒有選票的山林、濕地、海洋、土地發聲。\n\n                    \n#花蓮\n#黑潮海洋文教基金會\n#朗氏喙鯨\n#熱帶瓶鼻鯨",
+          "link": "https://www.natgeomedia.com/environment/article/content-18285.html",
+          "publishedOn": "2025-07-13T16:00:00.000Z",
+          "wordCount": 463,
+          "title": "30隻「朗氏喙鯨」花蓮外海現蹤 母子共游、水下聲音全都錄 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權",
+          "enclosure": {
+            "url": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18285/2025071452823053.jpg",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18285/2025071452823053.jpg"
+        },
+        {
           "id": "https://www.natgeomedia.com/science/article/content-18292.html",
           "author": null,
           "description": "古生物學家在亞利桑那州發現了一處可追溯至2億900萬年前的三疊紀化石寶庫。\n\n                    \n古生物學家在亞利桑那州石化森林國家公園（Petrified Forest National Park）的古老岩層中搜尋時，發現一處獨特的化石床。這個三疊紀寶庫可追溯至2億900萬年前，其中包含將近1500件魚、蛙、龜、類鱷掠食者等動物的化石。最令人驚嘆的是，這裡也出現北美洲目前最古老翼龍的化石化殘骸：始灰燼翼龍（Eotephradactylus mcintireae），屬名的意思是「灰翼黎明女神」。\n早期翼龍以極難尋獲而聞名。藉由在身體與超長的第四指之間延展的革質皮膚翼膜，這些飛行爬行類動物能夠在空中翱翔。牠們的小體型和中空骨骼讓飛行變得比較容易，但也代表牠們的骨架往往在化石化作用可進行之前就遭到摧毀。古生物學家居然發現一隻早期翼龍的顎骨、翅骨和牙齒，對他們而言屬於意外之喜。\n史密森尼自然史博物館（Smithsonian National Museum of Natural History）的古生物學家班．克里格曼（Ben Kligman）是這項發現的研究團隊成員之一。他表示：「這是我們最意想不到會找到翼龍骨頭的地方。」\n當年，這種體型如同海鷗般的爬行動物在今日亞利桑那州東部的天空振翅飛翔，而當地是一片有河道蜿蜒穿過的氾濫平原。克里格曼解釋：「河流帶來的沉積物保存了這些脆弱的骨骼。」\n \n\n                    \n克里格曼與同事將這隻新出土的翼龍命名為「灰翼黎明女神」，這個名字一方面紀念了化石遺址中的火山灰層，讓地質學家能夠精準測定化石床的年代；另一方面也象徵這隻翼龍屬於翼龍演化歷程的早期階段。其種小名則是為了向博物館標本製作人員蘇珊．麥金泰爾（Suzanne McIntire）致敬——正是她最先發現了這些細小的翼龍骨骼。研究團隊已於7月7日將這項發現發表在期刊《美國國家科學院學報》（PNAS）。\n\n.g_AD_970_250_InArticle_responsive{width:300px;height:250px;}\n@media(min-width: 1100px){.g_AD_970_250_InArticle_responsive{width:100%;}}\n\n\n\n\n\n\n\n\n\n依據翼龍顎骨的磨損牙齒，克里格曼及同事認為牠會捕食史前河道中豐富的有鱗魚類。這些古生物學家認為，在其他地方，類似的三疊紀岩層中可能藏有更多來自古河道沉積物的始灰燼翼龍骨骼。為翼龍提供魚類及其他小型獵物的溪流較有可能保存翼龍骨骼，進而勾勒出這些飛行爬行類動物起初如何分布到世界各地的過程。\n\n                    \nEotephradactylus mcintireae的正模式標本。比例尺單位為公分。PHOTOGRAPH BY SUZANNE MCINTIRE \n\n\n\n\n                    \n克里格曼說，收集這處化石床的所有物種（包括始灰燼翼龍）是非常辛苦的工作，耗時大約十年。他們也在當地發現類似犰狳的鱷魚親緣動物（堅蜥〔aetosaur〕）、大型掠食性超級兩生類（蒙托龍〔metoposaur〕）、身上覆蓋大型鱗片、如神話中龍般的爬行類動物（范克里夫鱷〔Vancleavea〕），以及擁有薄殼及頸上尖刺的早期龜類動物。\n克里格曼說：「這處化石床的有趣之處是這裡包含將在三疊紀之後宰制生態系的動物，例如蛙、龜、翼龍，牠們與很快會在大滅絕期間絕種的古老動物群生活在一起。」\n克里格曼表示，完整收集這處化石層中所有物種的化石（包括始灰燼翼龍），是一項非常辛苦且耗時的工作，前後花了大約十年。除了翼龍，他們也在當地發現了類似犰狳的鱷魚親戚（堅蜥〔aetosaurs〕）、體型巨大的掠食性超級兩生類（蒙托龍〔Metoposaurs〕）、身上覆蓋大型鱗片、宛如神話中龍一般的爬行類動物（范克里夫鱷〔Vancleavea〕），以及擁有薄殼和頸部尖刺的早期龜類動物。\n\n.g_AD_970_250_InArticle_responsive{width:300px;height:250px;}\n@media(min-width: 1100px){.g_AD_970_250_InArticle_responsive{width:100%;}}\n\n\n\n\n\n\n\n\n\n克里格曼說：「這處化石層有趣的地方在於，這裡同時保存了三疊紀後期將主宰生態系的動物，例如青蛙、烏龜和翼龍，它們與那些很快會在大滅絕期間消失的古老動物群生活在同一個時空中。」\n \n延伸閱讀：2.3億年前的神祕化石為翼龍起源之謎帶來曙光 / 從奇幻飛到現實！以《權力遊戲》為靈感命名的翼龍新屬\n\n                    \n#三疊紀\n#灰翼黎明女神\n#始灰燼翼龍\n#石化森林國家公園",
@@ -7857,20 +7891,6 @@
             "type": "image/jpeg"
           },
           "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18242/2025062766175781.jpg"
-        },
-        {
-          "id": "https://www.natgeomedia.com/science/article/content-18241.html",
-          "author": null,
-          "description": "蒙古王子龍（Khankhuuluu mongoliensis）身形纖細，具有和暴龍家族其他成員都不相似的特徵。\n\n                    \n霸王龍（Tyrannosaurus rex）是肉食性恐龍中的經典象徵。牠身長超過12公尺、體重達9噸，是能粉碎骨頭的巨獸，也是暴龍家族中體型最大、出現最晚的成員。如今，一種體型小得多的新種暴龍正為這隻知名恐龍的演化歷程補上失落的一頁。\n這名暴龍家族的新成員叫做蒙古王子龍（Khankhuuluu mongoliensis）。這種恐龍在6月的《自然》（Nature）期刊中首度獲得描述，科學家從包含頭骨、脊椎、部分股骨和四肢骨頭的兩副不完整骨骸中辨認出這種恐龍。\n這些骨頭拼湊出一隻纖細的暴龍，牠曾經漫遊在8600萬年前白堊紀的蒙古，身長大約4公尺——和2000萬年以後闊步於北美大陸的霸王龍亞成體差不多大。其實王子龍看起來確實和較晚出現且較大的暴龍亞成體相似，有著圓形眼窩、刀狀牙齒，和適合快速而非強力咬合的長而淺下顎。\n王子龍的意義不僅止於在這本愈來愈厚的名冊裡添上一個名字。「王子龍為我們帶來暴龍的起源故事。」研究共同作者，卡加利大學古生物學家達拉．澤倫尼斯基（Darla Zelenitsky）說。\n\n                    \n發現新恐龍\n1970年代早期，蒙古古生物學家阿勒坦格列爾．佩勒（Altangerel Perle）在蒙古東部找到一對不完整的暴龍骨骸。這些骨頭看似與一種更早以前命名的較小型暴龍獨龍（Alectrosaurus）相似。然而當卡加利大學古生物學家、新研究共同作者賈瑞德．沃里斯（Jared Voris）在2023年前往蒙古進行考察時，他很快就發現這些骨頭根本不屬於獨龍。\n這些出自兩副骨骸的骨頭屬於一種全新的暴龍，而且已經在藏品堆中靜待了半個世紀。「牠有一些其他暴龍都沒有的特徵，例如鼻骨內中空的氣…",
-          "link": "https://www.natgeomedia.com/science/article/content-18241.html",
-          "publishedOn": "2025-06-25T16:00:00.000Z",
-          "wordCount": 461,
-          "title": "「龍中王子」現身！科學家找到霸王龍失落的祖先 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權",
-          "enclosure": {
-            "url": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18241/2025062684036801.jpg",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18241/2025062684036801.jpg"
         }
       ]
     },
@@ -7956,6 +7976,20 @@
       "feedUrl": "https://rsshub.rssforever.com/natgeo/history/article",
       "siteUrl": "https://www.natgeomedia.com/history/article",
       "articles": [
+        {
+          "id": "https://www.natgeomedia.com/environment/article/content-18285.html",
+          "author": null,
+          "description": "「朗氏喙鯨」（也被稱作熱帶瓶鼻鯨）因生活在大洋深處，少有海上目擊紀錄，被視為世上最神秘的鯨種之一。7月2日早上7時左右，黑潮海洋文教基金會就在花蓮外海發現一群罕見的朗氏喙鯨，數量超過30隻，其中包括多對共游的母子鯨。這是台灣首次在海上清楚觀察並記錄朗氏喙鯨群體，不只拍到影像，還錄下聲音，為台灣鯨豚紀錄寫下重要的一頁。\n\n                    \n近距離觀察3小時 錄到珍貴朗氏喙鯨水下聲音\n朗氏喙鯨（Indopacetus pacificus）為深潛性鯨豚，是台灣週邊海域體型最大的喙鯨，體長可超過6公尺，具明顯突出吻部與隆起額頭，臉部常有白色斑塊，辨識特徵明確，但因其生活在大洋深處，鮮少靠近人類活動範圍，就算放眼全球仍極為罕見。台灣過去也只有少數擱淺紀錄，從未有明確的海上群體觀察紀錄。\n黑潮海洋文教基金會（下簡稱黑潮）2日執行「海洋綠洲 Ocean Oasis：東海岸鯨類保育計畫」第二階段的深海物種調查時，於花蓮外海目擊到一群朗氏喙鯨，也是台灣首次在海上記錄到朗氏喙鯨群體行為。\n此次觀察地點位於花蓮港東南方約16公里處，海域水深超過3000公尺，屬於典型的大洋型深海環境。發現朗氏喙鯨群體後，船隻立即在不干擾的前提下靠近觀察，群體並未立即潛離，讓調查人員得以近距離確認物種並展開長時間記錄。\n\n                    \n這一群朗氏喙鯨數量超過30隻，其中包含多對幼鯨與成年母鯨共游，還有幾隻體型壯碩的成年雄鯨，甚至可以從照片中看見其嘴端微露的牙齒。鯨群表現出豐富的社交行為，如半身擊浪、身體磨蹭、追逐互動，還有觀察到兩隻鯨魚腹部貼著腹部疑似交配的動作。更難得的是，船上的黑潮鯨豚保育研究員，成功以水下麥克風錄到朗氏喙鯨的聲音，不僅是台灣首筆朗氏喙鯨水下聲音紀錄，對未來研究此物種的聲音通訊、生態行為與族群辨識也至關重要。\n這次觀察持續近三個小時，朗氏喙鯨順著海流快速游動，僅有一次短暫約十分鐘的集體潛水，隨後再度浮出水面繼續向外海前進。當牠們游離到離岸超過 30 公里處，調查人員才結束觀察。\n\n  \n  \n.g_AD_970_250_InArticle_responsive{width:300px;height:250px;}\n@media(min-width: 1100px){.g_AD_970_250_InArticle_responsive{width:100%;}}\n\n\n\n\n\n\n\n\n                    \n群體有公母鯨與幼鯨 推測因環境變化改變活動範圍\n對於此次調查的成果，黑潮執行長林東良指出，這次觀察到的朗氏喙鯨群體有成年雄鯨、母鯨與幼鯨，還有明顯的社交行為，「可能不只是偶然經過。」推測是像抹香鯨一樣，或受海洋環境變化改變活動範圍的，日後會持續調查留意該水域，調查人員錄到的朗氏喙鯨水下聲音，未來也可用作建立聲景監測與物種辨識。\n朗氏喙鯨是世界最神秘的鯨種之一，1926年首次以頭骨的描述命名後，直到1990年代才透過實地觀察與基因分析，正式釐清其分類與外型。朗氏喙鯨各個都是潛水高手，而花東海域海底地形陡降、洋流強勁，是魷魚等頭足類的重要棲地，也是多種深潛性鯨豚的覓食熱點。\n黑潮強調，此次觀察成果不僅填補台灣海域鯨種紀錄的空白，也證實花東外海為深海鯨豚的重要棲地，呼籲各界正視深海生態系的保育與研究價值。長期合作支持調查船隻的多羅滿賞鯨則表示，將持續配合海洋保育與學術單位的研究行動，協助蒐集東部海域的長期觀測資料，特別針對深海鯨種的行為、分布與出沒時機，建立更完整的知識系統。\n\n \n\n  \n  \n.g_AD_970_250_InArticle_responsive{width:300px;height:250px;}\n@media(min-width: 1100px){.g_AD_970_250_InArticle_responsive{width:100%;}}\n\n\n\n\n\n\n\n\n                    \n本文轉載自「環境資訊中心」網站，內容由許多專家學者及民間環團，提供國內外環境教育與環保資訊；主題涵蓋全球變遷、溫室氣體控制、環保生活、環境汙染防治、生態保育、能源節約與能源效率、綠建築等各面向。期許能替沒有選票的山林、濕地、海洋、土地發聲。\n\n                    \n#花蓮\n#黑潮海洋文教基金會\n#朗氏喙鯨\n#熱帶瓶鼻鯨",
+          "link": "https://www.natgeomedia.com/environment/article/content-18285.html",
+          "publishedOn": "2025-07-13T16:00:00.000Z",
+          "wordCount": 463,
+          "title": "30隻「朗氏喙鯨」花蓮外海現蹤 母子共游、水下聲音全都錄 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權",
+          "enclosure": {
+            "url": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18285/2025071452823053.jpg",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18285/2025071452823053.jpg"
+        },
         {
           "id": "https://www.natgeomedia.com/environment/article/content-18282.html",
           "author": null,
@@ -11255,6 +11289,26 @@
       "siteUrl": "https://sspai.com",
       "articles": [
         {
+          "id": "https://sspai.com/post/101033",
+          "author": "evnydd0sf",
+          "description": "Quote/0直播预告：7月17日周四19:30，包含产品补货以及重要功能演示与发布小红书：@少数派共创视频号：@少数派sspai距离上一次Quote/0直播已相距近一个月。作为Quote/0的开发者 ...查看全文",
+          "link": "https://sspai.com/post/101033",
+          "publishedOn": "2025-07-15T06:30:00.000Z",
+          "wordCount": 652,
+          "title": "从笃定到踌躇：Quote/0，一个开发者产品的真实旅程",
+          "imageUrl": "https://cdnfile.sspai.com/2025/7/15/article/4ee0398c-e886-e25e-996c-73328cc31967.jpeg"
+        },
+        {
+          "id": "https://sspai.com/post/101001",
+          "author": "manman",
+          "description": "我想旅行的意义，可能在于让我们知道世界上存在着这样好的风景，我们亲眼见过，而且只要愿意，随时都能出发、抵达。查看全文",
+          "link": "https://sspai.com/post/101001",
+          "publishedOn": "2025-07-15T03:35:45.000Z",
+          "wordCount": 646,
+          "title": "新疆 10 天自驾：夏日走过山间、草原和古城",
+          "imageUrl": "https://cdnfile.sspai.com/2025/07/14/5913396ec71819b0b8cafe48630dd65e.jpg"
+        },
+        {
           "id": "https://sspai.com/post/101036",
           "author": "少数派编辑部",
           "description": "英伟达驱动为 RTX 40 系列显卡带来 Smooth Motion 技术，微软明确 Windows 10 上 Microsoft 365 应用的扩展支持停止时间等。查看全文",
@@ -11881,6 +11935,16 @@
       "feedUrl": "https://feedx.site/rss/shanghaishuping.xml",
       "siteUrl": "http://thepaper.cn",
       "articles": [
+        {
+          "id": "https://www.thepaper.cn/newsDetail_forward_31178102",
+          "author": null,
+          "description": "《间谍教廷：教宗对抗希特勒的秘密战争》，马克·里布林著，焦静姝译，社会科学文献出版社2025年6月出版，409页，89.00元\n\n\n1940年3月11日，教宗庇护十二世在梵蒂冈迎来了一位不得不见的“不速之客”——时任纳粹德国外交部长的里宾特洛甫，此时，他正处于权力巅峰。不久前，他刚因为成功促成《苏德互不侵犯条约》签订而深受希特勒器重。自1939年9月德国入侵波兰后，欧陆的西线战场一直处于诡异的对峙局面中，意大利的墨索里尼此时也尚未对英法宣战。里宾特洛甫此行的最大任务自然是劝说墨索里尼尽早正式对英法宣战，而仅次于此的任务便是与教宗庇护十二世（尤金尼奥·帕切利）会面。\n1938年5月，希特勒访问罗马时，教宗庇护十一世选择离开梵蒂冈和罗马，去了东南面的甘多尔福堡，借此回避与希特勒会面的可能性。用庇护十一世自己的话来说，就是他不愿意留在一座会悬挂“敌视基督的异教十字旗”（即纳粹万字旗）的城市。相较于自己的前任，庇护十二世对与纳粹最高层会面持开放态度，这或许与他曾长期担任梵蒂冈驻外使节、国务卿，负责外交事务的经历有关。早在1933年时，他就曾推动梵蒂冈与德国就天主教地位和教会权力问题签署过一份所谓“政教协约”，但之后的纳粹政府却并未遵守这份文件。在庇护十二世当选为教宗后，欧战随即爆发，当时的他至少在表面上决定效仿第一次世界大战时本笃十五世的做法——即维持中立。\n\n庇护十二世\n\n\n长久以来，梵蒂冈及教宗本人如何看待法西斯运动以及纳粹德国都是一个引人关注且敏感的话题。早在战争结束前，就有不少人将庇护十二世没有公开明确批判纳粹暴行视为一种纵容乃至包庇，也认为天主教会是为了自保选择向“暴君”低头妥协；至于庇护十二世，则可能有“同情”纳粹及反犹倾向。这类观点在二十世纪五六十年代甚至一度成为主流，如犹太历史学家索尔·弗里德兰德（Saul Friedländer）的《庇护十二世与第三帝国》（Piu…",
+          "link": "https://www.thepaper.cn/newsDetail_forward_31178102",
+          "publishedOn": "2025-07-15T04:02:05.000Z",
+          "wordCount": 154,
+          "title": "沙青青评《间谍教廷》｜暗地运营反纳粹情报网的“间谍大师”",
+          "imageUrl": null
+        },
         {
           "id": "https://www.thepaper.cn/newsDetail_forward_31174056",
           "author": null,
@@ -13739,6 +13803,66 @@
       "feedUrl": "https://feedx.site/rss/infzm.xml",
       "siteUrl": "http://infzm.com",
       "articles": [
+        {
+          "id": "http://www.infzm.com/contents/298028",
+          "author": null,
+          "description": "2025-07-15 15:00:00\n下班回家路上，心情很美好。手机网购物流显示，我的爵士舞蹈服已在家门口签收。一口气买了三套，分别是棕色背心搭配卡其色裤子、红色背心搭配黑色裤子、白色铆钉短袖搭配粉色裤子。想象中，穿上这几套衣服，就可以像老师和舞蹈班资深的小姐姐一样，跳出有律动、有松弛感的舞蹈了。\n前两次上课，是下了班直接过去舞蹈教室的，穿着牛仔裤和T恤衫的我，在一堆穿着很“爵士”的小姐姐当中相当扎眼，也和在舞蹈教室里飘荡的“动次打次”的音乐中冲撞出了强烈的违和感。\n把舞蹈背心套上、裤子穿上，把格子衬衫在腰间一绑，再将长期捆扎的头发甩着头散开，仿佛立刻从困在格子间里的牛马变身成了街头自由洒脱的舞者。\n当再去上课时，虽然舞蹈动作还是记不住几个，舞蹈节拍还是十个错了八个，但是再看着舞蹈教室中的自己，俨然已经变成了正规军，插班生和旁听生的身份消失了。对着镜子做几个简单动作时，也觉得看着顺眼起来，甚至“能学好”的信心也被激发了出来，于是悄悄从最后一排角落挪到了前排角落。\n在实质性学会跳舞之前，先是“打扮”成像是会跳得很好的样子。再做动作时，我似乎做得更舒展了。当然，在装饰性和情绪性价值得到极大满足的同时，宽松的裤子确实也方便了我在做下蹲的动作时有更大的幅度。\n中年人的“要事”有很多。在重新培养一个爱好之外，重要场合也算一个。每次要参加别人的婚礼、同学聚会、朋友聚餐、家长会，打开衣柜左挑右选、上蹿下跳、对着镜子试了满衣柜的衣服后，在扔了一床的衣服边叹口气坐下，打开手机或者奔赴商场决定去买一套新衣服。\n怎么来科学解释小小一件衣服对于“要事”的影响呢？心理学家基特·亚罗认为，人们会通过想象自己穿着这些新衣服的样子，获得与这种穿着打扮相匹配的身份感与力量感，在积极的自我暗示中，能够做出更符合其身份角色的表现。\n但是，这个逻辑在真实生活中却未必每次实现。比如在“要事”中买了衣服，但是“要事”却不一定能成。朋友说，在刚刚办完健身卡的同时，入手了多巴胺穿搭两套。很快，不仅健身卡落灰了，连带着瑜伽裤也沦落成了秋裤。听到这里，我对自己的舞蹈服也生出了几分担忧来。毕竟我也是个有“前科”的人。在对家里堆积如山的杂物进行大扫除时，竟然发现了四套跑步服。回顾起来，这分别代表曾经有四个重要的时刻，我狠狠下定了决心，要用“跑步”来消除中年油腻。\n这黑、红、粉、紫摆在一起，我已然分不清对应的是哪次的决心了。只是依稀记得，这些跑步的“要事”有的是刚生完老大下定决心要恢复生孩子前的身材，有的是刚生完老二觉得可以无牵无挂地恢复不会再反弹的身材，有的是纯粹参加完同学聚会看到同宿舍的女孩都还窈窕淑女产生的焦虑。“新衣”带来的冲劲和热乎劲，也分别持续过一段时间，但是繁重工作、加班熬夜、带娃上课，又从不同程度磨灭了“新衣”带来的能量，导致了“要事”的放弃和中断。\n回想起来，每一次“要事”前的新衣都给了我一种“全新开始”的心理暗示。看着镜子里的自己，似乎觉得自己已经做好了准备，能够更好地应对即将到来的人生状态的改变。同时它让我在心理上提前进入状态，仿佛在告诉自己：“我要认真对待这件事，我要以最好的状态去参与。”\n但是，更经常发生的是，中年人的“认真”和“最好的状态”被生活琐事、压力焦虑蹉跎，多数变成了难以兑现的自我承诺。在买完新衣后，接下来要面临的就是从服装上入局还是从实力上入局。服装上入局只需要两天，挑选和下单半个小时，快递送达两天，但是真正学会某项新技能是以月甚至年为单位的计算。\n选择穿成什么样去做一些事，是中年人可以办成的、为数不多的简约仪式和自我鼓励。只是还要略微慎重考虑的是，如何多一些坚持，让新衣不至于沦为写真馆的妆造道具，只供偶尔进入某个场景，却无法过上真正想追求的生活。不能忘了，想要拥有与穿着打扮相匹配的身份感与力量感，才是“每逢要事必买衣”最初的设计。\n（作者为北京事业单位职员）\n\n• （南方周末App“hi，南周”栏目期待您的来稿。投稿邮箱：nfzmreaders@163.com）",
+          "link": "http://www.infzm.com/contents/298028",
+          "publishedOn": "2025-07-15T07:25:08.000Z",
+          "wordCount": 95,
+          "title": "每逢“要事”必买衣，我到底买到了什么",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/298098",
+          "author": null,
+          "description": "2025-07-15 14:00:00\n\n2017年8月30日，贵州省剑河县城关一小二年级的老师在课堂上带领学生学习当时新出炉的第一版统编教材《道德与法治》。（视觉中国/图）\n\n程林记得，某次参加初中的课程活动时，道法老师在设计模拟法庭的过程中，出现了不少原则性的错误。比如，民事案件最终的判决结果竟然是判处刑罚，“这说明有的老师还缺乏基本的法治素养和法治常识。”\n程林是杭州师范大学沈钧儒法学院副教授、浙江省法治教育研究中心副主任。\n身为北京市海淀区某知名小学的道法老师，张欣也坦承，不知该如何向学生讲解书上有关法治方面的一些内容，“自己不懂，不知道要讲到什么程度，更怕讲错。”\n所谓“道法”课，在义务教育阶段的全称为“道德与法治”，而师范院校培养的对应师范生专业则是“思政专业”。\n张欣的困惑其实并非个例。在给各个地方的中小学老师做培训时，中国政法大学未成年人事务治理与法律研究基地主任李宏勃也得到不少反馈：教材太难、太枯燥，而一线老师的法律知识有限，课堂效果不佳。\n鉴于此，从2017年开始使用的道法教材在2024年完成了一轮修订。\n华中师范大学马克思主义学院教授高鑫参与了此次道法教材的修订。据他介绍，新教材已在2024年9月从七年级开始使用，到2026年将完成全部教材的替换。新教材中，六年级上册与八年级下册是专门的法治专册，“其中涉及法律的内容有所调整，难度有所降低。”\n但这不等于中小学法治教育中面临的问题就解决了。华东师范大学法学院教授、未成年人学校保护研究中心副主任任海涛指出，不管教材怎么改，现有道法教师的法律素养都亟待提高，师范院校应当在思政类师范生的培养过程中加强法治教育。\n“照本宣科”\n张欣始终记得教材改版后第一年上法治内容的情景：“就是照本宣科，自己对这些内容也不能理解，处于模棱两可的状态，因此也不敢讲得太深或展开讲，担心讲错。”\n上海某初中道法老师白静以八年级的道法…",
+          "link": "http://www.infzm.com/contents/298098",
+          "publishedOn": "2025-07-15T06:25:07.000Z",
+          "wordCount": 92,
+          "title": "“照本宣科”里的教育难题：给中小学的孩子讲法律",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/298048",
+          "author": null,
+          "description": "2025-07-15 13:00:00",
+          "link": "http://www.infzm.com/contents/298048",
+          "publishedOn": "2025-07-15T05:25:06.000Z",
+          "wordCount": 87,
+          "title": "对话康方生物董事长夏瑜：“做新药永远都有不确定性”",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/298090",
+          "author": null,
+          "description": "2025-07-15 12:00:00\n近日有媒体报道，四川一高速公路在原收费期满后仍继续收费，有市民向省交通运输厅申请公开收费延长的批复信息却被拒绝，相关部门称相关信息按有关规定不予公开。在很多省份，收费公路收费相关的批复都是主动公开的，此举不出意外引发热议。\n据报道，这条长15公里左右的市域内高速公路，目前在四川省交通厅官网公布的信息中，其收费起止年限是到2025年9月17日止。但根据2022年四川省交通运输厅公开回应网民咨询时的信息，该高速公路的收费期限自1998年12月21日起至2024年6月30日止。\n该高速公路有限公司工作人员在接受媒体采访时表示，公路的总体收费期限未变，因为国家近年来的免费政策，导致原定收费起止时间没有达到法定收费年限，按照规定重新核定了收费截止日期为2025年9月17日。既然重新核定了收费日期，相关文件也应当公开。但四川省相关部门并没有公布相关文件，只是悄悄地更改了收费截止日期。政府信息不公开不透明，难免让人怀疑，延长收费到底有没有合理的理由。\n根据《收费公路管理条例》规定，经营性公路的收费期限，按照收回投资并有合理回报的原则确定，最长不得超过25年，中西部省份的经营性公路，收费期限不得超过30年。这些“法定收费期限”，指的是最长收费年限，并不是每条公路都必须收够这么多年，实际的收费期限，应按照收回投资并取得合理回报的原则来确定。如果因为国家政策变化原因（比如后期增加了免费通行时间），导致在原定的收费期限内无法收回投资并取得合理回报，延长收费期限不是不可以，但是应该按照法定的程序来更改收费截止日期。\n而按照《收费公路管理条例》的规定，收费公路的收费期限，应由省级政府审查批准，批准之后，还要报国务院交通主管部门和价格主管部门备案。对于城北出口高速公路的收费期限，四川省交通运输厅此前曾公开表示截止到2024年6月30日，现在却变成了2025年9月17日，延长了一年多。高速公路收费期限一旦审批通过，就成了有效的政府公文，有着法律效力，如果要调整，也需要按照相同的审批程序由省级政府审查批准。\n这个过程，肯定涉及相关的公文。这些批复信息，在很多省份，都是主动公开的，在省级交通运输部门的官方网站上，包括收费标准、收费期限的批复信息，都可以查到。而在四川省交通运输厅的官网上，却找不到这些批复信息，公开的只有收费信息，当市民提出信息公开申请时，又以“有关规定”为由拒绝公开。当地相关部门有必要解释清楚，这个“有关规定”到底是什么规定。\n根据政府信息公开条例，为了提高政府工作透明度，政府信息应该以公开为常态，不公开为例外，尽可能及时、准确地公开政府信息。对于不予公开的信息，条例有明确的限定，包括国家秘密，法律法规禁止公开的，公开后可能危及国家安全、公共安全、经济安全、社会稳定的政府信息等等。另外，行政机关履行职能过程中形成的过程性信息，也可以不予公开。按照这个规定，高速公路公司向省政府申请延长收费期限的请示或许可以视为过程性信息，可以不予公开，但是省政府最终的批复，却不应该被视为过程性信息，而是最终的行政决定。这个最终决定是涉及广大车主切身利益的，当然应该公开。车主有权利知晓收费期限延长的原因是什么，而不是只被告知延长到何时。\n公开透明是法治政府的基本特征。政府信息公开是法定的要求，也是建设法治政府的重要措施。中央多次发文强调，要全面推进政务公开工作，公开内容要覆盖权力运行全流程。政府信息公开，不仅仅要公开最终的行政决策结果，决策过程也要公开，对于涉及群众切身利益的重大行政决策，应该扩大决策过程中的公众参与，在决策前就要公布决策草案及其依据，通过座谈听证、调查研究等方式听取公众意见，增加决策的透明度和公众参与，而决策做出后，也应及时公开。\n而高速公路收费延期这一决策，影响到公众的切身利益，并且也没有涉及国家秘密等不能公开的原因，理应公开。申请政府信息公开的市民，已经提起行政诉讼。公众期待，法院能依法支持公众的知情权，判决交通运输部门公布相关信息，维护政府公信力。\n\n获取更多RSS：\nhttps://feedx.net \nhttps://feedx.site",
+          "link": "http://www.infzm.com/contents/298090",
+          "publishedOn": "2025-07-15T04:25:07.000Z",
+          "wordCount": 91,
+          "title": "高速公路收费审批信息，有何规定不予公开？",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/298038",
+          "author": null,
+          "description": "2025-07-15 11:00:00\n\n帕兰泰尔虽然是科技公司，但其总裁卡普，从本科到博士，念的都是纯文科。\n现代战争离不开高科技。俄乌冲突中，乌军精准打击，屡次奇袭，这背后有一家名叫帕兰泰尔的公司。该公司也曾帮助美国军方成功定位本·拉登。公司原由PayPal创始人彼得·蒂尔等人共同创立，其名称来源于《魔戒》中能观察世界的魔法球“Palantir”，寓意是该公司能帮助用户看清复杂的世界。帕兰泰尔公司宣称他们的技术能将海量的无序信息，转化为直观的可视化图表，并对所有零碎的客户数据进行分析、标记和整合，业务涵盖反恐、灾难响应和打击人口贩卖等多种复杂领域。公司股票被视为政府股、军事股、科技股、人工智能股，概念很多，有很多风口可让其飞起来。确实，公司在纳斯达克上市，在美国股市上也是亮眼的存在。2025年第一季度，帕兰泰尔在美国市场实现了显著的收入增长。美国总收入同比增长55%，达到6.28亿美元。2025年，该公司来自政府部门的收入同比增长45%，达到3.73亿美元。这主要得益于其为美国国防部门提供的软件系统。\n最近，该公司的共同创办人之一、总裁亚历山大·C·卡普(Alexander C. Karp)和法律顾问尼古拉斯·W·扎米斯卡（Nicholas W. Zamiska)合著了一本书《技术共和国：硬实力、软信念和西方的未来》（The Technological Republic: Hard Power, Soft Belief, and the Future of the West)一书。此书让人从公司高管的视角，了解这家神秘的公司，以及它与“军工联合体”千丝万缕的联系。它在美国优先、国家身份认同上的描述，无论是论证逻辑还是举证事例，和当下川普主义重合度都很高，值得美国研究者和国际观察者关注。\n与硅谷分道扬镳\n该公司原本在硅谷，因总裁亚历山大·C·卡普不满硅谷文化，将总部迁往科…",
+          "link": "http://www.infzm.com/contents/298038",
+          "publishedOn": "2025-07-15T03:25:06.000Z",
+          "wordCount": 108,
+          "title": "美国科技鹰派的崛起 | 方柏林评《技术共和国》",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/298068",
+          "author": null,
+          "description": "2025-07-15 10:00:00\n\n当地时间2025年3月14日，美国华盛顿，美国总统特朗普和埃隆·马斯克（右）在白宫椭圆形办公室交谈。随着“大而美”法案的推出，两人“友谊”也被击溃。视觉中国/图\n世界首富埃隆·马斯克的“建党风波”，仍在持续发酵。\n2025年7月14日，一位名为Jimmy的X用户发帖呼吁MAGAs（特朗普的支持者们）：“烧掉MAGA帽，转向‘美国党’”。\n马斯克称，自己成立的美国党（America Pary）将代表美国社会“80%的中间选民”，目标直指2026年的国会中期选举，争取在参众两院占据席位，打破美国共和党（象）和民主党（驴）的“驴象之争”垄断。\n仅仅半年前，他还是特朗普总统的“铁哥们儿”和超级金主，曾砸下超过2.8亿美元助其赢得2024年大选，并在特朗普上任后掌舵“政府效率部”（DOGE），大刀阔斧削减联邦开支。然而，随着特朗普力推被马斯克斥为“疯狂支出法案”的税收和支出法案，两人关系急转直下。马斯克公开炮轰特朗普的法案，称“美国正因浪费与腐败而破产”，并以宣布成立新党作为回应。\n在美国政治史上，第三党的尝试，屡见不鲜，却鲜有成功。从罗斯·佩罗的改革党到拉尔夫·纳德的绿党，它们往往在选举中昙花一现，最终被两大党吞噬或边缘化。“马”党能逆天改命，打败“象”党和“驴”党吗？它又会如何搅动美国政坛？\n从“铁杆盟友”到“反叛者”\n“今天，美国党正式成立，以还给你们自由。”2025年7月5日，埃隆·马斯克在社交平台X发布的帖子，如同在美国扔下一枚重磅炸弹。\n而在前一天，7月4日，是美国独立日，也是特朗普正式签署“大而美”税收和支出法案的日子。该法案将大规模减税，削减和限制了医疗补助，同时大幅增加了边境和国防支出。据新华社援引美国国会预算办公室分析，“大而美”法案将使美国未来10年的赤字增加3.3万亿美元。\n马斯克痛斥“大而美”法案为“疯狂之举”，并多…",
+          "link": "http://www.infzm.com/contents/298068",
+          "publishedOn": "2025-07-15T02:25:08.000Z",
+          "wordCount": 100,
+          "title": "搅局者马斯克：美国党加入“驴象之争”",
+          "imageUrl": null
+        },
         {
           "id": "http://www.infzm.com/contents/298032",
           "author": null,
@@ -16628,36 +16752,6 @@
           "wordCount": 86,
           "title": "生态环境部答南周：部分海湾岸滩垃圾盖度下降75.6%",
           "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/296652",
-          "author": null,
-          "description": "2025-06-25 22:46:22\n2025年6月第3周，123家上市公司曝光风险事件164起，风险指数166.55，其中治理风险占34.4%，环境风险占21.6%，社会风险占44.0%。中国铁建、中国地利ESG风险级别达到IV级。远大住工旗下公司因安全事故被重罚、九有投资*ST九有因财务造假退市等重大风险事件值得关注。\n2025年6月17日，肥东县应急管理局依据《中华人民共和国安全生产法》第一百一十四条第一款第一项，参照《生产安全事故罚款处罚规定》第十四条第二项，对远大住工旗下的合肥远大住宅工业有限公司开出50万元的罚单。回溯事故经过，2024年11月28日19时10分左右，位于合肥循环经济示范园的合肥远大住宅工业有限公司内，发生了一起一般车辆伤害事故，事故导致1人不幸死亡，直接经济损失达180万元。\n经调查发现，合肥远大住宅工业有限公司未落实企业安全生产主体责任安排无叉车特种设备操作证的作业人员操作叉车；未严格督促从业人员严格执行本单位的安全生产规章制度和操作规程；未及时消除事发道路处照明缺失等事故隐患对事故发生负有责任。\n安全生产是企业履行社会责任的重要体现，关乎员工的生命安全与健康，也影响着企业所在社区的稳定。合肥远大住宅工业有限公司的安全事故为众多企业敲响了警钟。\n进入2025年，远大住工诉讼缠身，多次成为被执行人，实控人、董事长张剑也被限制高消费。赴港上市不足六年的远大住工，正在面临一场财务信任危机：独立董事集体辞职、财务总监突然更换，上市以来一直为公司提供财务审计的毕马威会计师事务所也已更换。目前，远大住工2024年年度财报也已申请延期披露。\n多重危机相互交织，折射出ESG风险管理的重要性，治理体系的漏洞，则会加速风险的传导与扩散。企业必须高度重视环境、社会和治理各个方面的风险管理，完善内部管理体系，切实履行社会责任，才能在激烈的市场竞争中稳健前行。\n\n\n获取更多RSS：\nhttps://feedx.net \nhttps://feedx.site",
-          "link": "http://www.infzm.com/contents/296652",
-          "publishedOn": "2025-06-25T15:25:08.000Z",
-          "wordCount": 85,
-          "title": "善择ESG风险跟踪第90期｜123家公司暴露ESG风险，远大住工旗下公司因安全事故被重罚",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/296650",
-          "author": null,
-          "description": "2025-06-25 22:47:03\n2025年初，世界经济论坛（WEF）公布了最新一批“灯塔工厂”名单，施耐德电气无锡工厂继2021年获评“端到端灯塔工厂”后，升级获评“可持续灯塔工厂”，这也是施耐德电气在全球的第四家“可持续灯塔工厂”。目前，施耐德电气成为全球拥有“可持续灯塔工厂”数量最多的企业，彰显了其以技术创新驱动价值链绿色变革的领先实力。\n\n施耐德电气无锡工厂\n“可持续灯塔工厂”自2021年9月开始首批评选发布，旨在表彰在碳减排以及循环经济领域做出优秀表率的领先者，全球仅25家工厂获此殊荣。获评“可持续灯塔工厂”，企业要具有全球领先的智能制造水平和优秀的管理实践，还要以身作则推动产业生态的变革，为社会创造一个更加包容和可持续的未来。这也是施耐德电气公司的追求。\n\n施耐德电气无锡工厂\n作为一家成立180多年的世界级企业，施耐德电气一直致力于成为可持续发展的践行者和赋能者，与产业伙伴和社会各界共同探索高效和可持续发展模式，最大程度上发挥出“可持续影响力”。按规划，2025年，施耐德电气可持续影响力收入在全球总营收中的占比将达到80%。\n“可持续影响力收入”，是指对气候产生积极影响的产品和解决方案所带来的收入，这个数字意味着，施耐德电气在可持续发展方面对产业和社会所产生的影响力正在不断提升。\n成为可持续增长的表率\n可持续不仅仅意味着减碳，更意味着人类和地球更好的协同发展。\n作为可持续发展的坚定践行者，施耐德电气早在2002年就将可持续纳入公司核心战略，并将可持续融入业务经营的方方面面。\n为将可持续目标任务量化并及时跟踪公司可持续进展，2005年，施耐德电气推出衡量自身可持续发展表现的量化指标体系——“可持续发展影响指数（SSI）计划”。每三年或五年，SSI会进行一次更新迭代，不断设定更高的目标，推动公司追求更高水平的可持续发展。\n2021年，施耐德电气发布2021-2…",
-          "link": "http://www.infzm.com/contents/296650",
-          "publishedOn": "2025-06-25T15:25:08.000Z",
-          "wordCount": 199,
-          "title": "从以身作则到赋能客户：施耐德电气如何成为可持续影响力创造者｜2025年度CSR观察案例③",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/295448",
-          "author": null,
-          "description": "2025-06-25 22:00:00",
-          "link": "http://www.infzm.com/contents/295448",
-          "publishedOn": "2025-06-25T14:55:06.000Z",
-          "wordCount": 72,
-          "title": "被树“尿”了的共享单车，让多少打工人破防",
-          "imageUrl": null
         }
       ]
     },
@@ -17132,26 +17226,6 @@
           "wordCount": 7099,
           "title": "Behind Trump’s 2024 Victory, a More Racially and Ethnically Diverse Voter Coalition",
           "imageUrl": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/06/PP_2025.6.26_validated-voters_featured.jpg?w=1200&h=628&crop=1"
-        },
-        {
-          "id": "https://www.pewresearch.org/?p=269242",
-          "author": "Jcoleman",
-          "description": "The gender gap in American religion is shrinking. Historically, women have been more religious than men. But the gap is smaller than it once was.\nThe post Video: How do American men and women differ religiously? appeared first on Pew Research Center.",
-          "link": "https://www.pewresearch.org/religion/2025/06/25/video-how-do-american-men-and-women-differ-religiously/",
-          "publishedOn": "2025-06-25T18:23:45.000Z",
-          "wordCount": 5090,
-          "title": "Video: How do American men and women differ religiously?",
-          "imageUrl": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/07/PR_2025.06.25_religious-landscape-study_gender-gap-video-featured.jpg?w=1200&h=628&crop=1"
-        },
-        {
-          "id": "https://www.pewresearch.org/?p=261843",
-          "author": "Jcoleman",
-          "description": "Explore how adults in the U.S. and 35 other countries compare religiously and spiritually when it comes to affiliation, prayer, afterlife beliefs and more.\nThe post Spirituality and Religion: How Does the U.S. Compare With Other Countries? appeared first on Pew Research Center.",
-          "link": "https://www.pewresearch.org/religion/2025/06/25/spirituality-and-religion-us-comparison-to-other-countries/",
-          "publishedOn": "2025-06-25T17:50:46.000Z",
-          "wordCount": 6286,
-          "title": "Spirituality and Religion: How Does the U.S. Compare With Other Countries?",
-          "imageUrl": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/06/PR_2025.06.25_spirituality-religion-us-interactive_featured.jpg?w=1200&h=628&crop=1"
         }
       ]
     },
