@@ -6,6 +6,21 @@
       "siteUrl": "https://bestblogs.dev/zh/feeds",
       "articles": [
         {
+          "id": "db0a4d",
+          "author": "宝玉",
+          "description": "📌 一句话摘要\n            \n深度解读 AI 智能体上下文工程的七个实践教训，聚焦成本优化、注意力控制及纠错机制，助力构建高效 Agent。\n📝 详细摘要\n            \n本文深入解读了 Manus 团队关于 AI 智能体上下文工程的七个核心经验教训，旨在帮助开发者构建更高效、低成本的 AI Agent。文章首先强调应优先依赖上下文工程而非自训练模型，因为后者成本高昂且效果不佳。接着，详细阐述了如何通过 Prompt 缓存机制（特别是前缀匹配）显著降低成本和延迟，并警示了动态前缀和修改历史消息的常见错误。针对 Agent 应用中的挑战，作者提出了固定工具列表结合预填充引导、利用文件系统处理超长内容、通过复述 ToDo List 操控模型注意力、以及利用错误信息进行有效纠错等实用技巧。最后，文章警示了历史对话可能导致的少样本学习陷阱，指出其可能造成模型偏见和输出同质化，并提供了规避策略。整体内容干货满满，对 Agent 开发者具有极高的实践指导价值。\n💡 主要观点\n            \n上下文工程是构建 AI 应用的核心，优于自训练模型\n                         绝大多数 AI 应用应基于顶尖基础大模型，通过优化上下文来提升性能和降低成本，避免投入巨大资源自训练模型。\n                    \n\n                        有效利用 Prompt 缓存能显著降低成本和延迟\n                         理解 Prompt 缓存的前缀匹配机制，避免动态变化的前缀和修改历史消息，是提升 AI Agent 效率和降低运营成本的关键。\n                    \n\n                        通过预填充回复巧妙引导模型使用特定工具\n                         在不改变工具列表破坏缓存的前提下，通过工具分组和预先填充 LLM 回复开头，能有效控制模型行为和工具调用。\n                    \n\n                        将超长内容外部化至文件系统进行分块处理\n                         面对大量输入时，将内容保存为外部文件并按需读取分块处理，可大幅降低上下文窗口压力，提升处理效率和质量。\n                    \n\n                        通过动态更新 ToDo List 操控模型注意力\n                         在多步复杂任务中，利用 LLM 对上下文开头和结尾敏感的特性，通过复述和更新任务列表，确保模型聚焦核心目标。\n                    \n\n                        保留并利用错误信息进行高效纠错\n                         在模型产生幻觉或错误时，将详细的错误信息和原因反馈给 LLM，能有效引导模型自我纠正，提升任务成功率。\n                    \n\n                        警惕历史对话造成的少样本学习陷阱\n                         Agent 的历史对话可能无意中形成偏见，导致输出同质化，需通过引入随机性、设计多样化模板或任务隔离来规避。\n                    \n💬 文章金句\n            \n现在绝大多数 AI 产品的开发都基于 **上下文工程（Context Engineering）**。\nPrompt Caching 最忌讳的就是 Prompt 的前缀部分是动态变化的。\n通过预先填充 LLM 回复内容的开头，来引导其后续生成。\nLLM 的注意力机制又天然地对 **开头和结尾的信息** 最为敏感。\n在重试时，将上一次的**错误信息** 和**错误原因**清晰地描述给 LLM，让它明确知道之前的输出为什么是错的。\n历史对话消息本身，也会被 LLM 当作'少样本'来学习。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：宝玉的分享\n作者：宝玉\n分类：商业科技\n语言：中文\n阅读时间：11 分钟\n字数：2717\n标签：\n                    \n                        AI智能体, 上下文工程, Prompt工程, LLM应用开发, Agent开发实践",
+          "link": "https://www.bestblogs.dev/zh/article/db0a4d",
+          "publishedOn": "2025-07-20T23:36:16.000Z",
+          "wordCount": 324,
+          "title": "深度解读《AI 智能体的上下文工程》：构建高效 Agent 的七个宝贵教训",
+          "enclosure": {
+            "url": "https://baoyu.io/api/og?heading=%E6%B7%B1%E5%BA%A6%E8%A7%A3%E8%AF%BB%E3%80%8AAI+%E6%99%BA%E8%83%BD%E4%BD%93%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%A5%E7%A8%8B%E3%80%8B%EF%BC%9A%E6%9E%84%E5%BB%BA%E9%AB%98%E6%95%88+Agent+%E7%9A%84%E4%B8%83%E4%B8%AA%E5%AE%9D%E8%B4%B5%E6%95%99%E8%AE%AD&summary=%E6%9C%80%E8%BF%91%E8%AF%BB%E4%BA%86+Manus+%E5%9B%A2%E9%98%9F%E7%9A%84%E6%96%87%E7%AB%A0+Context+Engineering+for+AI+Agents%3A+Lessons+from+Building+Manus%5B1%5D%0A++%E3%80%8AAI+%E6%99%BA%E8%83%BD%E4%BD%93%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%A5%E7%A8%8B%EF%BC%9A%E6%9E%84%E5%BB%BA+Manus+%E7%9A%84%E7%BB%8F%E9%AA%8C%E6%95%99%E8%AE%AD%E3%80%8B%EF%BC%8C%E8%A7%89%E5%BE%97%E5%AF%B9%E4%BA%8E%E4%BB%8E%E4%BA%8B+Agent+%E5%BC%80%E5%8F%91%E7%9A%84%E5%90%8C%E8%A1%8C%E9%9D%9E%E5%B8%B8%E6%9C%89%E5%80%9F%E9%89%B4%E6%84%8F%E4%B9%89%E3%80%82%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%B9%B2%E8%B4%A7%E6%BB%A1%E6%BB%A1%EF%BC%8C%E5%85%B6%E4%B8%AD%E7%9A%84%E7%BB%8F%E9%AA%8C%E4%B8%80%E7%9C%8B%E4%BE%BF%E7%9F%A5%E6%98%AF%E7%BB%8F%E8%BF%87%E5%A4%A7%E9%87%8F%E5%AE%9E%E8%B7%B5%E5%92%8C%E8%B8%A9%E5%9D%91%E6%89%8D%E6%80%BB%E7%BB%93%E5%87%BA%E6%9D%A5%E7%9A%84%EF%BC%8C%E8%83%BD%E5%A6%82%E6%AD%A4%E6%97%A0%E7%A7%81%E5%9C%B0%E5%88%86%E4%BA%AB%EF%BC%8C%E5%AE%9E%E5%B1%9E%E9%9A%BE%E5%BE%97%EF%BC%8C%E5%BF%85%E9%A1%BB%E7%82%B9%E8%B5%9E%E3%80%82&type=Translations&mode=light",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://baoyu.io/api/og?heading=%E6%B7%B1%E5%BA%A6%E8%A7%A3%E8%AF%BB%E3%80%8AAI+%E6%99%BA%E8%83%BD%E4%BD%93%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%A5%E7%A8%8B%E3%80%8B%EF%BC%9A%E6%9E%84%E5%BB%BA%E9%AB%98%E6%95%88+Agent+%E7%9A%84%E4%B8%83%E4%B8%AA%E5%AE%9D%E8%B4%B5%E6%95%99%E8%AE%AD&summary=%E6%9C%80%E8%BF%91%E8%AF%BB%E4%BA%86+Manus+%E5%9B%A2%E9%98%9F%E7%9A%84%E6%96%87%E7%AB%A0+Context+Engineering+for+AI+Agents%3A+Lessons+from+Building+Manus%5B1%5D%0A++%E3%80%8AAI+%E6%99%BA%E8%83%BD%E4%BD%93%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%A5%E7%A8%8B%EF%BC%9A%E6%9E%84%E5%BB%BA+Manus+%E7%9A%84%E7%BB%8F%E9%AA%8C%E6%95%99%E8%AE%AD%E3%80%8B%EF%BC%8C%E8%A7%89%E5%BE%97%E5%AF%B9%E4%BA%8E%E4%BB%8E%E4%BA%8B+Agent+%E5%BC%80%E5%8F%91%E7%9A%84%E5%90%8C%E8%A1%8C%E9%9D%9E%E5%B8%B8%E6%9C%89%E5%80%9F%E9%89%B4%E6%84%8F%E4%B9%89%E3%80%82%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%B9%B2%E8%B4%A7%E6%BB%A1%E6%BB%A1%EF%BC%8C%E5%85%B6%E4%B8%AD%E7%9A%84%E7%BB%8F%E9%AA%8C%E4%B8%80%E7%9C%8B%E4%BE%BF%E7%9F%A5%E6%98%AF%E7%BB%8F%E8%BF%87%E5%A4%A7%E9%87%8F%E5%AE%9E%E8%B7%B5%E5%92%8C%E8%B8%A9%E5%9D%91%E6%89%8D%E6%80%BB%E7%BB%93%E5%87%BA%E6%9D%A5%E7%9A%84%EF%BC%8C%E8%83%BD%E5%A6%82%E6%AD%A4%E6%97%A0%E7%A7%81%E5%9C%B0%E5%88%86%E4%BA%AB%EF%BC%8C%E5%AE%9E%E5%B1%9E%E9%9A%BE%E5%BE%97%EF%BC%8C%E5%BF%85%E9%A1%BB%E7%82%B9%E8%B5%9E%E3%80%82&type=Translations&mode=light"
+        },
+        {
           "id": "f24b52",
           "author": "宝玉",
           "description": "📌 一句话摘要\n            \n文章基于构建 AI 智能体 Manus 的实践经验，深入探讨了提升 AI 智能体性能和鲁棒性的“上下文工程”六大核心原则。\n📝 详细摘要\n            \n文章围绕构建 AI 智能体 Manus 的实践经验，详细阐述了“上下文工程”在 AI 智能体开发中的关键作用和具体原则。作者从早期创业教训出发，强调了上下文工程相比模型微调在快速迭代中的优势。文章核心分享了六大经验教训：围绕 KV 缓存进行设计以优化延迟和成本；使用 Logits 掩蔽而非移除工具来管理动作空间；将文件系统作为无限上下文来处理巨量观察结果；通过“复述”机制引导模型注意力以避免目标偏离；保留失败的尝试以促进模型学习和错误恢复；以及警惕少样本学习陷阱，通过引入多样性来提升智能体鲁棒性。这些原则为 AI 智能体的设计与优化提供了宝贵的实践指导。\n💡 主要观点\n            \n围绕 KV 缓存设计以优化性能和成本\n                         通过保持提示词前缀稳定性、上下文只追加不修改、明确标记缓存断点等策略，显著提升 KV 缓存命中率，从而降低推理延迟和成本。\n                    \n\n                        使用 Logits 掩蔽而非移除工具来管理动作空间\n                         通过上下文感知的 Logits 处理器，在不破坏 KV 缓存和不混淆模型的前提下，动态约束模型选择特定动作，提高动作选择的准确性。\n                    \n\n                        将文件系统作为无限和持久的上下文\n                         利用文件系统存储巨量观察结果，解决上下文窗口限制和模型性能下降问题，并采用可恢复的压缩策略，确保信息不丢失。\n                    \n\n                        通过“复述”机制引导模型注意力\n                         智能体通过不断重写关键信息（如待办事项列表）到上下文末尾，将全局计划推入模型近期注意力范围，避免任务偏离。\n                    \n\n                        保留失败的尝试以促进模型学习\n                         将错误的动作和观察结果保留在上下文中，让模型从失败中学习并调整其内部信念，减少重复犯错，提升错误恢复能力。\n                    \n\n                        警惕“少样本学习”陷阱，引入多样性\n                         避免模型过度模仿上下文中的单一行为模式，通过引入结构化的变动打破模式，调整模型注意力，增强智能体鲁棒性。\n                    \n💬 文章金句\n            \n如果非要我只选一个指标，我认为 KV 缓存命中率是生产阶段 AI 智能体最重要的单一指标。它直接影响延迟和成本。\n从上下文工程的角度来看，提高 KV 缓存命中率涉及几个关键实践：保持提示词前缀的稳定性；让你的上下文只追加，不修改；在需要时明确标记缓存断点。\n这就是为什么我们将文件系统视为 Manus 的终极上下文：它的大小无限，天然持久，并且智能体可以直接对其进行操作。\n通过不断重写待办事项列表，Manus 正在将它的目标'复述'到上下文的末尾。这将全局计划推入模型的近期注意力范围，避免了'迷失在中间'的问题，并减少了目标偏离。\n根据我们的经验，改善智能体行为最有效的方法之一简单得令人意外：将错误的尝试保留在上下文中。\n你的上下文越统一，你的智能体就越脆弱。\n📊 文章信息\n            \nAI 评分：94\n精选文章：是\n来源：宝玉的分享\n作者：宝玉\n分类：商业科技\n语言：中文\n阅读时间：19 分钟\n字数：4699\n标签：\n                    \n                        AI智能体, 上下文工程, 大语言模型, KV缓存, 提示词工程",
@@ -1979,91 +1994,6 @@
             "length": "0"
           },
           "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/330f01a5-967a-4d36-0ab2-bae6f4db1900/cover"
-        },
-        {
-          "id": "6933bf",
-          "author": "阿里云开发者",
-          "description": "📌 一句话摘要\n            \n阿里云开发者分享团队协作中 AI 编程工具 Cursor 的落地实践，包括流程规范、结构化表达和通用解决方案。\n📝 详细摘要\n            \n文章详细介绍了阿里云高德信息业务中心大供给团队如何在实际项目中落地 AI 编程工具 Cursor。首先分析了团队推广中遇到的三大问题：使用流程不统一、语言表达不清晰和前置步骤复杂。针对这些问题，团队提出了研发流程规范、结构化语言表达和通用解决方案三大策略。研发流程规范详细描述了从需求阶段到测试阶段的每个环节如何合理使用 Cursor，包括创新的'概要设计-详细设计'流程；结构化语言表达部分则提供了 prompt 和概要设计的模板，如代码分包目录结构规范和单应用发布计划模板，确保与 AI 的高效沟通；通用解决方案则通过特化 Rules 和 Docs 降低使用门槛。文章最后展示了团队总结的通用 Rules 和 prompt 提纲，并详细举例了具体实施内容。\n💡 主要观点\n            \n人工 Review 是确保 AI 生成代码质量的关键\n                         虽然 AI 可以生成代码，但文章强调人工 Review 的重要性，特别是在单轮代码 Review 和上线计划等关键环节，人类开发者始终是线上安全的'第一责任人'\n                    \n\n                        分阶段实施是 AI 编程工具落地的有效策略\n                         文章提出的研发流程规范将 AI 工具使用分解为多个阶段，从概要设计到详细设计再到分步骤代码生成，确保 AI 工具能有效融入现有开发流程\n                    \n\n                        结构化语言表达能显著提升 AI 代码生成质量\n                         通过模板化的 prompt 和概要设计(如代码分包目录结构规范)，团队实现了与 AI 工具的高效沟通，解决了自然语言表达不清晰的问题\n                    \n\n                        特化 Rules 和 Docs 降低 AI 工具使用门槛\n                         团队总结的通用 Rules 和 prompt 提纲(如单应用发布计划模板)，以及详细的规范文档，大大降低了新成员使用 AI 工具的学习成本\n                    \n\n                        AI 工具需要与团队现有技术栈和 DevOps 流程深度整合\n                         文章强调 AI 工具不能孤立使用，必须与团队的技术栈、代码规范和发布流程等深度整合才能发挥最大价值\n                    \n💬 文章金句\n            \n生产工具的升级必定引发生产流程的改进，以何种思路、方法、范式，去最大化 Cursor 带来的效率提升，并最小化其薄弱之处和引入的风险，是当前在团队中最需要思考的问题。\n虽然 Cursor 的 Agent 模式非常便捷，但是如果只通过自然语言的对话堆叠，无法有序地组织整个需求开发过程的推进。\n要想提高 Cursor 生成代码的准确性，就要提高人类对 Cursor 指令的准确性。主旨要明确、逻辑要清楚、指令不能有歧义、上下文还需要交代到位。\n概要设计文档是面向 Cursor 的，是单个应用层面的。不需要精细到伪代码的级别，但是要将关键的领域划分、数据结构设计、接口设计、业务逻辑等清晰表述出来。\n不论 Cursor 如何智能，最终人类开发者才是线上安全的'第一责任人'。\n每个应用，都要有一套自己特化的 Rules 和 Docs，将所有可能影响到业务或技术的规范信息存储在内。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：阿里云开发者\n作者：阿里云开发者\n分类：软件编程\n语言：中文\n阅读时间：63 分钟\n字数：15746\n标签：\n                    \n                        AI编程, Cursor, 研发流程, 结构化表达, 阿里云",
-          "link": "https://www.bestblogs.dev/zh/article/6933bf",
-          "publishedOn": "2025-07-02T00:31:00.000Z",
-          "wordCount": 319,
-          "title": "AI 编程如何在团队中真正落地？",
-          "enclosure": {
-            "url": "https://wechat2rss.bestblogs.dev/img-proxy/?k=22e65278&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FZ6bicxIx5naKDGciaW8maD3XjURFKGOVjl6RhyLzg9Wy8JKlrNiaicibHvpojDWWFvwI9nhJGPobZ18XJbzy5vC2h7w%2F640%3Fwx_fmt%3Djpeg%26from%3Dappmsg",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://wechat2rss.bestblogs.dev/img-proxy/?k=22e65278&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FZ6bicxIx5naKDGciaW8maD3XjURFKGOVjl6RhyLzg9Wy8JKlrNiaicibHvpojDWWFvwI9nhJGPobZ18XJbzy5vC2h7w%2F640%3Fwx_fmt%3Djpeg%26from%3Dappmsg"
-        },
-        {
-          "id": "7a1f47",
-          "author": "LlamaIndex",
-          "description": "📌 一句话摘要\n            \nLlamaCloud 攻克企业级检索增强生成(RAG)应用规模化的四大核心挑战：多租户环境下的'吵闹邻居'问题、访问控制、文档解析(通过 LlamaParse)以及故障容错机制。\n📝 详细摘要\n            \n本文系统分析了企业级检索增强生成(RAG)应用在规模化过程中面临的四大挑战，并详细阐述了 LlamaIndex 旗下托管平台 LlamaCloud 的解决方案。首先，针对多租户 SaaS 应用中的'吵闹邻居'现象(即单一用户的高频使用导致其他用户遭遇资源饥饿问题)，平台提供了智能调度方案。其次，在数据摄取环节，LlamaCloud 通过同步权限元数据并严格执行访问控制，确保与企业现有权限体系无缝衔接。第三，LlamaParse 文档解析引擎不仅能精准保留文档语义结构，还可提取表格、图表等非文本元素，并输出适合大语言模型处理的标准化 Markdown 格式。最后，针对第三方 AI 服务集成与数据源限制等场景，文章提出了包含重试机制和检查点功能的系统化故障处理方案。作为托管服务平台，LlamaCloud 有效解决了这些基础设施层面的关键问题。\n💡 主要观点\n            \n企业级 RAG 的多租户挑战需要完善的资源调度方案\n                         单一用户的高频使用会导致其他用户遭遇资源饥饿问题，这需要通过智能调度算法确保计算资源的公平分配。\n                    \n\n                        组织数据整合过程中的访问控制是核心要素\n                         RAG 系统必须严格遵循企业现有权限体系，LlamaCloud 通过实时同步权限元数据并在检索阶段强制实施访问控制策略。\n                    \n\n                        LlamaParse 可高效处理多样化的企业文档格式\n                         LlamaParse 能够完整保留文档语义结构，精准提取表格与图像等非文本元素，并生成适合大语言模型处理的标准化 Markdown 输出格式。\n                    \n\n                        分布式 RAG 系统必须建立完善的故障容错机制\n                         与第三方 AI 服务及数据源的集成会引入多种故障模式，这需要定制化的异常处理流程、智能重试机制以及检查点功能来确保系统可靠性。\n                    \n\n                        LlamaCloud 提供专业化的 RAG 规模化基础设施\n                         该托管服务平台有效解决了基础设施层面的各类挑战，使开发团队能够专注于核心业务逻辑的实现。\n                    \n💬 文章金句\n            \n当系统疲于处理某个高频用户的文件请求时，其他用户将不可避免地陷入资源饥饿的困境。\n优秀的系统不仅要实现文档的高效存储与索引，更必须构建严格的权限模型，确保与企业各数据源现有的访问控制体系保持兼容。\n企业数据资产通常包含结构复杂的 PDF 文档、含可视化图表的 PPT 演示稿、格式丰富的 Word 文件以及具有多工作表布局的 Excel 表格等多种形态。\n所有文档无论原始格式如何，都将被转换为适合大语言模型处理的标准化 Markdown 格式\n若忽视上述关键经验，您的 RAG 应用将难以在企业环境中成功落地。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：LlamaIndex Blog\n作者：LlamaIndex\n分类：人工智能\n语言：英文\n阅读时间：5 分钟\n字数：1111\n标签：\n                    \n                        检索增强生成, 企业级 AI, LlamaIndex, LlamaCloud, LlamaParse",
-          "link": "https://www.bestblogs.dev/zh/article/7a1f47",
-          "publishedOn": "2025-07-02T00:00:00.000Z",
-          "wordCount": 331,
-          "title": "LlamaCloud 助力企业级 RAG 规模化的 4 大方案",
-          "enclosure": {
-            "url": "https://cdn.sanity.io/images/7m9jw85w/production/e72849b5a95d01cb2dd007bfe005dd4cfce6d1cf-720x480.png",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://cdn.sanity.io/images/7m9jw85w/production/e72849b5a95d01cb2dd007bfe005dd4cfce6d1cf-720x480.png"
-        },
-        {
-          "id": "7d5749",
-          "author": "Henry Adepegba",
-          "description": "📌 一句话摘要\n            \n解析 Promise 与 async/await 的区别，提供两种异步处理方案的选型指南。\n📝 详细摘要\n            \n本文深入对比 JavaScript 中的 Promise 和 async/await，详细分析两者的语法差异、适用场景和性能表现。通过基础示例（如 API 调用）和高级应用（如顺序操作）的演示，阐明不同场景下的最佳选择方案。内容涵盖错误处理模式、编码最佳实践和性能影响，助力开发者根据项目需求进行合理技术选型。\n💡 主要观点\n            \nPromise 是 JavaScript 异步编程的基石\n                         Promise 通过 pending（等待中）、fulfilled（已兑现）和 rejected（已拒绝）三种状态，配合 .then() 和 .catch() 方法为异步操作提供可靠解决方案，但多重链式调用会影响代码可读性。\n                    \n\n                        async/await 大幅改善异步代码的可读性与调试体验\n                         async/await 以同步语法编写异步代码，显著提升代码可维护性，特别适合需要顺序执行的异步操作场景。\n                    \n\n                        Promise 更适配函数式编程与工具封装\n                         Promise 的不可变特性和组合能力，使其成为实现函数式编程范式及构建可复用异步工具（如重试策略和限流器）的理想选择。\n                    \n\n                        async/await 在复杂错误处理与流程控制中优势明显\n                         async/await 的 try/catch 机制能更简洁地处理复杂错误场景，并与常规流程控制结构（条件判断、循环等）无缝配合。\n                    \n\n                        Promise 与 async/await 的性能差异可忽略不计\n                         两种方案在性能表现上差异微小，技术选型应优先考虑代码可读性和长期维护成本。\n                    \n💬 文章金句\n            \nasync/await 是基于 Promise 的语法糖，让异步代码具有同步代码的直观性和可读性\nPromise 链虽能实现多个异步操作的顺序执行，但复杂链式调用会形成难以维护的『回调地狱』\nasync/await 的 try/catch 错误处理机制能与常规流程控制语句完美配合\nPromise 作为表示未来将解析值的不可变对象，天然契合函数式编程范式，便于构建重试策略等复用组件\n两种方案性能表现相近，实际选型应基于团队协作效率和代码可维护性考量\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：freeCodeCamp.org\n作者：Henry Adepegba\n分类：软件编程\n语言：英文\n阅读时间：20 分钟\n字数：4751\n标签：\n                    \n                        JavaScript, 异步编程, Promise, async/await, 错误处理",
-          "link": "https://www.bestblogs.dev/zh/article/7d5749",
-          "publishedOn": "2025-07-01T20:50:42.000Z",
-          "wordCount": 336,
-          "title": "JavaScript 中 async/await 与 Promise 的使用时机",
-          "enclosure": {
-            "url": "https://cdn.hashnode.com/res/hashnode/image/upload/v1751402055038/f0954bc1-e528-4add-a659-4750c6d8eb33.png",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://cdn.hashnode.com/res/hashnode/image/upload/v1751402055038/f0954bc1-e528-4add-a659-4750c6d8eb33.png"
-        },
-        {
-          "id": "1a30fb",
-          "author": "Chris Reddington",
-          "description": "📌 一句话摘要\n            \n本实战指南通过 Next.js 和 SwiftUI 应用的本地化案例，完整演示了从问题创建到 PR 自动化的 GitHub Copilot 自主代理工作流。\n📝 详细摘要\n            \n本文基于 GitHub 官方博客发布的'橡皮鸭星期四'¹直播内容，详细演示了如何利用 GitHub Copilot 的自主代理工作流，同时实现 Next.js 网页应用和对应 SwiftUI iOS 应用的本地化。完整展示了从使用 Copilot 创建问题、通过代码代理生成 PR，到在 VS Code 中配置自定义聊天模式及连接远程 GitHub MCP 服务器的全流程。作者分享了直播中的实操经验，包括环境配置要求、代码审核要点和 Xcode 集成技巧。文末特别总结了开发工作流中使用 Copilot 的最佳实践和常见误区。\n💡 主要观点\n            \n开发工作流的全流程自动化\n                         直播完整演示了 Copilot 如何实现从问题创建到 PR 生成的端到端自动化，成功完成跨平台（Next.js 网页和 SwiftUI 移动端）的本地化任务。\n                    \n\n                        可定制聊天模式提升协作效率\n                         VS Code 新增的自定义聊天模式（如'规划'模式）可创建标准化工作流，直播中通过实际配置案例展示了这一功能的应用。\n                    \n\n                        云端服务降低开发环境复杂度\n                         采用远程 GitHub MCP 服务器不仅简化了本地配置，还支持 OAuth 2.0 认证等高级功能，这正是演示环境采用的技术方案。\n                    \n\n                        AI 生成代码仍需人工审核\n                         作者在直播代码审核环节发现硬编码字符串（hard-coded strings）的案例，强调对 AI 生成代码仍需保持严格评审标准。\n                    \n\n                        精准提示语提升输出效果\n                         通过明确限定问题范围（如语言下拉菜单需求）并提供具体验收标准，可显著提升 Copilot 的输出质量，这在直播案例中得到充分验证。\n                    \n\n                        跨平台开发的显著优势\n                         工作流演示同时覆盖网页（Next.js）和移动端（SwiftUI/Xcode）实现，充分展现了 Copilot 支持多技术栈的适配能力。\n                    \n💬 文章金句\n            \nCopilot 集成了问题创建、代码代理、VS Code 自定义聊天模式和远程 MCP 后端等功能，将这些开发环节无缝衔接为从问题到 PR 的完整闭环，同时确保开发者始终掌握控制权。\nVS Code 的自定义聊天模式（预览功能）支持创建可复用的 AI 工作流模板（如*规划*、*重构*、*测试编写*），这些模式将与默认的*提问*/*编辑*/*代理*模式并列显示。\n远程 GitHub MCP 服务器不仅减轻了本地运维负担，还提供了基于 OAuth 2.0 的认证方案，相比个人访问令牌（PAT）更加安全便捷。\n无论是团队成员、协作者还是 Copilot 生成的代码，都必须经过严格评审。每个 Pull Request（PR）都应保持同等标准的代码审查。\n国际化实现需求：1) 用户可通过个人资料下拉菜单选择支持的语言（英语、西班牙语、法语）；2) 主标签视图需全面支持国际化显示。\n保持问题描述的聚焦性并提供明确的验收标准，是获取 Copilot 最佳输出结果的关键要素。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：The GitHub Blog\n作者：Chris Reddington\n分类：软件编程\n语言：英文\n阅读时间：9 分钟\n字数：2189\n标签：\n                    \n                        GitHub Copilot, AI 开发, 自主代理工作流, VS Code, Next.js",
-          "link": "https://www.bestblogs.dev/zh/article/1a30fb",
-          "publishedOn": "2025-07-01T18:57:22.000Z",
-          "wordCount": 349,
-          "title": "从构想到 PR：GitHub Copilot 自主代理工作流全指南",
-          "enclosure": {
-            "url": "https://github.blog/wp-content/uploads/2025/05/github-generic-wallpaper-rubber-duck-invertocat.png",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://github.blog/wp-content/uploads/2025/05/github-generic-wallpaper-rubber-duck-invertocat.png"
-        },
-        {
-          "id": "8d7dc1",
-          "author": "Datawhale",
-          "description": "📌 一句话摘要\n            \n基于实验数据探讨推理模型思考长度与正确率的关系，并提出控制推理长度的有效方法\n📝 详细摘要\n            \n文章基于台大李宏毅老师的课程内容和实验数据，深入探讨了推理模型思考长度与正确率的关系。研究发现，并非推理越长结果越好，实验数据表明两者可能存在负相关，这与问题难度密切相关。文章系统分析了四种控制模型'想太多'的方法：修改 Chain of Thought(CoT)提示词、人为控制推理流程、模仿学习最短推理样本、以及 From Explicit CoT to Implicit CoT 的转换方法。在强化学习部分，提出了通过问题难度自适应长度控制和长度惩罚机制，实现在不显著降低正确率的前提下减少冗余推理过程。实验证明这些方法能有效优化模型输出效率。\n💡 主要观点\n            \n推理长度与正确率并非正相关且受问题难度影响\n                         实验数据显示长推理可能因问题难度导致正确率下降，需要区分相关性与因果性，问题难度是影响两者的关键因素\n                    \n\n                        四种创新方法有效控制模型推理长度\n                         包括修改 CoT 提示、流程控制、模仿学习和从显式到隐式 CoT 转换，系统性地减少不必要思考过程\n                    \n\n                        强化学习需加入自适应长度惩罚机制\n                         通过问题难度评估和长度目标设定，实现智能化的推理长度控制，避免冗余推理\n                    \n\n                        从显式到隐式 CoT 转换的创新方法\n                         通过分阶段训练使模型学会不输出思考过程，在简单任务上效果与显式推理相当\n                    \n💬 文章金句\n            \n推理（思考）越长，结果越好吗？实验发现两者是负相关的\n最好的工程师，不是把事情做到完美，而是在有限资源下，把事情做到最好。人工智慧也是一样\n可以训练一个控制输出思考长度的推理模型\n把显式的推理过程变成隐式的...最后模型学会了不输出思考过程\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：Datawhale\n作者：Datawhale\n分类：人工智能\n语言：中文\n阅读时间：8 分钟\n字数：1985\n标签：\n                    \n                        推理模型, 思考长度, 正确率, CoT, 模仿学习",
-          "link": "https://www.bestblogs.dev/zh/article/8d7dc1",
-          "publishedOn": "2025-07-01T15:02:27.000Z",
-          "wordCount": 303,
-          "title": "跟着台大李宏毅老师学：别让推理模型想太多",
-          "enclosure": {
-            "url": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/5d079867-0329-4a99-c2c5-bb0910f61200/public",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/5d079867-0329-4a99-c2c5-bb0910f61200/public"
-        },
-        {
-          "id": "919c2a",
-          "author": "36氪",
-          "description": "📌 一句话摘要\n            \nMiniMax 通过 Hailuo 02 视频模型和通用 Agent 实现技术突破，展示了创业公司在大模型领域的创新能力和市场表现。\n📝 详细摘要\n            \n文章详细介绍了 MiniMax 在大模型领域的技术创新和商业应用。首先，通过 Hailuo 02 视频模型的案例，展示了其在视频生成技术上的突破，包括原生 1080P 分辨率、复杂动作模拟和低成本优势（API 成本仅为 Google Veo3 的 1/9）。其次，探讨了 MiniMax 如何通过架构创新（如混合注意力机制和 NCR 架构）和训练方法优化（如 CISPO 算法）在大模型竞赛中保持领先，其 M1 模型在 Artificial Analysis 榜单中位列全球第二。文章还强调了'Aha Moment'概念，即技术从量变到质变的关键突破点。最后，文章展示了 Agent 技术作为连接技术创新与商业应用的桥梁，MiniMax 的通用 Agent 能够完成复杂任务规划与执行，推动了大模型生态的发展。整体而言，文章突出了 MiniMax 作为创业公司在 AI 领域的创新能力和市场表现，如 Talkie 海外产品下载量突破千万次。\n💡 主要观点\n            \nHailuo 02 视频模型在复杂动作模拟和低成本上取得突破\n                         通过 NCR（Noise-aware Compute Redistribution）架构和 scaling law 的应用，Hailuo 02 实现了高清视频生成和高效计算资源分配，成本仅为 Google Veo3 的 1/9。NCR 架构通过噪声感知机制优化计算资源分配，减少 HBM 内存读写量逾 70%。\n                    \n\n                        MiniMax 通过架构和训练方法创新保持技术领先\n                         采用混合注意力机制（结合自注意力与自创的 Lightning Attention 线性注意力）和 CISPO 算法，MiniMax 在模型性能和训练效率上显著优于同行，如上下文窗口达到 100 万 token，训练成本仅 53 万美元。\n                    \n\n                        Agent 技术成为连接技术创新与商业应用的桥梁\n                         MiniMax 的通用 Agent 能够完成复杂任务规划与执行，如生成复杂网页和多媒体内容，展示了 AI 从工具向生产力引擎的转变。其视频生成 Agent 海螺 AI 连续 6 个月位居全球视频生成 AI 产品第一。\n                    \n\n                        创业公司在 AI 竞赛中具有独特优势\n                         MiniMax 的案例表明，灵活的决策链和敏锐的创新嗅觉使创业公司能够在大模型领域与巨头竞争并取得领先。其海外产品 Talkie 全球下载量突破千万次，2024 年营收达 7000 万美元。\n                    \n\n                        技术创新是大模型竞赛的核心\n                         MiniMax 通过持续的技术突破，如 MoE 模型和闪电注意力技术，展示了创新驱动在 AI 领域的重要性。其 M1 模型在 Artificial Analysis 榜单中位列全球第二，性能超过 Gemini 2.5 Pro。\n                    \n💬 文章金句\n            \n对大模型而言，更长的上下文，往往意味着更强的智能体验。\n大模型的确是个烧钱的事业，但只要一脚迈过门槛，产业真正比拼的还是谁更能通过技术创新省钱，让技术更加普惠，且带来更高的上限。\n大模型的创新，打开了 Agent 的能力天花板；Agent 的快速增长，让大模型的演进方向更加清晰明确。\n伟大商业模式往往是直白甚至浅显的------all in 技术创新，然后坚定不移地执行。\nAha Moment 源自心理学与产品设计领域，指的是用户在使用一个产品或工具时，突然意识到其价值和潜力的那个瞬间。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：36氪\n作者：36氪\n分类：商业科技\n语言：中文\n阅读时间：24 分钟\n字数：5980\n标签：\n                    \n                        大模型, 视频生成, 视频AI, Agent技术, MiniMax",
-          "link": "https://www.bestblogs.dev/zh/article/919c2a",
-          "publishedOn": "2025-07-01T13:55:27.000Z",
-          "wordCount": 325,
-          "title": "MiniMax 进化论：一群「偏执者」的破浪前行",
-          "imageUrl": "https://www.bestblogs.dev/zh/article/919c2a/opengraph-image?c5b4e9f48bc65b64"
         }
       ]
     },
@@ -2072,6 +2002,16 @@
       "feedUrl": "https://morss.it/https://gijn.org/feed/",
       "siteUrl": "https://gijn.org",
       "articles": [
+        {
+          "id": "https://gijn.org/?p=2384312",
+          "author": "Rowan Philp",
+          "description": "Tips from four reporters who took part in a seven month-long collaborative investigation into the growing use of cargo trucks to transport migrants and asylum seekers through Mexico.",
+          "link": "https://gijn.org/stories/how-they-did-it-investigating-migrant-abuses-truck-smuggling-routes/",
+          "publishedOn": "2025-07-21T07:00:15.000Z",
+          "wordCount": 4763,
+          "title": "How They Did It: Investigating Migrant Abuses on Cargo Truck Smuggling Routes",
+          "imageUrl": "https://gijn.org/wp-content/uploads/2025/07/CLIP-trailers-771x386.jpg"
+        },
         {
           "id": "https://gijn.org/?p=2384312",
           "author": "Rowan Philp",
@@ -2241,16 +2181,6 @@
           "wordCount": 3355,
           "title": "Uncovering the Hidden Environmental Impact of an Industrial-scale Hog Farm",
           "imageUrl": "https://gijn.org/wp-content/uploads/2025/07/shutterstock_428784160-771x578.jpg"
-        },
-        {
-          "id": "https://gijn.org/event/wan-ifra-world-news-day/",
-          "author": null,
-          "description": "",
-          "link": "https://gijn.org/event/wan-ifra-world-news-day/",
-          "publishedOn": "2025-07-02T00:15:33.000Z",
-          "wordCount": 723,
-          "title": "WAN-IFRA World News Day",
-          "imageUrl": "https://gijn.org/wp-content/themes/gijn/card.jpg"
         }
       ]
     },
@@ -2516,6 +2446,16 @@
       "feedUrl": "https://rsshub.rssforever.com/tencent/news/author/8QMf3nhc5YEasD%252FQ",
       "siteUrl": "https://new.qq.com/omn/author/8QMf3nhc5YEasD%2FQ",
       "articles": [
+        {
+          "id": "https://view.inews.qq.com/a/20250721A09EYQ00",
+          "author": "地球知识局",
+          "description": "地球知识局\n文字 | 子昱\n校对 | 朝乾 编辑 | e\n\n中国正经历着全球范围内最为迅猛的人口老龄化进程。国家统计局的数据显示，2019年末我国60岁及以上老年人口规模已达2.54亿；而到2024年，这一数字已突破3亿大关，占比达22%左右，年均增长率高达3.7%，远超全球平均水平。\n\n据世界卫生组织《中国老龄化与健康国家评估报告》预测，未来25年内我国老年人口比重将实现倍增，到2040年60岁以上人口规模预计达到4.02亿，届时每三个中国人中就有一位是老年人。\n   \n更值得关注的是，2019年流行病学调查显示，我国老年人群非传染性疾病患病率居高不下，约75%的老年人同时罹患心血管疾病、糖尿病和高血压等慢性病，其中城市地区多病共存现象尤为突出，平均每位老年人患有2.3种慢性病。\n\n这种“未富先老”与“带病长寿”并存的特殊国情，对我国医疗卫生服务体系和社会养老保障制度提出了严峻挑战。\n\n很显然，中国这几年，已经悄然来到了“老年病时代”。\n\n高患病率、高增长速率、高疾病负担\n\n在人类漫长的文明史中，老年人口始终是少数群体。中国古代\"七十古来稀\"的说法，生动反映了高龄人口的稀缺性。\n\n这种人口结构特征直接导致老年病长期未能成为医学关注的重点领域。直至20世纪90年代，我国医疗机构中设立老年医学科的仍属凤毛麟角，该学科更一度被视为缺乏发展前景的“冷门”专业。\n\n国际老年医学的发展同样经历漫长的蛰伏期。到1909年，美国学者那歇尔（Ignatz Leo Nascher, 1863-1944）才提出老年病学（Geriatrics）的概念。\n\n我国对该领域的研究始于20世纪60年代，但真正迎来快速发展期是在最近20年。随着人口老龄化进程加速，老年医学学科建设才得到实质性重视。\n\n世界卫生组织将60岁及以上人群定义为老年阶段。中国正经历全球最快速的人口结构转型。国家统计局数据显示，20…",
+          "link": "https://view.inews.qq.com/a/20250721A09EYQ00",
+          "publishedOn": "2025-07-21T12:21:19.000Z",
+          "wordCount": 3836,
+          "title": "很紧迫了，中国的老年病时代，已经来了｜地球知识局",
+          "imageUrl": "https://inews.gtimg.com/om_ls/OCiYOZFYrTpQDmWZG-9voQLX0kRlnN9uKsV4T_Af3M3F8AA_640330/0"
+        },
         {
           "id": "https://view.inews.qq.com/a/20250718A0AGAI00",
           "author": "地球知识局",
@@ -3612,16 +3552,6 @@
           "publishedOn": "2025-07-02T07:40:27.000Z",
           "wordCount": 402,
           "title": "700 万商家都在用的 AI 工具，凭什么？",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.geekpark.net/news/351081",
-          "author": null,
-          "description": "微信功能上新：可以不接收共同好友点赞提醒了\n近日，微信最新功能更新聚焦朋友圈互动优化，推出「仅提醒朋友与我的互动」选项。\n针对共友点赞不提醒相关操作，腾讯客服表示：该功能需要您进入朋友圈的发现页管理中关闭提醒，若对好友设置了「仅聊天」，则共同好友的点赞提醒将不可见。建议您检查相关设置是否关闭哦。\n\n此外，若您想关闭共同好友朋友圈点赞的提醒，可以这样操作：进入微信 我->设置->通用->发现页管理->朋友圈，关闭有新内容时提醒我即可。关闭后，共同好友点赞的动态将不再显示在发现页。（来源：财经网科技）\n\n特斯拉中国 Model3 长续航版涨价 1 万，现价 28.55 万元\n7 月 1 日消息，特斯拉中国官网显示，特斯拉 Model 3 长续航版本售价已经上调至 28.55 万元。\n\n从参数来看，新车百公里加速数据从 4.4 秒变成了 3.8 秒，似乎是默认标配了原价 1.41 万元的加速包服务。\n另外还有多位博主表示，焕新 Model Y 长续航版和 Model 3 长续航版升级了新款电池方案，续航有所增加，例如 Model Y 长续航从 719km 变成 750km，Model 3 长续航从 713km 变成 753km。（来源：IT 之家）\n \nCursor 推出网页应用，用户可通过浏览器管理 AI 编码智能体网络\n7 月 1 日消息，热门人工智能代码编辑器 Cursor 的开发公司 Anysphere 宣布推出一款网页应用，用户可以通过浏览器直接管理一个代码智能体网络。这一举措标志着 Cursor 在其集成开发环境（IDE）之外迈出了重要的一步，Anysphere 一直致力于将产品推向更多平台，并为用户开发更多基于智能体的体验。\n\n如今，借助新推出的网页应用，用户可以在桌面或移动设备的浏览器中通过自然语言请求，为后台智能体分配任务，例如编写新功能或修复代码库中的漏洞。该…",
-          "link": "http://www.geekpark.net/news/351081",
-          "publishedOn": "2025-07-02T00:22:14.000Z",
-          "wordCount": 825,
-          "title": "亚马逊仓库机器人数量接近人类员工；高铁：不查充电宝 3C 标和品牌；雷军贺理想 10 周年：大空间家用车领导者",
           "imageUrl": null
         }
       ]
@@ -9235,6 +9165,46 @@
       "siteUrl": "https://chinadigitaltimes.net/chinese",
       "articles": [
         {
+          "id": "https://chinadigitaltimes.net/chinese/?p=719766",
+          "author": "既要又要还要",
+          "description": "7月21日，官媒央视新闻转载了昆明交警发布的警情通报，称此事为“一起道路交通事故”，肇事男子在撞上电动车及行人后驾车逃逸，总共造成“2死9伤”的后果。公安机关已排除其酒驾、毒驾嫌疑。",
+          "link": "https://chinadigitaltimes.net/chinese/719766.html",
+          "publishedOn": "2025-07-21T12:40:11.000Z",
+          "wordCount": 13147,
+          "title": "【网络民议】昆明发生一起“交通事故”致2死9伤",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/07/image-1753099708126.png"
+        },
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=719764",
+          "author": "既要又要还要",
+          "description": "也就是说，他们大致上对所有和血铅问题有关的“关键领导”进行了追责，但是避开了透露基层执行时收到的指令是什么。对比现阶段其他城市的一些操作，甘肃这波“提级调查”确实更为优秀。如果能把那些“立案问责”改成“立案调查”，那群众对甘肃这次通报的打分，恐怕还得再上一层楼。",
+          "link": "https://chinadigitaltimes.net/chinese/719764.html",
+          "publishedOn": "2025-07-21T11:44:55.000Z",
+          "wordCount": 13140,
+          "title": "剑客写字的地方｜血铅超标的调查通报，真有那么好？",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/07/image-1753098180999.png"
+        },
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=719761",
+          "author": "既要又要还要",
+          "description": "即使“老人变坏”还是“坏人变老”难以得出确定结论，但这实际上是一个传递性的、循环性的问题。而不是固定在某一代的问题。因为无论如何人都会变老，都会需要有尊严的社会评价。",
+          "link": "https://chinadigitaltimes.net/chinese/719761.html",
+          "publishedOn": "2025-07-21T11:41:43.000Z",
+          "wordCount": 13134,
+          "title": "少华读书｜“暴走”劣迹可能恶化老年群体的生存处境",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/07/image-1753097929617.png"
+        },
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=719751",
+          "author": "既要又要还要",
+          "description": "有网友表示，这不是网上首次针对女性的舆论围猎、荡妇羞辱，相比过去单对单的个体攻击，此次却有高校机构、媒体机构参与其中，以一种游街示众的方式呈现在大众视野里，也给女性群体带来了很大的心理冲击，感觉到身体自主权在不断被侵犯。还有网友指出，社会已然退步到“恶猜个人、善待公权”的非理性阶段......",
+          "link": "https://chinadigitaltimes.net/chinese/719751.html",
+          "publishedOn": "2025-07-21T11:28:58.000Z",
+          "wordCount": 13195,
+          "title": "【Cdt周报】第228期：我们与文明社会的距离，才是真正“有损国格”的",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/07/image-1753096171738.png"
+        },
+        {
           "id": "https://chinadigitaltimes.net/chinese/?p=719748",
           "author": "unknown",
           "description": "实事求是，是这道题最好的解法。",
@@ -10743,16 +10713,6 @@
           "wordCount": 13153,
           "title": "【404文库】三月云｜如何批驳“母系社会三万年食不果腹，父系社会五千年载人航天”？",
           "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/07/三月云1-1.png"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=719269",
-          "author": "elijah",
-          "description": "林立的厢式隔离屋仍保留着完整架构——单间隔断配有洗漱设施等，几乎全新，有些甚至连保护膜也未撕开，部分厢体上写着“已定”“已卖完”等字样......",
-          "link": "https://chinadigitaltimes.net/chinese/719269.html",
-          "publishedOn": "2025-07-01T22:26:10.000Z",
-          "wordCount": 13231,
-          "title": "【404文库】“他记得，‘市场’一开业就是‘甩卖’和‘清仓’”（外二篇）",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/07/6642.png"
         }
       ]
     },
@@ -10798,6 +10758,26 @@
       "feedUrl": "https://sspai.com/feed",
       "siteUrl": "https://sspai.com",
       "articles": [
+        {
+          "id": "https://sspai.com/post/101203",
+          "author": "少数派编辑部",
+          "description": "欢迎收看本期《派评》。你可以通过文章目录快速跳转到你感兴趣的内容。如果发现了其它感兴趣的App或者关注的话题，也欢迎在评论区和我们讨论。值得关注的新App虽然少数派一直在为大家发现和介绍各平台上的优质 ...查看全文",
+          "link": "https://sspai.com/post/101203",
+          "publishedOn": "2025-07-21T09:49:02.000Z",
+          "wordCount": 748,
+          "title": "派评 | 近期值得关注的 App",
+          "imageUrl": "https://cdnfile.sspai.com/2025/7/21/article/0497ceb4-6573-b2bc-56fe-46e89308dc1e.png"
+        },
+        {
+          "id": "https://sspai.com/post/101153",
+          "author": "新奇冒险家",
+          "description": "不知不觉第一期少数派共创开放日到现在已经过去了四个月，期间还穿插着TGO大会的活动。通过持续的线下交流实践，我们深刻体会到面对面沟通的高效与价值。因此，每月一次的线下共创开放日，我们将继续坚持举办，并 ...查看全文",
+          "link": "https://sspai.com/post/101153",
+          "publishedOn": "2025-07-21T07:58:03.000Z",
+          "wordCount": 557,
+          "title": "第四期共创开放日招募开启 | 少数派会员 2025 新季即将同步启动！",
+          "imageUrl": "https://cdnfile.sspai.com/2025/07/21/2019ff1659f3827f512f750a4d8deada.png"
+        },
         {
           "id": "https://sspai.com/post/101180",
           "author": "kokdemo",
@@ -11437,16 +11417,6 @@
           "wordCount": 853,
           "title": "Apple 力推的《F1：狂飙飞车》，是否值得你买票走进电影院",
           "imageUrl": "https://cdnfile.sspai.com/2025/06/29/f3a03ff517597a03023f58cc4200806c.png"
-        },
-        {
-          "id": "https://sspai.com/post/100726",
-          "author": "少数派编辑部",
-          "description": "Cloudflare 测试 AI 抓取付费机制、Apple 起诉前设计工程师窃取商业机密。查看全文",
-          "link": "https://sspai.com/post/100726",
-          "publishedOn": "2025-07-01T23:35:00.000Z",
-          "wordCount": 799,
-          "title": "派早报：马歇尔 Middleton II 发布、树莓派推出 Radio Module 2 无线模块等",
-          "imageUrl": "https://cdnfile.sspai.com/2025/7/2/article/4a1f2502-25d8-33b9-cc4e-a03c7bec1c03.png"
         }
       ]
     },
@@ -12529,6 +12499,26 @@
       "feedUrl": "http://aeon.co/feed.rss",
       "siteUrl": "https://aeon.co",
       "articles": [
+        {
+          "id": "urn:id:7972",
+          "author": "Aeon Video",
+          "description": "What does it mean to be Mexican? Meet the artist who forged Mexico’s identity in the brushstrokes of his landscape paintings \n - by Aeon Video\n Watch at Aeon",
+          "link": "https://aeon.co/videos/after-independence-mexico-was-in-search-of-identity-these-paintings-offered-a-blueprint?utm_source=rss-feed",
+          "publishedOn": "2025-07-21T10:01:00.000Z",
+          "wordCount": 3514,
+          "title": "Great art explained: José María Velasco",
+          "imageUrl": "https://images.aeonmedia.co/images/f7f6f30b-7da2-4532-af96-343e6e7ef2be/great-art-explained-jose-maria-velasco-landscape-1.jpg?width=1200&quality=75&format=auto"
+        },
+        {
+          "id": "urn:id:8250",
+          "author": "Mike Dacey",
+          "description": "Interpreting the emotional lives of animals requires a subtler and more nuanced understanding of anthropomorphism \n - by Mike Dacey\n Read at Aeon",
+          "link": "https://aeon.co/essays/when-is-enjoying-funny-animal-videos-not-anthropomorphism?utm_source=rss-feed",
+          "publishedOn": "2025-07-21T10:00:00.000Z",
+          "wordCount": 12294,
+          "title": "Humanlike?",
+          "imageUrl": "https://images.aeonmedia.co/images/40ba9977-d7b7-4898-acd5-354e4003ac0c/essay-bear-house.jpg?width=1200&quality=75&format=auto"
+        },
         {
           "id": "urn:id:8255",
           "author": "Eli K P William",
@@ -14003,6 +13993,16 @@
       "feedUrl": "https://feedx.site/rss/infzm.xml",
       "siteUrl": "http://infzm.com",
       "articles": [
+        {
+          "id": "http://www.infzm.com/contents/295123",
+          "author": null,
+          "description": "2025-07-21 17:00:00\n当舞台的灯光亮起时，金靖不再是综艺里“撩遍所有帅哥”的喜剧人，也不是影视剧中自带笑点的配角。在悬疑舞台剧《看不见的客人》中，她首次以“古律师”的身份立于话剧舞台——演绎一个背负丧子之痛，在复仇与原谅间撕扯的母亲。\n\n《看不见的客人》剧照，受访者提供\n这场戏剧之约，缘起于朋友婚宴上的一次大胆自荐。金靖向南周文娱坦言，她完全没料到新锐戏剧导演丁一滕真的向她发出了邀约。而这部舞台剧改编自2016年的西班牙同名神作：成功企业家艾德里安被控在密室酒店谋杀情人，为脱罪聘请了未尝败绩的金牌女律师。随着律师尖锐的质询，他叙述的漏洞越来越多，案情在交锋中不断反转。\n金靖所饰演的，正是这位步步紧逼的女律师。在排练中，她想起关系密切的大姨，痛失孩子后对“阖家欢乐”春联的暴怒，那种啃噬内心的灼痛成了她理解古律师的钥匙：比起单纯的复仇，或许“能否放下”才是这个故事更深刻的命题。\n\n                       \n她带着喜剧演员的本能闯入剧场，却意外撞见自己的另一面：恐惧、害怕。当对手演员张维伊的爆发力在联排中完全压制她时，她没有选择暗自内耗，而是果断拽住导演和对手坦言“我接不住，帮帮我”。这份在职场上罕见的“反内耗哲学”，恰是她从十几年焦虑中淬炼出的智慧：内耗解决不了问题，痛苦也不能让人变好，把问题说出来，才能改变。\n以下是金靖自述：\n复仇的古律师，失独的大姨\n我在戏里看见亲人的悲剧\n\n《看不见的客人》剧照，受访者提供\n我以前看过黄磊老师的《暗恋桃花源》，那时正好失恋，给我哭得不行。我当时就想什么时候能自己去演（舞台剧），但我又感觉好像要明星才能跟他们合作，我自己也没到那个份儿，不好贸然去找人家。\n这次能合作，契机是我好朋友的婚礼，她老公是国话的演员，丁导也是国话的导演，当时我就在一桌朋友中准确瞄到了丁导，“丁一滕我很喜欢你，你能找我演舞台剧吗…",
+          "link": "http://www.infzm.com/contents/295123",
+          "publishedOn": "2025-07-21T09:25:06.000Z",
+          "wordCount": 82,
+          "title": "“反内耗王者”金靖：嫉妒就直说，怕输就喊救命",
+          "imageUrl": null
+        },
         {
           "id": "http://www.infzm.com/contents/298565",
           "author": null,
@@ -16642,16 +16642,6 @@
           "wordCount": 94,
           "title": "“迟到”两年的表彰：评价文明城市，体系大辐瘦身",
           "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/297134",
-          "author": null,
-          "description": "2025-07-02 08:00:00\n\n2023年，孙千和的案例被最高法列为贯彻实施民法典的典型案例。视觉中国/图\n接到推销电话，你会怎么办？\n无奈挂断，可能是大部分人的选择；或者放任铃声响着，以拒接来对抗；有的人可能会与业务员较个劲，发泄一下不满，常见的最激烈的反应不过如此。\n有人却选择了向法院起诉。南方周末记者找到了3位有此行动的人。\n他们也不是一开始就决定这么做的。\n孙千和下定决心起诉中国移动通信集团山东有限公司滨州分公司（下文简称“移动滨州分公司”），是因为，在她明确给官方客服打电话强调“不要再打了，不接受任何推销”，甚至表明自己是律师，如果再打，就法院见后，推销依然没有停止。\n上海的胡先生是在已经拒绝了银行的推销电话，却仍收到推销短信后，决定提起民事诉讼，“只有这件事情能增加他们的麻烦，增加他们的成本，他们再打推销电话的时候，可能就会考虑是否适当了”。\n另一位当事人曹康在山西大剧院买票看了一场演出之后，频繁收到推销短信。对方却不承认发了短信，“这种摆明了不认账的态度，就得和他们较较真”。\n起诉之后，有人选择接受调解，有人用了一年，拿到了胜诉的判决。回顾维权经历，三位受访者都提到了一条出自民法典的法律依据。\n“除法律另有规定或者权利人明确同意外，任何组织或者个人不得以电话、短信、即时通讯工具、电子邮件、传单等方式侵扰他人的私人生活安宁。”\n拒收无效，投诉未果\n5月底，曹康胜诉了。法院没有支持他提出的精神损害赔偿，但判定几个被告要停止发送宣传短信，并进行书面道歉。\n事情始于2023 年7月，他买了一张山西大剧院的演出门票。10月，开始收到以【山西大剧院】为抬头的推销短信。\n一开始曹康没在意。他提供的短信截图显示，推销短信从2023年发到2024年，几乎每个月都有一条。2024年4月，他按照短信内容提到的“拒收请回复R”，选择了退订。但退订之后，短信还在发，他联系了山…",
-          "link": "http://www.infzm.com/contents/297134",
-          "publishedOn": "2025-07-02T00:25:06.000Z",
-          "wordCount": 91,
-          "title": "起诉推销来电",
-          "imageUrl": null
         }
       ]
     },
@@ -16660,6 +16650,16 @@
       "feedUrl": "http://flowingdata.com/feed",
       "siteUrl": "https://flowingdata.com",
       "articles": [
+        {
+          "id": "https://flowingdata.com/?p=79264",
+          "author": "Nathan Yau",
+          "description": "It is “flash flood month” in the United States, brought on by high…\nTags: flood, New York Times, rain",
+          "link": "https://flowingdata.com/2025/07/21/why-all-the-flash-floods/",
+          "publishedOn": "2025-07-21T10:12:38.000Z",
+          "wordCount": 1425,
+          "title": "Why all the flash floods",
+          "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/07/flash-flood-season-NYT.png"
+        },
         {
           "id": "https://flowingdata.com/?p=79225",
           "author": "Nathan Yau",
