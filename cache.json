@@ -6,6 +6,26 @@
       "siteUrl": "https://bestblogs.dev/zh/feeds",
       "articles": [
         {
+          "id": "9767a8",
+          "author": "Datawhale",
+          "description": "📌 一句话摘要\n            \n李沐团队发布了 Higgs Audio V2 多模态语音大模型，该模型能深度理解并生成语音，并已开源提供给开发者。\n📝 详细摘要\n            \n文章介绍了李沐团队最新发布的 Higgs Audio V2 多模态语音大模型，该模型创新性地将 1000 万小时语音数据整合到 LLM 文本训练中，使其能同时理解和生成语音。它不仅能处理常规语音任务，还具备生成多种语言对话、自动韵律调整、克隆声音哼唱及同时生成语音和背景音乐等罕见能力。文章阐述了模型通过将语音任务转换为文本指令格式，并采用统一离散化音频分词器来表示连续语音信号的关键技术。为解决大规模高质量数据标注问题，团队训练了辅助模型 AudioVerse 实现自训练。Higgs Audio V2 在多项基准测试中表现优异，且已开源，提供 GitHub 代码、在线试玩平台和 Hugging Face 版本，极大降低了开发者和爱好者的使用门槛。\n💡 主要观点\n            \nHiggs Audio V2 通过将海量语音数据整合至 LLM 文本训练，实现了文本与语音的深度融合。\n                         模型创新性地将语音信号转换为 LLM 可处理的离散 token，并利用系统指令、用户输入、模型回复的统一格式，使 LLM 能同时处理文本和语音任务，实现“大力出奇迹”的扩展性。\n                    \n\n                        模型具备多语言、多说话人、情感表达及背景音乐生成等高级语音能力。\n                         Higgs Audio V2 在传统语音任务基础上，提供了多语种自然对话、韵律自适应、声音克隆哼唱、语音与背景音乐同步生成等独特功能，极大拓展了语音 AI 的应用边界。\n                    \n\n                        团队通过自训练模型 AudioVerse 解决了大规模高质量语音数据标注难题。\n                         面对版权和成本限制，团队训练了 AudioVerse 模型，通过分析用户语音输入反向生成标注信息，实现了生成模型与标注模型的共同进步，确保了训练数据的质量和规模。\n                    \n\n                        Higgs Audio V2 在多项语音基准测试中性能显著超越现有模型。\n                         模型在 EmergentTTS-Eval 等基准测试中，尤其在情绪和问题类别上，胜率远超 GPT-4o-mini-tts，并在传统 TTS 测试中也取得最佳性能，展现了其卓越的语音理解和生成能力。\n                    \n\n                        模型代码和试玩平台已开源，极大降低了开发者和爱好者的使用门槛。\n                         李沐团队将 Higgs Audio V2 的核心代码发布在 GitHub，并提供在线试玩平台和 Hugging Face 版本，方便用户快速体验、学习和集成，促进了技术的普及和应用。\n                    \n💬 文章金句\n            \n李沐老师终于带着他的手搓语音大模型教程回归了....\n整个过程堪称**“大力出奇迹”** ，直接将**1000 万小时** 的语音数据整合到 LLM 的文本训练，让它能听也能说。\n如果想要教一个徒弟同时会拳脚功夫，但师傅一次又教不了，那就同时教两个徒弟，一个学打拳，一个学踢腿，然后让他们俩天天互相打，打着打着两个就都会拳脚功夫了。\n在**EmergentTTS-Eval** 基准上，相较于其他模型，性能可以说是遥遥领先，尤其是在“情绪”和“问题”类别中，相比**GPT-4o-mini-tts** 高出了 75.7%和 55.7%的胜率。\n放心，沐导都包圆了，模型代码都已全部发布在**GitHub** 上*（可点击文末链接获取～）* ，并提供了在线试玩平台和 Hugging Face 版本。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：Datawhale\n作者：Datawhale\n分类：人工智能\n语言：中文\n阅读时间：9 分钟\n字数：2071\n标签：\n                    \n                        多模态AI, 语音大模型, Higgs Audio V2, LLM, 语音合成",
+          "link": "https://www.bestblogs.dev/zh/article/9767a8",
+          "publishedOn": "2025-07-23T14:22:00.000Z",
+          "wordCount": 327,
+          "title": "沐神 B 站更新了",
+          "imageUrl": "https://www.bestblogs.dev/zh/article/9767a8/opengraph-image?c5b4e9f48bc65b64"
+        },
+        {
+          "id": "af4070",
+          "author": "vivo互联网技术",
+          "description": "📌 一句话摘要\n            \n针对服务冷启动期间 CPU 飙升问题，文章详细分析了其原因并提供了基于流量灰度和 Spring 框架源码优化的解决方案。\n📝 详细摘要\n            \n文章深入剖析了服务冷启动时 CPU 持续高负载的现象，从 Dubbo/HTTP 接口超时、CPU 异常、线程突刺及老年代内存上涨等多个维度进行问题表象分析。通过初步判断线程不足和上下文切换是原因，并尝试了流量灰度（成功）和缓存预热（失败）。最终，文章利用线程堆栈和 CPU 火焰图，定位到 Spring 框架中`calculateStringDistance`方法在处理未匹配属性时产生高 CPU 消耗，进一步加剧了服务冷启动时的 CPU 风暴，结合流量灰度成功解决了问题，为服务高可用性提供了重要保障。\n💡 主要观点\n            \n服务冷启动 CPU 飙升是多维度问题\n                         表现为接口超时、CPU 饱和、线程剧增和老年代内存快速上涨，初步判断与线程不足和频繁上下文切换相关。\n                    \n\n                        流量灰度是有效缓解手段\n                         通过逐步接入线上流量，可以有效避免服务启动初期因流量冲击导致的 CPU 风暴和性能问题。\n                    \n\n                        深入源码分析是解决复杂问题的关键\n                         结合线程堆栈和 CPU 火焰图，定位到 Spring 框架中`calculateStringDistance`方法在处理未匹配属性时产生高 CPU 消耗，该方法在高并发场景下进一步加剧了服务启动时的 CPU 负载，揭示了性能瓶颈的深层技术细节。\n                    \n💬 文章金句\n            \n本文的重点在于问题的发现、分析及解决思路。对于 CPU 相关的问题，火焰图和 Arthas 是非常有效的工具，建议大家在遇到类似情况时，积极尝试使用这些工具进行排查和解决。\n引起 CPU 飙升的原因主要是由于过多的 Runnable 状态线程以及频繁的线程上下文切换所导致。我们观察到系统中存在大量已启动的线程，这些线程的状态在 Blocked（锁等待、IO 等待等）和 Runnable 之间不断变化。\n流量灰度可以解决该问题。\n这一变化表明，随着系统的稳定运行，CPU 负载逐渐得到缓解，但 calculateStringDistance 方法仍然是性能瓶颈之一。它虽然不是 CPU 使用率飙升的根因，但它在服务启动后进一步加剧了 CPU 的负载。\n通过查询堆栈信息并查看源代码，我们发现这是 Spring 框架在解析请求参数并注入属性的过程中所触发的。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：vivo互联网技术\n作者：vivo互联网技术\n分类：软件编程\n语言：中文\n阅读时间：46 分钟\n字数：11374\n标签：\n                    \n                        性能优化, CPU分析, 服务冷启动, Spring框架, JVM",
+          "link": "https://www.bestblogs.dev/zh/article/af4070",
+          "publishedOn": "2025-07-23T12:01:00.000Z",
+          "wordCount": 323,
+          "title": "从频繁告警到平稳发布：服务冷启动 CPU 风暴优化实践",
+          "imageUrl": "https://www.bestblogs.dev/zh/article/af4070/opengraph-image?c5b4e9f48bc65b64"
+        },
+        {
           "id": "b1d691",
           "author": "机器之心",
           "description": "📌 一句话摘要\n            \n昆仑万维发布国产 AI 音乐大模型 Mureka V7 及其音频模型 Mureka TTS V1，大幅提升音乐生成质量与语音定制能力，用户量已近 300 万。\n📝 详细摘要\n            \n文章详细介绍了昆仑万维最新发布的 AI 音乐大模型 Mureka V7 及其配套的音频模型 Mureka TTS V1。Mureka V7 在多项关键指标上超越海外竞品 Suno V4.5，显著提升了旋律动机、编曲质量、人声与乐器真实度。其核心技术是自研的音乐思维链 MusiCoT，通过“先想结构后生成”的方式，使 AI 音乐创作更具逻辑性和可控性。文章通过实测展示了 Mureka V7 的自定义歌手（模仿音色）、音乐参考（风格迁移）、歌曲描述生成和纯音乐生成等功能，并能自动生成 MV。此外，新发布的 Mureka TTS V1 模型引入了 Voice Design 能力，支持通过文本指令精细控制语音特征，并在语音质量上超越 ElevenLabs TTS V2。文章最后指出，垂直大模型正成为 AI 领域的新焦点，昆仑万维 Mureka 的用户量已接近 300 万，展现了其在 AIGC 领域的领先地位和广阔前景。\n💡 主要观点\n            \nMureka V7 在 AI 音乐生成质量上实现重大突破，超越竞品并大幅提升用户创作体验。\n                         新版本在旋律、编曲、人声和乐器真实度方面显著提升，并在多项指标上超越 Suno V4.5，为用户带来更高品质的 AI 音乐创作能力。\n                    \n\n                        Mureka V7 新增自定义歌手和音乐参考功能，极大拓展了 AI 音乐的创作边界和个性化能力。\n                         用户可通过上传音频模仿特定音色，或基于参考音乐生成相似风格作品，使得 AI 音乐创作更加灵活和富有创意。\n                    \n\n                        昆仑万维推出 Mureka TTS V1，以文本控制语音特征的创新能力，在语音合成领域达到行业领先水平。\n                         Mureka TTS V1 的 Voice Design 功能允许用户通过自然语言定义语音的性别、年龄、情感等，实现高度个性化的语音合成，拓宽了语音应用的场景。\n                    \n💬 文章金句\n            \n大模型厂商昆仑万维正式发布了新一代音乐大模型 Mureka V7，成为了当前国产最强，并在多个关键指标上显著超越海外 AI 音乐平台 Suno（V4.5）\nMureka V7 真不只是「AI 帮你写首歌」那么简单，现在它还上线了新功能 ------ 自定义歌手。\nMureka V7 进一步优化了 MusiCoT（Analyzable Chain-of-Musical-Thought Prompting）技术，显著提升了模型生成结果的整体性与发声表现\nMureka TTS V1 的最大亮点是引入了 Voice Design 能力，可以通过文本输入想要的语音特征来获得对应的音色。\n一些垂直大模型成为新一轮技术博弈与产品竞速的焦点，如 AIGC 领域的视频大模型、音乐大模型等。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：机器之心\n作者：机器之心\n分类：人工智能\n语言：中文\n阅读时间：13 分钟\n字数：3192\n标签：\n                    \n                        AI音乐, AIGC, 音乐大模型, 语音合成, Mureka",
@@ -21,6 +41,16 @@
           "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/f6c1d0a5-3401-4bec-74ad-b2af1ac8a500/cover"
         },
         {
+          "id": "727b72",
+          "author": "卡尔的AI沃茨",
+          "description": "📌 一句话摘要\n            \n详细介绍了如何将最新开源的 Qwen3 Coder 模型高效集成到 Claude Code、Qwen Code 和 Cline 等 AI 编程工具中，并提供了实用的配置教程。\n📝 详细摘要\n            \n文章围绕最新开源的 Qwen3 Coder 模型，提供了一份详尽的集成教程。首先介绍了 Qwen3 Coder 的核心特性，如其 480B 总参数、35B 激活参数、7.5T 训练数据（其中 70%为代码），以及 256k 上下文长度（可扩展至 1M），并在编程、浏览器使用和工具调用方面取得了开源 SOTA。随后，文章重点阐述了如何通过阿里云百炼获取 API Key，并以“保姆级”方式指导用户将 Qwen3 Coder 接入 Claude Code、Qwen Code（基于 Gemini CLI 二次开发）以及 Cursor/Cline 等 AI 编程环境，提供了具体的安装命令和环境变量配置方法。文章还对比了 Claude Code 和 Qwen Code 在实际代码生成体验上的差异，并附上了 Qwen3 Coder 的 API 计费价格，旨在帮助开发者充分利用 Qwen3 Coder 的强大编程能力。\n💡 主要观点\n            \nQwen3 Coder 在代码和 Agent 能力上达到开源 SOTA\n                         该模型拥有 480B 总参数和 35B 激活参数，在 Agentic Coding、Browser-Use 和 Tool-Use 方面表现卓越，上下文长度可扩展至 1M，适用于大型项目。\n                    \n\n                        通过阿里云百炼可免费获取百万 Token 提升 API 速度\n                         文章指出，利用阿里云百炼提供的免费 Token 可显著提升 Qwen3 Coder 在 Claude Code 等工具中的 API 调用速度，解决 Rate Limits 问题。\n                    \n\n                        提供详细教程将 Qwen3 Coder 集成至主流 AI 编程工具\n                         文章详细介绍了将 Qwen3 Coder 接入 Claude Code、Qwen Code（基于 Gemini CLI）和 Cursor/Cline 的步骤，包括 Node.js 安装、环境变量配置等，具有极高可操作性。\n                    \n\n                        不同集成方案各有特点，用户可根据需求选择\n                         作者对比了 Claude Code 和 Qwen Code 在代码生成体验上的差异，指出 Claude Code 在生成代码时会进行二次检查和优化，而 Qwen Code 更直接，为用户提供了选择依据。\n                    \n💬 文章金句\n            \nQwen3 Coder...在 Agentic Coding（编程）、Agentic Browser-Use（浏览器使用） 和 Agentic Tool-Use （工具调用）上取得了开源模型的 SOTA。\n阿里云百炼送了 1 百万的免费 token，把 TPM 拉到 1，000，000，对标到了 Kimi 的 Tier4 以上，速度直接起飞。\n只需要将 Anthropic 的 BASE_URL 和 AUTH_TOKEN 替换成下面的部分：export ANTHROPIC_BASE_URL=\n\n把 Qwen3 Coder 接入 Claude Code 后同样是比网页版的好用，有内置的提示语前提下，哪怕不开启 / plan 模式，生成代码的时候 Qwen3 Coder 也会二次检查，尽可能多优化几版。\n现在大模型开源赛道的前十应该就是 Qwen、Kimi、Deepseek 三个在打了，真心希望能看到越来越多的国产模型，追上 AI 编程、Agent 能力的超一流梯队。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：卡尔的AI沃茨\n作者：卡尔的AI沃茨\n分类：人工智能\n语言：中文\n阅读时间：8 分钟\n字数：1835\n标签：\n                    \n                        Qwen3 Coder, 大语言模型, AI编程, Claude Code, Gemini CLI",
+          "link": "https://www.bestblogs.dev/zh/article/727b72",
+          "publishedOn": "2025-07-23T05:28:00.000Z",
+          "wordCount": 374,
+          "title": "保姆级教程：两步搭出 Qwen3 Coder 满血 Claude Code 版，OpenAI CodeX 睡桥洞去吧",
+          "imageUrl": "https://www.bestblogs.dev/zh/article/727b72/opengraph-image?c5b4e9f48bc65b64"
+        },
+        {
           "id": "932acb",
           "author": "腾讯科技",
           "description": "📌 一句话摘要\n            \nAnthropic 联合创始人本杰明·曼恩深入探讨了 AI 发展趋势、AGI 定义与预测、超级智能可能最早于 2028 年出现，并强调 AI 安全对齐与人类创造力的重要性。\n📝 详细摘要\n            \n文章是 Anthropic 联合创始人本杰明·曼恩在《Lenny's Podcast》播客节目中的访谈精华。他离开 OpenAI 创立 Anthropic，正是出于将 AI 安全置于最高优先级的考量。曼恩预测超级智能可能最早在 2028 年出现，并提出“经济图灵测试”作为衡量 AGI 实现的关键标准，即 AI 能通过 50%高薪岗位的盲测。他认为 Scaling Law 仍在加速发挥作用，模型迭代周期已缩短至月度，驳斥了 AI 发展遭遇瓶颈的论调，但也指出计算能力是当前模型智能提升的最大瓶颈。他详细解释了 Anthropic 提倡的自我反馈强化学习（RLAIF）和“宪法 AI”在确保模型与人类价值观对齐方面的作用，并介绍了其五级 AI 安全评估体系，强调即使面临小概率但高风险的生存威胁，也需提前进行安全对齐研究。文章还深入探讨了 AI 对就业市场的深远影响，指出 20%白领职位可能消失，但 AI 将重塑工作性质，提升生产力，而人类的创造力将是最后的护城河。曼恩鼓励人们保持开放和学习心态，积极适应 AI 时代。\n💡 主要观点\n            \n超级智能可能最早在 2028 年出现，基于算力扩张与 Scaling Law 的持续有效。\n                         曼恩预测 AI 技术正以非线性速度进步，模型迭代周期缩短，算力投入呈指数级增长，预示着变革性 AI 和超级智能的快速到来。\n                    \n\n                        “经济图灵测试”是衡量 AGI 实现的关键标准，将引发全球 GDP 重构与社会形态变革。\n                         当 AI 能通过 50%高薪岗位的“盲测”时，意味着变革性 AI 的诞生，这将对全球经济结构和就业市场产生颠覆性影响。\n                    \n\n                        AI 安全对齐至关重要，Anthropic 通过 RLAIF 和“宪法 AI”确保模型与人类价值观对齐。\n                         Anthropic 将 AI 安全置于最高优先级，通过 AI 自我改进机制和基于原则的对齐方法，降低了 AI 失控或被滥用的风险，即使面临生存风险也需提前应对。\n                    \n\n                        AI 将极大提升生产力并重塑工作性质，但人类的创造力将是最后的“护城河”。\n                         AI 能处理大量重复性工作，如 95%的基础代码编写，使人类专注于复杂问题，提升效率；同时，突破框架的创造性思维是 AI 无法替代的核心竞争力。\n                    \n\n                        适应性、开放心态和持续学习是 AI 时代个人生存的关键法则。\n                         面对 AI 带来的不确定性和快速变革，个人应勇于尝试新工具，掌握正确的交互方法，并培养好奇心、创造力和自主学习能力，而非单纯依赖知识获取。\n                    \n💬 文章金句\n            \nAnthropic 受到的影响相对较小，因为我们的团队成员普遍具有强烈的使命感。\nScaling Law 仍然有效，只是需要从传统预训练转向强化学习的规模化应用。\n当某个 AI 智能体能够胜任某个工作岗位，且雇主无需在意它是机器还是人类时，就算通过了该岗位的测试。\n真正威胁你的不是 AI 本身，而是那些比你更善于运用 AI 的同行。\n这是一个极为狂野的时代，如果你觉得它不疯狂，那你可能是生活在原始岩洞里。但你必须适应这种状态，因为这将是未来最常见的常态，未来会变得更加奇异。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：腾讯科技\n作者：腾讯科技\n分类：商业科技\n语言：中文\n阅读时间：56 分钟\n字数：13941\n标签：\n                    \n                        AI发展趋势, 超级智能, AI安全, AGI, Scaling Law",
@@ -29,6 +59,16 @@
           "wordCount": 341,
           "title": "Anthropic 联创曼恩：超级智能可能最早 2028 年出现",
           "imageUrl": "https://www.bestblogs.dev/zh/article/932acb/opengraph-image?c5b4e9f48bc65b64"
+        },
+        {
+          "id": "98bc7a",
+          "author": "赛博禅心",
+          "description": "📌 一句话摘要\n            \n全面解析了 Qwen3-Coder 代码大模型的性能、价格与多维度可用性，强调其开源优势和领先能力。\n📝 详细摘要\n            \n文章深入剖析了阿里云最新发布的开源代码大模型 Qwen3-Coder，该模型采用 MoE 架构，拥有 480B 总参数和 35B 激活参数，旨在提供强大的代码生成与理解能力。文章从性能、价格和可用性三个核心维度进行了详细阐述。性能方面，Qwen3-Coder 在 Agentic Coding、Agentic Browser-Use 和 Agentic Tool-Use 等多个基准测试中表现出色，取得了开源模型 SOTA（State-of-the-Art）效果，并能与闭源模型 Claude Sonnet4 相媲美。价格部分，文章通过图表对比突显了其成本效益。可用性方面，文章详细介绍了多种使用途径，包括通过 Qwen Chat 在线体验、通过百炼平台或兼容 OpenAI API 进行 API 调用、以及通过 GitHub、Hugging Face 和魔搭社区进行模型自部署。此外，还介绍了 Qwen Code CLI、与 Claude Code 的兼容性及 VS Code Cline 等多种花式调用方式，并展示了多个实际代码生成 Demo 案例。文章最后强调了国产开源模型在当前国际环境下的重要战略意义和技术进步。\n💡 主要观点\n            \nQwen3-Coder 在代码和 Agentic 任务中表现卓越，达到开源 SOTA 水平。\n                         该模型在 Agentic Coding、Browser-Use 和 Tool-Use 等多项基准测试中超越其他开源模型，并与 Claude Sonnet4 等闭源模型匹敌，展现了其在复杂代码任务和智能体应用中的强大能力。\n                    \n\n                        Qwen3-Coder 提供多渠道可用性，支持灵活部署和集成。\n                         用户可通过官方 API、Qwen Chat 在线体验，或从 GitHub、Hugging Face 等平台自部署，极大降低了开发者和企业的应用门槛，促进其在不同环境下的集成。\n                    \n\n                        作为 MoE 架构的开源国产模型，Qwen3-Coder 推动了国内大模型生态发展。\n                         在海外模型日益封闭的背景下，Qwen3-Coder 的开源不仅提供了高性能替代方案，也促进了国内 AI 技术社区的活跃与创新，具有重要的战略意义。\n                    \n💬 文章金句\n            \nQwen3-Coder 发布 是 Qwen 系列最强的代码模型\nMoE 架构，开源 480B 大小，35B 激活参数 可自部署，也可通过官方 API 调用\nQwen3 在 Agentic Coding、Agentic Browser-Use 和 Agentic Tool-Use 等多个方面，上取得了开源模型的 SOTA 效果，可以与 Claude Sonnet4 媲美\n海外模型逐渐封闭，国产模型不断开源 颇多感慨，也颇为自豪\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：赛博禅心\n作者：赛博禅心\n分类：人工智能\n语言：中文\n阅读时间：3 分钟\n字数：635\n标签：\n                    \n                        大语言模型, 代码生成, AI Agent, MoE, 开源模型",
+          "link": "https://www.bestblogs.dev/zh/article/98bc7a",
+          "publishedOn": "2025-07-23T04:07:00.000Z",
+          "wordCount": 319,
+          "title": "Qwen3 新模型 Coder：性能、价格、可用性｜全详解，包括官方没说的",
+          "imageUrl": "https://www.bestblogs.dev/zh/article/98bc7a/opengraph-image?c5b4e9f48bc65b64"
         },
         {
           "id": "bfe01c",
@@ -2289,16 +2329,6 @@
             "length": "0"
           },
           "imageUrl": "https://image.xyzcdn.net/Fm42v5FB7k_yAn4Qmyior-dBQkXI.png"
-        },
-        {
-          "id": "e339b4",
-          "author": "AI科技大本营",
-          "description": "📌 一句话摘要\n            \n文章回顾计算机发展史上八次'程序员替代论'技术浪潮，揭示程序员角色不断进化而非被取代的本质规律。\n📝 详细摘要\n            \n文章系统梳理了计算机发展史上八次主要的'程序员即将被机器取代'预言浪潮，从 1950 年代编译器诞生到当前 AI 编程工具的出现。通过历史案例分析，每次技术革新都试图简化编程，但结果都催生出更复杂的系统需求和更高层次的程序员角色。文章揭示了程序员角色分层演变的规律：从面向硬件的编码员到面向应用的开发者，再到系统架构师。最终证明程序员的核心价值在于解决业务复杂性、系统设计和创造性思维，这些能力无法被简单替代。只会机械编码的'纯粹编码员'价值确实在下降，但具备业务理解、系统设计和批判性思维的程序员更加稀缺和重要。\n💡 主要观点\n            \n八次技术革新不断改变但从未消灭程序员角色\n                         从编译器到 AI 的八次'程序员替代论'都未能实现，每次技术突破都催生出新的程序员需求和更高层次的工作，形成完整的技术生态\n                    \n\n                        编程的困难从语法性转向认知性和沟通协作\n                         随着工具发展，程序员的挑战从编写代码转向理解复杂业务逻辑、系统设计以及团队沟通协作，这些'软技能'成为核心硬实力\n                    \n\n                        AI 工具改变但不会取代程序员工作方式\n                         如文章所述'意大利面条仍然是意大利面条'，AI 可以辅助编码但不能替代业务理解、系统设计和创造性思维等核心能力\n                    \n\n                        程序员价值在于解决复杂性而非编写代码\n                         真正的程序员价值在于处理业务复杂性、系统设计和为结果负责，这些能力无法被简单自动化。历史证明'替代'实质是角色定义的重塑\n                    \n\n                        程序员角色分层是技术发展的必然结果\n                         从应用开发者到系统开发者，从公民开发者到专业开发者，技术发展自然导致程序员角色分层，形成更加完善的技术生态系统\n                    \n💬 文章金句\n            \n每一次技术浪潮都带来了一次抽象，将开发者从更底层的、更机械的劳动中解放出来\n所谓的'替代'，第一次露出了它的真面目：它不是角色的消亡，而是角色定义的重塑\n意大利面条仍然是意大利面条 - 无论语法多么像英语，一个糟糕的程序其逻辑依然难以理解\n软件开发的瓶颈，是认知性的，而非语法性的\n程序员的阵地一直在变，但他们从未离开战场\n那些只会机械地将产品需求翻译成代码的'纯粹编码员'，他们的价值确实正在被 AI 迅速稀释\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：AI科技大本营\n作者：AI科技大本营\n分类：人工智能\n语言：中文\n阅读时间：34 分钟\n字数：8314\n标签：\n                    \n                        程序员职业发展, 软件开发历史, 技术变革, 编程自动化, 职业未来",
-          "link": "https://www.bestblogs.dev/zh/article/e339b4",
-          "publishedOn": "2025-07-04T09:01:00.000Z",
-          "wordCount": 303,
-          "title": "不死的程序员",
-          "imageUrl": "https://www.bestblogs.dev/zh/article/e339b4/opengraph-image?c5b4e9f48bc65b64"
         }
       ]
     },
@@ -2703,16 +2733,6 @@
           "wordCount": 11388,
           "title": "男孩高考失利无缘985执意复读，学长的一场宣讲竟让他决定上大学",
           "imageUrl": "https://inews.gtimg.com/news_ls/O3L4ZtghTPtNLmo3ArPTvZllKEtpPq-JEgaBgiCoh8tckAA_640330/0"
-        },
-        {
-          "id": "https://view.inews.qq.com/a/20250704V06VUV00",
-          "author": "谷雨实验室",
-          "description": "",
-          "link": "https://view.inews.qq.com/a/20250704V06VUV00",
-          "publishedOn": "2025-07-04T11:05:00.000Z",
-          "wordCount": 258,
-          "title": "40个摊贩的手，被摄影师做成展览",
-          "imageUrl": "https://inews.gtimg.com/news_ls/O0qo-v6lZ5iv89mEXWJKSZXybBSOpeei5GPPSNxxG7FKMAA_7201280/0"
         }
       ]
     },
@@ -2820,16 +2840,6 @@
           "wordCount": 6218,
           "title": "三峡直通丹江口，对中国极为重要！｜地球知识局",
           "imageUrl": "https://inews.gtimg.com/om_ls/O7i8z4iDwJf-uawKYauDsrojjkAYCXFuXxHoU1Oc80m6cAA_640330/0"
-        },
-        {
-          "id": "https://view.inews.qq.com/a/20250704A08WO200",
-          "author": "地球知识局",
-          "description": "地球知识局\n文字 | 子昱\n制图 | 果 校对 | 朝乾 编辑 | e\n\n最近全国上下热气腾腾，大面积高温已经持续快一个月，这个周末高温高峰又来了，已有17个省份的气象部门发布高温橙色及以上预警。\n\n（辽宁、河北、河南、陕西、山西、山东、湖北、湖南、重庆、四川、江苏、安徽、浙江、福建、广东、广西、江西）\n\n从黄淮到长江以南这一带尤其吓人，许多城市迎来近40度的高温。而且随着副热带高压正进一步北上，梅雨季节将很快结束，随之而来的就是非常难受的伏旱。\n\n▼\n   \n现在极端高温的频率和强度明显增大，像东北这种以前夏天比较舒服的地方也需要空调了，这也意味着，从南到北的一大批省份，都要注意高温带来的致命疾病了。\n\n根据最新版本的中国热射病诊断与治疗指南，我国近年来热射病发病率和死亡人数逐年增加。2022年全国各大医院接诊了53万多热射病求诊者，比前一年增长180%。\n\n▼\n   \n滚滚热浪下，热射病占据了越来越多的热搜词条，如何降温解暑、如何防治热射病也成为了这个夏天的主题。\n\n传统中医治中暑\n\n我国历史上不乏极端高温天气的记载，清乾隆八年（1743年）的夏天，各地的地方县志都记录了这一年的异常气候：\n\n“五月苦热，土石皆焦，桅顶流金，人多热死。”——《续天津县志》\n\n“五月廿八至六月初六日薰热难当，墙壁重阴亦炎如火灼，日中铅锡销化，人多渴死。”——《高邑县志》\n\n“夏五月大热，道路行人多有毙者，京师更甚，浮人在京贸易者亦有热毙者。”——《浮山县志》\n\n可见当时的高温下，不少人被活活热死。根据法国传教士宋君荣的记录换算，那一年夏天北京的最高气温达到了惊人的44.4℃。\n   \n▲图注：天气再热，对乾隆来说都不叫事儿\n他可以吃冰镇西瓜、写诗、玩汉服cosplay\n但穷苦老百姓就没那么好命了（图：壹图网）\n\n虽然古代统治阶级享有有冰窖、含凉殿等降温设备，但许多平民百姓为了生计也不得不耐…",
-          "link": "https://view.inews.qq.com/a/20250704A08WO200",
-          "publishedOn": "2025-07-04T12:36:20.000Z",
-          "wordCount": 4993,
-          "title": "热~射~病 越来越多了！这17个省份要格外注意 | 地球知识局",
-          "imageUrl": "https://inews.gtimg.com/om_ls/OqukZ0Q-hqti-0ZJ6glds_E9sEEGuqCQe_S5D-CIRV13cAA_640330/0"
         }
       ]
     },
@@ -2838,6 +2848,16 @@
       "feedUrl": "https://rsshub.rssforever.com/tencent/news/author/8QMf33ZY5YwduT%252FQ",
       "siteUrl": "https://new.qq.com/omn/author/8QMf33ZY5YwduT%2FQ",
       "articles": [
+        {
+          "id": "https://view.inews.qq.com/a/20250724A02DXC00",
+          "author": "人物",
+          "description": "今年是一个炎热的夏天。在这样的酷暑之下，一些细微的变化也在发生，以湖北武汉为例，今年夏天，武汉第三医院前来就诊的隐翅虫皮炎的患者数量，已经是去年同期的三倍以上。\n \n与此同时，隐翅虫的分布范围正在扩大，从南方的广东、广西，逐渐北移，到北方的北京、天津，从以前的乡村田野飞进城市。\n \n北京市园林绿化局发布的一篇科普文章也提到，「近年来，由于气候变暖，毒隐翅虫在北方分布范围逐渐扩大，因毒隐翅虫而受伤的案例逐年增加。」\n\n尤其在社交平台上，不少坐标北京的用户也发现，家中出现了隐翅虫，不少人还因为此前并不了解它而「中招」。\n\n随着人类活动范围的扩大，10多年前几乎不被人注意到的毒隐翅虫，如今正越来越多地影响着人们的生活。那么，今年被毒隐翅虫弄伤的人们有着怎样的遭遇？该怎样科学对待隐翅虫的伤口？毒隐翅虫能彻底消灭吗？我们又该如何与它共存？\n\n\n文｜易方兴\n编辑｜李天宇\n\n\n\n蹊跷的伤痕\n\n皮肤沾上毒隐翅虫体内的毒液，一开始会有什么反应？\n\n答案是可能没什么太大反应。在湖南，27岁的阿树突然感觉右眼下方有一块长条形的区域，很痒。那是在5月份，「我以为是蚊子咬的，但又没找到蚊子包。想想可能是天气热了出汗，或是皮肤干燥导致。」到了晚上，她痒得难受，一直挠，没睡好觉。\n\n挠了一晚上，没有任何好转。第二天阿树早上起床，眼睛下方那片皮肤更红、更痒了，「大约有五厘米长，一厘米宽」。在前几天，症状也就仅此而已。\n\n就在前些天，家住湖北武汉江岸区的苏东一觉起来，手臂上也出现了一条很浅的红色痕迹，长约十厘米，宽约一厘米，论痒的级别，他觉得不如蚊子，但这种痒里，还伴随着一点点轻微的疼痛。\n\n除此之外，没有任何其他有助于判断成因的迹象。没有看到虫子的尸体，家里的纱窗关得严严实实，只是一个再普通不过的早晨。\n\n他没有放在心上。那是7月初，武汉正迎来最热的一个夏天，他又摔伤了腿，几乎一整天都只能待在家里，他推测…",
+          "link": "https://view.inews.qq.com/a/20250724A02DXC00",
+          "publishedOn": "2025-07-24T01:02:04.000Z",
+          "wordCount": 4507,
+          "title": "毒虫北上",
+          "imageUrl": "https://inews.gtimg.com/news_ls/OuZoXpIsmHbO-Mvd63fRa9YZn3dYkvGDUjCwVQbSeCqSoAA_640330/0"
+        },
         {
           "id": "https://view.inews.qq.com/a/20250722A09VL000",
           "author": "人物",
@@ -3329,6 +3349,16 @@
       "feedUrl": "https://www.geekpark.net/rss",
       "siteUrl": "http://mainssl.geekpark.net/rss.rss",
       "articles": [
+        {
+          "id": "http://www.geekpark.net/news/351835",
+          "author": null,
+          "description": "微信新功能官宣：创作者可向点赞用户表达感谢\n7 月 23 日，「微信派」发文，宣布了一项关于微信点赞的新功能，新功能文案写着「礼尚往来，双向奔赴。以前：收到赞和推荐只能心中默念『听我说谢谢你..』现在：我的感谢，也能让你收到。」\n据介绍，微信公众号创作者在收到用户的点赞或推荐后，可以在「公众号助手 App」中对其表达感谢，用户会在微信「公众号」中收到系统通知。\n\n个人公众号可以直接通过手机端微信「公众号-右上角-我的公众号-互动」谢谢用户的点赞及推荐。\n同理，视频号创作者「进入视频号 → 点击右上角我的 → 打开视频号后台 → 点击视频号消息」能向点赞的用户表达感谢，还能谢谢用户的关注。\n \n\n苹果 AI 团队内部风波：自主研发与开源梦碎，或将求助第三方大模型\n7 月 23 日，据外媒报道，苹果的 AI 基础模型团队曾计划将多个自研模型开源，以展示其在 AI 领域的技术进展。然而，这一提案却遭到了苹果高级副总裁 Craig Federighi 的否决。\n报道称，Federighi 在一封内部邮件中明确表示，目前市场上已经有许多优秀的开源模型足以支撑学术研究，因此苹果没有必要参与其中。他特别担心的是，若自家模型开源，外界将会注意到这些模型在针对 iPhone 适配后，性能相较于在高性能 PC 或数据中心运行的版本有显著下降。\n这一决策引发了苹果内部的强烈不满，很多团队成员认为，苹果坚持的「设备优先」策略正在限制其 AI 技术的发展潜力。\n苹果去年推出的「Apple Intelligence」项目，一直以来都强调用户隐私保护，设备端处理被视为实现这一承诺的关键。然而，显然这一策略也给苹果的 AI 功能带来了不小的技术限制。\n更令人关注的是，近日苹果宣布将推迟 Siri 的重大更新，许多 AI 团队成员对此感到措手不及。与此相关的是，苹果公司正在考虑放弃完全自主研发的路径，转而寻…",
+          "link": "http://www.geekpark.net/news/351835",
+          "publishedOn": "2025-07-24T00:13:56.000Z",
+          "wordCount": 748,
+          "title": "微信新功能：创作者可向点赞用户表达感谢；​全球第一网红野兽先生将迎来中国直播首秀；特斯拉营收利润双双下降  ｜极客早知道",
+          "imageUrl": null
+        },
         {
           "id": "http://www.geekpark.net/news/351792",
           "author": null,
@@ -6131,6 +6161,26 @@
       "siteUrl": "https://www.nationalgeographic.com/pages/topic/latest-stories",
       "articles": [
         {
+          "id": "https://www.nationalgeographic.com/premium/article/who-was-mary-magdalene",
+          "author": "Parissa DJangi",
+          "description": "Mary Magdalene is one of the most recognized figures in the Bible. She has been called a woman possessed by demons, a sex worker, and the wife of Jesus.\n    \nHer story has been written and rewritten countless times in the 2,000 years since she was a follower of Jesus of Nazareth, yet so much about Mary Magdalene remains shrouded in mystery. She is sometimes confused with Mary of Bethany, another biblical figure, and thought to have written a Gospel. There are questions about her real name, when and where she was born, and how Mary Magdalene died.\n    \nWhat is true about her—and what archaeological evidence do scholars have about her life and world?\n      \nTextual evidence about Mary Magdalene largely comes from the canonical Gospels credited to Matthew, Mark, Luke, and John. They identify …",
+          "link": "https://www.nationalgeographic.com/premium/article/who-was-mary-magdalene",
+          "publishedOn": "2025-07-24T01:41:34.000Z",
+          "wordCount": 8729,
+          "title": "Who was Mary Magdalene?",
+          "imageUrl": "https://i.natgeofe.com/n/634e48bf-3203-4cf2-a604-695ffb7a4f74/BAL_206786_16x9.JPG?w=1200"
+        },
+        {
+          "id": "https://www.nationalgeographic.com/health/article/step-count-cardiovascular-disease-diabetes-dementia",
+          "author": "Meryl Davids Landau",
+          "description": "An explorer walks across sand dunes on Socotra, Yemen, 2018. Getting 10,000 steps in every day can be challenging, and a new study suggests 7,000 steps can reduce the risk of developing common but serious health conditions.   \nWalking more is associated with reduced risk for dementia, diabetes, heart disease, and more—but a new study says you can get fewer than 10,000 steps a day and still see all those benefits.\n    \nIf you’ve been told that walking 10,000 steps a day is mandatory for good health, you might be surprised to learn that scientists suspect the figure was created to market pedometers and wasn't based on actual data. The number of steps that stave off numerous chronic conditions is actually much lower, according to a paper published today in Lancet Public Health that reviewed t…",
+          "link": "https://www.nationalgeographic.com/health/article/step-count-cardiovascular-disease-diabetes-dementia",
+          "publishedOn": "2025-07-24T01:41:31.000Z",
+          "wordCount": 6334,
+          "title": "Forget about 10,000 steps a day—science now has a more accurate number",
+          "imageUrl": "https://i.natgeofe.com/n/e4aa0807-e9e0-401e-b9dc-bd85300c86af/NationalGeographic_2710045_16x9.jpg?w=1200"
+        },
+        {
           "id": "https://www.nationalgeographic.com/science/article/dinosaur-tracks-showed-different-species-flocked-together",
           "author": "Annie Roth",
           "description": "A herd of ceratopsians (Styracosaurus albertensis) accompanied by an ankylosaur (Euplocephalus tutus) walk through an old river channel under the watchful eyes of two tyrannosaurs (Gorgosaurus libratus).   \nA newly discovered trove of fossilized footprints provides what may be the first evidence of prehistoric diversity in dinosaur herds, though not everyone is convinced.\n    \nAcross the African savanna, zebras and wildebeests travel together in massive herds often peppered with impalas and gazelles. The larger the herd, the safer its members are from predators like lions, hyenas and African wild dogs.\n    \nScientists have wondered whether dinosaurs similarly engaged in mixed-species herding behavior. Children’s movies like “The Land Before Time” series and “Dinosaur” (2000) often depict m…",
@@ -7806,6 +7856,22 @@
       "feedUrl": "https://news.un.org/feed/subscribe/en/news/all/rss.xml",
       "siteUrl": "https://news.un.org/en/",
       "articles": [
+        {
+          "id": "https://news.un.org/en/story/2025/07/1165481",
+          "author": null,
+          "description": "A second convoy from the Syrian Arab Red Crescent (SARC) reached battered Sweida on Wednesday, the UN Office for the Coordinatin of Humanitarian Affairs (OCHA) reported in its latest update.",
+          "link": "https://news.un.org/feed/view/en/story/2025/07/1165481",
+          "publishedOn": "2025-07-23T12:00:00.000Z",
+          "wordCount": null,
+          "title": "Syria: Second convoy brings critical aid to Sweida",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/23-07-2025-UNOCHA-Syria.jpg/image560x340cropped.jpg",
+            "length": "48186",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/23-07-2025-UNOCHA-Syria.jpg/image560x340cropped.jpg"
+        },
         {
           "id": "https://news.un.org/en/story/2025/07/1165478",
           "author": null,
@@ -9686,6 +9752,26 @@
       "siteUrl": "https://chinadigitaltimes.net/chinese",
       "articles": [
         {
+          "id": "https://chinadigitaltimes.net/chinese/?p=719853",
+          "author": "不忘初心",
+          "description": "李怡纪念网站本来连结上香港电台《一分钟阅读》网页，李怡供稿18年，他的声音及文字档案都存放于此。此图本属节目宣传页，现已消失。\n这几年类似的事件时有发生，但脑袋还是轰隆一声，细想李怡是在怎样忙碌的节奏中录下这些节目的？都说人去留声，公共广播机构选择自我阉割，铲除高质素读书节目。过程既无人监督亦毋需向听众交代。读书节目内容不敏感，仅是「李怡」两字被国安法庭点名，后果就是消音。",
+          "link": "https://chinadigitaltimes.net/chinese/719853.html",
+          "publishedOn": "2025-07-23T22:00:18.000Z",
+          "wordCount": 13250,
+          "title": "【Cdt关注】消失的档案｜罗恩惠：悬剑之下无书可读——惊见李怡书介节目全部消失",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/07/e687b8e58a8de4b98be4b88be784a1e69bb8e58fafe8ae80_e58fb3e4b88be8a792e6b0b4e58db0-whatsapp.webp"
+        },
+        {
+          "id": "https://chinadigitaltimes.net/chinese/?p=719838",
+          "author": "不忘初心",
+          "description": "节目之外，也有网友对当前的脱口秀表现出一定的担忧，认为有的内容正滑向性别对立的泥潭。",
+          "link": "https://chinadigitaltimes.net/chinese/719838.html",
+          "publishedOn": "2025-07-23T20:30:59.000Z",
+          "wordCount": 13103,
+          "title": "【异闻观止】浙江宣传｜谨防脱口秀滑向性别对立的泥潭",
+          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2022/04/江山娇.jpg"
+        },
+        {
           "id": "https://chinadigitaltimes.net/chinese/?p=719839",
           "author": "既要又要还要",
           "description": "“我发布了歌曲《焦作》。在歌曲制作中，歌词所涉及的人物与情节皆为虚构，不是源自焦作市的真实故事，内容不当给焦作的城市形象与市民情感造成了负面影响和伤害。对此深表歉意！我申请对歌曲不当部分进行修改、下架，愿意配合焦作方面共同做好消除影响的工作。”",
@@ -11330,6 +11416,16 @@
       "siteUrl": "https://sspai.com",
       "articles": [
         {
+          "id": "https://sspai.com/post/101291",
+          "author": "少数派编辑部",
+          "description": "微软消息两则、阿里宣布通义千问 Qwen3-Coder 开源等。查看全文",
+          "link": "https://sspai.com/post/101291",
+          "publishedOn": "2025-07-24T00:16:51.000Z",
+          "wordCount": 719,
+          "title": "派早报：Apple 推出 AppleCare+、大疆将发布扫地机器人等",
+          "imageUrl": "https://cdnfile.sspai.com/24/07/2025/article/7b427953-fa74-f88f-ad0a-17ff00a1e401.jpeg"
+        },
+        {
           "id": "https://sspai.com/post/100669",
           "author": "揪惹个咪",
           "description": "Matrix首页推荐Matrix是少数派的写作社区，我们主张分享真实的产品体验，有实用价值的经验与思考。我们会不定期挑选Matrix最优质的文章，展示来自用户的最真实的体验和观点。文章代表作者个人观点 ...查看全文",
@@ -11958,26 +12054,6 @@
           "wordCount": 630,
           "title": "在实况照片流行的 2025 年，聊聊 Apple 的 7 个技术细节",
           "imageUrl": "https://cdnfile.sspai.com/2025/06/04/314c17314dc1b983d404810557ffda76.jpg"
-        },
-        {
-          "id": "https://sspai.com/post/100788",
-          "author": "少数派编辑部",
-          "description": "☕️TL;DR近期佳作推荐：[日剧]想一个人死去、[港剧]麻甩妈咪、[国产]淬火年代、[美剧]镀金时代第三季、[电影]即兴卧底、[动画]章鱼哔的原罪、[动画]胆大党第二季、[动画]克雷瓦提斯-魔兽之王 ...查看全文",
-          "link": "https://sspai.com/post/100788",
-          "publishedOn": "2025-07-04T10:05:33.000Z",
-          "wordCount": 935,
-          "title": "本周看什么 | 最近值得一看的 10 部作品",
-          "imageUrl": "https://cdnfile.sspai.com/2025/7/4/article/a636ac35-d183-f292-4e2b-fbaf56d86aea.png"
-        },
-        {
-          "id": "https://sspai.com/prime/story/zuanglesha-250704",
-          "author": "SIMON_",
-          "description": "按：@SIMON_是少数派长期作者，此前以文笔清晰、图片优美的《日本浮生录》系列文章收获了很多关注，最近还结集个人经验，上线了新栏目《日本全境漫游计划》。本期《装了啥》中，我们除了请他分享自己常用的软 ...查看全文\n本文为会员文章，出自《单篇文章》，订阅后可阅读全文。",
-          "link": "https://sspai.com/prime/story/zuanglesha-250704",
-          "publishedOn": "2025-07-04T09:46:44.000Z",
-          "wordCount": 1148,
-          "title": "《日本全境漫游计划》作者 Simon 都装了啥？",
-          "imageUrl": "https://cdnfile.sspai.com/7/4/2025/article/ebec630d-5de7-8a6a-663d-37ddb6dd2abf.png"
         }
       ]
     },
@@ -12253,6 +12329,36 @@
       "feedUrl": "https://rsshub.rssforever.com/zhihu/daily",
       "siteUrl": "https://daily.zhihu.com",
       "articles": [
+        {
+          "id": "https://daily.zhihu.com/story/9782783",
+          "author": null,
+          "description": "瞎扯 · 有个亲妹妹是什么感觉?\n知乎日报\n查看知乎原文\n\n\n\n\n\n\n\n\n\n\n\n\nQ：有个亲妹妹是什么感觉?\n@草原猎鹰 ： 3 岁：抱抱。 6 岁：哥，你快过来！ 9 岁：回家捎三块钱馒头。 12 岁：滚！ 16 岁：家人们，谁懂啊……\nQ：有没有一张照片让你觉得你的猫被你养的很好？\n@天南星 ：有狗的。 昨天早晨，我一睁眼，以为他要飞升了。\n\n \n \n \nQ：发明魔芋的前辈是经历了什么?\n@评论莫扎特 ：饿到连魔芋都能想办法吃进肚子已经够惨了，更惨的是这玩意零卡。\nQ：有哪些看一遍笑一遍的沙雕图片？\n@太二真人 ：七月十五，中元节，凌晨是阴气最重的时候，老一辈人叮嘱过，如果中元节晚上有人向你招手，千万不要停车。 如果被强行拦下来，他们肯定让你吹气，千万不要吹，他们是为了收你的阳气，你要一吹，魂就没了。\nQ：你在家闯过最大的祸是什么？\n@寒霜 ：我觉得，文字的描述远不如直接上图来得震撼。",
+          "link": "https://daily.zhihu.com/story/9782783",
+          "publishedOn": "2025-07-24T01:41:21.584Z",
+          "wordCount": 264,
+          "title": "瞎扯 · 如何正确地吐槽",
+          "imageUrl": null
+        },
+        {
+          "id": "https://daily.zhihu.com/story/9782771",
+          "author": null,
+          "description": "路易·罗莎，少年梦阅读《美洲日不落》欢迎阅读\n查看知乎原文\n\n\n\n本篇回答可能是简中唯一详细讲解南美洲安第斯早期文明的资料，涉及小北（卡拉尔）、塞钦、查文等考古文化，美洲最早的国家很可能正是诞生在埃及建立金字塔以及夏商更迭的这一时期。\n本篇回答总计约 1.4 万字，可以先点赞、收藏再规划阅读时间~\n位于秘鲁中部的查文·德·万塔尔遗址\n〇、金字塔时代的世界文明\n按照题目所描述的“埃及人在修金字塔”，古埃及文明建立的第一座金字塔是在第三王朝的左赛尔金字塔，大约在公元前 27 世纪；而古埃及所建立的最后一座金字塔则是第十八王朝的阿赫摩斯金字塔，大约在公元前 16 世纪，也即是说“在修金字塔”的时代是 -27C 至 -16C 之间的时间段，这个时间段也恰恰是世界上寥寥无几的几大已经存在的文明的重要进阶发展期：\n| 在两河流域，当地最早的统一广土国家如阿卡德、巴比伦先后建立并统一该地区。\n| 在南亚，这一时段也恰恰是印度河谷文明最辉煌的成熟阶段（-26C ~ -19C），涌现了摩亨佐达罗、哈拉帕等一批重要城邦。但在此之后印度河谷文明走向衰落，雅利安人进入南亚，并从 -15C 开始发展至吠陀文明时期。\n| 在中国，建立起了早期国家的长江流域文化如良渚文化、屈家岭 - 石家河文化发展至晚期并最终衰落；北方则在 -23C 之后兴起了位于山西省的陶寺和位于陕西省的石峁等新兴早期国家，最终在 -19C 左右，中华文明从“满天星斗”阶段走向“月明星稀”阶段，二里头文化建立起了强势的广土国家，使中国上古历史离开古国时代进入王朝时代。\n以上这些公元前第二千纪地球上（除美洲外）仅有的几大文明被梁启超等人称赞为所谓“四大文明古国”，这一点已经广为人知。但对于这一时代的美洲文明则几乎无人了解：\n此时的中美洲在公元前三四千年终于完成了对玉米的驯化之后，定居农业生活开始逐渐扩散，并于公元前 2000 年前后在…",
+          "link": "https://daily.zhihu.com/story/9782771",
+          "publishedOn": "2025-07-24T01:41:21.554Z",
+          "wordCount": 972,
+          "title": "埃及人在修金字塔的时候，中国和其他世界上各个文明都在做什么？",
+          "imageUrl": null
+        },
+        {
+          "id": "https://daily.zhihu.com/story/9782858",
+          "author": null,
+          "description": "知乎用户，喜欢写科普的游戏制作人\n查看知乎原文\n\n\n\n我来说下这个宇称问题吧，因为毕竟杨振宁说过这事，他说他发现的宇称不守恒意味着这个世界有了绝对的“左和右”，这说明宇称不守恒的确和左右的定义有关系，那么关系是什么呢？\n我们先来看看宇称不守恒到底是什么意思。\n首先对称问题在物理学上可是有特殊意义的，因为物理学家都特别喜欢对称的东西，认为一切对称的东西都是优美的。他们甚至希望宇宙里各种量都存在对称性，尤其是 20 世纪初，德国的女数学家埃米·诺特还提出了一个非常著名也非常受物理学家推崇的诺特定理，她说：“在系统中每个连续的对称性，都会对应着一个守恒量。”\n德国数学家埃米·诺特\n那诺特的这句话要怎么理解呢？\n意思就是说，在这个世界上，任何连续性的对称维度下，都一定存在某个守恒的物理量。\n例如，在时间维度上就存在平移对称性。\n什么意思呢？就是说，任何相同的物理过程，换一个时间来进行都是一样的结果。例如，把一个小球从相同楼层抛下去，不管你是今天丢，还是明天丢，这个加速掉落的过程肯定都是一样的，最后落地的速度也一定一样，这些都可以用相同的重力加速度公式来计算，这个公式里面也不会有任何起始时间的参数。因为不管什么时间做这个实验，结果肯定都是相同的。\n那么时间平移的对称性对应什么物理量守恒呢？\n答案是：能量守恒。\n为什么这么说呢？因为时间平移如果对称，系统的整体能量就不会发生变化。例如，你今天把小球拿到楼顶付出了一定的能量，转化成了小球的势能；如果你不再移动小球，到明天小球的势能也不会有任何变化；而如果明天你抛下小球，小球的势能就会转化成落地的动能，能量因为时间平移具有对称性，所以保持了总量守恒。\n如果时间平移不对称了，如重力常数随时间发生了变化，变得越来越大了，那么第二天小球就会凭空具有了更多的势能，能量就不守恒了，我们就可以凭空地源源不断地获得能量。这显然是不可能的，因此时间平移一定…",
+          "link": "https://daily.zhihu.com/story/9782858",
+          "publishedOn": "2025-07-24T01:41:21.311Z",
+          "wordCount": 589,
+          "title": "怎么让外星人明白左和右的概念？",
+          "imageUrl": null
+        },
         {
           "id": "https://daily.zhihu.com/story/9782761",
           "author": null,
@@ -13239,16 +13345,6 @@
           "wordCount": 11284,
           "title": "The replica and the original",
           "imageUrl": "https://images.aeonmedia.co/images/c158666f-5e40-464e-8997-b82c970b1679/essay-maxim-mushnikov-grcjk_tghnm-unsplash.jpg?width=1200&quality=75&format=auto"
-        },
-        {
-          "id": "urn:id:8240",
-          "author": "Michael Garfield",
-          "description": "‘Everything becomes crab’ is more than an absurd meme. The crab is a deep symbol of our devil’s bargain with technology \n - by Michael Garfield\n Read at Aeon",
-          "link": "https://aeon.co/essays/are-humans-destined-to-evolve-into-crabs?utm_source=rss-feed",
-          "publishedOn": "2025-07-04T10:00:00.000Z",
-          "wordCount": 20472,
-          "title": "Homo crustaceous",
-          "imageUrl": "https://images.aeonmedia.co/images/62c4bf00-b07e-470b-9ecf-26e6b7f3b8d3/essay-crabification1_final2.jpg?width=1200&quality=75&format=auto"
         }
       ]
     },
@@ -13257,6 +13353,26 @@
       "feedUrl": "https://rss.aishort.top/?type=wasi",
       "siteUrl": "https://qnmlgb.tech/",
       "articles": [
+        {
+          "id": "1433356",
+          "author": null,
+          "description": "凤凰网《风暴眼》2025年4月，特朗普政府高调推出“对等关税”政策，试图通过贸易壁垒强行推动制造业回流美国。财政部长贝森特更在内阁会议上乐观预测，2025年全年关税收入有望突破3000亿美元，创下历史新高。尽管钢铁等行业在关税保护下短暂受益，但更多领域如纺织、医药、新能源等却陷入“高价低质”和供应链断裂的困境，美国警察更是以原来四倍价格购买本土生产的劣质制服。更讽刺的是，美国制造业早已“失血”多年——缺工人、缺技术、缺完整产业链，空有回流的口号，却无落地的根基。这场轰轰烈烈的“工厂回迁运动”，在财政账本上或许记下了漂亮的关税数字，却在实体经济中留下了成本飙升、质量崩盘和人才断档的烂摊子，最终恐沦为一场代价高昂的“政治秀”。01“花四倍的钱买到了劣质产品”自2025年4月特朗普政府祭出“对等关税”政策，制造业回流确实在某些行业初现端倪，但这“回春术”效果可谓冰火两重天，甚至催生了“高价低质”的尴尬怪圈。克利夫兰-克利夫斯公司算是“受益者”，二季度钢材出货量涨了7.5%，收入提升6.5%，克利夫兰-克利夫斯首席执行官Lourenco Goncalves表示，公司在产品定价方面取得了显著改善，特朗普的关税在支持美国钢铁行业方面发挥了重要作用。行业分析师指出，关税保护使本土企业获得约15个百分点的成本优势，但也导致汽车制造等下游行业生产成本激增。不过，与钢铁行业“火热”所不同的是，供应链重构在纺织业同样碰了一鼻子灰。一位波士顿警察对凤凰网《风暴眼》分享同事之间的吐槽，称原来的衣服都是中国、越南产的，质量都还不错，后来支持国货（美国产）之后，原本的四套衣服变成了一套，要命的是，衣服还到处开线。“相当于花了四倍的钱，买到了劣质产品。”这位波士顿警察说。据该波士顿警察说，TSA（美国联邦运输安全管理局）的衣服都是统一在5.11 Tactical采购，以前这个品牌大多是在中国代工，如今改美…",
+          "link": "http://mp.weixin.qq.com/s?__biz=MzU5ODU1Mjg5Nw==&mid=2247805118&idx=1&sn=12776a4c45ff337219e588493487ca8e&chksm=ffdc0a48bc3eea7502a5ba2b68bdff3449529fdc9b995509267fa333667e189e1c677916a63e",
+          "publishedOn": "2025-07-24T00:01:57.000Z",
+          "wordCount": 264,
+          "title": "特朗普“制造业回流梦碎”：美国警察花原来4倍价格买制服，还到处开线",
+          "imageUrl": null
+        },
+        {
+          "id": "1433354",
+          "author": null,
+          "description": "美东时间周三，在美日达成贸易协议以及美欧谈判取得进展的背景下，标普500指数与纳指再创历史新高。据报道，欧盟外交官员表示，欧盟与美国正朝着达成协议的方向迈进，该协议将对大多数产品设定15%的关税税率；成员国可能准备接受15%的关税，且欧盟官员正推动将这一税率涵盖汽车等行业。此前日本首相石破茂在直播记者会上称，日本与美国就关税问题达成一致，美方将向日本征收15%的关税，并增加进口美国大米。此外，石破茂表示，日美双方就通过日本企业在半导体、钢铁、造船、能源、汽车等领域的投资，加强与美方供应链合作、保障经济安全，达成一致。Blue Chip Daily Trend Report首席技术策略师Larry Tentarelli表示，关键是市场相信白宫将继续推动并将签署这些贸易协议。在市场整体极度乐观的情况下，散户炒作情绪卷土重来，被严重做空的甜甜圈制造商Krispy Kreme和影视器材公司GoPro盘中暴涨，不过尾盘均大幅回落。Capital.com高级市场分析师Daniela Sabin Hathorn表示，更广泛的市场环境，加上科技和加密货币行业的强势，鼓励了一种冒险的心态，一些散户交易员加入投机活动。不过Hathorn警告称，这种行情往往与公司基本面脱节，并可能出现剧烈波动，没有退出策略而追逐涨势的投资者可能会陷入痛苦的下跌。“模因股反弹在上涨过程中非常壮观，但很快就会瓦解。”BMO资本市场的分析师Ian Lyngen表示：“随着8月1日最后期限临近，投资者对近期宣布的贸易协议感到鼓舞。贸易谈判取得进展，将为市场提供清晰指引，帮助市场向前迈进，适应新的全球贸易环境。”市场动态截至收盘，道指涨507.85点，涨幅为1.14%，报45010.29点；纳指涨127.33点，涨幅为0.61%，报21020.02点；标普500指数涨49.29点，涨幅为0.78%，报6358.91点。在标普500各板块中，能源板块涨1.54%，非必需消费品板块涨0.41%，房地产板块涨0.19%，公用事业板块跌0.79%。热门股表现大型科技股多数上涨，英伟达涨2.25%，Meta涨1.24%，亚马逊、特斯拉、微软至多涨0.36%，苹果跌0.12%，谷歌A跌0.58%。电力设备制造商GE Vernova公司股价飙升14.6%，此前该公司上调了营收和自由现金流预期，第二季度利润超过了华尔街的预期。由于人工智能和加密货币数据中心的电力需求不断增长，也推动该股年内涨幅达91%。德州仪器重挫13%，此前该公司公布的季度利润预测显示，市场对其模拟芯片的需求低于预期，并突显出与关税相关的不确定性。热门中概股大多上涨，纳斯达克金龙中国指数收涨0.75%。小马智行初步收涨7.7%，文远知行涨5.2%，腾讯涨4%，拼多多涨3%，台积电涨2.3%，阿里涨1.5%，网易、百度、京东涨幅不到1%，小米则跌0.7%，理想跌1.4%，蔚来跌2.1%。",
+          "link": "http://mp.weixin.qq.com/s?__biz=Mzg5MzEyNzEwNQ==&mid=2247747248&idx=1&sn=f6e1a9e7ef7353384b96a9ca1e928f27&chksm=c1e6466fb0fa3091062e8213cd2474f15bfd2018d6915f9178cc3f51c6b93b44af5ff2a92e77",
+          "publishedOn": "2025-07-24T00:01:55.000Z",
+          "wordCount": 264,
+          "title": "美股收盘：美日贸易协议推动标普、纳指再创新高",
+          "imageUrl": null
+        },
         {
           "id": "1433051",
           "author": null,
@@ -15164,6 +15280,16 @@
       "feedUrl": "https://feedx.site/rss/infzm.xml",
       "siteUrl": "http://infzm.com",
       "articles": [
+        {
+          "id": "http://www.infzm.com/contents/298750",
+          "author": null,
+          "description": "2025-07-24 09:00:00\n长城万里，具“众志成城”之义。所谓“把我们的血肉，筑成我们新的长城！”在国家有难时，这涵义尤为突出。以下几件抗战时期画作，具足此义。\n\n马相伯先生。\n马相伯画长城战役成扇\n先说拙藏马相伯（1840-1939）画长城战役成扇。马老画几架日本军机轰炸长城古北口，画面枯笔淡墨，毫不起眼，细思却蕴含深意。左上端行书自题：“伤心哉！秦欤？汉欤？将近代欤？癸酉夏日写此，似子佩兄正之，九四叟马良。”癸酉夏日，即一九三三年中，正是长城战役和《塘沽停战协议》签订之后不久，马老借《吊古战场文》连发三问，让人为之深思、慨叹。\n\n马相伯画长城战役成扇。\n章太炎行书咏时局诗\n马老画成扇的背面，是章太炎（1869-1936）行书咏时局诗，云：\n塞前四省付东流，又弃畿东十八州。安得朱云重请剑，为君斩取侫人头。\n童稚频来笑会之，会之恐又笑今时。千秋盟誓浑无异，更使兵符被倒持。\n子佩鉴之。章炳麟。\n\n\n章太炎咏时局诗。\n“千秋盟誓”，意指《塘沽停战协议》。《协议》限制长城以南的驻军，故云“更使兵符被倒持”。会之是秦桧的表字。国事儿嬉，童稚读史会嘲秦桧，但秦桧要是泉下有知，就要窃笑今时了。诗之讽刺是甚于鞭挞的。（参《“相伯画配太炎诗”成扇补跋》，载《旧日风云》第三集）\n山河破碎，国难方殷，两老忧愤而合写此扇，读之恍如重见两老并肩作抗日宣言之时。\n\n《马相伯章太炎联合宣言》，载《申报》一九三三年二月十日。\n成扇上款“子佩”，是丘子佩（1892-1948），湖北汉阳人，安徽高等学堂毕业前夕，投笔从戎，参加辛亥革命，曾任许崇智部军需处副处长。北伐后转入政坛，与居正、张知本、田桐等稔熟。早岁曾入洪门，是洪门须弥山主。抗战间，在日伪盘踞的上海，借帮会势力，协助中共抗日武装力量开展活动，贡献殊深。胜利后加入民社党，任中央监察委员，1948年当选为第一届国大代表。\n\n黄少强1935年…",
+          "link": "http://www.infzm.com/contents/298750",
+          "publishedOn": "2025-07-24T01:25:04.000Z",
+          "wordCount": 102,
+          "title": "许礼平：长城的战火与墨痕 | 文化抗战寻踪",
+          "imageUrl": null
+        },
         {
           "id": "http://www.infzm.com/contents/298793",
           "author": null,
@@ -17763,56 +17889,6 @@
           "wordCount": 93,
           "title": "“一家像瑞士军刀，一家像手术刀”：中国版英伟达抢滩科创板",
           "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/297322",
-          "author": null,
-          "description": "2025-07-04 21:00:00\n近日，日本政府要征收“单身税”的消息上了热搜。为应对日益严峻的少子化挑战，日本政府出“新招儿”，计划从2026年4月起实施“儿童与育儿支援金”政策，为育儿家庭提供更丰厚的育儿津贴和更完善的育儿服务。这一政策听起来似乎很美好，但是一经公布却引发广泛争议，特别是让年轻人炸了窝。争议焦点主要集中在政策资金的筹集方式上，日本政府计划从包括单身人士在内的全体国民口袋里征收“儿童与育儿支援金”，有舆论称，此举实际上是在变相征收“单身税”。尽管日本儿童政策担当大臣三原顺子极力反对“单身税”的说法，表示将“儿童与育儿支援金”政策称为“单身税”是错误的。但是，日本民众对政府的解释并不买账，网络上关于“单身税”的讨论持续升温，甚至漂洋过海引发跨国讨论，在中国社交媒体也冲上了热搜榜单。\n一、“单身税”其实全体国民都要交\n当前日本网络热议的“单身税”并非专业术语，也非针对单身人群的专项税种，它是日本政府基于全社会共同育儿理念，向全体国民征收的“儿童与育儿支援金”，来应对少子化冲击的政策。\n日语中“少子化”指生育率长期低于人口更替水平（2.07）的人口学现象。日本的生育率自1974年跌破2.07后持续走低，2024年更是跌破1.2，再创新低，这一数据变化表明日本已陷入自我强化的生育率下行循环。少子化困局下的日本，正在经历一场全民“生育焦虑”。\n少子化直接导致总人口减少、劳动力短缺、消费市场萎缩及社会保障体系承压等一系列连锁反应，成为长期困扰日本社会发展的顽疾。尽管日本政府将少子化称为“国难”，将少子化对策升格为国策，但在经济持续低迷、物价不断攀升的背景下，日本国民对增税十分抵触，为确保财源，政府只好向全体国民征收“儿童与育儿支援金”。\n据日本内阁府公布的资料，“儿童与育儿支援金”将与医疗保险费一并征收，全国年征收额将从2026年的6000亿日元逐年递增，计划于…",
-          "link": "http://www.infzm.com/contents/297322",
-          "publishedOn": "2025-07-04T13:25:05.000Z",
-          "wordCount": 96,
-          "title": "“单身税”引争议，日本催生“新招儿”会有用吗？",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/297297",
-          "author": null,
-          "description": "2025-07-04 20:00:00",
-          "link": "http://www.infzm.com/contents/297297",
-          "publishedOn": "2025-07-04T12:25:08.000Z",
-          "wordCount": 90,
-          "title": "57城理想之城榜2024：苏州新晋一线守门员，广州掉队？",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/294546",
-          "author": null,
-          "description": "2025-07-04 19:00:00\n\n（IC photo/ 图）\n在某短视频平台上，14 岁少女挺着大肚子直播“二胎日常”，用洋洋得意的口吻展示产检报告。面对这类令人瞠目、愤怒的视频，评论区却不乏点赞 。\n这只是“慢脚文化”的冰山一角。\n所谓“慢脚文化”是指短视频平台上，由一些未成年人“演绎”的一系列低俗、擦边、危险的短视频。这些短视频以其精准推荐机制，让大量尚未发育成熟的未成年人沉溺其中，大肆入侵孩子们的心智领域，扭曲着他们的三观、情感、健康，以及性认知。\n颠覆三观、污毁童真的荒唐世界\n“慢脚文化”的内容可谓千奇百怪，有的视频将药物中毒或疾病检测当成“炫耀资本”，有的孩子因极端减肥手段（暴饮暴食后催吐）面临胃癌的风险，却以“健康主播”自居。更有甚者，模仿“电梯悬空”“眼球刻字”“水母漂流”（躺在污水沟里模仿水母静止不动） 等高危挑战，导致骨折、失明和细菌感染风险。\n还有各类擦边舞蹈、性感妆容也在未成年人群体中疯狂复制：初中生身着校服配丝袜、翻改试卷成露脐装、花数十元定制自己的照片出售。不少视频播放量破10万。\n总之，这些短视频大多以低俗猎奇、擦边暗示等形式呈现，借助美颜特效、夸张剧情和“未成年人专属”的标签进行包装，通过算法精准推送到未成年人面前。\n为何未成年人会沉迷于这些扭曲、有毒的短视频？其实是好奇心＋社交压力＋算法助攻的三重推力。\n青少年在青春期（通常为10-19岁）处于身份认同形成的关键阶段，他们倾向于通过探索新奇和另类的信息来彰显独立性和个性，这一行为与大脑的发育特点密切相关。\n宾夕法尼亚大学的心理学教授Laurence Steinberg以其在青少年心理学、神经科学和冒险行为领域的研究而闻名。他在研究中发现，青少年在面对即时奖励时，奖赏系统（如多巴胺系统）会被强烈激活，而前额叶皮层的抑制功能发展滞后，导致他们更容易被感官刺激吸引。而 “慢脚”视频正好满足了…",
-          "link": "http://www.infzm.com/contents/294546",
-          "publishedOn": "2025-07-04T11:25:06.000Z",
-          "wordCount": 94,
-          "title": "3岁吃播，14岁晒B超单，“慢脚文化”真毁童年",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/297301",
-          "author": null,
-          "description": "2025-07-04 17:00:00\n身处外地的张枫，在社交平台反复刷新求助帖——“工作走不开，求上海陪诊师带行动不便的母亲就医”，字里行间满是焦虑；一千多公里外的广州，实习公寓里的杨晓正对着空调滴水声发呆，手机突然震动，屏幕亮起陪诊师发来的提醒：“检查当天带点糖防低血糖。”两个素未谋面的年轻人，在不同城市的夜晚，因不同面向的同一种需求与陪诊师产生了交集。\n幸运的是，张枫很快就找到了一名陪诊师。这位陪诊师从小区门口的准时接送到全程的流程引导、候诊时的轻声讲解，再到缴费取药的细致安排，每个环节都让异地子女的焦虑得到缓解。而小杨在做完无痛胃肠镜检查后，是陪诊师将麻醉醒来后的她轻轻扶起，这份陌生环境里的妥帖照料，让她第一次意识到，医院里还有这样一群人，能成为陌生人的“临时家属”。\n生活在城市里的老人越来越多，有陪诊服务总是好的。上海，这座国内最早进入人口老龄化的城市，近期出台《老年人助医陪诊服务试点方案》，开始系统性尝试培育规范的养老服务机构和专业的陪诊师队伍，探索服务流程、收费标准及监管机制。政策支持将专业陪诊纳入养老服务补贴，为困难老人兜底；鼓励区街购买服务，为高龄、独居老人提供低偿陪诊；同时引导公益资源参与。这种“政策兜底+社会协同”的设计，既回应了老龄化社会中弱势群体的就医痛点，也为破解陪诊行业的标准缺失、服务碎片化等问题提供了区域性实践路径。\n但上海的探索只是起点。全国范围内，陪诊需求早已突破老年群体：年轻人因工作繁忙选择陪诊、异地患者需要流程帮手、特殊检查的陪同规定，都让服务受众日益多元。然而市场扩张的背后，行业面临着从业者资质参差、标准不统一、法律责任模糊等挑战。\n上海针对老年群体的规范化探索，与全国的多元需求形成对照。前者试图通过政策引导、资源整合，解决老龄化带来的特殊问题；后者则在市场驱动下，不断拓展服务边界。如何将上海的制度探索经验与全国的多元实践结合，建立…",
-          "link": "http://www.infzm.com/contents/297301",
-          "publishedOn": "2025-07-04T09:25:06.000Z",
-          "wordCount": 166,
-          "title": "“临时家属”上岗：上海陪诊破题老有所依",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/297295",
-          "author": null,
-          "description": "2025-07-04 16:00:00\n\n截至2024年11月底，中国有7279万人开设个人养老金账户。视觉中国/图\n在最近的公共政策讨论中，“个人养老金”来到了舞台中央。\n它的起因是人力资源和社会保障部在官方微信号“人社日课”中回复了网友关于个人养老金如何纳税的问题。\n答案是：“个人养老金领取时，按照领取额的3%缴纳个人所得税，不区分本金和投资收益。”\n这个税率高吗？个人养老金还值不值得买呢？\n养老金和个人养老金不一样\n首先要明确，养老金和个人养老金可不是一回事。\n人们常说，养老金有“三大支柱”：第一支柱，是基本养老保险，由政府主导；第二支柱，是企业/职业年金，由单位与个人共担；第三支柱，就是个人养老金。\n一般所说的养老金，指国家基本养老保险，是参保的城镇职工和城乡居民达到法定退休年龄并满足缴费年限等条件后，能按月领取的养老钱。\n个人养老金，则是个人自愿在特定账户里存一笔钱，以每年不超过12000元的额度购买相关金融产品，退休后领取。\n目前，个人养老金的最大优势在于可以享受税收优惠。\n在缴费环节，按照1.2万元/年的限额标准予以税前扣除。如果你的个人所得税税率是10%，一年可以节税1200元；如果是35%，可以节税4200元。\n实际上，个人养老金领取时，按照领取额的3%缴税并非新规。\n2024年12月13日，财政部、国家税务总局联合发布的《关于在全国范围实施个人养老金个人所得税优惠政策的公告》中就明确提出，在领取环节，个人领取的个人养老金不并入综合所得，单独按照3%的税率计算缴纳个人所得税，其缴纳的税款计入“工资、薪金所得”项目。\n北京大学应用经济学博士后、清华大学五道口金融学院中国保险与养老金研究中心原研究负责人朱俊生告诉南方周末记者，中国个人养老金制度实行“税收递延”的设计原则，在缴费阶段给予税前扣除的优惠、账户封闭运行阶段不征税、领取阶段适度征税。这一机制本质上是“先优惠，后征税”，鼓励居民进行长期养老储备。\n在领取时缴纳3%的个人所得税，是对前期税收优惠的补充，符合“税收递延、适度补征”的原则，体现了税收的公平性。\n他解释，之所以将税率设定为3%，首先，这是一个远低于普通综合所得税（3%-45%）的低税率，体现国家对养老储蓄行为的明确鼓励；其次，统一采用3%的定额比例，有利于简化征管流程、降低政策理解门槛，便于推广。\n养老金融50人论坛秘书长董克用告诉南方周末记者，个人所得税是分级累进制，最低一档为3%，将个人养老金领取阶段的税率定为最低档，“一方面是鼓励大家储蓄，另一方面又不希望在养老金方面拉开太大差距。如果没有任何限制，肯定是钱多的人能享受的税优就多。”\n谁买更划算？\n朱俊生认为，个人养老金更适合三类人群：一是有稳定收入、进入个税缴纳区间的人，能享受到税前扣除带来的减税收益；二是有长期养老规划的中青年，投资周期长，可使复利最大化；三是具备封闭期承受能力的人，短期内无大额资金流动需求。\n尽管领取时需缴税3%，但这只是对“本金+收益”的小比例征收，通常低于缴费时的减税额度和整体收益。计算这笔账，需综合考虑“节税收益+投资增长+长期复利+领取税负”。\n“综合来看，即使有3%的税，参与个人养老金依然非常划算，特别是对已进入个税缴纳区间的中青年来说。”\n何静是友邦保险的财富规划师，据她观察，年收入三五十万元的客户是购买个人养老金的中坚力量。\n人力资源社会保障部数据显示，截至2024年11月底，中国开设个人养老金账户的人数为7279万人。但受访者普遍认为，推行中出现了“开户热、缴存冷”等问题，人均缴费金额仍有很大提升空间。\n何静解释，挂钩资本市场的个人养老金产品表现不佳，也使得不少人在购买个人养老金时没那么积极。\n多数受访专家认为，要在税收激励上进一步加大力度。\n朱俊生建议，在没有资本利得税的情况下，应明确领取时对于投资收益部分做免税扣除，与其他投资享受税收上的同等待遇。\n适当提高个人养老金的税前抵扣标准，比如每年的额度提高至24000或36000元，并设立动态提高税前抵扣额度机制。\n打通二、三支柱，将企业年金、职业年金与个人养老金实现账户转移、税收优惠政策、投资管理方面的衔接。\n董克用表示，个人养老金赋予了个人投资的选择权，但对普通投资者来说，从上千只养老金产品中进行选择，并非易事。\n“金融机构可通过默认组合等，引入更多稳健型产品，使大家能够看到收益。什么是最好的养老金融教育呢？大家得到实惠了，就是最好的养老金融教育。”",
-          "link": "http://www.infzm.com/contents/297295",
-          "publishedOn": "2025-07-04T08:25:06.000Z",
-          "wordCount": 82,
-          "title": "征税3%的是啥？个人养老金与养老金可不一样｜说政经事",
-          "imageUrl": null
         }
       ]
     },
@@ -18341,6 +18417,16 @@
       "feedUrl": "https://rsshub.rssforever.com/nippon/culture",
       "siteUrl": "https://www.nippon.com/cn/economy/",
       "articles": [
+        {
+          "id": "https://www.nippon.com//cn/japan-topics/b11701/",
+          "author": null,
+          "description": "房屋内外交界处的休闲空间\n古民宅咖啡馆承载着时代的记忆，其魅力蕴藏在传统日式住宅独特的风韵中，其中最令人向往的便是“缘侧”。\n日语中的“缘侧”指的是设在房屋内外交界处的木板过道，即檐廊。这是一处舒适的空间，将自然光和四季的风过渡到室内，具有调节冷暖的作用。过去，檐廊还曾是邻里交流的场所，邻居到访，并不需要特意绕至玄关，而是穿过庭院，随意地往檐廊一坐，便和主人谈起家常。\n\n“缘侧”是位于房屋内外交界处的木板走廊\n东京都足立区的日式古民宅“昭和之家”内，有一家以绝妙的檐廊为特色的“缘侧咖啡馆”。这座配有洋楼的日式住宅建于1939年，现在作为休闲场所对外开放。让我们一起去这座被列为国家物质文化遗产的雅致闲适的古民宅，品尝一下那里的咖啡和甜点吧。 \n老宅中别样的空气触感\n从东武晴空塔线竹之冢站步行约15分钟，穿过白墙上的大门，沿着树影斑驳的小巷前行，忽然感觉空气的触感为之一变。一片小小的硬质树叶啪嗒一声落在地上，耳边传来阵阵鸟鸣声。\n\n入口处立着正在营业的标识牌\n掀开入口处的布帘脱鞋进屋，沿着右侧的榻榻米走廊走到尽头，缘侧咖啡馆便出现在眼前。整面落地玻璃门外是绿意盎然的庭院，生机勃勃。这处开放式檐廊，连同拉门打开后30张榻榻米（约合48平米）的大厅以及檐廊两端的小屋，共同构成了咖啡空间。\n\n庭院美景一览无遗的檐廊和宽敞的日式客厅\n迫不及待地在檐廊处的椅子上坐下来，翻开饮品单，从拿铁咖啡、果茶、红茶等饮品中，选择了手冲咖啡和应季水果挞。当天自制水果挞有三种：水灵灵的“草莓挞”、柑橘清香宜人的“晚柑和清见橙挞”、冲绳县石垣岛产的“桃香菠萝挞”。若想沉浸在“和风时光”中，也可来份抹茶茶点套餐或豆沙水果凉粉。\n\n精心萃取的手冲咖啡和自制水果挞\n建筑物和庭院间流淌着无比奢华的时光。晴空万里、青翠欲滴的午后，垂枝樱的残花和初绽的杜鹃花为庭院增添了美妙的色彩。梅枝青翠，鸡爪槭满目红艳，日本红枫浓…",
+          "link": "https://www.nippon.com//cn/japan-topics/b11701/",
+          "publishedOn": "2025-07-23T21:00:00.000Z",
+          "wordCount": 97,
+          "title": "国家物质文化遗产古民宅里的“缘侧咖啡馆”：在富于季节感的庭院中品尝美味甜点",
+          "imageUrl": "https://www.nippon.com/cn/ncommon/contents/japan-topics/2838700/2838700.jpg"
+        },
         {
           "id": "https://www.nippon.com//cn/guide-to-japan/gu900285/",
           "author": null,
