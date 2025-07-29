@@ -6,6 +6,36 @@
       "siteUrl": "https://bestblogs.dev/zh/feeds",
       "articles": [
         {
+          "id": "28372b",
+          "author": "Tom Lienard",
+          "description": "📌 一句话摘要\n            \nVercel 的“动态计算”通过自定义 TCP 隧道和智能路由重新构建无服务器架构，实现高效的请求多路复用，减少冷启动并启用动态 CPU 定价。\n📝 详细摘要\n            \n本文详细介绍了 Vercel 为构建“动态计算”而进行的为期两年的工程努力。这是一项无服务器创新，旨在克服传统无服务器平台（如 AWS Lambda）的局限性，最初的驱动力是支持 React 服务端组件 (RSC) 和 Next.js 应用路由的流式传输能力。文章解释了如何开发基于自定义 TCP 的传输层以实现流式响应和双向通信，打破了传统的每个实例一次调用的模型。文章介绍了 `compute-resolver` 服务，这是一个分布式系统组件，负责智能地将请求路由到多个区域中现有的空闲函数实例，以最大限度地重用资源并最大限度地减少冷启动。此外，它还描述了一个复杂的基于 Rust 的健康监控系统，该系统动态适应实例负载，确保最佳性能和资源利用率。这些基础性的改变为“动态 CPU 定价”铺平了道路，使客户只需为活跃的计算时间付费，从而为 I/O 密集型工作负载节省高达 95% 的成本。使客户只需为活跃的计算时间付费，从而显著降低成本。对于 I/O 密集型工作负载，成本节省高达 95%。\n💡 主要观点\n            \n基于自定义 TCP 的传输层是实现流式传输和双向通信的基础。\n                         这项创新使 Vercel 能够克服 AWS Lambda 最初的局限性，并促进了 React 服务端组件等功能。它也为超越简单请求-响应模型的高级功能奠定了基础。\n                    \n\n                        在单个 Lambda 实例上多路复用请求可显著提高资源利用率并降低成本。\n                         通过将多个并发请求发送到空闲函数实例，Vercel 打破了传统的每个实例一次调用的模型，大大降低了空闲计算成本，特别是对于像 LLM (大型语言模型) 这样的 I/O 密集型工作负载。\n                    \n\n                        智能路由和精密的健康监控可确保最佳性能和资源分配。\n                         `compute-resolver` 服务和基于 Rust 的核心动态管理流量和实例健康状况，防止过载和冷启动，自动适应工作负载配置文件，以在分布式区域实现最大效率。\n                    \n💬 文章金句\n            \n具有动态 CPU 定价的动态计算为每周超过 450 亿个请求提供支持，为客户节省高达 95% 的成本，并且从不收取空闲时间的 CPU 费用。\n答案是引入 Lambda 简单事件响应模型之外的一种新的安全传输方式，该传输方式将每个实例安全地连接回我们的基础设施。换句话说，我们在 Vercel 和 AWS Lambda 函数之间创建了一个隧道。\n重用已打开的隧道，将更多流量发送到空闲函数实例，可以避免浪费资源，减少冷启动，并降低成本。特别是对于请求并发高于 1 的 I/O 密集型工作负载，效果更明显。\n我们的解决方案是构建一个名为 `compute-resolver` 的新服务，该服务充当 Vercel 代理 Pod（Pod 是 Kubernetes 中的最小部署单元）的类似 DNS 的解析器，以解析为 Vercel 函数路由 Pod。\n您现在只需为您使用的实际资源付费：每个函数实例使用的活跃 CPU 时间（以毫秒为单位）以及每个函数实例使用的预配置内存（以 GB-小时为单位）。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：Vercel News\n作者：Tom Lienard\n分类：软件编程\n语言：英文\n阅读时间：8 分钟\n字数：1773\n标签：\n                    \n                        无服务器计算, 云基础设施, 分布式系统, Vercel, AWS Lambda\n                    \n                \n            \n        \n\n        \n            阅读完整文章",
+          "link": "https://www.bestblogs.dev/zh/article/28372b",
+          "publishedOn": "2025-07-28T13:00:00.000Z",
+          "wordCount": 329,
+          "title": "动态计算：我们如何构建无服务器服务器 - Vercel",
+          "enclosure": {
+            "url": "https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/6PgBfbdDsSkLYi4XK43zXq/e06862b32bdbce7098e19c77b14e7a3a/Fluid_Serverless_servers.png",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/6PgBfbdDsSkLYi4XK43zXq/e06862b32bdbce7098e19c77b14e7a3a/Fluid_Serverless_servers.png"
+        },
+        {
+          "id": "ebe6b0",
+          "author": "Jessie Jiao",
+          "description": "📌 一句话摘要\n            \n本文详细介绍了 Crypto.com 如何使用 AWS 上基于反馈驱动的 LLM 推理框架来优化企业 AI 助手，以提升 prompt 的准确性和性能。\n📝 详细摘要\n            \n这篇与 Crypto.com 合作撰写的文章，探讨了一种系统性的方法，用于优化在 AWS 上由大型语言模型（LLM）驱动的企业 AI 助手。它解决了部署复杂 AI 助手所面临的挑战，这些助手的功能不仅仅是处理基本的常见问题解答，还要处理复杂的任务，遵守公司政策，并与业务规则集成。其核心创新在于一种反馈驱动机制，特别是“评判”。这种机制通过外部反馈循环，在推理过程中动态地指导 LLM 的行为，而非修改底层模型权重。这种迭代过程，结合先进的 LLM 推理能力，使模型能够从错误中学习，改进指令，并适应模糊的输入。该解决方案利用 Amazon Bedrock，使用 Amazon Nova 执行指令性任务，并使用 Anthropic 的 Claude 3.7 或 DeepSeek-R1 进行错误分析和反馈生成。文章提出了一个详细的五步优化工作流程：定义任务需求、严格的性能评估、使用推理框架进行系统的错误分析、有针对性的提示词优化以及迭代测试。通过 10 次有意的迭代，Crypto.com 在分类准确率方面取得了显著的 34%的提升，证明了这种提示词优化方法在企业用例中的有效性。\n💡 主要观点\n            \n反馈和推理对于提高复杂企业 AI 助手中 LLM 的性能至关重要。\n                         与传统的机器学习不同，LLM 中的反馈在推理过程中动态地指导行为，而无需重新训练。这种方式通过系统的评判和自我分析，实现了迭代改进，并能够更好地适应模糊输入。\n                    \n\n                        模块化子系统架构对于可扩展且合规的企业 AI 助手系统至关重要。\n                         将 AI 系统划分为专门的组件，可以灵活地集成处理逻辑、智能路由和策略遵循。这从而确保了跨不同场景的一致性和合规性。\n                    \n\n                        一个系统的、迭代的提示词优化工作流程，利用专门的推理模型，可以显著提高准确率。\n                         从定义需求到错误分析、提示词优化和重新评估的五个步骤，可以持续改进指令集。Crypto.com 的 34%准确率提升，就证明了这一点。\n                    \n💬 文章金句\n            \n通过结合反馈循环，LLM 可以从它们的错误中学习，改进指令，并适应具有挑战性的场景。\n反馈不是修改底层模型参数，而是提供补充指令，动态地指导模型的行为。\n推理能力的最新发展使得这种反馈过程更加强大。现代 LLM 现在可以对其自身的输出进行复杂的分析，将复杂的问题分解为可管理的组件，并系统地评估其性能的各个方面。\n这种自我分析能力，结合外部反馈，创建了一个强大的持续改进框架。\n通过 10 次有意的迭代以及结合详细的特定于任务的提示词，我们在分类准确率方面取得了显著的 34%的提升。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：AWS Machine Learning Blog\n作者：Jessie Jiao\n分类：人工智能\n语言：英文\n阅读时间：12 分钟\n字数：2819\n标签：\n                    \n                        LLM优化, Prompt工程, AI助手, 反馈机制, 推理框架\n                    \n                \n            \n        \n\n        \n            阅读完整文章",
+          "link": "https://www.bestblogs.dev/zh/article/ebe6b0",
+          "publishedOn": "2025-07-28T09:53:04.000Z",
+          "wordCount": 362,
+          "title": "优化企业 AI 助手：Crypto.com 如何利用 LLM 推理和反馈来提升准确性和性能 | 亚马逊云服务",
+          "enclosure": {
+            "url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2025/07/09/image-1-8-1243x630.png",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2025/07/09/image-1-8-1243x630.png"
+        },
+        {
           "id": "faeb3c",
           "author": "一水",
           "description": "📌 一句话摘要\n            \n字节跳动旗下 Coze 平台开源 Agent 开发、评测与运维全链路基础设施，旨在降低开发门槛，加速 Agent 应用落地。\n📝 详细摘要\n            \n文章详细介绍了字节跳动 Coze 平台近期开源的两款核心产品：低代码可视化 Agent 开发平台 Coze Studio 和 Prompt 开发、评测与运维平台 Coze Loop，并结合此前已开源的 Agent 开发框架 Eino，共同构建了 Agent 从开发、评测到运维的完整生命周期闭环。文章指出，Agent 正从“炫技玩具”走向“落地应用”，但仍面临用户体验不稳定和开发门槛过高两大阻力。Coze 通过采用宽松的 Apache 2.0 开源协议，旨在吸引全球开发者共同参与，降低开发门槛，提升可扩展性，并通过标准化和网络效应推动 Agent 生态走向繁荣，加速其在企业自动化、中小团队、垂直行业及教育科研等场景的广泛应用。\n💡 主要观点\n            \nCoze 开源 Agent 开发全链路基础设施，显著降低开发门槛\n                         通过开源 Coze Studio、Coze Loop 和 Eino，Coze 提供了 Agent 从开发、评测到运维的完整工具链，使开发者无需从零搭建底层架构，能更专注于业务逻辑实现。\n                    \n\n                        开放的 Apache 2.0 协议促进 Agent 生态共建与商业化落地\n                         采用宽松的 Apache 2.0 协议，允许商业使用和闭源修改，这有助于吸引更广泛的开发者参与，加速 Agent 技术标准化和生态繁荣，推动其在各行业落地。\n                    \n\n                        全面覆盖 Agent 开发与运维痛点，提升应用稳定性和效率\n                         Coze Studio 提供可视化开发，Coze Loop 解决 Prompt 调试、评估与监控难题，Eino 提供灵活编排能力，共同解决了 Agent 开发中的核心痛点，提升了开发效率和应用稳定性。\n                    \n💬 文章金句\n            \n扣子这是把 Agent 从开发、评测到运维的完整链路，全都打包开源了，堪称一步到位。\n而开源，正是破局的钥匙之一------通过吸引全球开发者共同参与，能够为 Agent 从工具走向生态注入强大动力。\nCoze 已率先在开源社区完整落地了覆盖开发、评测、运维全链路的 Agent 基础设施闭环。\nCoze 的开源让“人人可用、场景多样”的 Agent 构建成为可能。\nCoze 开源所采用的 Apache 2.0 协议条件相当宽松------任何组合和个人都可以随便用、随便改、还可以商用。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：量子位\n作者：一水\n分类：人工智能\n语言：中文\n阅读时间：19 分钟\n字数：4712\n标签：\n                    \n                        AI Agent, 开源, AI开发, Prompt工程, Coze Studio\n                    \n                \n            \n        \n\n        \n            阅读完整文章",
@@ -19,6 +49,41 @@
             "length": "0"
           },
           "imageUrl": "https://imagedelivery.net/qGOFcc1O8XwTZW3W1JAHHg/884ce733-3ec3-4d47-bd1d-3ce69313fc00/cover"
+        },
+        {
+          "id": "ffaa0d",
+          "author": "阿里云开发者",
+          "description": "📌 一句话摘要\n            \n深入探讨企业 AI 应用（AI Agent）的落地实践，详细阐述其核心架构、构建模式、推理机制及安全防护。\n📝 详细摘要\n            \n文章基于三个月 200 家客户的实践经验，详细阐述了企业级 AI 应用的构建方法。作者首先将 AI 应用定义为从\"工具\"到\"智能伙伴\"的进化，强调 AI Agent 与 LLM 双引擎模式的重要性，其中 LLM 负责\"思考\"，Agent 负责\"行动\"并调用外部工具。文章引入 MCP（Microservice Capability Protocol）服务，指出其是连接 AI Agent 与企业现有 IT 资产的关键，能有效解决 Agent 技能系统构建的痛点。接着，文章分析了全新开发和改造现有业务两种 AI 应用落地路径，并详细解析了 AI 网关、MSE Nacos、AIStudio、函数计算 FC 等组件构成的企业级 AI 应用基本架构及 8 步核心调用链路。此外，文章深入探讨了 AI Agent 的定义（引用 Google、Anthropic、OpenAI 白皮书）、四大核心组件（大脑、手、指令、记忆）及三大推理模式（ReAct、Chain of Thought、Tree of Thought），并重点介绍了 ReAct 模式下的六大通用要素：提示词链路、路由、工具使用、评估循环、协调器和自主循环。最后，文章强调了 AI Agent 安全与防护的重要性，包括限制执行次数、人工审核、输入输出内容审核及沙箱运行环境，并区分了编码和低代码两种构建方式，以及辅助基模、独立产品和辅助现有业务三种 AI Agent 类型。\n💡 主要观点\n            \nAI Agent 与 LLM 构成企业 AI 应用的核心双引擎。\n                         LLM 负责理…",
+          "link": "https://www.bestblogs.dev/zh/article/ffaa0d",
+          "publishedOn": "2025-07-28T00:31:00.000Z",
+          "wordCount": 334,
+          "title": "3 个月，200 家客户，和大家聊聊企业 AI 应用（AI Agent）的落地实践",
+          "imageUrl": "https://www.bestblogs.dev/zh/article/ffaa0d/opengraph-image?c5b4e9f48bc65b64"
+        },
+        {
+          "id": "586b4d",
+          "author": "前端早读课",
+          "description": "📌 一句话摘要\n            \n文章深入分析了 JavaScript 中 await fetch()可能导致的性能问题，并提供了包括连接复用、流式解析、并发控制及协议优化在内的全面解决方案。\n📝 详细摘要\n            \n本文对 JavaScript 应用中 await fetch()的常见性能瓶颈进行了系统性剖析。作者首先揭示了冷启动 TCP 连接（DNS 解析、TCP/TLS 握手）带来的延迟，并提出了使用 undici 的 Agent 进行连接复用、DNS 缓存的解决方案。其次，文章深入探讨了 response.json()在处理大量数据时阻塞事件循环的问题，倡导采用流式解析以提升效率。针对循环中 await 导致的串行执行低效，文章给出了限制并发数量的有效策略。此外，文中还涵盖了优化响应体大小（如 Brotli 压缩）、简化 CORS 预检请求、解决 HTTP/2 HOL 阻塞以及 JSON.stringify()序列化性能问题等多个方面。文章特别区分了 Node.js 和浏览器端的 fetch 优化策略，为不同开发环境提供了针对性的实践建议，旨在帮助开发者显著提升应用的网络请求性能和用户体验。\n💡 主要观点\n            \n揭示 await fetch()在冷启动连接和大数据解析中的性能瓶颈\n                         首次请求涉及 DNS、TCP 和 TLS 握手带来的数百毫秒延迟，以及 response.json()处理大文件时阻塞事件循环、占用 CPU 资源，是常见的性能痛点。\n                    \n\n                        通过连接复用和流式处理显著提升网络请求效率\n                         利用 undici 的 Agent 管理 Keep-Alive 连接，避免重复握手；采用流式 JSON 解析，避免一次性加载大文件，有效降低延迟和内存占用。\n                    \n\n                        优化并发控制和网络协议以提升系统吞吐量\n                         避免在循环中串行 await，通过限制并发数量来平衡资源；同时，利用 HTTP/2 多路复用或 HTTP/3 的 0-RTT 特性，可进一步减少请求延迟。\n                    \n\n                        区分 Node.js 与浏览器端 fetch 优化策略，提供针对性指导\n                         Node.js 环境可使用 undici、自定义 Agent 等；浏览器端则侧重缓存、请求合并、懒加载和后端压缩，指导开发者根据场景选择最佳实践。\n                    \n💬 文章金句\n            \n即使是像 await fetch() 这样简单的代码，也可能会无意中拖慢应用的速度，导致网络请求延迟，让用户体验变差。\n每次调用 fetch() 都会创建一个新的套接字连接，这包括以下几个步骤：DNS 解析、TCP 握手、TLS 握手。\n当服务器返回大量 JSON 数据（例如 5-10MB 或更多）时，response.json() 会阻塞事件循环，占满 100% 的 CPU 资源。\n在循环中执行多个异步任务时，如果使用 await，它们会按顺序一个一个执行，即使它们本可以并行完成。\n为了获得更好的性能，建议使用 undici 的 request 方法来替代内建的 fetch，因为它更快、开销更小。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：前端早读课\n作者：前端早读课\n分类：软件编程\n语言：中文\n阅读时间：10 分钟\n字数：2404\n标签：\n                    \n                        性能优化, 前端开发, Node.js, Web性能, fetch API\n                    \n                \n            \n        \n\n        \n            阅读完整文章",
+          "link": "https://www.bestblogs.dev/zh/article/586b4d",
+          "publishedOn": "2025-07-28T00:01:00.000Z",
+          "wordCount": 337,
+          "title": "【第 3559 期】深入分析 await fetch() 性能问题及优化方法",
+          "imageUrl": "https://www.bestblogs.dev/zh/article/586b4d/opengraph-image?c5b4e9f48bc65b64"
+        },
+        {
+          "id": "3eb4fc",
+          "author": "Olimpiu Pop",
+          "description": "📌 一句话摘要\n            \nLuca Mezzalira 探讨了微前端的成熟度和演变，提供了逐步采用的启发式方法，并强调了微前端在分布式系统中作为组织和架构解决方案的重要作用。\n📝 详细摘要\n            \n本期 InfoQ 播客邀请了微前端领域的专家 Luca Mezzalira，深入探讨微前端的演进和实践。他强调，微前端生态系统已显著成熟，成为更可行的解决方案，尤其是在与数据网格和微服务等概念结合，作为分布式系统的架构组成部分时。Mezzalira 强调，微前端并非银弹，而是组织和架构解决方案的结合，旨在提升团队的自治性。他讨论了逐步采用的关键启发式方法，首先是根据团队规模和多租户情况评估对微前端的实际需求。一个重要的见解是，由于不存在数据引力问题，微前端迁移比微服务现代化更快。他建议采用粗粒度的垂直拆分方法，并利用边缘计算 (CDN) 实现基于 URL 的路由。这种迭代迁移的方式，使公司能够在不完全重写的情况下获得快速反馈和价值。讨论还强调了在分布式前端环境中可观测性和调整开发经验的重要性。\n💡 主要观点\n            \n微前端已发展成为一个可行的解决方案，能够有效提升团队的自治性。\n                         生态系统已经发展，越来越多的公司采用这种模式，使独立的团队能够在分布式系统架构中更快、更高效地交付。\n                    \n\n                        迭代迁移策略对于成功采用微前端至关重要。\n                         从应用程序的小型垂直拆分部分开始，并利用边缘计算进行路由，可以在现代化过程中实现快速反馈、降低风险和持续价值交付。\n                    \n\n                        微前端的采用通常比微服务现代化更快。\n                         与后端微服务不同，前端不需要处理数据引力，简化了拆分过程并加速了迁移时间表，使其成为现代化的一个良好起点。\n                    \n💬 文章金句\n            \n微前端不是银弹。它们既是组织解决方案，也是架构解决方案。它们赋能团队，使其更加自治。\n与微服务相比，迁移或现代化到微前端所需的时间是微服务的三分之一到一半。\n如果你开始在边缘编写路由逻辑，这意味着你不需要污染微前端或单体应用的代码。这意味着更少的更改和更少的测试。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：InfoQ\n作者：Olimpiu Pop\n分类：软件编程\n语言：英文\n阅读时间：33 分钟\n字数：8077\n标签：\n                    \n                        微前端, 软件架构, 分布式系统, 单体迁移, 团队自治\n                    \n                \n            \n        \n\n        \n            阅读完整文章",
+          "link": "https://www.bestblogs.dev/zh/article/3eb4fc",
+          "publishedOn": "2025-07-28T00:00:00.000Z",
+          "wordCount": 318,
+          "title": "微前端：Luca Mezzalira 的最佳实践、模式与反模式",
+          "enclosure": {
+            "url": "https://res.infoq.com/podcasts/microfrontends-heuristics-patterns-antipatterns/en/card_header_image/luca-mezzalira-twitter-card-1751960567581.jpg",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://res.infoq.com/podcasts/microfrontends-heuristics-patterns-antipatterns/en/card_header_image/luca-mezzalira-twitter-card-1751960567581.jpg"
         },
         {
           "id": "8b66b41",
@@ -2129,41 +2194,6 @@
             "length": "0"
           },
           "imageUrl": "https://huggingface.co/blog/assets/screenenv/screenenv.png"
-        },
-        {
-          "id": "671683",
-          "author": "新智元",
-          "description": "📌 一句话摘要\n            \nHugging Face 开源了强大的 30 亿参数 SmolLM3 模型，具备 128k 超长上下文和双推理模式，并首次公开了从训练到对齐的全链路工程细节。\n📝 详细摘要\n            \n文章详细介绍了 Hugging Face 最新发布的 SmolLM3 大型语言模型，该模型以 30 亿参数在小模型中脱颖而出，支持 128k 超长上下文和独特的双推理模式（think/no_think），并实现了全链路（训练、对齐、架构、数据）100%开源。文章深入阐述了 SmolLM3 在 Llama 架构基础上的多项关键优化，如 GQA 机制、NoPE 编码、文档内注意力屏蔽和稳定性优化。此外，还详细解析了其多阶段数据混合策略、中期训练（长上下文扩展与推理中间训练）以及后训练阶段的监督微调和基于 APO 的偏好对齐。评估结果显示，SmolLM3 在多项基准测试中超越了同参数量模型，并逼近 40 亿参数模型的性能。文章最后提供了详细的本地运行代码示例，强调了工程细节在模型开发中的关键作用，为小型高性能 LLM 的开发提供了宝贵的参考范本。\n💡 主要观点\n            \nSmolLM3 在 30 亿参数量级实现 SOTA 性能，逼近 40 亿参数模型。\n                         SmolLM3 在知识、推理、数学、编程及多语言等多个基准测试中表现卓越，尤其在长上下文任务中突出，证明小模型通过工程优化也能达到领先水平。\n                    \n\n                        Hugging Face 首次公开全链路模型构建方案，推动小模型开发透明化。\n                         从预训练架构、数据混合、中期训练到后训练的监督微调与偏好对齐，所有细节和代码数据均开源，为业界提供了可复现的“训练-微调-对齐”范式。\n                    \n\n                        引入 GQA、NoPE、APO 等创新技术，显著提升模型效率和能力。\n                         GQA 降低 KV 缓存开销，NoPE 提升长文本处理，APO 提供更稳定的对齐优化，这些工程细节是 SmolLM3 实现高性能和多功能（如双推理模式、工具调用）的关键。\n                    \n💬 文章金句\n            \n重磅开源！新一代最强小模型 SmolLM3 横空出世：30 亿参数，支持 128k 长上下文！而且训练、对齐、架构、数据等全链路，Hugging Face 这次 100%开放------堪称真「Open AI」。\n模型规模不是唯一答案，工程细节才是制胜关键！\nSmolLM3 不仅展示了完整的「训练-微调-对齐」开源范式。\nSmolLM3 同时支持指令模式和推理模式，需要分别评估其表现，并与具备相同能力的其他模型做比较。\nSmolLM3 在推理能力和效率之间找到了最佳平衡点。\n📊 文章信息\n            \nAI 评分：94\n精选文章：是\n来源：新智元\n作者：新智元\n分类：人工智能\n语言：中文\n阅读时间：20 分钟\n字数：4800\n标签：\n                    \n                        大语言模型, 小模型, Hugging Face, 模型训练, 模型架构",
-          "link": "https://www.bestblogs.dev/zh/article/671683",
-          "publishedOn": "2025-07-09T10:03:00.000Z",
-          "wordCount": 337,
-          "title": "最强 3B「小钢炮」，代码数据全公开！推理随意开关，128k 超长上下文",
-          "enclosure": {
-            "url": "https://wechat2rss.bestblogs.dev/img-proxy/?k=892bce64&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FUicQ7HgWiaUb2Sc2W1GlyXaiaZ6I6C0ESHPicRNVfxJaic5YtZhRzgncQgiaPuzZO8BLg7EuawykjcoibLJnjBWmf4PCw%2F640%3Fwx_fmt%3Djpeg%26from%3Dappmsg",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://wechat2rss.bestblogs.dev/img-proxy/?k=892bce64&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FUicQ7HgWiaUb2Sc2W1GlyXaiaZ6I6C0ESHPicRNVfxJaic5YtZhRzgncQgiaPuzZO8BLg7EuawykjcoibLJnjBWmf4PCw%2F640%3Fwx_fmt%3Djpeg%26from%3Dappmsg"
-        },
-        {
-          "id": "0ad934",
-          "author": "CSDN",
-          "description": "📌 一句话摘要\n            \n资深开发者通过 Claude Code 完成了 2 万行 macOS 应用 95%的代码，展示了 AI 代理在软件开发中颠覆性的生产力提升和对未来 IDE 形态的重塑。\n📝 详细摘要\n            \n文章详细记录了资深开发者 Indragie Karunaratne 如何利用 AI 代理工具 Claude Code（搭载 Opus 4 模型）构建一款 2 万行代码的 macOS 原生应用“Context”的实战经验。他指出，Claude Code 能够独立完成 95%的代码编写，包括功能实现、UI 构建、Bug 修复和自动化发布流程，极大提升了开发效率。文章强调了“上下文工程”而非传统“提示词工程”的重要性，以及通过“预热代理”和提供详细“规范说明”来优化 AI 输出的方法。作者还展望了未来 IDE 将从源码编辑器转向围绕上下文和反馈循环设计的趋势，并认为 AI 编程代理将使开发者能更高效地完成项目，甚至重新燃起对业余项目开发的热情，每月 200 美元的投入带来了相当于每天额外 5 小时的生产力。\n💡 主要观点\n            \nAI 代理可高效完成复杂应用的绝大部分代码编写。\n                         Claude Code 能够独立生成并迭代数万行代码，覆盖功能、UI、测试和发布，大幅提升开发效率，颠覆传统编程模式。\n                    \n\n                        有效利用 AI 编程需聚焦“上下文工程”与严谨规范。\n                         相比提示词，通过提供充足上下文、详细功能规范和“深度思考”指令，能显著提升 AI 生成代码的质量和准确性。\n                    \n\n                        AI 代理能自动化复杂且耗时的非编码任务。\n                         Claude Code 不仅能写代码，还能生成高质量模拟数据、自动化部署脚本等，大幅简化发布流程和项目准备工作。\n                    \n\n                        未来 IDE 将围绕 AI 代理的“上下文”和“反馈循环”设计。\n                         传统源码编辑器将不再是核心，未来的开发环境将更注重如何高效管理 AI 上下文和构建自动化反馈闭环。\n                    \n💬 文章金句\n            \n我无法准确预测未来 IDE 会是什么样，但可以肯定的是，源码编辑器不再是核心。\n它已经能完成 100% 的编码工作。不是协助，不是辅助，是直接全权代劳。\n现在再问'我应该学哪种编程语言？'这个问题，几乎没有意义了。真正有价值的技能，是系统设计、架构、DevOps、云原生能力。\n最令人惊讶的是：它完成这些工作的速度远超人类开发者。\n如何在有限的上下文 token 数量内产出最高质量的结果，也就是所谓的上下文工程（context engineering），才是你真正要在编程代理工具中专注优化的核心能力。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：CSDN\n作者：CSDN\n分类：商业科技\n语言：中文\n阅读时间：32 分钟\n字数：7974\n标签：\n                    \n                        AI编程, Claude Code, 软件开发, AI代理, macOS应用",
-          "link": "https://www.bestblogs.dev/zh/article/0ad934",
-          "publishedOn": "2025-07-09T09:39:00.000Z",
-          "wordCount": 381,
-          "title": "2 万行 App 代码，Claude 写了 95%！老开发者：每月只花 200 美元，就像一天多出 5 小时，IDE 要“变天”了！",
-          "imageUrl": "https://www.bestblogs.dev/zh/article/0ad934/opengraph-image?c5b4e9f48bc65b64"
-        },
-        {
-          "id": "488ca1",
-          "author": "魔搭ModelScope社区",
-          "description": "📌 一句话摘要\n            \n谷歌 Gemma 3n 正式开源，作为全新端侧多模态大模型，可在 2GB 内存设备运行，重点提升编码和推理能力，并支持多模态输入输出。\n📝 详细摘要\n            \n文章详细介绍了谷歌最新开源的端侧多模态大模型 Gemma 3n 的正式版本。该模型基于 Gemini 技术，专为资源受限设备设计，最低可在 2GB 内存上高效运行，并显著提升了编码和推理能力。Gemma 3n 支持文本、图像、视频和音频等多模态输入及文本输出，采用动态参数激活技术，提供 5B 和 8B 两种规格，实际内存占用相当于传统 2B 和 4B 模型。文章还提供了模型训练数据、输入输出格式、详细基准测试结果，并展示了在内容创作、研究教育等领域的广泛应用。此外，文章提供了基于 ModelScope 和 ms-swift 的 GPU 运行、模型微调及推理代码示例，方便开发者快速上手。\n💡 主要观点\n            \nGemma 3n 实现端侧高效运行，大幅降低硬件门槛\n                         通过动态参数激活等创新架构，Gemma 3n 能以极低内存占用（2GB）运行，使得高性能多模态 AI 能在边缘设备上普及，拓展了应用边界。\n                    \n\n                        模型在编码和推理能力上显著提升\n                         Gemma 3n 在代码和数学数据集上进行了大量训练，基准测试结果显示其在 LiveCodeBench、Codegolf 等编码和推理任务上表现优异，增强了模型解决复杂问题的能力。\n                    \n\n                        支持多模态输入，扩展了模型应用场景\n                         Gemma 3n 能够处理文本、图像、视频和音频等多源数据，使其在内容创作、智能助手、研究教育等领域具备广泛应用潜力，提升了实用性。\n                    \n💬 文章金句\n            \nGemma 3n 模型专为在资源有限的设备上高效执行而设计。它们能够处理多模态输入，包括文本、图像、视频和音频 输入，并生成文本输出，提供了预训练和指令调优变体的开放权重。\nGemma 3n 模型采用动态参数激活技术降低硬件负载，本次开源版本提供 5B（E2B）与 8B（E4B）两种规格。通过针对设备端的专属架构创新，可分别以传统 2B、4B 参数规模模型相当的内存运行，其实际运算量显著低于标称参数总量。\n这些模型在一个包含多种来源的大约 11 万亿个 token 的数据集上进行了训练。训练数据的知识截止日期为 2024 年 6 月。\nGemma-3n-E4B-it 在各行各业和各个领域都有广泛的应用。\nms-swift 已经支持了 gemma-3n 系列模型的微调。ms-swift 是魔搭社区官方提供的大模型与多模态大模型训练部署框架。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：魔搭ModelScope社区\n作者：魔搭ModelScope社区\n分类：人工智能\n语言：中文\n阅读时间：12 分钟\n字数：2984\n标签：\n                    \n                        大语言模型, 多模态AI, 端侧AI, Gemma 3n, 模型优化",
-          "link": "https://www.bestblogs.dev/zh/article/488ca1",
-          "publishedOn": "2025-07-09T08:29:00.000Z",
-          "wordCount": 332,
-          "title": "Gemma 3n 正式版开源：谷歌全新端侧多模态大模型，2GB 内存就能跑，重点提升编码和推理能力！",
-          "imageUrl": "https://www.bestblogs.dev/zh/article/488ca1/opengraph-image?c5b4e9f48bc65b64"
         }
       ]
     },
@@ -2904,6 +2934,16 @@
       "siteUrl": "https://new.qq.com/omn/author/8QMf33ZY5YwduT%2FQ",
       "articles": [
         {
+          "id": "https://view.inews.qq.com/a/20250729A007GA00",
+          "author": "人物",
+          "description": "高考之后是最漫长的暑假，一些人发现，自己的家庭发生了很大的变化。\n \n不久前，《人物》发起了「高考之后」的征集，收到了近百份回复。有的父母在孩子高考后离婚，有的孩子突然发现自己要背负起未必合理的养家的责任。更有人在高考的压力下窥见了家庭内部的残酷，成绩不如预期，母亲用「赌输了」形容子女的十二年苦读；志愿落空，父母间的冷战彻底升级；有人在那个暑假成为病人的照护者，有人则在争吵、期待与沉默中，对「家」这个字有了新的认知。\n \n对中国人来说，高考从不仅仅是一场考试，它被赋予太多意义：家庭的希望、阶层跃迁的机会、孩子「争气」与否的衡量指标。而当那个作为最终KPI的分数呈现出来时，一些曾经被掩埋的「真相」浮出水面。\n \n我们征集来的故事，包括了关于「天塌了」的许多样貌，在这些父母对子女、子女对父母的不满和怨怼里，有着两代人之间的委屈和难以理解。\n \n但是，高考终会过去，在本次征集收到的回复中，也有很多年纪稍长的读者留下了他们的答案。当把人生的时间轴拉长，有人发现所谓的「大考」其实并不能决定之后的人生，甚至人生其实并不存在任何一个可以一锤定音的事件，它由一个又一个选择铺就而成，相互关联也相互独立。\n \n事实上，没有所谓的标准答案，也没有正确情绪。在这些高考有关的故事里，有人愤怒，有人难过，有人想原谅却还做不到，有人早早地学会了承担和保持体面，但正如读者@小z所说，「但时间总是向前的」，在一个个伤痛之后，希望我们也依旧有生活。\n \n以下是你们与高考的故事——\n\n\n\n\n\n\n\n\n\n\n文｜李雨凝\n\n编辑｜槐杨\n\n\n\n \n\n\n\n关于金钱：\n「高考后，我欠了家里10万块」\n\n\n\n\n@青青 31岁 广东佛山\n2013年，我和复读一年的二姐一起高考。中午12点放榜，我们还在吃午饭，吃到一半就去查成绩了。先出来的是二姐的成绩，六百零几分，能去华南师范大学，我爸很激动；又查了我的，400多分，大专A线。\n…",
+          "link": "https://view.inews.qq.com/a/20250729A007GA00",
+          "publishedOn": "2025-07-29T01:00:00.000Z",
+          "wordCount": 7740,
+          "title": "高考之后，我家「天塌」了",
+          "imageUrl": "https://inews.gtimg.com/om_ls/OvpkKuqbZo_GZOCNcHPlARja981iq8uTADyd8cil-nFJQAA_640330/0"
+        },
+        {
           "id": "https://view.inews.qq.com/a/20250728A030EJ00",
           "author": "人物",
           "description": "关于杨力维和杨舒予，人们总是天然地对她们之间最显性的姐妹关系好奇，但她们不是彼此的对照或映衬，她们是各自故事里的主角，故事里还有很多女孩——她们的样子，就是女孩的样子。\n\n\n\n文｜罗芊\n编辑｜张跃\n摄影｜张博然\n品牌鸣谢｜Nike&Jordan\n\n\n\n那些故事\n \n在篮球的世界中，12是一个很特殊的数字，它不是哪位巨星的球衣号码，而是在国际大赛中，每支国家队能提报的参赛球员名额。如果说竞技体育是一道窄门，在很多国家的篮球世界中，12就是这道窄门的宽度，代表着一个国家篮球人口中，站在金字塔尖的那12个人。\n \n2025年7月12日，女篮亚洲杯开赛的前一天，中国女篮公布了最终的12人参赛名单，杨力维和杨舒予的名字依旧在列——在过去几届大赛的女篮12人名单中，她们的名字都会出现，这也意味着，站在中国女子篮球运动金字塔尖的12个人中，有两个人来自同一个家庭，是亲姐妹——在世界篮球领域，这样的故事都不常见。\n \n关于杨力维和杨舒予的故事，「姐妹」也成了天然的主题，她们是彼此的参照和对照，在一些活动现场，人们为了方便称呼，会省略掉她们的姓名，直接叫「姐姐」和「妹妹」，大家喜欢看到她们并肩出现的场景，会捕捉她们交流的细微瞬间，也对她们彼此相关的故事津津乐道——\n \n姐姐杨力维7岁那年离开家进入体校学习篮球，在球场上，她是「女篮快马」，可以「像手术刀一样犀利突破上篮得分」。如今，在广东女篮和中国女篮，姐姐都是队长。在联赛中，她率队拿过4次WCBA总冠军；在国家队，她拿过女篮亚洲杯冠军、亚运会冠军，还有女篮世界杯亚军。\n \n妹妹杨舒予11岁才开始学习篮球，以打球聪明著称，有着很好的身体素质和投篮天赋。在篮球世界中，她以一种少见的速度「一路飞升」：11岁第一次正式接触篮球，14岁入选国家少年队，16岁正式进入广东女篮，17岁被选入中国三人女篮集训队备战东京奥运会。\n \n2021年的东京奥运会，…",
@@ -3346,16 +3386,6 @@
           "wordCount": 867,
           "title": "马斯克弹药告急，xAI陷资金危局！2000亿估值能否续命",
           "imageUrl": "https://inews.gtimg.com/news_ls/Ouy2I-_GkYuYYw9QcyZKkAAVpzvOZXR_NFzj0NDZlNtO0AA_640330/0"
-        },
-        {
-          "id": "https://view.inews.qq.com/a/20250709A06ZVP00",
-          "author": "深网",
-          "description": "图源：视觉中国\n文丨雅萱  \n编辑丨叶锦言\n出品丨深网·腾讯新闻小满工作室\n\n阿里巴巴集团再次祭出补贴“杀手锏”。\n7月5日，淘宝闪购推出“超级星期六”活动，这个活动源于阿里内部代号为「淮海战役」的百日闪购增长计划。据《晚点LatePost》报道，未来的 100 天里，消费者在每个周六都可以买到超低价甚至免费的奶茶咖啡和快消速食。\n据淘宝闪购和饿了么公布数据显示，淘宝闪购日订单数超8000万，其中非餐饮订单超1300万，淘宝闪购日活跃用户超2亿。淘宝闪购的百亿补贴和“超级星期六”活动，冲击了美团的核心业务。\n为阻击淘宝闪购的分流，美团于7月5日下午跟进外卖补贴战。重金投入之下，效果显而易见。美团数据显示，7月5日美团单日零售订单突破历史纪录——达到1.2亿单，其中餐饮订单超过1亿单。\n与淘宝、美团的补贴闪电战不同，京东选择稳守阵地——其常态化的“外卖百亿补贴”策略在7月5日依然斩获约2000万单。\n外卖市场重回“千亿补贴”\n阿里、美团、京东单日零售订单达2.2 亿单背后是三家巨头的“钞能力”。据不完全统计，三家平台自今年以来累计将会投入近千亿元。\n7月2日，淘宝闪购宣布将在未来12个月内提供总额500亿元的补贴，且补贴全部由平台承担，无需商家出资。而据京东集团CEO许冉此前透露，京东外卖正式开启百亿补贴计划后，预计将在一年内投入超过百亿元。\n美团虽未公布具体补贴数额，但CEO王兴曾在2025年第一季度财报电话会议上表示，“将不惜一切代价赢得（外卖）竞争。”\n从三家平台的外卖补贴动向看，在历经电商低价竞争、新消费转型及社区团购迭代后，淘宝、美团、京东同时选择重返外卖补贴大战。\n问题在于，外卖是一个充分竞争的存量市场，市场份额早已被美团和饿了么七三分割。三家平台重启补贴大战，核心目的还是争夺这一高频、刚需的流量入口，并通过完善“最后一公里”配送体系，并借助外卖这一高频入口，切入…",
-          "link": "https://view.inews.qq.com/a/20250709A06ZVP00",
-          "publishedOn": "2025-07-09T08:51:23.000Z",
-          "wordCount": 726,
-          "title": "外卖市场中场战事升级：美团阿里京东千亿补贴大战",
-          "imageUrl": "https://inews.gtimg.com/om_ls/Odf9YUdkuuF1X55xAKY1A52rpM7o521Gmza1ZPY3s7_wIAA_640330/0"
         }
       ]
     },
@@ -3822,16 +3852,6 @@
           "publishedOn": "2025-07-10T00:15:17.000Z",
           "wordCount": 1049,
           "title": "小米首款增程 SUV 新谍照曝光；英伟达成为首家市值达到 4 万亿美元的公司；X CEO 宣布辞任｜极客早知道",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.geekpark.net/news/351341",
-          "author": null,
-          "description": "过去三年，我们听了太多关于「AI 如何重塑企业办公」的想象。但真正的变化，往往是从一个个打工人开始的——用 AI 写报告、润色外语邮件、总结会议内容、分析数据……AI 工具已经悄然渗透进日常的工作流。\n问题也随之而来：这些「AI 工作流」大多停留在个人层面，它们往往游离在企业的数字办公系统之外。尤其是对那些没有自研系统的中小企业而言，从豆包、DeepSeek 等应用中生成内容，再复制回飞书、邮箱、PPT 的操作，已经成为员工的日常。\n系统未打通的麻烦不仅是「复制粘贴」的低效，对管理者来说，更意味着 AI 的价值止步于「个体提效」，难以演化为组织级的智能化升级。这种割裂的根源，是办公平台自身尚未完成对 AI 的深度进化。\n7 月 9 日，飞书在 2025 未来大会上发布了一系列即插即用的 AI 工具，并邀请多家企业分享他们如何将这些工具无缝嵌入业务日常，实现真正意义上的智能化办公。\n\n飞书 CEO 谢欣丨来自：飞书\n这不只是一次产品发布，更像是数字办公从「AI ready」走向「AI 真正落地」的分水岭。\n让 AI 能力「长」在业务里\n如果说过去一年，企业还在摸索「如何把 AI 用起来」，那么飞书则在试图回答另一个问题：AI 到底应该「长」在哪里？\n在今年的飞书未来大会上，「多维表格」无疑是其 AI 产品阵列中最具代表性的升级亮点之一。它不再只是传统意义上的数据库工具，也不止于「基于数据库打造的业务系统」这一定位，而是开始进化为一个可实现 AI 自动化的业务中台——企业让 AI 真正落地办公场景的「基础设施」。\n从性能上看，多维表格的底层数据库能力实现了新一轮跃升：单表容量提升至 1000 万行，计算速度比去年快了 10 倍，支持千人级并发协作。这为承载复杂业务流程提供了扎实的技术底座。\n但真正构成飞跃的，是 AI 工具模块和「应用模式」的双重升级。去年上线的「AI 字段捷径…",
-          "link": "http://www.geekpark.net/news/351341",
-          "publishedOn": "2025-07-09T12:35:49.000Z",
-          "wordCount": 536,
-          "title": "组织先用好 AI，再谈 AI 改变组织",
           "imageUrl": null
         }
       ]
@@ -4966,16 +4986,6 @@
           "publishedOn": "2025-07-11T00:55:00.000Z",
           "wordCount": 264,
           "title": "外刊中怎么形容“热化了”？",
-          "imageUrl": null
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MzI5MzQ0NjMyMw==&mid=2247494334&idx=1&sn=8f787af20b457f86c91209ec9ccc68cd",
-          "author": null,
-          "description": "",
-          "link": "https://mp.weixin.qq.com/s?__biz=MzI5MzQ0NjMyMw==&mid=2247494334&idx=1&sn=8f787af20b457f86c91209ec9ccc68cd",
-          "publishedOn": "2025-07-09T12:30:00.000Z",
-          "wordCount": 264,
-          "title": "🌿 夏天很长，也是拉开差距的季节。\n\n📚【考研真题精读课·全题型覆盖】现已上线，涵盖完型、阅读、新题型、翻译、写作，让你一次系统学习，搞定所有专项训练。\n\n🚀 有效提升词汇量，读得更快、更准；写得更快、更好；表达更丰富，思路更清晰。\n\n✅ 方法要对，努力才有回报。考研路上，值得用一门系统课程，换来一次真正的进步。\n\n🔥 这个夏天，请全力以赴，为自己拼一次。\n\n戳此了解详情",
           "imageUrl": null
         }
       ]
@@ -8026,6 +8036,54 @@
       "siteUrl": "https://news.un.org/en/",
       "articles": [
         {
+          "id": "https://news.un.org/en/story/2025/07/1165515",
+          "author": null,
+          "description": "UN Secretary-General António Guterres has welcomed the ceasefire agreement between Cambodia and Thailand following days of deadly fighting over their mutual border.",
+          "link": "https://news.un.org/feed/view/en/story/2025/07/1165515",
+          "publishedOn": "2025-07-28T12:00:00.000Z",
+          "wordCount": null,
+          "title": "World News in Brief: Cambodia-Thailand ceasefire, bloody weekend in Ukraine, stop hepatitis deaths",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/assets/2015/11/23243/image560x340cropped.jpg",
+            "length": "102465",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/assets/2015/11/23243/image560x340cropped.jpg"
+        },
+        {
+          "id": "https://news.un.org/en/story/2025/07/1165516",
+          "author": null,
+          "description": "The UN Office for the Coordination of Humanitarian Affairs (OCHA) is alarmed by escalating health and food crises across Sudan, notably as cholera cases continue to rise in the locality of Tawila, North Darfur state.",
+          "link": "https://news.un.org/feed/view/en/story/2025/07/1165516",
+          "publishedOn": "2025-07-28T12:00:00.000Z",
+          "wordCount": null,
+          "title": "Sudan: UN sounds the alarm as health and food crises worsen across the country",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/16-07-2025_UNICEF_Sudan.jpg/image560x340cropped.jpg",
+            "length": "54226",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/16-07-2025_UNICEF_Sudan.jpg/image560x340cropped.jpg"
+        },
+        {
+          "id": "https://news.un.org/en/story/2025/07/1165514",
+          "author": null,
+          "description": "An interagency group from the UN released the flagship 2025 State of Food Security and Nutrition in the World (SOFI) report on Monday, estimating a global, yet uneven, decline in hunger since 2022.",
+          "link": "https://news.un.org/feed/view/en/story/2025/07/1165514",
+          "publishedOn": "2025-07-28T12:00:00.000Z",
+          "wordCount": null,
+          "title": "Slight decrease in global hunger as inequalities widen, UN report reveals",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/27-08-2021-CIAT-Kenya-farming.jpg/image560x340cropped.jpg",
+            "length": "27156",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/27-08-2021-CIAT-Kenya-farming.jpg/image560x340cropped.jpg"
+        },
+        {
           "id": "https://news.un.org/en/story/2025/07/1165512",
           "author": null,
           "description": "A fragile de-escalation in Syria’s Sweida region is “largely holding” after weeks of violence displaced 175,000 people, killed hundreds and devastated critical infrastructure – exposing deep fissures in the country’s political transition.",
@@ -9976,86 +10034,6 @@
             "type": "image/jpeg"
           },
           "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/30-10-2024_UN_News_PressConf_Albanese.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/07/1165358",
-          "author": null,
-          "description": "With Libya once again teetering on the brink of violence, the United Nations has issued an urgent appeal for calm amid rising military tensions in and around the capital, Tripoli.",
-          "link": "https://news.un.org/feed/view/en/story/2025/07/1165358",
-          "publishedOn": "2025-07-09T12:00:00.000Z",
-          "wordCount": null,
-          "title": "Libya: UN urges restraint as military buildup threatens renewed violence in Tripoli",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/09-07-2025-UNSMIL-Libya-Tripoli.jpg/image560x340cropped.jpg",
-            "length": "14879",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/09-07-2025-UNSMIL-Libya-Tripoli.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/07/1165356",
-          "author": null,
-          "description": "As scores of people – including medical staff and their families – have reportedly been killed in the past week, UN health partners in Gaza continue to provide emergency care despite very limited resources.",
-          "link": "https://news.un.org/feed/view/en/story/2025/07/1165356",
-          "publishedOn": "2025-07-09T12:00:00.000Z",
-          "wordCount": null,
-          "title": "UN warns of deepening health crisis in Gaza amid mass casualty incidents",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/08-07-2025-UNICEF-Gaza-02.jpg/image560x340cropped.jpg",
-            "length": "31336",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/08-07-2025-UNICEF-Gaza-02.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/07/1165355",
-          "author": null,
-          "description": "The deadly flash floods in central Texas that claimed more than 100 lives over the July Fourth weekend in the United States have underscored the devastating power of this fast-onset hazard – and the critical challenge of ensuring early warnings reach vulnerable populations, even in the dead of night.",
-          "link": "https://news.un.org/feed/view/en/story/2025/07/1165355",
-          "publishedOn": "2025-07-09T12:00:00.000Z",
-          "wordCount": null,
-          "title": "‘Very limited time to react’: Texas flash floods expose challenges in early warning",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/09-07-2025-WCK-Texas-flooding-03.jpg/image560x340cropped.jpg",
-            "length": "36154",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/09-07-2025-WCK-Texas-flooding-03.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/07/1165354",
-          "author": null,
-          "description": "At Hanna Honcharenko’s bakery in Dnipro, eastern Ukraine, the scent of freshly baked bread represents a slice of home for many. The business, born out of hardship, is proof that with trust and support it is possible start again following the loss brought on by war.",
-          "link": "https://news.un.org/feed/view/en/story/2025/07/1165354",
-          "publishedOn": "2025-07-09T12:00:00.000Z",
-          "wordCount": null,
-          "title": "Ukrainian baker rises above adversity",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/09-07-2025-IOM-Urkaine-bakery-01.jpg/image560x340cropped.jpg",
-            "length": "24692",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/09-07-2025-IOM-Urkaine-bakery-01.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/07/1165353",
-          "author": null,
-          "description": "Yemen continues to face a dire humanitarian crisis, driven by acute hunger, economic collapse, and regional instability, senior UN officials told the Security Council on Wednesday.",
-          "link": "https://news.un.org/feed/view/en/story/2025/07/1165353",
-          "publishedOn": "2025-07-09T12:00:00.000Z",
-          "wordCount": null,
-          "title": "Yemen deserves hope and dignity, Security Council hears",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/23-06-2025-WFP-Yemen-03.jpg/image560x340cropped.jpg",
-            "length": "47547",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/23-06-2025-WFP-Yemen-03.jpg/image560x340cropped.jpg"
         }
       ]
     },
@@ -11593,36 +11571,6 @@
           "wordCount": 13076,
           "title": "【404文库】流放地｜给郑州文明包容的城市形象抹黑",
           "imageUrl": "https://chinadigitaltimes.net/chinese/files/2024/01/w1376h5504fitscale-down.jpeg"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=719474",
-          "author": "既要又要还要",
-          "description": "自从2023年鼠头鸭脖事件，我就发现一种我称之为“最新的系统性舆情处置模式”的东西。一旦检测到“负面舆情”，这种局部的问题，就被升格为系统性的问题。这个“系统”很可能是以“市”为单位，而消灭“负面舆情”，就成为“市”的整体任务。",
-          "link": "https://chinadigitaltimes.net/chinese/719474.html",
-          "publishedOn": "2025-07-09T11:45:28.000Z",
-          "wordCount": 13139,
-          "title": "亮见｜天水幼儿园事件反思：地方舆情处置到了走火入魔的地步",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/07/image-1751965896956.png"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=719470",
-          "author": "既要又要还要",
-          "description": "假如有机会，看一看十几二十年前的新闻吧。当年人们也惊讶于，为什么会有人往奶粉里放三聚氰胺。假如时代有记忆，它就应该原谅我，我已经没有眼泪为天水的孩子哭泣了。",
-          "link": "https://chinadigitaltimes.net/chinese/719470.html",
-          "publishedOn": "2025-07-09T11:14:31.000Z",
-          "wordCount": 13125,
-          "title": "西坡原创｜我已经没有眼泪为天水的孩子哭泣了",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/07/image-1752055829250.png"
-        },
-        {
-          "id": "https://chinadigitaltimes.net/chinese/?p=719464",
-          "author": "既要又要还要",
-          "description": "我现在认真地提出，天水幼儿园铅中毒事件中的“颜料说”有疑点。首先，园方使用含铅颜料制作糕点的动机不足。食用色素本身的价格非常低廉，即使将它替换成颜料，能够带来的差价是极为有限的......",
-          "link": "https://chinadigitaltimes.net/chinese/719464.html",
-          "publishedOn": "2025-07-09T08:37:03.000Z",
-          "wordCount": 13156,
-          "title": "纽太普同学｜天水幼儿园铅中毒事件中的“颜料说”疑点",
-          "imageUrl": "https://chinadigitaltimes.net/chinese/files/2025/07/image-1752048842178.png"
         }
       ]
     },
@@ -11688,6 +11636,16 @@
       "feedUrl": "https://sspai.com/feed",
       "siteUrl": "https://sspai.com",
       "articles": [
+        {
+          "id": "https://sspai.com/post/101413",
+          "author": "少数派编辑部",
+          "description": "字节跳动扣子 Coze 宣布开源，通义灵码上线 Qwen3-Coder 等。查看全文",
+          "link": "https://sspai.com/post/101413",
+          "publishedOn": "2025-07-29T00:43:16.000Z",
+          "wordCount": 760,
+          "title": "派早报：微软 Edge 更新 Copilot 模式，索尼就游戏抄袭问题起诉腾讯等",
+          "imageUrl": "https://cdnfile.sspai.com/2025/7/29/article/e7b8140c-615d-66d5-df0b-28698c6c09de.png"
+        },
         {
           "id": "https://sspai.com/post/101405",
           "author": "少数派编辑部",
@@ -12317,16 +12275,6 @@
           "wordCount": 987,
           "title": "派早报：三星发布新款 Z 系列手机等",
           "imageUrl": "https://cdnfile.sspai.com/7/10/2025/article/13fdf924-45fe-bb19-f747-04f199b80e2c.png"
-        },
-        {
-          "id": "https://sspai.com/post/100867",
-          "author": "Vanilla",
-          "description": "本文将从视觉与界面变化、系统级功能增强、原生应用更新改进这三个方面来展开，帮助大家详细地了解 Apple 在最近这两个测试版中所做出的改变。查看全文",
-          "link": "https://sspai.com/post/100867",
-          "publishedOn": "2025-07-09T09:30:00.000Z",
-          "wordCount": 732,
-          "title": "iOS 26 Beta 2 & Beta 3 值得关注的新特性",
-          "imageUrl": "https://cdnfile.sspai.com/2025/7/9/article/80e6ea46-9900-9376-7339-d1de05e6b818.png"
         }
       ]
     },
@@ -12642,6 +12590,46 @@
       "feedUrl": "https://rsshub.rssforever.com/zhihu/daily",
       "siteUrl": "https://daily.zhihu.com",
       "articles": [
+        {
+          "id": "https://daily.zhihu.com/story/9782895",
+          "author": null,
+          "description": "三眼乌鸦，科学为根，艺术为形，历史为线。 用图像与文字编织生命长卷。\n查看知乎原文\n\n\n\n从文化与心理层面来看，鬣狗常常遭受误解和排斥。\n更新：增加棕鬣狗的内容。\n部分人出于自身的好恶，确实不喜欢甚至讨厌鬣狗。它的外貌、身体姿态、奇特的笑声，以及掏肛捕食等行为，都被许多人认为恶心，阴险。\n\n加之流行文化中的再度塑造，如动画片《狮子王》中鬣狗群体被描绘成狡诈、残暴的反派角色，这些因素都在无形中加剧了公众对鬣狗的刻板印象。\n\n然而真实的鬣狗却是生态系统中不可替代的一环，它们通过猎杀或食用病弱个体，有效清除了草食动物种群中的病源，减缓疾病扩散，保持种群健康；它们与秃鹫等食腐动物协作处理尸体，维护生态清洁度，这种生态服务并非任何人工手段所能等效替代。\n鬣狗撕尸开道，秃鹫高空制导\n目前鬣狗的全球数量估计不超过五万只，而且还在逐渐减少。\n对它们的错误认知如果进一步演变为误导性的控制或清除措施，将可能给生态系统带来不可逆的后果。鬣狗根本不可能成为像鼠类或入侵物种那样的泛滥者，在生态系统中主动发动扩张，相反，其未来生存甚至仍然面临潜在危机。\n如果鬣狗在某一生态系统中完全消失，其后果将是灾难性的。首先，最直接的影响是尸体处理危机。以东非草原为例，一个中等规模的生态系统每年自然死亡的大型草食动物可达数千头，如果没有鬣狗这样的高效清道夫，这些尸体将在高温下迅速腐败，成为病原体的温床。\n\n炭疽、布鲁氏菌病、口蹄疫等人畜共患病将在腐尸周围爆发性繁殖，通过土壤、水源和其他动物快速传播。据估算，一具未经处理的大型动物尸体可污染周围至少 100 平方米的土壤，病原体可在土壤中存活数年甚至数十年。\n\n其次，生态系统的养分循环将严重受阻。鬣狗独特的消化系统能够完全分解骨骼，将其中的钙、磷等关键矿物质释放回环境。在非洲和亚洲的半干旱地区，这些矿物质对维持土壤肥力至关重要。失去鬣狗后，大量骨骼将长期堆积，导致局部…",
+          "link": "https://daily.zhihu.com/story/9782895",
+          "publishedOn": "2025-07-29T01:53:11.031Z",
+          "wordCount": 815,
+          "title": "鬣狗作为最「无耻」的动物，为什么没有被大规模扑杀?",
+          "imageUrl": null
+        },
+        {
+          "id": "https://daily.zhihu.com/story/9782885",
+          "author": null,
+          "description": "太空僧，2022年新知答主｜航天及天文优秀答主\n查看知乎原文\n\n\n\n看了一下还没有人正面回答，我就来写一下吧。\n小学自然老师教过我们，打雷是因为有的云带正电，有的云带负电，这些带正电和负电的云碰到一起，就打雷了。\n可是冬天也有厚厚的云啊，为什么冬雷震震这么不常见呢？\n冬雷震震 夏雨雪 天地合 乃敢与君绝！\n冬天空气更干燥\n坦白地说，打雷的机制很复杂，人类并没有完全理解它。但我们已经知道，有没有打雷和空气中的水分多不多有直接的关系：\n当大气中的水蒸气凝结成小水滴时会释放热量，（粗暴地说）这种热量会为打雷提供能量；\n暖气流会把这些小水滴举升到约五到七千米高，过冷[1]的小水滴与冰晶不断碰撞形成较重的“软雹”并掉落至云的中下层，地球的自然电场令其积累负电，而较轻的冰晶积累正电继续抬升至云的上层，当积累到一定程度时，电位差增加到足够大，打雷就发生了。\n冬天的空气通常比较干燥，不像夏天含有那么多水分，因此不利于雷暴。（这与我们对干燥天气里毛衣易起静电的常识相反）\n\n冬天空气更稳定\n从上面的描述也能看出，空气的对流对打雷的形成也很重要。\n夏天阳光更强[2]，地面更热，地表附近的空气就不断地被地面更快加热而变轻并迅速上升，较冷的空气就会不断去填补，从而有更多的机会形成更强烈的上升气流，将温暖潮湿的地表空气更迅速地抬升到对流层的较高处，其中的水蒸气遇冷凝结成更多的小水滴（如果足够冷的话就是冰）并与冰晶产生更多地相互摩擦，从而导致更多的闪电。温带地区的冬天地表温度较低，意味着受地表加热而产生的热空间少得可怜[3]，对流的减少导致打雷机会的减少。\n简单地说，就是快速的垂直对流产生了更多的静电荷，从而产生了更多的闪电。而冬天缺少有这样的大气条件。\n\n综上，下雨时打雷之所以比下雪时更常见，是因为冬天的空气更干燥，更稳定，所以下雪时缺少打雷的必要大气条件：更多的水分 + 更强的对流。\n\n孩子的每一个问题，都值得认真去回答。\n查看知乎讨论",
+          "link": "https://daily.zhihu.com/story/9782885",
+          "publishedOn": "2025-07-29T01:53:10.922Z",
+          "wordCount": 109,
+          "title": "孩子问「为什么下雨的时候会打雷，而下雪的时候就不打雷呢？」，如何解释？",
+          "imageUrl": null
+        },
+        {
+          "id": "https://daily.zhihu.com/story/9782903",
+          "author": null,
+          "description": "瞎扯 · 你第一次进入派出所是因为什么？\n知乎日报\n查看知乎原文\n\n\n\n\nQ：你第一次进入派出所是因为什么？\n@尤睿 ：去补办身份证，我把户口本递给警察叔叔。 警察叔叔立马就从户口本的夹层拿出了我的身份证递给我。 这办事效率也太快了吧。\nQ：诸葛亮自贬三级是不是太轻了？\n@aeiou ：刘禅：如果您觉得您还要继续管事，那么请继续领导大汉子民；如果您觉得应该我管事，那么我命令你继续领导大汉子民。\nQ：在医院，医生真的很容易丢笔吗？\n@Curiosity ：昨儿拉开抽屉，一抽屉的笔，数一下有三十多根，同事无不感慨我的富足。 但，我工作以来从没有买过笔……\nQ：高考的时候，没在考试的人都在干什么？\n@Eden ：最后一科是考英语， 在那天中午，我妈突然来了个电话，伴随着麻将机洗牌的声音：「听你小姨说，你今天高考呀？」 我回道：「是呀。」 所以我妈没考试的时候应该是在打麻将啦～\nQ：你见过最无用的节俭行为是什么？\n@PPT之神 ：我爸每天晚上为了省电关 WIFI ，然后流量用超了 200 多块。",
+          "link": "https://daily.zhihu.com/story/9782903",
+          "publishedOn": "2025-07-29T01:53:10.910Z",
+          "wordCount": 191,
+          "title": "瞎扯 · 如何正确地吐槽",
+          "imageUrl": null
+        },
+        {
+          "id": "https://daily.zhihu.com/story/9782900",
+          "author": null,
+          "description": "张小生，目标：优秀答主！\n查看知乎原文\n\n\n\n先说明一点：沙僧打碎玻璃盏后，其实是死罪。\n因为有赤脚大仙给沙僧求情，玉帝免了沙僧死罪，沙僧才得以活命。但死罪可免，活罪难饶。所以，玉帝又把沙僧贬到流沙河，每隔七日飞剑穿胸百余次。\n这从沙僧自述中可以看出来。\n只因王母降蟠桃，设宴瑶池邀众将。失手打破玉玻璃，天神个个魂飞丧。玉皇即便怒生嗔，却令掌朝左辅相：卸冠脱甲摘官衔，将身推在杀场上。多亏赤脚大天仙，越班启奏将吾放。 饶死回生不点刑，遭贬流沙东岸上。\n“推在杀场上”“饶死回生”可以看出来，沙僧犯下的就是死罪。\n而从“掌朝左辅相”又可以看出来，这是玉帝按照天规律法来处置沙僧，不是按照他自己的心意。\n这也能说明，沙僧确实犯了死罪，不是玉帝故意整死他。\n很多读者不懂古代礼仪的严苛残酷，非要说“沙僧打碎玻璃杯就是摔杯为号”“他可能准备造反，杀了玉帝”等，所以才被玉帝狠罚。\n这就很扯了。\n难道摔杯为号不看情况？沙僧为啥要摔杯为号？他是不是真的埋伏了刀斧手？他为何要杀玉帝？他有那个实力吗？\n事实上，沙僧失手打碎玻璃盏，本就是死罪，这和当时礼仪有关。即便只看原著，也能找到类似的例子。\n悟空第一次上天，面对玉帝问话，他只回答一句“老孙便是”，天上神仙都吓到了。\n玉帝垂帘问曰：“那个是妖仙？”悟空却才躬身答应道：“老孙便是！”【仙卿们都大惊失色道：“这个野猴！怎么不拜伏参见，辄敢这等答应道：‘老孙便是！’却该死了！该死了！”】玉帝传旨道：“那孙悟空乃下界妖仙，初得人身，不知朝礼，且姑恕罪。”\n你看，悟空还躬身（弯腰）回答呢，算有礼貌了吧？可是在神仙们看来，他却是该死了。\n这里，总不是悟空摔杯为号，要杀玉帝吧？\n为啥孙悟空该死？不就是因为他不懂礼仪，没按规定施礼吗？可见，失仪就是死罪。\n当然，这里也能看出来，失仪罪可重可轻。\n玉帝不介意的话，可以饶恕死罪。但沙僧的行为估计让玉帝确实很生气，所以玉帝虽然免了他死罪，却还要让他每隔七日飞剑穿胸百余次。\n别说面对三界之主玉皇大帝了，哪怕就是一个野龙王（龙精），你在他面前失仪，也一样是死罪。\n孙悟空第二次借芭蕉扇，跟着牛魔王到了碧波潭。他变成螃蟹，在龙王跟前走，就被抓了起来。\n正在那里觥筹交错之际，孙大圣一直走将上去，被老龙看见，即命：“拿下那个野蟹来！”龙子龙孙一拥上前，把大圣拿住。大圣忽作人言，只叫：“饶命！饶命！”老龙道：“你是那里来的野蟹？【怎么敢上厅堂，在尊客之前横行乱走？快早供来，免汝死罪！”】\n你看，孙悟空就是上了厅堂，在龙王面前走路，就是个死罪。\n孙悟空不得已，只好求饶，说自己未学习礼仪，不懂王礼。\n好大圣，假捏虚言，对众供道：“生自湖中为活，傍崖作窟权居。盖因日久得身舒，官受横行介士。【踏草拖泥落索，从来未习行仪。不知法度冒王威，伏望尊慈恕罪！】”\n后来，众妖精也求情，龙王才饶了悟空。即便如此，他也说记打。\n坐上众精闻言，都拱身对老龙作礼道：“蟹介士初入瑶宫，【不知王礼】，望尊公饶他去罢。”老龙称谢了。众精即教：“放了那厮，【且记打，外面伺候】。”\n所以，在龙宫中王礼很重，未行礼仪或者错了礼仪，真就是死罪。\n野龙宫中，礼仪尚且如此关系性命，天庭之中，礼仪岂不是更重？\n都不要说古代了，就是今天，老板开会的时候，你在他跟前打碎茶杯试试看？私人企业的老板，脾气不好的话照样骂你个狗血淋头。\n有些新人入职后，因为不认识老板，见到老板没打招呼，就被老板阴阳。网上还有这样的视频，看看就懂了。\n这些“土皇帝”如果有生杀予夺大权，你以为他不杀在他面前失仪的人，以彰显自己威严？\n西游记里还有个词，叫【演礼】。赤脚大仙说过，以前参加蟠桃会，都是瑶池演礼。被悟空骗了后，他还纳闷，怎么今年去通明殿演礼？\n大仙是个光明正大之人，就以他的诳语作真。道：“常年就在瑶池演礼谢恩，如何先去通明殿演礼，方去瑶池赴会？”\n何谓演礼？就是预习、演练礼仪。为啥需要预习、演练？因为礼仪太多，而且繁琐，不好好提前练习，容易出错。\n所以，沙僧打碎玻璃盏，直接就是死罪，在古代是非常正常的。天庭本来就是作者照着人间朝廷写的，有这么重的礼仪也很正常。\n如果还有兴趣，可以看看我这篇回答，也能很好地解答这个问题。\n卷帘大将为何只是打破了个琉璃盏就被贬下凡？\n查看知乎讨论",
+          "link": "https://daily.zhihu.com/story/9782900",
+          "publishedOn": "2025-07-29T01:53:10.822Z",
+          "wordCount": 113,
+          "title": "以沙僧的罪行为什么要被贬？",
+          "imageUrl": null
+        },
         {
           "id": "https://daily.zhihu.com/story/9782863",
           "author": null,
@@ -13401,46 +13389,6 @@
           "wordCount": 331,
           "title": "航天飞机为什么被淘汰？",
           "imageUrl": null
-        },
-        {
-          "id": "https://daily.zhihu.com/story/9782432",
-          "author": null,
-          "description": "剁椒鹿，学兽医救不了牛马（私信都会看）\n查看知乎原文\n\n\n\n恭喜你刷到这个问题，做饭的时候又可以提升一分钱厨艺了。\n为什么陈皮和花椒都可以在肉里面去腥味啊？\n2024 年 2 月 9 日 science 封面就是柑橘的油胞\n嗨，因为它们都是芸香科的植物，有一些特殊的能溶于油脂的挥发性芳香味。\n简单来说，你可以把花椒看成没有果肉又带点麻的陈皮……\n上面这张图是《science 科学》期刊封面，大家可能都有这种体验，剥橘子、柚子，或者挤柠檬的时候，冷不丁从果皮里滋出来、又香又苦的“暗器”精油！\n\n柑橘类水果，都属于芸香科\n这股子“水果香精”的源头，就藏在果皮里的小油包里（学名叫油胞 oil gland）。\n柑橘油胞属于分泌囊，是橘子、橙子、黄皮、九里香等芸香科植物的特征性结构。\n油胞里的精油香味往往富含柠檬烯、芳樟醇等脂溶性芳香物质。\n\n肉类的腥味，往往来自挥发性的含硫化合物（如甲硫醇、硫醛类）或胺类物质，这些分子易挥发、气味刺鼻。\n而陈皮和花椒含有的芳香性挥发精油，能中和掉这些膻腥味。\n看到这里你又要迷惑了，柑橘、柠檬这些好说，剥皮的时候都会喷射出来，花椒那么小一点，它的果皮里也能藏住精油吗？\n\n是的！没错，花椒也有！\n我们国家用花椒用的比较多，对花椒的研究也比较多。\n现在萃取花椒精油的技术已经很成熟了，不过注意，这里提出来的花椒精油并不是我们平时吃的花椒油。\n花椒油主要还是豆油等其他油混合了花椒的香味，而花椒精油是提纯的花椒里面的油。\n多用在食品保鲜领域，而现在也在医药方面（比如止喘）有应用。\n那么花椒精油里的物质和柠檬里的物质有哪些相似呢？\n刚才说到了，月桂烯和芳樟醇这两个是花椒和青柠都有的味道\n\n而柠檬醛则是柠檬独有的柠檬味。辛香醛（Sanshools）是花椒独有的麻味。\n这两个是它们的主要区别。\n至于月桂烯、(E)-β- 罗勒烯、 β- 立方烯、桉树脑等其他花椒的味道则在不同品种的花椒里差别较大。\n说到这里你应该看出来了。\n那就是花椒和柠檬作为芸香科的植物，共享柠檬烯和芳樟醇两个比较显著的清香味。\n而柠檬的香味主要在它果皮油胞里，当然是腌制以后细胞破裂，释放出来味道后更浓郁啦。\n至于黄柠檬为什么没有小青柠味道这么明显？\n因为黄柠檬比较大，在果肉里柠檬味更重，而小青柠表面果皮体积占比更大，所以更接近花椒的味道。\n总的来说还是因为花椒是跟柑橘类水果同科不同属的，所以气味有一些接近，但是还是有差别。、而小青柠皮多肉少减少了这种差距。\n另外多嘴一句，柑橘类家族其实非常“乱”，你以为橘子、橙子、柠檬、柚子各自清清白白？不，它们的血统早就“你中有我，我中有你”，亲上加亲，近亲繁殖。\n科学家研究柑橘类的基因发现，绝大多数我们今天吃到的柑橘类水果，其实都来自三位“祖宗”的反复组合：\n三位老祖宗分别是柚子（ Citrus maxima ）、橘子（Citrus reticulata ） 和香橼（ Citrus medica）\n橙子是柚子和橘子这对“夫妻”的结晶，果汁丰富又常见，堪称柑橘界的“嫡长子”，柠檬则是香橼和苦橙的“狠人后代”，酸得让人起飞，是柑橘家的二世祖；青柠的血统最复杂，由香橼、小柑橘和其他杂交组合而成，活脱脱一个“私生混血儿”；葡萄柚继承了柚子和橙子的基因，外表像柚子，味道像橙子，但你的舌头可能不太买账，所以卖的不是很好；而酸橙同样是柚子和橘子的“苦情组合”，比橙子更苦涩，专门用于果酱和香料调味。\n目前市面上卖得好的各种耙耙柑什么的则是多是三代串亲的产物，血统已经乱的飞起了。\n不过它们有一个共同的点就是果皮里面有芸香科的一些独特香气。\n所以你下次做饭的时候不妨多尝试下其他柑橘类的水果说不定有惊喜：\n\n比如 B 站粉丝百万的林大厨也做过柚子皮红烧肉，所以你如果创意独特的话，完全可以试试橘子、金桔来做饭。不过葡萄柚、酸橙等果皮可能有点呛哈哈。\n参考资料：\n1 花椒精油提取方法、成分分析、生物活性及实际应用研究进展\n查看知乎讨论",
-          "link": "https://daily.zhihu.com/story/9782432",
-          "publishedOn": "2025-07-09T08:25:41.043Z",
-          "wordCount": 180,
-          "title": "为什么小青柠用糖腌制了一段时间后会有种很浓烈的花椒味儿？",
-          "imageUrl": null
-        },
-        {
-          "id": "https://daily.zhihu.com/story/9782443",
-          "author": null,
-          "description": "宁南左侯，太极生二姨\n查看知乎原文\n\n\n\n洪武四年，明军从陕西、湖广分别向南、向西，兵分两路进攻割据四川的明夏政权。其中东路领兵将领是汤和，北路领兵将领是傅友德，由于明朝在前一年也就是洪武三年已经大封群臣，所以此时的汤和是中山侯，傅友德是颍川侯。当时明夏那边负责对付北路明军的是平章政事丁世贞和向大亨，负责对付东路明军的是邹兴和莫仁寿。\n在明军的战前规划中，本来东路军是主力，汤和也是老朱被调去刷军功的，没成想邹兴、莫仁寿和大夏太尉吴友仁三位把夔门守了个水泼不进，再加上酉阳、石砫等土司的协助，明军顿兵在此没有任何进展，所以反而是傅友德从北边进展迅速，先在文州击败丁世贞，随后在绵州击败向大亨，直逼成都，在夔门督战的大夏丞相戴寿、太尉吴友仁眼见西边要崩，赶紧从前线分兵去川西抵挡，然后被傅友德在汉州（四川广汉）击败了向大亨、戴寿、吴友仁三路合兵，随后进围成都。\n\n其实傅友德跟交手的这三位明夏高层都认识，早就认识。\n龙凤三年，韩宋太保刘福通调白不信、大刀敖、李喜喜驰援西路北伐军，傅友德跟着李喜喜进陕西作战，并在次年西路军兵败巩昌之后由阶、文向南退入四川，而恰在此时，担任徐宋统军都元帅的后来大夏开国太祖明玉珍也正好带着徐宋军队从夔门向西进入四川，于是这两位河南江北行省的老乡就这样在四川不期而遇，双方打了一仗，韩宋军队惨败，打不过就加入，所以傅友德就归附了明玉珍。\n（傅）友德，其先宿州人，徙居颍州，后徙砀山，元末从山东李喜喜起兵，转攻剽入蜀，李喜喜败，归明玉珍。\n当时明玉珍只是徐宋各路统兵将领里的一位，地位并不高，所以手下也没有多少人，数得着的基本也就戴寿、万胜、向大亨、张文炳、邹兴、吴友仁、莫仁寿等几位，而这几位在明玉珍称帝之后的称呼分别是冢宰戴寿、司马万胜、司寇向大亨、司空张文炳、司徒邹兴、司徒吴友仁、司寇莫仁寿。\n所以我其实很好奇，如果拍一部以傅友德为主角的电视剧，那么当这三位在汉州城外跟傅友德再次见面时，互相之间是个怎样的心情，台词又应该怎么写。\n1911 年 10 月，武昌城内一声枪响，辛亥革命爆发，随后极短时间内革命风潮席卷全国，武昌作为这次革命的引爆点，也成为清军与革命军的重点交火对象，清军参战部队是北洋系的新军的第一、第四、第五镇，革命军是湖北新军第八镇，双方从从 10 月 18 日革命军主动进攻汉口刘家庙清军阵地开始，到 11 月 27 日清军攻陷汉阳结束，恶战四十一天。\n其实这并不是双方的第一次照面。\n光绪三十二年，1906，10 月，清朝为了检验新建陆军的成色，在河南安阳举行了一次军事演习，史称彰德秋操。参加这次野战演习的北军是新军第五镇及第一混成协，南军是湖北的新军第八镇和河南第二十九混成协，双方出动军队三万余人，马五千余匹，车一千五百多辆，各省都派出观操大员，还有外国的驻华武官观战，甚至还有国内外媒体记者记录实时报道。\n也是在这场军事演习中，后来叱咤中国二十年的人物纷纷登场。\n阅操大臣是后来的民国第一任大总统袁世凯，演习总参议是后来的民国陆军总长王士珍，中央审判长是辛亥革命时革命军陆军第八师师长哈汉章，南军审判长是冯国璋，秋操参谋是徐世昌，南军第八镇统制是黎元洪，北军第五镇统制是张怀芝，北军混成第一协统领是曹锟。\n当时有个年轻参谋在讲评会上问张怀芝：第五镇来了多少人？留守的有多少人？有多少病号？多少轻病？多少重病？帐篷来了多少？马匹来了多少？张怀芝答不上来，面红耳赤哑口无言。而他后来担任新军第二十镇统制，武昌起义爆发的时候他正在筹划着利用永平秋操的机会，与第六镇统制吴禄贞、第二混成协协统蓝天蔚一起弄假成真直接武装起义。他叫张绍曾。\n把这段趣事记录下来的人叫冯玉祥，时任新军第六镇十一协二十四标第三营后队排长。\n当时各省新军都派人前来参观学习，于是袁世凯把这些围观人员编为中央评判官，监督演习。其中广西派来的广西测绘学堂堂长是位 24 岁的小伙子，他叫蔡锷；东三省派来的东北新军督练所总参议也是 24 岁，他叫蒋百里。\n\n这次秋操整体而言是北军占优，但南军也不容小觑，尤其是作为第八镇统制官的黎元洪，指挥得当可圈可点，湖北新军也让袁世凯眼前一亮。\n五年之后的武昌起义，其实就是这次彰德秋操的实战版本。\n革命军都督仍然是当初秋操时的南军统领黎元洪，清军督军是当初秋操时负责监督南军的北洋新军第五镇统制冯国璋，而负责进攻革命军事宜的清军将领王占元、李纯，在当初彰德秋操的时候就是跟黎元洪对垒的北军将领。\n\n\n\n\n\n查看知乎讨论",
-          "link": "https://daily.zhihu.com/story/9782443",
-          "publishedOn": "2025-07-09T08:25:40.927Z",
-          "wordCount": 131,
-          "title": "历史上有哪些名人，还是普通人的时候就相互熟悉？",
-          "imageUrl": null
-        },
-        {
-          "id": "https://daily.zhihu.com/story/9782436",
-          "author": null,
-          "description": "宁南左侯，太极生二姨\n查看知乎原文\n\n\n\n朝廷闲差还好说，主要负责人基本上一个萝卜一个坑，不可能等你三年，所以有人回家丁忧就肯定要找人替补，只不过如果你身份高贵的话等你回来大家再恢复原状。\n比如正德十年三月，建极殿大学士杨廷和回家丁忧，当时内阁一共仨人，首辅老杨，第一次辅梁储，次辅靳贵，老杨走了，他的首辅之职就由梁储替补了，为此专门给梁储加少师兼太子太师、华盖殿大学士，然后内阁依次递补，靳贵改第一次辅，但终归少一个人，所以朝廷又让杨一清以武英殿大学士的身份入阁参机务当次辅，算是补缺，这样内阁还是仨人，够支应的，老杨你走你的，离了你照样转。\n——在杨廷和回家丁忧之前，首辅乃至内阁大学士都是不需要丁忧的，顶多回家一趟，而杨廷和这次特别悲痛、非常悲痛、极其悲痛，所以他成功丁忧了，所谓“阁臣之得终父母丧者，自廷和始也”。\n那说等他回来之后咋办呢？\n正德十二年十一月，老杨回来了，当时内阁还是仨人，首辅梁储，第一次辅蒋冕，次辅毛纪。然后老杨就越级又恢复了首辅职务，梁储退回第一次辅，蒋冕退回第二次辅，毛纪次辅，他们四个搭班从这时候一直干到正德十六年朱厚照病死朱厚熜即位，才在这年五月加了个袁宗皋。\n但这也就是老杨身份不一般，不是所有人都有这个待遇。\n当然还有一种极端情况，比如万历十一年四月，首辅张四维的爸爸去世，他回家丁忧，第一次辅申时行递补首辅。本来到万历十三年底他就丁忧结束可以回朝了，但好死不死，万历十三年十月十六日，马上就要结束丁忧的张四维病殁于家，土了！于是申时行就在首辅任上安安稳稳当到万历十九年才退休。\n连一般的大学士都没有这个待遇，尚书自然更是如此。\n张蓥在成化十八年九月担任刑部尚书，二十二年十月回家丁母忧，刑部不可能空着，所以让杜铭递补刑部尚书，第二年十月杜铭退休，换何乔新担任，这样等到弘治元年十一月张蓥丁忧完毕回来的时候，刑部已经换了两拨人了，自然不可能再还给他，同时北京六部外加都察院也都有人，没空缺，所以就按照常见的叙官不叙职规则，给他换成了南京兵部尚书参赞机务，“太子少保刑部尚书张蓥丁忧服阕，改南京兵部尚书参赞机务，太子少保如故”，还是正二品尚书职务，但是北京没地方了，老张你得去南京先待一段时间等等。这就是丁忧的一般规则，叙官不叙职，也就是你的官职待遇仍然按丁忧之前的给你，但是具体部门可能要调整。\n可惜张蓥在南京兵部干的狗屁不是，多次被人弹劾，所以在南京等了将近五年也没能补回来，弘治六年七月张蓥病死在太子少保南京兵部尚书参赞机务的任上。\n然而还是那句话，不是所有人都跟杨廷和一样，随时来随时补，最多就是给你留个缺。\n跟张蓥同期的兵部尚书余子俊，成化十三年七月任命，十月到任，当到成化十七年正月，回家丁母忧，陈钺接任。丁到成化十九年三月结束，兵部尚书已经从陈钺换成了张鹏，也不好直接让人腾地方，正好户部尚书翁世资在二月份辞职退休，空出来一个位子，所以就由余子俊递补了。余子俊七月到任，当了半年，二十年二月去大同当总督，二十二年九月兵部尚书马文升调去南京当兵部尚书，北京兵部又空出来了，于是在二十三年正月又召回余子俊，结果余子俊七月才到任，相当于从成化二十二年九月到二十三年七月这十个月的时间明朝都没有在任的兵部尚书，就等着余子俊来补缺。\n不过这里多说一句，能干到大学士这种位极人臣的官职，一般都大几十年宦海浮沉，考虑到考中进士也得二三十岁，所以基本上担任尚书、首辅的都得五六十岁了，他们的爸妈如果健在也得八九十岁，所以大学士、尚书遇到丁忧的情况其实并不多。\n但是一般的小官就很有趣了，比如山东曹州人吴允中，万历二十六年中进士之后授官河南永城知县，然后还没上任呢，继母去世，于是“丁继母忧归”，回家丁忧去了，一丁就是三年，三年之后起补商丘县知县，正好赶上归德府黄河决口，宵衣旰食修堤筑坝赈济灾民，正忙着呢，家里来信，爸爸死了，“因父丧去职”，回家继续丁忧，又是三年，再次恢复待遇，授杞县知县。\n这事比较欢乐的地方在于，因为明代规定异地任职，他是山东人所以不能在山东当官，然后去了河南，但是你看看他当官的这地方：\n\n离家越来越近了 23333333\n成化六年，南京刑部右侍郎林鹗回家丁母忧，丁完之后召为刑部右侍郎——官还是那个官，但衙门不是那个衙门了。\n而且，丁忧回来之后同级官职如果没合适的，也可以升职起复，但基本不会降级。\n永乐年间交阯巡按御史黄宗载丁祖母忧，起复之后，改詹事府丞。巡按御史正七品，詹事府丞正六品，这相当于自己经历了一回考满。\n另外，丁忧是可以夺情的，不光京官可以，地方官有时候也可以。苏州知府况钟在任的时候曾经回家丁母忧，苏州人民进京上访要求夺情，于是特旨起复，从宣德五年一直当到正统六年，又一次考满要调走了，苏州两万多人联名要求再次留任，于是“诏进正三品俸，仍视府事”，况钟喜提正三品省部级知府，结果第二年卒于任上。\n\n\n\n\n\n\n查看知乎讨论",
-          "link": "https://daily.zhihu.com/story/9782436",
-          "publishedOn": "2025-07-09T08:25:40.820Z",
-          "wordCount": 111,
-          "title": "古代丁忧期间，比如兵部尚书，回家 3 年，谁来代替他的位置，然后 3 年后回来官复原职原来那个人咋办？",
-          "imageUrl": null
-        },
-        {
-          "id": "https://daily.zhihu.com/story/9782446",
-          "author": null,
-          "description": "瞎扯 · 律师的生活是怎样的?\n知乎日报\n查看知乎原文\n\n\n\n\nQ：律师的生活是怎样的?\n@玩笔杆子的武僧 ：看一个律师的通讯录备注，就可以窥见他的工作状态了。\n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \nQ： 你见过最令你震撼的一张图片是什么？\n@竹间风 ：某地鉴宝，大爷硬气地拿出了这个……\n\n \n \n \nQ：意大利人不能接受披萨上放菠萝，那中国人有没有类似的饮食禁区？\n@此去常风 ：这样大家理解为什么意大利人不能接受披萨放菠萝吗？\n\n \n \n \nQ：如何用一张图劝退想养猫的朋友？\n@云中精准辅秾 ：猫和人的其他爱好很多时候是互相冲突的……\n\n \n \n \nQ：如果你有个 1 小时让宠物说话的机会，你会跟它聊什么？\n@盖盖子 ：以后别跟仓鼠玩了。 不知道的还以为我养了只咪鼠。",
-          "link": "https://daily.zhihu.com/story/9782446",
-          "publishedOn": "2025-07-09T08:25:40.798Z",
-          "wordCount": 401,
-          "title": "瞎扯 · 如何正确地吐槽",
-          "imageUrl": null
         }
       ]
     },
@@ -13638,16 +13586,6 @@
           "wordCount": 12671,
           "title": "Freedom over death",
           "imageUrl": "https://images.aeonmedia.co/images/de3d69e0-ac43-468c-88dd-f0c19fd40a54/essay-2008-05-07t120000z_119437662_gm1e4570mam01_rtrmadp_3_dutch-euthanasia.jpg?width=1200&quality=75&format=auto"
-        },
-        {
-          "id": "urn:id:1155",
-          "author": "Aeon Video",
-          "description": "Solitary inmates find calm in nature videos in an experiment reflecting the human need to connect with the natural world \n - by Aeon Video\n Watch at Aeon",
-          "link": "https://aeon.co/videos/what-do-screens-depicting-serene-natural-scenes-mean-to-those-living-in-lock-up?utm_source=rss-feed",
-          "publishedOn": "2025-07-09T10:01:00.000Z",
-          "wordCount": 3547,
-          "title": "Blue room",
-          "imageUrl": "https://images.aeonmedia.co/images/4709dfe8-eca1-4b4a-a620-58f521b9751e/blue-room-landscape-2.jpg?width=1200&quality=75&format=auto"
         }
       ]
     },
@@ -17174,6 +17112,26 @@
       "siteUrl": "http://infzm.com",
       "articles": [
         {
+          "id": "http://www.infzm.com/contents/299177",
+          "author": null,
+          "description": "2025-07-29 09:00:00\n近日，一起“考生误报志愿”事件引发关注。据极目新闻报道，有贵州高考考生在社交平台称，因贵州省招生考试志愿填报系统未明确区分“厦门大学”与“厦门大学马来西亚分校”，导致自己误报了厦门大学马来西亚分校并被录取。\n公开资料显示，厦门大学马来西亚分校办学地点在马来西亚雪邦，每年学费2.9万林吉特（折合人民币49000元左右）。贵州省招生考试院工作人员对媒体表示，如果考生已被录取的话就只有两个选择，一是选择去已录取的学校报到上学，二是复读。最新消息是，在十余名误报被录取的考生里，已有十六人决定复读。\n出现误报的责任在谁呢？贵州省招生考试院工作人员对媒体表示，考生填报志愿时应先查阅官方发布的招生专业目录，仔细核对专业代码后再进行填报，避免直接通过系统筛选功能操作。当然，考生没有仔细查阅招生目录，填报志愿时也有疏忽，应该承担一定的责任，但事件的经纬似乎并不这么简单。\n查阅贵州省招生考试院编的《贵州省2025年普通高校招生专业目录》，厦门大学与厦门大学（马来西亚分校）的学校代码相同，能区分的只有专业代码。而在厦门大学（马来西亚分校）的学校名称后，表示办学地点的括号内写的是福建厦门，专业名称也无法体现该专业是在校本部还是马来西亚分校，只有在专业详细介绍里，用小小的字号写着“办学地点：马来西亚雪邦马来西亚分校”。\n而在往年的招生目录中，两校的学校代码虽然也相同，但马来西亚分校的招生专业在专业名称中写明了是“马来西亚分校招生专业”，不知为何，2025年的专业名称中没有再标注。这样一来，如果不仔细看专业详情，难免会有人以为这个马来西亚分校的专业也是在厦门的，因为整本招生目录的体例，就是学校名称后加办学地点。如此编排，显然是一个疏漏，不是在前言中说几句“因数据量大，时间紧，任务重，或有疏漏之处，请读者谅解”就能免除责任的。\n\n《贵州省2025年普通高校招生专业目录》中，厦门大学与厦门大学（马来西亚分校）使用相同的学校代码，专业名称中也没有明确标注，只在专业详情中用小字写着办学地点在马来西亚。 图/《贵州省2025年普通高校招生专业目录》PDF版截图\n可能正是因为这样的编排，导致在志愿填报系统中，厦门大学本部和马来西亚分校两个学校的招生专业也是混在一起的，只看专业名称无法区分该专业在哪个校区学习，只有点击专业之后展示的“专业详情”中，才有办学地点、学费等详细说明。这样的设计，让误报成为可能。\n如果说一两名考生误报误填还可以说是考生的疏忽，但十几名考生集体误报误填，就不能再将责任全数归咎于考生。厦大马来西亚分校2025年在贵州只招收19个学生。根据目前的报道，已经有16个被录取的学生决定放弃报到，复读明年再考。这么大的比例，并不正常。\n也有网友怀疑，这些考生是不是真的“误报”，还是知情填报后反悔了。这种可能性当然不能完全排除，但19个录取学生中有16个人后悔，这个比例很不正常，可能性不大。而录取分数线也能佐证“误报”的说法：往年，厦门大学本部在贵州的录取分数线明显高于马来西亚分校，而2025年却出现了平齐的趋势，十余名高分考生集体误报恐怕是最合理的解释。\n而在贵州省的招生目录中，其他有多个校区的高校，比如山东大学、哈尔滨工业大学等，不同校区的学校代码就是不同的，学校名称和办学地点也区分得很清楚。单单厦门大学的不同校区没有严格区分。贵州省招生考试院在事件中的疏忽责任是很难推卸的，在今后的招生中，应该进行优化，避免出现类似的现象。\n\n《贵州省2025年普通高校招生专业目录》中，部分有多个校区的高校使用不同的学校代码。图/《贵州省2025年普通高校招生专业目录》PDF版截图\n至此，高招误报国外分校，责任不应全由考生承担。贵州省招生考试院应协调相关高校，将误报的考生退档，重新录取。这十几名考生中，有些人的成绩可能可以被厦大校本部录取，不能被厦大校本部录取的，可以按照其志愿列表，依次向后面的大学投档，这些大学也可以考虑增加招生名额，补录这些考生。而高校临时增加招生计划，在往年也是常有的事，并不是无法操作。\n这样一来，考生可以进入自己志愿列表中的其他学校。这些学校多招一两个人，可以赢得名声。退档后招生不足的厦大马来西亚分校，也可以参加补录。贵州省招生考试院也对自己的过失做出了弥补，维护了其公信力。可以说这是三赢的结局。\n不过，贵州省招生考试院已表示录取结果不可更改，厦大方面也表示不会重新录取。厦大马来西亚分校称，退档需要招生考试院先发函，目前没有收到函件。而招生考试院则说，退档要学校主动。最后的结果，就是考生承担了所有后果，只能去复读。厦大马来西亚分校19个人的录取计划，至少16个考生放弃了入读，招生计划近乎“全废”。这样的结局，堪称全输。",
+          "link": "http://www.infzm.com/contents/299177",
+          "publishedOn": "2025-07-29T01:25:06.000Z",
+          "wordCount": 96,
+          "title": "高招误报国外分校：责任不应全由考生承担",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/299169",
+          "author": null,
+          "description": "2025-07-29 08:11:38\n\n吴怡润与父亲吴超在攀登慕士塔格峰途中。（受访者供图/图）\n7546米，这是矗立于新疆帕米尔高原东麓、被称为“冰川之父”的慕士塔格峰的高度，也是来自上海的吴超与女儿吴怡润共同制定的暑期攀登目标。\n高海拔攀登不再是只属于成年人的运动项目。从5025米的四姑娘山大峰，到6187米的玉珠峰，再到7546米的慕士塔格峰，都出现了越来越多的青少年的身影。\n每年五月底至七月底是四姑娘山户外运动的“旺季”。四川雪山之巅俱乐部创始人扎西格绒称，从6月1日至7月15日，他们已经接待了219位青少年，“每天都有好几位”。虽然不是每个人都能登顶，但在他们机构提供的行程里，基础项目是从海拔3200米左右的山脚徒步或骑马走到海拔4450米的大本营。\n“中考后，14岁女孩挑战慕士塔格峰。”2025年6月17日，吴超发布了这条帖子。很快，评论区涌来了质疑声，认为是赚流量博眼球、年龄太小对身体有影响、为了高考加分……一个月前，17岁北京中学生李浩榕成功登顶珠穆朗玛峰也引发了类似争议。实际上，希望利用登山这一户外运动项目来助力升学的，主要并非国内高考生，而是志在申请国外名校的孩子们。\n在社交媒体的助推下，青少年爬雪山正在成为一种潮流。一些大多数户外机构乐见蓬勃发展的市场与产业，但医生、高校教师对此态度谨慎。而目前，尚无制定针对未成年人高海拔攀登的明确政策或行业规范。\n登山“最小的仅有8岁”\n7月13日凌晨两点，吴怡润从6200米处的C3营地出发了。她回忆，寂静的黑夜里，为保存体力和减少耗氧量，没有一人说话，只有登山杖和踏雪板在雪面上划出浅浅的咯吱声。借着头灯和月光，吴怡润得以看清脚下的路。\n零下二十多度，雪镜开始结冰，冰霜从边缘凝结，“像特效一样。”吴怡润告诉南方周末，当时她感觉手很冰凉，即便自己已经戴了羊毛手套、羽绒手套、皮手套。这让她不敢停下来喝水、吃东西，因为担…",
+          "link": "http://www.infzm.com/contents/299169",
+          "publishedOn": "2025-07-29T00:25:05.000Z",
+          "wordCount": 91,
+          "title": "这个暑假，中国的孩子涌向雪山",
+          "imageUrl": null
+        },
+        {
           "id": "http://www.infzm.com/contents/298756",
           "author": null,
           "description": "2025-07-28 21:00:00\n\n（IC photo/ 图）\n近日，铂爵旅拍“跑路”等传闻甚嚣尘上，员工遭欠薪，客户退款无门。\n铂爵旅拍在官方微博作出回应，表示“我司旅拍、跟拍、写真等业务板块平稳运营”，但也承认“婚纱旅拍业务成本居高不下，一直处于亏损状态”，不得不“缩减旅拍业务，关停部分亏损门店”。\n尽管铂爵旅拍否认“跑路”，但这家曾冠名一众综艺、邀请明星代言、霸屏地铁广告的旅拍头部企业陷入这般境遇，还是令人唏嘘。\n曾经火热一时的旅拍市场，为何走到如今的末路？\n低质量的内卷\n旅拍，即旅行拍摄，将旅行与摄影结合。在过去，婚纱照主要是棚拍，在精心布置的室内布景前，循着固定的灯光和姿势，将新人的模样框进预设的浪漫模板里，带着几分刻意的规整。\n旅拍把婚纱照的舞台搬到了真实的天地之间，自然光线取代了棚内的聚光灯，随机出现的飞鸟、路过的晚风都成了画面中的意外馈赠。\n从拍摄范围来看，旅拍主要呈现两种形态：一种是本地化拍摄，即在生活的城市或周边选取特色场景进行拍摄，发掘熟悉环境中的新鲜视角，也能节省时间和金钱成本。另一种是异地旅拍，新婚夫妻专程前往其他城市或国家，将婚纱拍摄与旅行度假相结合，在探索陌生风景的过程中完成拍摄。\n这两种形态的价格也截然不同。如果是在当地旅拍，比传统的棚拍价格贵一些，但如果专程到其他城市或其他国家，一整个套餐的价格在大几千到几万元不等。\n铂爵旅拍抓住了旅拍的“风口”，在2010年就主打婚纱和蜜月旅行拍摄的理念，并抓住了移动互联网的浪潮，在2020年前后品牌声势达到顶峰。\n彼时，铂爵旅拍邀请了明星代言（比如向佐和郭碧婷），并冠名或赞助国内一众女性向综艺，比如《小姐姐的花店》《青春的花路》《妻子的浪漫旅行》《女儿们的男朋友》《女儿们的恋爱》《我家那闺女》《我最爱的女人们》等等。\n短短几年时间，铂爵旅拍从巅峰跌落到低谷，除了企业自身经营的问题，大背景是旅拍市场…",
@@ -19552,66 +19510,6 @@
           "wordCount": 89,
           "title": "广州天河：监督政府预算，如何向前一步？",
           "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/297605",
-          "author": null,
-          "description": "2025-07-09 20:00:00\n\n1949年的郑振铎（左）与叶圣陶。\n1944年，困居上海的郑振铎，出售了三批藏书以维持一家人的生计，就在如此“奇窘”之中，他还有能力出版《明季史料丛书》和《长乐郑氏汇印传奇》两套大丛书。赞助郑振铎出版事业的友人，便是1940年之后频繁出现于郑振铎日记中的“叔平”“张君”，《求书日录》中“带着侠义之气概”的“张叔平先生”。\n在嘉业堂主人刘承幹口中，张叔平却是“声气甚广”的恶霸。张氏将1940年“文献保存同志会”无力购下的嘉业堂宋元善本囊括一尽，且有能耐将六年来深陷日军管控的南浔藏书运至上海。但后来刘、张各不相让，终成买卖纠纷，双方搬出汪伪高官“斗法”，未分胜负，延至抗战胜利后，经过顾毓绣、蒋复璁等出面调解，方告平息。而张叔平在获得嘉业堂藏书之后，转手分批卖出，从而导致今天的嘉业堂旧藏书流散于浙江、香港、澳门、美国等地，这些书上还盖有“张叔平”朱文方印。\n在1944年的上海沦陷区，这么一位各方面都“兜得转”的厉害角色，一定不是一介书生或者一名商人。如果我们顺着郑振铎日记提供的线索，向历史档案深处探寻，这时候，一个“三面间谍”的灰色身影，便渐渐浮现。\n\n刘承幹（1882—1963）。\n一、张子羽：晚清重臣张百熙的公子\n张叔平的真名张振鋆（1897-1970），晚号“蜷厂”，子羽、任庵、穉潜、忍安皆为其字。他的父亲是清光绪年间的一品大员张百熙，京师大学堂（北京大学前身）的创办人。张子羽为张百熙侧室杨氏所生次子，1907年其父病逝时，年方九岁，后随其母南归长沙故里，于1915年考入北京大学文科。毕业后，张子羽投笔从戎，1928年任南京中央军校政训处秘书，曾在蒋介石军事委员会侍从室任职。此人行踪飘忽不定，目前较为清晰的文献是1946年张氏为汉奸周佛海暗通重庆一事出庭作证时留下的。马平《大成殿审周佛海》（《西南日报》1946年10月30日）记录：…",
-          "link": "http://www.infzm.com/contents/297605",
-          "publishedOn": "2025-07-09T12:25:07.000Z",
-          "wordCount": 106,
-          "title": "吴真 | 三面张叔平与嘉业堂售书纠纷",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/297683",
-          "author": null,
-          "description": "2025-07-09 18:40:49\n2025年6月第5周，227家上市公司曝光风险事件312起，风险指数302.15，其中治理风险占33.5%，环境风险占9.7%，社会风险占56.8%。与上周相比，风险事件数和风险指数显著增加。\n中国铁建ESG风险级别达到V级，位居本期风险榜首；恒久科技因财务造假被处罚，相关责任人遭市场禁入，值得关注。\n具体来看，中国铁建旗下多家公司因发生生产安全事故被罚，例如，中铁十八局集团有限公司被江门市蓬江区应急管理局先后处以70万元和30万元行政处罚，相关处罚累计推高了中国铁建的风险指数。\n建筑行业项目规模大、施工环境复杂，高空、地下作业易引发安全事故，因此，安全生产是建筑企业的核心ESG议题。作为特大型建筑企业，中国铁建在安全生产方面的投入巨大，且近三年来持续增加。但安全防线不可一日松懈。数据显示，2022年至2024年，中国铁建因公死亡人数依次为12人、10人、9人。如何将安全生产监督考核制度和作业手册，落实到各级单位和作业人员的日常中，依然是中国铁建面临的考验。\n恒久科技为完成业绩承诺，在2019年至2021年的年报中实施系统性财务数据造假，虚增收入和利润，最终案发，恒久科技被江苏证监局处以800万元罚款，3名责任人合计被处以1750万元罚款，并被采取不同年限的证券市场禁入措施。",
-          "link": "http://www.infzm.com/contents/297683",
-          "publishedOn": "2025-07-09T11:25:07.000Z",
-          "wordCount": 74,
-          "title": "善择ESG风险跟踪第92期｜227家公司暴露ESG风险，恒久科技财务造假被罚800万元",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/297679",
-          "author": null,
-          "description": "2025-07-09 19:00:00\n\n2021年9月21日，北京王府井书店摆放的《中华人民共和国刑事诉讼法》。（视觉中国|供图）\n素有“人权法”和“小宪法”之称的刑事诉讼法修改，已被列入十四届全国人大常委会立法规划，这不仅是当前刑事诉讼法学研究的重要课题，也是社会各界广泛关注的议题。虽然在“改什么”的问题上，目前众说纷纭，但有一点可以肯定，那就是应当将加强人权保障作为本次修法的基本目标。这既是充分尊重刑事诉讼制度发展规律的必然要求，也是认真落实“坚持正确人权观，加强人权执法司法保障”顶层设计的应有之义，还是积极回应“人民群众新要求新期待”的必由之路。\n尽管颁布于1979年的刑事诉讼法在历经1996年、2012年、2018年3次规模不等的修改后，其科学化、公正化和民主化的程度已得到了大幅提升，中国刑事司法领域的人权保障水平也取得了显著进展。不过，加强人权刑事司法保障，是一个长期复杂的系统工程，不可能一蹴而就，需要持续用力、久久为功。特别是，我国刑事诉讼程序的设计一直存在着“以自然人为中心”“以人身权为中心”“以方便专门机关办案为中心”“以侦查为中心”等几个方面的特征，还在很大程度上制约着我国人权刑事司法保障尤其是刑事被追诉人权利保障的水平。\n虽然，正确的人权观要求刑事诉讼立法建立均衡的权利保护体系，并维持刑事诉讼构造的动态平衡，从而使包括被害人和被追诉人在内的所有诉讼参与人都能享有一些基本的程序权利，但是，由于刑事诉讼中的控辩双方存在着一种“天然不平等”，因此，加强被追诉人的权利保障，才被认为是历次刑事诉讼制度改革需要重点解决的问题。未来，或应以解决突出问题为目标，并以顶层设计和实践探索相结合为路径，着重从以下几个方面，强化人权刑事司法保障尤其是被追诉人的权利保障。\n 回应“以审判为中心”\n“以审判为中心”的改革是一场关乎刑事诉讼构造优化的深层变革，但由于诸多原因，其实施…",
-          "link": "http://www.infzm.com/contents/297679",
-          "publishedOn": "2025-07-09T11:25:07.000Z",
-          "wordCount": 92,
-          "title": "刑诉法修改：需进一步消除“天然不平等”|法眼",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/297661",
-          "author": null,
-          "description": "2025-07-09 19:00:00\n2025年4月18日，由苏州市工信局指导，苏州市企业服务中心（供应链对接服务中心）主办，友达、友达数位、友达智汇、友达数位企业可持续发展研究院联合协办的“链动绿色，韧性启航”2025供应链年度公开课暨可持续转型实践私享会在苏州友达光电国际会议厅举行。来自政府、企业、学术界的70余位嘉宾现场参与活动，200余嘉宾线上参与。共同探讨供应链可持续转型的前沿趋势与实践路径，为行业绿色发展注入新活力。\n这是在苏州市政府支持下，友达联合生态伙伴举办的系列平台活动之一。作为世界领先的创新显示技术与解决方案提供商和产业链核心企业，友达光电积极发挥可持续领导力，助力供应商、客户绿色低碳转型，并通过绿色智能解决方案，与合作伙伴共同推动经济社会可持续发展。\n\n从内生到外化\n推动绿色增长正在成为全球主要经济体的共同选择。为扶持本土绿色产业，以及抢占绿色低碳发展制高点，欧美发达经济体开始将更高标准的环境保护和碳排放要求纳入贸易和投资协定，以气候变化、ESG为主题的新型国际贸易体系逐步形成，全生命周期绿色管理成为全球企业维持竞争力的必要条件。\n友达视全球绿色低碳转型为企业发展机遇，积极开拓绿色产品市场，与供应链持续优化节能，并致力发展再生料使用、包材回收等循环经济，与客户共同营销绿色价值，凝聚绿色溢价的减碳目标，与更多全球价值链伙伴共同迎接绿色永续新时代。\n回应外部倡议，深入推动碳减排。友达通过提升能源效率及考量整个生命周期来实践低碳与循环生产模式，逐年降低碳排放总量，朝着净零目标持续努力。在净零减碳的实践路径上，友达承诺的第一阶段SBTi减碳目标(以2018年为基准，于2025年达成绝对减碳25%)，已提前于2022年达标。展望更积极的低碳转型愿景，友达继续以1.5度升温情境，提出以2021为基准年，于2030年达成组织碳排(范围1+2)绝对减碳42%的目标；…",
-          "link": "http://www.infzm.com/contents/297661",
-          "publishedOn": "2025-07-09T11:25:07.000Z",
-          "wordCount": 155,
-          "title": "从绿色行动到共创价值：友达如何助力经济社会可持续｜2025年度CSR观察案例⑥",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/297653",
-          "author": null,
-          "description": "2025-07-09 18:00:00\n\n2025年7月3日，泰国曼谷，泰国国王玛哈·哇集拉隆功（右二）和素提达王后（右）在王室典礼上，为泰国代理总理素里亚（中）及其新内阁成员举行宣誓就职仪式，其中包括泰国新任文化部长佩通坦（左）和泰国副总理普坦（左二）。视觉中国/图\n\n2025年7月3日下午，泰国政府在总理府召开内阁特别会议，宣布由副总理兼内政部长普坦代理总理职务。\n\n两天前，泰国宪法法院以佩通坦可能违宪为由，决定暂停其总理职权，直至作出裁决。佩通坦被停职后，71岁的副总理兼交通部长素里亚代行总理之职。“临时上岗”不到两天，泰国代总理便再度换人。\n三天三任总理，泰国政坛的走马灯式变动举世震惊。\n38岁的佩通坦，是泰国前总理他信·西那瓦之女，于2024年8月在议会选举中脱颖而出，成为泰国最年轻的总理。她也是继姑姑英拉之后，泰国第二位女总理。\n然而任职不到一年，数度目睹家族权力兴衰的佩通坦，便再度陷入家族的政治命运轮回——他信因政变被赶下台，英拉被宪法法院罢免，如今佩通坦也和家族长辈一样，面临执政危机。\n佩通坦能否打破家族命运枷锁，挺过宪法法院调查？泰国新一轮政治危机，是否预示着他信家族政治舞台的终结？这不仅关乎佩通坦个人政治前途，也牵动整个泰国政局的未来走向。\n“事实上，在脆弱的民主制度和根深蒂固的专制统治下，泰国陷入混乱境地并非巧合。宪法法院暂停佩通坦总理职务，延续了过去二十多年解散主要政党、推翻民选政府的惯常模式。”泰国朱拉隆功大学政治学与国际关系教授提提南·蓬苏迪拉克向南方周末记者分析，保守派精英曾通过让他信结束流亡回归的“超级协议”，阻止进步派“前进党”组阁，后又试图推翻为泰党政府，意图彻底终结他信家族的政治影响力。\n“录音门”引爆泰国政坛\n佩通坦被停职，源于与柬埔寨参议院主席、前总理洪森的一通私人通话。\n2025年6月15日，泰柬边境冲突剑拔弩张之际，佩通坦以私人…",
-          "link": "http://www.infzm.com/contents/297653",
-          "publishedOn": "2025-07-09T10:25:06.000Z",
-          "wordCount": 90,
-          "title": "三天三任总理：动荡中的泰国政坛，被围猎的他信家族？",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.infzm.com/contents/297647",
-          "author": null,
-          "description": "2025-07-09 16:00:00\n\n2025年7月1日8时许，北京大兴天宫院。尹亚飞/新京报/视觉中国\n2025年7月，北京仿佛进入广东“回南天”，地铁通道的墙壁上甚至挂上水珠。东北地区也连日阴雨绵绵，仿佛进入江淮“梅雨”季。\n\n潮湿、闷热、黏腻的空气，让北方人感到陌生。“我们家现在讲粤语。”有人如是调侃。还有人说：“南方人北漂，第一次有家乡的感觉。”\n另一边，华中、华东地区酷热难耐。山东、河南、安徽、湖北、江苏、浙江等省份局地连日发布高温黄色预警，最高温突破40℃。\n这些天气其实都与“副高”有关。“副高”是西北太平洋副热带高压的简称，这个地理课本上的“明星”、中国人耳熟能详的名字，是影响我国最重要的大气环流系统。在副高控制的范围内，往往天气晴热，而在副高边缘地区，则容易发生降雨。江淮的梅雨季节、长江流域的“火炉”城市重庆、武汉和南京，都和副高有关。\n中国科学院大气物理研究所研究员赵亮告诉南方周末记者，近期全国天气与副高位置偏北且稳定维持有直接关系。副高近似南北窄、东西宽的椭圆形，东西方向的轴被称作“脊线”，它是指示副高位置的重要指标。2025年6月，副高脊线平均纬度在北纬25°，比往年的平均值高了3°，即偏北约300公里。\n科学家们发现，在气候变化背景下，副高的强度可能将越来越大，这也意味着其影响下的干旱、洪涝、热浪等极端天气事件将愈加频发，威胁上亿人口的生命健康和社会经济发展。\n北京当下叫“桑拿天”更合适\n副高是如何形成的？\n中国科学院大气物理研究所研究员肖子牛向南方周末记者介绍，来自赤道低纬度地区加热上升的气流向极地辐射，由于地球自转柯氏力的作用偏转，阻碍空气继续向极地流动，下沉堆积形成了副高。\n副高的状态，对我国天气的影响非常关键，尤其在夏季。\n每年夏半年（一年中比较炎热的半年），副高和我国降水带自南向北推进，但副高通常并不会“小步缓行”，而是经历几次“跳跃”…",
-          "link": "http://www.infzm.com/contents/297647",
-          "publishedOn": "2025-07-09T08:25:08.000Z",
-          "wordCount": 92,
-          "title": "北京“回南天”，东北下“梅雨”？因为它偏北了",
-          "imageUrl": null
         }
       ]
     },
@@ -19929,16 +19827,6 @@
           "wordCount": 1613,
           "title": "Quarter of the world’s ocean floor has been mapped, so far",
           "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/06/seabed-coverage.jpg"
-        },
-        {
-          "id": "https://flowingdata.com/?p=79128",
-          "author": "Nathan Yau",
-          "description": "Life expectancy and priorities changed. People stay single longer, marry later, divorce less, and widow older. \nTags: marriage",
-          "link": "https://flowingdata.com/2025/07/09/marital-status-shifts-in-the-united-states/",
-          "publishedOn": "2025-07-09T11:25:45.000Z",
-          "wordCount": 1651,
-          "title": "Marital Status Shifts in the United States",
-          "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/07/marital-status-featured-shifts.png"
         }
       ]
     },
@@ -20167,6 +20055,16 @@
       "feedUrl": "https://rsshub.rssforever.com/nippon/in-depth",
       "siteUrl": "https://www.nippon.com/cn/economy/",
       "articles": [
+        {
+          "id": "https://www.nippon.com//cn/in-depth/c15501/",
+          "author": null,
+          "description": "携带家属的外国人快速增多\n日本出入国在留管理厅（相当于国家移民管理局——译注）公布的数据显示，截至2024年末，旅居日本的外国人达到3769000人，较2023年末增加358000人，是10年前的1.8倍。\n从“在留资格”(*1)类型来看，增长较多的主要是获签了“技术、人文知识、国际业务”签证（通称“技人国”签证）的技术人员、口译人员、设计师、语言教师等，覆盖了多个工作种类。日本厚生劳动省实施的外籍人士就业情况相关统计显示，截至2024年的10年间，这类人员已增长2.9倍至411000人。\n\n这些人员和取得大学教授、法律和会计业务等签证者一样，可以携带家属赴日，这就不可避免地出现了旅居日本的外籍儿童的增加。从文部科学省的统计也可以看出，2024年公立学校在读外籍学生人数达到大约129000人，较上一年增加了9.0%。这种结构性的变化，便是面向外籍儿童的日语教育成为当务之急的背景原因。\n随之而来的问题，是许多学校缺少给他们教授日语的老师，越来越多的孩子在没能充分掌握日语的环境中长大。如果无法共享作为沟通基础的“语言”，那么不仅会对他们的升学和就业造成负面影响，而且他们还容易在当地社区中陷入孤立无援的境地。\n大约7万名儿童需要日语指导\n文部科学省2023年的统计显示，全国公立学校大约有7万名少年儿童需要接受日语指导，是10年前的两倍左右。\n\n毗邻东京的千叶县松户市，2024年末共有大约50万人口，其中23000人是外国人。\n为此，该市教育委员会从2022年起执行一项政策，针对需要接受日语指导的学生达到18人以上的小学，原则上设置“日语教室”，实施分班教学。2025年，该市全部45所小学中，30%即15所学校设置了日语教室。2024年起，在市内还设立了一处“学前班”，在外籍儿童就近入学之前的20天时间内，集中教授问候寒暄和说明自己身体状况的语句等学校生活必备的基础日语。该市教委专…",
+          "link": "https://www.nippon.com//cn/in-depth/c15501/",
+          "publishedOn": "2025-07-28T21:00:00.000Z",
+          "wordCount": 82,
+          "title": "被冷落的外籍儿童，凸显学校教育资源短缺问题",
+          "imageUrl": "https://www.nippon.com/cn/ncommon/contents/in-depth/2841832/2841832.jpg"
+        },
         {
           "id": "https://www.nippon.com//cn/in-depth/d01154/",
           "author": null,
