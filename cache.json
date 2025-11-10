@@ -12,6 +12,96 @@
       "siteUrl": "https://www.bestblogs.dev/zh/feeds",
       "articles": [
         {
+          "id": "1443b38e",
+          "author": "dbaplus社群",
+          "description": "📌 一句话摘要\n            \n详细阐述了如何通过分阶段、双写、影子读及强化可观测性，实现 10 亿级金融数据零停机迁移的实战经验。\n📝 详细摘要\n            \n文章深入剖析了一次涉及 10 亿条金融数据、要求零停机的大规模关系型数据库（如 PostgreSQL/MySQL）迁移实战，并最终指出数据迁移本质上是一个复杂的系统设计问题。作者首先阐述了因旧数据库性能瓶颈和僵化模式而不得不迁移的背景，强调了金融数据迁移的极高风险。接着，文章详细介绍了分五个核心步骤的解决方案：首先，通过分块、并行和禁用索引等方式批量迁移“冷数据”；其次，采用双写机制结合 Kafka 重试队列，确保实时流量在新旧数据库间同步且具备幂等性；再次，利用影子读进行线上暗测，在不影响用户的情况下发现并修复新库的潜在问题；然后，在低流量时段进行谨慎切换，并通过预热缓存、制定回滚方案和严密监控来保障平稳过渡；最后，强调了强大的可观测性在整个迁移过程中的生命线作用。文章还总结了分阶段与大爆炸、ETL 与双写、迁移时是否建索引等关键权衡，并分享了宝贵的最终教训。\n💡 主要观点\n            \n大规模数据迁移本质上是复杂的分布式系统设计问题。\n                         数据迁移并非单纯的数据库操作，而是一个涉及周密计划、技术权衡、风险管理和人性压力的系统工程，零停机是设计而非运气。\n                    \n\n                        分阶段处理与幂等性是海量数据迁移的基础。\n                         通过分块并行迁移冷数据，并结合双写机制和重试队列处理实时流量，确保数据写入的幂等性和一致性，从而实现零停机目标。\n                    \n\n                        影子读是上线前发现潜在问题的关键。\n                         在不影响用户的情况下，将线上查询同步到新库进行暗测，提前暴露时区、NULL 值、排序规则等测试环境难以捕捉的隐蔽问题，有效降低切换风险。\n                    \n\n                        谨慎切换需周密计划与预热监控。\n                         系统切换并非一键完成，需选择低流量时段，通过预热缓存、制定回滚方案和严密监控关键指标（如延迟、错误率、业务指标），保障平稳过渡。\n                    \n\n                        强大的可观测性是保障迁移成功的生命线。\n                         实时监控数据库内部（WAL、缓存、死锁）和业务关键绩效指标，能及时发现并解决潜在问题，确保系统在整个迁移过程中平稳运行。\n                    \n💬 文章金句\n            \n我们迁移的是关键金融数据------支付、订单、账本。一旦出错，客户会亏钱，仪表板会崩溃，信任会在一夜之间蒸发。\n教训：超大迁移，别想着'一把梭'。要分块 + 并行 + 幂等。\n影子流量并非可有可无，它是赶在客户发现之前捕获查询规划器和编码不匹配的唯一方法。\n教训：切换不是按个开关就完事，要缓存预热 + 回滚方案 + obsessive 监控。\n我们不仅仅是迁移了十亿条记录，我们认识到，数据迁移不是数据库问题，而是系统设计问题。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：dbaplus社群\n作者：dbaplus社群\n分类：软件编程\n语言：中文\n阅读时间：10 分钟\n字数：2477\n标签：\n                    \n                        数据迁移, 零停机, 分布式系统, 数据库, 系统架构\n                    \n                \n            \n        \n\n        \n            阅读完整文章",
+          "link": "https://www.bestblogs.dev/zh/article/1443b38e",
+          "publishedOn": "2025-11-09T23:16:00.000Z",
+          "wordCount": 498,
+          "title": "零停机！一次惊心动魄的 10 亿金融数据迁移实战",
+          "enclosure": {
+            "url": "https://wechat2rss.bestblogs.dev/img-proxy/?k=c75341ca&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FvCTfE5pGMr8QDPmlxp60cBAgdE9HEkictrWXiaBaRL9qyeGqrdrxw39q8ks8NoHmN4IY1Hhgm3pJDibl4dJ3VIKAg%2F0%3Fwx_fmt%3Djpeg",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://wechat2rss.bestblogs.dev/img-proxy/?k=c75341ca&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FvCTfE5pGMr8QDPmlxp60cBAgdE9HEkictrWXiaBaRL9qyeGqrdrxw39q8ks8NoHmN4IY1Hhgm3pJDibl4dJ3VIKAg%2F0%3Fwx_fmt%3Djpeg"
+        },
+        {
+          "id": "bffb3d8f",
+          "author": "甲子光年",
+          "description": "📌 一句话摘要\n            \n甲子光年深度记录了“杭州六小龙”首次乌镇同台对话，探讨了各企业在具身智能、脑机接口、空间智能、游戏科学和通用 AI 等前沿领域的成长历程、技术创新与未来挑战，并对 AI 的社会影响进行了深入思考。\n📝 详细摘要\n            \n本文详尽记录了 2025 年世界互联网大会乌镇峰会期间，“杭州六小龙”——宇树科技、强脑科技、群核科技、云深处科技、游戏科学、深度求索——的首次同台对话。在阿里云创始人王坚的主持下，各企业负责人分享了各自在机器人、脑机接口、空间智能、游戏开发及通用人工智能等前沿技术领域的十年发展历程、核心技术突破及面临的挑战。对话深入探讨了中国科技企业如何以自研核心技术、全球产品竞争力和长期主义实现“结构突围”，并就 AI 的普惠性、对社会秩序的冲击以及具身智能模型的构建、数据采集、操作复杂性等技术边界问题进行了坦诚交流。文章展现了中国科技产业在 AI 浪潮下的创新活力与深刻思考，为技术从业者提供了宝贵的行业洞察和未来展望。\n💡 主要观点\n            \n“杭州六小龙”代表中国科技产业的“结构突围”，以自研技术、全球竞争力和长期主义为核心。\n                         宇树、强脑、群核、云深处、游戏科学、深度求索六家企业，虽赛道不同，但均以核心技术自研为起点，目标全球竞争力，并坚持长期主义发展，体现了中国科技企业的集体创新与突破。\n                    \n\n                        具身智能、脑机接口和空间智能等前沿领域面临模型、数据和操作复杂性等核心技术挑战。\n                         机器人领域面临具身智能 AI 模型、数据采集与训练难题；脑机接口需攻克数据采集与解析的巨大挑战；空间智能则需服务日益增多的机器，均需创新性解决方案。\n                    \n\n                        AI 发展对社会带来机遇与挑战并存，科技公司应担当“科技布道者”、“吹哨人”和“人类守护者”角色。\n                         短期 AI 普惠可创造更大价值，中期可能带来失业风险，长期或冲击社会秩序。科技公司需推动技术普惠，警示风险，并参与未来社会重塑，以确保 AI 向善发展。\n                    \n💬 文章金句\n            \n“杭州六小龙”的同时出现，并不是偶然，而是中国科技产业一次集体性的“结构突围”。\n我们的技术路线是沿着“从痛到大”来规划我们的产品。\n我觉得空间智能是继大语言模型之后一个很重要的领域。它可以用在物理 AI 上，包括机器人相关的所有领域；也可以用在视频生成上，因为视频生成需要符合空间一致性。\n如果人工智能的发展结果能是乐观的，那应该是我们想办法让它去赋能更多普通人，而不是让技术越来越集中在少数公司手里。\n现在的 AI 并不具备像人那样稳定的、可跨领域泛化的智力……它现在的智能具有某种不完备性，我们也可以称之为锯齿智能（jagged intelligence）。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：甲子光年\n作者：甲子光年\n分类：人工智能\n语言：中文\n阅读时间：65 分钟\n字数：16160\n标签：\n                    \n                        科技创业, 产业趋势, 人工智能, 机器人, 具身智能\n                    \n                \n            \n        \n\n        \n            阅读完整文章",
+          "link": "https://www.bestblogs.dev/zh/article/bffb3d8f",
+          "publishedOn": "2025-11-08T07:25:00.000Z",
+          "wordCount": 496,
+          "title": "现场万字实录：“杭州六小龙”首次同台对话｜甲子光年",
+          "enclosure": {
+            "url": "https://wechat2rss.bestblogs.dev/img-proxy/?k=b1110602&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F58b2usHiaQIib8jcLAKGtks2nH0XpxDLKY1DfmX3ID1iazCMJCbibqhibvJIF0G8cNO83OfX5icLaicUosQFXjBcP6ASw%2F0%3Fwx_fmt%3Djpeg",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://wechat2rss.bestblogs.dev/img-proxy/?k=b1110602&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F58b2usHiaQIib8jcLAKGtks2nH0XpxDLKY1DfmX3ID1iazCMJCbibqhibvJIF0G8cNO83OfX5icLaicUosQFXjBcP6ASw%2F0%3Fwx_fmt%3Djpeg"
+        },
+        {
+          "id": "9a9addc2",
+          "author": "宝玉",
+          "description": "📌 一句话摘要\n            \n文章通过回顾 Chrome 网页历史设计经验，强调 AI 产品应将聊天历史视为基础设施而非复杂功能，以简洁和幕后赋能提升用户体验。\n📝 详细摘要\n            \n本文深度剖析了 Chrome 浏览器在网页历史功能设计上的探索与教训，并将其类比到当前 AI 产品的聊天历史设计。早期 Chrome 团队曾投入大量精力设计复杂、智能化的历史界面，期望帮助用户发现自我和洞察浏览模式，但实际用户行为却显示，人们更倾向于通过简单的搜索或重新开始来解决问题。文章指出，用户总是选择“阻力最小的路径”，因此 AI 产品应将强大的聊天历史能力作为幕后基础设施，而非一个需要用户主动探索的复杂功能。作者提出了具体的 AI 设计建议，包括让聊天“易抛弃”、浮现重复内容、添加轻量级记忆和提供直达答案的搜索。尽管 LLM 记忆架构复杂，但产品应努力向用户呈现一个简单、连贯的模型，让历史默默赋能核心产品，提升个性化和上下文理解，最终让用户体验更顺畅。\n💡 主要观点\n            \n用户倾向于简单直接地重新获取信息，而非探索复杂的历史界面。\n                         Chrome 的经验表明，用户不愿花时间整理历史，更倾向于简单搜索或重新开始，AI 产品设计应遵循这一用户行为模式。\n                    \n\n                        AI 产品应将聊天历史视为幕后基础设施，而非前台核心功能。\n                         聊天历史的真正价值在于默默赋能产品，提供个性化、上下文理解和信息召回，而非成为用户需主动探索的复杂界面。\n                    \n\n                        设计应遵循“阻力最小路径”原则，让聊天“易抛弃”并提供轻量级记忆。\n                         通过优化产品使其易于重新开始，并提供收藏、智能搜索等辅助功能，减轻用户认知负担，提升使用体验。\n                    \n\n                        AI 记忆架构虽复杂，但产品应向用户呈现简单、连贯的历史模型。\n                         不同 LLM 模型记忆方式各异，产品设计需隐藏底层复杂性，提供透明且易于理解的历史体验，如 Chrome 的历史模型。\n                    \n💬 文章金句\n            \n我们现在对 AI 聊天历史的思考，可能\"想太多了\"------ 就像当年 Chrome 对待网页历史那样。\n人们根本不想要一个花哨的界面，来帮他们梳理历史，分析自己作为\"互联网领航员\"的见解。他们只是想找到前几天读过的那篇文章，或者去年秋天做过的那个南瓜派食谱。而\"再搜一次\"显然更简单。\n用户永远会选择\"阻力最小的路径\"。\n最好的设计，就是让历史\"活在\"幕后，在需要时才融入体验，推动用户不断向前。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：宝玉的分享\n作者：宝玉\n分类：人工智能\n语言：中文\n阅读时间：10 分钟\n字数：2408\n标签：\n                    \n                        产品设计, 用户体验, AI产品, LLM, 设计原则\n                    \n                \n            \n        \n\n        \n            阅读完整文章",
+          "link": "https://www.bestblogs.dev/zh/article/9a9addc2",
+          "publishedOn": "2025-11-07T16:44:37.000Z",
+          "wordCount": 512,
+          "title": "从 Chrome 早期的网页历史设计探索中，今天的 AI 产品能学到什么？",
+          "enclosure": {
+            "url": "https://baoyu.io/api/og?heading=%E4%BB%8E+Chrome+%E6%97%A9%E6%9C%9F%E7%9A%84%E7%BD%91%E9%A1%B5%E5%8E%86%E5%8F%B2%E8%AE%BE%E8%AE%A1%E6%8E%A2%E7%B4%A2%E4%B8%AD%EF%BC%8C%E4%BB%8A%E5%A4%A9%E7%9A%84+AI+%E4%BA%A7%E5%93%81%E8%83%BD%E5%AD%A6%E5%88%B0%E4%BB%80%E4%B9%88%EF%BC%9F&summary=%E6%88%91%E4%BB%AC%E7%8E%B0%E5%9C%A8%E5%AF%B9+AI+%E8%81%8A%E5%A4%A9%E5%8E%86%E5%8F%B2%E7%9A%84%E6%80%9D%E8%80%83%EF%BC%8C%E5%8F%AF%E8%83%BD%E2%80%9C%E6%83%B3%E5%A4%AA%E5%A4%9A%E4%BA%86%E2%80%9D%E2%80%94%E2%80%94+%E5%B0%B1%E5%83%8F%E5%BD%93%E5%B9%B4+Chrome+%E5%AF%B9%E5%BE%85%E7%BD%91%E9%A1%B5%E5%8E%86%E5%8F%B2%E9%82%A3%E6%A0%B7%E3%80%82%0A&type=Translations&mode=light",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://baoyu.io/api/og?heading=%E4%BB%8E+Chrome+%E6%97%A9%E6%9C%9F%E7%9A%84%E7%BD%91%E9%A1%B5%E5%8E%86%E5%8F%B2%E8%AE%BE%E8%AE%A1%E6%8E%A2%E7%B4%A2%E4%B8%AD%EF%BC%8C%E4%BB%8A%E5%A4%A9%E7%9A%84+AI+%E4%BA%A7%E5%93%81%E8%83%BD%E5%AD%A6%E5%88%B0%E4%BB%80%E4%B9%88%EF%BC%9F&summary=%E6%88%91%E4%BB%AC%E7%8E%B0%E5%9C%A8%E5%AF%B9+AI+%E8%81%8A%E5%A4%A9%E5%8E%86%E5%8F%B2%E7%9A%84%E6%80%9D%E8%80%83%EF%BC%8C%E5%8F%AF%E8%83%BD%E2%80%9C%E6%83%B3%E5%A4%AA%E5%A4%9A%E4%BA%86%E2%80%9D%E2%80%94%E2%80%94+%E5%B0%B1%E5%83%8F%E5%BD%93%E5%B9%B4+Chrome+%E5%AF%B9%E5%BE%85%E7%BD%91%E9%A1%B5%E5%8E%86%E5%8F%B2%E9%82%A3%E6%A0%B7%E3%80%82%0A&type=Translations&mode=light"
+        },
+        {
+          "id": "c753b1fd",
+          "author": "大淘宝技术",
+          "description": "📌 一句话摘要\n            \n聚焦 AI 辅助编程“最后一公里”问题，提出并验证 AI 自主编码-部署-自测-改 Bug 的闭环工作流。\n📝 详细摘要\n            \n文章深入探讨了 AI 辅助编程中 AI 生成代码后缺乏自测与迭代的“最后一公里”挑战。为解决这一痛点，作者团队提出并设计了一套测试驱动的 AI 编程闭环工作流，旨在赋予 AI 自主发现、定位、修复代码问题的能力。该工作流涵盖了编码、部署、自测、改 Bug 等核心环节，并通过自动化验收和反馈机制实现。文章详细介绍了其整体架构和核心组件，包括部署 Agent、HSF 调试工具以及自动化调试命令（auto-debugging）及其精妙的提示词设计。通过“收藏夹功能修复”的实践案例，文章成功验证了该工作流的有效性，证明只要提供清晰的需求、技术方案和测试用例，AI 就能像合格程序员一样完成自我修复与持续优化。最后，文章展望了测试能力升级、bug 诊断强化、任务拆分等未来优化方向，为 AI 在研发流程中的深入应用提供了宝贵的实践经验。\n💡 主要观点\n            \n解决 AI 辅助编程“最后一公里”问题，实现 AI 代码自测与迭代。\n                         AI 生成代码后常缺乏自测和修复能力，导致人工介入多。通过引入自动化验收和反馈机制，使 AI 能自主发现并修复代码问题，形成开发闭环。\n                    \n\n                        构建测试驱动的 AI 编程工作流，赋予 AI“自省”能力。\n                         以明确测试用例作为验收标准，结合部署 Agent、HSF 调试工具和自动化调试命令，让 AI 自主判断代码质量并迭代修复。\n                    \n\n                        详细设计了部署 Agent 与自动化调试命令的提示词与执行步骤。\n                         文章详细阐述了部署 Agent 与自动化调试命令的提示词（Prompt）设计及其执行步骤，强调了其作为实现 AI 自主判断、迭代修复和闭环工作流的关键驱动力。\n                    \n\n                        实践案例验证 AI 闭环工作流的有效性。\n                         通过“收藏夹功能修复”案例，展示 AI 如何根据需求、方案和测试用例，自动发现、定位、修复 Bug 并部署验证，实现无人干预的修复。\n                    \n\n                        明确 AI 自主迭代的关键在于清晰的验收标准和完整反馈循环。\n                         实验结论强调，提供可验证的测试用例和从执行到验证再到修复的闭环设计，是 AI 实现自我验收和迭代的核心。\n                    \n💬 文章金句\n            \n缺乏自动化的验收和迭代机制。回顾一下我们日常开发的标准流程：编码 → 部署 → 自测 → 改 bug → 再自测，如此循环直到测试通过，这是每个合格程序员的基本素养。\n通过明确的测试用例作为验收标准，让 AI 能够自主判断任务完成质量，并在不符合预期时自动迭代修复。\n这个实验的场景非常简单，但仍然验证了我们先前的观点：只要给 AI 明确的验收标准和反馈机制，它就能具备自我验收和迭代能力。\n关键在于：明确的验收标准、完整的反馈循环、标准化的工作流。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：大淘宝技术\n作者：大淘宝技术\n分类：人工智能\n语言：中文\n阅读时间：17 分钟\n字数：4231\n标签：\n                    \n                        AI辅助编程, 自动化开发, Agent, 大语言模型应用, 测试驱动开发\n                    \n                \n            \n        \n\n        \n            阅读完整文章",
+          "link": "https://www.bestblogs.dev/zh/article/c753b1fd",
+          "publishedOn": "2025-11-07T10:41:00.000Z",
+          "wordCount": 514,
+          "title": "让 AI 打出丝滑连招：编码-部署-自测-改 bug",
+          "enclosure": {
+            "url": "https://wechat2rss.bestblogs.dev/img-proxy/?k=f86fb312&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F33P2FdAnju8GboG6JHh1mOIdN5rfY55ExgOrYmSXEiaZxcUuib9xiaLaLcUib1unhyNVQhoG3m8IAibv1rweDyicia7LQ%2F0%3Fwx_fmt%3Djpeg",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://wechat2rss.bestblogs.dev/img-proxy/?k=f86fb312&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F33P2FdAnju8GboG6JHh1mOIdN5rfY55ExgOrYmSXEiaZxcUuib9xiaLaLcUib1unhyNVQhoG3m8IAibv1rweDyicia7LQ%2F0%3Fwx_fmt%3Djpeg"
+        },
+        {
+          "id": "741589f9",
+          "author": "腾讯技术工程",
+          "description": "📌 一句话摘要\n            \n腾讯悟空 Agent 通过多智能体架构和数据飞轮，有效应对 AI 时代代码安全审计挑战，并获得 NVIDIA 致谢。\n📝 详细摘要\n            \n本文详细介绍了腾讯悟空 Agent 在代码安全审计领域的实践、复盘与迭代。面对 AI 时代代码复杂度爆炸，传统人工审计和 SAST 工具效率低下、误报率高的问题，悟空 Agent 提出了一种多智能体（Multi-Agent）协作架构，通过 Client、Remote、Audit、Review、Fix 五类智能体协同作业，实现漏洞发现、复现、披露到修复的全闭环，并成功发现 NVIDIA Megatron-LM 项目中的反序列化漏洞，获得官方致谢。文章深入探讨了多智能体迭代中面临的“上下文断流”和“调度失衡”两大瓶颈，并提出了“上下文工程”和强化学习调度等优化方案。此外，悟空 Agent 构建了数据飞轮体系，通过 Bad Case 的持续学习与模型微调，将问题闭环解决率提升至 97%以上。文章强调 AI 基础设施的安全不容忽视，真正的风险常在于模型之外的工程细节，并指出 AI Agent 的价值在于放大人类判断力，让安全真正融入业务生产线，成为长期竞争力。\n💡 主要观点\n            \n传统代码安全审计方式难以应对 AI 时代代码复杂度爆炸的挑战\n                         人工审计成本高、周期长，SAST 工具误报率高、上下文缺失，两者均无法跟上 AI 框架快速迭代的速度，亟需新的解决方案。\n                    \n\n                        悟空 Agent 采用多智能体架构实现高效、闭环的代码安全审计流程\n                         通过 Client、Remote、Audit…",
+          "link": "https://www.bestblogs.dev/zh/article/741589f9",
+          "publishedOn": "2025-11-07T09:38:00.000Z",
+          "wordCount": 520,
+          "title": "获 NVIDIA 致谢：悟空 Agent 的实践、复盘与迭代",
+          "enclosure": {
+            "url": "https://wechat2rss.bestblogs.dev/img-proxy/?k=9847d64b&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fj3gficicyOvasPIoguMrvgOia00y5n8fEMXOAR8KNg7JkYZeVXRZd1zRu594uqZcB55bSvLmdO5KnIaHgHJMbNQPQ%2F0%3Fwx_fmt%3Djpeg",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://wechat2rss.bestblogs.dev/img-proxy/?k=9847d64b&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fj3gficicyOvasPIoguMrvgOia00y5n8fEMXOAR8KNg7JkYZeVXRZd1zRu594uqZcB55bSvLmdO5KnIaHgHJMbNQPQ%2F0%3Fwx_fmt%3Djpeg"
+        },
+        {
+          "id": "b3ca645c",
+          "author": "腾讯科技",
+          "description": "📌 一句话摘要\n            \n文章基于上海交通大学新论文，系统阐释了上下文工程的定义、演进历程、核心构件及其未来发展，旨在弥合人机认知鸿沟。\n📝 详细摘要\n            \n文章深入解读了上海交通大学和 GAIR 实验室发表的《上下文工程 2.0》论文，系统性地回答了上下文工程的本质、基础构件和未来发展。文章指出，上下文工程的本质是通过建立更丰富有效的上下文，将人类高熵意图转化为机器可理解的低熵指令，以弥合人机之间的认知鸿沟。文章将上下文工程分为 1.0（翻译）和 2.0（指令）时代，并详细阐述了 2.0 时代为解决 AI 感官残缺、理解能力有限、记忆缺失和注意力涣散等问题，所提出的上下文收集与记忆系统、上下文管理（自我烘焙）和上下文使用（高效选择机制）三大构件。最后，文章展望了上下文工程 3.0 和 4.0 时代，认为其终极形态是融入核心架构，成为不可见的基础设施。\n💡 主要观点\n            \n上下文工程的核心是熵减过程，旨在弥合人机认知鸿沟。\n                         人类交流高熵而机器低熵，上下文工程通过收集、管理、使用上下文，将复杂意图转化为机器可理解的低熵指令。\n                    \n\n                        上下文工程经历了从“翻译”到“指令”的演进，2.0 时代聚焦于构建系统弥补 AI 缺陷。\n                         1.0 时代通过 GUI 和编程语言进行翻译，2.0 时代则通过脚手架解决 AI 感官、理解、记忆、注意力等方面的不足。\n                    \n\n                        完整的上下文工程体系包含收集、管理和使用三大构件，以提升 AI 的理解和任务表现。\n                         通过多模态/分布式收集、分层记忆系统、上下文抽象（自我烘焙）和高效选择机制，系统性地增强 AI 处理上下文的能力。\n                    \n\n                        上下文工程的终极目标是融入核心架构，成为不可见的基础设施。\n                         随着 AI 能力提升，上下文工程的脚手架将演变为核心架构的一部分，实现无缝、无感的智能交互。\n                    \n💬 文章金句\n            \n上下文工程则是设计和优化上下文的收集、管理、使用， 以提升机器理解和任务表现的努力。\n正是因为这些缺陷存在，它理解不了我们的高熵交流，造成了 Gap。\nTransformer 架构存在长上下文性能瓶颈，导致模型既没有长期记忆系统，也难以捕捉长距离依赖关系。\n一个好的上下文工程，就是尽可能搭建脚手架，让模型借助脚手架，解决当下能力不足的问题。\n上下文工程的终极形态，就是让自己成为不需要被谈论的基础设施。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：腾讯科技\n作者：腾讯科技\n分类：人工智能\n语言：中文\n阅读时间：17 分钟\n字数：4210\n标签：\n                    \n                        上下文工程, 大语言模型, 提示词工程, 人机交互, RAG\n                    \n                \n            \n        \n\n        \n            阅读完整文章",
+          "link": "https://www.bestblogs.dev/zh/article/b3ca645c",
+          "publishedOn": "2025-11-07T04:13:00.000Z",
+          "wordCount": 484,
+          "title": "一篇论文，读懂上下文工程的前世今生｜上交大新论文解读",
+          "enclosure": {
+            "url": "https://wechat2rss.bestblogs.dev/img-proxy/?k=ed659dc3&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fow6przZuPIHz8IhVSm6wibW4XDIaTJUhTvL6Nic0WV4CdpR2r4FzAmC1gdKibPbuZtJdtciaEb87g9AFpNUC9icKeEg%2F0%3Fwx_fmt%3Djpeg",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://wechat2rss.bestblogs.dev/img-proxy/?k=ed659dc3&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fow6przZuPIHz8IhVSm6wibW4XDIaTJUhTvL6Nic0WV4CdpR2r4FzAmC1gdKibPbuZtJdtciaEb87g9AFpNUC9icKeEg%2F0%3Fwx_fmt%3Djpeg"
+        },
+        {
           "id": "dcbdd329",
           "author": "阮一峰的网络日志",
           "description": "📌 一句话摘要\n            \n本期周刊以软件界面设计为核心，强调简洁易用与分级设计的重要性，并精选了多领域最新科技动态、实用工具及 AI 应用进展。\n📝 详细摘要\n            \n本期《科技爱好者周刊》深入探讨了软件用户界面（UI）设计这一重要议题。文章通过 Handbrake 视频转换软件的案例，指出复杂、堆砌功能的界面易使用户产生畏惧感，并打击其使用信心。作者提倡优秀 UI 设计的核心原则是避免多操作入口、减少用户选择、并尽量提供默认值，同时建议为不同用户群体提供分级界面（简洁版与专业版）。除了 UI 设计的主题，周刊还收录了“本周软件”NocoBase（一个低代码/零代码平台），多篇科技动态（如 AI 提示词著作权案、家务机器人等），以及各类文章、开发工具、AI 相关应用和资源分享。值得关注的是，周刊文摘部分深入分析了当前大公司在 AI 上的巨额投资与大规模裁员之间的关联，指出这种投资可能并未带来实际回报，而是在通过互相购买制造增长假象。整体内容丰富，兼顾深度与广度，为技术从业者提供了全面的信息速览。\n💡 主要观点\n            \n复杂软件界面易造成用户困扰和畏惧感\n                         以 Handbrake 为例，过多设置和术语堆砌的界面让非专业用户难以理解和操作，降低了软件的可用性和用户体验。\n                    \n\n                        优秀 UI 设计应遵循简洁、减少选择和提供默认值的原则\n                         通过避免多个操作入口，减少用户的决策负担，并提供智能默认值，能显著提升界面的直观性和易用性，让用户快速上手。\n                    \n\n                        针对不同用户群体提供分级界面是提升用户体验的有效策略\n                         为普通用户提供极简的核心功能界面，同时为高级用户保留专业版以满足复杂需求，能兼顾不同层次用户的体验，提升产品普适性。\n                    \n\n                        大公司在 AI 上的巨额投资存在泡沫风险，可能通过互相购买制造增长假象并以裁员支撑投入\n                         文章文摘部分揭示，科技巨头在 AI 领域的庞大投入并未带来同等回报，反而通过资金在公司间的循环流动，营造出股价上涨的繁荣景象，并以裁员来为 AI 投资腾挪资金，这种模式面临不可持续的风险。\n                    \n💬 文章金句\n            \n优秀 UI 设计的奥秘：避免多个操作入口，避免让用户做选择，所有设置尽量提供默认值。\n你看，用户只是想找个小工具，转换一下视频格式，结果却被工具提示'你的能力不足'。\n未来属于那些能够构想、开发和维护复杂系统的人。\n大公司投向 AI 的巨额资金到底都流向了哪里？回答是他们都在互相购买。\n我们收到谷歌的报告，他们在我们的代码中发现了一个漏洞。我们很重视安全，但是互联网巨头使用 AI 扫描志愿者维护的代码，然后提交安全漏洞，希望志愿者免费修复，这真的公平吗？\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：阮一峰的网络日志\n作者：阮一峰的网络日志\n分类：软件编程\n语言：中文\n阅读时间：19 分钟\n字数：4725\n标签：\n                    \n                        UI/UX, 软件设计, 软件开发, 人工智能应用, 科技趋势\n                    \n                \n            \n        \n\n        \n            阅读完整文章",
@@ -40,6 +130,36 @@
             "length": "0"
           },
           "imageUrl": "https://wechat2rss.bestblogs.dev/img-proxy/?k=161a5a8e&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FvCTfE5pGMriciac5cl3wGicaRPnr2XqNPj5M5Fm7zzC8UWIGnj3or2ZYtxHTqbtqHxVSOVLJicLI9CiaialatNu6ic3xw%2F0%3Fwx_fmt%3Djpeg"
+        },
+        {
+          "id": "cc81fd10",
+          "author": "歸藏的AI工具箱",
+          "description": "📌 一句话摘要\n            \n文章深度评测了月之暗面 Kimi K2-Thinking 大模型及其编程全家桶（Kimi CLI 与 KFC），通过多项复杂编程挑战，展示了其在 Agent、推理和代码生成方面的卓越能力，并分析了其提供“交付确定性”的战略价值。\n📝 详细摘要\n            \n本文对月之暗面发布的 Kimi K2-Thinking 模型进行了首次深度测试，详细介绍了其在 Agent 化升级、推理 SOTA、编程增强及效率提升等方面的核心特性。作者不仅提供了 Kimi CLI 的安装与 KFC（Kimi For Coding）API 密钥的获取教程，还演示了如何将其集成至 Claude Code 环境，为开发者构建了完整的 Kimi 编程全家桶使用指南。文章通过一系列严谨的编程测试，包括复杂 Todo 应用的多轮连续迭代、Linear 官网设计风格复刻、流程图工具的复杂逻辑处理、实时加密货币看板的 API 调用与可视化，以及现有代码的性能瓶颈分析与优化，全面展现了 K2-Thinking 模型在处理复杂编程任务、逻辑推理和问题解决上的强大能力，并与竞品进行了对比。最后，文章从战略层面分析了 Kimi 全家桶的价值，指出其致力于解决 API 经济“最后一公里”、开源模型的“集成负担”及纯工具产品“模型依赖”等行业痛点，为开发者提供“交付确定性”的端到端解决方案。\n💡 主要观点\n            \nKimi K2-Thinking 模型在 Agent 化、推理和编程方面实现显著升级\n                         模型具备原生边思考边用工具的能力，最高支持 300 轮自主调用；在 HLE 和 IMO 测试集上达到 SOTA，显著增强复杂检索和长程规划；编程能力在前端和多语言工程基准上表现提升。\n                    \n\n                        月之暗面构建了 Kimi 编程全家桶，提供端到端的开发者体验\n                         通过 Kimi CLI 工具和 KFC（Kimi For Coding）API 套餐，Kimi 将模型能力与开发工具、商业模式紧密结合，方便开发者更便捷、经济地使用 K2 进行编程。\n                    \n\n                        Kimi 全家桶的战略在于提供“交付确定性”的 AI 编程解决方案\n                         该战略旨在解决 API 经济的“最后一公里”、开源模型的“集成负担”和纯工具产品的“模型依赖”问题，将 AI 编程从技术探索转化为可依赖的生产工具。\n                    \n💬 文章金句\n            \nKimi-K2-Thinking 模型开源。主要的升级内容有：Agent 化升级: 原生「边思考、边用工具」，可自主持续多轮推理与调用，最高约 300 轮。\n他们推出了自己的 AI 编程 CLI 工具 Kimi CLI，安装方式和使用基本拉齐的 Claude Code，我这次也会用 Kimi CLI 进行 Kimi-K2-Thinking 的测试。\nKimi 全家桶的聪明之处在于：它不是在\"补短板\"，而是在\"建长板\"。\n在 AI 时代，开发者的核心诉求不是\"选择自由\"，而是\"交付确定性\"。\n月之暗面冷静地看到：在 AI 编程领域，模型、工具、商业三者缺一不可。单个环节再强，也无法提供完整的开发者体验。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：歸藏的AI工具箱\n作者：歸藏的AI工具箱\n分类：人工智能\n语言：中文\n阅读时间：19 分钟\n字数：4695\n标签：\n                    \n                        Kimi K2 Thinking, 大语言模型, AI编程, Agent, CLI工具\n                    \n                \n            \n        \n\n        \n            阅读完整文章",
+          "link": "https://www.bestblogs.dev/zh/article/cc81fd10",
+          "publishedOn": "2025-11-06T16:57:00.000Z",
+          "wordCount": 533,
+          "title": "藏师傅 Kimi K2 Thinking 首测！教你用 Kimi 编程全家桶",
+          "enclosure": {
+            "url": "https://wechat2rss.bestblogs.dev/img-proxy/?k=48d91a11&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FfbRX0iaT8Ege1EJYnBRK0MMFDKSI2RQo0iafkQnCRL2h3PE8QWUtdMZS3yWANK7EvAyN6bTzfjpmlRiaULPjoEpicQ%2F0%3Fwx_fmt%3Djpeg",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://wechat2rss.bestblogs.dev/img-proxy/?k=48d91a11&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FfbRX0iaT8Ege1EJYnBRK0MMFDKSI2RQo0iafkQnCRL2h3PE8QWUtdMZS3yWANK7EvAyN6bTzfjpmlRiaULPjoEpicQ%2F0%3Fwx_fmt%3Djpeg"
+        },
+        {
+          "id": "452146b5",
+          "author": "月之暗面 Kimi",
+          "description": "📌 一句话摘要\n            \n月之暗面发布 Kimi K2 Thinking 开源模型，全面提升 Agent 和推理能力，原生支持多步工具调用，并在多项基准测试中达到 SOTA。\n📝 详细摘要\n            \n文章宣布月之暗面发布 Kimi K2 Thinking 模型，这是其迄今能力最强的开源思考模型。该模型基于“模型即 Agent”理念训练，原生具备“边思考，边使用工具”的能力，在 Humanity's Last Exam、BrowseComp 和 SEAL-0 等多项基准测试中表现达到 SOTA。Kimi K2 Thinking 能自主实现高达 300 步的工具调用，这是在 Test-Time Scaling 领域取得的最新进展，显著提升了 Agentic 搜索、Agentic 编程、写作和综合推理能力。此外，模型通过量化感知训练实现了原生 INT4 量化，将生成速度提升约 2 倍，并增强了对国产加速计算芯片的兼容性。模型已上线 Kimi 官网、App 及开放平台 API，并可在 Hugging Face 等平台下载自行部署。\n💡 主要观点\n            \nKimi K2 Thinking 模型原生掌握“边思考，边使用工具”的能力\n                         作为新一代 Thinking Agent，该模型无需人类干预即可凭借深度思考自主实现多达 300 步的工具调用，解决了复杂问题。\n                    \n\n                        模型在多项权威基准测试中取得 SOTA 表现\n                         在 Humanity's Last Exam、BrowseComp 等测试中，Kimi K2 Thinking 展现出卓越的推理、自主搜索浏览和 Agentic 编程能力，超越现有模型。\n                    \n\n                        采用原生 INT4 量化技术，显著提升推理效率和硬件兼容性\n                         通过量化感知训练，Kimi K2 Thinking 在保持 SOTA 性能的同时，将生成速度提升约 2 倍，并对国产加速计算芯片更加友好。\n                    \n💬 文章金句\n            \nKimi K2 Thinking 是我们基于「模型即 Agent」理念训练的新一代 Thinking Agent，它原生掌握「边思考，边使用工具」的能力。\nKimi K2 Thinking 模型无需人类干预，即可凭借持续稳定的深度思考能力自主实现高达 300 步的工具调用，从而帮助用户解决更复杂的问题。\n这使得 Kimi K2 Thinking 模型能够在复杂推理和 Agentic 任务中支持原生的 INT4 推理，并将生成速度提升了约 2 倍。\nINT4 对推理硬件的兼容性更强，对国产加速计算芯片也更加友好。值得注意的是，我们所有的基准测试成绩都是在 INT4 精度下取得的。\n📊 文章信息\n            \nAI 评分：94\n精选文章：是\n来源：月之暗面 Kimi\n作者：月之暗面 Kimi\n分类：人工智能\n语言：中文\n阅读时间：11 分钟\n字数：2516\n标签：\n                    \n                        大语言模型, Agent, Kimi K2 Thinking, 月之暗面, 推理能力\n                    \n                \n            \n        \n\n        \n            阅读完整文章",
+          "link": "https://www.bestblogs.dev/zh/article/452146b5",
+          "publishedOn": "2025-11-06T15:15:00.000Z",
+          "wordCount": 530,
+          "title": "Kimi K2 Thinking 模型发布并开源，全面提升 Agent 和推理能力",
+          "enclosure": {
+            "url": "https://wechat2rss.bestblogs.dev/img-proxy/?k=13cde219&u=https%3A%2F%2Fmmecoa.qpic.cn%2Fsz_mmecoa_jpg%2FNYNAL7XfyJWpydtjVxcibhelU7VF1ZAHkTJvnhIYPrwZRMvZvcSIFxun1Qlcm6ncibOlRJuHl7kaWWg56wVxKGLQ%2F0%3Fwx_fmt%3Djpeg",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://wechat2rss.bestblogs.dev/img-proxy/?k=13cde219&u=https%3A%2F%2Fmmecoa.qpic.cn%2Fsz_mmecoa_jpg%2FNYNAL7XfyJWpydtjVxcibhelU7VF1ZAHkTJvnhIYPrwZRMvZvcSIFxun1Qlcm6ncibOlRJuHl7kaWWg56wVxKGLQ%2F0%3Fwx_fmt%3Djpeg"
         },
         {
           "id": "cd706466",
@@ -1340,36 +1460,6 @@
             "length": "0"
           },
           "imageUrl": "https://wechat2rss.bestblogs.dev/img-proxy/?k=7c670805&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FVY8SELNGe97ZMQUtg8Ejk4SleyyQpzFkqicCEqczic3AYuSjEaQ0mVeQZib5mJicGkzk2F9rIkUK2laHm507Is8sLw%2F0%3Fwx_fmt%3Djpeg"
-        },
-        {
-          "id": "34eb6a84",
-          "author": "阿里云开发者",
-          "description": "📌 一句话摘要\n            \n总结天猫技术团队如何通过 AI 技术，结合 Prompt 工程、RAG 知识库和需求规范化，实现测试用例的智能生成，并显著提升测试效率。\n📝 详细摘要\n            \n文章系统阐述了天猫技术团队在 AI 赋能测试领域的深度实践与探索，聚焦于智能测试用例生成的落地路径。首先，文章分析了业界基于大模型的探索现状及天猫电商行业面临的挑战，如版本节奏快、人力成本高、用例设计效率低等痛点。为应对这些挑战，天猫技术团队提出了“需求规范化 + Prompt 工程 + 知识库 RAG + 平台化集成”的总体策略，并辅以 AI Agent 能力建设。具体方案包括：通过精细化 Prompt 设计和端到端流程优化，构建高质量知识库并利用 Agent 自动构建与维护，推动 PRD 规范化以提升输入质量，以及将 AI 能力平台化集成。实践结果显示，在 C 端业务（如导购、营销）用例采纳率可达 85%以上，中小型需求用例编写时间缩短 75%，有效提升了测试效率。文章最后展望了 AI 在测试全流程自动化的未来，以及 QA 角色向“脑力劳动型”转型的趋势。\n💡 主要观点\n            \n结合 Prompt 工程、RAG 知识库和需求规范化，构建端到端智能测试用例生成方案\n                         通过精细化 Prompt 设计、沉淀高质量业务知识库、推动 PRD 标准化，有效提升 AI 生成用例的准确性和覆盖率，降低测试人员理解偏差。\n                    \n\n                        引入 AI Agent 实现知识库自动化构建与优化，显著降低人工成本并提升知识质量\n                         Agent 能自动从原始文档中提取业务术语、流程和功能点，并重构不合理切片，确保知识库内容完整和结构化，提高 RAG 召回精确性。\n                    \n\n                        实践证明 AI 在 C 端业务测试用例生成方面表现优异，大幅提升测试效率\n                         在导购、营销等 C 端场景用例采纳率超 85%，中小型需求用例编写时间从 2 小时缩短至 0.5 小时，为 QA 提效提供有力支撑。\n                    \n💬 文章金句\n            \n我们的核心目标是通过 AI 技术，实现测试用例的智能化生成，并构建一个符合行业特性的测试流。\n围绕 AI 用例生成的目标，制定了'需求规范化 + Prompt 工程 + 知识库 RAG + 平台化集成'的总体策略，并辅以 Agent 能力建设，提升日常知识库建设人效。\n在导购场域、营销解决方案领域中，中小型需求的用例编写时间从 2 小时缩短至 0.5 小时（节省 75%）。\n我们需要从'体力劳动型'测试向'脑力劳动型'测试转型，将繁琐重复的工作交给 AI，让 QA 聚焦于更具挑战性的领域。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：阿里云开发者\n作者：阿里云开发者\n分类：人工智能\n语言：中文\n阅读时间：12 分钟\n字数：2961\n标签：\n                    \n                        智能测试, AI Agent, 软件测试, 大语言模型, RAG\n                    \n                \n            \n        \n\n        \n            阅读完整文章",
-          "link": "https://www.bestblogs.dev/zh/article/34eb6a84",
-          "publishedOn": "2025-10-22T00:31:00.000Z",
-          "wordCount": 521,
-          "title": "从 0 到 1：天猫 AI 测试用例生成的实践与突破",
-          "enclosure": {
-            "url": "https://wechat2rss.bestblogs.dev/img-proxy/?k=76936e60&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FZ6bicxIx5naJw8bOfuS7Zr2JEdVHKRxCnqSNdPJQVOHPxw7HX4yl3fhatgXU4nsUHQe5EAT9AMd0UtaeqsFqN8A%2F0%3Fwx_fmt%3Djpeg",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://wechat2rss.bestblogs.dev/img-proxy/?k=76936e60&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FZ6bicxIx5naJw8bOfuS7Zr2JEdVHKRxCnqSNdPJQVOHPxw7HX4yl3fhatgXU4nsUHQe5EAT9AMd0UtaeqsFqN8A%2F0%3Fwx_fmt%3Djpeg"
-        },
-        {
-          "id": "121cb05f",
-          "author": "Jimmy Lai, Josh Story, Sebastian Markbåge, Tim Neutkens",
-          "description": "📌 一句话摘要\n            \nNext.js 16 稳定了 Turbopack，引入了显式声明的缓存组件，增强了路由并更新了缓存 API，通过集成 React 19.2，显著提升了性能和开发者体验。\n📝 详细摘要\n            \nNext.js 16 是一个重要的版本，专注于性能、开发者体验和架构清晰性。主要亮点包括：Turbopack 稳定版成为默认模块打包工具，生产构建速度提升 2-5 倍，快速刷新速度提升高达 10 倍。它引入了缓存组件，这是一种使用 `\"use cache\"` 指令的显式缓存模型，该模型还完成了部分预渲染 (PPR)，以实现更灵活和可选的缓存。此版本将 `middleware.ts` 重命名为 `proxy.ts`，以更清晰地定义网络边界。同时，改进了开发和构建过程的日志记录。此外，Next.js 16 通过布局去重和增量预取改进了路由和导航，并通过需要 `cacheLife` 配置方案的 `revalidateTag()` 以及用于精细控制的新 `updateTag()` 和 `refresh()` API 改进了缓存 API。与 React 19.2 的集成带来了诸如 View Transitions 之类的功能。此更新还详细说明了重要的重大更改、删除和弃用，要求开发人员更新 Node.js 和 TypeScript 版本。\n💡 主要观点\n            \nTurbopack 现在稳定且是默认模块打包工具，从而显著提高了构建和刷新性能。\n                         Turbopack 提供 2-5 倍的生产构建速度和高达 10 倍的快速刷新速度，成为所有新 Next.js 项目的默认设置，从而在无需额外配置的情况下提升开发人员的效率。\n                    \n\n                        缓存组件引入了一种显式的、可选的缓存模型，从而完成了部分预渲染 (PPR)。\n                         新的 `\"use cache\"` 指令允许对页面、组件和函数的缓存进行精细控制，更好地符合全栈开发期望并提高静态页面性能。\n                    \n\n                        增强的路由、导航和改进的缓存 API 提供了对数据新鲜度和用户体验的更精细控制。\n                         布局去重、增量预取和新的 `updateTag()`/`refresh()` API 等功能优化了网络传输，确保用户操作后立即反映数据，并提供显式缓存失效策略。\n                    \n💬 文章金句\n            \n此版本提供了对 Turbopack、缓存和 Next.js 架构的最新改进。\n缓存组件是一组新功能，旨在使 Next.js 中的缓存更加显式和灵活。\nTurbopack 已经达到了开发和生产构建的稳定性，现在是所有新 Next.js 项目的默认模块打包工具。\nNext.js 16 包括对路由和导航系统的全面改进，使页面过渡更精简、更快速。\n`updateTag()` 是一个新的仅 Actions API，提供读写一致性语义，确保在同一请求中过期后立即读取新数据。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：Next.js Blog\n作者：Jimmy Lai, Josh Story, Sebastian Markbåge, Tim Neutkens\n分类：软件编程\n语言：英文\n阅读时间：11 分钟\n字数：2629\n标签：\n                    \n                        Next.js 16, Web 开发, 框架更新, 性能优化, 缓存\n                    \n                \n            \n        \n\n        \n            阅读完整文章",
-          "link": "https://www.bestblogs.dev/zh/article/121cb05f",
-          "publishedOn": "2025-10-21T20:00:00.000Z",
-          "wordCount": 514,
-          "title": "Next.js 16",
-          "enclosure": {
-            "url": "https://h8dxkfmaphn8o0p3.public.blob.vercel-storage.com/static/blog/next-16/twitter-card.png",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://h8dxkfmaphn8o0p3.public.blob.vercel-storage.com/static/blog/next-16/twitter-card.png"
         }
       ]
     },
@@ -1933,6 +2023,16 @@
       "siteUrl": "https://new.qq.com/omn/author/8QMf3nhc5YEasD%2FQ",
       "articles": [
         {
+          "id": "https://view.inews.qq.com/a/20251110A05ZTL00",
+          "author": "地球知识局",
+          "description": "地球知识局\n文字 | 林间草木声\n制图 | 桐 校对 | 朝乾 编辑 | Alicia\n\n最近有个比较匪夷所思的新闻，巴西人突然要迁都了，从国土中央的巴西利亚搬到亚马孙河口的贝伦（Belém）。首都有效期：本月11号到21号。这恐怕是史上最短命的首都“临时工”了。\n\n▼\n   \n巴西这次临时迁都，只是为了一个国际会议：《联合国气候变化框架公约》第三十次缔约方大会（COP 30），将于11月10日到21日这里召开。\n   \n   \n   \n   \n▲图注：如果没有这次会议，恐怕很多人都不会认识这个城市\n（图：贝伦掠影，壹图网）\n\nCOP大会每年都有，主要是讨论气候变化问题。去年COP29在阿塞拜疆首都巴库，前年则在迪拜。\n\n巴西人这次迁都，可以说是这项会议有史以来的最高待遇。而在这背后，还有好几个问题值得关注。\n\n巴西迁都，一路向北？\n\n众所周知，首都对于周边发展有着带动的巨大作用。当年从里约热内卢搬到巴西利亚，就是为了开发其中部的高原地区，顺便缓解一下里约的大城市病。\n\n巴西国土面积高达851万平方公里，全球第五大。大体可以看做三大板块：北部的亚马孙平原，中部的巴西高原，东南部的沿海地带和拉普拉塔河流域。\n\n▼\n   \n而巴西的主要大城市和人口集中在东南沿海，也就是巴西高原东部的大西洋地盾和海岸线之间的狭长区域内。尤其是圣保罗和里约两大都市圈，云集了全国的资源和精英。\n\n虽然巴西利亚在城市规划上过于大胆，导致这座新都被贫民窟包围，已经成为教科书上的反面案例，但在迁都之后，巴西中部地区的开发确实大大加速了。如今，巴西利亚和附近的戈亚尼亚组成的都市圈，已经是巴西第三大都市圈。\n   \n▲图注：自1960年成为首都以来\n巴西利亚的整个城市面貌明显变得更好了\n（图：壹图网）\n\n但在更北边的亚马孙平原，就不好弄了。\n\n这一带最重要的城市，一个是首都“临时工”贝伦，是这一区域的重要海港…",
+          "link": "https://view.inews.qq.com/a/20251110A05ZTL00",
+          "publishedOn": "2025-11-10T12:35:42.000Z",
+          "wordCount": 4129,
+          "title": "刚刚，巴西换首都了，12天之后还要换！｜地球知识局",
+          "imageUrl": "https://inews.gtimg.com/om_ls/OWpzQM3a30CfG859NtPkJyByt6HiJv5L-8ENZxFOzIxKIAA_640330/0"
+        },
+        {
           "id": "https://view.inews.qq.com/a/20251107A05OY000",
           "author": "地球知识局",
           "description": "地球知识局\n文字 | 杔格\n校对 | 凯尔希 编辑 | 澄澈\n\n2025年11月6日，西部唯一的直辖市有一件大事，重庆市两江新区正式宣布设立！\n\n意义何在？新设的两江新区，是继上海浦东新区、沈阳沈北新区、天津滨海新区之后，第四个以“新区”为名的行政区。\n\n▼\n   \n上一次设立新区还是在2009年，当时滨海新区设立，距离现在已经16年了。整整过了半代人的时间，“新区”二字又一次出现。\n\n不过，对于比较了解重庆的人来说，“两江新区”不是早就有了么？而且存在十多年了？何来新设一说？\n\n这里，就要说到中国当前行政区划实际管理层面，普遍存在的一种现象——“黑区”。\n\n之前的两江新区，一直是“黑区”，从此以后，这个“黑区”彻底转“正”了！\n   \n▲图注：九区变八区，北碚也变大了\n北碚也和四川接壤了\n\n除了两江新区新设，还有两个行政区撤销，这就是江北区和渝北区。有些好玩的是，当前“渝超”（重庆城市足球超级联赛）正在进行中。\n\n好家伙，本轮“渝超”还没踢完，“江北队”和“渝北队”就已经找不到“家”了。\n   \n▲图注：“渝北队”还是目前中心城区赛区积分榜第一名\n\n“黑区”不“黑”\n\n什么是“黑区”？这其实是坊间人士还有一些行政区划研究者的通俗叫法，一般指的是诸如各种“开发区”“高新区”“管理区”“综改区”“工业园区”等功能区，与正式的行政区划——“白区”相对。\n\n简而言之，只要不属于民政部公布的《行政区划统计表》中的各种“区”，基本都是“黑区”。“黑区”的管理机构基本都是“管理委员会”，而非“政府”“行政公署”。\n   \n▲图注：比如北京的亦庄\n（图：图虫）\n\n这些“黑区”，普遍享有某一级的行政管理权限，负责区域范围内的行政管理和社会事务，但它并不是一级行政区划。它们的具体行政区划对应关系，依然属于原有或者变更后的正式行政区划。\n\n之所以“黑区”会给人们有正式行政区的“错觉”，主要是因…",
@@ -2256,6 +2356,16 @@
       "feedUrl": "https://rsshub.rssforever.com/tencent/news/author/8QMc3Hhc74cevD%252FR",
       "siteUrl": "https://new.qq.com/omn/author/8QMc3Hhc74cevD%2FR",
       "articles": [
+        {
+          "id": "https://view.inews.qq.com/a/20251110A05UZ700",
+          "author": "晚点LatePost",
+          "description": "快公司得学会慢下来。\n\n\n文丨司雯雯 龚方毅\n编辑丨龚方毅\n\n日本顾客对丰田、本田等本土品牌的自信感和忠诚度有多强烈，外国汽车品牌的挑战就有多大。2024 年，外资汽车品牌在日本的份额合计不到 20%。发达国家里几乎最低的电动车渗透率让外资电动车难上加难。\n\n比亚迪 2023 年 1 月正式进入日本市场，3 年开了 66 家门店，累计销售 7000 多辆车。一位比亚迪人士对此评价，“不如海洋网在中国 1 个小时卖得多”。不过，特斯拉在日本也挣扎，月均销量不足 2000 辆。\n\n比亚迪在东京的旗舰店选址于房价排名前列的目黑区——这里罕有新能源汽车门店。街对面是经营数十年的奥迪 4S 店，不远处是玛莎拉蒂展厅。\n\n这家门店于 2024 年 4 月开业，前租户经营复古老爷车。独栋建筑共四层（含地下一层），面积约 800 平方米，是比亚迪在日本 66 家门店中最具代表性的一家。\n\n经营者为中国和谐汽车集团，它们在日本拥有 3 家比亚迪门店。和谐汽车同时代理劳斯莱斯、宾利、法拉利等豪华品牌，也在中国香港、新加坡、马来西亚、泰国销售比亚迪品牌的车。\n\n门店负责人说，为了拿下目黑区门店这块地，他们花了很长时间向房主解释比亚迪是什么。“在中国，你不需要解释这个名字，但在日本，比亚迪就是一个陌生品牌。”\n\n适者生存原则下，比亚迪日本试图用另一种方式讲述品牌，和消费者建立信任。\n\n   \n\n比亚迪在日本东京目黑区的一间门店。图源：晚点 Auto\n\n\n放弃纯电商模式，因为接触是建立信任的第一步\n\n比亚迪汽车日本公司（BYD AUTO JAPAN）法人代表兼社长东福寺厚树曾说，公司最初考虑过效仿特斯拉、现代汽车在日本做纯电商模式，今天发展经销商是因为实体门店 “必要的投资”，消费者需要 “亲临、观看、触摸和试驾车辆” 来建立信任 。\n\n比亚迪目黑店内没有显眼的促销海报、立牌或横幅，没有抽奖金蛋，立…",
+          "link": "https://view.inews.qq.com/a/20251110A05UZ700",
+          "publishedOn": "2025-11-10T12:04:41.000Z",
+          "wordCount": 3148,
+          "title": "适者生存，比亚迪学着用日本的方式进入日本",
+          "imageUrl": "https://inews.gtimg.com/news_ls/OrPM2OjaMiLkF8nsFXs2OSEpyDTbXCgmPjoljrpWlyqKQAA_640330/0"
+        },
         {
           "id": "https://view.inews.qq.com/a/20251110A038SL00",
           "author": "晚点LatePost",
@@ -2650,6 +2760,16 @@
       "feedUrl": "https://www.geekpark.net/rss",
       "siteUrl": "http://mainssl.geekpark.net/rss.rss",
       "articles": [
+        {
+          "id": "http://www.geekpark.net/news/356232",
+          "author": null,
+          "description": "每到换季，各个服装品牌就是各个服装品牌最忙的时候：要分析市场，准备营销策略，甚至，还要祈祷风调雨顺……小红书上 10 月有个很有意思的热梗：因为南方持续高温，某服装品牌的老板亲自去某寺庙许愿求雨求降温，否则为秋冬准备的新款就都要成库存了。\n服装品类由于极强的季节性，使得产品更新换代周期很快。而运动品牌里的服装品类，除了要满足传统服装对于审美、潮流等情绪价值上的需求外，更要在每一次产品迭代里，始终保持自己的专业性。专业是运动品牌重要的立身之本。\n尤其是最近几年，随着越来越多人参与到运动中，不同季节、不同运动场景，对服饰类产品提出了很多细分的专业要求：有些场景要防风，有些需要防水。还有的场景，用户希望既防风又防水还要保温，而且还不能做成那种硬邦邦的「壳」，否则容易影响运动表现——冬季路跑就是典型的这种场景。\n今年冬天，过往多以全球「四大跑鞋」品牌形象出现在消费者眼中的 ASICS亚瑟士带来了新款专业服饰系列。这个系列最显著的提升在于，它们将源自户外甚至军事领域的尖端材料和系统理念，成功移植到了专业路跑和城市通勤服饰上，让消费者有了更专业更舒适的穿着选择。\n事实上，如果深入研究 ASICS 亚瑟士近年的发展，你会发现近几年它们不仅依靠着在跑步场景下的专业口碑和产品力，业绩实现连续增长；而且在跑鞋以外的服配领域，也有了不少进展。\n我们很好奇，ASICS 亚瑟士是怎样吸取专业跑鞋、户外服饰、材料科学等来自不同领域的经验，然后在一个新的领域里快速成长的。\n\n亚瑟士冬季路跑服饰 | 图片来源：ASICS亚瑟士\n \n冬季路跑，穿衣有了「新思路」\n要回答这个大问题，我们首先要了解以前的路跑服装是怎样的设计思路。\n「洋葱式穿衣法」是冬季最常见的穿衣方法。它的核心原则，是利用不同材料的特性，分别起到排汗干燥（内层）、管理体温（中间层）、阻隔外界风雨雪（外层）的不同作用。\n其中，中间保温层的选择，…",
+          "link": "http://www.geekpark.net/news/356232",
+          "publishedOn": "2025-11-10T12:30:32.000Z",
+          "wordCount": 473,
+          "title": "保暖？排汗？时尚？户外运动装备这道「选择题」，亚瑟士要打破「不可能三角」",
+          "imageUrl": null
+        },
         {
           "id": "http://www.geekpark.net/news/356214",
           "author": null,
@@ -3325,8 +3445,23 @@
     {
       "title": "北青深一度 via zmonster on Inoreader",
       "feedUrl": "https://feedpress.me/bqs",
-      "siteUrl": "https://www.inoreader.com/stream/user/1005939773/tag/%E5%8C%97%E9%9D%92%E6%B7%B1%E4%B8%80%E5%BA%A6?8338=1761903416/view/html",
+      "siteUrl": "https://www.inoreader.com/stream/user/1005939773/tag/%E5%8C%97%E9%9D%92%E6%B7%B1%E4%B8%80%E5%BA%A6?be5c=1762770524/view/html",
       "articles": [
+        {
+          "id": "http://www.inoreader.com/article/3a9c6e7741468afa",
+          "author": null,
+          "description": "采写/李慧凝 刘圆圆\n编辑/计巍\n     \n 当陪伴老人成为可购买的服务 图｜视觉中国\n今年9月，一种名为“外包儿女”的服务在社交媒体上走红。提供服务的人可以陪老年人看病、聊天、遛弯、买菜，还可以给老年人“撑腰”、调解矛盾，成为那些子女不在身边的老年人的“依靠”。\n当陪伴成为可购买的服务，“外包儿女”真的能成为老年人的依靠吗？作为正在寻找和已经建立这种关系的老年人，他们的哪些现实和心理需求被这种服务回应？他们又如何定义这种关系？\n在采访中深一度发现，有人会在自己五十岁出头，甚至四十多岁时就开始为自己寻找可以养老的“儿女”。这其中，有的人因为唯一的子女定居国外，有的因为独身。\n为了“养成”这种特殊的关系，这些“未老”的老人会把雇佣关系逐渐过渡到“类似亲人”的关系，例如，去主动帮助“儿女”，给予资源上、经济上的支持，并且不求即刻的回报，“只为积攒点人气，希望将来能有人为自己帮忙”。\n相比于“外包儿女”这个词，也有人更愿意称这种关系为“共享儿女”。“他们都是有父母的孩子，我只是‘蹭’一下他们的陪伴，就像蹭网一样。”\n     \n 某社交网站上，提供“外包儿女”服务的帖子\n \n    \n 外包儿女成为“风口”？\n在深一度寻找购买这种服务的老年人的过程中，首先发现的却是各种试图提供服务的人，他们远远多于寻找服务的人。这些“服务方”在社交媒体上以“外包儿女”“陪老人”等关键词发帖，其服务包含了从日常陪伴、贴身随行、陪诊就医，到定期赴养老院探望等多种类型。采访中，有发帖者表示，自己“想试试水”。\n陆俊生活在青岛，觉得这种服务在当地市场有潜力，并在9月初进行了试水。除了在线上做宣传，陆俊还跟线下居委会合作，他对接了周围小区的70多个楼长，向他们发传单，讲服务内容。“社区主任还挺支持，说很多老年人需要这个。”陆俊说。\n周伟之前做工程建设，今年4月离职。之后他注意到成都在大力推进陪诊师培训，…",
+          "link": "https://c.m.163.com/news/a/KE11SU1I0512BN99.html?from=subscribe",
+          "publishedOn": "2025-11-10T09:17:06.000Z",
+          "wordCount": 563,
+          "title": "寻找“外包儿女”的老人：“我只是蹭一下他们的陪伴，就像蹭网一样”｜深度报道",
+          "enclosure": {
+            "length": "1337",
+            "type": "image/png",
+            "url": "https://static.ws.126.net/163/frontend/images/logo-netease-114.png"
+          },
+          "imageUrl": "https://static.ws.126.net/163/frontend/images/logo-netease-114.png"
+        },
         {
           "id": "http://www.inoreader.com/article/3a9c6e77487713d1",
           "author": null,
@@ -5561,6 +5696,76 @@
       "feedUrl": "https://rsshub.rssforever.com/nationalgeographic/latest-stories",
       "siteUrl": "https://www.nationalgeographic.com/pages/topic/latest-stories",
       "articles": [
+        {
+          "id": "https://www.nationalgeographic.com/animals/article/wild-tigers-conservation-archival",
+          "author": "Geoffrey C. Ward, Michael Nichols",
+          "description": "This story originally published in the December 1997 issue of National Geographic magazine. See more digitized stories from our archives here.\n     \nI first saw the tigress called Sita in 1986 in Bandhavgarh National Park in the central Indian state of Madhya Pradesh. She lay asleep on a hillside when the elephant I was sharing with the Indian naturalist Hashim Tyabji found her, full bellied after eating from the spotted deer that lay next to her. She was exhausted by the steady strain of having to feed and care for her first litter of three cubs, whose mewing I could just make out from still higher up the slope amid the expectant cawing of crows that teetered in the branches of the surrounding trees. \n    \nWe were just 30 feet or so from the tigress, close enough to hear her steady, sonor…",
+          "link": "https://www.nationalgeographic.com/animals/article/wild-tigers-conservation-archival",
+          "publishedOn": "2025-11-10T12:38:49.000Z",
+          "wordCount": 28229,
+          "title": "The heroes who saved the world's last tigers",
+          "imageUrl": "https://i.natgeofe.com/n/adfc2dac-e5a7-43f3-ba40-3a418e2646e9/SPI-512765_16x9.jpg?w=1200"
+        },
+        {
+          "id": "https://www.nationalgeographic.com/photography/article/first-autochromes-underwater-ocean-bottom",
+          "author": "National Geographic Staff, W. H. Longley, Charles Martin",
+          "description": "Fish swim over a small head of brain coral and before massive Orbicella heads in one of the coral stacks, where small fish swarm during daylight hours only.   \nCapturing the first underwater color photographs was no mean feat and involved powerful explosives as well as hours and hours of waiting.\n     \nThis story originally published in the January 1927 issue of National Geographic magazine. See more digitized stories from our archives here.\nThe following  illustrations are the first published natural color photographs made beneath the surface of the sea. They represent many weeks and months of experimentation by Dr. W. H. Longley, noted ichthyologist, of Goucher College, and Charles Martin, of the photographic laboratories of the National Geographic Society. \n     \nThe conditions encounte…",
+          "link": "https://www.nationalgeographic.com/photography/article/first-autochromes-underwater-ocean-bottom",
+          "publishedOn": "2025-11-10T12:38:49.000Z",
+          "wordCount": 8114,
+          "title": "The first underwater photos reveal the ocean floor in full color",
+          "imageUrl": "https://i.natgeofe.com/n/27cca596-15b8-416a-95c2-8cb22c379909/SPI-606641_16x9.jpg?w=1200"
+        },
+        {
+          "id": "https://www.nationalgeographic.com/history/article/edmund-fitzgerald-shipwreck",
+          "author": "Dave Kindy",
+          "description": "The S.S. <i>Edmund Fitzgerald</i> battles rough waters on her fateful voyage on Lake Superior in the artist David Conklin's painting, \"Every Man Knew,\" commissioned to commemorate the anniversary of the tragic shipwreck.   \nThe Great Lakes freighter was one of the most technologically advanced of its time when it wrecked in Lake Superior 50 years ago. What went wrong?\n    \nThe good ship and crew were in peril. A savage storm was hurling hurricane-force winds, 35-foot waves, and blinding blasts of snow at the large freighter. Already reporting a “bad list” with no radar and damaged ballast vents, it was taking on water and making slow progress battling its way across Lake Superior on November 10, 1975.\n    \nStill, the vessel’s skipper, Ernest M. McSorley—considered one of the best on the Gr…",
+          "link": "https://www.nationalgeographic.com/history/article/edmund-fitzgerald-shipwreck",
+          "publishedOn": "2025-11-10T12:38:49.000Z",
+          "wordCount": 11115,
+          "title": "Why the mystery of the Edmund Fitzgerald endures",
+          "imageUrl": "https://i.natgeofe.com/n/6813c9f1-dd1d-4d79-a8b5-db1289413872/Conklin_Every_Man_Knew_16x9.jpg?w=1200"
+        },
+        {
+          "id": "https://www.nationalgeographic.com/history/article/the-making-of-an-astronaut-space-race",
+          "author": "Robert R. Gilruth, Albert Moldvay",
+          "description": "This story originally published in the January 1965 issue of National Geographic magazine. See more digitized stories from our archives here.\n     \nThis is the year of the Gemini. \n    \nBefore 1965 is many months old, a powerful Titan II rocket will blast off from Cape Kennedy, carrying two American astronauts aboard a spacecraft called Gemini—after the twins of the zodiac. For more than two years these men and their fellow astronauts have prepared themselves for Project Gemini and the epochal lunar voyages that will follow. They have pursued a unique training curriculum, and their classrooms lie scattered throughout the country. \n    \nThey have attended hundreds of lectures, pored over thousands of documents, and sat through countless technical meetings. \n    \nThey have conditioned their …",
+          "link": "https://www.nationalgeographic.com/history/article/the-making-of-an-astronaut-space-race",
+          "publishedOn": "2025-11-10T12:38:48.000Z",
+          "wordCount": 21129,
+          "title": "What it really took to become an astronaut during the Space Race",
+          "imageUrl": "https://i.natgeofe.com/n/cbfdd84c-3abe-46e5-9f29-67dccb0fa71b/SPI-1058419_16x9.jpg?w=1200"
+        },
+        {
+          "id": "https://www.nationalgeographic.com/travel/article/discover-evia-greece",
+          "author": "Anthony Grant",
+          "description": "Evia is the second-largest island in Greece, after Crete.   \nDespite its size and proximity to the busy Greek capital, Evia is one of the least-known Greek islands, with healing baths, Venetian castles, and gorgeous scenery.\n    \nIn Evia’s sylvan north, peaks clad with bright green pine trees soar above beaches where the water glows with emerald intensity. To the south, there are coves lapped by aquamarine seas. Can it sometimes take the pluck of a pirate to find them? Yes, but travelers undeterred by narrow roads and switchback curves will be richly rewarded.\n    \n“Evia offers an authentic slice of Greece that feels both timeless and undiscovered. Just a short drive or ferry from Athens, it’s a land of lush mountains, thermal springs, unspoiled beaches, and charming villages where traditi…",
+          "link": "https://www.nationalgeographic.com/travel/article/discover-evia-greece",
+          "publishedOn": "2025-11-10T12:38:48.000Z",
+          "wordCount": 7397,
+          "title": "All about Evia, a stunning Greek island with few crowds",
+          "imageUrl": "https://i.natgeofe.com/n/ca5a5113-4bab-4c7d-84ef-17d061556c94/GettyImages-1631626718_16x9.jpg?w=1200"
+        },
+        {
+          "id": "https://www.nationalgeographic.com/travel/article/why-norway-should-be-your-next-family-destination",
+          "author": "Orla Thomas",
+          "description": "The Flåm Railway passes peaks, farms and waterfalls, making for a varied and exciting train journey for all ages.   \nA natural playground, the fjord district is magical for families in winter. Visit now to catch the end of 2025’s strong aurora cycle.\n     \nThis article was produced by National Geographic Traveller (UK).\n     \nWith an abundance of fjords and mountains reachable by train, boat and on foot, outdoorsy families will find much to enjoy in this Nordic country’s western region — billed as ‘Norway in a nutshell’. Its superlative landscapes are ultra-accessible year-round and completely transformed by the seasons — visit in winter for snow and the Northern Lights, or summer for wild swims and glacier hikes.\n      \nNorway’s second largest city is the gateway to its fabled fjords. Str…",
+          "link": "https://www.nationalgeographic.com/travel/article/why-norway-should-be-your-next-family-destination",
+          "publishedOn": "2025-11-10T10:09:21.000Z",
+          "wordCount": 6541,
+          "title": "Why Norway should be your next family destination",
+          "imageUrl": "https://i.natgeofe.com/n/1cefa969-3011-4efe-819d-8ab5347b3891/ST_family_FlamRailway_Vatnahalsen_credit_Sverre_Hjornevik_Fjellandsby_ukHR_RESIZED_16x9.jpg?w=1200"
+        },
+        {
+          "id": "https://www.nationalgeographic.com/animals/article/dinosaur-eggs-dating-fossils-uranium-lead-paleontology",
+          "author": "Riley Black",
+          "description": "Scientists excavate dinosaur egg nests in Mongolia's Eastern Gobi Basin. National Geographic Explorer Lindsay Zanno and her team analyzed eggs from the region to test a new method for dating fossils.   \nRadioactive minerals in eggshells can help scientists pinpoint a fossil’s age with stunning accuracy.\n    \nEggs laid by dinosaurs have provided paleontologists with a new way to tell prehistoric time. By looking to radioactive minerals taken up by eggshells in the deep past, experts have uncovered a novel method to determine when those eggs were laid—one that could put ancient ecosystems on a more accurate timeline\n    \nThe new research, published today in the journal Communications Earth & Environment, adds to a growing body of evidence that fossil eggshells hold mineral clues that will al…",
+          "link": "https://www.nationalgeographic.com/animals/article/dinosaur-eggs-dating-fossils-uranium-lead-paleontology",
+          "publishedOn": "2025-11-10T10:09:21.000Z",
+          "wordCount": 7852,
+          "title": "Fossil eggs reveal new way to date the Age of the Dinosaurs",
+          "imageUrl": "https://i.natgeofe.com/n/4c82a3a8-527b-4b7a-9aea-fd720c7d2d31/IMAGE3_CreditLindsayZanno2022d_16x9.jpeg?w=1200"
+        },
         {
           "id": "https://www.nationalgeographic.com/history/article/band-of-holes-peru-inca-mystery",
           "author": "Tom Metcalfe",
@@ -8945,6 +9150,36 @@
       "siteUrl": "https://sspai.com",
       "articles": [
         {
+          "id": "https://sspai.com/post/103717",
+          "author": "少数派编辑部",
+          "description": "欢迎收看本期《派评》。你可以通过文章目录快速跳转到你感兴趣的内容。如果发现了其它感兴趣的App或者关注的话题，也欢迎在评论区和我们讨论。值得关注的新App虽然少数派一直在为大家发现和介绍各平台上的优质 ...查看全文",
+          "link": "https://sspai.com/post/103717",
+          "publishedOn": "2025-11-10T09:58:09.000Z",
+          "wordCount": 625,
+          "title": "派评 | 近期值得关注的 App",
+          "imageUrl": null
+        },
+        {
+          "id": "https://sspai.com/post/103691",
+          "author": "少数派编辑部",
+          "description": "聊聊你心目中 iOS 或 Android 独占的 killer app\n聊聊手机上的「卫星通讯」这回事\n查看全文",
+          "link": "https://sspai.com/post/103691",
+          "publishedOn": "2025-11-10T08:34:49.000Z",
+          "wordCount": 239,
+          "title": "少数派 11 月主题征稿：平台独占 Killer App、聊聊卫星通讯",
+          "imageUrl": null
+        },
+        {
+          "id": "https://sspai.com/post/103686",
+          "author": "少数派编辑部",
+          "description": "少数派的文章质量，始终离不开每一位作者的智慧与分享。我们一直在探索各种方法，及时回应社区关注的热点，深入探讨有价值的议题，充分发掘深耕于不同领域的创作者。例如，在过去，我们尝试过通过微信、飞书等渠道， ...查看全文",
+          "link": "https://sspai.com/post/103686",
+          "publishedOn": "2025-11-10T08:34:36.000Z",
+          "wordCount": 354,
+          "title": "主题征稿、作者引荐：一起让少数派更精彩",
+          "imageUrl": null
+        },
+        {
           "id": "https://sspai.com/post/103334",
           "author": "WangMT",
           "description": "Matrix首页推荐Matrix是少数派的写作社区，我们主张分享真实的产品体验，有实用价值的经验与思考。我们会不定期挑选Matrix最优质的文章，展示来自用户的最真实的体验和观点。文章代表作者个人观点 ...查看全文",
@@ -9622,16 +9857,6 @@
           "publishedOn": "2025-10-22T03:00:00.000Z",
           "wordCount": 252,
           "title": "1024 特别直播｜不止代码 —— 用科技重新定义你的生活",
-          "imageUrl": null
-        },
-        {
-          "id": "https://sspai.com/post/103250",
-          "author": "少数派编辑部",
-          "description": "Windows 11 on ARM  已支持 AVX/AVX2 指令集仿真，HBO Max 全面上调订阅费用等。查看全文",
-          "link": "https://sspai.com/post/103250",
-          "publishedOn": "2025-10-21T23:30:00.000Z",
-          "wordCount": 427,
-          "title": "派早报：PS5 Pro 国行版发售等",
           "imageUrl": null
         }
       ]
@@ -10716,6 +10941,26 @@
       "siteUrl": "https://aeon.co",
       "articles": [
         {
+          "id": "urn:id:8388",
+          "author": "Aeon Video",
+          "description": "Should deaf parents be able to select for a deaf child? On the ethics of parental choice and ‘designer babies’\n- by Aeon Video\nWatch on Aeon",
+          "link": "https://aeon.co/videos/when-if-ever-is-selecting-a-designer-baby-ethical?utm_source=rss-feed",
+          "publishedOn": "2025-11-10T11:01:00.000Z",
+          "wordCount": 2844,
+          "title": "Is it ethical to choose a baby’s traits?",
+          "imageUrl": "https://images.aeonmedia.co/images/d8a60504-4cfb-4e68-aabe-d9f9b973553c/is-it-ethical-to-choose-a-baby_s-traits-landscape-1.jpg?width=1200&quality=75&format=auto"
+        },
+        {
+          "id": "urn:id:8478",
+          "author": "Jeff Sebo & Andreas L Mogensen",
+          "description": "Should we simply assume that all animals can feel pain and are of moral concern? Or is that taking things too far?\n- by Jeff Sebo & Andreas L Mogensen\nRead on Aeon",
+          "link": "https://aeon.co/essays/an-ant-is-drowning-heres-how-to-decide-if-you-should-save-it?utm_source=rss-feed",
+          "publishedOn": "2025-11-10T11:00:00.000Z",
+          "wordCount": 11236,
+          "title": "The ant you can save",
+          "imageUrl": "https://images.aeonmedia.co/images/e8ee015d-d5fa-441a-a308-c74c0a45b5d2/v1-final-gettyimages-1326918185.jpg?width=1200&quality=75&format=auto"
+        },
+        {
           "id": "urn:id:8467",
           "author": "Prashant Garg",
           "description": "Generative AI sheds new light on the underlying engines of metaphor, mood and reinvention in six decades of songs\n- by Prashant Garg\nRead on Aeon",
@@ -10902,6 +11147,106 @@
       "feedUrl": "https://rss.aishort.top/?type=wasi",
       "siteUrl": "https://qnmlgb.tech/",
       "articles": [
+        {
+          "id": "1603012",
+          "author": null,
+          "description": "拉抬打压股价与反向交易已经构成私募操纵市场的违法链条。近年来，监管层在优化股票异常交易实时监控细则的同时，相关罚单也在逐步增多。\n        浙江证监局披露，因存在四类违规行为，浙江浩坤昇发及法定代表人、总经理张门发，实际经营管理人员、基金经理葛仲夫被出具了警示函，记入证券期货市场诚信档案，并被要求在规定时间内提交书面报告。\n        经查，浙江浩坤昇发存在四类违规事实：一是不公平对待公司管理的不同基金财产；二是私募基金宣传推介材料有误导性陈述；三是同日反向交易无决策依据留存记录；四是未严格执行公司内部投资交易制度，存在盘中拉抬打压股价行为。\n        沪上一业内人士称，私募拉抬打压股价与反向交易存在强关联性，是监管重点打击的异常交易行为，也是市场操纵的常见手法。\n        拉抬打压股价是为创造虚假的价格信号，反向交易是将虚假价格兑现为真实利润。\n        无论是通过自买自卖或互为对手方交易等其他方式拉抬打压股价，最终都需要通过一个反向交易来将账面盈利兑现为真实盈利。\n        也就是说，自买自卖等拉抬打压股价行为是在搭台演戏，反向交易是演戏后向观众收钱。\n        该人士也指出，反向交易本身不一定直接构成违规违法，如正常的止损或短线获利了结也是反向交易，关键是看背后动机。\n        但同日反向交易却无决策依据留存记录，就无法证明交易行为的合理性和合规性，容易引发市场操纵的嫌疑。\n        也正是如此，沪深交易所在去年发布的实时监控细则中新增或优化调整了“拉抬打压并反向交易”的监控指标体系，精准打击这一盈利闭环。\n        近年来，因拉抬打压股价并进行反向交易“吃罚单”的私募并不在少数，且多发生于北交所、新三板个股。\n        归纳来看，关键原因有三：一是市值小、流动性差，操纵门槛低；二是涨跌幅限制宽松，股价波…",
+          "link": "http://mp.weixin.qq.com/s?__biz=MzkzNzMwNjA5MA==&mid=2247532060&idx=1&sn=a382b0251b35610e2d29965b2257b71f&chksm=c3cd00abcfae5706b4c71920c4b74bf12beb0fb368aa5c8cd18d8a5c418acd4581eb5cf4740f",
+          "publishedOn": "2025-11-10T08:03:52.000Z",
+          "wordCount": 264,
+          "title": "拉抬打压股价、违规反向交易，前央视财经评论员执掌私募遭罚",
+          "imageUrl": null
+        },
+        {
+          "id": "1603011",
+          "author": null,
+          "description": "新智元报道  编辑：倾倾【新智元导读】从「敲代码」到「聊代码」，AI不只是重塑生产力，也在改写语言本身。\n        「vibe coding」被《柯林斯词典》评为2025年度词汇，我们似乎正见证一种新的编程方式：逻辑让位于语感，理性与浪漫开始共存。\n        从键盘到语气，从逻辑到氛围，我们正学着和AI「同频」。\n        它改变了代码，也悄悄改变了人。当「靠感觉写代码（氛围编程）」从一句玩笑变成年度热词，这个世界大概也变了。\n        就在最近，《柯林斯词典》宣布，「vibe coding」成为2025年度词汇。\n        它诞生于一条推文，却火遍全世界。有人用它调侃AI太强，有人用它实现高效编码，和模型同频共振。\n        如今，这个词被词典正式定义为「用自然语言提示，让AI协助编写计算机代码」。\n        理性与浪漫，逻辑和直觉，奇妙地融合在一起从X到柯林斯：vibe coding进化史今年二月，OpenAI联合创始人、前特斯拉AI负责人Andrej Karpathy在X上发了一句玩笑话：有一种新的编程方式，我叫它vibe coding。\n        你完全交给感觉，拥抱指数增长，忘记代码本身的存在。\n        他说这话的时候，用AI写代码已经不是一个新鲜事。GitHub Copilot、Cursor Composer、Replit Ghostwriter ……\n        越来越多程序员发现，自己只需要用自然语言描述想法，AI就能补全逻辑、修正语法、调优性能。\n        Karpathy只是为这种转变命了名。却没想到，「vibe coding」这个词像是戳中了时代的笑点。\n        这条帖子很快在Hacker News、Reddit的r/ProgrammerHumor区域刷屏。\n        有人…",
+          "link": "http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652643694&idx=2&sn=895e4ea54ed92a6f52ae94b9a09660b3&chksm=f0dd8e7d9491897133054e8d7964dabf2038956e4a34ff5425249178779845dc23e9f09f7e18",
+          "publishedOn": "2025-11-10T08:03:52.000Z",
+          "wordCount": 264,
+          "title": "程序员不再写代码，而是靠「感觉」！年度热词Vibe Coding背后的编程革命",
+          "imageUrl": null
+        },
+        {
+          "id": "1603010",
+          "author": null,
+          "description": "《体能之巅》第三季开播。在观看这种崇尚力量和对抗的竞技类节目时，人们往往想象自己成为赛场上所向披靡的胜者——\n        只不过，生活的重担暂时阻碍了自己走上强者之路而已。\n        作者 | 梅珍里编辑 | 谭山山题图 | 《体能之巅》第三季连续两年位列网飞（Netflix）全球非英语剧集排行榜top 10的“肌肉”韩综，又杀回来了。\n         自2023年第一季开播以来，《体能之巅：百人大挑战》（以下简称《体能之巅》）就以紧张、激烈的赛制和难以预测胜负的节目效果，成为竞技类体育真人秀的王牌节目。\n        第一季、第二季的《体能之巅》集结韩国国内一百名体格强健的参赛者，并在这些参赛者当中找出拥有最强、最完美身材的“肉体”。\n        最终胜出的只有一人，而其余落败的选手，则要用锤子敲碎原样展现自己身形的“躯干雕像”，然后黯然离场。\n        综艺感拉满，被网友称为“健身版鱿鱼游戏”。（图/《体能之巅》第二季）日前，《体能之巅》来到了第三季，从“百人大挑战”变为“亚洲大挑战”。\n        除了沿袭前两季强调体能和力量比拼的传统，进入第三季的《体能之巅》改变了赛制，将个人争夺战变为多人团体比赛：一个人的强大不再能确保Ta走到最后，而是要在不同竞赛项目中与队友合作，发挥各自的擅长之处。\n        参赛者也不仅限于韩国本地，节目还招募了来自日本、泰国、蒙古、土耳其、印度尼西亚、澳大利亚、菲律宾等国家的选手，共48人，让国家之间的竞争成为新的看点。\n        （图/《体能之巅》第三季）此前，有着极高呼声的《体能之巅》也掉入过“续集魔咒”。\n        第二季播出时，有人认为它“不如前一季”，理由是节目的新鲜感有所下降。\n        而此次，第三季以新面貌回归，从“最强肌肉”进阶到“国家荣耀”。\n        观众则用…",
+          "link": "http://mp.weixin.qq.com/s?__biz=MjM5ODMzMDMyMw==&mid=2654869228&idx=1&sn=a2210f45e08186b5e64376fe84fd3e32&chksm=bcb750595be6c866e805900b2b0e8a1f2a33e4439a5c494f831b7d94ba97e2dc4c82c30b2798",
+          "publishedOn": "2025-11-10T08:03:52.000Z",
+          "wordCount": 264,
+          "title": "豆瓣8.6，看完这档真人版《鱿鱼游戏》，我变燃了",
+          "imageUrl": null
+        },
+        {
+          "id": "1603009",
+          "author": null,
+          "description": "Gemini 3 还没影子，GPT 5.1 已经在路上。7 号深夜，OpenRouter 平台上线了一个全新的隐名模型。\n        已经有眼尖动作快的网友尝鲜体验，并且认为这就是披着马甲的 GPT 5.1，暂名：Polaris Alpha。\n        目前提供 API 调用（包括 OpenRouter），知识库截止时间为 2024 年 10 月，不支持推理模式。\n        最大 context 容量 256K，单次最大输出 128K。\n        一键直达👉🏻：https://openrouter.ai/chat开发商信息保密，但是在网友的不懈努力下，成功「越狱」，让 Polaris Alpha 自曝了家门。\n        图片来自 X 用户 @LarryAtherton1这倒也算不上实锤，可能只是训练数据的问题——\n        很多模型都会输出来自专有供应商的数据。除非系统提示中明确说明，或者通过指令调优反复灌输，否则这些模型实际上并不「知道」自己是什么。\n        无论如何，目前暂时没有官宣，暂且就还是叫它 Polaris 吧。\n        APPSO 也第一时间简单试用了一下。由于是通过 API，部分功能比如处理语音素材暂时受限，除此之外，Polaris 的表现，让人相当期待 GPT 5.1。\n        案头工作：流畅，一如既往首先是一些比较基础的简单任务：根据要求写邮件。\n        这是一封道歉邮件，跟嘉宾通报活动改期。我特地强调了口吻要既饱含歉意，又表示亲近，让 Polaris 感受一下。\n        算是中规中矩吧，信息齐全，行文逻辑清楚，语气不会有强烈的「人机感」。\n        比较神奇的是，在打开 Search 模式的前提下，Polaris 会去检索一些道歉信的写法，而它的引用信息里，居然有淘宝百…",
+          "link": "http://mp.weixin.qq.com/s?__biz=MjM5MjAyNDUyMA==&mid=2651066210&idx=1&sn=1076aba99392099f575750cf26a3302f&chksm=bc14f273e64d9c6caea39c400e214a4a735e7c19dd1f66e1ee29b24f92e4100b5612787eaec4",
+          "publishedOn": "2025-11-10T08:03:52.000Z",
+          "wordCount": 264,
+          "title": "GPT-5.1 「马甲」泄露！现在免费就能用，年底 AI 一大波更新要来了",
+          "imageUrl": null
+        },
+        {
+          "id": "1603008",
+          "author": null,
+          "description": "如果你也喜欢不客观实验室，希望和我们一起探讨数码相关的选题，请私信“不客观”，我们将回复您加群的方式，期待与你的见面～作者｜郭海惟邮箱｜guohaiwei@pingwest.com小鹏IRON机器人在台上走了一圈猫步，却让不少网友虎躯一震。\n        网友的困惑主要集中在两点：一个是IRON穿了衣服以后，走路的姿势太像人，怀疑是人假扮的；另一个是IRON胸口有两个明显凸起的乳房，觉得莫名其妙，质疑“它难道是要喂奶吗”？\n        第一个问题就不赘述了，何小鹏已经发了澄清视频，“剖腹证粉”，剪开了价格不菲的包裹皮肤。\n        此外，IRON现场听到机器是能有较大风噪的。只是观众在视频面前只能看到机器人的姿态控制，所以容易产生误解。\n        我们今天主要聊一下第二个问题：为什么小鹏机器人会有乳房？\n        首先，根据小鹏流出来的工程视频，乳房的位置其实是它的“脑”。\n        此前机器人往往将算力中心放在的背部或者脑上。但由于头部堆叠了大量传感器，且采用了仿生脊椎的关系，小鹏这次应该是将它移到了脊椎前面的胸部位置。\n        如图可见，方盒子两边有明显的风扇阵列，专供内部算力设别散热（小鹏电池包是固态电池，一般不用风扇散热）。\n        根据小鹏方面披露的信息，该机器配备了3颗自研图灵AI芯片，叠加实现2250TOPS算力，属于目前最高算力配置的人形机器人。\n        我们没有图灵芯片的发热数据，但一般来说，高算力，大概率意味着更大的发热量。\n        图灵作为车规级芯片，再加上整机高度集成化的设计，发热的工程挑战应该会更大。\n        所以我们可以看到小鹏这次采用的仿生晶格肌肉，其实是疏松多孔的结构，背后应该也有整机散热的需求。\n        胸腔在人体仿生结构中是一个凸起的部位，这会让它比其他部位天然…",
+          "link": "http://mp.weixin.qq.com/s?__biz=Mzk0NjU2Nzc3Nw==&mid=2247504061&idx=1&sn=eccdd713f212ac7ceedaf3c0dac70fd9&chksm=c21d66fff70ee31010a70e665cd2d03e91635acf033c916621f5d0f164f8266db651eb6bc0ac",
+          "publishedOn": "2025-11-10T08:03:52.000Z",
+          "wordCount": 264,
+          "title": "好好的机器人，为啥要加个乳房？",
+          "imageUrl": null
+        },
+        {
+          "id": "1602494",
+          "author": null,
+          "description": "新智元报道  编辑：艾伦【新智元导读】2025年前盛行的闭源+重资本范式正被DeepSeek-R1与月之暗面Kimi K2 Thinking改写，二者以数百万美元成本、开源权重，凭MoE与MuonClip等优化，在SWE-Bench与BrowseComp等基准追平或超越GPT-5，并以更低API价格与本地部署撬动市场预期，促使行业从砸钱堆料转向以架构创新与稳定训练为核心的高效路线。\n        2025年以前，AI界盛行着一种信念：只有闭源、巨额投入和疯狂堆算力才能打造最强大的模型。\n        OpenAI作为这一思路的旗手，不仅将模型训练秘而不宣，更与合作伙伴绘制了高达1.4万亿美元的基础设施蓝图。\n        八年内烧掉1.4万亿美元来构建数据中心，被视作确保领先的唯一途径。\n        在这种思维下，OpenAI旗舰模型的研发成本节节攀升：据报道，训练GPT-4就花费了约1亿美元。\n        闭源+重资本模式一度令人信服，OpenAI因此获得了天价估值和汹涌资本支持。\n        然而，这一「用钱砸出智能」的神话，正随着一系列意料之外的挑战而动摇。\n        信念的第一次动摇DeepSeek-R1横空出世今年年初，一家彼时名不见经传的中国初创公司深度求索掀起了巨浪。\n        它发布的DeepSeek-R1模型不仅开源，而且号称性能可与OpenAI顶级模型比肩。\n        更令人瞠目的是，DeepSeek宣称训练这款模型只花了约560万美元，连旧金山一套像样的房子都买不起。\n        这个成本数字相比业内普遍认为的「烧钱」级别相差悬殊，仅为Meta开发Llama模型成本的约十分之一。\n        事实证明，这并非夸夸其谈。DeepSeek-R1发布后一周内，DeepSeek App下载量迅猛攀升，一举超越Chat…",
+          "link": "http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652643548&idx=1&sn=bb58dc8eca4dee15e74e1324525c6304&chksm=f01ebf4891879ab3e1b18da702dcd47be318d5bde470e8912af2f59ca879964d79c55e85a3b1",
+          "publishedOn": "2025-11-10T06:02:59.000Z",
+          "wordCount": 264,
+          "title": "小成本DeepSeek和Kimi，正攻破奥特曼的「算力护城河」",
+          "imageUrl": null
+        },
+        {
+          "id": "1602493",
+          "author": null,
+          "description": "（点击收听本期音频👆）采访｜麻花图文｜麻花“80后炒股、90后炒币、00后炒鞋，进入2020年后大家转行炒卡。”\n        虽然这只是一句玩笑话，但多少折射出了卡牌交易市场的火热。\n        卡牌最开始只是出现在烟草公司的烟盒里，作为赠品用来提高香烟销量，之后被开发出了对战属性，拥有了自己的卡牌游戏拥趸。\n        但如今的卡牌显然不只是一个小众文化那么简单。目前，《宝可梦》卡和球星卡的世界交易纪录，分别是527.5万美元和1293.2万美元。\n        市场调研公司Verified Market Research报告显示，仅是球星卡，在全球市场2020-2027年的复合增长率就达到了23%，2027年市场规模预计接近千亿美元。\n        英国金融公司Raisin UK则认为，卡牌的投资价值，已经超过了古董车和威士忌。\n        本期播客，我们邀请到了北京卡牌与桌游的经典老店静电森林的两位合伙人Vincent和大白，他们一位对球星卡颇有研究，另一位说自己已经给儿子存了很多宝可梦卡。\n        我们一起聊了聊，卡牌如何从小众文化一步步演变为投资品，以及它是否真的能够成为年轻人的第一桶金。\n        欢迎关注《硅谷101视频号》的音频栏目直接收听本期播客。\n        如果你喜欢我们的节目，更推荐大家使用音频客户端来收听，《硅谷101》已覆盖各大主流音频平台（渠道见文末），欢迎订阅！\n        以下是这次对话内容的精选：01一些科普TCG和CCG的前世今生麻花：现在在交易市场上比较火爆的卡牌，分为了TCG（Trading Card Game，集换式卡牌）和CCG（Collectible Card Game，收藏式卡牌），它们各自有什么样的特点，核心玩家会有什么样的差异？\n        大白：从卡牌类型的历史来讲，CC…",
+          "link": "http://mp.weixin.qq.com/s?__biz=MzA4NjUwNTI0OA==&mid=2247495562&idx=1&sn=3f2053ae2895c58093d76a4dddb94f28&chksm=9ed5c467ebcad80b159d463fafefbeef993d2c2345ae2de78a9c36db92adea131b70d2a22947",
+          "publishedOn": "2025-11-10T06:02:58.000Z",
+          "wordCount": 264,
+          "title": "从爱好到投资，卡牌能成为年轻人的第一桶金吗？",
+          "imageUrl": null
+        },
+        {
+          "id": "1602492",
+          "author": null,
+          "description": "吃播已经度过了以“大胃王”为噱头的疯狂年代，作为一种互联网娱乐内容，它依然有求流量、博关注的一面。\n        而在很多“吃播铁粉”的眼里，这些更日常甚至有些重复的吃播内容，已经慢慢转化成为了某种“陪伴”单品。\n        作者 | 朴珍珠编辑 | 陆一鸣题图 | 《酒鬼都市女人们》提起吃播，你肯定不陌生。\n        十年前，一批日韩吃播博主走红网络，养眼的颜值、巨量的食物、ASMR咀嚼音享受……一度成为很多人的深夜赛博代餐。\n        这两年，吃播又玩出了新花样。一位叫“米饭仙人”的日本小哥，面对眼前一盘高高隆起的米饭和一小撮日式配菜，陷入“晕碳”沉思；“霸总”面相的韩国男人王辉，夹起一筷盘子里的生拌肉，完成一万个夸张动作和表情，来表达对眼前美食的热爱。\n        超绝饭菜比。（图/米饭仙人FFyasueda）像米饭仙人和王辉这样的日韩吃播博主，在本国人气不高，但被搬运视频到中国社交平台，却意外地火了。\n        他们开始入驻中国的B站、小红书和抖音，开启“闯中”赛道。\n        网友模仿王辉浮夸的吃相。（图/小红书）有意思的是，这轮日韩吃播博主在国内的红，属实是“黑红”。\n        从日本社畜的无油三餐、“纳豆支配”恐惧，到韩国人桌上的“泡菜车队”、生鱼生肝，就这些日常饭菜，他们吃得越香，评论区的中国网友越怀疑人生，不断抛出余华老师的《活着》确认精神状态。\n        于是，背靠着八大菜系的中国网友们，开始饭桌上的“文化输出”——\n        向日本人韩国人安利各种中华美食，“真的，吃点好的吧。”\n        东亚三国手牵手，一场旷日持久的“美食争霸”开始了。\n        “日本人只爱米饭，韩国人狂炫生食” “这哥儿们做吃播，怎么越吃越瘦了。”\n        一位叫“寿也Toshiya在东京”的博主账号下面，…",
+          "link": "http://mp.weixin.qq.com/s?__biz=MjM5ODMzMDMyMw==&mid=2654869162&idx=1&sn=9612f7a001011c0698de03bcf6663c9e&chksm=bcb72716fced33ab50259e1642110e697ce4abc4129b674b534c93fe108d10d0d730e293de46",
+          "publishedOn": "2025-11-10T06:02:58.000Z",
+          "wordCount": 264,
+          "title": "越寒酸越爱看，日韩吃播凭啥硬控中国网友",
+          "imageUrl": null
+        },
+        {
+          "id": "1602491",
+          "author": null,
+          "description": "入冬之后，忙碌了一年的梯田，在灌满的水中休憩。滇东南大山深处的撒玛坝，迎来最美的时候。\n        北方飘雪，南方降温，我们在寻找一些有趣的温暖小城。\n        这不，云南的大山里就藏了一个。红河县。红河州下的，红河县。\n        明明云南我们写了那么多小城，从7万一套房被称小香港的个旧，到被称做小法国的蒙自；甚至连整个红河州都聊过。\n        唯独把红河县，给落下了。有点意思的是，从「小香港」到「小法国」，当人们曾经给掩藏在滇东南的一座座小城冠以更远扬的名号时，却没想到，这里，还有个「小欧洲」。\n        | 迤萨古城内明国初年的姚初民居，是一座中欧合壁风格的四合院，现在作为博物馆。\n         图by 小红书博主@安东尼奥的生活记录自然，一句「小欧洲」，有些笼统和粗暴。\n        红河县，该这样写——悬于红河谷之上，马帮拖来的一座混血古城，中西合璧的建筑凝聚着先人的智慧。\n        一座座古墙老宅，藏在比香港更野的财富故事。| 迤萨古城。\n         图by 小红书博主@安东尼奥的生活记录这里是全国最大的哈尼族聚居地，撒玛坝万亩梯田里，是将森林、村寨、梯田、水系连成一串的自然文明密码。\n        有云南资深旅行者这样描述她。如果说建水是红河州的文艺课本，那迤萨就是被撕掉的传奇扉页。\n        说的就是迤萨古城，红河县的中心腹地。亦是红河之上，充满传奇色彩的一座云南古堡。\n        | 迤萨古城。图by小红书博主@Lgreen.ペ现在这个时候去，正好。\n        吉尼斯认证过的中国连片面积最大的哈尼梯田撒玛坝，已经到了最佳观赏季。\n        更重要的，这里冬季平均气温约20℃。温暖湿润，天气好。\n        堪称“天然温室”和“候鸟旅居小城”，最是适合怕冷星人过冬旅居。\n        …",
+          "link": "http://mp.weixin.qq.com/s?__biz=MzUzNzE2NTc1NA==&mid=2247791281&idx=1&sn=6bda002418615fa4550db921617783d3&chksm=fbd87a88e4c900ed4991461404c6417496ee5426c9301a49c9dbe32d27929dadcd6c5cf45168",
+          "publishedOn": "2025-11-10T06:02:58.000Z",
+          "wordCount": 264,
+          "title": "平均气温20℃，冬日旅居胜地，小众到连云南人都没听过",
+          "imageUrl": null
+        },
+        {
+          "id": "1602490",
+          "author": null,
+          "description": "又快要到新加坡的学生假期了，我也要尽一些家庭义务，准备带孩子回国转转，看看爷爷奶奶，也想找机会锻炼他一下，试试亲子徒步或者爬山什么的。\n        那么我这几天就在做各种规划，不外乎机票酒店什么的，这不也是双11，各种平台都在促销囤酒店房券，国内的消费体验确实好，过期退，随时退，所以完全不担心买错了用不上，无脑先买一堆房券，然后慢慢再看哪些适合预约。\n        然后兑换房券的时候，抠门精精神发作，就想看看那些酒店日历房价格都是多少，比较一下房券是不是真的能省很多钱，不看不知道，便宜到都不敢信。\n        我的时间表是11月底先回天津，先看的是华住旗下的，其实我华住会员一直没保级，只有银会员，所以我查看到的会员折扣并不高，然后我对比了两个之前经常住的酒店，一个是天津站北广场宜必思酒店，这个以前我记得200左右，已经够便宜了，结果11月底的价格居然是150左右。\n        还有一个是漫心酒店津湾广场店，地段非常好，漫心品牌定位也不算低。\n        我去年住过的价格300多一点我已经觉得挺超值的，今年前段时间住过280都觉得不可思议，但是11月底的价格居然是230多一点，这些不是房券兑换价格，是日历房价格，我查了半天发现房券屯了个寂寞，直接会员页面下单有可能更便宜。\n        翻了翻万豪房券，看到重庆moxy，我住过的酒店，地段太强了，离解放碑步行200米，洪崖洞步行1公里，楼下就是好吃街，虽然酒店不算是高端品牌，但好歹也是万豪旗下，房券换下来不过330一个晚上，而且粗看了大部分时间都能换。\n        对于万豪会员来说，又算stay又有积分回馈。想起夏天欧洲的酒店价格，300多人民币在霞慕尼连一张青旅床位都不够。\n        当然，必须说，这是淡季价格，但是，我以前也都是错峰浪的啊，我对比过去的价格也都是淡季的啊。\n        就感…",
+          "link": "http://mp.weixin.qq.com/s?__biz=MzI0MjA1Mjg2Ng==&mid=2649873000&idx=1&sn=28d1568541c0018c25e2e1a150d59291&chksm=f02439dd68d826e2380ea0a55be1f583e708da9b37d5c07f6ac599842ac56bda8e94003715d8",
+          "publishedOn": "2025-11-10T06:02:58.000Z",
+          "wordCount": 264,
+          "title": "消费越超值，心理越恐慌",
+          "imageUrl": null
+        },
         {
           "id": "1602444",
           "author": null,
@@ -16180,6 +16525,46 @@
       "siteUrl": "http://infzm.com",
       "articles": [
         {
+          "id": "http://www.infzm.com/contents/306997",
+          "author": null,
+          "description": "2025-11-10 20:00:00\nA股持续活跃，“股债跷跷板”效应加剧。债券型基金（下称“债基”）发行再次步入冰点。Wind显示，2025年1月至10月，债基发行份额为3990亿份，较之2024年同比下滑约44%。\n较之股票型基金，债基向来是稳健型投资者的最爱。在经历了7年、5年和3年的多轮“股债跷跷板”后，哪些债基能保持“稳赚不赔”的战绩？哪些公募机构拥有更多高收益纪录的债基？\n依据南方周末新金融研究中心自研的超额收益净量级估值体系（详见《60家公募机构比拼股票投资，体量“老三”的广发基金大跌眼镜｜2025年“金标杆”》），南方周末新金融研究中心对全市场符合测评条件的债券型基金进行7年、5年和3年三个时间段的横向对比测评，并制作而成2025年“金标杆—债券型基金损益榜”。\n103家公募机构2463只债基入选\n经测算，截至2025年9月30日，旗下债券型基金符合测评条件的公募机构共103家。其中，符合大中规模统计口径的机构分别为47家和56家。与2025年“金标杆—股票型基金损益榜”类似，在大规模基金阵营中，易方达、华夏、广发、富国和南方（均为简称）位居前五。不同的是，在中等规模债券型基金阵营中，超过900亿元的公募机构共有三家，分别是泰康、财通资管和西部利得（均为简称）。\n\n\n\n此外，较之2025年“金标杆—股票型基金损益榜”，入选2025年“金标杆—债券型基金损益榜”的基金数量更多。具体而言，符合测评条件的7年期、5年期和3年期债券型基金数量分别为1070只、1868只和2463只。需要说明的是，符合3年期测评条件的基金亦符合7年期和5年期测评条件。因此，符合测评条件的全部基金数量与符合3年期测评条件的基金数量相同，均为2463只。\n兴业基金卫冕\n47家大规模公募机构旗下共1789只符合测评条件的债基。与股票型基金损益榜中不少机构规模较大但排名靠后的情况迥异，部分…",
+          "link": "http://www.infzm.com/contents/306997",
+          "publishedOn": "2025-11-10T12:25:07.000Z",
+          "wordCount": 126,
+          "title": "百余家公募机构两千余只债基，王者是谁？｜2025年“金标杆”",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/306975",
+          "author": null,
+          "description": "2025-11-10 19:00:00",
+          "link": "http://www.infzm.com/contents/306975",
+          "publishedOn": "2025-11-10T11:25:05.000Z",
+          "wordCount": 92,
+          "title": "广东当上东道主，首个吉祥物诞生丨全运记忆馆",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/306799",
+          "author": null,
+          "description": "2025-11-10 18:00:00\n\n苏丹首都喀土穆，快速支援部队（RSF）的士兵站在车上（视觉中国/图）\n冲突的来龙去脉\n2003年，旷日持久的苏丹达尔富尔危机升级。当时，巴希尔政府调动以阿拉伯裔为主的政府军和亲政府民兵武装，进攻达尔富尔当地的黑人反政府武装。在漫长而残酷的达尔富尔内战中，布尔汉将军崛起成为政府军苏丹武装力量（SAF）的最高指挥官，而众多亲政府的阿拉伯裔民兵武装中势力最大的“金戈威德”（意即“骑马的魔鬼”）的首领达加洛，则以“赫梅蒂”（Hemeti）的化名成为名噪一时的强人。这两人在整个达尔富尔内战中紧密结盟，构成强大的政治存在，但也因在内战中被广泛指控“反人类”而声名狼藉。\n由于“金戈威德”名声太臭，2013年被赫梅蒂改名“快速支援部队”（RSF）。2015年3月25日，沙特阿拉伯联合一众阿拉伯国家武装干涉也门内战，这场武装干涉因也门胡塞武装的顽强抵抗而演变为一场持久战，原本参与沙特一方干预的苏丹政府军因国力有限和事不关己，很快开始“打酱油”，但正愁没有“户口”和“饭票”的RSF却从中嗅到生存机会。\nRSF不惜血本地为沙特一方提供兵源和战力，虽未能帮后者赢得战争，却成功搭上了沙特最亲密关系“小弟”——海湾富国阿联酋，后者又牵头让RSF向利比亚内战的一方、阿联酋暗中支持的哈夫塔尔元帅提供兵力和武器走私帮助。\n在这两笔“血腥交易”中，RSF均发了横财，变得兵强马壮，赫梅蒂在苏丹政治舞台上的地位更加显赫。他们控制了苏丹西南部相当大的面积，并掌握了部分金矿，通过和阿联酋的金矿走私，他们变得更加财大气粗。\n2017年，在巴希尔协调下，苏丹议会通过法律，将原本挂在苏丹国家情报安全局名下的RSF转隶SAF，并宣布其为“国家军事力量”，从而形成了一种双重军事结构——RSF拥有独立的指挥系统——这一漏洞后来加剧了其与军队之间关于合并提议的权力斗争。\n由于巴希尔长期遭受…",
+          "link": "http://www.infzm.com/contents/306799",
+          "publishedOn": "2025-11-10T10:25:05.000Z",
+          "wordCount": 90,
+          "title": "缺乏关注的苏丹内战，正在发生全球最严重的人道危机丨国际",
+          "imageUrl": null
+        },
+        {
+          "id": "http://www.infzm.com/contents/307034",
+          "author": null,
+          "description": "2025-11-10 17:00:00",
+          "link": "http://www.infzm.com/contents/307034",
+          "publishedOn": "2025-11-10T09:25:06.000Z",
+          "wordCount": 92,
+          "title": "一碗饭，五年情：华锋长者饭堂的温暖坚守",
+          "imageUrl": null
+        },
+        {
           "id": "http://www.infzm.com/contents/306995",
           "author": null,
           "description": "2025-11-10 16:00:00\n\n2025年10月30日开始，京津冀及周边地区正遭遇今年秋冬季首次空气污染过程。视觉中国/图\n今早出门，你戴口罩了吗？\n2025年11月5日，北京出现中度污染的雾霾天气。远处的楼宇轮廓模糊了，一些呼吸道敏感者也开始感到喉咙隐隐干痒或咳嗽。\n根据国家大气污染防治攻关联合中心发布，京津冀及周边地区将于11月4-8日出现一次污染过程，峰值可能达到中至重度。这是该区域2025年秋冬季的第二次污染过程，上一次发生在10月底。\n秋冬季经常出现的雾霾天还在提示人们：虽然蓝天白云愈发常见，但空气污染带来的阴霾，仍然没有走远。\n根据世界卫生组织最近的研究结果，PM2.5仍然是对人体健康影响最大的大气污染物，PM2.5年均浓度每增加10微克/立方米，非意外全因死亡率，包括非传染性疾病和下呼吸道疾病等，将上升8%。因此，世界卫生组织在2021年更新了《全球空气质量指南》，将PM2.5年均浓度指导值收严，以更好保护人体的健康。\n在国内，自2020年以来，全国整体的PM2.5浓度，已连续五年达标，即低于35微克/立方米的国家标准限值；2024年，全国亦有四分之三的城市PM2.5年均浓度已达标。\n但每逢雾霾天气，当前的空气质量似乎又与公众的期待存在差距。有不少行业专家在研讨分享活动中谈到，我国当前执行的环境空气质量标准，对已达标城市空气质量改善的引领和约束作用正在减弱。\n“建议将25微克/立方米，作为新的PM2.5年均浓度标准限值参考目标。”基于我国当前的空气质量与排放水平，并综合考虑健康效益与政策引领作用，亚洲清洁空气中心与清华大学、北京大学联合开展的研究《环境空气质量标准研究系列报告》建议称。\n应追赶“优等生”\n每天出门前，打开手机天气软件，查看PM2.5等空气质量数据，已成为许多人的日常习惯。\n事实上，PM2.5进入公众视野并没有太悠久的历史。2012年，…",
@@ -18626,6 +19011,26 @@
       "feedUrl": "http://flowingdata.com/feed",
       "siteUrl": "https://flowingdata.com",
       "articles": [
+        {
+          "id": "https://flowingdata.com/?p=80348",
+          "author": "Nathan Yau",
+          "description": "Melissa was the strongest storm to ever hit Jamaica, and the country was…\nTags: Bloomberg, Hurricane Melissa, Jamaica, satellite imagery",
+          "link": "https://flowingdata.com/2025/11/10/damage-by-hurricane-melissa-through-satellite-imagery/",
+          "publishedOn": "2025-11-10T10:36:34.000Z",
+          "wordCount": 1336,
+          "title": "Damage by Hurricane Melissa, seen through satellite imagery",
+          "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/11/Melissa-damage.png"
+        },
+        {
+          "id": "https://flowingdata.com/?p=80362",
+          "author": "Nathan Yau",
+          "description": "For the New York Tiems, Jacqueline Gu and Cade Metz break down the…\nTags: finance, New York Times, OpenAI",
+          "link": "https://flowingdata.com/2025/11/10/openai-circular-deals/",
+          "publishedOn": "2025-11-10T10:29:36.000Z",
+          "wordCount": 1409,
+          "title": "More OpenAI circular deals",
+          "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/11/openai-circular.png"
+        },
         {
           "id": "https://flowingdata.com/?p=80405",
           "author": "Nathan Yau",
