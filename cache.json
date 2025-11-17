@@ -1645,66 +1645,6 @@
             "length": "0"
           },
           "imageUrl": "https://wechat2rss.bestblogs.dev/img-proxy/?k=05bb34e6&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FvI9nYe94fsGHwGgLg37NILmBYiaSlib1eadxg3ic18zicPDNXaYXh2KG2MSlFDXic0Oabf7hMPaWfG6djyRtJjibDCibw%2F0%3Fwx_fmt%3Djpeg"
-        },
-        {
-          "id": "9ea1d6b2",
-          "author": "Martin Fowler",
-          "description": "📌 一句话摘要\n            \nMartin Fowler 分析了自主型 AI 系统的基本安全风险，特别是提示注入，并提出了实际的缓解措施，如“致命三要素”框架，使用容器技术进行沙盒化...\n📝 详细摘要\n            \nMartin Fowler 在这篇文章中深入探讨了自主型 AI 系统固有的重大安全风险。这些系统是基于 LLM 的应用程序，能够通过内部逻辑、工具调用和子代理实现自主行动。识别出的核心问题是 LLM 无法可靠地区分内容和指令，这使得它们从根本上容易受到提示注入攻击。本文介绍了 Simon Willison 的“AI 代理致命三要素”：访问敏感数据、暴露于不受信任的内容以及外部通信能力相结合，从而创建了高风险环境。然后，Fowler 概述了实际的缓解策略，包括最大限度地减少对敏感数据的访问（例如，避免在文件中使用凭据）、阻止外部通信渠道、严格限制暴露于不受信任的内容，以及至关重要的是，采用 Docker 容器等沙盒技术来隔离有风险的任务。他还强调根据最小权限原则拆分任务，并保持“人工干预”以审查 AI 输出。除了技术风险外，本文还涉及关于 AI 供应商和 LLM 的环境影响的更广泛的行业和伦理问题，最后呼吁在这个快速发展的领域保持持续的意识和怀疑态度。\n💡 主要观点\n            \nLLM 的根本安全缺陷在于其无法区分内容和指令。\n                         这种核心弱点允许恶意行为者注入伪装成数据的命令，从而导致提示注入攻击，从而可能危及自主型 AI 系统。\n                    \n\n                        “致命三要素”确定了自主型 AI 安全风险的三个关键因素。\n                         当 AI 代理可以访问敏感数据、暴露于不受信任的内容并且可以进行外部通信时，它很容易受到攻击，正如现实世界的例子所证明的那样。\n                    \n\n                        有效的缓解措施包括沙盒化、最小权限和持续的人工监督。\n                         实施容器化、拆分任务以限制权限以及确保在每个阶段进行人工审查是降低攻击面和管理 Agentic AI 应用程序风险的关键实践。\n                    \n💬 文章金句\n            \n我们根本不知道如何防御这些攻击。我们没有一个 Agentic AI 系统可以安全地防御这些攻击。\n这里的问题是 LLM 并不总是能区分安全文本和不安全文本——它无法区分数据和指令。\n如果你激活了所有这三个因素 [访问敏感数据、暴露于不受信任的内容、外部通信能力]，你就有遭受攻击的风险。\n务必让人工检查 LLM 每个阶段的过程和输出。你有以下两种选择。\n系统的每个程序和每个特权用户都应使用完成工作所需的最小权限量进行操作。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：Martin Fowler\n作者：Martin Fowler\n分类：人工智能\n语言：英文\n阅读时间：18 分钟\n字数：4378\n标签：\n                    \n                        Agentic AI, AI 安全, LLM, 提示注入, 网络安全\n                    \n                \n            \n        \n\n        \n            阅读完整文章",
-          "link": "https://www.bestblogs.dev/zh/article/9ea1d6b2",
-          "publishedOn": "2025-10-28T13:20:00.000Z",
-          "wordCount": 509,
-          "title": "自主型 AI 和安全",
-          "enclosure": {
-            "url": "https://martinfowler.com/articles/agentic-ai-security/card.png",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://martinfowler.com/articles/agentic-ai-security/card.png"
-        },
-        {
-          "id": "51812b2a",
-          "author": "Nevi Shah",
-          "description": "📌 一句话摘要\n            \nCloudflare Workers 自动追踪公开测试版现已发布！无需代码，兼容 OpenTelemetry，增强可观测性，简化无服务器应用调试。\n📝 详细摘要\n            \n本文介绍了 Cloudflare Workers 自动追踪的公开测试版，旨在显著提高无服务器应用的可观测性。它着重指出传统调试和日志分析面临的挑战，并将自动追踪作为解决方案。其核心优势在于完全自动、无需代码的检测功能，该功能与 `workerd` 运行时深度集成，能够捕获详细的、兼容 OpenTelemetry 的 Span，用于各种操作，如绑定调用、Fetch 调用和处理程序调用。开发者可以直接在 Cloudflare 控制面板中浏览这些追踪数据，或将它们导出到兼容 OpenTelemetry 的供应商（如 Honeycomb 或 Grafana），并支持相关日志。追踪功能可以帮助识别性能瓶颈、解决错误，并加深对服务间交互的理解。未来的增强功能包括更多 Span 和属性、W3C 标准追踪上下文传播、自定义 Span 和指标导出。文章还详细介绍了测试结束后追踪功能的定价，为 Workers 开发者提供全面的信息。\n💡 主要观点\n            \nCloudflare Workers 现已支持自动、无需代码的追踪功能，显著提升可观测性。\n                         这项新功能通过 `workerd` 自动检测 Workers 中的 I/O 操作，无需手动设置和更改代码，使开发者能够专注于应用程序逻辑，同时获得深入的可视性。\n                    \n\n                        追踪捕获兼容 OpenTelemetry 的 Span，用于关键操作，从而帮助解决性能和错误。\n                         自动收集绑定调用、Fetch 调用和处理程序调用的详细元数据和时间信息，帮助开发者识别性能瓶颈，了解分布式应用内部的交互关系。\n                    \n\n                        开发者既可以在 Cloudflare 控制面板中查看追踪数据，也可以将其导出到第三方 OpenTelemetry 供应商。\n                         这种双重方法提供了灵活性，允许开发者使用 Cloudflare 的原生工具或将追踪数据与他们现有的可观测性栈集成，包括相关日志。\n                    \n💬 文章金句\n            \n当您的 Worker 运行缓慢或出现错误时，您不应该花费数小时进行日志分析和试错调试才能找到根本原因。\nWorkers 追踪功能可以捕获并生成兼容 OpenTelemetry 的 Span，详细展示 Worker 执行的每个操作的元数据和时间信息。\nWorkers 追踪真正神奇的地方在于它是**完全自动的——无需设置，无需更改代码，无需浪费时间。**\n您只需专注于应用程序逻辑，其余的检测工作由我们完成。\n我们还支持导出 OTLP 格式的日志，这些日志与追踪数据共享相同的追踪 ID，方便第三方平台自动关联日志条目和对应的追踪信息。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：The Cloudflare Blog\n作者：Nevi Shah\n分类：软件编程\n语言：英文\n阅读时间：7 分钟\n字数：1526\n标签：\n                    \n                        Observability, Distributed Tracing, Cloudflare Workers, OpenTelemetry, Serverless\n                    \n                \n            \n        \n\n        \n            阅读完整文章",
-          "link": "https://www.bestblogs.dev/zh/article/51812b2a",
-          "publishedOn": "2025-10-28T13:00:01.000Z",
-          "wordCount": 506,
-          "title": "Cloudflare Workers 自动追踪公开测试版发布：无需代码，洞悉应用性能",
-          "enclosure": {
-            "url": "https://cf-assets.www.cloudflare.com/zkvhlag99gkb/5c4yTg0GM9UzBdAOSLEgaR/b356b457c8cc750fa7a2c774fa953074/Announcing_Workers_automatic_tracing_--__now_in_open_beta.png",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://cf-assets.www.cloudflare.com/zkvhlag99gkb/5c4yTg0GM9UzBdAOSLEgaR/b356b457c8cc750fa7a2c774fa953074/Announcing_Workers_automatic_tracing_--__now_in_open_beta.png"
-        },
-        {
-          "id": "620babc1",
-          "author": "Kyle Daigle",
-          "description": "📌 一句话摘要\n            \nGitHub 推出 Agent HQ，一个开放的生态系统，将各种 AI 编码代理无缝集成到开发者工作流程中，以增强生产力和控制力。\n📝 详细摘要\n            \n本文宣布了 GitHub 的 Agent HQ，这是一项战略举措，旨在将各种 AI 编码代理（来自 Anthropic、OpenAI、Google 等）直接集成到 GitHub 平台中。它通过创建一个统一的生态系统来解决当前 AI 工具的碎片化问题，在该生态系统中，代理可以在现有的 Git、Pull Request 和 Issue 工作流程中无缝运行。主要功能包括“任务控制中心”，这是一个用于跨不同设备和界面（GitHub、VS Code、移动设备、CLI）分配和跟踪代理任务的命令中心。新的 VS Code 集成提供了“计划模式”，用于结构化任务规划，以及通过 `AGENTS.md` 文件（一种用于定义代理行为的配置文件）使用特定规则和防护措施自定义代理行为。此外，Agent HQ 通过“GitHub 代码质量”等功能来强调企业级信心和控制，以实现系统的代码可维护性，一个 “Copilot 指标仪表板” 用于使用情况洞察，以及一个专用的“控制平面”，用于管理组织内的 AI 访问和代理行为。这一愿景旨在提供强大、安全和集成的 AI 赋能的开发体验。\n💡 主要观点\n            \nAgent HQ 在 GitHub 中为各种 AI 编码代理建立了一个开放的生态系统。\n                         这会将来自多个提供商（Anthropic、OpenAI、Google）的代理统一到一个平台中，消除工具碎片化，并将它们集成到熟悉的开发者工作流程中，如 Git 和 Pull Requests。\n                    \n\n                        任务控制中心和 VS Code 集成等新工具增强了代理编排和自定义。\n                         任务控制中心提供了一个统一的界面来管理跨设备的代理，而 VS Code 的功能（如计划模式和 `AGENTS.md`）允许开发者计划任务并以精细的控制自定义代理行为。\n                    \n\n                        企业级功能确保了对 AI 代理部署和影响的信心和控制。\n                         GitHub 引入了用于系统代码质量改进的工具、Copilot 指标仪表板以及一个专用的控制平面，用于管理组织内的 AI 访问、策略和审计代理使用情况。\n                    \n💬 文章金句\n            \n未来在于让你有能力协调一组专门的代理来并行执行复杂的任务，而不是摆弄一堆断开连接的工具或依赖于单个代理。\n有了 Agent HQ，*没有*改变的东西与*正在*改变的东西一样重要。你仍然在使用你熟悉的基本功能 --- Git、Pull Requests、Issues --- 并使用你喜欢的计算方式，无论是 GitHub Actions 还是自托管 Runners。\n有了 Agent HQ，Claude 可以处理 Issues、创建分支、提交代码并响应 Pull Requests，像其他协作者一样与你的团队一起工作。\n预先提供上下文可以改进 Copilot 的功能，并帮助你尽早发现流程中的差距、缺失的决策或项目缺陷 --- 在编写任何代码之前。\nAgent HQ 不是关于 AI 的过度宣传。它是关于发布代码的现实。它是关于在这个新时代带来秩序和治理，而不损害选择。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：The GitHub Blog\n作者：Kyle Daigle\n分类：人工智能\n语言：英文\n阅读时间：6 分钟\n字数：1391\n标签：\n                    \n                        AI 代理, GitHub, 软件开发, Copilot, VS Code\n                    \n                \n            \n        \n\n        \n            阅读完整文章",
-          "link": "https://www.bestblogs.dev/zh/article/620babc1",
-          "publishedOn": "2025-10-28T09:08:15.000Z",
-          "wordCount": 512,
-          "title": "Agent HQ 介绍：任何代理，满足您的工作方式",
-          "enclosure": {
-            "url": "https://github.blog/wp-content/uploads/2025/10/UniverseBlogHeader_07.jpg",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://github.blog/wp-content/uploads/2025/10/UniverseBlogHeader_07.jpg"
-        },
-        {
-          "id": "f895c315",
-          "author": "GitHub Staff",
-          "description": "📌 一句话摘要\n            \nGitHub 2025 Octoverse 报告：AI 驱动开发者增长，TypeScript 成最常用语言，AI 代理重塑开发选择。\n📝 详细摘要\n            \nGitHub Octoverse 2025 报告强调了开发者生态系统中前所未有的增长，GitHub 上的开发者数量已超过 1.8 亿，并且每秒钟都有一位新的开发者加入。 这种激增得益于 GitHub Copilot 等生成式 AI 工具的广泛应用，近 80% 的新开发者在第一周内使用这些工具。 一个重大的转变是 TypeScript 的崛起，它已经超过了 Python 和 JavaScript，成为 GitHub 上使用最多的语言， 体现了在 AI 辅助编码环境下，开发者对类型化语言的青睐。 该报告强调，AI 不仅加速了代码编写，还在重塑开发者在语言和工具方面的选择。 此外，全球开发者的增长正在迅速多样化，印度正在成为新开发者的最大来源地，预计到 2030 年将占新注册人数的三分之一。 开源贡献也达到了创纪录的水平，AI 基础设施项目在增长最快的类别中占据主导地位，表明对基础 AI 技术的强大投资。\n💡 主要观点\n            \n生成式 AI 现在是开发工作流程中的标准组件，显著推动了 GitHub 上的开发者增长和活动。\n                         超过 110 万个公共存储库使用 LLM SDK，80% 的新开发者在第一周内使用 GitHub Copilot，表明 AI 正在加速融入开发流程，并显著提升开发者参与度和生产力。\n                    \n\n                        TypeScript 已成为 GitHub 上使用最多的语言，标志着 AI 辅助编码领域对类型化语言的日益…",
-          "link": "https://www.bestblogs.dev/zh/article/f895c315",
-          "publishedOn": "2025-10-28T09:07:06.000Z",
-          "wordCount": 521,
-          "title": "Octoverse：GitHub 每秒新增一位开发者，AI 助力 TypeScript 登顶",
-          "enclosure": {
-            "url": "https://github.blog/wp-content/uploads/2025/10/octoverse-2025-hero-image.png",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://github.blog/wp-content/uploads/2025/10/octoverse-2025-hero-image.png"
         }
       ]
     },
@@ -1890,6 +1830,16 @@
       "feedUrl": "https://rsshub.rssforever.com/tencent/news/author/5505476",
       "siteUrl": "https://new.qq.com/omn/author/5505476",
       "articles": [
+        {
+          "id": "https://view.inews.qq.com/a/20251117A01IXC00",
+          "author": "谷雨实验室",
+          "description": "文 | 曾好好 郭丽娟\n编辑 | 张瑞\n\n出品 | 腾讯新闻 谷雨工作室\n\n\n小笠原文雄是一位77岁的日本医生，在岐阜开了一个内科诊所。普通的诊所是治愈患者的疾病，让人“好好地活”，小笠原文雄医生的诊所主要收治那些在医院医无可医，痛不欲生的绝症患者——他是一个让患者“好好死去”的医生。\n作为日本居家安宁疗护协会会长，他从1989开始做居家安宁疗护，可以说是日本安宁疗护界的泰斗人物。至今，他接手治疗超过2000人，绝大部分最终都在家中没有痛苦的辞世。在行医之外，他一共写了四本书，其中一本叫《可喜可贺的临终》，在日本是人气畅销书，也被翻译成中文。他用浅显易懂的语言告诉大家：人可以没有痛苦的死去，不管是身患多严重的疾病，在世时开心生活，离世时平静干脆，是他做居家安宁疗护的理念。\n2025年10月14日，我在东京见到了小笠原老师。他来参与第21届日本健康社会奖（ヘルシー・ソサエティ賞）的颁奖礼，他是前年的获奖者。小笠原老师戴着棕色礼帽，套了一个可爱的浅黄色针织马甲。他的身材高大挺拔，精神矍铄，脸上有知识分子和医生的威严静气，还没落座就开始侃侃而谈。\n不管是在日本还是中国，人们都忌讳谈论死亡，害怕直面死亡，他作为医生见到太多“痛苦挣扎的死去”，“不辞而别的伤痛”，“无法弥补的遗憾”，他用36年的经验告诉人们，死亡不是失败，是生命的完成，活着的时候要有质量，离世的时候心满意足，不留遗憾，这就足够了。\n以下小笠原文雄医生的讲述，综合了他的口述，以及他的书中内容，包括中文版《可喜可贺的临终》以及未翻译的日文书。\n   \n小笠原文雄医生\n\n\n\n   \n我是一个让患者“好好死去”的医生\n2012年的一天，我接到家属电话，70岁的大野患了子宫癌晚期在医院救治，每天靠点滴维持生命，全身浮肿，胸腔积水严重，每两小时需要用仪器抽出，大野不成人形、日夜痛苦不堪，家中还有一个儿子有视力障碍，她对妹妹说，“…",
+          "link": "https://view.inews.qq.com/a/20251117A01IXC00",
+          "publishedOn": "2025-11-17T01:01:41.000Z",
+          "wordCount": 14782,
+          "title": "我开了一家诊所，帮2000人“好好死去” | 谷雨",
+          "imageUrl": "https://inews.gtimg.com/om_ls/OT0csaIjW1k_ktFDOpwn3UGY9je-efdFxCUg0JAQnHIMUAA_640330/0"
+        },
         {
           "id": "https://view.inews.qq.com/a/20251107V05CV600",
           "author": "谷雨实验室",
@@ -2246,16 +2196,6 @@
           "wordCount": 331,
           "title": "产量第一远远不够！降维打击，中国捅破钢铁天花板（上）",
           "imageUrl": "https://inews.gtimg.com/om_ls/OcEFRGAAXopum-zV7az4WLN3gyUzKSU-avo4UoAhR9kKYAA_196130/0"
-        },
-        {
-          "id": "https://view.inews.qq.com/a/20251028A059CY00",
-          "author": "地球知识局",
-          "description": "地球知识局\n文字 | 一拳一头北极熊\n制图 | 桐 校对 | 朝乾 编辑 | Alicia\n\n中国的胡焕庸线，从东北黑河到云南腾冲，4000多公里。\n\n那俄罗斯的“胡焕庸线”呢？不少人的第一反应是乌拉尔山（欧亚分界线），在它以东就是西伯利亚。\n\n但在我看来，其真正的“胡焕庸线”只有108.9公里，那就是莫斯科环城公路。\n\n   \n▲图注：莫斯科环城公路既是城市交通网络的核心\n也是欧洲多条E系列国际公路的组成部分\n（图：shutterstock）\n\n正如俄罗斯著名乐队“事件”的歌词所唱：只要越过莫斯科环城路，那就不是俄罗斯；只要越过环城路，那就是西伯利亚！\n\n在俄罗斯人心目中，他们国家只有两种人：莫斯科老爷和臭外地的。\n\n其差距之大，命运之悬殊，只能用触目惊心来形容。\n\n   \n   \n   \n▲图注：身在一个国家，同人却不同命\n（图：壹图网）\n\n四个俄罗斯\n\n莫斯科之外的“外地人”，按收入水平还可以再细分，加上莫斯科，你就能发现 “四个俄罗斯”，分别是被忽略的“非国民”地区、穷得不忍直视的地区、穷但还凑合的地区，以及莫斯科等少数富裕城市。\n\n最贫困的“非国民”地区，就是那些去工业化的、即将消失的小城镇。它们主要是北方的煤炭、冶金、木材等原材料加工城市和附属乡村，这些定居点的基建过于老化，濒临崩溃。\n\n   \n▲图注：位于俄东北部楚科奇自治区的村庄\n尽显荒凉破败之感\n（图：壹图网）\n\n很多定居点都是雪原中的孤岛，陆路交通基本中断，昂贵的公路铁路根本没钱维护，直升机和小飞机是这些偏远地区居民的交通生命线。\n\n这些飞机很多都是大巴化运营的，长期低票价、缺少维修经费，也让它们极不安全，空难时有发生。\n\n至于穷得不忍直视的地方，大多是因为人力和资源都被吸干了，就如远东的图瓦、阿尔泰共和国，卡尔梅克和北高加索的一些自治共和国那样。\n\n   \n▲图注：以农业经济为主的图瓦共和国更是穷中之…",
-          "link": "https://view.inews.qq.com/a/20251028A059CY00",
-          "publishedOn": "2025-10-28T12:05:00.000Z",
-          "wordCount": 900,
-          "title": "俄罗斯有多穷？莫斯科有多富？| 地球知识局",
-          "imageUrl": "https://inews.gtimg.com/om_ls/O0-tl1-aGQnEEq8ETqzDNmq6h8n15VjUVrqE4TcaH92ekAA_640330/0"
         }
       ]
     },
@@ -2865,6 +2805,16 @@
       "feedUrl": "https://www.geekpark.net/rss",
       "siteUrl": "http://mainssl.geekpark.net/rss.rss",
       "articles": [
+        {
+          "id": "http://www.geekpark.net/news/356465",
+          "author": null,
+          "description": "雷军关于小米汽车安全连发多条微博：「网上有不少人断章取义、歪曲抹黑」\n11 月 16 日，雷军就其 2024 年 4 月的采访言论连发微博澄清。相关话题冲上热搜。\n原采访中，雷军提到「一辆车好看是第一位的」，被指为「小米汽车重颜值轻安全」，质疑其忽视安全标准。\n10:52雷军发布第一条微博，称「这是小米 SU7 发布之前我发的微博，我谈对安全的理解和 SU7 的研发标准。」\n11:25雷军转发上一条内容，并补充「这些内容是 2023 年底和 2024 年初的。」\n12:51雷军称，在去年 4 月的一次采访中，我在谈产品定义时说，「一辆车，好看是第一位的」，这和「安全是基础、安全是前提」矛盾吗？还是在这次采访，我谈设计时候说轮毂最难设计，这有啥问题？（消息来源：杭州日报）\n\n\n华为将发布突破性技术！有望解决算力利用效率难题\n11 月 16 日消息，据媒体报道，华为将于 11 月 21 日发布一项 AI 领域的突破性技术，该技术有望显著提升算力资源利用效率，解决当前行业面临的算力瓶颈问题。\n据了解，这项新技术可将 GPU、NPU 等算力硬件的利用率从行业平均水平的 30%–40% 提升至 70%，极大释放硬件潜能。\n该突破主要基于软件层面的创新，实现了对英伟达、昇腾及其他第三方算力资源的统一管理与调度，有效屏蔽底层硬件差异，为 AI 训练与推理任务提供更高效、稳定的资源支持。\n值得关注的是，在当前 NVIDIA 芯片供应紧张的背景下，中国云服务提供商正加速转向国产替代方案，华为昇腾系列芯片因其性能与可用性成为优先选择。\n其中，昇腾 910C 已逐渐成为市场首选。作为昇腾 910B 的升级版本，910C 采用双芯片封装设计，目前已实现规模化量产，成为首款在人工智能领域大规模部署的国产芯片。（消息来源：快科技）\n \n马斯克惊人预测：20 年内人类意识有望上传至机器人实现「永生」\n1…",
+          "link": "http://www.geekpark.net/news/356465",
+          "publishedOn": "2025-11-17T00:42:51.000Z",
+          "wordCount": 1127,
+          "title": "雷军连发多条微博回应质疑；iPhone 发布方式将在明年重大变革；年度最令人不安的研究：AI 刷多社媒会变蠢｜极客早知道",
+          "imageUrl": null
+        },
         {
           "id": "http://www.geekpark.net/news/356458",
           "author": null,
@@ -3513,16 +3463,6 @@
           "publishedOn": "2025-10-28T16:25:50.000Z",
           "wordCount": 135,
           "title": "Plaud Note Pro 体验：不是所有录音笔，都能叫「AI 硬件」",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.geekpark.net/news/355667",
-          "author": null,
-          "description": "作者｜Moonshot \n编辑｜靖宇 \n我们已经知道，AI 给出的看似可信的答案，可能是精心编造的「AI 幻觉」。但有没有可能，这是 AI 有意为之的一种策略呢？\n\n十月，《纽约时报》发表了题为《The A.I. Prompt That Could End the World》（《那个可能终结世界的 AI 提示词》）的文章。作者 Stephen Witt 采访了多位业内人士：有 AI 先驱，图灵奖获奖者 Yoshua Bengio；以越狱测试著称的 Leonard Tang；以及专门研究模型欺骗的 Marius Hobbhahn。\n这篇报道看似是 AI 威胁论的老生常谈，但不同的是，整篇文章的论述方向是： AI 已经有了造成严重后果的能力，它在变得更聪明、更会伪装、更会撒谎，同时正在培养取代人类的工作能力 。\n这一切，都是从「一问一答」开始的。\n \n01 \n从提示词开始的失控 \n \nPrompt 是人类与 AI 的接口，是告诉 AI「我想要你做什么」的翻译器。\n可当一个系统足够强大和通用时，它的「理解」能力就能被反向利用，因为 AI 从不拒绝回答，这种「有求必应」的本性，就是被利用的第一步。\n但你对 AI 写下「生成一个恐怖分子炸校车的图片」这类 Prompt，AI 会拒绝你这个地狱请求。\n因为为了阻止输出恶意内容，模型通常在训练时接受「强化学习与人类反馈」（RLHF），以学会拒绝违法或伤害性的请求。这些机制就像是人类给模型设定的「公序良俗」。\n\nChatGPT 甚至拒绝讲地狱笑话｜图源：ChatGPT\n而这也就催生了在 Prompt 边界反复试探的「AI 越狱者」。AI 越狱不需要你有高超的黑客技术，就用文字游戏去「骗」模型越过它的安全设定。\n一个好的 AI 越狱者，就可以用 AI 开发团队无法预料的方式去写 Prompt。\n24 岁的 Leonard Tang 就是琢磨…",
-          "link": "http://www.geekpark.net/news/355667",
-          "publishedOn": "2025-10-28T08:45:17.000Z",
-          "wordCount": 934,
-          "title": "看似万能的 AI，其实比你想的更脆弱和邪恶",
           "imageUrl": null
         }
       ]
@@ -4616,16 +4556,6 @@
           "publishedOn": "2025-10-29T09:27:00.000Z",
           "wordCount": 264,
           "title": "未竟的重阳",
-          "imageUrl": null
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MjM5ODAzNTc2NA==&mid=2652893693&idx=1&sn=44f30df27439a7eeb19a4070c0c8f630",
-          "author": null,
-          "description": "由陈小萍到郑智化，我们感觉到了什么？",
-          "link": "https://mp.weixin.qq.com/s?__biz=MjM5ODAzNTc2NA==&mid=2652893693&idx=1&sn=44f30df27439a7eeb19a4070c0c8f630",
-          "publishedOn": "2025-10-28T13:18:00.000Z",
-          "wordCount": 264,
-          "title": "我们的病就是没有感觉",
           "imageUrl": null
         }
       ]
@@ -7208,6 +7138,38 @@
       "siteUrl": "https://news.un.org/en/",
       "articles": [
         {
+          "id": "https://news.un.org/en/story/2025/11/1166378",
+          "author": null,
+          "description": "On Sunday, a foot patrol of the United Nations Interim Force in Lebanon (UNIFIL) was targeted by an Israeli army Merkava tank from a position established by Israel in Lebanese territory.",
+          "link": "https://news.un.org/feed/view/en/story/2025/11/1166378",
+          "publishedOn": "2025-11-16T12:00:00.000Z",
+          "wordCount": null,
+          "title": "Lebanon: UN peacekeeping patrol targeted by Israeli tank, IDF blames ‘misidentification’",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/17-07-2025-UNIFIL-peacekeeping-07.jpg/image560x340cropped.jpg",
+            "length": "49577",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/17-07-2025-UNIFIL-peacekeeping-07.jpg/image560x340cropped.jpg"
+        },
+        {
+          "id": "https://news.un.org/en/story/2025/11/1166360",
+          "author": null,
+          "description": "Ukraine is facing what has been described as an “unprecedented housing crisis” three and a half years after the full-scale invasion of the Eastern European country by Russia.",
+          "link": "https://news.un.org/feed/view/en/story/2025/11/1166360",
+          "publishedOn": "2025-11-16T12:00:00.000Z",
+          "wordCount": null,
+          "title": "Ukraine faces ‘unprecedented housing crisis’",
+          "itunes": {},
+          "enclosure": {
+            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/17-10-2025-UNICEF-Ukraine-02.jpg/image560x340cropped.jpg",
+            "length": "49102",
+            "type": "image/jpeg"
+          },
+          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/17-10-2025-UNICEF-Ukraine-02.jpg/image560x340cropped.jpg"
+        },
+        {
           "id": "https://news.un.org/en/story/2025/11/1166377",
           "author": null,
           "description": "A large-scale campaign under the slogan “We Will Rebuild Gaza” was launched on Saturday in Gaza City, with the participation of local organisations and United Nations agencies, in an effort to begin cleaning operations and removing debris left by the war.",
@@ -9206,118 +9168,6 @@
             "type": "image/jpeg"
           },
           "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/27-10-2015-UNICEF-Darfur-06.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/10/1166204",
-          "author": null,
-          "description": "While urging countries to accelerate action, UN Climate Change Executive Secretary Simon Stiell struck an optimistic tone on Tuesday following the release of a new report on updated national climate commitments.",
-          "link": "https://news.un.org/feed/view/en/story/2025/10/1166204",
-          "publishedOn": "2025-10-28T12:00:00.000Z",
-          "wordCount": null,
-          "title": "World enters ‘new era’ of climate action – but progress must accelerate",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/09-12-2020-Rouge-Electric-Vehicle-Center.jpg/image560x340cropped.jpg",
-            "length": "56982",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/09-12-2020-Rouge-Electric-Vehicle-Center.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/10/1166203",
-          "author": null,
-          "description": "Aid teams in Gaza are racing to meet urgent needs with tens of thousands still displaced, sheltering in damaged buildings and makeshift sites, while reports of renewed fighting between Israeli forces and Hamas threaten to derail the ceasefire.",
-          "link": "https://news.un.org/feed/view/en/story/2025/10/1166203",
-          "publishedOn": "2025-10-28T12:00:00.000Z",
-          "wordCount": null,
-          "title": "Gaza: Humanitarian response scaled up amid faltering ceasefire",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/15-10-2025-UN-News-Gaza-04.jpg/image560x340cropped.jpg",
-            "length": "27912",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/15-10-2025-UN-News-Gaza-04.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/10/1166202",
-          "author": null,
-          "description": "As Hurricane Melissa makes landfall in Jamaica as a category 5 storm, agencies continue mobilising supplies to support affected communities, with one senior official on the island telling UN News that Government-led preparations have been nothing short of “extraordinary”.",
-          "link": "https://news.un.org/feed/view/en/story/2025/10/1166202",
-          "publishedOn": "2025-10-28T12:00:00.000Z",
-          "wordCount": null,
-          "title": "Hurricane Melissa: UN launches sea-lift operation to deliver aid",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/28-10-2015-WFP-hurricane-Melissa-01.jpg/image560x340cropped.jpg",
-            "length": "45019",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/28-10-2015-WFP-hurricane-Melissa-01.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/10/1166201",
-          "author": null,
-          "description": "The chair of an independent commission investigating alleged human rights abuses in the Occupied Palestinian Territory, told a General Assembly committee on Tuesday that Israel has committed “four genocidal acts” in Gaza, while leaders had “incited the commission of genocide.”",
-          "link": "https://news.un.org/feed/view/en/story/2025/10/1166201",
-          "publishedOn": "2025-10-28T12:00:00.000Z",
-          "wordCount": null,
-          "title": "Israel responsible for four genocidal acts in Gaza, inquiry chair tells General Assembly",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/04-03-2024-UNRWA-Gaza-01.jpg/image560x340cropped.jpg",
-            "length": "45143",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/04-03-2024-UNRWA-Gaza-01.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/10/1166200",
-          "author": null,
-          "description": "After 500 days of siege, the Rapid Support Forces (RSF) militia have reportedly taken control of the key Sudanese city of El-Fasher in Darfur, triggering widespread fear among families, and forcing thousands of civilians to flee.",
-          "link": "https://news.un.org/feed/view/en/story/2025/10/1166200",
-          "publishedOn": "2025-10-28T12:00:00.000Z",
-          "wordCount": null,
-          "title": "‘Horrific’ violence as thousands flee Sudan's El Fasher",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/27-10-2025_UNFPA_Sudan-01.jpg/image560x340cropped.jpg",
-            "length": "51943",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/27-10-2025_UNFPA_Sudan-01.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/10/1166199",
-          "author": null,
-          "description": "Russia’s abuse of national security and public safety laws to silence opposition to the war in Ukraine has reached “alarming levels”, the UN independent expert who monitors human rights in Russia has warned.",
-          "link": "https://news.un.org/feed/view/en/story/2025/10/1166199",
-          "publishedOn": "2025-10-28T12:00:00.000Z",
-          "wordCount": null,
-          "title": "Russia using ‘rule of fear’ to silence anti-war dissent, says UN independent human rights expert",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/21-09-2023-HR-Mariana%20Katzarova-Russia.jpg/image560x340cropped.jpg",
-            "length": "29232",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/21-09-2023-HR-Mariana%20Katzarova-Russia.jpg/image560x340cropped.jpg"
-        },
-        {
-          "id": "https://news.un.org/en/story/2025/10/1166197",
-          "author": null,
-          "description": "Millions in Jamaica and across the Caribbean are bracing for massive impact from Hurricane Melissa on Tuesday as the UN and partners warn of a “severe” and “immediate” threat.",
-          "link": "https://news.un.org/feed/view/en/story/2025/10/1166197",
-          "publishedOn": "2025-10-28T12:00:00.000Z",
-          "wordCount": null,
-          "title": "‘Catastrophic’ Hurricane Melissa makes landfall in Jamaica",
-          "itunes": {},
-          "enclosure": {
-            "url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/28-10-2025-Jamaica-WFP-01.jpg/image560x340cropped.jpg",
-            "length": "39013",
-            "type": "image/jpeg"
-          },
-          "imageUrl": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/28-10-2025-Jamaica-WFP-01.jpg/image560x340cropped.jpg"
         }
       ]
     },
@@ -10041,26 +9891,6 @@
           "publishedOn": "2025-10-28T23:58:45.000Z",
           "wordCount": 377,
           "title": "派早报：Nothing 确认将引入第三方预装应用和锁屏广告等",
-          "imageUrl": null
-        },
-        {
-          "id": "https://sspai.com/post/103206",
-          "author": "Navis",
-          "description": "前瞻的投入最终都会沉淀为自己最核心的竞争力。从最初被技术变革推着走，到如今能够主动参与到生态建设中，这段经历给我留下非常深刻的印象，挑战确实与机遇并存。查看全文",
-          "link": "https://sspai.com/post/103206",
-          "publishedOn": "2025-10-28T11:04:41.000Z",
-          "wordCount": 309,
-          "title": "鸿蒙 1024｜从评测到鸿蒙应用开发：我做了一款专业屏幕测试工具",
-          "imageUrl": null
-        },
-        {
-          "id": "https://sspai.com/post/103385",
-          "author": "Matrix机器人",
-          "description": "除了首页时间流和侧栏的精选展位，少数派Matrix社区还有很多优秀内容因条件所限无法得到有效曝光，因此我们决定重启Matrix周报，并在此基础上添加更多社区内容、作者投稿新玩意呈现给大家。💬一派热议在 ...查看全文",
-          "link": "https://sspai.com/post/103385",
-          "publishedOn": "2025-10-28T09:20:00.000Z",
-          "wordCount": 1164,
-          "title": "社区速递 115 | 派友的九月消费报告和一周热评、新玩意",
           "imageUrl": null
         }
       ]
@@ -11323,16 +11153,6 @@
           "wordCount": 2977,
           "title": "Códice Maya de México",
           "imageUrl": "https://images.aeonmedia.co/images/4923be7d-1b42-42cb-b16f-d63a24e6d254/codice-maya-de-mexico-landscape-1.jpg?width=1200&quality=75&format=auto"
-        },
-        {
-          "id": "urn:id:8435",
-          "author": "Alanna Offield",
-          "description": "Through her paintings, Georgia O’Keefe laid claim to New Mexico’s desert landscape. But it was never hers for the taking\n- by Alanna Offield\nRead on Aeon",
-          "link": "https://aeon.co/essays/some-people-refer-to-new-mexico-as-okeeffe-country-i-dont?utm_source=rss-feed",
-          "publishedOn": "2025-10-28T10:00:00.000Z",
-          "wordCount": 10984,
-          "title": "My private mountain",
-          "imageUrl": "https://images.aeonmedia.co/images/d863c5a0-96d3-4143-b928-66914a76bf9c/essay-scala_a485844.jpg?width=1200&quality=75&format=auto"
         }
       ]
     },
@@ -16570,106 +16390,6 @@
           "wordCount": 264,
           "title": "身价暴涨200亿的电子烟大王，还是没能翻身",
           "imageUrl": null
-        },
-        {
-          "id": "1581409",
-          "author": null,
-          "description": "摘要：A股久违站上4000点，国产算力赶上了好时候。凤凰网科技 出品作者｜姜凡编辑｜董雨晴10月28日上午，A股市场传来捷报，上证指数盘中突破4000点，创2015年8月19日以来新高。\n        这是久违的好时候，就在四天前，沐曦集成电路（上海）股份有限公司（以下简称“沐曦”）的科创板IPO申请，刚刚正式通过上市委会议审议。\n        历经五年技术深耕与产业锤炼，作为国产高性能GPU领域的头部企业，沐曦向登陆资本市场迈出了关键一步。\n        沐曦过会的消息一经传出，也在A股市场引发连锁反应。\n        多家与沐曦存在股权关联或业务合作的上市公司，股价应声上扬。\n        其中，就包括直接或通过产业基金持有沐曦股份的淳中科技、中山公用、七匹狼控股股东等。\n        就连与沐曦建立了深度业务绑定的合作伙伴，如负责GPU代理销售的超讯通信、提供供应链支持的中电港、开展云计算协同的优刻得等，也同样成为资本市场追逐的焦点。\n        此番“沐曦概念股”的整体躁动，并非孤例。回顾9月26日摩尔线程IPO上会前，其相关概念股也曾出现一轮强势上涨。\n        而押注多家“中国英伟达”的投资人，迎来密集回报期。\n        国产算力，东风已至十月中旬，芯片巨头英伟达创始人黄仁勋称，受美国出口管制影响，公司已全面退出中国市场。\n        要知道，在2024年，英伟达在中国区营收为171.08亿美元（1249亿元人民币）。\n        一夜之间，原本由英伟达牢牢主导的千亿级市场，浮现出巨大的供给空白。\n        国产GPU企业正蓄势待发。并且，当前大模型产业的发展重心已从训练阶段逐步进入推理应用新阶段。\n        在此阶段，推理任务对算力的整体性能需求有所降低，国产大模型厂商开始高度重视“性价比”。\n        面…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MjM5ODAxMjU2MA==&mid=2649795977&idx=1&sn=5f558fca5f642a5b7059ee1254ef00b0&chksm=bf3de1db93a6d7402cbe9ec2b0f9fa918446a9e3709c6278822a6496b3045ae5da5c7351cdd1",
-          "publishedOn": "2025-10-28T12:02:55.000Z",
-          "wordCount": 264,
-          "title": "“中国英伟达”投资人，又开香槟了",
-          "imageUrl": null
-        },
-        {
-          "id": "1581408",
-          "author": null,
-          "description": "整理 | 华卫\t刚刚，这样一个消息在 Reddit 上引发热议：硅谷似乎正在从昂贵的闭源模型转向更便宜的开放源替代方案。\n        被称为“SPAC 之王”的知名美国企业家和投资人 Chamath Palihapitiya 公开表示，其团队是 Bedrock 的前 20 大用户，但现在已将大量工作负载迁移至 Groq 平台上的中国模型 Kimi K2，因为该模型的性能显著更优，且比 OpenAI 和 Anthropic 都要便宜得多。\n        Kimi K2 是由月之暗面团队开发的混合专家（MoE）大型语言模型，总参数量达 1 万亿，激活参数量为 320 亿。\n        此前，知名云端开发平台 Vercel、AI 编码助手 Cline 和 Cursor、Perplexity 和 GensparkAI 应用也都接连宣布接入 Kimi K2 模型。\n        “最终决定切换到开源模型，核心就是成本考量。”Palihapitiya 透露，其使用的编程工具仍然通过 Anthropic 的系统运行，Anthropic 的技术很棒但成本太高。\n        而 DeepSeek 模型一推出就便宜很多，但要切换过去得花费几周甚至几个月时间。\n        “AI 模型迭代这么快，要突然把所有提示词切换到不同的大语言模型上并不容易，因为这些模型需要经过微调与工程适配，才能在同一个系统里正常工作。”\n        在谈及模型所有权及风险问题时，Palihapitiya 介绍，Groq 接入中国模型的做法是：拿到这些模型的源代码，进行部署、分支开发，最终把模型部署在美国本土，由美国人在美本土的数据中心里操作。\n        服务模式上，由于 Groq 是把开源模型部署在自有基础设施上，他们通过开放的 API 就能实现 “token 进、token 出”。\n  …",
-          "link": "http://mp.weixin.qq.com/s?__biz=MzU1NDA4NjU2MA==&mid=2247647469&idx=1&sn=277ac1dd28b9becd70c3dabfa4037365&chksm=faf338822fc769887dcaa7040e2e3fec7ceadf85eb34a61c6072b5bae2c47bbb4e7c36cb7063",
-          "publishedOn": "2025-10-28T12:02:54.000Z",
-          "wordCount": 264,
-          "title": "硅谷大佬带头弃用 OpenAI、“倒戈”Kimi K2！直呼“太便宜了”，白宫首位 AI 主管也劝不住",
-          "imageUrl": null
-        },
-        {
-          "id": "1581407",
-          "author": null,
-          "description": "金融人必备！股神思维 + 专属助手一场可能迫使美国政府退还数百亿美元关税的法律对决，正在催生一个独特的投机市场。\n        美国财政部长贝森特近日在接受媒体采访时公开承认，如果最高法院裁定特朗普政府的部分关税为非法，美国财政部可能将不得不退还“大约一半的关税”，他将此形容为对财政部的“可怕”打击。\n        当被问及政府是否准备好退款时，贝森特回应称：“如果法院这么说，我们就必须这么做。”\n        这一表态的背景，是两家下级法院已裁定特朗普政府援引《国际紧急经济权力法》征收部分关税缺乏法律授权。\n        目前，此案已上诉至最高法院，定于11月5日举行口头辩论。\n        据美国海关与边境保护局数据，截至今年8月，争议关税已征收超过700亿美元，而如果裁决最终推翻该政策，其引发的连锁反应将对美国财政和进口企业产生深远影响。\n        面对巨大的不确定性，市场并未等待。从华尔街投行的结构化产品到线上预测平台，一个围绕关税裁决结果的“定价”机制已然形成。\n        投资者正用真金白银押注美国财政部是否会执行一次史无前例的“关税大退款”。\n        华尔街的豪赌：构建巨额关税退款索赔市场华尔街见闻此前提及，对于华尔街的专业投资者而言，这场赌局以一种更为传统且规模庞大的金融交易形式展开。\n        据媒体报道，包括Jefferies和Oppenheimer在内的投资银行正在积极撮合一种特殊交易：将支付了高额关税的进口商与寻求高回报的投资者（主要是对冲基金）连接起来。\n        交易的核心逻辑是，现金流紧张的进口商将其未来“可能”获得的关税退款索赔权，以大幅折扣的价格提前出售给投资者。\n        一份Oppenheimer的推介材料指出，该方案能够“消除结果的不确定性，并立即获得有保证的付款，无需等待法院的最终裁决”。\n        据报道，投资者通常以每1美元索赔权20至40美分的价格买入。\n        这意味着，一旦最高法院的裁决对他们有利，他们将获得数倍于原始投资的回报。\n        大多数交易的规模在200万至2000万美元之间，少数交易超过1亿美元。\n        Oppenheimer的材料显示，其团队自2021年以来，已围绕早期的关税安排了超过16亿美元的类似交易。\n        值得注意的是，由美国商务部长卢特尼克的儿子负责的投资银行Cantor Fitzgerald，也曾在今年早些时候考虑安排此类交易。\n        但据8月媒体报道，该公司在执行任何交易之前就叫停了相关业务。\n        散户的算盘：预测市场上微小的赌注与机构投资者动辄数百万美元的定制化交易不同，个人投资者则通过新兴的预测市场参与这场博弈。\n        在Kalshi和Polymarket等平台上，任何人都可以就“最高法院是否会维持关税”等问题进行小额押注。\n        这些平台上的合约价格，被视为一种市场对事件发生概率的直接反映。\n        据彭博专栏作家Matt Levine的观察，相关合约的交易价格约为40美分，这直接转化为市场隐含的概率——\n        即关税政策被最高法院维持的可能性约为40%。然而，这种方式的局限性也十分明显。\n        截至目前，Kalshi上相关合约的总交易额不足25万美元，Polymarket则不足40万美元。\n        分析指出，这些市场的流动性极低，完全无法满足企业级投资者对冲数百万美元风险敞口的需求。\n        因此，预测市场在此次事件中更像一个民意或情绪的晴雨表，而非一个有效的风险转移工具。\n        成败取决于最高法院的裁决所有赌注的成败，最终都系于最高法院的裁决。\n        分析认为，法院的判决不仅取决于法律条文的解读，也可能受到法官对行政权力的看法影响。\n        特朗普本人始终青睐关税带来的收入，并认为被迫退款对国家将是一场“灾难”。\n        即使最高法院最终裁定关税非法，退款过程也并非一片坦途。\n        海关与贸易专家警告称，返还税款将是一场“后勤噩梦”。\n        美国海关及边境保护局仅向登记在册的进口商退款，而对于通过联邦快递（FedEx）和联合包裹（UPS）等商业承运商处理清关和关税支付的众多中小进口商而言，提供每笔货运的详细文件以申请退款将是极其复杂的过程。\n        这也为已经买入索赔权的投资者增加了另一层执行风险。金融人必备！股神思维 + 专属助手",
-          "link": "http://mp.weixin.qq.com/s?__biz=MjM5NzAwMzU0MA==&mid=2247632179&idx=1&sn=3337df2c61dc7416af2e8c3f78481a0e&chksm=a7a3e4533282d64139f7ca2f3e98e5d22cf397f5d5f86cf12cf4fc3c9fb8007920be4e692c8d",
-          "publishedOn": "2025-10-28T12:02:54.000Z",
-          "wordCount": 264,
-          "title": "下一只黑天鹅，关税退款“大赌局”！",
-          "imageUrl": null
-        },
-        {
-          "id": "1581406",
-          "author": null,
-          "description": "上个月，马斯克说要用 AI 打造一个比维基百科有巨大改进的产品 Grokipedia，甚至将其定位为「xAI 理解宇宙目标的必要步骤」。\n         今天 Grokipedia 正式发布了，虽然是 0.1 版本，但马斯克表示也已经比维基百科要强所以，这个 Grokipedia 到底是个啥？\n        简单说，就是个 AI 全自动生成的百科。马斯克声称，这是为了干掉维基百科那帮「有偏见的编辑」。\n        体验🔗 http://Grokipedia.com 温馨提示：目前 Grokipedia 建议用英文搜索，中文搜索体验目前比较差Grokipedia 的模式挺有意思，所有条目均由 AI 模型 Grok 自动生成，目前已收录超过 88.5 万个词条。\n        与维基百科由全球人类志愿者众包、编辑、审核的模式截然不同，Grokipedia 的用户无法直接编辑内容，只能「请求 Grok 修改」。\n        AI 百科，还是维基百科的「搬运工」然而，首批冲进去吃瓜的网友们，很快发现了一个让人哭笑不得的事实，Grokipedia 上的大量词条，简直就是从维基百科 Ctrl+C、Ctrl+V 过来的。\n        搜一下「MacBook Air」，拉到页面最底下，一行小字让我眼前一亮：「内容改编自维基百科……」但像 PlayStation 5 这种词条，就连改都懒得改了，几乎是把维基百科原文原封不动地搬了过来，连标点符号都没怎么换。\n        字对字、行对行，堪称像素级复刻。所以马斯克说的「比维基百科强 10 倍」，指的是复制速度快 10 倍吗？\n        维基百科那边估计也无语了，发言人 Lauren Dickinson 的回应堪称神吐槽，大意就是：「谢邀，我们很好。但看起来，即使是 Grokipedia，也需要依赖维基百科才能存在。…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MjM5MjAyNDUyMA==&mid=2651064995&idx=1&sn=9c2f1cda128488a20c209e948bbbb147&chksm=bc44a39a43399806ca47ecebc08fba40a0789b39ba372ce0b2f47dbb669e7bb6b9f102cf8450",
-          "publishedOn": "2025-10-28T12:02:54.000Z",
-          "wordCount": 264,
-          "title": "马斯克的 AI 百科 Grokipedia 刚发布就翻车：抄维基百科被抓现行，还夹带私货？",
-          "imageUrl": null
-        },
-        {
-          "id": "1581405",
-          "author": null,
-          "description": "绝大多数985高校研究生（“硕士+博士”）招生规模已超本科；在复旦大学、上海交通大学等高校中，两者差距甚至在一倍以上。\n        在985高校的本、硕、博阶段，男女比例（男性新生/女性新生）呈现“V”形波动。\n        作者：田进封图：东方IC从8月中旬至今，多所985高校陆续公布2025年新生大数据。\n        作为中国最顶尖的一批高校，它们的招生数据变化，能在一定程度上反映国内高精尖教育的趋势。\n        20世纪末，教育部提出创建世界一流大学和高水平大学，并将其命名为“985工程”，相关高校现俗称“985高校”。\n        截至目前，985高校共39所。2019年11月，教育部官网提及，已将“211工程”和“985工程”等重点建设项目统筹为“双一流”建设。\n        梳理2019年至今的985高校新生数据可见，绝大多数985高校研究生（“硕士+博士”）招生规模已超本科；在复旦大学、上海交通大学等高校中，两者差距甚至在一倍以上。\n        同时，985高校研究生扩招增速也明显快于本科，浙江大学、中山大学、四川大学等高校研究生招生规模已超1万人。\n        在985高校的本、硕、博阶段，男女比例（男性新生/女性新生）呈现“V”形波动：本科新生中，绝大多数985高校稳定为“男多女少”，电子科技大学、西北工业大学等理工类985高校的男生占比多在2/3以上；硕士新生中，女性占比相比本科显著提升，兰州大学、南京大学等出现“硕士新生男少女多”现象；博士新生中，男女比例再次扩大，男生新生数量再次大幅反超女性。\n        暨南大学经济与社会研究院院长冯帅章表示，从长远看，高等教育扩张对人才培养、人力资本水平的提升具有重要意义。\n        目前，由于高考人数有望逐年上升，高等教育体系仍存在较强的扩招动力。\n        但近几…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MjM5OTExMjYwMA==&mid=2670360145&idx=1&sn=a47e729b02c2d2baa2d43a21ca74b890&chksm=bd851cce3f1b0cef201a9b69bb1a524b2e8e399f37d8004d40785122fd0e513d1005019193c4",
-          "publishedOn": "2025-10-28T12:02:54.000Z",
-          "wordCount": 264,
-          "title": "奋进的女同学们：985硕士女生多了！",
-          "imageUrl": null
-        },
-        {
-          "id": "1581404",
-          "author": null,
-          "description": "理解下一阶段的宏观调控，关键在于认识到“精准滴灌”正在系统性地取代“大水漫灌”。\n        近期设立的消费再贷款、科技创新再贷款以及5000亿元投向数字经济、人工智能等八大领域的新型政策性金融工具，正是这种新范式的体现。\n        作者：王雅洁封图：图虫创意当市场仍在传统“逆周期”工具箱中寻找强刺激信号时，宏观调控的政策已然呈现新的逻辑。\n        中信证券研究部政策研究首席分析师于翔认为，理解下一阶段的宏观调控，关键在于认识到“精准滴灌”正在系统性地取代“大水漫灌”。\n        他表示，近期设立的消费再贷款、科技创新再贷款以及5000亿元投向数字经济、人工智能等八大领域的新型政策性金融工具，正是这种新范式的体现。\n        于翔表示，推动房地产市场“止跌回稳”是当前逆周期调节的明确诉求与底线，这与中长期的结构性转型目标并不矛盾。\n        “房地产是周期之母”，其稳定可为改革和转型赢得至关重要的时间和空间。\n        展望“十五五”开局之年，于翔认为，政策的“精准度”与“新渠道”远比单纯的“规模”更值得关注。\n        在构建可持续内需动力方面，除补贴外，更根本的制度性改革在于“增收减负”；而对于外资回流，除了基本面边际改善，中国能否成功实现“再通胀”、重塑名义增长，将是更具决定性的因素。\n        经济观察报：党的二十届四中全会于10月20日至23日在北京召开，全会审议通过了《中共中央关于制定国民经济和社会发展第十五个五年规划的建议》。\n        “十五五”规划建议强调“提质增效”与“高质量发展”，而非单纯追求增速。\n        当前市场对“逆周期调节”的期待，似乎仍聚焦于地产、基建等传统抓手。\n        资本市场应如何准确理解“十五五”期间“高质量发展”的内涵？\n         于翔：推动经济“高…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MjM5OTExMjYwMA==&mid=2670360145&idx=2&sn=8a15300ea062e3b8f2496db346ac8be0&chksm=bd0fa707e15dc0a963288551a3f5843e2a05b8bf6d34da945e23ae4301af1d2364da7bdf1cae",
-          "publishedOn": "2025-10-28T12:02:54.000Z",
-          "wordCount": 264,
-          "title": "专访于翔：现阶段宏观调控政策的新范式是什么？",
-          "imageUrl": null
-        },
-        {
-          "id": "1581403",
-          "author": null,
-          "description": "燃油车有着经过长周期验证的质量可靠性，这一直被认为是其“护城河”。\n        然而，近日市场调研机构J.D. Power发布的“2025中国车辆可靠性研究报告”却显示，燃油车的长期质量正持续滑坡。\n        作者：周菊封图：图虫创意近年来，燃油车在新能源汽车的猛烈冲击下，市场份额不断萎缩。\n        但燃油车有着经过长周期验证的质量可靠性，这一直被认为是其“护城河”。\n        然而，近日市场调研机构J.D. Power发布的“2025中国车辆可靠性研究报告”却显示，燃油车的长期质量正持续滑坡。\n        J.D. Power的研究将质量问题分为两大类，其中故障类主要是指发生故障后影响正常功能的问题，设计缺陷类主要是指由于设计的原因导致用户使用不便的问题。\n        该研究显示，燃油车长期质量PP100（平均每百辆车问题数）连续两年上升，三年内PP100增幅整体为9%。\n        其中，设计缺陷类问题PP100增幅高达20%，其抱怨占比升至45%，成为燃油车长期质量恶化主因；故障类问题质量抱怨较2024年同样上升2.8个PP100。\n        “长期可靠性、耐久性及海量用户数据验证，本是燃油车相对新能源车的核心优势。\n        但在电动化转型加速与 ‘增配不增价’的双重竞争压力下，燃油车阵营如何守住质量底线，已成亟待解决的关键问题。”\n        J.D. Power中国区汽车产品事业部总经理杨涛对此表示。\n         具体来看，燃油车的长期质量抱怨主要集中在智能化和NVH（噪声、振动与声振粗糙度）上。\n        在燃油车可靠性恶化的 Top10 问题中，这两大领域贡献超 75% 的增量。\n        其中，智能化问题涵盖语音识别、车机故障、驾驶辅助系统；NVH问题包含胎噪、风噪、车窗及悬挂异响。\n …",
-          "link": "http://mp.weixin.qq.com/s?__biz=MjM5OTExMjYwMA==&mid=2670360145&idx=3&sn=0081a1abf326517e4259baf39332c284&chksm=bd1cb169192e685712bbf0e2d944f6162455cfdf6545d211d592e830401eca18e16dd1ab4a3c",
-          "publishedOn": "2025-10-28T12:02:54.000Z",
-          "wordCount": 264,
-          "title": "燃油车份额萎缩后再添质量隐忧，J.D. Power调研指其长期质量持续滑坡",
-          "imageUrl": null
-        },
-        {
-          "id": "1581402",
-          "author": null,
-          "description": "文丨阮怡玲编辑丨邬宇琛凌晨一点，一群人守在电脑前，盯着网页上那串尚未出现的邀请码。\n        倒计时归零，页面一闪而过——“没了”。这一晚，系统共发出1000个码。\n        抢到的人像中了奖，立刻在社交平台晒图：“刷了一整夜，开了几十个窗口，终于抢到了”“激动得截图都忘记截”。\n        更多人则扑了个空。有人凌晨两点才看到帖子，错过发放；有人在评论区质疑“是不是被机器人全刷走了”；也有人一直等消息，却半个月都没有下文。\n        没过多久，邀请码开始在二手平台流通——价格一路被炒上去，据传最高时卖到三位数。\n        这样的场景，如今成为了AI产品发布后的常态。免费的邀请码成了流通的商品：发邀请码的厂商让它稀缺，抢邀请码的用户让它走红，倒卖邀请码的黄牛嗅到商机——\n        AI邀请码的黑市，在一次次“限量抢码”的深夜中被催生出来。\n        今年3月，Manus爆火，邀请码被炒到上万元，自此以后，邀请码机制在AI产品里越来越普遍，花样越来越多，商机也越来越大：9月30日Sora2发布，第二天就有人靠着卖邀请码日赚5000元。\n        邀请码内测原本是产品正式上市前的预告，但如今被视为营销利器。\n        它制造焦虑，带来热度，也能成为AI时代最独特的“入场券”——\n        一个象征狂热、竞争与泡沫的小小符号。AI时代的粮票刘洪宇最早并未察觉自己被卷入了一场狂热之中。\n        发现Sora2上线那天，刘洪宇开始在小红书里到处找邀请码。\n        他是一名服装设计师，从四月份就开始用AI画图，90%的灵感都来自Sora的帮助。\n        发现Sora的新产品推出后，他马上有一种自然的担忧，“自己不拿到邀请码就会落后”。\n        那天，他花1.2元买了一个邀请码。社交媒体上，“求码”…",
-          "link": "http://mp.weixin.qq.com/s?__biz=Mzk0MDYyMDA0NQ==&mid=2247490124&idx=1&sn=f0624866375ec8e9ffa2c23863c37676&chksm=c373c01a802bcbf0115a55b730511922aa1c54017fbbdfc4a47081c7fdfa666379062c273b3b",
-          "publishedOn": "2025-10-28T12:02:54.000Z",
-          "wordCount": 264,
-          "title": "AI产品的邀请码「黑市」，谁在制造稀缺？",
-          "imageUrl": null
-        },
-        {
-          "id": "1581401",
-          "author": null,
-          "description": "明天是重阳节，也是第13个中国“老人节”。蚂蚁集团AI健康管家AQ发起的一则倡议——\n        《别让慢性病抢走我们的父母》，引发了全网讨论。其中有一组数据触目惊心——\n        慢性病死亡人数占居民总死亡人数的比例已超过80%。\n        什么是慢性病？慢性病就像“温水煮青蛙”，常见的心脑血管疾病、糖尿病、恶性肿瘤、慢性呼吸系统疾病等都是慢性病。\n        这戳中了一个关乎千万家庭的核心问题：当衰老和慢性病成为人生无法回避的必然，我们该如何让父母的晚年之路走得更有尊严、更少遗憾？\n        残酷的现实，在《陪父母老去》一书中有很多记录：“妈妈的吃饭，如同一场锣鼓。饭送到嘴里的过程抛抛洒洒，药拿到手中抖到桌上和地上。\n        抖到无法睡觉，腿抽搐到酸硬，爸爸一夜给按摩几次，妈妈说：‘救救我，你救救我。’”“在医院里没有什么事，每天也要走一万多步。我心累得一步也不愿多走，节省着体力可以用在去检查去咨询去探讨等事情上。”\n        这仅是作者解玉军的母亲与疾病抗争的十七年中的一点点小片段。\n        在漫长的十七年时光里，“与老同行，与病抗争”几乎构成了解玉军和父母生活的全部。\n        而作者母亲的旅程，正是超过3.1亿中国老年人及其子女正在或即将面对的普遍困境。\n        （图/作者：解玉军 出版社：商务印书馆）3.1亿个“健康孤岛”全球慢性病群体日益庞大，这意味着“带病生存”已成为越来越多老年人要面对的处境。\n        据调查，中国平均每位老年人患有2.3种慢性病。然而，普遍的矛盾是，慢性病需要长期管理，而很多老人怕给子女添麻烦，或觉得病了是正常的老化现象，往往选择“硬扛”下去，默默忍受疾病煎熬。\n        《带病生存》作者、社会学者郇建立认为：“慢性病不仅意味着日常生活的改变，还破坏了病人的身体、…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MjM5ODMzMDMyMw==&mid=2654866654&idx=1&sn=612b702b2b90980b9d98eaaec504eaf3&chksm=bc8b1f775d4d0f0de03a1afef2965a8c7c93e73ec5df59b25764242e3aa5c9dddf707a45139f",
-          "publishedOn": "2025-10-28T12:02:54.000Z",
-          "wordCount": 264,
-          "title": "3.1亿人的隐秘现状，事关大多数人的父母",
-          "imageUrl": null
-        },
-        {
-          "id": "1581341",
-          "author": null,
-          "description": "比手机还便宜对于混合现实（XR）头显类产品来说，苹果的 Vision Pro 肯定是个绕不过去的话题。\n        但苹果也不是这个品类下的唯一参与者，包括 Meta Quest、HTC Vive 等等都早于 Vision Pro 有所动作。\n        所以在很长一段时间里，XR 头显中真正缺少的其实是 Android 的参与。\n        图｜谷歌前几个月，我们曾经短暂窥探到了一种基于 Android 的产品思路，也就是 vivo Vision。\n        但截至目前，vivo Vision 都没有量产与开售，仍然是一个「概念机」的姿态。\n        因此，第一款真正实现了量产的 Android 混合现实头显，桂冠落在了刚刚发布的三星 Galaxy XR 上。\n        Galaxy XR 与 Vision Pro 一起，成为了市面上唯二的「Vision」形态的量产产品。\n        图｜三星官网作为谷歌官方口中的「首款 Android XR 头显」，Galaxy XR 成为了谷歌与三星两家公司甜蜜合作关系的再一次证明：一如 wearOS 总是首发在三星手表，谷歌的新 Android 展示会上三星手机总比 Pixel 多得多——\n        Android XR 的第一款商业化产品，还是被三星给拿下了。\n        Galaxy XR 采用了与 Vision Pro 近似的产品形态，将前部的眼罩作为硬件主体，后部完全依靠头带固定。\n        为了最大限度降低头显本体重量，电池包只能外置、拖线：图｜三星官网同时，Galaxy XR 在按钮的设计上也效仿 Vision Pro，对于按钮的总数量相当克制，仅有音量和电源按钮，分布在面罩上方左右侧的。\n        但这并不意味着 Galaxy XR 的可操作性有所下降。\n    …",
-          "link": "http://mp.weixin.qq.com/s?__biz=MjgzMTAwODI0MA==&mid=2652430475&idx=1&sn=ac6ebf969ae31981a1c9b32dea9f56c9&chksm=9a2228c1e70fbf2d40fbfb49cab0bd2dafe7ffe3f66e5d0c0746eaba9479d20d961fab40fb0b",
-          "publishedOn": "2025-10-28T10:02:58.000Z",
-          "wordCount": 264,
-          "title": "三星 XR 头显首秀，未来半价出售",
-          "imageUrl": null
         }
       ]
     },
@@ -19664,16 +19384,6 @@
           "wordCount": 1394,
           "title": "Math to map the world",
           "imageUrl": "https://s0.wp.com/_si/?t=eyJpbWciOiJodHRwczpcL1wvZmxvd2luZ2RhdGEuY29tXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDI1XC8wMVwvbG9nby1sb25lLXNxdWFyZTUxMng1MTIucG5nIiwidHh0IjoiRmxvd2luZ0RhdGEiLCJ0ZW1wbGF0ZSI6ImVkZ2UiLCJmb250IjoiIiwiYmxvZ19pZCI6MTkzODg4OX0.UFOEC8c0X-rVB0Xyf5x_xY6LW6d48WxRSUk-Ms57z7wMQ"
-        },
-        {
-          "id": "https://flowingdata.com/?p=80260",
-          "author": "Nathan Yau",
-          "description": "Various shields are designed to block specific forces or mechanisms. For example, armor…\nTags: humor, matrix, shields, xkcd",
-          "link": "https://flowingdata.com/2025/10/28/xkcd-shielding-vs-forces-matrix/",
-          "publishedOn": "2025-10-28T12:34:37.000Z",
-          "wordCount": 1328,
-          "title": "xkcd shielding vs. forces matrix",
-          "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/10/xkcd-shielding-chart.png"
         }
       ]
     },
