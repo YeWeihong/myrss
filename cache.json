@@ -12,6 +12,51 @@
       "siteUrl": "https://www.bestblogs.dev/zh/feeds",
       "articles": [
         {
+          "id": "e73c897b",
+          "author": "腾讯云开发者",
+          "description": "📌 一句话摘要\n            \n本文深入剖析了 AI Agent 的开发核心链路，涵盖其概念、演变、核心模块（规划、记忆、工具调度）、开发实践及评估方法，并分享了腾讯云 Dola 的实战经验。\n📝 详细摘要\n            \n文章全面介绍了 AI Agent（智能体）从概念到开发的完整路径。首先，阐述了 Agent 的定义、四大核心能力及其基础框架（LLM、记忆、工具、规划），并对 Agent 的四种主要分类（反思、工具调用、规划、多智能体协作）进行了详细解析。接着，文章追溯了 Agent 开发框架的演变，从早期探索到框架成熟（如 AutoGen）再到应用深化阶段，并对比了主流多 Agent 框架（AutoGen、LangGraph、Crew AI）的优劣。在开发实践部分，作者从开发视角深入探讨了影响 Agent 效果的关键因素，特别是上下文工程的 12 个核心优化点，如 KV-Cache 优化、动态约束行为、文件系统作为扩展上下文等。此外，还详细讲解了记忆系统（短期、中期、长期）和基于 Function Call/MCP 协议的 Agent 应用搭建方法。最后，文章分享了 Agent 评估的现有基准和挑战，并结合腾讯 PCG 大数据平台部 Dola 的实际案例，为读者提供了宝贵的架构认知与实践心得。\n💡 主要观点\n            \nAgent 的核心能力由大模型、记忆、工具使用和规划构成，并可分为反思、工具调用、规划和多智能体协作四种形态。\n                         理解 Agent 的本质是掌握其感知、决策、执行和进化的能力，以及其在不同复杂任务场景下的分类，这为构建智能系统奠定了理论基础。\n                    \n\n                        上下文工程是提升 Agent 效…",
+          "link": "https://www.bestblogs.dev/zh/article/e73c897b",
+          "publishedOn": "2025-11-18T00:46:00.000Z",
+          "wordCount": 513,
+          "title": "Agent 全面爆发！一文搞懂 Agent 开发核心链路",
+          "enclosure": {
+            "url": "https://image.jido.dev/20251118045953_86cdfc15",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://image.jido.dev/20251118045953_86cdfc15"
+        },
+        {
+          "id": "205e51b",
+          "author": "Hung-yi Lee",
+          "description": "📌 一句话摘要\n            \n文章详细解析了大型语言模型（LLM）从预训练、监督微调（SFT）到基于人类反馈的强化学习（RLHF）的标准三阶段学习流程，并阐释了各阶段的核心目标、技术原理与相互关系。\n📝 详细摘要\n            \n本课程深入探讨了 ChatGPT 和 Gemini 等 LLM 背后的三阶段学习范式：预训练、监督微调（SFT）和基于人类反馈的强化学习（RLHF）。文章通过“学龄前、上学、进入社会”的生动类比，清晰阐释了每个阶段在模型能力演进中的作用。预训练阶段通过海量自监督数据奠定语言与世界知识基础，强调算力、模型大小与数据质量的权衡（如 Chinchilla 定律），并探讨了数据瓶颈和模型并非死记硬背的特性。SFT 阶段通过少量高质量指令数据，教会模型以人类期望的风格回答问题，而非注入新知识。RLHF 阶段则利用人类反馈的奖励信号，对模型整体回答进行对齐，使其更符合人类价值观，并介绍了 RLAIF 等高效方法。文章强调，尽管各阶段方法和数据不同，但本质均是学习“词语接龙”，且前一阶段的参数为后一阶段提供初始化，确保了模型能力的逐级提升。\n💡 主要观点\n            \nLLM 学习包含预训练、SFT 和 RLHF 三阶段，各有侧重\n                         预训练奠定知识基础，SFT 教会回答风格，RLHF 实现与人类偏好对齐，三者层层递进，共同构建一个有用的人工智能助手。\n                    \n\n                        所有阶段本质均是学习词语接龙，通过最小化交叉熵优化\n                         无论是图像分类还是词语接龙，底层逻辑都是分类问题，通过梯度下降调整参数，仅数据和类别不同，且前一阶段参数为后一阶段初始化。\n                    \n\n                        预训练模型参数作为后续阶段初始化，数据质量与算力权衡关键\n                         各阶段训练参数逐级继承，Chinchilla 定律指导模型大小与数据量平衡，高质量数据能显著提升训练效率，是预训练成功的基石。\n                    \n\n                        SFT 和 RLHF 核心作用是激活预训练潜力，而非注入新知识\n                         预训练已蕴含大量知识，SFT/RLHF 通过改变输出风格和对齐人类偏好，帮助模型在众多可能中选择正确答案，释放其潜在能力。\n                    \n\n                        RLHF 通过人类反馈的奖励信号进行整体评估，实现个性化教学\n                         与 SFT 逐 Token 损失不同，RLHF 基于完整回答的奖励，克服局部缺陷，促进模型自我学习和对齐人类价值观，并可通过 RLAIF 提高效率。\n                    \n💬 文章金句\n            \n难怪人类很难在知识储备上与这些大型语言模型匹敌。\nSFT 和 RLHF 的核心区别在于：SFT 阶段，人类提供标准答案，机器据此学习；RLHF 阶段，没有标准答案，人类只提供反馈（如点赞或点踩），机器基于反馈学习。\nSFT 和 RLHF 的真正作用，不是教给模型新知识，而是帮助预训练模型在众多可能的回答中，做出正确的选择。\nSFT 的数据量有限，它很难向模型注入在预训练阶段不存在的新知识。SFT 的主要作用是改变模型的输出风格。\n我们当然希望两者兼得，但在算力有限时，如何找到最佳平衡点？来自 DeepMind 的一篇著名论文提出了 Chinchilla 缩放定律。\n强化学习 (RL) 与语言模型 (LLM) 两者本质是相同的。因此，用于 AlphaGo 的强化学习算法（如策略梯度），也完全可以用于训练语言模型。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：Hung-yi Lee\n作者：Hung-yi Lee\n分类：人工智能\n语言：中文\n阅读时间：40 分钟\n字数：9972\n标签：\n                    \n                        LLM, AI训练, 预训练, 自监督学习, 监督微调\n                    \n                \n            \n        \n\n        \n            播放完整视频",
+          "link": "https://www.bestblogs.dev/zh/video/205e51b",
+          "publishedOn": "2025-11-17T05:07:08.000Z",
+          "wordCount": 497,
+          "title": "【生成式人工智慧與機器學習導論 2025】第 7 講：大型語言模型的學習歷程",
+          "enclosure": {
+            "url": "https://image.jido.dev/20251117122349_hqdefault.jpg",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://image.jido.dev/20251117122349_hqdefault.jpg"
+        },
+        {
+          "id": "c1a27823",
+          "author": "深思圈",
+          "description": "📌 一句话摘要\n            \n文章深度剖析了当前 AI 记忆缺失的根本性缺陷，并详细介绍了 EverMemOS 如何通过类脑四层架构和多层记忆处理，让 AI 拥有长期记忆能力，实现从工具到智能体的进化。\n📝 详细摘要\n            \n文章从 AI 记忆的根本性缺陷入手，指出当前大语言模型在上下文窗口限制下无法形成长期、一致的记忆，从而限制了 AI 的个性化、一致性和主动性。作者深入探讨了记忆能力作为 AI 进化的关键瓶颈，并介绍了盛大集团旗下 EverMind 团队推出的 EverMemOS 长期记忆操作系统。该系统在最主流的长期记忆评测集 LoCoMo 和 LongMemEval-S 上分别达到了 92.3% 和 82% 的成绩，显著超越了之前的最高水平。EverMemOS 借鉴人脑记忆机制，实现了从“记忆数据库”到“记忆处理器”的范式转变，通过分层记忆提取、可扩展模块化记忆框架和多轮推理融合机制，解决了现有记忆系统精度、速度和易用性难以平衡的问题。文章还详细阐述了 EverMemOS 的类脑四层架构（代理层、记忆层、索引层、接口层）及其与人脑功能的对应关系，并介绍了其开源策略和未来发展愿景，强调记忆系统将成为 AI 应用的标准组件，推动 AI 走向人格化和更深层次的通用智能。\n💡 主要观点\n            \n记忆能力是区分智能工具和真正智能体的关键瓶颈\n                         当前 LLM 缺乏长期记忆，限制了 AI 的个性化、一致性和主动性，无法实现经验积累和自我迭代，制约了 AI 从工具向智能体的进化。\n                    \n\n                        AI 需要从瞬时的‘空间结构’范式转向连续的‘时间结构’范式\n                         …",
+          "link": "https://www.bestblogs.dev/zh/article/c1a27823",
+          "publishedOn": "2025-11-17T01:07:00.000Z",
+          "wordCount": 512,
+          "title": "AI 记忆革命：EverMemOS 如何让机器拥有真正的\"灵魂\"",
+          "enclosure": {
+            "url": "https://image.jido.dev/20251117094036_60e66e35",
+            "type": "image/jpeg",
+            "length": "0"
+          },
+          "imageUrl": "https://image.jido.dev/20251117094036_60e66e35"
+        },
+        {
           "id": "1990116666194456651",
           "author": "Andrej Karpathy",
           "description": "📌 一句话摘要\n            \nAndrej Karpathy 认为人工智能代表了一种新的计算范式，软件 2.0，它基于任务的“可验证性”实现自动化，这是确定人工智能经济影响和自动化程度的关键因素 ...\n📝 详细摘要\n            \nAndrej Karpathy 讨论了人工智能的经济影响，将人工智能与传统计算的出现进行了有力的类比，将人工智能定义为“软件 2.0”。他解释说，虽然以前的计算（软件 1.0）自动化了可以明确指定的任务，但人工智能现在自动化了“可验证的”任务。这意味着人工智能可以在可重置、高效和可奖励的环境中“练习”的任务（例如，分类准确率、奖励函数）。Karpathy 认为，“可验证性”是识别适合人工智能自动化的工作或任务的最具预测性的特征，解释了为什么像数学和编码这样的某些领域看到人工智能的快速发展，而创造性或依赖常识的任务因其可验证性较低而发展滞后。这条推文提供了一个理解人工智能的能力及其“锯齿状”进步前沿的基本框架。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：Andrej Karpathy(@karpathy)\n作者：Andrej Karpathy\n分类：人工智能\n语言：英文\n阅读时间：10 分钟\n字数：2418\n标签：\n                    \n                        人工智能, 软件 2.0, 自动化, 经济影响, 可验证性\n                    \n                \n            \n        \n\n        \n            阅读推文",
@@ -1430,156 +1475,6 @@
             "length": "0"
           },
           "imageUrl": "https://p6-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/af6dc4c42caa45e6b14b12568a476936~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5Lmf5peg6aOO6Zuo5Lmf6Zu-5pm0:q75.awebp?rk3s=f64ab15b&x-expires=1762698176&x-signature=YNvqURmNW5Oe8VXyeL6IzfH0SGg%3D"
-        },
-        {
-          "id": "efd26c0",
-          "author": "跨国串门儿计划",
-          "description": "📌 一句话摘要\n            \nAnthropic 工程师深入探讨 Claude Code 这款颠覆性 AI 编程助手的诞生、设计哲学及其通过终端与 AI 对话、实现人机协作的创新编程范式。\n📝 详细摘要\n            \n本期播客深入访谈了 Anthropic 公司 Claude Code 的核心创造者 Cat 和 Boris，揭示了这款革命性 AI 编程工具的起源、演进与独特设计理念。Claude Code 颠覆了传统 IDE 模式，开创了直接通过终端与 AI 对话的全新编程范式，极大地提升了开发效率和灵活性。嘉宾们详细阐述了 Anthropic 独有的“Ant Fooding”（内部测试）文化，即 70-80%的工程师日常使用 Claude Code 进行开发，从而驱动产品高度符合开发者直觉并实现自下而上的创新。播客还探讨了“军民两用”工具的设计哲学，强调通过观察用户“滥用”产品来发现和响应潜在需求。此外，“复利式工程”理念被提出，即将开发经验固化为提示词、子智能体和斜杠命令，使后续开发更高效。子智能体在代码审查、大规模代码迁移等复杂任务中的应用，以及 Agent 式 RAG 的架构选择也得到了深入讨论。最后，嘉宾们展望了命令行界面作为 AI 编程形态的未来，以及自主智能体和“Claude 监控 Claude”的愿景，为开发者和产品经理提供了关于 AI 辅助开发和产品设计的宝贵启发。\n💡 主要观点\n            \nClaude Code 创新性地采用终端对话模式，颠覆传统 IDE，显著提升开发效率与灵活性\n                         通过允许 AI 直接调用 Bash 等工具，并与开发者在命令行界面无缝交互，Claude Code 实现了更直观、高效的编程体验，解放了开发者，使其能专注于更复杂的任务。\n                    \n\n                        Anthropic 的“Ant Fooding”文化和“潜在需求”理念是产品创新的核心驱动力\n                         内部工程师的高强度使用和对用户“滥用”场景的观察，使得产品设计能快速响应真实需求，并自下而上地迭代出高度符合开发者直觉的功能，确保了产品的实用性和创新性。\n                    \n\n                        “复利式工程”与子智能体协作，有效提升复杂任务的自动化与知识积累\n                         将开发经验固化为可复用的提示词和智能体，并通过多智能体协作处理代码迁移、安全审查等大规模任务，实现了工程效率的指数级增长，形成知识复利效应。\n                    \n💬 文章金句\n            \n也许我们根本就不需要 IDE。\n你要把产品做得足够灵活、足够开放，让用户能'滥用'它。\n我们所有的 PR 都会用它做安全审查和代码审查，Anthropic 内部所有的代码审查都是 Claude 做的。\n我们有一种工程范式叫复利式工程 compounding engineering。在传统工程中，你每增加一个功能，下一个功能就更难开发。而在复利式工程中，你的目标是让你刚加的功能能让下一个功能更容易开发。\n我感觉很快我们就会进入'Claude 监控 Claude'的模式。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：跨国串门儿计划\n作者：跨国串门儿计划\n分类：人工智能\n语言：中文\n阅读时间：8 分钟\n字数：1792\n标签：\n                    \n                        AI编程, 大型语言模型, 智能体, 代码审查, AI辅助开发, Anthropic, 终端编程, 人机协作, 产品设计, 软件工程\n                    \n                \n            \n        \n\n        \n            收听完整播客",
-          "link": "https://www.bestblogs.dev/zh/podcast/efd26c0",
-          "publishedOn": "2025-10-30T03:22:58.000Z",
-          "wordCount": 529,
-          "title": "#284.Claude Code：Anthropic 工程师如何打造 AI 编程新范式",
-          "enclosure": {
-            "url": "https://image.xyzcdn.net/Fm42v5FB7k_yAn4Qmyior-dBQkXI.png",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://image.xyzcdn.net/Fm42v5FB7k_yAn4Qmyior-dBQkXI.png"
-        },
-        {
-          "id": "001bc4c8",
-          "author": "张小珺",
-          "description": "📌 一句话摘要\n            \n李想在访谈中分享了对 AI 发展、理想汽车 VLA 技术路线、Agent OS 概念及未来企业战略的深度思考，强调 AI 作为“生产工具”的价值。\n📝 详细摘要\n            \n本文记录了对理想汽车创始人李想的第二次长达三小时的深度访谈，核心围绕人工智能与人的关系及未来发展。李想首先将 AI 工具分为“信息工具”、“辅助工具”和“生产工具”，并强调 Agent（智能体）作为“生产工具”必须实现“知行合一”，具备实际行动能力，才能真正提升生产力。访谈中，李想深入阐述了 DeepSeek 等开源模型对理想汽车技术路线的启发，以及如何将“人类最佳实践”融入技术研发和业务流程。他详细讲解了理想汽车在自动驾驶领域从规则算法、端到端到 VLA（视觉语言行动模型）的进化路径，并手把手讲解了 VLA 的预训练、后训练和强化训练三个阶段，指出交通领域是 VLA 最早落地的确定性场景。李想还提出了“Agent OS”的概念，认为通用 Agent 五年内难以实现，但 Agent OS 将成为各专业 Agent 开发的共享平台。在战略层面，他分享了理想汽车在 2025 年雁栖湖战略会上关于规模、用户需求、技术产品和组织能力的新共识，并明确理想汽车将致力于成为全球领先的“人工智能终端企业”，详细解析了 AGI 终端在软件、硬件和服务层面的三大变化与挑战。\n💡 主要观点\n            \nAI 工具三级分类与 Agent 的核心价值在于“知行合一”\n                         李想将 AI 工具划分为信息、辅助和生产三级，强调 Agent 作为“生产工具”必须实现“知行合一”，具备实际行动能力，才能真正提升生产力，解决人类实际工作问题。\n                    \n\n                        遵循“人类最佳实践”与“反人性”的组织成长哲学\n                         李想指出，卓越的组织和个人往往需要与人性的懒惰和走捷径对抗，坚守“人类最佳实践”。他提出“顺着人性去说，逆着人性去做”的理念，以推动组织在业务、能力和组织架构上的持续变革与成长。\n                    \n\n                        理想汽车 VLA 司机大模型通过三阶段训练实现超人驾驶\n                         VLA 作为“司机大模型”需经历预训练（学习世界知识）、后训练（模仿学习驾驶）和强化训练（社会化驾驶及超越人类）三个阶段，结合世界模型进行验证和数据生成，交通领域是 VLA 最早落地的确定性场景。\n                    \n\n                        未来理想汽车将转型为全球领先的“人工智能终端企业”\n                         AGI 终端需具备 360 度感知、认知决策、Action 执行和反思反馈能力。理想汽车将在此基础上，在模型能力、操作系统、高效工具等软件层面，线控系统、NPU 等硬件层面，以及 AGI 运营和人机连接服务层面进行全面创新，以应对未来 AGI 时代的挑战。\n                    \n💬 文章金句\n            \n人是用来发挥的，人不是用来改变的。\n人工智能变成'生产工具'，才是真正爆发的时刻。\n要顺着人性去说，逆着人性去做。\n我个人认为，至少 5 年内不会有通用 Agent，但会有一个 Agent OS，方便各个专业的人在这个 Agent OS 上开发出自己需要的 Agent。\n我们希望能够成为全球领先的人工智能终端企业。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：语言即世界language is world\n作者：张小珺\n分类：人工智能\n语言：中文\n阅读时间：152 分钟\n字数：37965\n标签：\n                    \n                        人工智能, 自动驾驶, VLA, Agent OS, 世界模型\n                    \n                \n            \n        \n\n        \n            阅读完整文章",
-          "link": "https://www.bestblogs.dev/zh/article/001bc4c8",
-          "publishedOn": "2025-10-30T02:46:00.000Z",
-          "wordCount": 518,
-          "title": "对李想的第二次 3 小时访谈：智慧是我们和万物的关系",
-          "enclosure": {
-            "url": "https://wechat2rss.bestblogs.dev/img-proxy/?k=bf1c44e6&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FFNn39iboZZiaqMehC782aLKK1ZGNaS08e6MK5bgLPx3gdImN07TTaJreA9jtFUuIFMu47ZNoU2XJMmQUOLwXud5Q%2F0%3Fwx_fmt%3Djpeg",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://wechat2rss.bestblogs.dev/img-proxy/?k=bf1c44e6&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FFNn39iboZZiaqMehC782aLKK1ZGNaS08e6MK5bgLPx3gdImN07TTaJreA9jtFUuIFMu47ZNoU2XJMmQUOLwXud5Q%2F0%3Fwx_fmt%3Djpeg"
-        },
-        {
-          "id": "6071b0a",
-          "author": "张小珺",
-          "description": "📌 一句话摘要\n            \n理想汽车 CEO 李想深度剖析 AI 作为生产工具的价值、VLA 自动驾驶模型的构建，以及 AI 时代下组织与个人智慧的进化。\n📝 详细摘要\n            \n本期播客是理想汽车 CEO 李想的第二次深度访谈，他以“CEO 大模型”的视角，探讨了人工智能技术变革对企业战略、组织能力和个人成长带来的深远影响。李想将工具分为信息工具、辅助工具和生产工具，强调真正的 AI 生产工具必须具备“行动”能力，能实际解决专业工作中的核心问题，并认为未来五年将出现“Agent OS”而非通用 Agent，各专业领域将在此基础上开发专用 Agent。在智能驾驶方面，他详细阐述了理想汽车 VLA（Vision-Language-Action）模型的训练过程，从 VR 基座模型到后训练模仿学习，再到强化训练与人类对齐，旨在打造超越人类平均水平的司机大模型。李想还分享了理想汽车在 AI 时代的企业战略，目标是成为全球领先的人工智能终端企业，并通过学习 DeepSeek 等开源技术加速自身发展。在组织管理上，他提出“对抗人性”以坚守最佳实践，构建高效的 3-7 人能量体。最后，李想从哲学层面探讨了 AI 与人类的关系，强调人类应发展智慧以处理万物关系，AI 应作为工具服务于人类，而非取代人类，呼吁在教育中融入智慧培养。\n💡 主要观点\n            \nAI 作为生产工具需具备行动能力，而非仅是信息或辅助工具\n                         李想提出 AI 工具应从信息、辅助阶段进化到生产工具，核心在于能否实际执行任务，减少人类工作时长并提升专业产出，如自动驾驶和专业 Agent。\n                    \n\n                        理想汽车 VLA 模型旨在打造超越人类驾驶水平的“司机大模型”\n                         VLA 经历预训练、后训练和强化训练三阶段，结合 3D 视觉、专业语料和人类反馈，模仿人类学习并最终在复杂交通场景中实现更安全、高效的自动驾驶。\n                    \n\n                        未来 AI 发展将聚焦 Agent OS 及各专业领域的专用 Agent\n                         李想预测通用 Agent 短期内难以实现，取而代之的是 Agent OS，为各行各业的专业人士提供平台，开发针对特定任务的高效专业 Agent。\n                    \n\n                        企业发展需对抗人性，坚守最佳实践以构建卓越组织能力\n                         李想强调组织在面对技术和市场变化时，应坚持研究、研发、能力展示和业务价值转化的四步法，并通过自律对抗随心所欲的人性，以实现用户价值和规模增长。\n                    \n\n                        人类应发展智慧，与 AI 协同，而非被 AI 取代\n                         AI 应作为服务人类的工具，提升效率，让人类有更多时间发展与万物关系的智慧，处理复杂情感和价值观，实现人机友好共存。\n                    \n💬 文章金句\n            \n生产工具一个很重要的衡量特点就是你愿意为他付钱，我觉得这才是生产工具。\n我觉得五年之内没有通用 agents 会有一个 agent OS，方便各个专业的人在这 enter OS 上，其实开发出来自己需要的 agent。\nVLA 是一个司机大模型，是能够像人类的司机一样去工作的一个模型。我觉得奥达 VLA 它不是一个突变的过程，其实它是一个进化的一个过程。\n一个好的组织，然后一个卓越的组织，然后一个卓越的人，很多时候其实要跟人性做对抗。\n我觉得我希望他变得更聪明，更有能力，但是我还是希望人类其实能够训练的更有智慧。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：张小珺Jùn｜商业访谈录\n作者：张小珺\n分类：人工智能\n语言：中文\n阅读时间：5 分钟\n字数：1221\n标签：\n                    \n                        人工智能, 智能驾驶, VLA模型, Agent OS, 生产工具, 理想汽车, 李想, 组织管理, 人机协作, 未来科技\n                    \n                \n            \n        \n\n        \n            收听完整播客",
-          "link": "https://www.bestblogs.dev/zh/podcast/6071b0a",
-          "publishedOn": "2025-10-30T02:30:16.000Z",
-          "wordCount": 528,
-          "title": "118. 对李想的第二次 3 小时访谈：CEO 大模型、MoE、梁文锋、VLA、能量、记忆、对抗人性、亲密关系、人类的智慧",
-          "enclosure": {
-            "url": "https://image.xyzcdn.net/FqQk6U8mX54bvw0PlnnGzkG1ZDj9.jpg",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://image.xyzcdn.net/FqQk6U8mX54bvw0PlnnGzkG1ZDj9.jpg"
-        },
-        {
-          "id": "b27db65b",
-          "author": "Jay",
-          "description": "📌 一句话摘要\n            \nCursor 2.0 发布首个内部编程大模型 Composer，采用强化学习与 MoE 架构，实现 250tokens/秒代码生成，并带来原生浏览器工具、语音编程和多 Agent 协作等创新功能。\n📝 详细摘要\n            \n文章详细介绍了 Cursor 2.0 及其首次搭载的内部编程大模型 Composer。该模型采用强化学习（RL）和 MoE（Mixture of Experts）架构，旨在实现低延迟编码，官方宣称能以 250 tokens/秒的速度生成代码，并在 30 秒内完成复杂任务，性能超越现有主流模型。Cursor 2.0 还引入了原生浏览器工具、语音生成代码以及“以 Agent 为中心”的全新界面逻辑，支持多 Agent 并行运行。文章强调 Composer 通过在真实开发环境中进行 RL 训练，使其能调用工具、执行命令，学习到实际的编程技能和涌现行为。尽管性能卓越，文章也指出 Cursor 在模型底层透明度方面存在不足，未明确说明 Composer 是自研预训练还是基于现有模型微调。\n💡 主要观点\n            \nCursor 发布首个内部编程大模型 Composer，大幅提升代码生成速度与任务处理效率\n                         Composer 采用强化学习和 MoE 架构，实现 250 tokens/秒的代码生成速度，并在 30 秒内完成复杂任务，性能显著优于现有模型，是 Cursor 从套壳到自研的关键一步。\n                    \n\n                        Composer 通过在真实开发环境中进行强化学习训练，具备强大的实战能力\n                         模型直接在完整代码库中调用工具、执行命令，通过真实交互获得反馈，学习解决实际软件工程问题，并展现出自动测试、修复格式等涌现行为。\n                    \n\n                        Cursor 2.0 引入多项创新功能，如原生浏览器工具和 Agent-centric 界面\n                         这些新功能使模型能自行测试、调试代码，支持语音编程，并允许多个 Agent 并行协作，显著提升开发者工作效率和体验。\n                    \n💬 文章金句\n            \nComposer 仅需 30 秒就能完成复杂任务，比同行快 400%。\n我们用强化学习训练了一个大型 MoE 模型，让它更贴近真实的编程任务，而且速度也非常快。\nComposer 能以每秒 250 个 tokens 的速度生成代码。这速度比当前最快的推理模型（GPT-5、Claude Sonnet 4.5）快约两倍，比其其他模型更是快四倍。\n强化学习最大的特点是：它得在真实环境里「干活」，才能学到真本事。\nComposer 的透明度缺失简直离谱。他们提到用了强化学习，但没交代模型的其他训练过程------到底是自己预训练的，还是拿现成模型改的？\n📊 文章信息\n            \nAI 评分：91\n精选文章：是\n来源：量子位\n作者：Jay\n分类：人工智能\n语言：中文\n阅读时间：9 分钟\n字数：2079\n标签：\n                    \n                        编程大模型, 强化学习, MoE架构, 代码生成, AI编程工具\n                    \n                \n            \n        \n\n        \n            阅读完整文章",
-          "link": "https://www.bestblogs.dev/zh/article/b27db65b",
-          "publishedOn": "2025-10-30T01:30:40.000Z",
-          "wordCount": 520,
-          "title": "Cursor 发布首个编程大模型！代码生成 250tokens/秒，强化学习+MoE 架构",
-          "enclosure": {
-            "url": "https://www.qbitai.com/wp-content/uploads/replace/f1862f3e54b54508563cfc372a756d01.png",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://www.qbitai.com/wp-content/uploads/replace/f1862f3e54b54508563cfc372a756d01.png"
-        },
-        {
-          "id": "b3231d10",
-          "author": "腾讯云开发者",
-          "description": "📌 一句话摘要\n            \n万字长文深入剖析软件工程中需求与产品思维的本质，厘清概念误区，并探讨了 ToC 与 ToB 产品方法论的差异。\n📝 详细摘要\n            \n文章旨在重构软件工程理论体系，聚焦需求分析、建模与架构，特别是需求与产品思维。作者指出软件工程缺乏标准化表达导致共识难以建立，并提出技术人员需具备用户、模型、架构“三个脑袋”。文章深入定义“需求”为认知，是“人+场景”的结合，强调产品是针对用户需求的解决方案而非需求本身。它探讨了用户价值的理性与感性部分、比较性以及“伪需求”的本质。此外，文章详细对比了 ToC 与 ToB 产品方法论在价值、人性与行业知识上的核心差异，并总结了软件工程的古典学派与敏捷流派。最后，明确了需求分析的产出物和技术人员在需求阶段的角色定位。\n💡 主要观点\n            \n软件工程缺乏标准化表达导致共识难以建立\n                         文章指出软件工程各阶段产出物形式多样化，自然语言的二义性与认知差异使得产品、开发、测试等团队对需求的理解存在巨大偏差，影响协作效率。\n                    \n\n                        “需求”本质是认知，产品是解决方案\n                         作者将需求定义为对现实世界的理解，是“人+场景”的组合，而产品是满足用户需求的“供给”或“解决方案”，区分二者有助于避免开发失焦。\n                    \n\n                        用户价值具有理性与感性两部分，且是比较性的\n                         用户价值不仅包含便宜、方便等理性因素，更涉及酷、爽、美等感性体验，并且总是通过与现有解决方案的对比来衡量，新产品需提供超越旧方案的新价值。\n                    \n\n                        ToC 与 ToB 产品方法论存在根本性差异\n                         ToC 产品更注重用户体验与人性洞察，而 ToB 产品则更强调商业价值与深厚的行业知识，这两种模式在思维链条和实践上各有侧重。\n                    \n\n                        技术人员在需求阶段的角色定位至关重要\n                         技术人员应积极参与需求讨论，挑战产品方案的合理性与技术可行性，弥补逻辑漏洞，甚至在偏技术的中台/平台型产品中担任技术产品经理，以确保产品质量和成功落地。\n                    \n💬 文章金句\n            \n软件工程的'共识'难以建立，没有标准化的表达形式\n需求 = 认知，理解需求 = 理解现实世界\n重要的不是'需求'，是提供'新产品'，'新价值'，'老树发新芽'。\n用户用最小成本/最小代价使用产品功能满足自身需求。\n战略 = 一种科学假设 = 1 种选择 = 取舍\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：腾讯云开发者\n作者：腾讯云开发者\n分类：软件编程\n语言：中文\n阅读时间：31 分钟\n字数：7554\n标签：\n                    \n                        软件工程, 产品思维, 需求分析, 产品管理, 建模\n                    \n                \n            \n        \n\n        \n            阅读完整文章",
-          "link": "https://www.bestblogs.dev/zh/article/b3231d10",
-          "publishedOn": "2025-10-30T00:45:00.000Z",
-          "wordCount": 496,
-          "title": "万字长文：重构软件工程迷思，搞懂需求与产品思维",
-          "enclosure": {
-            "url": "https://wechat2rss.bestblogs.dev/img-proxy/?k=b67177ba&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FVY8SELNGe962R6S9EBQqQVyWF565zHuVM6sgnyzTIdV5L4dk1eiamClXISnzcOWSNxkgFxSmoia0uKj5toWYibkzw%2F0%3Fwx_fmt%3Djpeg",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://wechat2rss.bestblogs.dev/img-proxy/?k=b67177ba&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FVY8SELNGe962R6S9EBQqQVyWF565zHuVM6sgnyzTIdV5L4dk1eiamClXISnzcOWSNxkgFxSmoia0uKj5toWYibkzw%2F0%3Fwx_fmt%3Djpeg"
-        },
-        {
-          "id": "55c7e3b1",
-          "author": "阿里云开发者",
-          "description": "📌 一句话摘要\n            \n文章剖析 AI Agent 系统开发中的“简单”错觉，强调通过系统工程方法实现 Agent 的可靠、可信赖和可进化。\n📝 详细摘要\n            \n文章深入探讨了 AI Agent 系统开发中普遍存在的“简单”错觉，指出其背后是复杂性被框架封装、平台外包和问题推迟的假象。作者从系统工程视角，详细阐述了 Agent 系统在可运行、可复现和可进化三个层次上的复杂度，并揭示了 LLM 不确定性如何通过 Agent 的内存、编排和测试环节被放大。文章通过丰富的实际案例和作者自身的认知演化过程，强调从“能跑”到“能用”的 Agent 需要系统化设计而非简单的 Prompt Hack。最后，文章介绍了 ReAct、CodeAct 等 Agent 设计模式，并总结了“先稳定后聪明，先可观测后优化”的核心原则，呼吁将 Agent 视为系统组件进行工程化管理，而非仅依赖其智能。\n💡 主要观点\n            \nAgent 开发的“简单”是错觉，复杂性被转移而非消除\n                         框架封装、平台托管和问题推迟导致初期“简单”的假象，但底层调试、状态管理、输出漂移等工程复杂性并未真正解决。\n                    \n\n                        Agent 系统面临可运行、可复现、可进化三层复杂度挑战\n                         LLM 的不确定性在内存、编排和测试中被放大，导致 Agent 难以稳定、可控、长期运行，需引入系统工程方法应对。\n                    \n\n                        从 Agent“能跑”到“能用”需系统化而非 Prompt Hack\n                         生产环境要求高可靠性，需要结构化内存、编排和测试手段，以解决 Prompt 修改带来的不可扩展和不可控问题。\n                    \n\n                        Agent 开发应遵循“先稳定后聪明，先可观测后优化”原则\n                         将 Agent 视为系统组件，建立可回放机制、版本追踪、监控指标和错误恢复通道，确保生产环境的可靠性。\n                    \n💬 文章金句\n            \n当我们将所有希望寄托于大模型的「智能」时，却忘记了智能的不确定性必须以工程的确定性为支撑。\n框架/平台让 Agent 「好搭」但没有让它「好用」，真正的复杂性，从未被消除，只是被推迟。\n智能的不确定性必须以工程的确定性为支撑。稳定与可观测，是 Agent 真正可演化的前提。\nPrompt Hack/Demo Agent 能解决的是\"小问题\"，系统化 Agent 才能解决\"扩展性、可靠性、沉淀\"的问题。\n也许未来的框架能进一步吸收这些复杂性。但工程师的角色不会因此消失。我们要做的，是在复杂性被隐藏的地方，重新建立秩序 ------ 让智能不只是可调用，更是可驯服。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：阿里云开发者\n作者：阿里云开发者\n分类：人工智能\n语言：中文\n阅读时间：32 分钟\n字数：7876\n标签：\n                    \n                        Agent系统, AI开发, 系统工程, LangChain, 可靠性\n                    \n                \n            \n        \n\n        \n            阅读完整文章",
-          "link": "https://www.bestblogs.dev/zh/article/55c7e3b1",
-          "publishedOn": "2025-10-30T00:31:00.000Z",
-          "wordCount": 507,
-          "title": "让 Agent 系统更聪明之前，先让它能被信任",
-          "enclosure": {
-            "url": "https://wechat2rss.bestblogs.dev/img-proxy/?k=70eb561c&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FZ6bicxIx5naKLHC0gED1ia5VK557sYfvGaLnMVH9xXickn3SHKHJoDufskgFC4siaia0BPpA0stshZ7JibxGJQzSh2Yw%2F0%3Fwx_fmt%3Djpeg",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://wechat2rss.bestblogs.dev/img-proxy/?k=70eb561c&u=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FZ6bicxIx5naKLHC0gED1ia5VK557sYfvGaLnMVH9xXickn3SHKHJoDufskgFC4siaia0BPpA0stshZ7JibxGJQzSh2Yw%2F0%3Fwx_fmt%3Djpeg"
-        },
-        {
-          "id": "3d4d6c70",
-          "author": "Hangfei Lin",
-          "description": "📌 一句话摘要\n            \n本文介绍了一种用于多代理系统的实时双向流架构，解决了请求-响应的局限性，并详细介绍了 Google 的开源智能体开发工具包 (ADK)...\n📝 详细摘要\n            \n本文提倡使用实时双向流架构，以克服传统请求-响应模型在复杂的人工智能多代理系统中的固有局限性。它指出了请求-响应的问题，例如感知延迟、不连贯的工具集成和笨拙的多模态，这些问题阻碍了真正交互式和智能的体验。所提出的流范例实现了关键功能，如真正的并发性、可中断性、使用流工具的主动辅助和统一的多模态处理，使智能体更像协作伙伴。然后，本文解决了这种“非回合制”模型中的关键工程挑战，包括上下文管理、并发性、性能和开发者体验。最后，它深入探讨了 Google 的开源智能体开发工具包 (ADK) 的架构，解释了它如何通过异步 I/O 管理、用于多代理协作的有状态可转移会话、用于实时定制的事件驱动回调和流原生工具来应对这些挑战，从而实现更自然和无缝的人工智能交互。\n💡 主要观点\n            \n传统的请求-响应模型严重限制了人工智能智能体的交互性和并发性。\n                         这种范例会产生感知延迟、不连贯的工具集成和复杂的多模态处理。这些问题阻碍了对于高级人工智能智能体至关重要的自然、实时交互。\n                    \n\n                        实时双向流实现了真正交互式和协作的多代理系统。\n                         这种架构允许并发处理、可中断性、主动工具使用和统一的多模态上下文，使智能体更像协作伙伴，而不是简单的工具。\n                    \n\n                        Google 的 ADK 提供了一个用于构建基于流的智能体的开源框架。\n                         ADK 通过异步 I/O、有状态可转移会话、事件驱动回调和流原生工具解决了关键的工程挑战，从而简化了复杂、高性能多代理系统的开发。\n                    \n💬 文章金句\n            \n随着我们朝着构建更复杂的人工智能智能体迈进，传统请求-响应模型的局限性（它本身会产生僵化、基于回合的交互）变得显而易见。\n通过从基于回合的事务转移到持久的双向流，我们解锁了一类新的智能体功能，这些功能感觉更像是协作伙伴，而不是简单的工具。\n最根本的挑战是“回合”的概念消失了。在连续流中，开发人员必须设计新的机制，将流分割成逻辑事件，以便进行调试、分析和恢复对话。\n为了使开发人员能够构建这些新体验，我们在开源智能体开发工具包 (ADK) 中设计了一种双向流原生架构，该架构基于这些核心架构。\n这种有状态会话成为多代理协作的“上下文数据包”。当发生切换时（例如，从分诊智能体到专家），整个会话上下文都会被转移。这使得下一个智能体可以无缝地接手，而无需用户重复信息。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：Google Developers Blog\n作者：Hangfei Lin\n分类：人工智能\n语言：英文\n阅读时间：6 分钟\n字数：1367\n标签：\n                    \n                        多代理系统, 双向流, 人工智能架构, 智能体开发工具包 (ADK), 异步 I/O\n                    \n                \n            \n        \n\n        \n            阅读完整文章",
-          "link": "https://www.bestblogs.dev/zh/article/3d4d6c70",
-          "publishedOn": "2025-10-30T00:00:00.000Z",
-          "wordCount": 498,
-          "title": "突破请求-响应：构建实时双向流多代理系统",
-          "enclosure": {
-            "url": "https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/adk-gemini-cli-agent-building-ban.2e16d0ba.fill-1200x600.png",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/adk-gemini-cli-agent-building-ban.2e16d0ba.fill-1200x600.png"
-        },
-        {
-          "id": "65e8e979",
-          "author": "Manish Shivanandhan",
-          "description": "📌 一句话摘要\n            \n本文清楚地区分了 API 和 MCP。MCP 的作用在于，它使 AI 能够以安全、结构化的方式与外部工具交互。\n📝 详细摘要\n            \n本文全面比较了应用程序编程接口（API）和模型上下文协议（MCP），强调了它们不同的目的和操作模型。它解释说，虽然两者都促进了系统通信，但 API 是为开发者编写代码而设计的，需要手动处理逻辑、错误和身份验证。相比之下，MCP 是一种专门为 AI 模型（如 LLM）构建的新标准，用于安全地与外部工具和系统交互。MCP 存在的关键原因在于，AI 模型自身无法安全地发起网络请求、管理密钥或执行任意代码，这样做风险很高。MCP 充当一个受控层，公开预定义的“工具”，其中包含 AI 模型可以调用的模式，从而抽象出敏感细节（如 API 密钥和复杂的请求格式）。这种方法显著提高了安全性、隐私性和可发现性，让 AI 模型在结构化和受监控的环境下使用外部功能。文章最后将 MCP 定位为不是 API 的替代品，而是作为一个关键的新层，使智能系统能够安全地利用现有的 API 驱动的基础设施。\n💡 主要观点\n            \nAPI 是为人类开发者构建的，而 MCP 专门为 AI 模型设计。\n                         API 假设开发者能够处理复杂的请求和安全问题。MCP 为 AI 模型（智能但不受信任的系统）提供了一个安全、结构化的接口，从而抽象出网络和安全复杂性。\n                    \n\n                        MCP 实现了 AI 模型与外部系统之间安全且受控的交互。\n                         通过充当桥梁，MCP 定义了 AI 模型可以调用的“工具”，而无需直接访问敏感信息或执行任意代码，从而降低了数据泄露和未经授权的操作等风险。\n                    \n\n                        MCP 为 AI 工具的使用提供了增强的发现、模式定义和集中式安全性。\n                         模型可以通过模式自动发现可用的工具及其参数，而 MCP 服务器会强制执行访问控制、验证输入并记录交互，从而提供强大的安全框架。\n                    \n💬 文章金句\n            \nAPI 是为开发者构建的。它是一个程序与另一个程序通信的方式。MCP，或模型上下文协议，是为 AI 模型构建的。像 GPT 或 Claude 这样的大型语言模型如何安全地与外部系统对话并使用工具。\nAI 模型无法自行安全地调用 API。它们没有内置的执行环境，没有存储密钥的方式，也没有限制。\nMCP 和 API 之间的区别不仅仅是技术上的。这也是哲学上的。API 供人类直接使用... MCP 供 AI 模型使用。它假定调用者是一个智能但不受信任的系统，无法保存密钥或执行代码。\nMCP 不会取代 API，而是作为新的一层位于其上方。API 仍然会提供数据。MCP 将使 AI 能够以安全、结构化、可控的方式使用这些 API。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：freeCodeCamp.org\n作者：Manish Shivanandhan\n分类：人工智能\n语言：英文\n阅读时间：6 分钟\n字数：1445\n标签：\n                    \n                        MCP, API, LLM 整合, 工具调用, AI 安全\n                    \n                \n            \n        \n\n        \n            阅读完整文章",
-          "link": "https://www.bestblogs.dev/zh/article/65e8e979",
-          "publishedOn": "2025-10-29T21:51:55.000Z",
-          "wordCount": 515,
-          "title": "MCP 与 API：本质区别解析",
-          "enclosure": {
-            "url": "https://cdn.hashnode.com/res/hashnode/image/upload/v1761774679622/477d1991-a083-4ae6-8e3b-2a186d254274.png",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://cdn.hashnode.com/res/hashnode/image/upload/v1761774679622/477d1991-a083-4ae6-8e3b-2a186d254274.png"
-        },
-        {
-          "id": "4ac2c29",
-          "author": "OpenAI",
-          "description": "📌 一句话摘要\n            \nOpenAI 的 AgentKit 提供了一个综合平台，包含 Agent Builder、ChatKit 和 Evals，用于可视化设计和部署 AI 智能体工作流及多智能体系统，并实现可靠的优化。\n📝 详细摘要\n            \n本次 Build Hour 介绍 AgentKit，这是 OpenAI 提供的一个综合工具包，旨在简化智能体工作流（包括复杂的多智能体系统）的构建、部署和优化。它通过提供 Agent Builder 进行可视化工作流设计、版本控制以及通过连接器注册表安全地连接工具和数据，从而解决了智能体开发的历史复杂性。此外，还集成了自动提示词优化和护栏机制。ChatKit 提供了一个可定制的 UI，用于部署智能体，从而实现品牌一致性和丰富的交互式小部件。至关重要的是，Evals 提供了内置功能，用于确保智能体的大规模可靠性，从而能够测试单个节点、评估端到端跟踪以及基于人工反馈自动优化提示词。该演示重点介绍了使用真实世界数据进行“评估驱动开发 (eval-driven development)”的转变。通过客户支持、销售助手和内部生产力工具等实际应用，AgentKit 能够节省大量的原型设计时间。\n💡 主要观点\n            \nAgentKit 通过可视化编排和集成工具简化了复杂的 AI 智能体开发。\n                         Agent Builder 的可视化工作流构建器、版本控制和连接器注册表简化了智能体设计和工具集成，取代了手动编码并减少了开发人员的开发时间。\n                    \n\n                        ChatKit 提供了高度可定制的用户界面，用于部署智能体，从而增强用户体验和品牌塑造。\n                         它允许开发人员使用特定的品牌、字体和交互式小部件定制智能体 UI，从而提供更丰富、更具吸引力的用户交互。\n                    \n\n                        Evals 提供了强大的内置评估功能，用于确保智能体的大规模可靠性和性能。\n                         它有助于测试单个智能体节点、评估端到端跟踪以及利用基于人工反馈的自动提示词优化，这对于可靠的生产环境部署至关重要。\n                    \n\n                        AgentKit 支持“评估驱动开发 (eval-driven development)”方法，强调使用真实世界数据进行早期和持续评估。\n                         这种方法鼓励从项目一开始就定义评估标准并使用人工注释数据，从而在生产中产生更强大、性能更高的智能体。\n                    \n\n                        该平台有助于多智能体系统以及连接到外部数据源和工具。\n                         Agent Builder 能够创建具有子智能体的复杂工作流，并与 Databricks 和 Web 搜索等外部服务无缝集成，从而有效地扩展智能体功能。\n                    \n💬 文章金句\n            \n我们希望 AgentKit 能显著改进智能体的构建方式。现在，可以通过可视化工作流构建器直观地构建工作流，并且它已进行版本控制，因此不会引入重大更改。\n构建智能体最重要也是最难的部分，就是评估环节。\n这使您可以针对大量跟踪扩展评估。因为逐个点击跟踪并尝试查找问题效率太低，既耗时又难以规模化。\n最好的做法是尽早开始。因此，即使是 10 到 20 个示例也会大有帮助。\n质量几乎比数量更重要。\n📊 文章信息\n            \nAI 评分：93\n精选文章：是\n来源：OpenAI\n作者：OpenAI\n分类：人工智能\n语言：英文\n阅读时间：54 分钟\n字数：13381\n标签：\n                    \n                        AI Agents, Agentic Workflows, OpenAI, AgentKit, AI Development\n                    \n                \n            \n        \n\n        \n            播放完整视频",
-          "link": "https://www.bestblogs.dev/zh/video/4ac2c29",
-          "publishedOn": "2025-10-29T21:26:22.000Z",
-          "wordCount": 525,
-          "title": "Build Hour: AgentKit",
-          "enclosure": {
-            "url": "https://i4.ytimg.com/vi/sAitLFLbgDA/hqdefault.jpg",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://i4.ytimg.com/vi/sAitLFLbgDA/hqdefault.jpg"
-        },
-        {
-          "id": "cc040a9",
-          "author": "OpenAI",
-          "description": "📌 一句话摘要\n            \nSam Altman、Jakub S. 和 Wojciech Z. 概述了 OpenAI 的未来愿景，重点关注三大支柱：面向超人工智能的研究、演进为具有用户自由的 AI 平台的产品，以及大规模的算力基础设施。\n📝 详细摘要\n            \n与 OpenAI 领导层（Sam Altman、Jakub S. 和 Wojciech Z.）的这次讨论全面概述了该公司的未来战略，围绕三个核心支柱构建：研究、产品和基础设施。在研究方面，他们预计十年内实现超人工智能，到 2025 年 9 月推出 AI 研究助理，到 2028 年 3 月推出完全自主的 AI 研究员，强调 AI 安全和对齐的多层方法，包括像“思维链忠实性”这样的新型技术。产品支柱侧重于将 OpenAI 发展成为一个“AI 云”平台，在支持外部开发者的同时，倡导用户自由和强大的隐私保护，包括像“AI 特权”这样的概念，将成年用户视为负责任的个体。基础设施支柱揭示了一项前所未有的承诺，即超过 30 吉瓦的计算能力，代表着 1.4 万亿美元的财务承诺，并渴望建立一个能够每周生产 1 吉瓦的“基础设施工厂”，以“星际之门”项目为例。引入了一种新的组织架构，其特点是由控制性的非营利组织 OpenAI 基金会监督一家公共利益公司（PBC），最初的重点是 AI 驱动的科学发现（例如，治愈疾病）和建立“AI 韧性”以管理生物安全和工作岗位流失等系统性风险。会议最后是问答环节，讨论了模型成瘾、用户对模型的控制等主题。这些讨论强调了 OpenAI 对负责任且有影响力的 AI 开发的承诺。\n💡 主要观点\n            \nOpenAI 的未来战略以三大核心支柱为基础：先进研究、产品平台演进和大规模基础设施投资。\n                         这些相互关联的支柱…",
-          "link": "https://www.bestblogs.dev/zh/video/cc040a9",
-          "publishedOn": "2025-10-29T16:41:32.000Z",
-          "wordCount": 540,
-          "title": "Sam、Jakub 和 Wojciech 谈 OpenAI 的未来，附观众问答",
-          "enclosure": {
-            "url": "https://i3.ytimg.com/vi/ngDCxlZcecw/hqdefault.jpg",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://i3.ytimg.com/vi/ngDCxlZcecw/hqdefault.jpg"
         }
       ]
     },
@@ -1757,16 +1652,6 @@
           "wordCount": 8980,
           "title": "How Non-Coding Journalists Can Build Web Scrapers With AI — Examples and Prompts Included",
           "imageUrl": "https://gijn.org/wp-content/uploads/2025/10/shutterstock_2239026519-771x578.jpg"
-        },
-        {
-          "id": "https://gijn.org/?p=2600661",
-          "author": "Rowan Philp",
-          "description": "The four-day event will showcase 25 feature-length and short-form documentaries that shine new narrative light on urgent topics in North America and far beyond.",
-          "link": "https://gijn.org/stories/2025-double-exposure-festival/",
-          "publishedOn": "2025-10-30T07:00:07.000Z",
-          "wordCount": 3730,
-          "title": "2025 Double Exposure Festival: Interrogating New Fault Lines on Lethal Inequity, Human Resilience, and the Limits of Journalism",
-          "imageUrl": "https://gijn.org/wp-content/uploads/2025/10/538627504_1298682065148473_3689362069718187690_n-771x308.png"
         }
       ]
     },
@@ -2781,6 +2666,16 @@
       "siteUrl": "http://mainssl.geekpark.net/rss.rss",
       "articles": [
         {
+          "id": "http://www.geekpark.net/news/356579",
+          "author": null,
+          "description": "来了。\n预热了快一个月的 Gemini 3.0 Pro，就在刚刚，正式在 Google AI Studio 上线 Preview 版，API 也同步开放。接下来将陆续上线Google的各项产品中。\n没有任何多余的废话，打开 Model Card，满眼写着的只有两个字：碾压。\n按照 Google 披露的测试数据，Gemini 3 Pro 毫无悬念地成为了目前地球上数学最强的 AI。在 AIME 2025 数学测试中，配合代码执行，它直接拿到了100% 的满分。而在数学竞赛的「地狱模式」MathArena 里，当包括 GPT-5.1 在内的其他大模型还在 1% 上下挣扎时，Gemini 3 Pro 直接干到了23.4%。\n编程能力方面，虽然在 SWE-Bench 上未拿 SOTA——但绝对属于第一梯队。Live Code Bench 的 Elo 得分超过 2400 分 ，在工具调用和终端操作基准测试中更是名列第一。\n真正炸裂的是它的「视觉智能」。对屏幕截图的理解能力高达72.7%，是目前最先进水平的两倍。这意味着 Agent 不再是瞎子，它将彻底重塑 AI 操作计算机的模式。\n但这还没完，Google 今晚还顺手扔出了一个小王炸：自家的 Agentic 编程平台——Google Antigravity。\n此前网传 Gemini 3 能实现「端到端编程」，大家以为是模型成精了。但看起来，并不是模型成精，而是 Google 正在探索如何用更好的系统工程实现端到端编程。\n如果说 Cursor 是目前最强的「外骨骼」，它通过 AI 补全让你写代码更快；那 Antigravity 就是奔着「自动驾驶」去的。它不再只是一个编辑器，而是一个智能体优先（Agent-first）发环境。集成了 Gemini 3.0 和能操控浏览器的 Gemini 2.5 Computer Use 模型，它的 A…",
+          "link": "http://www.geekpark.net/news/356579",
+          "publishedOn": "2025-11-18T19:17:41.000Z",
+          "wordCount": 983,
+          "title": "谷歌 Gemini 3.0 深夜炸场：没有悬念的最强 AI",
+          "imageUrl": null
+        },
+        {
           "id": "http://www.geekpark.net/news/356533",
           "author": null,
           "description": "阿里千问 App 公测，与 ChatGPT 正面交锋\n11 月 17 日，阿里巴巴正式官宣「千问」项目，全力进军「AI to C」市场。当天，千问 APP 公测版上线，接入全球性能第一的开源模型 Qwen3 并免费开放，与 ChatGPT 展开全面竞争。\n此前，有知情人士透露，在未来几个月内，阿里巴巴将在该应用中逐步增加智能体 AI（Agentic-AI）功能，以支持包括主要淘宝市场在内的平台上的购物功能。「阿里巴巴计划最终通过海外版本向全球扩张。」该人士表示，在过去几个月里，阿里巴巴 CEO 吴泳铭已从各部门调集了大量开发人员投入到此项目中。（来源：证券时报）\n\nGoogle 推出全新 AI 气象模型，天气预报效率与准确性大幅提升\nGoogle 于 11 月 17 日宣布全面升级其天气预报服务，采用最新研发的 AI 气象模型「WeatherNext 2」。这一新模型将被整合到 Google 多款热门产品中，包括搜索、Gemini 及 Pixel 手机。\n据介绍，Google 的 AI 增强型天气预报已经在准确性方面表现优异。此前，AI 气象模型在生成预测的速度和效率上已超越传统基于物理的模型。Google 表示，WeatherNext 2 可在不到一分钟的时间内，用 Google 的 TPU 芯片完成传统超级计算机数小时才能完成的预测工作。（来源：cnBeta）\n \n余承东官宣，华为 Mate80 发布会定档 11 月 25 日\n11 月 17 日消息，华为常务董事、终端 BG 董事长余承东宣布，华为 Mate80 系列发布会定档 11 月 25 日 14:30。\n网上爆料称，华为 Mate 80 系列共有四款机型，分别是 Mate 80、Mate 80 Pro、Mate 80 Pro Max、Mate 80 RS 非凡大师。该系列或将首发全新麒麟 9030 处理器，直屏…",
@@ -3459,33 +3354,13 @@
           "wordCount": 910,
           "title": "中国人 2030 年登月目标不动摇；苹果季度营收超千亿美元；微信推「群聊选择性接受重要通知」",
           "imageUrl": null
-        },
-        {
-          "id": "http://www.geekpark.net/news/355742",
-          "author": null,
-          "description": "刚刚，OpenAI 宣布完成公司结构重组，估值锁定 5000 亿美元。这不仅意味着其多年的「营利」与「非营利」矛盾得以破解，更为公司的未来铺就了一条清晰而稳固的跑道。这场重组大戏，终于锤音落定。\n简单来说，OpenAI 现在分为两大组成部分，一家是非营利组织，称为 OpenAI 基金会（OpenAI Foundation），另一家则是公益性营利性组织，OpenAI 集团（OpenAI Group PBC）。\nOpenAI 基金会将持有 OpenAI 集团的股权，所有股东按比例分得 OpenAI 集团的股份，OpenAI 基金会未来将花费 250 亿美元投入到 AI 健康以及 AI 基础设施建设研究。\nOpenAI 集团，则主要专注于筹集资金和商业化，让 OpenAI 有足够的资金支撑 AI 研发成本、人才成本，以及技术推广应用的费用。\nOpenAI 在官宣公告中明确强调，无论是 OpenAI 基金会还是 OpenAI 集团，它们的使命都是确保人工智能造福全人类。\n截至重组结束，OpenAI 基金会持有 OpenAI 集团 26% 的股权，根据 OpenAI 公益集团的当前估值，价值约为 1300 亿美元。微软持有 OpenAI 集团约 27% 的股份，其余 47% 由现任和前任员工和投资者持有。\n\nOpenAI 现有股东持股比例 来源：极客公园制图\n三步妙棋，让 OpenAI 走出重组困境\n事实上，除了 26% 股份外，OpenAI 基金会还持有一份未来的认股权证。OpenAI 提到，当 OpenAI 集团的估值达到特定门槛时，OpenAI 基金会获得 OpenAI 集团的额外股份。\n换句话说，OpenAI对所有的投资者们立下了一份「对赌协议」。如果 OpenAI 集团的股价在 15 年后上涨达到十倍，也就是达到5万亿美元，OpenAI 基金会将获得大量额外股权。\n其实，这…",
-          "link": "http://www.geekpark.net/news/355742",
-          "publishedOn": "2025-10-30T02:31:24.000Z",
-          "wordCount": 932,
-          "title": "GPT 6要来了？15年后市值突破5万亿，OpenAI签下「对赌协议」",
-          "imageUrl": null
-        },
-        {
-          "id": "http://www.geekpark.net/news/355734",
-          "author": null,
-          "description": "消息称 OpenAI 正筹备 IPO，估值或高达 1 万亿美元\n10 月 30 日消息，北京时间今天上午，路透社援引三位知情人士消息称，OpenAI 正在为 IPO 做准备，估值最高可能达到约 1 万亿美元。这次将是史上规模最大的上市之一。\n部分人士表示，OpenAI 计划最早在 2026 年下半年向证券监管机构提交上市申请。公司在初步讨论中设定的融资目标下限为 600 亿美元，实际金额可能更高。\n知情人士同时也提醒，相关讨论仍处于早期阶段，最终的时间表和金额都可能会因公司业务发展及市场变化而调整。\n另有消息人士称，首席财务官 Sarah Friar 已向部分同事表示，公司计划在 2027 年正式上市。（来源：网易）\n\n英伟达成为首家市值突破 5 万亿美元的上市公司\n10 月 29 日，当地时间周三美股开盘，英伟达暴涨 3.2%，市值站上 5 万亿美元，成为史上第一家市值跨越这一里程碑的上市公司，最高涨幅甚至超过 5%，市值超过 5.13 万亿美元。\n英伟达公司总市值从 4 万亿美元跨上 5 万亿美元仅用时 113 天，而从 3 万亿到 4 万亿则耗时 410 天。\n高达 5 万亿美元的总市值，早已超过英、法、德等国家的股市总市值，并且正逼近印度股市总价值（5.3 万亿美元）。\n值得一提的是，英伟达股价已较 4 月低点反弹超 135%，市值也增加了 2.9 万亿美元，该公司股价今年已累计上涨 54%。（来源：财联社）\nYouTube 宣布对美国员工实施「自愿离职计划」，并重组产品团队\n10 月 30 日消息，谷歌旗下视频平台 YouTube 周三向 TechCrunch 证实，公司正针对美国本土员工实施一项「自愿离职计划」，并提供离职补偿。\nYouTube 首席执行官尼尔・莫汉（Neal Mohan）周三通过一封内部备忘录向员工通报了这一计划。\n备忘录同时宣布，公司将对其产…",
-          "link": "http://www.geekpark.net/news/355734",
-          "publishedOn": "2025-10-30T00:27:08.000Z",
-          "wordCount": 1066,
-          "title": "OpenAI筹备IPO，估值1万亿美元；英伟达成全球首家5万亿美元公司；中国造「巨型放大镜」，比太阳亮万亿倍",
-          "imageUrl": null
         }
       ]
     },
     {
       "title": "北青深一度 via zmonster on Inoreader",
       "feedUrl": "https://feedpress.me/bqs",
-      "siteUrl": "https://www.inoreader.com/stream/user/1005939773/tag/%E5%8C%97%E9%9D%92%E6%B7%B1%E4%B8%80%E5%BA%A6?f03c=1763045436/view/html",
+      "siteUrl": "https://www.inoreader.com/stream/user/1005939773/tag/%E5%8C%97%E9%9D%92%E6%B7%B1%E4%B8%80%E5%BA%A6?7306=1763472134/view/html",
       "articles": [
         {
           "id": "http://www.inoreader.com/article/3a9c6e7747bf7664",
@@ -4512,16 +4387,6 @@
           "wordCount": 264,
           "title": "致写作者：我为什么发起《超级千字营》？",
           "imageUrl": null
-        },
-        {
-          "id": "https://mp.weixin.qq.com/s?__biz=MjM5ODAzNTc2NA==&mid=2652893721&idx=1&sn=10c197f13af78e3ee9db6f41ab1eb958",
-          "author": null,
-          "description": "也有点游刃有余的意思了",
-          "link": "https://mp.weixin.qq.com/s?__biz=MjM5ODAzNTc2NA==&mid=2652893721&idx=1&sn=10c197f13af78e3ee9db6f41ab1eb958",
-          "publishedOn": "2025-10-30T06:05:00.000Z",
-          "wordCount": 264,
-          "title": "我的会长爸爸",
-          "imageUrl": null
         }
       ]
     },
@@ -4548,6 +4413,66 @@
       "feedUrl": "https://wechat2rss.xlab.app/feed/8d839de8dd3290a1f1be7a94423cccb30c1b087d.xml",
       "siteUrl": "https://wechat2rss.xlab.app/feed/8d839de8dd3290a1f1be7a94423cccb30c1b087d.xml",
       "articles": [
+        {
+          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654623856&idx=1&sn=e9d9059bb35e36bc93b6f4dda5c1eeb3",
+          "author": null,
+          "description": "网梗里藏着泼天的富贵。",
+          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654623856&idx=1&sn=e9d9059bb35e36bc93b6f4dda5c1eeb3",
+          "publishedOn": "2025-11-18T16:00:00.000Z",
+          "wordCount": 264,
+          "title": "九阳豆浆卖爆了，但哈基米的泼天富贵可能快结束了。",
+          "imageUrl": null
+        },
+        {
+          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654623856&idx=2&sn=b5252454358591bab65426931d23c785",
+          "author": null,
+          "description": "糊涂 R 星",
+          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654623856&idx=2&sn=b5252454358591bab65426931d23c785",
+          "publishedOn": "2025-11-18T16:00:00.000Z",
+          "wordCount": 264,
+          "title": "就因为裁了30人，GTA6又延期半年？",
+          "imageUrl": null
+        },
+        {
+          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654623856&idx=3&sn=3a4a1b0fcadc571bc13456d867c29ea5",
+          "author": null,
+          "description": "存在即合理。",
+          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654623856&idx=3&sn=3a4a1b0fcadc571bc13456d867c29ea5",
+          "publishedOn": "2025-11-18T16:00:00.000Z",
+          "wordCount": 264,
+          "title": "线上被骂高价低配，凭啥这手机还能卖三百多万台？",
+          "imageUrl": null
+        },
+        {
+          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654623856&idx=4&sn=c608e4afcdee01b6269c94fa79968273",
+          "author": null,
+          "description": "握草（一种操作）",
+          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654623856&idx=4&sn=c608e4afcdee01b6269c94fa79968273",
+          "publishedOn": "2025-11-18T16:00:00.000Z",
+          "wordCount": 264,
+          "title": "今日最佳：握草水龙头。",
+          "imageUrl": null
+        },
+        {
+          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654623856&idx=5&sn=476d553331b42dec9f27b092a841aaf1",
+          "author": null,
+          "description": "聊一聊",
+          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654623856&idx=5&sn=476d553331b42dec9f27b092a841aaf1",
+          "publishedOn": "2025-11-18T16:00:00.000Z",
+          "wordCount": 264,
+          "title": "聊一聊：你因为一时上头买过啥落灰的东西？",
+          "imageUrl": null
+        },
+        {
+          "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654623856&idx=6&sn=5d36883dfd7d87ac4539ac1c1373734b",
+          "author": null,
+          "description": "今天是 11 月 18 日，农历九月廿九。",
+          "link": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654623856&idx=6&sn=5d36883dfd7d87ac4539ac1c1373734b",
+          "publishedOn": "2025-11-18T16:00:00.000Z",
+          "wordCount": 264,
+          "title": "Cloudflare全球故障影响众多网站，iPhone Air设计师离职，Gemini 3预览版上线，这就是今天的其他大新闻！",
+          "imageUrl": null
+        },
         {
           "id": "https://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654623670&idx=1&sn=b23a9b88de86a7ce40601eac0fca5583",
           "author": null,
@@ -9158,6 +9083,26 @@
       "siteUrl": "https://sspai.com",
       "articles": [
         {
+          "id": "https://sspai.com/post/103908",
+          "author": "Matrix机器人",
+          "description": "除了首页时间流和侧栏的精选展位，少数派Matrix社区还有很多优秀内容因条件所限无法得到有效曝光，因此我们决定重启Matrix周报，并在此基础上添加更多社区内容、作者投稿新玩意呈现给大家。💬一派热议在 ...查看全文",
+          "link": "https://sspai.com/post/103908",
+          "publishedOn": "2025-11-18T09:20:00.000Z",
+          "wordCount": 621,
+          "title": "社区速递 118 | 派友千奇百怪的健身起点、一周热评以及新玩意",
+          "imageUrl": null
+        },
+        {
+          "id": "https://sspai.com/post/103767",
+          "author": "KingTsui",
+          "description": "聚焦佩戴、操作与 App 体验、信号表现、续航表现、降噪综合表现、声音表现六个大项。查看全文",
+          "link": "https://sspai.com/post/103767",
+          "publishedOn": "2025-11-18T07:00:00.000Z",
+          "wordCount": 940,
+          "title": "中档价位真无线耳机横评与建议（2025 年终） - TDS 无心快语",
+          "imageUrl": null
+        },
+        {
           "id": "https://sspai.com/post/103811",
           "author": "一泽Eze",
           "description": "Matrix首页推荐Matrix是少数派的写作社区，我们主张分享真实的产品体验，有实用价值的经验与思考。我们会不定期挑选Matrix最优质的文章，展示来自用户的最真实的体验和观点。文章代表作者个人观点 ...查看全文",
@@ -9805,36 +9750,6 @@
           "publishedOn": "2025-10-30T09:30:00.000Z",
           "wordCount": 423,
           "title": "新玩意 224｜少数派的编辑们最近买了啥？",
-          "imageUrl": null
-        },
-        {
-          "id": "https://sspai.com/post/103082",
-          "author": "_东东_",
-          "description": "在你犹豫的这几秒钟里，地铁到站了、人潮涌动、你的注意力被分散，那个原本清晰的想法开始变得模糊。最终你会放弃记录，告诉自己「等会儿再说吧」……查看全文",
-          "link": "https://sspai.com/post/103082",
-          "publishedOn": "2025-10-30T07:00:00.000Z",
-          "wordCount": 245,
-          "title": "App+1｜一个应用搞定多种笔记需求，零碎想法也有好去处：Re:card",
-          "imageUrl": null
-        },
-        {
-          "id": "https://sspai.com/post/102412",
-          "author": "捡土豆的人",
-          "description": "马上就要进入日本红枫季，11 月也是我认为去日本的最佳旅游季之一，这篇回顾希望可以给今年计划前往的关西旅行的朋友一些行程参考。 查看全文",
-          "link": "https://sspai.com/post/102412",
-          "publishedOn": "2025-10-30T03:30:24.000Z",
-          "wordCount": 246,
-          "title": "日本红枫季应该怎么玩？这是我的关西攻略",
-          "imageUrl": null
-        },
-        {
-          "id": "https://sspai.com/post/103421",
-          "author": "少数派编辑部",
-          "description": "微软与 OpenAI 深化战略合作、Adobe Firefly 迎来大更新等。查看全文",
-          "link": "https://sspai.com/post/103421",
-          "publishedOn": "2025-10-30T00:34:58.000Z",
-          "wordCount": 552,
-          "title": "派早报：Apple 加入 TGA 咨询委员会、Nothing 新机发布等",
           "imageUrl": null
         }
       ]
@@ -10959,6 +10874,16 @@
       "siteUrl": "https://aeon.co",
       "articles": [
         {
+          "id": "urn:id:8515",
+          "author": "Amy K McLennan",
+          "description": "Acute inflammation helps the body heal. But chronic inflammation is different and could provoke a medical paradigm shift\n- by Amy K McLennan\nRead on Aeon",
+          "link": "https://aeon.co/essays/could-chronic-inflammation-be-the-medical-paradigm-shift-of-our-age?utm_source=rss-feed",
+          "publishedOn": "2025-11-18T11:00:00.000Z",
+          "wordCount": 12860,
+          "title": "The inflammation age",
+          "imageUrl": "https://images.aeonmedia.co/images/eb6aa0f5-8645-4786-afd0-6976569c9f14/essay-final-gettyimages-2173914269.jpg?width=1200&quality=75&format=jpg"
+        },
+        {
           "id": "urn:id:8536",
           "author": "Aeon Video",
           "description": "Exoplanet discoveries have reshaped astronomy. Are exomoons next? Brian Greene in conversation with David Kipping\n- by Aeon Video\nWatch on Aeon",
@@ -11155,6 +11080,106 @@
       "feedUrl": "https://rss.aishort.top/?type=wasi",
       "siteUrl": "https://qnmlgb.tech/",
       "articles": [
+        {
+          "id": "1617568",
+          "author": null,
+          "description": "编译 | Tina\t周末本该好好躺平，Windows 掌门人 Pavan Davuluri（帕万·达乌卢里）却偏要犯那个经典错误——\n        手贱点开了自己那条关于 Windows\"智能体化未来\"（agentic）的推文评论区。\n        事情源于 11 月 11 日 Ignite 大会前夕，这位高管曾豪情万丈地宣告： “Windows 正在演变为一款 Agentic OS，通过连接设备、云和 AI，解锁智能生产力，实现随时随地的安全工作。”\n        谁知，一周后，原本用来宣传 Ignite 大会、烘托“Agentic OS”愿景的那条推文，却在评论区彻底失控——\n        短短几天便累积了四百多条犀利吐槽，几乎清一色是批评，有些言论之激烈，隔着屏幕都能感受到“杀气”。\n        最终，面对这排山倒海的负面情绪，Pavan Davuluri 不得不选择了“拔网线”，悄悄关闭了这条帖子的评论功能。\n         把 AI 写进底层：微软的 Agentic 梦几周前，微软刚刚完成了一次重要的组织架构调整：公司将所有 Windows 工程团队重新统一到 Davuluri 之下。\n        这是微软推动 Windows 向前发展、尤其是强化 AI 能力的重要战略步骤。\n        在 Davuluri 晋升之前，Windows 工程团队的部分职能分散在多个部门，例如 Azure 和设备部门。\n        如今，操作系统基础能力、安全、数据、性能等核心工作都将向 Davuluri 汇报。\n        这背后是微软对 Windows 的全新定位——向 AI 驱动的操作系统转型。\n        这不仅是一场激进的战略押注，也是微软内部口中的“关键节点”：它将帮助 Windows 朝一款 “Agentic OS”（智能体操作系统） …",
+          "link": "http://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&mid=2651263429&idx=1&sn=189ff34b49998f1c13c385c35af9fc1a&chksm=bc2b57740439dfaae9700dbe081f9c7855e7fe6430421e8a1fc50d3bc40d659664ec295263ed",
+          "publishedOn": "2025-11-18T17:29:49.000Z",
+          "wordCount": 264,
+          "title": "开发者把掌舵人骂到关回复！Windows 要变成“Agent OS”？这位印度裔高管遭遇大型翻车现场",
+          "imageUrl": null
+        },
+        {
+          "id": "1617567",
+          "author": null,
+          "description": "2025年下半年以来，全球存储芯片行业迎来了一场罕见的普涨行情，进入四季度后涨势愈演愈烈。\n        以主流的DDR5（DRAM行业成熟工艺制程的最新产品）规格的16Gb颗粒为例，9月底的价格为7.68美元，然而短短一个月后，价格就跳增至15.5美元，单月涨幅高达102%；DDR4 16Gb的涨幅也超过92%。\n        由于涨势较快，三星、SK海力士和美光等存储原厂甚至一度暂停报价。\n        来自上游的密集涨价迅速向下游终端传导，并对以智能手机为代表的消费电子产业造成明显冲击。\n        近日，界面新闻报道称，多家手机厂商已经暂缓了本季度的存储芯片采购。\n        小米、OPPO、vivo等厂商库存普遍低于两个月，部分厂商DRAM（动态随机存取存储器）库存低于三周，在犹豫是否接受原厂（美光、三星、SK海力士）接近50%的涨幅报价。\n        一位原厂员工Jackey告诉记者，“我们现在是不愁卖的，如果手机厂家不要的话，我们可以把产能给服务器客户，他们现在也很缺货，还可以卖的更贵。”\n        《每日经济新闻》记者就此分别向OPPO、vivo等厂商求证，但截至发稿尚未获得回应。\n        “头部Tier1手机厂商（如小米、OPPO、vivo、荣耀）与原厂都有长期的LTA（长期供货协议），因此不会出现断货的情况，目前手机厂商面临的压力主要是，短期内存储芯片价格涨幅过于剧烈，譬如四季度原厂LP4X/5X（低功耗双倍数据速率动态随机存取内存LPDDR的两种技术标准）合约价环比三季度涨幅达到40%，UFS合约价涨幅达25%至30%。”\n        11月17日CFM闪存市场分析师杨伊婷对记者说。TrendForce集邦咨询认为，接下来品牌端势必调降低端产品占比，同时针对全系列产品分层上调终端售价以维系正常营运。\n        …",
+          "link": "http://mp.weixin.qq.com/s?__biz=Mzg3NTA5MjkyNQ==&mid=2248488998&idx=2&sn=63a9607a9905305dec35b4a3d34eeda6&chksm=cca098dea06f7250afe7b513ea3e6b5153d8c18aada8a7408247c34c34ff573fe5cbf4d692ca",
+          "publishedOn": "2025-11-18T17:29:49.000Z",
+          "wordCount": 264,
+          "title": "价格猛涨，有产品一个月涨102%，多家手机厂商已暂缓采购，部分库存不足三周！分析师称“低端机恐做多亏多”，涨价背后竟是因为AI？",
+          "imageUrl": null
+        },
+        {
+          "id": "1617566",
+          "author": null,
+          "description": "原创首发 | 金角财经（ID: F-Jinjiao)作者 | 田羽股市里的真正风险，从来不是默默无闻和下跌，而是涨到飞起时，市场突然反应过来问一句：凭什么？\n        香农芯创，就在经历这样的时刻。曾经，它只是个给洗衣机做减速离合器的企业，连“科技股”的边都没沾过。\n        但在豪掷十多亿元并购、拿下SK海力士与联发科分销权之后，它一脚闯进存储赛道。\n        赶上2025年内存涨价潮、AI算力全球哄抢的时代风口，香农芯创的股价在短短三个月里翻了六倍多，几乎复刻了“易中天”们的走势。\n        然而，越是这种“飞升式走势”，越容易夹杂让人不安的味道。\n        就在股价一路狂飙时，香农芯创董事长突然离职，重要股东在高位计划套现。\n        与此同时，营收增速从翻倍腰斩到60%，利润下滑、净利率只有可怜的1%多一点。\n        更大的隐忧还在后面。香农芯创最核心的竞争力：分销权，根本不在自己手里。\n        授权期限一到，能不能续约，决定权完全在韩国人手上。\n        于是，香农芯创的故事就暴露出一种诡异的光环：资本市场把它当成“下一匹AI黑马”，但它自己能拿出的硬实力，却更像是周期风口里被顺风高举的分销商。\n        点击下方名片，关注金角财经，我们将为你剖析更多社会热点，拆解经济事件背后的逻辑。\n        股价3个月翻6倍香农芯创改命，离不开一次关键的收购。\n        过去，它叫“聚隆科技”，主营洗衣机减速离合器，典型的家电零配件企业。\n        真正的拐点出现在2021年，公司斥资16亿元收购联合创泰，一举拿下SK海力士、联发科的分销权。\n        其中SK海力士，是全球前三存储巨头。拿下分销权，就意味着坐上了AI芯片供应链的牌桌。\n        从那一刻起，香农芯创不再是洗衣机配件…",
+          "link": "http://mp.weixin.qq.com/s?__biz=MzU2Mjc1MDc5Mg==&mid=2247655953&idx=1&sn=2c55427cdebefa6e662be60b4172a23a&chksm=fd377cc9e0cb3ea8697e7711c77d389b822a3f335326931af184b5d142319fc6e8e09d45ce10",
+          "publishedOn": "2025-11-18T17:29:49.000Z",
+          "wordCount": 264,
+          "title": "香农芯创股价翻六倍，命却捏在韩国人手里",
+          "imageUrl": null
+        },
+        {
+          "id": "1617565",
+          "author": null,
+          "description": "品牌商与消费者双向奔赴、全民狂欢的“双11”电商节在全网热度中徐徐落幕。\n        今年“双11”，手机仍是竞争最激烈的产品品类，各大手机厂商均在“双11”之前就做足准备。\n        此刻，谁是此次较量的最终赢家成为市场关注焦点。京东发布的手机竞速排行榜显示，苹果、小米、vivo位列前三，包揽品牌销量累计榜前三。\n        在智能机“厮杀”的主战场之外，飞利浦、天语等主打功能机业务的手机品牌也跻身TOP10。\n        智能手机的普及，曾让功能机一度退居“老人机”赛道。\n        如今，这片最后的阵地也正面临来自智能终端的渗透与重塑。\n        李大爷的手机又坏了，家人匆匆在电商平台下单，买来一台百元左右的“老人机”——\n        功能极其简单、字体大、音量高、待机时间长。熟悉智能设备的张大姐则花两千多元买了部智能手机，能刷短视频、视频通话、扫码支付……\n        两位老人、两种选择，既是生活片段，也是当下中国老年通信市场的缩影：一端是仍有刚性需求的低价老年机阵地；另一端是越来越多银发用户（通常指60岁及以上的老年用户）主动拥抱智能化终端。\n        移动互联网的普及正悄然重塑老年用户的行为习惯。QuestMobile（北京贵士信息科技有限公司）指出，截至2024年9月，银发人群（通常指60岁及以上的老年群体）月活用户约3.29亿，人均月使用时长高达129小时，相当于每天网上“冲浪”超过4小时，其中短视频、社交、资讯、电商等位居使用时长前四位。\n        同时，2000元以上中高端智能机的使用比例持续提升，银发用户对华为、OPPO、荣耀等品牌的偏好也在加强。\n        一个清晰的趋势正在浮现：传统功能型老人机的市场正在缓慢收缩。\n        虽然它并未消失，仍然承担着部分高龄、低触网老人的通讯刚需，但随着…",
+          "link": "http://mp.weixin.qq.com/s?__biz=Mzg3NTA5MjkyNQ==&mid=2248489017&idx=2&sn=ffbe4882ead90828b8efc267e442ce77&chksm=ccea81b83c3cd362936a80af22dda363e0d5648f3f3f0cba6d942a011a76506763875649a064",
+          "publishedOn": "2025-11-18T17:29:49.000Z",
+          "wordCount": 264,
+          "title": "曾与华为、小米争锋，年销4000万台的巨头，如今靠百元机在老年机市场求生！头部手机厂商也瞄准了3.29亿“银发冲浪者”",
+          "imageUrl": null
+        },
+        {
+          "id": "1617564",
+          "author": null,
+          "description": "近日，有消息指出，小米公关部总经理王化即将转岗。这表明小米的公关策略可能出现重大调整。\n        可以肯定的是，小米不需要再找一个人来运营雷军的IP，它需要建立一道“IP防火墙”，让雷总的归雷总，小米的归小米，汽车的归汽车。\n        作者 | 周作槐编辑 | 桃子酱题图 | 微博@雷军小米的公关与雷军的IP，几乎已经合二为一了。\n        这套创始人上阵立人设的公关模式，肇始于2020年雷军那场“一往无前”的年度演讲；而其巅峰，则是2024年、2025年的两场新车发布会。\n        小米由此收获了令人咋舌的新车订单，“雷布斯”的人格魅力也达到了顶点。\n        如今，这一IP神话利器，正以同样锋利的角度，掉转过来刺向小米自己。\n        11月16日，雷军亲自下场连发数条微博，用“断章取义、歪曲抹黑”这些强硬措辞回击外界对他的“好看比安全重要”说法的质疑。\n        此时，这套公关模式在汽车安全这块铁板上撞出了最激烈的火花。\n        （图/微博截图）紧随其后，据澎湃新闻报道，小米公关“一号位”王化可能即将换岗。\n        尽管目前小米官方尚未回应，但一些汽车媒体及车评人对此已多有讨论。\n        这一岗位如果换人，不但意味着小米公关策略将会出现重大调整，也意味着雷军对此前舆论危机的回答。\n        王化的去留，从来就不是问题的核心。在今年春天的交通事故后，小米和雷军陷入舆论风暴，媒体人潘乱当时在朋友圈感慨：“反噬应该不远了。”\n        当小米这艘万亿巨轮驶入汽车这片蓝海时，它那套引以为傲的“KML”公关模式，为何无法应对当前的危机？\n        （图/视觉中国）KML如何炼成“雷军神话”KML，即关键意见领袖（key opinion leader）、媒体（media）加忠实粉丝（loyal f…",
+          "link": "http://mp.weixin.qq.com/s?__biz=MjM5ODMzMDMyMw==&mid=2654871244&idx=1&sn=90ec9f251cfd12adf5ffb692b555e925&chksm=bcb9ace3b3b89a3ad235894d9b02173ad8e7458db35dae2fbbc9be4d8c1945f14dc20363c2ff",
+          "publishedOn": "2025-11-18T17:29:49.000Z",
+          "wordCount": 264,
+          "title": "小米，准备告别“雷布斯”模式？",
+          "imageUrl": null
+        },
+        {
+          "id": "1617563",
+          "author": null,
+          "description": "中国地产市场从2021年至今已调整4年，2025年6月末，70个大中城市新建住宅价格、二手住宅价格同比分别下跌3.7%、6.1%，新房价格环比连续25个月负增长，6月末二手住宅价格环比上涨的城市仅有西宁1个。\n        这是几名普通深圳人的售房经历。他们的房产买在2017年至2020年间，那正是楼市最后的高光阶段，他们身处其中，很难不被烈火烹油的洪流裹挟。\n        他们选择回老家买房，最直接的原因是手中的首付款有限，当然，抱着回乡定居打算的人也占了多数。\n        他们从未在深圳拥有过房产，而那套位于老家、曾经寄托着他们对稳定的渴望和生活憧憬的房子，在他们亏损数十万出手时，都还是毛坯状态。\n        亏掉80万，解套老家房今年8月份，在深圳生活的于襄，卖掉了位于武汉白沙洲片区的两居室。\n        从2020年购入这套房产到今年最终出手，她前后去过白沙洲片区三次，房子卖出时还是毛坯状态，算上房贷利息、税费、物业费等支出，她在这套房产上的亏损接近80万元。\n        整个卖房过程持续了3个多月，从挂牌到成交，也是于襄一步步降低心理预期的过程，“真正体验了什么叫买方市场”。\n        今年上半年，于襄在是否“割肉”的问题上摇摆不定，不少个夜晚她被折磨得失眠。\n        做决策实在困难，五一前夕，她和丈夫决定回武汉考察一番再做抉择。\n        5月3日走出武汉高铁站，夫妻俩直奔小区，在小区周边转了一圈后，俩人“感觉不太好”，隔壁几个住宅区虽有一定入住率，但于襄的小区交房时间较晚，入住率大概只有三四成，很多房子还处于空置状态。\n        于襄和丈夫对白沙洲片区和武汉楼市了解有限，逛完周边后，他们联系上小区附近的房产中介。\n        听完对方的介绍，俩人随即就下了卖房的决心。楼盘附近没有好的教育资源，买房时于襄还是单身…",
+          "link": "http://mp.weixin.qq.com/s?__biz=MzA5NTMzODAzMQ==&mid=2669967818&idx=1&sn=a1d72756307d561809447803b63dc49a&chksm=8b62ef77174f68751f612061b0a386704180cfb9d8221fe2718156dbd204eb6a0654f1d77f34",
+          "publishedOn": "2025-11-18T17:29:49.000Z",
+          "wordCount": 264,
+          "title": "亏掉80万，出手老家房产的深圳人",
+          "imageUrl": null
+        },
+        {
+          "id": "1617562",
+          "author": null,
+          "description": "新智元报道  编辑：好困【新智元导读】当AI能「看」见实验室的细节，能「听」见研究员的每一次反应，能「感知」实验进展的每一点变化——它的推理将不再局限于硅基世界。\n        那时，AI将通过人类的双手，直接参与并改变物理现实。\n        它或许将成为实验室中最勤奋、最可靠的「智能伙伴」。\n        如今，这一幕正在发生在微纳加工的超净间与生命实验室AI不仅能理解电子器件的诞生，也开始洞察细胞与类器官的生长。\n        从芯片到细胞，从材料到生命，「人机共融」的边界，正在被重新定义。\n        科学研究和制造车间里，最让人崩溃的瞬间是什么？想象一个场景：刚入行的新手小李在柔性电子制造的超净间中。\n        一个典型的反应离子刻蚀步骤中，标准操作规程SOP（Standard Operating Procedure）要求参数设为30秒、50瓦。\n        他手忙脚乱输成了300秒、100瓦，自己还没察觉；旁边的资深工程师忙着记录数据，也没留意这个失误。\n        要是按错参数运行，整批器件可能直接报废，几天的准备工作全白费。\n        或者是：研究员老王花了3个月摸索出新的材料合成方法。\n        可实验日志记的零散，新手想复刻时，对着SOP里「适度调整温度」的模糊描述无从下手，只能再花几个月试错。\n        类似的情况，同样出现在生命科学实验室：在类器官培养的显微台前，研究生小张刚完成细胞消化步骤。\n        她比SOP规定的时间多消化了40秒，细胞融合度下降、类器官结构塌陷；或是换液时温度略低几度，整个分化周期的关键指标都受影响。\n        实验日志里只写着「细胞状态一般」，没有任何可追溯的信息。\n        几周的培养成果，就这样在一次看似微小的操作偏差中被抹去。\n        这些不是极端…",
+          "link": "http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652646259&idx=1&sn=47156bf7230eeb78834f573638eeb4e1&chksm=f08cdbf811d5db1d9b27573e6f5ea9bc95d5ed74e761926bc09d2a9666223106a9abd5d9f206",
+          "publishedOn": "2025-11-18T17:29:49.000Z",
+          "wordCount": 264,
+          "title": "AI「看见」实验，哈佛颠覆性突破！一副AR眼镜，新手秒变资深专家",
+          "imageUrl": null
+        },
+        {
+          "id": "1617561",
+          "author": null,
+          "description": "作者 | 吃卜宝立冬之后，北方打工人的通勤变得更艰难了。湿冷的阴雨天刚过去，又迎来干冷的大风天。\n        冲锋衣终于扛不住风了，羽绒服又不想掏出来，毕竟一穿上，就要焊在身上四五个月……\n        在冬季的工作日，北漂们出门前的心理建设时间，比任何时候都要长。\n        △今年立冬当日，北京下起了小雨。（图/视觉中国）到了办公室，同事的粉色滑雪服外套让人眼前一亮。\n        在“请假去滑雪”和“裹上黑色羽绒服来上班”的极端选项之间，机智的打工人选择了“穿滑雪服通勤”哄自己上班。\n         如果说冲锋衣是入秋后的“北京市服”，那么正式进入冬季后，保暖、抗风又不失设计感的滑雪服，正在被聪明的新中产当作“工作日OOTD”。\n         在社交平台上晒出自己穿滑雪服通勤的帖子不是个例。\n        滑雪服，已经成为了新晋“通勤装”。颜色清新的宽松滑雪服，配上紧身裤、运动鞋，无论走进地铁还是骑上电动车，都没有丝毫违和感。\n        △越来越多年轻人开始穿滑雪服通勤。（图/小红书截图） 把办公室伪装成滑雪场，这届北漂已经真正做到了“思路打开”。\n        毕竟，和难熬的冬季一起到来的，就是一年一度的诱人滑雪季。\n        当北京周边的各大滑雪场陆续开板，阳光下的雪山和雾凇，都已经做好准备，就等滑雪爱好者们光顾。\n         没有假期的打工人，虽不能第一时间冲到崇礼感受粉雪，但也能在工位上穿滑雪服过过瘾。\n        身体虽然被困在工位，灵魂却已经飘到了滑雪场。穿滑雪服、喝冰美式，主打一个自制情绪价值。\n        一件滑雪服有效助力了“精神下班”，连打字的手指都变得轻盈。\n        △一立冬，北方人就开始期待驰骋在滑雪场上。（图/视觉中国）在穿滑雪服通勤的过程中，“物尽其用”的理念也被良好地贯彻。\n    …",
+          "link": "http://mp.weixin.qq.com/s?__biz=MzU4MzM0MjkxNw==&mid=2247955115&idx=1&sn=de35d5779f9fc93cbf88f2a677a49a79&chksm=fc490995be405fe107d23fc9a0a32bfded4bdf95b121fcd1ec86c3833b8fb22df400f8071cc6",
+          "publishedOn": "2025-11-18T17:29:49.000Z",
+          "wordCount": 264,
+          "title": "300元一件的滑雪服，被冻哭的年轻人焊身上了",
+          "imageUrl": null
+        },
+        {
+          "id": "1617560",
+          "author": null,
+          "description": "记者 翟芳雪编辑 高宇雷在非一线省会城市见到国产新能源汽车直营店，可能将成为一件难事。\n        进入四季度，多家新能源汽车品牌传来大面积渠道变革的消息。\n        在社交平台，腾势河北、河南、浙江、广东等地区多名销售员工表示其所在直营店关店或转让给经销商，其中一名销售对「电厂」表示腾势或将在全国范围转成经销商渠道，仅保留一线省会城市直营店面。\n        鸿蒙智行也开始大范围裁撤直营店，广东、四川、江苏等地已开始变革，相关人士向「电厂」透露，鸿蒙智行直营店未来亦将只在一线城市保留。\n        多名鸿蒙智行销售人员表示，目前其大部分为经销商形式，直营店中也多为类直营，纯直营很少。\n        一名广东的鸿蒙智行直营店员工告诉「电厂」，其所在城市被选中转经销商的门店销售，会调去其他直营门店。\n        比如A店与B店各有10名销售，但A店被改经销商，就全部调去B店，等于B店有20名销售，从而提高B店的目标，这样造成销售之间的激烈竞争，达到优化的目的。\n        极氪同样在加速调整。一名浙江极氪直营店店长表示，他今年6月刚入职，不到几个月直营体系就开始向经销商转型，“这种变化主要集中在三四线城市。”事实上，此举并非毫无预兆。\n        吉利汽车集团高级副总裁、极氪科技副总裁林杰曾在7月明确表示：极氪在一线、二线城市坚持直营；在已布局的三线城市中，效益较好的区域仍采用直营；而在空白的三四线城市，则将使用代理模式。\n        去年5月，阿维塔已将90%的门店转为经销体系，仅在核心一线城市保留直营。\n        小鹏汽车早在2023年就开启授权模式，今年同样关闭了不少直营店。\n        浙江一家小鹏直营店销售李天（化名）告诉「电厂」，厂家希望直营员工转到经销商以减少赔偿成本，但由于收入下降，更多员工倾向于拿“n+1”离开。\n…",
+          "link": "http://mp.weixin.qq.com/s?__biz=MjM5ODM5NTE0Ng==&mid=2653193327&idx=1&sn=042b54b9119f2f45834885071c8c06c1&chksm=bce14065acc6339b6c36f1484496d2d32c486b5bf946f48785a75ae171514fc650347b636fca",
+          "publishedOn": "2025-11-18T17:29:49.000Z",
+          "wordCount": 264,
+          "title": "直营大退潮，腾势、鸿蒙智行、极氪等品牌三四线门店转为加盟 | 电厂",
+          "imageUrl": null
+        },
+        {
+          "id": "1617559",
+          "author": null,
+          "description": "文 | 侯恬编辑 | 杨旭然近期汽车行业多条重磅新闻引发关注，字里行间透出行业供应链博弈升温的信号。\n        先是路透社报道，通用汽车公司已要求数千家供应商将中国零部件从供应链中剔除。\n        最早的类似指令始于2024年底，今年中美贸易摩擦升温之后，这项要求突然变得紧迫。\n        部分供应商甚至被明确要求“在2027年前彻底和中国解除采购关系”。\n        紧接着，《华尔街日报》透露，特斯拉正推动其在美国的生产线停用中国零部件，目前公司已开始采用其他国家生产的零部件，并计划在未来1至2年内完全剔除中国供应商。\n        另外，欧洲的三家主流车企——Stellantis、宝马和大众，也已集体要求供应商在未来1年半内替换所有中国产半导体，转向所谓的“中国-free”方案。\n        欧美国家已经推动制造业回流多年，包括汽车制造在内的各个产业，均在探索尝试减少对中国相关供给的依赖。\n        今年以来，全球地缘政治局势变得更加紧张，欧美汽车企业对供应链自主性的诉求愈发强烈，特别是美国，对多个国家均出台了相关的关税限制措施。\n        全球汽车产业想摆脱对全球、特别是对中国供应链的依赖并不容易。\n        百年历史中形成的汽车产业链，规模庞大且深度全球化，以美国为代表的发达国家虽然在燃油汽车领域有充足积累，但成本较高。\n        且在新能源、智能汽车等新兴领域的竞争力较弱。想在短期内削减旧体系的成本，并重建一套新型汽车的完整供应体系，有相当大的难度。\n        对中国企业而言，与欧美市场脱钩造成的压力也是实打实的。\n        国内汽车零部件出口占比较高，如今被“排外”，必然面临全球需求的下滑。\n        尽管中国已经在汽车制造的效率和成本上积累了优势，但在供应链加速重构的背景下，仅靠制造优势、价格…",
+          "link": "http://mp.weixin.qq.com/s?__biz=MzU5NzEyMDMzNw==&mid=2247532321&idx=1&sn=d85a64b93766cd65a628ddb0e5cea3d1&chksm=ffb32f9cf747099b93ac2407cb25494f89ecb24fd4e04eab17184c393e2988616e484f56f817",
+          "publishedOn": "2025-11-18T17:29:49.000Z",
+          "wordCount": 264,
+          "title": "欧美汽车加速脱钩中国 | 巨潮",
+          "imageUrl": null
+        },
         {
           "id": "1617457",
           "author": null,
@@ -16174,306 +16199,6 @@
           "wordCount": 264,
           "title": "美联储内部“鸽鹰”之争：降息50基点VS不降息！下一任主席人选或年底出炉，“伯恩斯时代”恐重演，独立性危机将助推金价？",
           "imageUrl": null
-        },
-        {
-          "id": "1584659",
-          "author": null,
-          "description": "闻泰科技与安世半导体（Nexperia）的并购案，正从一桩成功的商业交易，演变为一堂所有志在出海的中国企业都必须聆听的“必修课”。\n        它残酷地揭示了，在新的全球格局下，商业上的成功，已不足以保障跨国并购的最终成功。\n        真正的挑战，来自商业逻辑之外，潜藏于地缘政治、治理结构与利益相关方认知的灰色地带。\n        本文旨在穿透迷雾，不仅厘清事件脉络，更致力于为中国企业提炼出一套可执行的“避险”与“破局”框架。\n        事件回顾：从巅峰合作到“临时接管”10月12日，闻泰科技公告，荷兰政府基于《货物供应法》，于9月30日发出指令，要求冻结其控股子公司安世半导体（Nexperia）的资产与知识产权调整，为期一年。\n        同时，荷兰企业法院即时生效了包括暂停张学政作为安世半导体CEO职务和职权在内的几项紧急措施。\n        这一“临时接管”标志着一场历时数年的跨国并购拉锯战进入高潮。\n        此案尤其令人深思的是，主角闻泰科技的掌舵人张学政，拥有清华大学硕士和瑞士日内瓦大学金融博士学历，素以低调务实著称。\n        在成功驾驭了初期的“蛇吞象”式并购后，他一度被外界寄予厚望。\n        然而，局势在数年间急转直下：——2017年，荷兰半导体巨头恩智浦（NXP）剥离出安世半导体，由建广资本（JAC Capital）和智路资本（Wise Road Capital）牵头的财团收购。——\n        2018年至2020年，闻泰科技通过现金和发行A股等方式，从财团手中完全收购安世半导体100%股权。——\n        2021年7月，安世半导体完成对英国车规级芯片企业Newport Wafer Fab（NWF）的收购，旋即触发英国国家安全审查，最终被强制剥离。——\n        2024年底，闻泰科技及相关…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MzA3ODI5NDg0Mw==&mid=2654242066&idx=1&sn=5193cd90abe1838e1e681c5258f09f41&chksm=8538f1addec41390eadb5e6e4cafc748d671b9430b8a9d24fdb2c23776b8e5a4f3c83f965902",
-          "publishedOn": "2025-10-30T06:03:01.000Z",
-          "wordCount": 264,
-          "title": "闻泰安世并购案警示：地缘政治下，企业出海的治理陷阱与破局三策",
-          "imageUrl": null
-        },
-        {
-          "id": "1584658",
-          "author": null,
-          "description": "美联储如市场所料继续降息行动，降息25基点，同时决定放弃量化紧缩（QT），一个月后结束缩减资产负债表（缩表）的计划。\n        美联储主席鲍威尔在会后的记者会上表示，通胀短期仍有上行压力，就业面临下行风险，目前面临的局面颇具挑战，委员会对12月是否再次降息仍存较大分歧，降息并非板上钉钉。\n        FOMC某些成员认为，是时候暂停一下了。鲍威尔说，较高的关税正推动某些商品类别的价格上涨，从而导致整体通胀上升。\n        美联储祭出组合拳：继续降息25基点+12月结束缩表美东时间10月29日周三，美联储在货币政策委员会FOMC会后公布，将联邦基金利率的目标区间从4.00%至4.25%下调至3.75%至4.00%，降幅25个基点。\n        在上次会议今年内首次降息后，本次是联储一年来首次连续第二次FOMC会议降息。\n        本次降息决定完全在投资者意料之中。到本周二收盘，芝商所（CME）工具显示，期货市场预计联储本周降息25个基点的概率达99.9%，12月下次会议继续降息25基点的概率为91%。\n        这显示，市场已几乎完全消化今年内合计降息三次的预期。\n        9月上次FOMC会后公布的利率展望显示，多数联储决策者预计的今年降息次数由6月公布的两次提高到三次。\n        美联储此次宣布从12月起结束缩表这一QT行动，这意味着，美联储的缩表行动将在持续三年半之后告终。\n        12月起以短期国债替代到期MBS持仓。声明明确指出：“（FOMC）委员会决定，于12月1日结束对其合计证券持仓的减持。”\n        本周三美联储公布的货币政策决定执行公告显示：对于10月和11月到期的所持美国国债，美联储要将本金支付额中超过每月50亿美元上限的部分通过标售展期，自12月1日起，将所持全部国债的本金通过标售进行展期。\n …",
-          "link": "http://mp.weixin.qq.com/s?__biz=MjM5NzAwMzU0MA==&mid=2247632251&idx=1&sn=3b35c4659fa73ad84cfe3834526caa76&chksm=a76cd698ee2c600a1f484c95f7610e311b2dfe362230b55f26de247648bd3f04df93a202da20",
-          "publishedOn": "2025-10-30T06:03:01.000Z",
-          "wordCount": 264,
-          "title": "重磅！美联储降息25基点，12月结束缩表",
-          "imageUrl": null
-        },
-        {
-          "id": "1584657",
-          "author": null,
-          "description": "【一键三连赢干货礼包！】对本篇文章完成“点赞 + 推荐 + 评论”一键三连，并截图发送给小助手（微信：dolphinR124），可获得海豚投研本周所有研报文章PDF合集一份。\n        （参考图例👇👇）美东时间10月29日盘后，谷歌母公司Alphabet发布了2025年三季度财报。\n        在顶着OpenAI的风头靠着全栈AI的逻辑重估了两个月，直接修复空间有限、市场急需进一步上涨理由的时候，谷歌硬是交了一份漂亮的业绩，来延续自己的重估之路。\n        具体来看核心信息：1. 广告表现炸裂：三季度YouTube、搜索广告双双增长15%，均超市场预期。\n        （1）YouTube广告能够beat，海豚君实际有一些预期。\n        在用户活跃提升领先全行业下，市场仅给12%的增长预期，确实有点保守了。\n        增长驱动来自于Shorts广告加载率、AI工具（如自动生成广告）渗透。\n        （2）意外的是搜索，不仅没有在高基数上放缓，并且还更快加速，这就更谈不上是否有AI侵蚀的问题了。\n        从调研来看，增长驱动主要来自于AI Overviews、AI Mode对搜索查询量的提升，从而带动展示量的增加。\n        2. 谷歌云景气度持续：云业务现在已经主要看积存的未履约订单了（Revenue Backlog），只要订单积累保持高增速，那么未来一段时间的云收入增长就能够保持。\n        截至Q3末，积存订单达到1550亿，同比增长43%，环比净增470亿，不包含最近刚爆出的Anthropic的200亿订单。\n        有了这些订单存货，收入增速可以在一段时间继续保持在30%以上。\n        3. 订阅等其他依旧稳健：主要以YouTube会员订阅、Google Play以及Pixel硬件等为主的…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MzE5MTU3MzA2OQ==&mid=2247559104&idx=1&sn=cfe9b57e28589a8f072fe246387a9300&chksm=9758f97c7acfde6ecd12b9e9dd3a85dd7c64bd21f5e7db0f8ecc104bd5a39571e78047cee217",
-          "publishedOn": "2025-10-30T06:03:01.000Z",
-          "wordCount": 264,
-          "title": "谷歌的神反转：从AI“牺牲品”变AI“弄潮人”",
-          "imageUrl": null
-        },
-        {
-          "id": "1584656",
-          "author": null,
-          "description": "机器之心报道机器之心编辑部终于，Cursor 还是走上了自己训练大型语言模型的路。\n        Cursor 2.0 终于来了！刚刚，Cursor 发布了两项重大更新：首个编码模型 Composer，以及用于并行协作多个智能体的新界面。\n        此举意义非凡。一直以来，Cursor 虽然广受欢迎，但终究免不了「AI 时代的 VS Code」的帽子，因为它此前只能使用 Claude、GPT 等第三方模型。\n        这既是 Cursor 的起点，也成了它的瓶颈。Composer 的发布，堪称是 Cursor 打破这个瓶颈的「独立宣言」，这也标志着 Cursor 正式从「AI 外壳」向「AI 原生平台」进化。\n        自研模型 ComposerComposer 是一款前沿模型，虽然智能程度不敌 GPT-5 等最佳前沿模型，但速度确实遥遥领先，达到了同等智能模型的 4 倍。\n        在基准测试中，Composer 实现了前沿水平的编码智能，同时生成速度达到每秒 250 个 token——\n         大约是领先的快速推理模型的两倍，是同类前沿系统的四倍。\n        （注：Cursor 发布的对比将模型分为几个类别：「最佳开源」（例如，Qwen Coder、GLM 4.6）、「快速前沿」（Haiku 4.5、Gemini Flash 2.5）、「2025 年 7 月前沿」（年中可用的最强模型）以及「最佳前沿」（包括 GPT-5 和 Claude Sonnet 4.5）。\n        Composer 在匹敌中端前沿系统智能水平的同时，还在所有测试类别中实现了有记录以来的最高生成速度。）\n        该模型专为在 Cursor 中进行低延迟的智能体式编码而打造，大多数回合在 30 秒内完成。\n        早期测试者认为其快速迭…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2650998855&idx=1&sn=c60bd7b1cf85ee8dfe426de00f61839a&chksm=85f9c2b4b57747f1c77a1dbed571377eed52f306cadb70f4494fd617d307eff33856e02c4c2a",
-          "publishedOn": "2025-10-30T06:03:01.000Z",
-          "wordCount": 264,
-          "title": "刚刚，Cursor 2.0携自研模型Composer强势登场，不再只做「壳」",
-          "imageUrl": null
-        },
-        {
-          "id": "1584655",
-          "author": null,
-          "description": "英伟达刚刚创造了历史。美国时间 10 月 29 日，英伟达成为史上首个市值突破 5 万亿美元的公司。\n        截至当地收盘时间，英伟达总市值为 5.03 万亿美元。\n        据媒体分析，消息面上，英伟达 CEO 黄仁勋释放了 AI 需求强劲的信号。\n        而 AI 浪潮的另一个主角，也有大动作了。就在刚刚，据路透社援引三位知情人士透露，OpenAI 正在为 IPO 做准备。\n        要是成了，那 OpenAI 预计将会成为首个 IPO 估值就达到一万亿美元的科技公司。\n        时间线大概是这样：最早 2026 年下半年提交上市申请，计划融资至少 600 亿美元（实际可能更高），OpenAI 首席财务官 Sarah Friar 已经跟同事们透了底——2027 年上市。\n        Sam Altmna 今早社交平台截图，上下滑动查看更多内容当然了，现在还是早期阶段，估值、融资额、时间表啥的都可能变……但这架势，已经整得有模有样了。\n        而针对上述报道，OpenAI 发言人回应称：「IPO 不是我们的重点，因此无法设定具体日期。我们正在打造可持续的企业，并推进使命，让所有人都能受益于 AGI（通用人工智能）。」先过监管这关，Altman 的「求生欲」拉满据华尔街日报报道，上市之前，Altman 特地搞定了一个硬茬——\n        美国加州总检察长 Rob Bonta。大约两周前，Altman 给 Bonta 打了个电话，核心意思就一句话：我真的很想留在加州。\n        但这话背后也暗藏杀机：OpenAI 花了好几个月游说，反复强调自己是加州经济的顶梁柱。\n        言外之意就是：你要是不批，我们就……走咯？这一招属实有点威胁意味。\n        不过 Altman 也表态了，他不会像某位竞争对手（没错，…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MjM5MjAyNDUyMA==&mid=2651065246&idx=1&sn=94daedd6840bf7dad990ca1c7bc9b7eb&chksm=bc3034305e57c679efcd1dac99b839dcc56bdf38ba7b0603b219a36e228fa1ee1ec04398e7b4",
-          "publishedOn": "2025-10-30T06:03:00.000Z",
-          "wordCount": 264,
-          "title": "刚刚， OpenAI 上市计划曝光！冲刺万亿美元估值，将刷新历史纪录",
-          "imageUrl": null
-        },
-        {
-          "id": "1584654",
-          "author": null,
-          "description": "统统OLED虽然「听劝」这个词被国内厂家滥用了许多次，但如果用来形容这段时间的苹果，似乎又格外贴切。\n        根据彭博社记者马克·古尔曼的最新报道，有来自供应链的信息表明，苹果正在规划一次比较大的产品调整，主要动作是为包括 iPad mini、iPad Air 和 MacBook Air 在内的热门产品换装 OLED 屏幕。\n        图｜Tom's Guide据知情人士透露，苹果已经在测试上述每一款产品的 OLED 版本，其中 iPad mini 有可能是最先获得升级的，明年的 iPad mini 8 就有可能用上。\n        再考虑到今年苹果已经为 iPhone 17 和 iPhone Air 两款「非 Pro」机型加入了 ProMotion，这也就意味着 OLED iPad mini 同样有希望用上高刷屏，巩固自己作为「最佳游戏平板」的地位。\n        图｜Games Radar除此之外，还有消息指出苹果同时在为新款 iPad mini 测试具有防水功能的外壳，以看齐 iPhone 的防水性能。\n        也就是说，把 iPad mini 当成「手机伴侣」带在身上，更不需要操心了。\n        并且 iPad mini 可能搭载的防水技术相比 iPhone 还有所不同，甚至更激进一些——\n        危险操作，请勿模仿｜YouTube @MyUnboxingsAndFun供应链有关人士透露，苹果正在测试一种新的振动发声扬声器，在没有扬声器开孔的情况下实现正常的音质——\n        和苹果、微软等公司在笔记本产品上做过的键盘下扬声器，有点异曲同工。\n        这种设计既可以减少潜在的进水点，也能给其他产品（比如无孔 iPhone）做技术试水。\n        类似的无孔发声技术在手机上也有所应用，比如小米 MIX 和 v…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MjgzMTAwODI0MA==&mid=2652430778&idx=1&sn=f0fd404845d8300df9593859d7622b6d&chksm=9a9df450c1a4081f71c6c9f529c9d037ac6e7c66c11e68a6a98d8068fe2d1b26129d9881434e",
-          "publishedOn": "2025-10-30T06:03:00.000Z",
-          "wordCount": 264,
-          "title": "明年用上高刷 OLED，iPad mini 这下是真正的游戏平板了",
-          "imageUrl": null
-        },
-        {
-          "id": "1584653",
-          "author": null,
-          "description": "“制造深度”和“生态广度”的拉锯战。定焦One（dingjiaoone）原创作者 | 金玙璠编辑 | 魏佳10月29日，美的集团发布第三季度财报：营收1119.3亿元，同比增长10%，归母净利润118.7亿元，同比增长9%。\n        这份看似常规的财报，此刻却备受关注。因为美的真正的挑战者，已非格力、海尔，而是小米。\n        两者体量惊人：美的市值6319亿港元，一天净赚1.3亿；小米市值高达1.17万亿港元，市盈率是美的的两倍。\n        两大巨头，正在家电市场直接交锋。这场交锋引起外界关注，是因为今年3月，美的在年报中披露：清仓全部小米股份。\n        消息一出，有人说美的“错失良机”，有人惋惜十年合作就此终结。\n        事实是，双方的竞争早已大于合作。这几年，小米强势切入空调等美的核心大家电领域，再继续持有“直接竞争对手”的股份，可能会带来复杂的利益冲突。\n        趁着小米股价因汽车业务大幅上涨，美的在高位兑现，是正常的资本操作。\n        清仓，是另一种开始。美的和小米，必有一战，关键是这场仗会怎么打？\n        作为一家发展近60年的制造业巨头，美的信奉“利润为王”，它交出的成绩单保持稳健，但市场对其增长空间的态度存疑。\n        资本市场给它14倍市盈率(TTM)，低于“港股十巨头”平均水平（高盛集团此前提出“中国民营企业十巨头”的说法，后来也被称为“港股十巨头”，美的在其中）；今年以来(截至10月28日)，美的集团(H股)股价累计涨幅14%，而同期香港恒生指数涨幅31%，都反映出这一点。\n        美的在“守”基本盘的同时，必须押注ToB业务以寻求更高增长。\n        其在最新财报强调，ToB业务的前三季度收入增速均在20%以上。\n        而小米信奉“掌控用户，就是掌控未来”，它…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MzkzODUxNTM2OA==&mid=2247532319&idx=1&sn=deaa0eb2b512d2428882114798da1629&chksm=c36822994075ce5bed00447d349c382a8d53bc37aa94a8493c174e18f62ebe1ec60c487272d7",
-          "publishedOn": "2025-10-30T06:03:00.000Z",
-          "wordCount": 264,
-          "title": "美的小米，正面开战",
-          "imageUrl": null
-        },
-        {
-          "id": "1584652",
-          "author": null,
-          "description": "市场展望及策略2025年第四季度北京写字楼市场展望回暖与承压交织：科技类租户驱动需求释放，业主延续以价换量策略预计2025年第四季度，北京甲级写字楼租赁市场将呈现“局部回暖与整体承压并存”的格局。\n        在高新科技类企业持续扩张的推动下，其租赁需求有望进一步释放，成为支撑市场活跃度的关键力量。\n        然而，受整体经济复苏节奏的影响，业主仍将延续“以价换量”的去化策略，短期内难以出现根本性转变。\n        尤其在临近年底业绩冲刺阶段，部分业主或将进一步加大租金优惠力度，以加速去化，力争实现全年出租目标。\n        尽管科技类租户表现积极，但其需求规模尚不足以带动整体市场企稳回升。\n        此外，面对2026年即将入市的新增供应所带来的潜在竞争压力，预计业主将继续提升租赁条款的灵活性，以吸引并维系有限的优质租户资源，应对持续的市场挑战。\n        租赁决策进阶：租户主动换址优化成本，绿色属性纳入决策维度预计租户在办公空间选址中将展现出更强的主动性，逐步从“被动接受现有条件”转向“主动匹配需求与成本”。\n        部分企业为获取更具成本效益的办公空间，可能会考虑提前解约并迁址，这一趋势在处于成本管控关键阶段的企业中将尤为明显。\n        随着ESG监管要求日益严格，企业对达成自身ESG目标的重视度不断提升，办公空间已成为实践ESG战略的重要场景之一。\n        预计未来将有更多租户在写字楼租赁决策中，将绿色属性作为核心考量因素，重点关注项目是否获得绿色建筑认证、是否提供绿电供应等关键指标。\n        大宗交易回暖可期：出售方让价促成交，与收购方更低预期仍有矛盾预计第四季度北京写字楼大宗交易市场的活跃度将较第三季度有所提升。\n        临近年末业绩冲刺阶段，面临年度去化压力的出售方有望进一步加大在售项目的价…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MjM5MTc3MzQzMw==&mid=2649672372&idx=1&sn=7c7fa931cc03c69f2119405ac010e0e3&chksm=bfca9524506514bc7992d6b5793e7383e04dec68d830c468e0770a5cf1c8353af5343acb2ebd",
-          "publishedOn": "2025-10-30T06:03:00.000Z",
-          "wordCount": 264,
-          "title": "北京写字楼市场2025年第四季度展望及第三季度回顾",
-          "imageUrl": null
-        },
-        {
-          "id": "1584651",
-          "author": null,
-          "description": "新智元报道  编辑：桃子【新智元导读】谷歌DeepMind再出重拳，集结全球五大顶尖机构，以AI之力直指数学界圣杯！\n        同时，陶哲轩也发出冷静警示：须警惕AI滥用带来的潜在风险。\n        今天，谷歌DeepMind重磅发起「AI赋能数学计划」，集结了全球五大顶尖机构。\n        他们将用上谷歌最强数学AI，去探索发现新的疆域。这其中，有夺下IMO金牌的Gemini Deep Think，有算法发现AI智能体AlphaEvolve，还有形式化证明自动补全AlphaProof。\n        目前，首批合作机构阵容，堪称豪华：伦敦帝国学院普林斯顿高等研究院（IAS）法国高等科学研究所（IHES）西蒙斯计算理论研究所（加州大学伯克利分校）塔塔基础科学研究所（TIFR）这五大机构有着一个共同的使命，发掘可以被AI点亮的数学难题，加速科学发现。\n        然而，陶哲轩担忧的是，「当前AI在数学研究中应用加深，除了负责任的使用，AI滥用的案例也屡见不鲜」。\n        因此他认为，现在正是时候，启动关于如何最佳融入AI、透明披露其作用，并缓解风险的讨论。\n        或许，这不仅能守护数学研究的严谨性，还将为AI+数学融合铺就道路。\n        五大顶尖机构，联手强攻数学难题数学，是宇宙最基础的语言。\n        在谷歌DeepMind看来，AI可以作为强大工具，与数学家合作，激发其创造力。\n        「AI赋能数学计划」的诞生，就是为了：发掘有望借助AI获得深刻见解的新一代数学难题；  构建支持这些前沿探索所需的基础设施与工具；  最终加速科学发现的步伐。\n        这项计划，将由Google.org提供资金支持，以及谷歌DeepMind的顶尖技术。\n        几个月来，谷歌DeepMind自身的研究，取得了飞速进…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652640154&idx=1&sn=9d18f32491f3f1c4c64532948808bc38&chksm=f03bc709af6146b108de2cde53eb1501be73ab78ff7bca397c8ae36a85cb453142f30e4a29fa",
-          "publishedOn": "2025-10-30T06:03:00.000Z",
-          "wordCount": 264,
-          "title": "陶哲轩敲警钟！谷歌DeepMind联手五大神殿，用AI向世纪难题宣战",
-          "imageUrl": null
-        },
-        {
-          "id": "1584650",
-          "author": null,
-          "description": "新智元报道  编辑：元宇【新智元导读】关键时刻，小扎再度出手调整高层架构，前元宇宙负责人Vishal Shah临危受命，接手AI产品管理，协助Nat Friedman整合AI产品战略。\n        空降「高管」与老将的组合，或许可以让Meta的AI狂飙更「稳」一些。\n        Meta AI部门再现人事大地震！刚刚，Meta传出重大人事调整：前元宇宙负责人Vishal Shah将转岗至Meta超级智能实验室，担任人工智能产品副总裁，并向Nat Friedman汇报。\n        这是Meta AI部门最新一次高管调整。Meta前元宇宙负责人Vishal Shah此次变动是发生在Friedman主导推出的视频应用Vibes被竞争对手快速赶超之后。\n        调动产品管理经验丰富的Shah前来辅助Friedman，显然是为了加速Meta AI在产品上更成熟落地。\n        Shah是Meta的十年老臣，功勋卓著。作为扎克伯格的长期副手，Shah深受其倚重与信任。\n        他在2015年加入Instagram（当时隶属Facebook），并于2018-2021年担任Instagram产品负责人。\n        Shah在主管Instagram任内，主要负责产品战略与用户体验，期间主导了电商（Instagram Shopping）与Reels短视频等关键产品的方向。\n        2021年，Facebook转型元宇宙，Shah又被扎克伯格调任为Meta元宇宙部门负责人，带队开发虚拟世界平台Horizon Worlds。\n        Meta的AI产品主管Nat FriedmanFriedman表示，他的团队今后将专注于打造Meta AI等旗舰AI产品，而Instagram、WhatsApp等业务部门则可基于公司模型开发各类AI体验。\n  …",
-          "link": "http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652640154&idx=2&sn=84cd734d2746227735964e24ebc47d51&chksm=f05ae9617d8d56cda2bb0d69dba813baf0a032cfffb8109b755edd888cbcc81a9292bcca3b62",
-          "publishedOn": "2025-10-30T06:02:59.000Z",
-          "wordCount": 264,
-          "title": "Meta AI部门大地震！小扎急派心腹干将「救火」",
-          "imageUrl": null
-        },
-        {
-          "id": "1584564",
-          "author": null,
-          "description": "2020年，北京SKP以177亿元的销售额取代英国伦敦哈罗德百货成为“全球店王”，2023年销售额更是达到创纪录的265亿元，但2024年因销售额下滑失去“全球店王”桂冠。\n        作者：田国宝 封图：图虫创意新投资人加入后，北京华联（SKP）百货有限公司（下称“SKP公司”）部分外拓项目出现推进迹象。\n        继广州SKP和杭州SKP项目先后传出新进展消息后，9月中旬，SKP公司又在西安临潼新取得一宗商业用地。\n        工商注册资料显示，2025年8月，SKP公司股东结构发生变更。\n        北京华联集团投资控股有限公司（下称“华联集团”）与RADIANCE INVESTMENT HOLDINGS PTE.LTD.（下称“RADIANCE公司”）退出，瑞得时尚（北京）商业贸易有限公司（下称“瑞得时尚”）成为唯一股东。\n        瑞得时尚成立于2025年5月，其股东除RADIANCE公司外，还包括Enriching Wells Limited、Hinter Land Limited、博裕益广（天津）管理咨询合伙企业（有限合伙）（下称“天津博裕”）、PLATINUM SALVIA B 2025 RSC LIMITED，以及上海灏裕信息科技有限公司（下称“上海灏裕”）等。\n        全国已开业的SKP项目包括北京SKP、西安SKP、成都SKP和武汉SKP四家。\n        2020年，北京SKP以177亿元的销售额取代英国伦敦哈罗德百货成为“全球店王”，2023年销售额更是达到创纪录的265亿元，但2024年因销售额下滑失去“全球店王”桂冠。\n        此外，SKP公司计划开业的项目有广州SKP、杭州SKP、合肥SKP、昆明SKP和呼和浩特SKP五家。\n        此前，杭州、昆明等项目均曾出现停工现象。就投资人更迭及项目…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MjM5OTExMjYwMA==&mid=2670360255&idx=1&sn=c8a89b21a3b6c4aad1e75687e254b388&chksm=bde71448b2fb3c0001cd9e86ad06fc3a72faf41430bb61fdadad9ec67d3932a2bee64f9fb586",
-          "publishedOn": "2025-10-30T02:02:56.000Z",
-          "wordCount": 264,
-          "title": "博裕资本和腾讯入股，SKP能重夺“全球店王”吗？",
-          "imageUrl": null
-        },
-        {
-          "id": "1584563",
-          "author": null,
-          "description": "很长时间里，医疗始终被认为是新兴技术应用里最难啃的阵地。就拿医疗数字化来说，就走得极为不容易。\n        在当下7400亿美元的美国医疗管理支出中，IT 预算仅占630亿美元。\n        但AI的出现改变了这一切。如今，医疗成为企业AI应用最快的阵地之一。\n        根据 Menlo Ventures的研究，2023年医疗AI采用率仅为3%，而2025年已有 22% 的机构部署了专用AI工具，增长超7倍。\n        其中，医疗系统以27%的采用率居首，超过门诊服务提供商（18%）与付款方（14%）。\n        相比之下，AI在其他行业的应用仍然处于初期，仅不到10%的企业部署了AI工具。\n        从投资角度，我们也能看到这一趋势：2025年，医疗AI支出达到14亿美元，是2024年的近三倍，已超越去年所有垂直AI领域（包括法律、金融、设计等）总和（12亿美元）。\n        仅在AI医疗领域，就跑出了8家AI独角兽，其数量远远超过了其他任何垂直人工智能领域。\n        为了更全面展现AI在医疗领域的真实落地情况，Menlo Ventures 对全美700多位医疗行业高管进行了系统性调研，涵盖医保与福利、制药与生物技术、以及医疗服务提供方的技术与运营决策者。\n        这份报告不仅刻画了当前AI在医疗各环节的采纳进度，也揭示了从试点走向规模化部署的真实路径，是理解医疗AI产业趋势与落地节奏的重要参考，非常值得一读！\n        / 01 /医疗机构选择AI，只看这三点过去的 12 个月中，AI在医疗行业的应用发生了巨大的转变：比如，Kaiser Permanente在40 家医院和600 多个医疗办公室部署了Abridge的环境文档解决方案，成为医疗史上最大规模的一次 AI 推广。\n        他们过去从来没这么快…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MzkyNTY1MjE2OA==&mid=2247491344&idx=1&sn=2fb7d1b7ac29167e23c4bbd3ad310d65&chksm=c04383f27ba47b9472097587ec9a0b12c4b049468753c3344ad69253e20bdf99cb6de6113b82",
-          "publishedOn": "2025-10-30T02:02:56.000Z",
-          "wordCount": 264,
-          "title": "700位医疗高管告诉你，为什么AI最先跑通的是医疗？",
-          "imageUrl": null
-        },
-        {
-          "id": "1584562",
-          "author": null,
-          "description": "大连“稳了”临近年末，东北地区可谓被赋予诸多期待。一个原因是，新的GDP万亿城市或将在东北诞生——\n        从2006年上海GDP破万亿元至今，全国已有27座万亿城市，东北“挂零”。\n        2024年4座准万亿城市（GDP＞9000亿元）中，大连、沈阳两市均来自东北。\n        这也被视为今年东北地区诞生首座万亿城市的信号。此前，两市一度“齐头并进”（2024全年GDP增速均为5.2%），但最新披露的今年前三季度数据，却透露出截然不同的发展态势：大连“突飞猛进”，GDP7248.2亿元，增速6.0%，高于目前已公布数据的大多数万亿城市，并且超越了年初定下的全年5.5%增速目标；而沈阳却显得有些缓慢，GDP6614.3亿元，增速仅为2.3%，规上工业增加值（-4.7%）、外贸进出口额增速(-9.8%)均出现负增长。\n        拉长时间线来看，自三年前开启“全面振兴新突破三年行动”以来，沈阳在三年突破“双万城市”的目标下，增速曾连续多个季度赶超大连。\n        但今年以来，大连却显示出更强的经济韧性。站在“破万亿”节点，两座城市为何会出现如此反差？\n        1沈阳：“一业独大”的困境今年以来，沈阳经济一改去年持续高位增长的态势，增速逐渐放缓，从一季度的4.6%逐渐下降至前三季度的2.8%。\n        从细分数据来看，工业和外贸是沈阳经济的两大重要拖累因素。\n        从工业上看，今年2月以来，沈阳规上工业增加值增速由正转负，陡降至-4.8%，并一直未能回正，到前三季度，该指标仅为-4.7%。\n        图片来源：沈阳市统计局官网从外贸上看，今年1-2月，沈阳进出口增速出现两位数负增长，而到前三季度，降幅缩窄至-9.8%。\n        其中，在出口额仍保持增长的同时，进口额出现了21.2%的下降。\n        …",
-          "link": "http://mp.weixin.qq.com/s?__biz=Mzg2MjA5Mjc0OA==&mid=2247570857&idx=1&sn=8cf5da670cc019a5092901d3260eaa76&chksm=cf3529771d940acc94c17f716ee966d17328416597ce7b8e247c343811ba74d3285a2a29d047",
-          "publishedOn": "2025-10-30T02:02:56.000Z",
-          "wordCount": 264,
-          "title": "东北首座万亿城市之争，尘埃落定？",
-          "imageUrl": null
-        },
-        {
-          "id": "1584561",
-          "author": null,
-          "description": "本田造火箭，雷克萨斯造游艇，日系车企冲向海陆空。作者 |  车东西编辑 |  志豪东京车展作为年内最后一个全球大型车展，日系车企集体出动。\n        作为传统汽车大国，日本市场有哪些特点和国内有何不同？\n        车东西今天几万步逛下来，发现确实有不少地方很颠覆认知。\n        车东西10月29日日本东京现场报道，今天，2025年度日本移动出行展（Japan Mobility Show，即我们常说的东京车展，下文代称东京车展）在东京拉开帷幕。\n        这场两年一届车展，也是窥见日本这个全球第四大汽车市场的产品趋势与特点的重要窗口。\n        一踏入东京国际展示场，车东西的第一感觉就是，这是一场“移动出行展”，而非“汽车展”。\n        ▲车东西/特研所总编辑张国仁在东京车展现场一边是本田的HondaJet公务机内部模型，另一边是雷克萨斯的游艇，还有各种两轮摩托车和个人移动工具，车东西在现场完全被这种“泛出行”的氛围包围了。\n        ▲东京车展上的两轮交通工具走进里面，给我们的感受就更不一样了。\n        K-Car（日本市场独有的一种小型汽车，日本称：轻自动车）是绝对的主场核心，几乎所有的日系车企丰田、本田、日产、大发、铃木、斯巴鲁等等玩家都在展台上摆上了K-Car车型。\n        ▲各家车企的K-Car但对于“当下”的智能电动车——\n        即成熟的纯电平台、高阶辅助驾驶的量产车展示非常少，这和国内车展反差极大。\n        这也显示了日系车企现实和未来之间的断层。而在这次车展上，车东西亲眼见证了一个历史性的时刻：比亚迪作为一家中国车企，在东京，全球首发了一款专为日本市场打造的电动“K-Car”。\n        ▲比亚迪电动K-Car Racco首发这在日本车展的历史上，是第一次。\n        此…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MjM5ODgxNTk4Mw==&mid=2689947853&idx=1&sn=22adb276ac3529b84b77ece9ada9fa30&chksm=82957aabe178f6ec946237e7b968187254aa6592b3693dd7b1f57c4b2f77b8e1d59cb9162245",
-          "publishedOn": "2025-10-30T02:02:56.000Z",
-          "wordCount": 264,
-          "title": "只有一家中国车企参展的世界级车展！有多魔幻？",
-          "imageUrl": null
-        },
-        {
-          "id": "1584560",
-          "author": null,
-          "description": "新智元报道  编辑：定慧 好困【新智元导读】就在刚刚，英伟达市值突破5万亿美元，成为全球首家实现这一里程碑的公司。\n        如今，它的市值已超越德国和日本的GDP，堪称「全球第三大经济体」。\n        今夜，英伟达再次创造历史！受GTC大会的影响，英伟达股价上涨4.15%，成为首家市值突破5万亿美元的公司！\n        这是一个前所未有的里程碑，不仅是英伟达，不仅是GPU芯片，更是AI时代的里程碑。\n        扩展阅读：「美队」老黄深夜扔出地表最强GPU！算力百倍狂飙，下次改演雷神英伟达市值从1万亿到5万亿的速度，越来越快：0到1万亿：6138天；1万亿到2万亿：180天；2万亿到3万亿：66天；3万亿到4万亿：273天；4万亿到5万亿：78天！\n        如果从2022年底，ChatGPT横空出世以来，英伟达已经上涨1087%，整整10倍！\n        黄仁勋昨天刚刚在GTC大会宣布，预计到2026年，英伟达将实现5000亿美元的GPU销售额。\n        相比2024财年609亿美元收入，仅仅过去两年，英伟达的收入几乎暴增了8~9倍。\n        更重要的是，海外分析师表示，英伟达的5万亿的市值伴随着合理的估值。\n        根据GTC大会披露数据，英伟达未来五季度数据中心收入指引达4000-5000亿美元，对应2026年预期EPS约9-11美元。\n        按35倍动态PE计算，理论估值区间为3.15-3.85万亿美元，若市场继续给予成长溢价，5万亿市值对应2026年PE约45倍。\n        截至发文，股价涨幅继续突破5%，今夜注定无眠。英伟达市值突破5万亿美元不仅是一个里程碑，更是一种宣言。\n        黄仁勋创立的这家企业，已从芯片制造商蜕变为AI行业的缔造者。\n        三年前，在OpenAI的…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652640125&idx=1&sn=a2e77b8e8bb17d02da9b4e94d3ac395d&chksm=f071ffd9b771865d59416c549476da44b1cf06adb25f7f9a3733fb0b5c1699043e5dc63fb257",
-          "publishedOn": "2025-10-30T02:02:56.000Z",
-          "wordCount": 264,
-          "title": "英伟达，全球首个5万亿美元公司诞生！「GPU帝国」超日本德国GDP",
-          "imageUrl": null
-        },
-        {
-          "id": "1584559",
-          "author": null,
-          "description": "如果用一句话总结今天的FOMC，以及市场的反应，我觉得它把之前大家的叙事逻辑，从经济不错+利率走低，转换成了经济不错+利率反弹。\n        所以我讨论下面几个问题- 当日的资产走势和叙事变化- 通胀和失业率- Miran和Schmid不同投票的看法，以及鲍威尔的可能立场- 更大的图景下，对于联储，2025年他们面对的是一个复杂图景，2000年资产泡沫的担忧存在，2019年高赤字率下降息的担忧存在。\n        甚至还有两个前人没有遇到过的问题，联储的独立性和AI对于就业的冲击。\n        - 未来的展望这个变化对于不同的资产，在当日的冲击是不同的，以股票来说，经济不错但利率不会走低，是一个喜忧参半的组合，当然这里我们说的是整体，在局部我们会看到，经济不错的代表是大公司，期待降息的是小公司，所以可以看到纳斯达克和罗素2000在今天的走势不同而且这并不只是股票的反应，在经济数据里面都可以看到这种区别，小企业裁员而大企业招人过几天会有其他大型科技公司的财报，到时候对于整体的AI可能会有更好的看法，但从今天的meta和google看起来，AI的Capex依然是不错的。\n        当然，股票价格的影响因素远不止基本面，我们只是从一个剖面来讨论，但如果说股票对于经济不错，短端利率走高是喜忧参半，那么对于美元和美债收益率，他们显然就更直接受益黄金则是这种组合的受害者，更不用说联储在这个会议中努力表现出的独立性，是黄金多头不希望看到的回到联储本身，它所关注的两个经济指标，通胀和失业率，我们需要看看它的数字和它的逻辑先从失业率说起，我们且不说大小公司的差异，就从整体去看，目前美国处在，招人少，辞职少，裁员少的组合大公司招人但也开始裁人（相信大家都看到了科技巨头公司这几天的裁员，未来还会有），小公司已经开始裁人，所以招聘的人数不多，这可以理解。\n        裁员已经发…",
-          "link": "http://mp.weixin.qq.com/s?__biz=Mzg4NzY3NzIwOA==&mid=2247496174&idx=1&sn=61131f5596a88509a2370caf2b7ce02d&chksm=ce93e2ac5e9ae76bf112398bf6c8045469c5612900e42e577e389d2b1d79a93d538139b466b6",
-          "publishedOn": "2025-10-30T02:02:56.000Z",
-          "wordCount": 264,
-          "title": "联储有鹰派发言的理由，但随时间推移我觉得它还会是鸽派",
-          "imageUrl": null
-        },
-        {
-          "id": "1584558",
-          "author": null,
-          "description": "出品 / 新浪科技（ID:techsina）作者 / 郑峻估值5000亿美元的他们是全球估值最高的创业公司，是生成式AI行业的领头羊，也是马斯克眼中的最大竞争对手。\n        如今成功完成转型，扫清了最大障碍，史上最大IPO即将来临。\n        OpenAI昨天正式宣布完成重组计划，这家曾经的非营利AI研究机构最终转型为一家以营利为导向的科技巨头。\n        这一转型不仅改写了OpenAI自身的命运，更深刻影响着整个AI产业乃至全球基础设施建设的未来格局。\n        OpenAI首席执行官奥特曼直接回应了外界猜测。他坦率承认，在完成重组后，首次公开募股(IPO)是公司最可能的路径。\n        虽然没有给出具体时间表，但市场普遍预期OpenAI可能在2027年实现上市，而且极有可能创下融资规模之最。牵动AI生态产业2015年创建的时候，OpenAI还是一家以”确保AGI造福全人类”为使命的非营利组织，十年后，他们已经成为开启生成式AI时代的行业巨头，成为引领万亿美元基建投资的商业帝国。\n        OpenAI的十年蜕变史堪称硅谷最具戏剧性的商业传奇。\n        而在这场转型背后，是两位联合创始人马斯克和奥特曼的权力争夺、反目成仇和激烈竞争。\n        OpenAI的转型过程，遭遇了马斯克一系列持续诉讼与收购狙击，也见证了奥特曼的一连串天价交易，以及对AI基础设施产业链的全面重塑。\n        在奥特曼的诸多大手笔交易操作下，OpenAI已经先后与微软、甲骨文、英伟达、AMD、软银、博通等诸多科技巨头达成战略或投资协议，与这些行业巨头的利益高度绑定。\n        因此，OpenAI的转型也牵动着整个AI生态产业的利益。\n        受OpenAI完成转型消息推动，英伟达和微软这两大AI产业巨头的股价继续飙升，先后创下了…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MzkyMjQxMzk3NA==&mid=2247572077&idx=1&sn=f95bbaaf8addd16af53c045e4118ab76&chksm=c0800f8e75faa0408299ccfbd98efd65720c4934361558aada2e505c51c408c046b7ea3435d6",
-          "publishedOn": "2025-10-30T02:02:56.000Z",
-          "wordCount": 264,
-          "title": "马斯克最大对手完成变身，史上最大IPO即将来临｜硅谷观察",
-          "imageUrl": null
-        },
-        {
-          "id": "1584557",
-          "author": null,
-          "description": "加星标，才能不错过每日推送！方法见文末插图起身、跑步、下楼梯，伴随这些日常动作，你的膝盖可能会经常“咔哒”作响，有时一下就影响了心情，让你担心膝盖有什么问题。\n        令人意外的是，目前学界对其真正成因并没有统一的说法。\n        最近的一项研究汇总了过往103项、超过3.6万人的膝关节弹响声研究，给出了一个更加综合的结论。\n        编译 | 小叶伏案工作数小时，站起来松动一下筋骨，只听得膝盖“咔哒”一声；周末难得出门跑步，结果一抬膝盖，又是“咔哒”一声。\n        自己的膝盖仿佛生锈的铰链，动一下就发出一声弹响，尽管可能没有任何疼痛感，担忧之情却油然而生：我的膝盖怎么了？\n        是关节炎了？还是要报废的节奏？膝关节摩擦音其实，各个年龄阶段的人都遭遇过膝盖一动就发出弹响的情况。\n        医学上对此现象有一专有名字：膝关节摩擦音（Knee joint crepitus），即膝关节屈伸时发出“噼啪”或者“咔哒”的弹响声。\n        大家从椅子上起身，俯身屈膝拾取地上的物品，走路、上楼甚至跑步时都能听到。\n        首先，我们简要了解一下膝关节的解剖结构[1]，作为人体最大、最复杂以及功能要求最高的关节，我们的膝关节主要由股骨远端、胫骨近端、髌骨、关节软骨，附着在骨骼上的韧带、关节囊以及半月板等结构组成。\n        鉴于膝关节的主要功能为屈伸活动，在关节伸侧和屈侧还都包覆着强大的肌肉以发挥保护作用。\n        膝关节解剖结构侧视及后视图 | 图源：默沙东诊疗手册[2]其中[2]，关节囊内的内衬滑膜组织分泌滑液来润滑关节，覆盖在胫骨和股骨末端表面的软骨可减少活动时产生的摩擦。\n        半月板则作为胫骨、股骨之间的缓冲垫，分散应力在关节上的作用。\n        膝内侧与后侧的韧带加强关节囊，增强关节稳定性…",
-          "link": "http://mp.weixin.qq.com/s?__biz=Mzg2MTUyODU2NA==&mid=2247633340&idx=1&sn=6a10f2919ba552c21cab0b3ebf8f44ee&chksm=cf046c91c505a836a37d0cdbfb54e8d44ecc79eee00e748ea32fa2ee6ae66839930c907e7086",
-          "publishedOn": "2025-10-30T02:02:56.000Z",
-          "wordCount": 264,
-          "title": "跑步、下楼膝盖“咔哒”响，你该担心吗？",
-          "imageUrl": null
-        },
-        {
-          "id": "1584556",
-          "author": null,
-          "description": "王晚是一位在北京跑外卖的女骑手，她也是一位1991年出生的写作者，刚出版了《跑外卖：一个女骑手的世界》。\n        她漂在城市边缘，回不去家乡，也不愿意活成母辈的样子。\n        她以书写作为不确定性下的另类活法。她自我的叙事，写在城乡缝隙中。\n        女骑手及写作者这两个身份的矛盾，呈现在她生活的方方面面。\n        她作为时间贫困者，选择生存优先；可她跳脱出日常来观察记录，又有一种反客为主的主动性。\n        对她而言，最不能让渡的是写作的时间和自由，她向往成为“爱写作的三和大神”，写作、跑外卖都只是某种生存方式——\n        “就像衣服脏了，就拿去洗一样”。作者 | 谢无忌编辑 | Felicia题图 | 受访者提供北京的冷空气袭来，室外低至10℃。\n        跑外卖是看天吃饭的活儿，突如其来的雨天让她忧心忡忡，单量少、单价没有上涨的趋势，接单难度更大。\n        10月10日上午，在北京昌平区沙河地铁站附近，我见到了王晚。\n        坐在外卖电车上的她，扎了个马尾，穿了件黑色羽绒和牛仔裤。\n        她爽朗麻利地戴上一个粉色头盔，喊我一起去跑单。早高峰已过，单量不多。\n        王晚的手机系统界面蹦出了几个单子，她不时用手指头刷新信息，“呀，单子被人抢了。”\n        两分钟后，她接了一个送花束的单子，跑单费4.28元，扣掉2.5元保险，净赚一块多。\n        跟着王晚在于辛庄跑单送花束。（图/记者拍摄）我们到花店取花，穿梭在人来人往的窄巷子，不知道从哪条小路兜转钻到了一栋公寓。\n        我问：“送鲜花好赚吗？”\n        “最讨厌送花，”她说，“怕压坏，不敢骑得快。”她的骑手餐箱曾放过一本《活着》，直到一场雨将这本书淋成一坨纸。\n        于是，这个或许是唯一在送餐…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MjM5ODMzMDMyMw==&mid=2654867165&idx=1&sn=4633b40aa62d4d65209e8476a989533e&chksm=bcc38218bca60cb750e9a9bf0f8c4ffb77fb5527c704686134966fa6c874bd184437eae4c26a",
-          "publishedOn": "2025-10-30T02:02:56.000Z",
-          "wordCount": 264,
-          "title": "一位北京女骑手的双重生活：我不愿活成我母亲那样",
-          "imageUrl": null
-        },
-        {
-          "id": "1584497",
-          "author": null,
-          "description": "游戏工业的\"奇迹\"，网络思维的胜利。号称“印度首款3A游戏”的《释放阿凡达》（Unleash The Avatar），前段时间正式上线了其Steam页面。\n        这款游戏的名字此前或许并不为人熟知，但它的精彩实机演示曾在中文互联网广为流传：今年8月，男主角凭借一套完美闪避带撩发的动作在社交平台火得一塌糊涂，网友称之为“宫崎英高一辈子都想不出来的闪避动作”。\n         不少玩家将这套动作搬到其他游戏里，有头有脸的角色乃至宫崎英高本人都没能幸免。\n        而最近，《释放阿凡达》又公布了一段全新的12分钟实机演示。\n        或许是因为之前的闪避动作反响热烈，新的实机中摊手处决、背身格挡、开大变身直接让Boss两只手……\n        总而言之，宫崎英高可能几辈子都想不到的动作全都一并招呼上了。\n        说是“主角进二阶段了”“一般抽象的游戏我不玩，这么抽象的等发售我肯定品品”，这是大多数网友对《释放阿凡达》的评价。\n        虽说是调侃，但两个月内接连发布实机演示，几乎毫不遮掩地展示了游戏质量和玩法，也很容易让人感受到这肯定不是PV欺诈——\n        至少抛开成品质量，大伙都相信这游戏是真能做出来。而比“能做出来”更让人意外的，是这款游戏的开发人员只有40人，据官方说法，第一支实机演示是团队花了8个月做出的成果，整体完成度在60%至80%之间，完整版游戏预计2026年秋季上线。\n        换句话说，有一个此前几乎没有任何游戏开发经验的团队，在一个完全没有大型游戏开发经验的国家里，正尝试在两年的周期内完成一款大型动作游戏。\n        而从目前进展来看，这个目标——至少“做出来”这个目标——似乎并非遥不可及。\n        相比这个游戏“滑稽”的这部分，我更关心它是如何诞生的。\n        1要解答这个问题，就…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MzIzNzM3NzE2MA==&mid=2247747650&idx=1&sn=4aa6ba00763437a25b89271d24be874d&chksm=e99140b09467e021a962ec38e088d062312ab2740bb8143ead3bf79a096742e80035e40ea244",
-          "publishedOn": "2025-10-30T00:04:53.000Z",
-          "wordCount": 264,
-          "title": "魔幻的印度3A神游，背后到底是谁的手笔？",
-          "imageUrl": null
-        },
-        {
-          "id": "1584121",
-          "author": null,
-          "description": "全世界第一款，真正面向消费者，能做家务的人形机器人来了。这次不跳芭蕾、不展示功夫，真的能给我们打扫卫生、随叫随到。\n        只需要喊一声「Neo，帮我叠衣服」，一个 1 米 68 的人形机器人，就会从角落里转身，轻轻俯下身，双臂「灵活」地折叠好衣物。\n        三月份的时候，它更是直接给黄仁勋买了一件皮夹克，亲手送给了他。\n        经过大半年的优化，现在我们也能把它买回家了。由 OpenAI、NVIDIA 和三星等巨头支持的机器人公司 1X 宣布，其人形机器人 Neo 在今天正式开放预订。\n        售价 20000 美元（约 14.5 万人民币）买断服务，或选择每月 499 美元（约 3600 人民币）的订阅服务，两种支付方式。\n        官网购买页面，有浅棕色、灰色、深棕色，三种不同的颜色可选择。\n        https://www.1x.tech/order目前已经可以在 1X 官网进行预订，第一批支持美国用户，在明年开始逐一送货；预计 2027 年扩展到全球用户。\n        虽然每月订阅费，可能比聘请一个保姆更便宜，但是 Neo 能做的事情，真的能像人一样，处理好那些又细又杂的家务活吗？\n        请把它当作一个家电，而不是「终结者」Neo 身高 1.68 米，重约 30 公斤，全身覆盖柔软聚合物外壳，穿着针织高领衫与运动鞋。\n        Neo 工业设计展示，所用的材质安全、易亲近1X 公司的创始人说，这样可以让它看起来更不像是一个终结者，只是一台能做家务、会聊天、还挺有性格的机器人。\n        在设计上，Neo 的手臂拥有 22 个关节，接近人类灵活度，能提起大约 45 斤重的物体。\n        作为对比，之前宇树发布的 H2 相关的参数是，高 180cm，重 70kg，关节总数 31 个。\n   …",
-          "link": "http://mp.weixin.qq.com/s?__biz=MjM5MjAyNDUyMA==&mid=2651065143&idx=1&sn=187bfca34de6f1903f0534760d68f0c7&chksm=bc4050c4f805120d4da0b4e80957fcd54a3c7615d1e121c05d72240905c299308c2b581a95e7",
-          "publishedOn": "2025-10-29T18:20:08.000Z",
-          "wordCount": 264,
-          "title": "全球首个家务机器人开卖！月租3600，拿瓶水要1分钟，还得真人遥控",
-          "imageUrl": null
-        },
-        {
-          "id": "1584120",
-          "author": null,
-          "description": "一水 发自 凹非寺量子位 | 公众号 QbitAI发表于2024年6月，却在当下登上《美国国家科学院院刊》，然后还被硅谷热议了。\n        究竟是什么论文？答案揭晓：中美科技实力大PK，以及得出的结论是——中国正在成为全球科学领导者。\n        和以往比比论文量、引用数不同，这项研究通过引入机器学习模型，分析了600万份论文的作者署名模式、通讯作者身份、机构影响力等多重线索，核心评估了“团队领导者”这一指标。\n        研究人员表示，通过关注中国科学家在跨国合作中权力地位的变化：（我们）为研究中国在国际科学领域中的地位提供了一个新视角。\n        而且他们还带来了一系列出人意料的发现——截至2023年，中美合作中中国领导者占比升至45%，且预计在2027-2028年达到相同水平。\n        预计到2030年，中国将在AI、半导体、能源和材料科学等战略领域实现与美国平起平坐的领导地位。\n        就是说，比人们预想的更快，中国将在科研力量上超越美国了？\n        u1s1，虽然经彭博社报道后，外国网友们都在自嘲：西方科学无可争议的主导地位时代即将终结。\n        但我们大多数人的反应be like：不好，美国要捧杀了！\n        咳咳，究竟是客观结论还是战略“捧杀”，还是先来看看论文是如何得出上述结论的吧——\n        用AI模型分析600万篇论文通过分析OpenAlex数据库收录的近600万篇、涉及13个全球区域的双边合作出版物，研究人员想要弄清：中国科学家在国际科研团队中，到底站在什么位置？\n        距离“世界领航者”还有多远？而要量化“谁是团队领导者”，可不是简单看作者排序那么简单。\n        研究团队用了一套「AI+多维度特征」的组合拳，把这个模糊概念变成了可计算的数字。\n        具体主…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247837818&idx=2&sn=951cf55b1cf9392a49e5137a2c45b65a&chksm=e93e2dea6109fd7553be9ecb3e4bb12caf4b9235412f738b97366853b32ae103b5a051c8a3c5",
-          "publishedOn": "2025-10-29T18:20:07.000Z",
-          "wordCount": 264,
-          "title": "不好美国要捧杀了！新研究：中国正在成为全球科学领导者",
-          "imageUrl": null
-        },
-        {
-          "id": "1584119",
-          "author": null,
-          "description": "Jay 发自 凹非寺量子位 | 公众号 QbitAI亚马逊前几天宣布的「3万人血裁计划」，正式开刀了。\n        刚刚，1.4万名亚马逊员工被宣布没了工作，而另一边，公司正在开足马力部署AI和机器人上岗。\n        流程还没开始走，电脑账号直接锁死，很多人甚至还来不及备份自己的文件。\n        我立刻就失去了对所有东西的访问权限 :(更狠的是见谁砍谁，管你业绩怎么样。\n        3年内从L4升到L6，本以为自己是高质量人类，这下看来我也只是个可被AI取代的螺丝钉……\n        离谱的是，消息一出，亚马逊股票当天立即上涨了1%。\n        部分老员工苦笑道：如果裁员能继续推高股价，那我的股票收入就算是失业金了。\n        这边亚马逊估计更是开心坏了，不仅能少开一大笔工资，还有投资人送钱。\n        跟量子位来看看，这到底是怎么一回事。1.4万人被裁10月28日，约1.4万名亚马逊员工在一封「致员工的信」中收到了噩耗。\n        亚马逊高级副总裁Beth Galetti在信中遗憾地宣布，亚马逊将启动新一轮裁员——\n        在35万名公司全职员工中，约有4%的同事要准备收拾行李走人。\n        值得注意的是，这1.4万是净裁员人数——那些通过内部调岗成功「自救」的员工，并不算在内。\n        据悉，本轮裁员后，亚马逊会为大多数受影响员工提供为期90天的「复活赛」。\n        这段时间内，招聘团队会优先考虑内部候选人，尽量帮更多人留在公司体系内。\n        而对于没能重新上岸的员工，亚马逊也将提供过渡支持，包括遣散费、再就业辅导、以及医疗保险延续等补偿措施。\n        《商业内幕》的报道进一步揭开了这轮裁员的面纱。在首批收到通知的7500名员工中，超过78%是L5到L7级别的经理，也就是从初…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247837818&idx=3&sn=462acfd0c6c54989a0f498578f4b3205&chksm=e90f88832198f0af8d0e880a3f77dc0bb6eb597e2302e2b2b0769f9644d131ff7f762995c49b",
-          "publishedOn": "2025-10-29T18:20:04.000Z",
-          "wordCount": 264,
-          "title": "14000人原地被裁！亚马逊今日：打工人水深，AI机器人火热",
-          "imageUrl": null
-        },
-        {
-          "id": "1584118",
-          "author": null,
-          "description": "时令 发自 凹非寺量子位 | 公众号 QbitAI如果说视觉让AI看见世界，动作让AI改变世界，那么——\n        WorldVLA正在让AI理解世界。顾名思义，WorldVLA是一个将视觉语言动作模型（VLA）与世界模型相融合的统一框架，由阿里巴巴达摩院、湖畔实验室和浙江大学共同提出。\n        在该框架下，世界模型通过结合对动作与图像的理解来预测未来图像，旨在学习环境的潜在物理规律，以提升动作生成的准确性；动作模型则基于图像观测生成后续动作，不仅有助于视觉理解，还反向促进世界模型的视觉生成能力。\n        实验结果表明，WorldVLA的表现显著优于独立的动作模型与世界模型，充分体现了二者之间的相互增强效应。\n        下面具体来看。统一VLA与世界模型如今，VLA和世界模型虽在分头并进，但其在功能上的局限已成为制约发展的关键瓶颈：VLA模型：基于预训练多模态大语言模型（MLLM）构建，虽具备跨机器人任务泛化能力，但仅将动作作为输出，未深度整合为输入进行分析，缺乏对动作的全面理解。\n        世界模型：能基于当前观测和动作预测未来视觉状态，理解视觉信息与行为动态，但无法直接生成动作，在需明确动作规划的场景中应用受限。\n        为了解决上述难题，研究团队提出了WorldVLA——\n        一种用于统一动作与图像理解和生成的自回归动作世界模型。\n        团队基于Chameleon模型进行初始化，让WorldVLA使用三套独立的分词器（tokenizer） 对图像、文本和动作进行编码。\n        图像分词器采用VQ-GAN模型（一种结合向量量化与生成对抗网络的图像生成模型），并针对特定图像区域（如人脸、显著物体等）引入了感知损失优化。\n        值得一提的是，该分词器的压缩比为16，码本大小为8192。\n   …",
-          "link": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247837818&idx=4&sn=991fb458cd3a9aaf942c8c2f1192d4b4&chksm=e97c29cef7d66e06138e10ecfbac7a81d9917cc6ac6810cf26111a7e686c4fdd528e0d2dfe79",
-          "publishedOn": "2025-10-29T18:20:00.000Z",
-          "wordCount": 264,
-          "title": "阿里新研究：统一了VLA和世界模型",
-          "imageUrl": null
-        },
-        {
-          "id": "1584117",
-          "author": null,
-          "description": "「核心提示」当直播电商仍深陷流量博弈的红海，行业竞争停留在话术内卷与流量争夺的浅层逻辑时，东方甄选正悄然掀起一场从“流量依赖”到“产品为王”的深层变革。\n        作者 | 高宇哲编辑 | 邢昀10月28日，新东方发布了最新财报，东方甄选的战略转向，在这份财报中浮现清晰脉络——\n        聚焦健康高品质的自营品矩阵，以品类扩容、技术创新筑牢供给根基，让自营品逐步渗透家庭消费场景，成为市场认可的核心增长引擎。\n        财务表现同样印证着转型正在生效。有投资者按照新东方财报中非控股权益及持股比例推算，东方甄选2026财年一季度盈利超1亿元。\n        8月末东方甄选公布的年报也显示，2025财年剔除资产处置影响后，公司有30%的净溢利同比增幅，其中自营品38.1亿的年度GMV成为破局关键。\n        历经“小作文事件”后的行业唱衰与业务阵痛，东方甄选正卸下顶级流量的光环，在直播间之外书写全新增长剧本。\n        这场脱离流量依赖的“产品革命”，究竟如何重构电商竞争的底层逻辑？\n        答案藏在其对产品力的极致打磨与战略深耕中。直播间外的隐藏“副本”事实上，这轮业绩发布前，今年8月东方甄选已经经历过一波股价飙升，市值最高突破了500亿港元。\n        当时，距离头部主播董宇辉离职已经整一年，在这场昂贵的“分手”之后，公司一度面临市场质疑，认为没有超头的直播机构将走向黯然。\n        然而，8月财报中给出了相反的答案，2025年财年，自营产品成为增长点，SKU比上一年同期增加近50%，对应的自营品营收来到35亿，占总营收的80%。\n        不过，从流量驱动到产品驱动，在外界的解读中，多少都带有点“被迫”转型，背水一战的意思。\n        实际上，这背后是一个被长期忽略的真相：东方甄选从诞生之初，就是一家产品驱动公…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MzI3OTEwMDQwNw==&mid=2649966773&idx=2&sn=a908ddd09fb05a5a6803a7aea05b9cd4&chksm=f2b63412f13b8d33bebe86ed6b78f7650c4af8d0685cbe0347c965c5111ebb091adbc08ce2af",
-          "publishedOn": "2025-10-29T18:19:59.000Z",
-          "wordCount": 264,
-          "title": "直播间巨变，东方甄选率先「换赛道」",
-          "imageUrl": null
-        },
-        {
-          "id": "1584116",
-          "author": null,
-          "description": "（点击收听本期音频👆）采访｜泓君图文｜朱婕在人工智能的浪潮里，3D数字人正在悄然改变着我们内容创作和互动的方式。\n        你或许已经发现，数字人主播和虚拟偶像们，看起来越来越流畅自然了。\n        这背后是一场数字人的技术革命：如今的3D数字人不再是那个表情略显僵硬、只能按预设脚本运行的“木偶”；它们能够根据指令，实时地生成丰富的语音、精准的表情，协调的肢体动作，并且成本变得可被接受。\n        进化的数字人，不仅活跃在当下的直播间和客服中心，未来更将在3A级游戏和影视工业领域大展拳脚。\n        然而你可能不知道的是，3D数字人滥觞于机器人领域。\n        在计算机图形学与机器人学之间，存在着一道打通虚拟与现实的“旋转门”，几十年来不断有学者穿越这道门走向另一端去寻求突破之道。\n        过去，研究者们用驱动机器人的方式，驱动虚拟世界中的数字人；如今，数字人所积累的经验，又反过来帮助机器人去理解物理世界的错综复杂。\n        本期《硅谷101》，主播泓君邀请了魔珐科技创始人兼CEO 柴金祥教授 。\n        柴教授从2000年左右便在卡内基梅隆大学机器人研究所投身3D数字人研究，已经从事该领域二十余年。\n        泓君与柴教授深入聊了3D数字人的前世今生，它取得了哪些突破性的进展，又面临着哪些挑战，以及数字人的数据和模型是如何加速具身智能进化的。\n        欢迎关注《硅谷101视频号》的音频栏目直接收听本期播客。\n        如果你喜欢我们的节目，更推荐大家使用音频客户端来收听，《硅谷101》已覆盖各大主流音频平台（渠道见文末），欢迎订阅！\n        以下是这次对话内容的精选：01数字人：下一代内容生产者泓君：前几天，硅谷大家都在关注Sora2，好像每个人都会拿它去做一段Demo，包括我们前几天刚刚…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MzA4NjUwNTI0OA==&mid=2247495432&idx=1&sn=45cb51298d6872a8a453fe22f6b5c8b1&chksm=9ef078edb775916dbdcdb2cf42f02e2d835c80d1c3532b7ed56b3cd140538ee1bcdbba0d9265",
-          "publishedOn": "2025-10-29T18:19:57.000Z",
-          "wordCount": 264,
-          "title": "站在内容创作者与机器人的交界处：聊聊3D数字人的进化",
-          "imageUrl": null
-        },
-        {
-          "id": "1584115",
-          "author": null,
-          "description": "在白色家电市场，究竟是小米的“互联网思维”能够出奇制胜，还是美的的“制造为王”能够笑到最后？\n        文丨胡镤心编辑丨张睿美的和小米，一个是制造业的王者，一个是互联网的翘楚，合作的余温尚未远去，竞争的寒光已经亮剑。\n        2024年，美的清仓所持有的小米集团全部股份，结束了双方始于2014年的“联姻”。\n        资本层面友好“分手”伴随着产品层面的直接竞争。2025年上半年，美的集团营收2523.31亿元，同比增长15.58%；小米以家电和可穿戴产品为主的IOT与生活消费产品收入710.51亿元，同比增加50.7%，其中智能大家电成为增长的核心引擎。\n        虽然体量尚有差距，但是小米的增长速度远超传统家电品牌。\n        “2030年进入大家电头部品牌，空调业务做到中国市场前二。”小米集团总裁卢伟冰如是说。\n        中国家电市场并不是一个站在风口上的性感的领域，三十年的竞争洗牌，形成了美的、海尔、格力为主导的格局（CR1约25%-40%，CR3约60%-80%）。\n        其中美的年营收约等于后二者之和，成为市场绝对的霸主。\n        而当下，美的最担心的不是昔日对手的追赶，而是小米这个闯入者会使出什么招数。\n        一场正在发生的商业奇袭，将如何改变稳固了十年的家电竞争格局？\n        美的的对手为什么不是海尔格力以风扇工厂起家的美的，从1980年涉足家电行业，到2008年营收规模超越海尔，2014年市值超越格力，营收年均复合增长率达12.3%，全球份额7.1%，用四十年时间成长为中国制造业的优秀样本。\n        其所在的家电行业，90年代初的萌芽起步期、2000年后的扩张洗牌期，在2010年前后进入龙头主导且市场集中度较高的阶段。\n        美的、海尔、格力三巨头在技术积累、渠道建…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MjM5NjAxNDE2MA==&mid=2651109396&idx=1&sn=08007c68ee3d08b3589c0e07754a17e9&chksm=bcb03de0bf1ea4f4591e243520eeca2dfef0b3e607673c29186ae48f2fed4c77d2074a952010",
-          "publishedOn": "2025-10-29T18:19:53.000Z",
-          "wordCount": 264,
-          "title": "美的的新竞争对手，为什么是小米？",
-          "imageUrl": null
-        },
-        {
-          "id": "1584114",
-          "author": null,
-          "description": "记者 董温淑编辑 高宇雷北京时间10月27日晚间，高通发布了AI200及AI250两款AI数据中心芯片，以及基于两款芯片的加速卡和机架级解决方案；两款芯片计划分别于2026和2027年投入商用。\n        这也是继高通在2019年发布Cloud AI 100、2023年发布Cloud AI 100 Ultra后，又一次推出数据中心AI推理新品。\n        消息发布当天，高通股价急剧拉升，盘中一度飙升22%达205美元，这也是高通自2024年6月下旬以来的最高股价，最终闭盘收于每股188美元，涨幅为11.09%。\n        包括摩根大通、美银证券、TD Cowen等多家投行更新了对高通的评级并维持买入，最高买入价格看至200美元。\n        同一天，高通还宣布将与沙特阿拉伯AI企业“HUMAIN”合作，推进AI200和 AI250落地应用。\n        随着AI应用需求暴增，市场对AI推理芯片需求水涨船高。\n        今年英伟达、谷歌、华为均已公布AI推理芯片新品。面向AI推理的蓝海市场，各家比拼的将不仅是技术能力，更是跑马圈地的速度。\n        对高通而言，此次对AI推理的发力不仅是涉足热门方向，也是推进其数据中心业务布局的最新一步。\n        近年，高通曾多次公开展露其对数据中心市场的兴趣，除了AI推理芯片，高通同样在数据中心CPU等方向展开了产品布局。\n        在官宣AI200及AI250发布的新闻稿最后，高通也写道：高通致力于制定一个按年推进节奏的数据中心路线图，专注于提供行业领先的AI推理性能、能源效率及TCO（总拥有成本）。\n        跻身2025数据中心推理芯片竞速赛道“AI推理”指已经过训练的模型经过部署后，对新输入的数据进行逻辑推导与预测。\n        与之对应的则是“AI训练”，指模型通过分析…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MjM5ODM5NTE0Ng==&mid=2653192594&idx=1&sn=0877b40ad48fd5ac142541f31c8cd573&chksm=bcca7a43521967e1ee4e1639662ebcc5b2a8d5b39c1dea563145ccc8352e77c929f63af85216",
-          "publishedOn": "2025-10-29T18:19:48.000Z",
-          "wordCount": 264,
-          "title": "高通新发AI推理芯片，瞄准每年4000亿美元市场 | 电厂",
-          "imageUrl": null
-        },
-        {
-          "id": "1584113",
-          "author": null,
-          "description": "新智元报道  编辑：艾伦【新智元导读】亚马逊在AI竞赛与成本压力下启动史上最大裁员，约3万人，叠加行业失业飙升。\n        AWS增速放缓、应用生态乏力，促使公司以自动化与机器人重构流程，连中层与HR亦难幸免。\n        AI优先替代中等人才与初级岗位，H-1B群体更陷险境。\n        一个灰蒙蒙的清晨，在西雅图亚马逊总部附近的咖啡馆里，一位年轻的程序员父亲正抱着尚在襁褓中的孩子，神情恍惚。\n        亚马逊总部，球型餐厅几小时前，他收到了亚马逊的内部邮件通知：他所效力的团队将被裁员。\n        他一边轻拍婴儿的背哄睡，一边凝视着手机屏幕上那封措辞谨慎却冰冷的通知邮件，内心五味杂陈。\n        同一时间的公司会议室里，亚马逊CEO安迪·贾西（Andy Jassy）正面色凝重地向董事会展示一系列数字和图表：亚马逊将启动史上最大规模的一次裁员，削减约30000名企业员工，包括中国国内员工。\n        裁员人群也不是想象中的主要面向仓库蓝领工人，而是以办公室白领为主。\n        短短一夜之间，这家全球科技巨头的裁员消息引爆行业。\n        据追踪科技行业失业数据的网站Layoffs.fyi统计，今年截至前天整个科技行业被裁员工约为98000人；而随着亚马逊这一纸通知，「2025年度被裁科技员工」的计数器瞬间飙升到了128000人以上。\n        亚马逊一家公司的动作，就占据了全行业裁员总数的约四分之一。\n        这样的规模和速度，让整个行业为之震动。或许是感受到了巨大的舆论压力，今日裁员官宣落地，变成了先裁14000人，明年1月再进行第二波大裁员，可能补上剩下的16000人，或许也可能更多。\n        一边是程序员父亲在晨光中若有所失，另一边则是高管们以冷静语气讨论着AI带来的「效率革命」。\n       …",
-          "link": "http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652640058&idx=1&sn=2c5605f48e6678df658fd9c02f00294c&chksm=f00c897ec39421c44060dd06eee42374f3780bea886b58740c8ddb8a8a2b698248502cf4d99c",
-          "publishedOn": "2025-10-29T18:19:46.000Z",
-          "wordCount": 264,
-          "title": "焦虑的贝索斯，决定先裁30000人",
-          "imageUrl": null
-        },
-        {
-          "id": "1584112",
-          "author": null,
-          "description": "上市四年的港股快运巨头安能物流（HK09956 ，股价9.40港元，市值110.56亿港元）拟私有化退市。\n        10月28日深夜，安能物流公告称，由大钜资本、淡马锡及True Light三大投资机构组成的财团与安能物流联合宣布，拟以每股12.18港元的价格对安能物流发起私有化要约。\n        据此计算，安能物流估值约143亿港元（约合人民币130.65元），这一价格较该公司10月24日（最后交易日）市值溢价近三成，这也是安能物流自2021年11月上市以来从未达到过的估值水平。\n        《每日经济新闻》记者（以下简称每经记者）注意到，安能物流创始人兼CEO秦兴华不仅将通过此次交易套现约11.83亿港元，还将卸任CEO等所有核心管理职务，转任集团高级顾问。\n        这也标志着安能物流将正式进入由财团主导、创始人退居幕后的新发展阶段。\n        公开报道显示，秦兴华曾是一名战斗机飞行员，1993年转业到中国民航。\n        2010年，秦兴华扔掉了铁饭碗，离开广西机场集团，在上海创立了一家区域性物流公司，这便是安能物流的前身。\n        据秦兴华介绍，安能物流2010年开始创业时只有50个人，主要承接大件货运（3公斤到3吨）。\n        秦兴华，视频截图秦兴华拟获现金11.83亿港元将从董事长调任为高级顾问根据公告，作为要约人财务顾问的摩根大通已确认，安能物流私有化所需的全部资金已通过收购融资和财团成员的现金出资落实到位，总额超过125.7亿港元。\n        公告提到，股东可选择全部收取现金，或将其持股转换为新控股公司TopCo的A类股份。\n        不过，换股选项设有初始上限，仅约5%的已发行股份可行使此权利，若要约人后续决定提高上限，这一比例最高可升至7.5%。\n        图片来源：安能物流公告值得注…",
-          "link": "http://mp.weixin.qq.com/s?__biz=Mzg3NTA5MjkyNQ==&mid=2248484127&idx=2&sn=44e078748edf56ac3fac0b0f39a9a037&chksm=cc3292db547c99ead9d310370fa9fe3894757406938ec8bba2287ba39af49b0e0df59eea6dd1",
-          "publishedOn": "2025-10-29T18:19:40.000Z",
-          "wordCount": 264,
-          "title": "130亿大交易，物流巨头将退市！创始人套现超10亿元退居幕后，他曾是战斗机飞行员，扔掉“铁饭碗”创业",
-          "imageUrl": null
         }
       ]
     },
@@ -19200,6 +18925,26 @@
       "siteUrl": "https://flowingdata.com",
       "articles": [
         {
+          "id": "https://flowingdata.com/?p=80454",
+          "author": "Nathan Yau",
+          "description": "Congress released a cache of Jeffrey Epstein’s email threads. For the Wall Street…\nTags: email, Jeffrey Epstein, Wall Street Journal",
+          "link": "https://flowingdata.com/2025/11/18/name-mentions-in-epstein-email-cache/",
+          "publishedOn": "2025-11-18T18:57:32.000Z",
+          "wordCount": 1409,
+          "title": "Name mentions in Epstein email cache",
+          "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/11/Mentions-in-the-Epstein-email-WSJ.png"
+        },
+        {
+          "id": "https://flowingdata.com/?p=80437",
+          "author": "Nathan Yau",
+          "description": "From the U.S. Public Interest Research Group (PIRG), a safety report on AI-powered…\nTags: children, PIRG, safety, toy",
+          "link": "https://flowingdata.com/2025/11/18/troubling-ai-powered-toys/",
+          "publishedOn": "2025-11-18T10:44:05.000Z",
+          "wordCount": 1506,
+          "title": "Troubling AI-powered toys",
+          "imageUrl": "https://s0.wp.com/_si/?t=eyJpbWciOiJodHRwczpcL1wvZmxvd2luZ2RhdGEuY29tXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDI1XC8wMVwvbG9nby1sb25lLXNxdWFyZTUxMng1MTIucG5nIiwidHh0IjoiRmxvd2luZ0RhdGEiLCJ0ZW1wbGF0ZSI6ImVkZ2UiLCJmb250IjoiIiwiYmxvZ19pZCI6MTkzODg4OX0.UFOEC8c0X-rVB0Xyf5x_xY6LW6d48WxRSUk-Ms57z7wMQ"
+        },
+        {
           "id": "https://flowingdata.com/?p=80432",
           "author": "Nathan Yau",
           "description": "In 2024, Hispanic voters in New Jersey took a hard shift to the…\nTags: election, Latino, New Jersey, New York Times",
@@ -19448,16 +19193,6 @@
           "wordCount": 1411,
           "title": "✚ Visualization Tools and Resources, October 2025 Roundup",
           "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/10/process-362-featured.png"
-        },
-        {
-          "id": "https://flowingdata.com/?p=80287",
-          "author": "Nathan Yau",
-          "description": "Alina Birjuk collected croissants around the city:\nI got a push into starting…\nTags: Alina Birjuk, collection, croissant, food",
-          "link": "https://flowingdata.com/2025/10/29/collecting-all-the-croissants-in-zurich/",
-          "publishedOn": "2025-10-29T17:51:13.000Z",
-          "wordCount": 1381,
-          "title": "Collecting all the croissants in Zürich",
-          "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/10/croissant-collection.jpg"
         }
       ]
     },
@@ -19466,6 +19201,56 @@
       "feedUrl": "http://www.pewresearch.org/feed",
       "siteUrl": "https://www.pewresearch.org/",
       "articles": [
+        {
+          "id": "https://www.pewresearch.org/?p=279561",
+          "author": "Reem Nadeem",
+          "description": "The post Appendix appeared first on Pew Research Center.",
+          "link": "https://www.pewresearch.org/science/2025/11/18/childhood-vaccines-appendix/",
+          "publishedOn": "2025-11-18T14:57:29.000Z",
+          "wordCount": 6035,
+          "title": "Appendix",
+          "imageUrl": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/11/PS_25.11.18_ChildhoodVax_featured.png?w=1200&h=628&crop=1"
+        },
+        {
+          "id": "https://www.pewresearch.org/?p=279555",
+          "author": "Reem Nadeem",
+          "description": "The American Trends Panel survey methodology Overview Data in this report comes from Wave 182 of the American Trends Panel (ATP), Pew Research Center’s nationally representative panel of randomly selected U.S. adults. The survey was conducted from Oct. 20 to Oct. 26, 2025. A total of 5,111 panelists responded out of 5,866 who were sampled, […]\nThe post Methodology appeared first on Pew Research Center.",
+          "link": "https://www.pewresearch.org/science/2025/11/18/childhood-vaccines-methodology/",
+          "publishedOn": "2025-11-18T14:57:28.000Z",
+          "wordCount": 7756,
+          "title": "Methodology",
+          "imageUrl": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/11/PS_25.11.18_ChildhoodVax_featured.png?w=1200&h=628&crop=1"
+        },
+        {
+          "id": "https://www.pewresearch.org/?p=279553",
+          "author": "Reem Nadeem",
+          "description": "This report is made possible by The Pew Charitable Trusts. It is a collaborative effort based on the input and analysis of the following individuals. Find related reports online at: pewresearch.org/science. Primary research team        Eileen Yam, Director, Science and Society ResearchGalen Stocking, Associate Director, Science and Society ResearchBrian Kennedy, Senior ResearcherGiancarlo Pasquini, Research AssociateEmma Kikuchi, […]\nThe post Acknowledgments appeared first on Pew Research Center.",
+          "link": "https://www.pewresearch.org/science/2025/11/18/childhood-vaccines-acknowledgments/",
+          "publishedOn": "2025-11-18T14:57:27.000Z",
+          "wordCount": 6180,
+          "title": "Acknowledgments",
+          "imageUrl": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/11/PS_25.11.18_ChildhoodVax_featured.png?w=1200&h=628&crop=1"
+        },
+        {
+          "id": "https://www.pewresearch.org/?p=279549",
+          "author": "Reem Nadeem",
+          "description": "Key takeaways Amid a record number of U.S. measles cases and falling childhood vaccination rates nationwide, 57% of U.S. parents with minor children have high confidence that childhood vaccines are effective at preventing illness. But trust in these vaccines – and confidence in different aspects of them – differs by parents’ demographic characteristics and party […]\nThe post Parents’ confidence in childhood vaccine effectiveness, safety testing and schedule appeared first on Pew Research Center.",
+          "link": "https://www.pewresearch.org/science/2025/11/18/parents-confidence-in-childhood-vaccine-effectiveness-safety-testing-and-schedule/",
+          "publishedOn": "2025-11-18T14:57:26.000Z",
+          "wordCount": 7564,
+          "title": "Parents’ confidence in childhood vaccine effectiveness, safety testing and schedule",
+          "imageUrl": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/11/PS_25.11.18_ChildhoodVax_featured.png?w=1200&h=628&crop=1"
+        },
+        {
+          "id": "https://www.pewresearch.org/?p=279543",
+          "author": "Reem Nadeem",
+          "description": "A majority of Americans say childhood vaccines are effective at preventing illness, but slightly fewer are confident that the vaccine schedule is safe.\nThe post How Do Americans View Childhood Vaccines, Vaccine Research and Policy? appeared first on Pew Research Center.",
+          "link": "https://www.pewresearch.org/science/2025/11/18/how-do-americans-view-childhood-vaccines-vaccine-research-and-policy/",
+          "publishedOn": "2025-11-18T14:57:24.000Z",
+          "wordCount": 8896,
+          "title": "How Do Americans View Childhood Vaccines, Vaccine Research and Policy?",
+          "imageUrl": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/11/PS_25.11.18_ChildhoodVax_featured.png?w=1200&h=628&crop=1"
+        },
         {
           "id": "https://www.pewresearch.org/?p=279237",
           "author": "Janakee Chavda",
