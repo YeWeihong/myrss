@@ -1,29 +1,240 @@
 <style>
   :root {
     /**
-     * Solarized Light
-     * Ethan Schoonover (modified by aramisgithub)
+     * Modern Light Theme
+     * 清新现代的配色方案
      */
-    --base00: #fdf6e3;
-    --base01: #eee8d5;
-    --base02: #93a1a1;
-    --base03: #839496;
-    --base04: #657b83;
-    --base05: #586e75;
-    --base06: #073642;
-    --base07: #002b36;
-    --base08: #dc322f;
-    --base09: #cb4b16;
-    --base0A: #b58900;
-    --base0B: #859900;
-    --base0C: #2aa198;
-    --base0D: #268bd2;
-    --base0E: #6c71c4;
-    --base0F: #d33682;
+    --base00: #f8fafc; /* 背景色 - 浅灰白 */
+    --base01: #ffffff; /* 卡片背景 - 纯白 */
+    --base02: #e2e8f0; /* 边框色 */
+    --base03: #94a3b8; /* 次要文字 */
+    --base04: #64748b; /* 普通文字 */
+    --base05: #475569; /* 主要文字 */
+    --base06: #334155; /* 深色文字 */
+    --base07: #1e293b; /* 最深文字 */
+    --base08: #ef4444; /* 红色 */
+    --base09: #f97316; /* 橙色 */
+    --base0A: #eab308; /* 黄色 */
+    --base0B: #22c55e; /* 绿色 */
+    --base0C: #06b6d4; /* 青色 */
+    --base0D: #3b82f6; /* 蓝色 */
+    --base0E: #8b5cf6; /* 紫色 */
+    --base0F: #ec4899; /* 粉色 */
 
     /**
-    * Components
-    */
-    --source-name-color: var(--base0C);
+     * 排版
+     */
+    --font-family-default: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", sans-serif;
+    --font-size-L: 2.4rem;
+    --font-size-m: 1.6rem;
+    --font-size-s: 1.4rem;
+    --line-height-body: 1.6;
+
+    /**
+     * 组件样式
+     */
+    --body-color: var(--base05);
+    --body-bg: var(--base00);
+    --body-padding: 24px 16px;
+    --body-stack-gap: 24px;
+
+    --accordion-content-hover-rail-color: var(--base0D);
+    --accordion-content-rail-color: var(--base02);
+    --accordion-marker-color: var(--base0D);
+    --accordion-marker-expanded-color: var(--base03);
+    --accordion-marker-hover-color: var(--base0E);
+    --accordion-marker-expanded-hover-color: var(--base08);
+
+    --article-image-border-color: var(--base02);
+    --article-image-radius: 8px;
+    --article-image-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    --article-reading-time-color: var(--base03);
+    --article-stack-gap: 12px;
+    --article-summary-color: var(--base04);
+    --article-summary-hover-color: var(--base07);
+    --article-title-color: var(--base06);
+    --article-title-expanded-color: var(--base0D);
+
+    --card-bg: var(--base01);
+    --card-border-color: var(--base02);
+    --card-padding: 16px;
+    --card-radius: 12px;
+    --card-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    --card-stack-gap: 20px;
+
+    --daily-heading-color: var(--base07);
+    --daily-heading-hover-color: var(--base0D);
+
+    --footer-color: var(--base03);
+    --footer-link-hover-color: var(--base0D);
+
+    --source-link-color: var(--base0D);
+    --source-link-hover-color: var(--base0E);
+    --source-name-color: var(--base0E);
+    --source-name-hover-color: var(--base0D);
+  }
+
+  /* 平滑过渡动画 - 仅应用于交互元素 */
+  a, button, .card, .article-expander__title, .article-summary-box-inner, 
+  .source-heading__link, .daily-heading-toggle, .article-image {
+    transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  /* 页面背景渐变 */
+  body {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
+    min-height: 100vh;
+  }
+
+  /* 卡片样式增强 */
+  .card {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04) !important;
+    border: none !important;
+  }
+
+  .card__section {
+    border-bottom: 1px solid var(--base02);
+  }
+
+  .card__section:last-child {
+    border-bottom: none;
+  }
+
+  /* 日期标题样式 */
+  .daily-heading-toggle {
+    padding: 12px 20px !important;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .daily-heading-toggle:hover {
+    background: rgba(59, 130, 246, 0.08);
+    transform: translateX(4px);
+  }
+
+  /* 文章标题样式 */
+  .article-expander__title {
+    font-weight: 500 !important;
+    padding: 8px 4px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+  }
+
+  .article-expander__title:hover {
+    background: rgba(59, 130, 246, 0.06);
+    padding-left: 8px;
+  }
+
+  /* 来源名称样式 */
+  .source-heading__name {
+    font-weight: 600 !important;
+    font-size: 1.5rem !important;
+    letter-spacing: -0.01em;
+  }
+
+  /* 链接悬停效果 */
+  .source-heading__link {
+    padding: 4px 12px;
+    border-radius: 6px;
+    background: var(--base02);
+    transition: all 0.2s ease;
+  }
+
+  .source-heading__link:hover {
+    background: var(--base0D) !important;
+    color: white !important;
+    text-decoration: none !important;
+  }
+
+  /* 文章摘要样式 */
+  .article-summary-box-inner {
+    border-left: 2px solid var(--base0D) !important;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px !important;
+    background: rgba(59, 130, 246, 0.03);
+    transition: all 0.2s ease;
+  }
+
+  .article-summary-link:hover .article-summary-box-inner {
+    background: rgba(59, 130, 246, 0.08);
+    border-left-color: var(--base0E) !important;
+  }
+
+  /* 图片样式 */
+  .article-image {
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .article-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15) !important;
+  }
+
+  /* 页脚样式 */
+  footer {
+    margin-top: 20px;
+    padding: 16px 20px !important;
+    background: var(--base01);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+
+  /* 滚动条美化 */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--base02);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--base03);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--base04);
+  }
+
+  /* 响应式优化 */
+  @media (max-width: 640px) {
+    body {
+      padding: 12px !important;
+    }
+    
+    .card {
+      border-radius: 10px !important;
+    }
+    
+    .daily-heading-toggle {
+      font-size: 1.8rem !important;
+    }
+  }
+
+  /* 文章展开动画 */
+  .article-expander[open] {
+    animation: expandIn 0.3s ease;
+  }
+
+  @keyframes expandIn {
+    from {
+      opacity: 0.8;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* 阅读时间标签样式 */
+  .article-reading-time {
+    background: var(--base02);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 1.2rem !important;
   }
 </style>
