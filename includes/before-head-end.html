@@ -385,4 +385,442 @@
     border-radius: 10px;
     font-size: 1.2rem !important;
   }
+
+  /* ========== 订阅源筛选器样式 ========== */
+  
+  /* 筛选器容器 */
+  .source-filter-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+
+  /* 筛选器切换按钮 */
+  .source-filter-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: var(--base01);
+    border: 1px solid var(--base02);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    cursor: pointer;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--base06);
+    transition: all 0.2s ease;
+  }
+
+  .source-filter-toggle:hover {
+    background: var(--base0D);
+    color: white;
+    border-color: var(--base0D);
+  }
+
+  .source-filter-toggle.active {
+    background: var(--base0D);
+    color: white;
+    border-color: var(--base0D);
+  }
+
+  .source-filter-toggle__icon {
+    font-size: 1.6rem;
+  }
+
+  .source-filter-toggle__count {
+    background: var(--base0E);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .source-filter-toggle.active .source-filter-toggle__count {
+    background: white;
+    color: var(--base0D);
+  }
+
+  /* 筛选器面板 */
+  .source-filter-panel {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 280px;
+    max-height: 70vh;
+    background: var(--base01);
+    border: 1px solid var(--base02);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    overflow: hidden;
+    display: none;
+    flex-direction: column;
+  }
+
+  .source-filter-panel.open {
+    display: flex;
+  }
+
+  /* 面板头部 */
+  .source-filter-header {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--base02);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--base00);
+  }
+
+  .source-filter-header__title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--base07);
+  }
+
+  .source-filter-header__clear {
+    padding: 4px 10px;
+    background: var(--base02);
+    border: none;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    color: var(--base05);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .source-filter-header__clear:hover {
+    background: var(--base08);
+    color: white;
+  }
+
+  /* 搜索框 */
+  .source-filter-search {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--base02);
+  }
+
+  .source-filter-search__input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--base02);
+    border-radius: 8px;
+    font-size: 1.3rem;
+    background: var(--base00);
+    color: var(--base06);
+    transition: border-color 0.2s ease;
+  }
+
+  .source-filter-search__input:focus {
+    outline: none;
+    border-color: var(--base0D);
+  }
+
+  .source-filter-search__input::placeholder {
+    color: var(--base03);
+  }
+
+  /* 源列表 */
+  .source-filter-list {
+    list-style: none;
+    margin: 0;
+    padding: 8px 0;
+    overflow-y: auto;
+    flex: 1;
+    max-height: calc(70vh - 120px);
+  }
+
+  .source-filter-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+  }
+
+  .source-filter-item:hover {
+    background: var(--base00);
+  }
+
+  .source-filter-item.selected {
+    background: rgba(59, 130, 246, 0.1);
+  }
+
+  .source-filter-item__checkbox {
+    width: 18px;
+    height: 18px;
+    margin-right: 12px;
+    accent-color: var(--base0D);
+    cursor: pointer;
+  }
+
+  .source-filter-item__name {
+    flex: 1;
+    font-size: 1.3rem;
+    color: var(--base06);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .source-filter-item__count {
+    font-size: 1.1rem;
+    color: var(--base03);
+    background: var(--base02);
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-left: 8px;
+  }
+
+  /* 空状态 */
+  .source-filter-empty {
+    padding: 20px 16px;
+    text-align: center;
+    color: var(--base03);
+    font-size: 1.3rem;
+  }
+
+  /* 隐藏被筛选的内容 */
+  .card__section.source-hidden {
+    display: none !important;
+  }
+
+  .daily-content.day-hidden {
+    display: none !important;
+  }
+
+  /* 移动端适配 */
+  @media (max-width: 640px) {
+    .source-filter-container {
+      top: 10px;
+      right: 10px;
+    }
+
+    .source-filter-toggle {
+      padding: 8px 12px;
+      font-size: 1.2rem;
+    }
+
+    .source-filter-toggle__text {
+      display: none;
+    }
+
+    .source-filter-toggle__icon {
+      font-size: 1.8rem;
+    }
+
+    .source-filter-panel {
+      width: calc(100vw - 20px);
+      max-width: 320px;
+      max-height: 60vh;
+    }
+
+    .source-filter-list {
+      max-height: calc(60vh - 120px);
+    }
+  }
 </style>
+
+<!-- 订阅源筛选器脚本 -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 初始化筛选器
+  initSourceFilter();
+});
+
+function initSourceFilter() {
+  // 收集所有订阅源
+  const sources = collectSources();
+  
+  if (sources.length === 0) return;
+  
+  // 创建筛选器UI
+  createFilterUI(sources);
+  
+  // 绑定事件
+  bindFilterEvents(sources);
+}
+
+function collectSources() {
+  const sourceElements = document.querySelectorAll('.source-heading__name');
+  const sourceMap = new Map();
+  
+  sourceElements.forEach(el => {
+    const name = el.textContent.trim();
+    const section = el.closest('.card__section');
+    
+    if (sourceMap.has(name)) {
+      sourceMap.get(name).count++;
+      sourceMap.get(name).sections.push(section);
+    } else {
+      sourceMap.set(name, {
+        name: name,
+        count: 1,
+        sections: [section]
+      });
+    }
+  });
+  
+  return Array.from(sourceMap.values()).sort((a, b) => a.name.localeCompare(b.name, 'zh-CN'));
+}
+
+function createFilterUI(sources) {
+  const container = document.createElement('div');
+  container.className = 'source-filter-container';
+  container.innerHTML = `
+    <button class="source-filter-toggle" id="sourceFilterToggle">
+      <span class="source-filter-toggle__icon">📑</span>
+      <span class="source-filter-toggle__text">筛选源</span>
+      <span class="source-filter-toggle__count">${sources.length}</span>
+    </button>
+    <div class="source-filter-panel" id="sourceFilterPanel">
+      <div class="source-filter-header">
+        <span class="source-filter-header__title">订阅源目录</span>
+        <button class="source-filter-header__clear" id="sourceFilterClear">清除筛选</button>
+      </div>
+      <div class="source-filter-search">
+        <input type="text" class="source-filter-search__input" id="sourceFilterSearch" placeholder="搜索订阅源...">
+      </div>
+      <ul class="source-filter-list" id="sourceFilterList">
+        ${sources.map((source, index) => `
+          <li class="source-filter-item" data-source-index="${index}">
+            <input type="checkbox" class="source-filter-item__checkbox" id="source-${index}" checked>
+            <label class="source-filter-item__name" for="source-${index}">${escapeHtml(source.name)}</label>
+            <span class="source-filter-item__count">${source.count}</span>
+          </li>
+        `).join('')}
+      </ul>
+    </div>
+  `;
+  
+  document.body.appendChild(container);
+}
+
+function bindFilterEvents(sources) {
+  const toggle = document.getElementById('sourceFilterToggle');
+  const panel = document.getElementById('sourceFilterPanel');
+  const clearBtn = document.getElementById('sourceFilterClear');
+  const searchInput = document.getElementById('sourceFilterSearch');
+  const list = document.getElementById('sourceFilterList');
+  
+  // 切换面板显示
+  toggle.addEventListener('click', function(e) {
+    e.stopPropagation();
+    panel.classList.toggle('open');
+    toggle.classList.toggle('active');
+  });
+  
+  // 点击外部关闭面板
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.source-filter-container')) {
+      panel.classList.remove('open');
+      toggle.classList.remove('active');
+    }
+  });
+  
+  // 搜索功能
+  searchInput.addEventListener('input', function() {
+    const keyword = this.value.toLowerCase().trim();
+    const items = list.querySelectorAll('.source-filter-item');
+    
+    items.forEach((item, index) => {
+      const name = sources[index].name.toLowerCase();
+      if (keyword === '' || name.includes(keyword)) {
+        item.style.display = '';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  });
+  
+  // 清除筛选
+  clearBtn.addEventListener('click', function() {
+    const checkboxes = list.querySelectorAll('.source-filter-item__checkbox');
+    checkboxes.forEach(cb => cb.checked = true);
+    applyFilter(sources);
+    updateToggleCount(sources);
+  });
+  
+  // 选择源
+  list.addEventListener('change', function(e) {
+    if (e.target.classList.contains('source-filter-item__checkbox')) {
+      applyFilter(sources);
+      updateToggleCount(sources);
+    }
+  });
+  
+  // 点击整行切换选中
+  list.addEventListener('click', function(e) {
+    const item = e.target.closest('.source-filter-item');
+    if (item && !e.target.classList.contains('source-filter-item__checkbox')) {
+      const checkbox = item.querySelector('.source-filter-item__checkbox');
+      checkbox.checked = !checkbox.checked;
+      applyFilter(sources);
+      updateToggleCount(sources);
+    }
+  });
+}
+
+function applyFilter(sources) {
+  const list = document.getElementById('sourceFilterList');
+  const checkboxes = list.querySelectorAll('.source-filter-item__checkbox');
+  
+  // 收集选中的源
+  const selectedSources = new Set();
+  checkboxes.forEach((cb, index) => {
+    if (cb.checked) {
+      selectedSources.add(sources[index].name);
+    }
+  });
+  
+  // 更新选中状态样式
+  const items = list.querySelectorAll('.source-filter-item');
+  items.forEach((item, index) => {
+    const cb = item.querySelector('.source-filter-item__checkbox');
+    if (cb.checked) {
+      item.classList.add('selected');
+    } else {
+      item.classList.remove('selected');
+    }
+  });
+  
+  // 应用筛选
+  sources.forEach(source => {
+    const isVisible = selectedSources.has(source.name);
+    source.sections.forEach(section => {
+      if (isVisible) {
+        section.classList.remove('source-hidden');
+      } else {
+        section.classList.add('source-hidden');
+      }
+    });
+  });
+  
+  // 隐藏没有可见源的日期
+  const dailyContents = document.querySelectorAll('.daily-content');
+  dailyContents.forEach(day => {
+    const visibleSources = day.querySelectorAll('.card__section:not(.source-hidden)');
+    if (visibleSources.length === 0) {
+      day.classList.add('day-hidden');
+    } else {
+      day.classList.remove('day-hidden');
+    }
+  });
+}
+
+function updateToggleCount(sources) {
+  const list = document.getElementById('sourceFilterList');
+  const checkboxes = list.querySelectorAll('.source-filter-item__checkbox');
+  const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
+  
+  const countEl = document.querySelector('.source-filter-toggle__count');
+  countEl.textContent = `${checkedCount}/${sources.length}`;
+}
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+</script>
