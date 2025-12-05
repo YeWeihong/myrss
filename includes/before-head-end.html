@@ -201,18 +201,169 @@
     background: var(--base04);
   }
 
-  /* 响应式优化 */
+  /* 响应式优化 - 移动端适配 */
   @media (max-width: 640px) {
+    :root {
+      --font-size-L: 2rem;
+      --font-size-m: 1.4rem;
+      --font-size-s: 1.2rem;
+      --body-padding: 12px 8px;
+      --card-padding: 12px;
+    }
+    
     body {
-      padding: 12px !important;
+      padding: 12px 8px !important;
     }
     
     .card {
       border-radius: 10px !important;
     }
     
+    /* 日期标题在移动端的优化 */
     .daily-heading-toggle {
-      font-size: 1.8rem !important;
+      font-size: 1.6rem !important;
+      padding: 10px 12px !important;
+      flex-direction: column;
+      gap: 4px !important;
+      width: 100%;
+    }
+    
+    .daily-heading-toggle__date {
+      font-size: 1.3rem !important;
+    }
+    
+    /* 来源标题在移动端的优化 */
+    .source-heading {
+      flex-direction: column;
+      align-items: flex-start !important;
+      gap: 8px !important;
+    }
+    
+    .source-heading__name {
+      font-size: 1.3rem !important;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+      width: 100%;
+    }
+    
+    .source-heading__link {
+      padding: 4px 10px;
+      font-size: 1.2rem !important;
+      flex-shrink: 0;
+    }
+    
+    /* 文章标题在移动端的优化 */
+    .article-expander__title {
+      font-size: 1.4rem !important;
+      padding: 6px 2px;
+      -webkit-line-clamp: 2 !important;
+      line-height: 1.4;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+    }
+    
+    .article-expander__title::before {
+      width: 14px;
+      margin-right: 4px;
+      font-size: 1.2rem;
+    }
+    
+    /* 文章摘要在移动端的优化 */
+    .article-summary-box-inner {
+      padding: 10px 12px !important;
+      font-size: 1.2rem !important;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+    }
+    
+    .article-summary-box-outer {
+      padding: 4px 4px 10px 4px !important;
+    }
+    
+    /* 阅读时间标签在移动端的优化 */
+    .article-reading-time {
+      font-size: 1rem !important;
+      padding: 2px 6px;
+      display: inline-block;
+      margin-top: 4px;
+    }
+    
+    /* 媒体对象在移动端的优化 */
+    .media-object {
+      gap: 10px;
+    }
+    
+    .media-object__media {
+      max-width: 100%;
+      height: auto !important;
+    }
+    
+    /* 图片在移动端的优化 */
+    .article-image {
+      max-width: 100% !important;
+      height: auto !important;
+    }
+    
+    .article-image:hover {
+      transform: none;
+    }
+    
+    /* 页脚在移动端的优化 */
+    footer {
+      padding: 12px !important;
+      flex-direction: column;
+      gap: 8px;
+      text-align: center;
+      font-size: 1.1rem !important;
+    }
+    
+    /* 卡片内部区域在移动端的优化 */
+    .card__section {
+      padding: 12px !important;
+    }
+    
+    /* 禁用移动端不适合的悬停效果 */
+    .daily-heading-toggle:hover {
+      transform: none;
+    }
+    
+    .article-expander__title:hover {
+      padding-left: 2px;
+    }
+  }
+
+  /* 超小屏幕设备优化 (< 375px) */
+  @media (max-width: 375px) {
+    :root {
+      --font-size-L: 1.8rem;
+      --font-size-m: 1.3rem;
+      --font-size-s: 1.1rem;
+    }
+    
+    body {
+      padding: 8px 6px !important;
+    }
+    
+    .daily-heading-toggle {
+      font-size: 1.4rem !important;
+      padding: 8px 10px !important;
+    }
+    
+    .article-expander__title {
+      font-size: 1.3rem !important;
+    }
+    
+    .source-heading__name {
+      font-size: 1.2rem !important;
+    }
+    
+    .article-summary-box-inner {
+      padding: 8px 10px !important;
+      font-size: 1.1rem !important;
+    }
+    
+    .card__section {
+      padding: 10px !important;
     }
   }
 
