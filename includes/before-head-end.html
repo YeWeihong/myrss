@@ -426,7 +426,13 @@
   }
 
   .source-filter-toggle__icon {
-    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .source-filter-toggle__icon svg {
+    width: 1.6rem;
+    height: 1.6rem;
   }
 
   .source-filter-toggle__count {
@@ -544,7 +550,7 @@
   }
 
   .source-filter-item.selected {
-    background: rgba(59, 130, 246, 0.1);
+    background: color-mix(in srgb, var(--base0D) 10%, transparent);
   }
 
   .source-filter-item__checkbox {
@@ -606,8 +612,9 @@
       display: none;
     }
 
-    .source-filter-toggle__icon {
-      font-size: 1.8rem;
+    .source-filter-toggle__icon svg {
+      width: 1.8rem;
+      height: 1.8rem;
     }
 
     .source-filter-panel {
@@ -662,37 +669,112 @@ function collectSources() {
     }
   });
   
-  return Array.from(sourceMap.values()).sort((a, b) => a.name.localeCompare(b.name, 'zh-CN'));
+  return Array.from(sourceMap.values()).sort((a, b) => {
+    // Use the user's locale for sorting, with fallback to default
+    const userLocale = navigator.language || 'zh-CN';
+    return a.name.localeCompare(b.name, userLocale);
+  });
 }
 
 function createFilterUI(sources) {
   const container = document.createElement('div');
   container.className = 'source-filter-container';
-  container.innerHTML = `
-    <button class="source-filter-toggle" id="sourceFilterToggle">
-      <span class="source-filter-toggle__icon">📑</span>
-      <span class="source-filter-toggle__text">筛选源</span>
-      <span class="source-filter-toggle__count">${sources.length}</span>
-    </button>
-    <div class="source-filter-panel" id="sourceFilterPanel">
-      <div class="source-filter-header">
-        <span class="source-filter-header__title">订阅源目录</span>
-        <button class="source-filter-header__clear" id="sourceFilterClear">清除筛选</button>
-      </div>
-      <div class="source-filter-search">
-        <input type="text" class="source-filter-search__input" id="sourceFilterSearch" placeholder="搜索订阅源...">
-      </div>
-      <ul class="source-filter-list" id="sourceFilterList">
-        ${sources.map((source, index) => `
-          <li class="source-filter-item" data-source-index="${index}">
-            <input type="checkbox" class="source-filter-item__checkbox" id="source-${index}" checked>
-            <label class="source-filter-item__name" for="source-${index}">${escapeHtml(source.name)}</label>
-            <span class="source-filter-item__count">${source.count}</span>
-          </li>
-        `).join('')}
-      </ul>
-    </div>
-  `;
+  
+  // Create button element safely
+  const toggleBtn = document.createElement('button');
+  toggleBtn.className = 'source-filter-toggle';
+  toggleBtn.id = 'sourceFilterToggle';
+  
+  const iconSpan = document.createElement('span');
+  iconSpan.className = 'source-filter-toggle__icon';
+  iconSpan.setAttribute('aria-hidden', 'true');
+  iconSpan.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h7"/></svg>';
+  
+  const textSpan = document.createElement('span');
+  textSpan.className = 'source-filter-toggle__text';
+  textSpan.textContent = '筛选源';
+  
+  const countSpan = document.createElement('span');
+  countSpan.className = 'source-filter-toggle__count';
+  countSpan.textContent = String(sources.length);
+  
+  toggleBtn.appendChild(iconSpan);
+  toggleBtn.appendChild(textSpan);
+  toggleBtn.appendChild(countSpan);
+  
+  // Create panel
+  const panel = document.createElement('div');
+  panel.className = 'source-filter-panel';
+  panel.id = 'sourceFilterPanel';
+  
+  // Create header
+  const header = document.createElement('div');
+  header.className = 'source-filter-header';
+  
+  const headerTitle = document.createElement('span');
+  headerTitle.className = 'source-filter-header__title';
+  headerTitle.textContent = '订阅源目录';
+  
+  const clearBtn = document.createElement('button');
+  clearBtn.className = 'source-filter-header__clear';
+  clearBtn.id = 'sourceFilterClear';
+  clearBtn.textContent = '清除筛选';
+  
+  header.appendChild(headerTitle);
+  header.appendChild(clearBtn);
+  
+  // Create search
+  const searchDiv = document.createElement('div');
+  searchDiv.className = 'source-filter-search';
+  
+  const searchInput = document.createElement('input');
+  searchInput.type = 'text';
+  searchInput.className = 'source-filter-search__input';
+  searchInput.id = 'sourceFilterSearch';
+  searchInput.placeholder = '搜索订阅源...';
+  
+  searchDiv.appendChild(searchInput);
+  
+  // Create list
+  const list = document.createElement('ul');
+  list.className = 'source-filter-list';
+  list.id = 'sourceFilterList';
+  
+  sources.forEach((source, index) => {
+    // Validate index is a safe integer
+    const safeIndex = Number.isSafeInteger(index) ? index : 0;
+    
+    const li = document.createElement('li');
+    li.className = 'source-filter-item';
+    li.dataset.sourceIndex = String(safeIndex);
+    
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.className = 'source-filter-item__checkbox';
+    checkbox.id = 'source-' + safeIndex;
+    checkbox.checked = true;
+    
+    const label = document.createElement('label');
+    label.className = 'source-filter-item__name';
+    label.htmlFor = 'source-' + safeIndex;
+    label.textContent = source.name;
+    
+    const countEl = document.createElement('span');
+    countEl.className = 'source-filter-item__count';
+    countEl.textContent = String(source.count);
+    
+    li.appendChild(checkbox);
+    li.appendChild(label);
+    li.appendChild(countEl);
+    list.appendChild(li);
+  });
+  
+  panel.appendChild(header);
+  panel.appendChild(searchDiv);
+  panel.appendChild(list);
+  
+  container.appendChild(toggleBtn);
+  container.appendChild(panel);
   
   document.body.appendChild(container);
 }
