@@ -2,6 +2,11 @@
 
 This is repository hosts the UI and content of an RSS feed reader.
 
+## Documentation / 文档
+
+- [RSS订阅配置指南](docs/RSS订阅配置指南.md) - 如何配置全文抓取和控制摘要长度
+- [RSS Subscription Configuration Guide](docs/RSS订阅配置指南.md) - How to configure full-text fetching and summary length control
+
 ## Links and references
 
 - [How does it work?](https://github.com/osmoscraft/osmosfeed#osmosfeed)
