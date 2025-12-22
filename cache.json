@@ -4395,6 +4395,16 @@
       "siteUrl": "https://sspai.com",
       "articles": [
         {
+          "id": "https://sspai.com/post/104824",
+          "author": "少数派编辑部",
+          "description": "欢迎收看本期《派评》。你可以通过文章目录快速跳转到你感兴趣的内容。如果发现了其它感兴趣的App或者关注的话题，也欢迎在评论区和我们讨论。值得关注的新App虽然少数派一直在为大家发现和介绍各平台上的优质 ...查看全文",
+          "link": "https://sspai.com/post/104824",
+          "publishedOn": "2025-12-22T10:01:53.000Z",
+          "wordCount": 599,
+          "title": "派评 | 近期值得关注的 App",
+          "imageUrl": null
+        },
+        {
           "id": "https://sspai.com/post/86003",
           "author": "张奕源Nick",
           "description": "如果你曾想尝试冥想，却觉得其它方法太过麻烦，那你或许可以试试通过这个方法快速进入冥想的世界。查看全文",
@@ -4622,16 +4632,6 @@
           "publishedOn": "2025-12-16T03:06:07.000Z",
           "wordCount": 290,
           "title": "百元成本亦可圆梦：这是我的低成本痛车心得",
-          "imageUrl": null
-        },
-        {
-          "id": "https://sspai.com/post/104623",
-          "author": "少数派编辑部",
-          "description": "少数派的近期动态GAMEBABYforiPhone17Pro&17ProMax系列现已上市。进一步了解《蓝皮书》系列新版上架，一起探索全新iOS和macOS的精彩。试读并选购少数派12月主题征稿：互联 ...查看全文",
-          "link": "https://sspai.com/post/104623",
-          "publishedOn": "2025-12-16T00:02:45.000Z",
-          "wordCount": 498,
-          "title": "派早报：vivo 发布 S50 系列新机等",
           "imageUrl": null
         }
       ]
@@ -5486,46 +5486,6 @@
             "length": "0"
           },
           "imageUrl": "https://image.jido.dev/20251216032036_da22da51"
-        },
-        {
-          "id": "RAW_a473a10c",
-          "author": "dbaplus社群",
-          "description": "📌 一句话摘要\n            \n本文深入剖析了向量数据库 Milvus 的索引技术，包括其 Data Structure、Quantization 以及特殊场景索引，尤其对传统 DBA 深入理解向量索引原理提供了详尽指导。\n📝 详细摘要\n            \n文章由浅入深地揭示了 Milvus 向量数据库丰富的索引类型和算法。首先阐述了索引在数据库中的核心地位以及向量数据库索引与传统数据库索引的异同。然后详细分解了 Milvus 索引的组成，包括 Data Structure（数据存储结构）和 Quantization（数据量化算法），并对 IVF、HNSW、DISKANN 等主流 Data Structure 索引，以及 FLAT、SQ8、PQ、RABITQ、PRQ、SCANN 等 Quantization 量化算法进行了深入讲解，包括其工作原理、构建流程和关键参数。此外，文章还介绍了 AISAQ 和 MINHASH_LSH 等特殊场景索引。作者作为资深 DBA，以传统数据库视角切入，降低了向量索引的理解门槛，最后对向量数据库索引的未来发展趋势进行了展望。\n💡 主要观点\n            \n向量数据库索引的核心在于高效的内存计算，区别于传统数据库侧重削减磁盘 I/O，且索引选择可能改变查询结果。\n                         Milvus 等向量数据库的索引主要加速内存中的相似性计算，通过避免不必要的实体计算或加速必要实体的计算来优化查询。与传统数据库不同，向量数据库中开发者需要显式指定索引类型，且不同的索引选择不仅影响查询效率，还可能直接改变最终的查询结果，这要求开发者深入理解索引原理。\n                    \n\n                        Milvus 索引由数据结构（Data Structure）和量化（Quantization）两部分组成，各自承担不同的优化逻辑。\n                         Data Structure 如 IVF、HNSW、DISKANN 用于缩小需要访问的数据范围，而 Quantization 如 SQ8、PQ 等通过编码压缩，减少计算所需的空间和资源，两者结合以优化查询效率和存储。\n                    \n\n                        RABITQ 等新型量化算法利用高维空间特性，在理论精度和查询效率上取得突破。\n                         RABITQ 通过标准化、随机旋转和利用高维集中现象（测度集中现象），例如在高维空间中向量分量倾向于集中在 0 附近，在不增加额外开销的前提下，显著提升了二进制或标量数据的量化效率，展现了高维几何与概率在算法优化中的创新应用。\n                    \n\n                        MINHASH_LSH 算法专注于大规模机器学习数据集的去重和相似性搜索，尤其适用于 LLM 训练语料清理。\n                         该算法通过 MinHash 生成高效的压缩签名（指纹），结合 LSH（Locality-Sensitive Hashing）实现快速近似搜索，解决大规模数据集（如大语言模型训练语料）中 Jaccard 相似性计算的高成本问题，实现高效的数据去重和近似匹配。\n                    \n💬 文章金句\n            \n索引优化的本质是用存储空间效率换查询过程的时间效率。\nMilvus 强调了，对于大部分的算法，加载集合是在集合中进行相似性搜索和查询的前提。\n高维空间中，随机性可以出人意料地提升确定性。这个现象又被称之为测度集中现象，是高维几何和概率的一个基本规则。\nRABITQ 就是通过刚才的这个免费的信息的有效利用，从而获得了良好的性能表现。\n作为一个学习 AI 的新人和古老 DBA，我猜未来的向量数据库索引或者是量化算法，也大约会从百花齐放，走向极少的几种，最终出现一两种力压群雄的通用算法，或者是数据库产品自己根据场景和查询来选索引和算法。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：dbaplus社群\n作者：dbaplus社群\n分类：软件编程\n语言：中文\n阅读时间：48 分钟\n字数：11943\n标签：\n                    \n                        向量数据库, Milvus, 索引技术, 向量检索, 相似度搜索\n                    \n                \n            \n        \n\n        \n            阅读完整文章",
-          "link": "https://www.bestblogs.dev/article/a473a10c",
-          "publishedOn": "2025-12-15T23:15:00.000Z",
-          "wordCount": 434,
-          "title": "解码 Milvus 数据库的向量索引，传统 DBA 也能轻松上手",
-          "enclosure": {
-            "url": "https://image.jido.dev/20251216032136_cbf27e99",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://image.jido.dev/20251216032136_cbf27e99"
-        },
-        {
-          "id": "RAW_2000674051069763839",
-          "author": "Lenny Rachitsky",
-          "description": "📌 一句话摘要\n            \nLenny Rachitsky 总结了 OpenAI Codex 产品负责人的见解，强调了 AI 在软件开发、产品策略和未来生产力中不断演变的角色，以及从 Codex 中汲取的经验教训。\n📝 详细摘要\n            \nLenny Rachitsky 的这条推文提炼了与 OpenAI Codex 产品负责人 Alexander Embiricos 讨论的 10 个重要收获，涵盖了 AI 在软件开发和产品策略中的关键方面。要点包括 Codex 如何在直接集成到开发者工作流程后实现爆炸式增长，由小型团队使用 Codex 极其快速地开发 Sora 安卓应用，以及编码不断演变的性质，其中 AI 擅长解决复杂问题，并可能很快为各种任务编写代码。摘要还提到了设计师如何借助 AI 编写并部署自己的原型代码，AI 超越当前模型能力的巨大未开发潜力，以及人类打字速度作为一个瓶颈。最后指出，编码的乐趣正在转向审查 AI 编写的代码，以及对于新公司而言，对特定客户的深入理解比纯粹的构建能力更重要。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：Lenny Rachitsky(@lennysan)\n作者：Lenny Rachitsky\n分类：人工智能\n语言：英文\n阅读时间：12 分钟\n字数：2935\n标签：\n                    \n                        OpenAI Codex, AI 开发, 软件工程, Sora 应用, AI 生产力\n                    \n                \n            \n        \n\n        \n            阅读推文",
-          "link": "https://www.bestblogs.dev/status/2000674051069763839",
-          "publishedOn": "2025-12-15T21:07:19.000Z",
-          "wordCount": 469,
-          "title": "Lenny Rachitsky 分享了 OpenAI Codex 产品负责人关于 AI 对开发影响的 10 个关键收获",
-          "imageUrl": null
-        },
-        {
-          "id": "RAW_d116000",
-          "author": "Greg Isenberg",
-          "description": "📌 一句话摘要\n            \n本文介绍了萨希尔·布鲁姆的“七个问题”个人年度复盘框架，旨在指导个人反思过去的一年（2025 年），并为新的一年（2026 年）制定战略计划。\n📝 详细摘要\n            \n这篇来自“Where It Happens”播客的文章，由格雷格·伊森伯格和萨希尔·布鲁姆讨论了一个全面的个人年度复盘框架。萨希尔提出了七个关键问题，旨在帮助听众深入反思 2025 年，并为 2026 年制定可操作的计划。该框架强调识别精力来源和精力消耗点，认识“船锚”——那些阻碍进步的因素，直面恐惧，并综合关键经验教训以设定可执行的未来目标。它强调对过往经验的反思对于未来的成功至关重要，超越了简单地制定新年决心，而是一个结构化的自我评估和战略规划过程。讨论还包括使用日历进行反思和寻求外部视角的实用建议，例如向值得信赖的朋友甚至像 ChatGPT 这样的 AI 工具寻求更深入的见解。这七个问题是：1）我改变了什么想法？2）今年什么给了我能量？3）今年什么耗尽了我的能量？4）我生活中的“船锚”是什么？5）因为恐惧我没有做什么？6）我最主要的成功和失败是什么（为什么）？7）我今年学到了什么？（总结 3-10 条经验教训）。\n💡 主要观点\n            \n“七个问题”框架通过结构化自我反思来优化未来规划。\n                         这个框架超越了典型的新年决心，提供了一种系统方法，从过去一年（2025 年）中汲取经验教训，为下一年（2026 年）做战略准备，促进持续成长。它帮助个人深入了解自己的过往行为和心态。\n                    \n\n                        识别精力来源和精力消耗点对于优化个人和职业生活至关重要。\n                         通过了解什么能带来和消耗精力，个人可以调整其活动和人际关系，以保持高能量水平，从而获得更好的结果。这包括评估与各种任务和互动相关的“进行中”和“后效应”感受。\n                    \n\n                        识别并消除“船锚”是取得进步最快的方式。\n                         与其不断增加新习惯，不如消除自我设限信念、消耗精力的人际关系、低效例程或心态（即“船锚”），通过减少阻力，可以显著加速个人和职业发展。\n                    \n\n                        直面恐惧并对其进行分解，能带来清晰度并鼓励行动。\n                         许多恐惧源于缺乏经验，而非能力。通过分析采取行动的潜在弊端和益处（“恐惧设定”：一种解构恐惧的思考方式），个人可以克服心理障碍，追求有意义的目标，将恐惧转化为可应对的挑战。\n                    \n\n                        分析“最主要的成功”和“最重大的失败”及其深层原因，为未来发展提供了关键学习。\n                         客观地审视成功和失败，包括它们发生的原因，有助于理解个人偏见，识别有效的策略，并学习可应用于未来决策和目标实现的有价值经验，强调了真正“全力以赴”的重要性。\n                    \n💬 文章金句\n            \n我们不是从经验中学习，而是从对经验的反思中学习。\n最快的进步方式，是减去那些阻碍你的东西。\n恐惧实际上是缺乏经验而非缺乏能力的一种表现。\n如果你花三年时间打造某样东西，你应该为此感到自豪，并且应该愿意告诉你的朋友。\n最聪明、最成功的人不是那些拥有所有正确答案的人，而是那些提出正确问题的人。\n📊 文章信息\n            \nAI 评分：92\n精选文章：是\n来源：Greg Isenberg\n作者：Greg Isenberg\n分类：商业科技\n语言：英文\n阅读时间：28 分钟\n字数：6859\n标签：\n                    \n                        个人成长, 自我反思, 效率, 目标设定, 年度复盘\n                    \n                \n            \n        \n\n        \n            播放完整视频",
-          "link": "https://www.bestblogs.dev/video/d116000",
-          "publishedOn": "2025-12-15T21:03:41.000Z",
-          "wordCount": 404,
-          "title": "顶尖创始人都在用的萨希尔·布鲁姆年度复盘框架",
-          "enclosure": {
-            "url": "https://image.jido.dev/20251217033126_hqdefault.jpg",
-            "type": "image/jpeg",
-            "length": "0"
-          },
-          "imageUrl": "https://image.jido.dev/20251217033126_hqdefault.jpg"
         }
       ]
     },
@@ -5752,6 +5712,36 @@
       "feedUrl": "https://raw.githubusercontent.com/osnsyc/Wechat-Scholar/main/channels/wxid_5637156371511.xml",
       "siteUrl": "https://mp.weixin.qq.com/",
       "articles": [
+        {
+          "id": "http://mp.weixin.qq.com/s?__biz=MTg1MjI3MzY2MQ==&mid=2652339904&idx=1&sn=2c01787608c20a6b8ec858c209caa765&chksm=5c88be80075070d155f287e9ca68d00a1c4cfd73b8b67dd4266ef1c957664a70001d982b6448&scene=0&xtrack=1#rd",
+          "author": null,
+          "description": "作者 | 谭保罗编辑｜江江视觉 | 顾芗头图｜图虫创意2025年12月18日起，海南自由贸易港正式启动全岛封关。改革开放以来，我国境内真正出现封关的区域，只有深圳这样的经济特区。深圳，从一个小渔村开始",
+          "link": "http://mp.weixin.qq.com/s?__biz=MTg1MjI3MzY2MQ==&mid=2652339904&idx=1&sn=2c01787608c20a6b8ec858c209caa765&chksm=5c88be80075070d155f287e9ca68d00a1c4cfd73b8b67dd4266ef1c957664a70001d982b6448&scene=0&xtrack=1#rd",
+          "publishedOn": "2025-12-22T08:00:00.000Z",
+          "wordCount": 264,
+          "title": "海南封关，意义重大，远超你的想象",
+          "imageUrl": null
+        },
+        {
+          "id": "http://mp.weixin.qq.com/s?__biz=MTg1MjI3MzY2MQ==&mid=2652339904&idx=2&sn=f97007c219a6bc325b682f4a7d9967cd&chksm=5cde0504c35b2ecae63718d9b4a4d5ce36553cdddbebd44b92d05361206e20be2a4d9fc99fab&scene=0&xtrack=1#rd",
+          "author": null,
+          "description": "你有没有发现，这两年越来越多的女生开始意识到一个问题：女装怎么变得又贵又难穿了？社交媒体平台上，多少姐妹哭诉！屏幕上那件让人心动不已的“设计师款”，收到实物却像廉价道具一样，面料粗糙，甚至扎皮肤！版型",
+          "link": "http://mp.weixin.qq.com/s?__biz=MTg1MjI3MzY2MQ==&mid=2652339904&idx=2&sn=f97007c219a6bc325b682f4a7d9967cd&chksm=5cde0504c35b2ecae63718d9b4a4d5ce36553cdddbebd44b92d05361206e20be2a4d9fc99fab&scene=0&xtrack=1#rd",
+          "publishedOn": "2025-12-22T08:00:00.000Z",
+          "wordCount": 264,
+          "title": "为什么都说女装又贵又难穿？可直播间排队疯抢......",
+          "imageUrl": null
+        },
+        {
+          "id": "http://mp.weixin.qq.com/s?__biz=MTg1MjI3MzY2MQ==&mid=2652339904&idx=3&sn=7dcca7a464999b18d3c1b922d5bd0cfd&chksm=5c102ae3fc0e6eb0adb7ce5db99cddfd98c92b4c7acf51dadab7695403e174f510baa1b52b87&scene=0&xtrack=1#rd",
+          "author": null,
+          "description": "又到了一年一度准备下一年杂志的时候，明年你会选择哪些杂志陪伴孩子呢？今天我们把市面上那些内容质量好、续订率高、口碑赞的杂志都集结在一起，做了一个大专场，中英文全覆盖，保证让你一次订全心仪杂志！本次参团",
+          "link": "http://mp.weixin.qq.com/s?__biz=MTg1MjI3MzY2MQ==&mid=2652339904&idx=3&sn=7dcca7a464999b18d3c1b922d5bd0cfd&chksm=5c102ae3fc0e6eb0adb7ce5db99cddfd98c92b4c7acf51dadab7695403e174f510baa1b52b87&scene=0&xtrack=1#rd",
+          "publishedOn": "2025-12-22T08:00:00.000Z",
+          "wordCount": 264,
+          "title": "年底大破价！这些续订率超高的杂志，终于肯降价了！",
+          "imageUrl": null
+        },
         {
           "id": "http://mp.weixin.qq.com/s?__biz=MTg1MjI3MzY2MQ==&mid=2652339869&idx=1&sn=a87655fdc63913380ccfbbbd4a97cb42&chksm=5cb1b776eec3d25d3fc6a213f0f69a5966ad309b1ac83ba799bdd765265554ebb9fe1c7e8652&scene=0&xtrack=1#rd",
           "author": null,
@@ -6256,6 +6246,36 @@
       "feedUrl": "https://raw.githubusercontent.com/osnsyc/Wechat-Scholar/main/channels/gh_d00db26cc95c.xml",
       "siteUrl": "https://mp.weixin.qq.com/",
       "articles": [
+        {
+          "id": "http://mp.weixin.qq.com/s?__biz=MzAwNTA5NTYxOA==&mid=2651579737&idx=1&sn=b2e6e27ef76221c33cfe26ef0a084df8&chksm=81624e8249e3ab560806d7c543f8cf59ddfe9e8ef51c4218ed25bbf8073f263b7dcc287bc3ba&scene=0&xtrack=1#rd",
+          "author": null,
+          "description": "事先声明：本文绿色纯净无广，没事就多摸摸墙。我发现一到冬天，身边的人哪怕是壮汉，行为举止都会变得畏手畏脚、鬼鬼祟祟。不是冻得伸不开手，而是被静电打出了心理阴影。如果要列一个“冬天最讨厌的 100 个东",
+          "link": "http://mp.weixin.qq.com/s?__biz=MzAwNTA5NTYxOA==&mid=2651579737&idx=1&sn=b2e6e27ef76221c33cfe26ef0a084df8&chksm=81624e8249e3ab560806d7c543f8cf59ddfe9e8ef51c4218ed25bbf8073f263b7dcc287bc3ba&scene=0&xtrack=1#rd",
+          "publishedOn": "2025-12-22T06:25:20.000Z",
+          "wordCount": 264,
+          "title": "别买那些防静电神器了，真正的克星只需要一面墙",
+          "imageUrl": null
+        },
+        {
+          "id": "http://mp.weixin.qq.com/s?__biz=MzAwNTA5NTYxOA==&mid=2651579737&idx=2&sn=b896687c321531b4776367d7b1f7a60b&chksm=816a2906cb068bcf916a921f122d4fcfe05c0d4d692eea59598b4a794b50ed2d7cb6a0f64931&scene=0&xtrack=1#rd",
+          "author": null,
+          "description": "冬日WINTER IS COMING你的城市飘雪了吗？千百年来，人们不只是欣赏雪的飘逸、纯洁与美丽，也有人注意到它的奇特形状。早在公元前一百多年的西汉文帝时代，有位名叫韩婴的诗人就在《韩诗外传》一书中",
+          "link": "http://mp.weixin.qq.com/s?__biz=MzAwNTA5NTYxOA==&mid=2651579737&idx=2&sn=b896687c321531b4776367d7b1f7a60b&chksm=816a2906cb068bcf916a921f122d4fcfe05c0d4d692eea59598b4a794b50ed2d7cb6a0f64931&scene=0&xtrack=1#rd",
+          "publishedOn": "2025-12-22T06:25:20.000Z",
+          "wordCount": 264,
+          "title": "雪花有几瓣？彩色的雪，你见过吗？",
+          "imageUrl": null
+        },
+        {
+          "id": "http://mp.weixin.qq.com/s?__biz=MzAwNTA5NTYxOA==&mid=2651579737&idx=3&sn=0503b9ec50f5f0e0f6ea13fc3d7e2113&chksm=81df9336e00877099fa99946cc54d8d2afe775e41de00f71a80e36be7ec65d4eb49c60ee97b4&scene=0&xtrack=1#rd",
+          "author": null,
+          "description": "前几年，《海草舞》在网络上曾一度非常火，其中的歌词 “像一棵海草，海草，海草随风飘摇”更是让很多人张口就能唱起来，歌词中的画面轻松明快，让人自然联想到一株海草在海水中飘动的样子。图片来源：AI生成但是",
+          "link": "http://mp.weixin.qq.com/s?__biz=MzAwNTA5NTYxOA==&mid=2651579737&idx=3&sn=0503b9ec50f5f0e0f6ea13fc3d7e2113&chksm=81df9336e00877099fa99946cc54d8d2afe775e41de00f71a80e36be7ec65d4eb49c60ee97b4&scene=0&xtrack=1#rd",
+          "publishedOn": "2025-12-22T06:25:20.000Z",
+          "wordCount": 264,
+          "title": "当年在歌中随风飘摇的它们，正在海底快速消失",
+          "imageUrl": null
+        },
         {
           "id": "http://mp.weixin.qq.com/s?__biz=MzAwNTA5NTYxOA==&mid=2651579682&idx=1&sn=314361cacf3b6db6d4546d958d54fc08&chksm=81d3940b99f7b48db2a2f73fb7c3bf017f88d0d9752bfdf225bae3db6bec1007d18108727c10&scene=0&xtrack=1#rd",
           "author": null,
@@ -6976,6 +6996,104 @@
       "siteUrl": "https://idai.ly",
       "articles": [
         {
+          "id": "idaily-242526",
+          "author": "英国 · 威尔特郡",
+          "description": "人们在英国史前遗迹巨石阵前迎接冬至日出，威尔特郡。12月21日，英国巨石阵冬至日出共吸引约8500人现场观看，超过24.2万人在线观看日出直播。冬至日是北半球一年中白昼最短、黑夜最长的一天，2025年冬至交节时间为格林尼治标准时间12月21日下午15点03分。英国国家统计局公布数据显示英国10月 GDP 环比萎缩-0.1%，时隔7个月再次出现负增长，英国央行预计第四季度 GDP 将录得零增长。摄影师：Isabel Infantes",
+          "link": "https://m.idai.ly/se/9e8i3q",
+          "publishedOn": "2025-12-22T11:29:00.000Z",
+          "wordCount": 262,
+          "title": "北半球迎接冬至日 - December 22, 2025",
+          "enclosure": {
+            "url": "http://pic.yupoo.com/fotomag/38fea7fd/1f223647.jpg",
+            "type": "image/jpg"
+          },
+          "imageUrl": "http://pic.yupoo.com/fotomag/38fea7fd/1f223647.jpg"
+        },
+        {
+          "id": "idaily-242525",
+          "author": "日本 · 鹿儿岛县",
+          "description": "日本 H3 火箭搭载日本准天顶卫星导航系统「引路5号」（Michibiki No. 5）卫星发射升空，种子岛宇宙中心。12月22日，日本 H3 火箭发射升空后第二级发动机提前熄火，导致载荷卫星未能进入预定轨道，任务宣告失败。H3 火箭是日本宇航局与三菱重工联合研制的新一代主力运载火箭，2023年投入使用迄今共进行7次发射，失败2次，成功率为71.43%。摄影师：Koichi Nagano",
+          "link": "https://m.idai.ly/se/39czVw",
+          "publishedOn": "2025-12-22T10:58:00.000Z",
+          "wordCount": 262,
+          "title": "日本H3火箭第二次发射失败 - December 22, 2025",
+          "enclosure": {
+            "url": "http://pic.yupoo.com/fotomag/c5ce2218/9ed6f344.jpg",
+            "type": "image/jpg"
+          },
+          "imageUrl": "http://pic.yupoo.com/fotomag/c5ce2218/9ed6f344.jpg"
+        },
+        {
+          "id": "idaily-242524",
+          "author": "俄罗斯 · 圣彼得堡",
+          "description": "欧亚经济委员会最高理事会会议在俄罗斯圣彼得堡举行。12月21日，俄罗斯、白俄罗斯、亚美尼亚、哈萨克斯坦、吉尔吉斯斯坦5国领导人就联盟一体化、对外经贸合作等议题举行会谈，会后签署《2030-2045年行动计划》以及印尼与欧亚经济联盟自贸协定等多份文件。俄总统 Vladimir Putin 表示，2025年前10个月俄罗斯对欧亚经济联盟成员国的非能源出口额达到320亿美元，同比增长近20%，成员国间本币结算率已达到93%，并计划进一步构建共同金融市场。摄影师：Sergey Bulkin",
+          "link": "https://m.idai.ly/se/216sEr",
+          "publishedOn": "2025-12-22T09:57:00.000Z",
+          "wordCount": 262,
+          "title": "欧亚经济联盟峰会 - December 22, 2025",
+          "enclosure": {
+            "url": "http://pic.yupoo.com/fotomag/55e1bb48/c9df8776.jpg",
+            "type": "image/jpg"
+          },
+          "imageUrl": "http://pic.yupoo.com/fotomag/55e1bb48/c9df8776.jpg"
+        },
+        {
+          "id": "idaily-242523",
+          "author": "韩国 · 首尔",
+          "description": "韩国总统府工作人员正在安装青瓦台新闻发布厅标识牌，首尔。12月21日，韩国总统办公室时隔3年7个月正式从龙山迁回青瓦台，预计月底完成所有搬迁工作。青瓦台自1948年起成为韩国总统官邸兼办公地点，共历经12任总统。2022年至2025年，前任总统尹锡悦将总统府迁至龙山区的国防部大楼。现任总统李在明在2025年6月上任后宣布总统府迁回青瓦台，预计12月底开始在青瓦台办公。摄影师：iDaily Media",
+          "link": "https://m.idai.ly/se/64dZ8z",
+          "publishedOn": "2025-12-22T09:55:00.000Z",
+          "wordCount": 262,
+          "title": "韩国总统府迁回青瓦台 - December 22, 2025",
+          "enclosure": {
+            "url": "http://pic.yupoo.com/fotomag/19d74657/9e6dc055.jpg",
+            "type": "image/jpg"
+          },
+          "imageUrl": "http://pic.yupoo.com/fotomag/19d74657/9e6dc055.jpg"
+        },
+        {
+          "id": "idaily-242522",
+          "author": "泰国 · 素林府",
+          "description": "泰国边境民众在防空洞内躲避冲突交火，素林府。12月22日，泰国与柬埔寨边境爆发的新一轮冲突持续超过2周，迄今造成泰国22名士兵和38名平民死亡，柬埔寨20名平民死亡，两国边境逾90万人被迫临时避难。柬埔寨国防部通报泰国军队使用火炮、坦克、F-16战机袭击柬境内多个目标；泰国军方称已控制几乎全部目标区域，正迫使柬军撤离。泰国和柬埔寨已同意于12月24日在泰国尖竹汶府边境举行停火谈判。摄影师：Wason Wanichakorn",
+          "link": "https://m.idai.ly/se/34986M",
+          "publishedOn": "2025-12-22T09:53:00.000Z",
+          "wordCount": 262,
+          "title": "泰柬拟再次停火谈判 - December 22, 2025",
+          "enclosure": {
+            "url": "http://pic.yupoo.com/fotomag/244b9901/dd2bb4c8.jpg",
+            "type": "image/jpg"
+          },
+          "imageUrl": "http://pic.yupoo.com/fotomag/244b9901/dd2bb4c8.jpg"
+        },
+        {
+          "id": "idaily-242521",
+          "author": "印度尼西亚 · 日惹特区",
+          "description": "远眺喷发中的印尼默拉皮火山（Mount Merapi），斯莱曼县。12月21日，印尼地质灾害研究机构（BPPTKG）通报默拉皮火山过去24小时内发生43次熔岩喷发，熔岩最大流动距离达1.5公里。印尼火山地质减灾中心报告显示该国境内约500座火山中的127座火山正处于活跃状态。默拉皮火山是印尼最活跃的火山之一，海拔高度2968米。印尼政府自2020年11月起将这座火山的喷发警戒级别维持在第二高级别，禁止民众进入火山口周围7公里区域。摄影师：Devi Rahman",
+          "link": "https://m.idai.ly/se/e2bcOx",
+          "publishedOn": "2025-12-22T09:51:00.000Z",
+          "wordCount": 262,
+          "title": "印尼默拉皮火山喷发 - December 22, 2025",
+          "enclosure": {
+            "url": "http://pic.yupoo.com/fotomag/2690d92c/afc31fd6.jpg",
+            "type": "image/jpg"
+          },
+          "imageUrl": "http://pic.yupoo.com/fotomag/2690d92c/afc31fd6.jpg"
+        },
+        {
+          "id": "idaily-242520",
+          "author": "美国 · 得克萨斯州",
+          "description": "首位进入太空的残障人士、欧空局工程师 Michaela Benthaus 与蓝色起源「新谢泼德」号飞船合影，美国得克萨斯州。12月18日，蓝色起源公司「新谢泼德」号火箭执行代号「NS-37」的商业太空旅行发射任务，共搭载6名乘员抵达距地面105公里的亚轨道空间。本次任务乘员中的33岁德国航天工程师 Benthaus 曾因自行车事故而导致下肢瘫痪，她在返回地面后成为迄今首位进入太空的残障人士。摄影师：Blue Origin",
+          "link": "https://m.idai.ly/se/eecU13",
+          "publishedOn": "2025-12-22T09:49:00.000Z",
+          "wordCount": 262,
+          "title": "首次进入太空的残障人士 - December 22, 2025",
+          "enclosure": {
+            "url": "http://pic.yupoo.com/fotomag/a0e7e54c/4cad136d.jpg",
+            "type": "image/jpg"
+          },
+          "imageUrl": "http://pic.yupoo.com/fotomag/a0e7e54c/4cad136d.jpg"
+        },
+        {
           "id": "idaily-242415",
           "author": "中国 · 文昌",
           "description": "中国长征五号运载火箭搭载「通信技术试验卫星二十三号」发射升空，海南文昌航天发射场。12月20日，长征五号火箭成功将中国航天科技集团五院研制的「通信技术试验卫星二十三号」送入预定轨道，该卫星主要用于开展多频段、高速率卫星通信技术验证。这是长征系列火箭本月执行的第7次发射任务，2025年迄今累计完成的第64次发射，大幅超出2024年全年49次发射纪录。摄影师：iDaily Media",
@@ -7628,6 +7746,26 @@
       "siteUrl": "https://news.google.com/search?q=%E8%B7%AF%E9%80%8F%E7%A4%BE&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
       "articles": [
         {
+          "id": "CBMiT0FVX3lxTE8wX1dBTWtuR0FyQkE0WkJUSDFaeGVMaHdmTlozN1Y2TjV5aEVXMGcxek9TTFNNbDJEQk41Y0xIODJzQlZnS25PNDBBd0VOQm8",
+          "author": null,
+          "description": "中国大型房地产企业万科（万果）将债务20亿元人民币（约4211亿韩元）的宽限期延长至30日，暂时避免了违约危机。 继2021年恒大集团面临破产危机后，中国房地产市场再次出现动荡。据路透社22日报道,万..  매일경제",
+          "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE8wX1dBTWtuR0FyQkE0WkJUSDFaeGVMaHdmTlozN1Y2TjV5aEVXMGcxek9TTFNNbDJEQk41Y0xIODJzQlZnS25PNDBBd0VOQm8?oc=5",
+          "publishedOn": "2025-12-22T11:30:58.000Z",
+          "wordCount": 12281,
+          "title": "中国大型房地产企业万科（万果）将债务20亿元人民币（约4211亿韩元）的宽限期延长至30日，暂时避免了违约危机。 继2021年恒大集团面临破产危机后，中国房地产市场再次出现动荡。据路透社22日报道,万.. - 매일경제",
+          "imageUrl": "https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300"
+        },
+        {
+          "id": "CBMib0FVX3lxTE5NRHl5V1pVX0dRSE9jejJ1ME9NbGJ5M3VnUTd3R1l5Vy1xRWhWU3ZWM2VuU2xLNnhTeUlRb0F2djd2QXlsVHZSMktpejhWblBjcjdfdms0aFc1NEU1a0hwbDJMUjV6b0FYMFU1V0FOaw",
+          "author": null,
+          "description": "路透社引述美情报称俄要并吞乌克兰 克宫：错误情报  联合早报",
+          "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5NRHl5V1pVX0dRSE9jejJ1ME9NbGJ5M3VnUTd3R1l5Vy1xRWhWU3ZWM2VuU2xLNnhTeUlRb0F2djd2QXlsVHZSMktpejhWblBjcjdfdms0aFc1NEU1a0hwbDJMUjV6b0FYMFU1V0FOaw?oc=5",
+          "publishedOn": "2025-12-22T09:33:00.000Z",
+          "wordCount": 12281,
+          "title": "路透社引述美情报称俄要并吞乌克兰 克宫：错误情报 - 联合早报",
+          "imageUrl": "https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300"
+        },
+        {
           "id": "CBMilgNBVV95cUxQcmowdVg2d1dRQWNqZU5aWnF4Qm5mOWo5SlpCTDRnc3MxX3NXV2Q2aHI4TE9vREkybGZkM1NUNUlwTXBXRXVwUktUWXB6M2lkeXJLRnlVSUhVUmV0QjZMci1yelJudGZVejJvZ0owOVVQZjYyODhpZ1dHNWpnb0hhX09GSmJWSU0tNndIaGhTeXcwbko5OE1vdnlLeEJJYjI2bEl1akUyZ0FmQXhfSUlGd1NqeDU2VzBIalQwQ29mb1NDYlJKR2dNNmhyRlhVQ3hJcjdmZHl6NDRpUS1EY1pyOEdidmk3YzVvMlJ5VEJLWHV3VHdpZ3dzYjNsM1FfbWVLaG9xWDhSdS1WU0JJR05qZS1jaV8zLUpzc1NNaFc4U3l2eTNPYUVSaGJjRUlvRnEySEt4d2hQdUJkSXViNHAtRUJhZGt0VWFRc1dlT0NMVW5MLXlYVnRYR2ZMcEVkM3FwOFBSZ21UeUNnR3JwbE9UendZaHVVMzhlY1p1WnVwT0tUdzRSM05Qa0VxejZzaDBtSjRmMjlR",
           "author": null,
           "description": "日本拟提高外国人入籍门槛 居住满5年延至住满10年以上  dushi.singtao.ca",
@@ -7655,6 +7793,16 @@
           "publishedOn": "2025-12-22T02:49:00.000Z",
           "wordCount": 12281,
           "title": "路透社称普京想占领整个乌克兰并收复属于苏联的欧洲部分地区，美情报总监：试图通过散布谎言和虚假宣传延长俄乌冲突，并将美拖入对俄战争 - thepaper.cn",
+          "imageUrl": "https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300"
+        },
+        {
+          "id": "CBMixwFBVV95cUxNb2FRWjlOeEtoX1BVeHNWUl9UUGx3UDdLSXFzRGZ2VVBFTWhzVFF2Z1BELUVFWnByVm5SaE1MUk13R2ZyS2lCTmtrUXk0Z3daUHRMMjMxbVRwVWVoNHQyaHZRVFNXMXNjWkZ2WUd2ZVFWX1dqdGx6c1JTRS1ZMms1SU01Q2c4OEZFcl83a3pDc0d3Ukw0MEtuYld5YVpuekpnSTdpazFpMVM1cE15dWJwejRGb2NCa2RCV1g2bmlpcGtnMURTbmRj",
+          "author": null,
+          "description": "瑞士央行维持利率不变，美联储转趋谨慎，美元/瑞郎在关键区间交投  The Business Times",
+          "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNb2FRWjlOeEtoX1BVeHNWUl9UUGx3UDdLSXFzRGZ2VVBFTWhzVFF2Z1BELUVFWnByVm5SaE1MUk13R2ZyS2lCTmtrUXk0Z3daUHRMMjMxbVRwVWVoNHQyaHZRVFNXMXNjWkZ2WUd2ZVFWX1dqdGx6c1JTRS1ZMms1SU01Q2c4OEZFcl83a3pDc0d3Ukw0MEtuYld5YVpuekpnSTdpazFpMVM1cE15dWJwejRGb2NCa2RCV1g2bmlpcGtnMURTbmRj?oc=5",
+          "publishedOn": "2025-12-21T23:00:00.000Z",
+          "wordCount": 12281,
+          "title": "瑞士央行维持利率不变，美联储转趋谨慎，美元/瑞郎在关键区间交投 - The Business Times",
           "imageUrl": "https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300"
         },
         {
@@ -7695,6 +7843,16 @@
           "publishedOn": "2025-12-21T00:24:00.000Z",
           "wordCount": 12281,
           "title": "路透引述美国官员：海岸防卫队在委内瑞拉外海再扣押一艘船只 - 星岛环球网",
+          "imageUrl": "https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300"
+        },
+        {
+          "id": "CBMixgJBVV95cUxNV2U3RF9RemxMQXZkbm1zc2hlSGJoUVdUNGFzMVliTGoxMTVqbXI0Y0F0UVh0dm5XUFNzdlpfNzRMU0NIWkNWdDRUZWFVOHF3ZGw3YWllSHNickpkSFZfV0t1VWFLMEY3NG5vMWo5ZGJtNTBkOXAzNndGazlSNDZDVDlEem9xQjJCV05kQlhEM3gxeW1QWlptSXM4X0J0Ym9zSXIzLTJGNzU5ZTU3aWQ1aUZWT2hZRXFJai01SmZ5OHc3SVNXVHcxRVduRnhkaDVwNWdEZ3lfcDdsN2lNR0ZzZzVtS2E4RVpKdC1QUG9rTklzS1ZCM2Z0andEOXJYVHNmNmY2RGRvb2hyUWw4QktacmxCd1JITW94cTRkZXNBZWJHLS1GLVJTN0hfLTR2THZnbExmUzBUS3VmVjdlbFFrdkhkSjVjQQ",
+          "author": null,
+          "description": "美国议员呼吁将DeepSeek、小米等列入“涉军企业”清单  RFI",
+          "link": "https://news.google.com/rss/articles/CBMixgJBVV95cUxNV2U3RF9RemxMQXZkbm1zc2hlSGJoUVdUNGFzMVliTGoxMTVqbXI0Y0F0UVh0dm5XUFNzdlpfNzRMU0NIWkNWdDRUZWFVOHF3ZGw3YWllSHNickpkSFZfV0t1VWFLMEY3NG5vMWo5ZGJtNTBkOXAzNndGazlSNDZDVDlEem9xQjJCV05kQlhEM3gxeW1QWlptSXM4X0J0Ym9zSXIzLTJGNzU5ZTU3aWQ1aUZWT2hZRXFJai01SmZ5OHc3SVNXVHcxRVduRnhkaDVwNWdEZ3lfcDdsN2lNR0ZzZzVtS2E4RVpKdC1QUG9rTklzS1ZCM2Z0andEOXJYVHNmNmY2RGRvb2hyUWw4QktacmxCd1JITW94cTRkZXNBZWJHLS1GLVJTN0hfLTR2THZnbExmUzBUS3VmVjdlbFFrdkhkSjVjQQ?oc=5",
+          "publishedOn": "2025-12-20T21:48:02.000Z",
+          "wordCount": 12281,
+          "title": "美国议员呼吁将DeepSeek、小米等列入“涉军企业”清单 - RFI",
           "imageUrl": "https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300"
         },
         {
@@ -8375,36 +8533,6 @@
           "publishedOn": "2025-12-16T00:51:00.000Z",
           "wordCount": 12279,
           "title": "IndiGo乱局揭示印度航空市场的脆弱性 - The Business Times",
-          "imageUrl": "https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300"
-        },
-        {
-          "id": "CBMiqwNBVV95cUxQS1FDd25Qdi0wdnhScEdxc2dOSVNhUzJYa2VNaWpoQ3Fldkk2WVgxRl9CNHQ1MlV6WklqX0Zfd2MxTElOV2hvdm00Y3RMbmdYSVlJbFRFWndjalVQSnd2VzVJTUhRSXZEMGNveDNPVHgySFJZT3lhT0UzM3FiQTVlOHBCRFhuQjRORW1KckhYeHFEX2xua0ZvaHRCQUhzUHNoRS0xTllsZVRHZ2ctSFlHQlUxelRBdVhhZXJyQzFuTVRNd0k0eWpSYldpdzg5ZlU0cEkySkNuOTJ1Tk9XeE5LVlRKUTg5Z0V2YXR0WGNMbUtsNENPU1RURVJZdDlvYzV3eTJlM0wyQy1Md1docVdRTHZVakg5aENsS3QxNG5lUzQyM0pUaGVMblR6M0ZiSndEWF9PNlJsdzNZWTFJc0dwdnk2bENERU1sMlNZb3JQYW5iTTBNVXdZMHo3SWFfRjQ2akIxT2pONU5UaVlnUEttRUxQMFJwYmN4X1ZZWTFfSlRmOVhqc3NiNUpRZVpKOTkyamFqY1Q3NS1CdjV6VExhcWJPNXFockVXQlFJ",
-          "author": null,
-          "description": "玻利维亚暴雨成灾 增至20人死24人失踪 总统指灾情仍未结束  dushi.singtao.ca",
-          "link": "https://news.google.com/rss/articles/CBMiqwNBVV95cUxQS1FDd25Qdi0wdnhScEdxc2dOSVNhUzJYa2VNaWpoQ3Fldkk2WVgxRl9CNHQ1MlV6WklqX0Zfd2MxTElOV2hvdm00Y3RMbmdYSVlJbFRFWndjalVQSnd2VzVJTUhRSXZEMGNveDNPVHgySFJZT3lhT0UzM3FiQTVlOHBCRFhuQjRORW1KckhYeHFEX2xua0ZvaHRCQUhzUHNoRS0xTllsZVRHZ2ctSFlHQlUxelRBdVhhZXJyQzFuTVRNd0k0eWpSYldpdzg5ZlU0cEkySkNuOTJ1Tk9XeE5LVlRKUTg5Z0V2YXR0WGNMbUtsNENPU1RURVJZdDlvYzV3eTJlM0wyQy1Md1docVdRTHZVakg5aENsS3QxNG5lUzQyM0pUaGVMblR6M0ZiSndEWF9PNlJsdzNZWTFJc0dwdnk2bENERU1sMlNZb3JQYW5iTTBNVXdZMHo3SWFfRjQ2akIxT2pONU5UaVlnUEttRUxQMFJwYmN4X1ZZWTFfSlRmOVhqc3NiNUpRZVpKOTkyamFqY1Q3NS1CdjV6VExhcWJPNXFockVXQlFJ?oc=5",
-          "publishedOn": "2025-12-15T23:23:00.000Z",
-          "wordCount": 12279,
-          "title": "玻利维亚暴雨成灾 增至20人死24人失踪 总统指灾情仍未结束 - dushi.singtao.ca",
-          "imageUrl": "https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300"
-        },
-        {
-          "id": "CBMioAFBVV95cUxPaHJqQWhtbEZNeDBwdWkxNDNpdjBQM2tBdUZIdVBHTkpVRHNUbzhzTGZ0dXRMbDBXMW9udmszb3Z5SHpta2xEUHR4THlYcmN2ZUs1ZmczendnQkhfXzJnUE5KTDg4bDd3TUtFNkZBckRvWDBYZ19GeDl3Q005ZnpOeGRwbFROQnlUaFotZEtSVEVNc0VYd0tLZHFyQ05iVUh2",
-          "author": null,
-          "description": "中美博弈断层线上，东盟的2026年将走向何方  The Business Times",
-          "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPaHJqQWhtbEZNeDBwdWkxNDNpdjBQM2tBdUZIdVBHTkpVRHNUbzhzTGZ0dXRMbDBXMW9udmszb3Z5SHpta2xEUHR4THlYcmN2ZUs1ZmczendnQkhfXzJnUE5KTDg4bDd3TUtFNkZBckRvWDBYZ19GeDl3Q005ZnpOeGRwbFROQnlUaFotZEtSVEVNc0VYd0tLZHFyQ05iVUh2?oc=5",
-          "publishedOn": "2025-12-15T23:00:00.000Z",
-          "wordCount": 12279,
-          "title": "中美博弈断层线上，东盟的2026年将走向何方 - The Business Times",
-          "imageUrl": "https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300"
-        },
-        {
-          "id": "CBMicEFVX3lxTE92cml0SWVEMW9UX1F3ZzR1YktFbjI4RWROWTY0SjdpTXNzTmF2cVlIbEJVc0VaMU5MU3hyWklETmZZNHZvT1RwMFBsTW5MRUdueEhCVU9ZN0ctc090OGszODBFdmNPNnphUkRIUFJ5ano",
-          "author": null,
-          "description": "纳斯达克将申请近24小时股票交易以满足全球需求，路透社报道 提供者 Investing.com  英为财情 Investing.com",
-          "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE92cml0SWVEMW9UX1F3ZzR1YktFbjI4RWROWTY0SjdpTXNzTmF2cVlIbEJVc0VaMU5MU3hyWklETmZZNHZvT1RwMFBsTW5MRUdueEhCVU9ZN0ctc090OGszODBFdmNPNnphUkRIUFJ5ano?oc=5",
-          "publishedOn": "2025-12-15T22:34:00.000Z",
-          "wordCount": 12279,
-          "title": "纳斯达克将申请近24小时股票交易以满足全球需求，路透社报道 提供者 Investing.com - 英为财情 Investing.com",
           "imageUrl": "https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300"
         }
       ]
@@ -10120,6 +10248,16 @@
       "siteUrl": "https://gijn.org",
       "articles": [
         {
+          "id": "https://gijn.org/?p=2711074",
+          "author": "Rowan Philp",
+          "description": "GIJN's top stories from the past year, including cutting-edge reporting tools and techniques, in-person conference presentations, and analysis of the state of the IJ community.",
+          "link": "https://gijn.org/stories/2025-editors-picks-top-gijn-stories/",
+          "publishedOn": "2025-12-22T08:00:39.000Z",
+          "wordCount": 6182,
+          "title": "GIJN’s 10 Must-Read Stories of 2025",
+          "imageUrl": "https://gijn.org/wp-content/uploads/2025/12/Editors-Picks-2025-Website-Template-1-1-771x598.png"
+        },
+        {
           "id": "https://gijn.org/?p=2708239",
           "author": "Hanna Duggal",
           "description": "Our roundup of standout data journalism from the past year highlights projects that delve into conflicts in the Middle East, Ukraine, and Africa, that explore the rise of AI, and interrogate global trade wars.",
@@ -10272,6 +10410,17 @@
       "feedUrl": "https://morss.it/:proxy/https://rsshub.rssforever.com/telegram/channel/tnews365",
       "siteUrl": "https://t.me/s/tnews365",
       "articles": [
+        {
+          "id": "https://t.me/tnews365/34664",
+          "author": null,
+          "description": "竹新社:\n中共二十届四中全会10月23日闭幕，增补张升民为中央军委副主席，要求强化食药全链条监管、加强社会治安总体防控。 出席会议的中央委员剩168人，中央候补委员剩147人。根据电视画面，缺席的中央委员（不含已公布的被审查者）有刘建超（原中联部长）金壮龙（原工信部长）邹加怡（候任亚投行）雷凡培（原军民办副主任）4文官，以及包括西北南3战区司令员、东中2战区政委在内的18名高级将领。 递补中央委员11名，跳过了：王立岩（火箭军副司令员）王抗平（联勤保障部队司令员）王嘉毅（教育部总督学）方永祥（中央军委办公厅主任）方…\n\n韩胜延（中部战区空军司令）任中部战区司令员，杨志斌（东部战区副司令）任东部战区司令员，12月22日举行晋升上将军衔仪式。\n电视画面显示，董军出席仪式。台下除他之外，再无其他上将到场。\n（新华社，视频：新闻联播，图）",
+          "link": "https://t.me/tnews365/34664",
+          "publishedOn": "2025-12-22T12:34:41.000Z",
+          "wordCount": null,
+          "title": "↩️🖼 韩胜延（中部战区空军司令）任中部战区司令员，杨志斌（东部战区副司令）任东部战区司令员，12月22日举行晋升上将军衔仪式。",
+          "itunes": {},
+          "imageUrl": null
+        },
         {
           "id": "https://t.me/tnews365/34663",
           "author": null,
@@ -10869,16 +11018,6 @@
           "wordCount": 250,
           "title": "黎智英被判有罪，香港还能容忍多少异见？",
           "imageUrl": "https://static01.nyt.com/images/2025/12/14/multimedia/14int-hong-kong-verdict-preview-01-bhgv/14int-hong-kong-verdict-preview-01-bhgv-articleLarge.jpg"
-        },
-        {
-          "id": "https://cn.nytimes.com/asia-pacific/20250729/japan-veterans-world-war-ii/",
-          "author": null,
-          "description": "MARTIN FACKLER2025年7月29日 Ko Sasaki for The New York Times\n清住薰四郎（音）是一位身材瘦小的独居老人，头发花白，脊背佝偻，至今仍骑自行车去超市购物。97岁的他在那些忙着边购物边发信息的年轻顾客中显得毫不起眼。他们不知道，他的人生中藏着一段由史上最惨烈战争塑造的戏剧性故事。\n15岁时，清住成为日本帝国海军伊号第五十八攻击潜艇上最年轻的水兵。“二战”末期，这艘潜艇在太平洋活动，击沉了六艘盟军船只，其中包括重型巡洋舰“印第安纳波利斯”号。\n1946年，驻扎在佐世保的伊号第五十八攻击潜艇。该潜艇曾对盟军舰船发动鱼雷攻击，并击沉了美国的印第安纳波利斯号战列舰。\n他服役的军队在横扫亚洲的过程中犯下了暴行，日本参与了这场残酷的全球战争，最终以两座城市遭原子弹轰炸而结束。据统计，“二战”在全球造成至少6000万人死亡。\n但像清住这样的在世老兵，并非那些主导日本帝国计划的海军或陆军将领。他们只是年轻的水兵和步兵，卷入了一场并非由他们发起的战争。大多数人在十五六岁时就被派往从印度到南太平洋的偏远战场，帝国覆灭时，有些人被遗弃在丛林中饿死，有些人活下来，但要背负黑暗的秘密。\n1945年8月15日日本投降后，他们回到了一个战败的国家。这个国家对他们的牺牲漠不关心，急于抛开战争期间侵略行为带来的痛苦记忆和尴尬问题。清住过着平静的生活，在一家公用事业公司工作，负责铺设电线，为日本的战后重建提供电力支持。随着时间的推移，他以前的船员战友们相继离世，但他很少谈及自己的战时经历。\n清住薰四郎前往松山市的一家餐厅吃午餐。他是伊号第五十八攻击潜艇最年轻的船员。\n“我是最后一个了，”清住在家中说，他展示了褪色的潜艇和他年轻时当水兵的照片。\n随着“二战”结束80周年临近，在世的老兵数量正迅速减少。截至3月，仍在领取政府养老金的日本“二战”老兵仅792人，是一年…",
-          "link": "https://cn.nytimes.com/asia-pacific/20250729/japan-veterans-world-war-ii/",
-          "publishedOn": "2025-12-15T21:07:02.000Z",
-          "wordCount": 258,
-          "title": "“绝不要为天皇或国家而死”：日本“二战”老兵最后的警告",
-          "imageUrl": "https://static01.nyt.com/images/2025/06/24/world/00int-japan-WWII-veterans-promo/00int-japan-WWII-veterans-promo-articleLarge.jpg"
         }
       ]
     },
@@ -11548,6 +11687,26 @@
       "siteUrl": "https://flowingdata.com",
       "articles": [
         {
+          "id": "https://flowingdata.com/?p=80688",
+          "author": "Nathan Yau",
+          "description": "A woman in Japan “married” her virtual partner in a real-world ceremony. Such…\nTags: ChatGPT, relationships, Reuters",
+          "link": "https://flowingdata.com/2025/12/22/marrying-a-chatgpt-driven-virtual-partner/",
+          "publishedOn": "2025-12-22T11:37:22.000Z",
+          "wordCount": 1462,
+          "title": "Marrying a ChatGPT-driven virtual partner",
+          "imageUrl": "https://s0.wp.com/_si/?t=eyJpbWciOiJodHRwczpcL1wvZmxvd2luZ2RhdGEuY29tXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDI1XC8wMVwvbG9nby1sb25lLXNxdWFyZTUxMng1MTIucG5nIiwidHh0IjoiRmxvd2luZ0RhdGEiLCJ0ZW1wbGF0ZSI6ImVkZ2UiLCJmb250IjoiIiwiYmxvZ19pZCI6MTkzODg4OX0.UFOEC8c0X-rVB0Xyf5x_xY6LW6d48WxRSUk-Ms57z7wMQ"
+        },
+        {
+          "id": "https://flowingdata.com/?p=80683",
+          "author": "Nathan Yau",
+          "description": "Anthropic let the Wall Street Journal kick the tires on an AI-driven vending…\nTags: vending machine, Wall Street Journal",
+          "link": "https://flowingdata.com/2025/12/22/ai-vending-machine-gets-tested/",
+          "publishedOn": "2025-12-22T09:42:13.000Z",
+          "wordCount": 1408,
+          "title": "AI vending machine gets tested",
+          "imageUrl": "https://flowingdata.com/wp-content/uploads/2025/12/AI-vending-machine.png"
+        },
+        {
           "id": "https://flowingdata.com/?p=80678",
           "author": "Nathan Yau",
           "description": "For the Wall Street Journal, David Uberti, Juanje Gómez, and Kara Dapena mapped…\nTags: business, family, Wall Street Journal",
@@ -12077,6 +12236,106 @@
       "feedUrl": "https://rss.aishort.top/?type=wasi",
       "siteUrl": "https://qnmlgb.tech/",
       "articles": [
+        {
+          "id": "1694761",
+          "author": null,
+          "description": "新智元报道  编辑：定慧【新智元导读】2025年底，当人类都在憧憬和等待一个全知全能的AI之神时，谷歌DeepMind却泼了一盆冷水！\n        12月19日，谷歌DeepMind抛出了一个让人细思极恐又脑洞大开的新观点：如果所谓的AGI（通用人工智能）并不是一个超级实体，而是「凑出来」的呢？\n        论文地址：https://arxiv.org/abs/2512.16856在人工智能发展的宏大叙事中，我们长期被一种单一的、近乎宗教般的想象所占据：通用人工智能（AGI）将以一个全知全能的「超级大脑」形式降临。\n        这种叙事深深植根于科幻文学与早期AI研究的土壤中，导致当下的AI安全与对齐研究主要聚焦于如何控制这个假设中的单体化存在。\n        而且包括人工智能教父Hinton等人都试图将人类价值观植入这个大脑，仿佛只要解决了这个超级单体的「心智」问题，人类的安全便有了保障。\n        然而，DeepMind这篇在2025年末发布的重磅论文《分布式AGI安全》犹如一道惊雷，彻底颠覆了这一根深蒂固的假设。\n        这种「单体AGI」假设存在巨大的盲区，甚至可能是一个危险的误导！\n        它忽视了复杂系统演化的另一种极高可能性的路径，也是生物界和人类社会智慧产生的真实路径：分布式涌现。\n        这不仅仅是一个技术预测，更是一场关于智能本质的哲学重构：AGI不再是一个「实体」，而是一种「事态」、一家公司、一种组织。\n        它是一个成熟的、去中心化的智能体经济体，在这个系统中，一般性智能表现为集体智能。\n        这种视角的转换迫使我们将目光从心理学（如何让一个「神」善良）转向社会学与经济学（如何让一个「神族社会」稳定）。\n        这篇论文之所以能打破技术、经济与博弈论的壁垒，是由于作者团队是拉满的…",
+          "link": "http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652656640&idx=1&sn=3a7bd3e404c8f891ffcf24666379b548&chksm=f04bcfa64b189382eb389b9301fc00deeb70f54b062556233b6d7a545c8b080576288dfc5016",
+          "publishedOn": "2025-12-22T10:02:32.000Z",
+          "wordCount": 264,
+          "title": "辛顿高徒压轴，谷歌最新颠覆性论文：AGI不是神，只是「一家公司」！",
+          "imageUrl": null
+        },
+        {
+          "id": "1694760",
+          "author": null,
+          "description": "新智元报道  编辑：LRST【新智元导读】浙江大学ReLER团队开源ContextGen框架，攻克多实例图像生成中布局与身份协同控制难题。\n        基于Diffusion Transformer架构，通过双重注意力机制，实现布局精准锚定与身份高保真隔离，在基准测试中超越开源SOTA模型，对标GPT-4o等闭源系统，为定制化AI图像生成带来新突破。\n        在定制化AI图像生成领域，多实例图像生成（MIG）面临一个关键的协同控制挑战：精确布局控制和多主体身份保真的同步实现。\n        现有方法往往只能达成二者之一，少数能兼顾的方法在性能上也存在显著不足。\n        为解决这一布局与身份的协同控制瓶颈，浙江大学ReLER团队提出了ContextGen框架，首次在Diffusion Transformer (DiT) 架构内部，通过双重上下文注意力机制实现了架构级的分层解耦控制。\n        ContextGen在基准测试上，身份保持能力超越SOTA开源模型，并成功对标了GPT-4o和Nano-Banana等强大的闭源系统，实现了在复杂定制化控制方面实现了关键突破。\n        论文地址：https://arxiv.org/abs/2510.11000代码地址：https://github.com/nenhang/ContextGen行业痛点多实例生成中的「协同控制挑战」当前MIG模型在实际应用中，主要表现出在布局精准度与身份保真度协同控制上的挑战：宏观布局难以固化：即使模型显式提供了布局控制功能，生成的多个实例也难以精确地锚定到用户指定的空间位置，属性泄露和实例遗失现象频发，导致生成图像的构图混乱且不符合预期。\n        身份细节极易丢失：目前很多模型都支持多主体定制化，但主体数量增加时，身份细节丢失的概率会显著上升，生成结果往往无法忠…",
+          "link": "http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652656640&idx=2&sn=c44fdd63b984b49f5f15c2b346669d27&chksm=f0988773f7f33440afb807af5a85da77948556fc6d44c086861adfbbbcf4f69b767cfe281031",
+          "publishedOn": "2025-12-22T10:02:32.000Z",
+          "wordCount": 264,
+          "title": "对标GPT-4o和香蕉！浙大开源ContextGen：布局身份协同新SOTA",
+          "imageUrl": null
+        },
+        {
+          "id": "1694759",
+          "author": null,
+          "description": "TwiG团队 投稿 量子位 | 公众号 QbitAI在文生图（Text-to-Image）和视频生成领域，以FLUX.1、Emu3为代表的扩散模型与自回归模型已经能生成极其逼真的画面。\n        但当你要求模型处理复杂的空间关系、多物体交互或精准的数量控制时，它们往往会“露怯”：不是把猫画到了窗户外面，就是把三个苹果画成了四个。\n        为了解决这个问题，学术界此前主要有两条路：一条是“谋定而后动”（Think-before-Generation），即在画第一笔之前，先写好详细的布局计划。\n        但这就像让画家在动笔前必须把每一笔都想得清清楚楚，一旦开画就无法更改，缺乏灵活性。\n        另一条是“亡羊补牢”（Think-after-Generation），即先把图画完，再通过多轮对话来挑错、修改。\n        这虽然有效，但往往意味着巨大的推理开销和漫长的等待时间。\n        那么，有没有一种方法，能让模型像人类画家一样，在作画的过程中停下来看一眼，既能审视刚才画得对不对，又能为下一笔做好规划？\n        近日，来自香港中文大学、美团等机构的研究团队提出了一种全新的范式——\n        Thinking-while-Generating（TwiG）。\n        这是首个在单一生成轨迹中、以局部区域为粒度，将文本推理与视觉生成深度交织（Interleave）的框架。\n        什么是Thinking-while-Generating？\n        如果说之前的视觉生成是“一口气跑到底”，TwiG则更像是一种“间歇性思考”。\n        研究团队受到大语言模型（LLM）中思维链（Chain-of-Thought）的启发，但他们反其道而行之：不再是用图片辅助推理，而是用推理来引导作画。\n        在Tw…",
+          "link": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247856197&idx=3&sn=6f64514a7e533b497777eb08ae0c4820&chksm=e96f6459377d6854df9a73a8a1530063d4ab38675d9506320c9cc8e819a055951cc88164c5b6",
+          "publishedOn": "2025-12-22T10:02:32.000Z",
+          "wordCount": 264,
+          "title": "让AI像人类画家一样边画边想，港中文&美团让模型「走一步看一步」",
+          "imageUrl": null
+        },
+        {
+          "id": "1694758",
+          "author": null,
+          "description": "作者｜冬梅\t在通用大模型赛道尚未走出“长期投入期”的背景下，资本市场已经率先迎来新的叙事节点。\n        12 月 21 日，通用人工智能（AGI）公司 MiniMax（稀宇科技）通过港交所上市聆讯，并首次刊发聆讯后资料集（PHIP）版本招股书。\n        继智谱 AI 于 12 月 19 日披露招股书后，MiniMax 成为“大模型六小虎”中第二家通过港交所聆讯的中国大模型企业，若按计划于明年初完成上市，这家成立于 2022 年初的公司，将成为全球范围内从创立到登陆资本市场用时最短的 AI 企业之一。\n        385 人历时 4 年冲刺 AGI 全球第一股，MiniMax 赴港 IPO 聆讯MiniMax 成立于 2022 年初，被认为是国内首批大规模应用“混合专家”（MoE）架构的公司之一——\n        这种方法后来被 DeepSeek 采用并推广。MiniMax 在招股书中将自身定位为“生而全球化”的 AI 企业，核心目标是研发具备国际竞争力的通用人工智能模型，并面向全球市场展开业务布局。\n        截至 2025 年 9 月 30 日，MiniMax 持有的现金及现金等价物余额约为 10.46 亿美元，为其持续投入模型研发和算力资源提供了较为充足的资金保障。\n        招股书显示，MiniMax 员工 385 人，平均年龄为 29 岁，董事会成员同样呈现年轻化趋势，根据其聆讯后资料集（PHIP）版本的招股书资料，这家年轻公司有望刷新纪录，成为从成立到 IPO 历时最短的 AI 公司。\n        MiniMax 创始人兼 CEO 闫俊杰曾是商汤科技的计算机视觉专家，他专注于开发多模态人工智能模型。\n        闫俊杰的学术背景与产业经历，构成了其技术路线和公司发展路径的重要注脚。\n        公开资料显示，闫俊杰出生…",
+          "link": "http://mp.weixin.qq.com/s?__biz=MzU1NDA4NjU2MA==&mid=2247651904&idx=1&sn=6466db10b978d2fe4572a634f1feb02f&chksm=fafc52c20f5dad10a14c671919727f0de0740e93addcdc47a46cad82f1d8db764eacd1cd7ac8",
+          "publishedOn": "2025-12-22T10:02:32.000Z",
+          "wordCount": 264,
+          "title": "382人、平均95后，MiniMax百亿估值冲刺IPO！招股书首次披露业绩：研发成本仅为OpenAI的1%、收入猛增8倍",
+          "imageUrl": null
+        },
+        {
+          "id": "1694757",
+          "author": null,
+          "description": "红利退去，机会还在，只是再不会平均分配。文丨李梦琪编辑丨石航千发生在杭州丽晶国际大厦的“主播撤离”事件，最近再次被推到舆论中心。\n        这座于2015年完工、总面积超过26万平方米的超大单体建筑，曾被视作杭州直播电商最具象征意义的地标之一。\n        39层、约8000个居住单元里，曾经满载着一代直播人的“城市梦想”。\n        巅峰时期，丽晶国际聚集着两万直播从业者。布满密密麻麻窗口的建筑外立面、昼夜不熄的灯光，让这栋楼被贴上了“一栋楼创造的GDP堪比一个县城”的标签，成为杭州直播产业最直观、也最夸张的缩影。\n        但如今，发生在这里的“神话”正在破灭。不久前，一则“丽晶国际主播撤离房租腰斩”的消息登上热搜。\n        有报道称，目前大厦居住人数已降至约8000人，待出租房源接近200间；曾经月租最高可达4500元的单间，如今在租房平台上以1800元、甚至1200元的低价挂牌。\n        实际上，这场变故并非发生在一夜之间。“租金的拐点其实出现在2021年。”\n        丽晶国际内一家中介机构的工作人员告诉我们，那一年是大厦租金的历史高位，此后便持续回落。\n        租房网站公开数据显示，丽晶国际2021年单间租金约3000元起，此后逐年下滑，每年降幅约在10%。\n        行业热度早已下降，并非外界猜想的“快速崩盘”。可为何丽晶国际，在今天忽然成为了热议话题？\n        事实上，当类似的变化同时出现在杭州其它“网红公寓”，当部分MCN机构调整布局、搬离核心城区，当中小主播在直播商业体系中的角色发生位移……\n        “撤离丽晶国际”便不再只是某一个建筑的故事。从业者们在追问的，或许并不只是“丽晶国际为何人去楼空”，还有这个表现背后，中小主播的生存状态、直播生态的发展究竟正在发生怎样的变化？\n   …",
+          "link": "http://mp.weixin.qq.com/s?__biz=MjM5NjAxNDE2MA==&mid=2651112055&idx=1&sn=ac9589eb0997fc3f71777533ea695231&chksm=bcff5cd39190f7e6e94f773517db9a628491539e7bca73b0c16d37e0b65ec4ffba8e6f74ec47",
+          "publishedOn": "2025-12-22T10:02:32.000Z",
+          "wordCount": 264,
+          "title": "逃离杭州的网红，下一站在哪儿？",
+          "imageUrl": null
+        },
+        {
+          "id": "1694756",
+          "author": null,
+          "description": "王齐昂  独立科技观察者谁也无法想到，ChatGPT迎来三周年之际，没有庆祝和纪念，反而是内部发布的一封红色警报，再次敲响了人工智能竞争白热化的战鼓。\n        在受到Gemini 3惊艳效果的威胁下，Open AI加速推出了GPT 5.2，用更多的资源，在多项指标上实现了反超。\n        但三年下来，各大模型之间的性能差距和范式差异持续缩小，业界出现不少质疑的声音，认为大模型发展正面临天花板。\n        但也有很多人坚定看好AGI的到来，产业充满了更多的争论和分化。\n        站在2025的年尾，回顾来时之路，从DeepSeek的火热，到GPT4o 后吉卜力动画的流行，Sora2的与山姆奥特曼同框，再到谷歌Nano Banana生图的各种机器猫讲解。\n        有时似乎有恍如隔世之感，一项今年的技术，仿佛已是多年前的流行。\n        展望2026，我们不仅感受到对大模型智能瓶颈和投资回报不确定性的焦虑，看到更多的非共识，也看到大家的坚守和信仰，以及有望在多个方向的突围，更多的期待和探索正在扑面而来。\n        信仰1.Scalling Law驱动向AGI持续进化自 ChatGPT 横空出世以来，业界主流都相信只要不断增加算力、扩充数据、堆叠参数，机器的智能就会像物理定律一样增长，直至触达 AGI 的奇点。\n        然而，随着这两年大模型智能的升级逐渐放缓，以及数据枯竭论等观点，对规模法则的质疑之声越来越大。\n        Scaling Law 究竟是通往神坛的阶梯，还是人类在数学和统计学迷宫中建造的一座注定无法封顶的巴别塔？\n        对此，Gary Marcus 认为大模型并不真正理解世界，只是在巨量语料中拟合了语言相关性，而真正的智能应包含抽象化、因果建模、符号推理与长期记忆。\n        近日伊利亚在播…",
+          "link": "http://mp.weixin.qq.com/s?__biz=MjM5OTE0ODA2MQ==&mid=2650994857&idx=1&sn=b0506084bc9fe8dae628a773ce12667c&chksm=bd0a6ae425eb4272d86adf632d250b1516ca261e9a6eab0722eb73771e23e3d03af6fc3cfdc7",
+          "publishedOn": "2025-12-22T10:02:32.000Z",
+          "wordCount": 264,
+          "title": "信仰与突围：2026人工智能趋势前瞻",
+          "imageUrl": null
+        },
+        {
+          "id": "1694755",
+          "author": null,
+          "description": "停电引发的危机”作者｜融溪一次偶发事件，再次把Waymo推至风口浪尖。\n        刚过去的周末，美国旧金山遭遇大范围停电，这场突如其来的事故，影响了十多万家庭以及商户，公共交通系统也陷入混乱。\n        但谁也没想到，这次黑天鹅事件，让Waymo成为最大受害者之一。\n        因为大范围停电，街道红绿灯罢工，Waymo的自动驾驶出租车因识别不了熄灯后红绿灯，直接选择摆烂。\n        这就导致几十辆自动驾驶出租车在十字路口趴窝，旧金山多个交通路段陷入了瘫痪状态...此时此刻，马斯克跳出来了——\n        特斯拉的Robotaxi就没受到啥影响。01停电引发的事故事情还要从一场火灾说起。\n        12月20日，太平洋燃气电力公司（PG&E）变电站突发一场大火，导致旧金山市约30%的区域停电，因目前正是圣诞节前购物和社交高峰期，停电的影响也被不断扩大。\n        给这次事故煽风点火的，就是Waymo自动驾驶车队。\n        因Waymo的Robotaxi感知不到熄灭的红绿灯，直接打起双闪停在路口。\n        视频显示，Waymo被困路口后，后面排起了很长的堵车队伍，任后车如何“滴滴”，Waymo自是岿然不动。\n        有当地居民称，当地时间周六晚9点45 分左右，他看到至少三辆Waymo自动驾驶车在道路上停驶，其中一辆的停靠位置位于特克大道靠近帕克大街的路段，“这些车就直接停在了马路正中间。”\n        还有部分乘客称，被困车内长达数十分钟。在这起事故中，Waymo的远程监控中心似乎也没有处理这种突发事件的经验，导致几十辆自动驾驶车长时间在路上抛锚。\n        对此，Waymo也做了回应，称Waymo Driver系统设计为在信号灯失效时将路口时按照四路停车，但此次停电规模过大，车辆比平时停留更长时间，这…",
+          "link": "http://mp.weixin.qq.com/s?__biz=Mzg5MTc3NjgxNQ==&mid=2247546803&idx=1&sn=0ced113c6091580c112a7ec6a7d5025e&chksm=ce0038df4946ebfcbdab8d2a45e83500fef5e7dab0de5869e30aab2c2dfd30cabbf74c6330fd",
+          "publishedOn": "2025-12-22T10:02:32.000Z",
+          "wordCount": 264,
+          "title": "Waymo灾难级趴窝，马斯克成最大显眼包",
+          "imageUrl": null
+        },
+        {
+          "id": "1694754",
+          "author": null,
+          "description": "人生不如意事十之八九，可与人言者并无二三。所以，我总觉得中国人是有两副面孔的。\n        一副是假装参与进热火朝天的公共生活，急切地输出观点，寻找各自的阵营，对新技术也有着全球罕见的热忱与包容。\n        另一副是应对世事变迁的沉默挣扎，先是生理上的失语，进而是情绪上的内耗。\n        本月中旬，国家语言机构发布了 2025 年的流行语，不出意外的有：主理人、邪修、xx 基础，xx 就不基础、从从容容游刃有余匆匆忙忙连滚带爬、当个事办、如何呢又能怎……\n        每个词都是「熟面孔」，见诸于营销号的标题中、短视频的花字里，再渗透进人们的日常交谈中，成为彰显彼此并不落伍的凭证。\n        少数人的创造力引发了大众的模仿与跟随，从而构建了流行，它属于互联网上的「迷因」文化，狂欢过后就会因其浅薄而速朽。\n        我无法从年度流行语中感受到这一年人们生活的流变，以及他们在思考什么、焦虑什么。\n        流行语似乎刻意回避了对房价、养老保险等深刻生活命题的关照，使得操弄这套语言的人，仅呈现出了单一的面孔——轻盈的、快活的。\n        亲爱的，那不是生活。这一年，中国人真正的心事，何处可见呢？\n        社交媒体上分布着失真的生活，连照片都得 p 一下再发，人们也尽捡好的说。\n        真实的书写又碍于自身能力的限制，导致生活只存在能被看见的生活，缺少群像的画面。\n        我们先从关照具体入手。了解一个人最好的方式——成为它的倾听者与对话者。\n        当一个人愿意敞开心扉，真实便开始建立。这两年生活中最大的一个变化是——\n        具体的人越少承担对话者的角色，AI 肩负起解疑答惑与心灵慰藉的双重责任。\n        譬如，父母不再寻求就某些问题与子女达成沟通，他们会打开 AI 对话框，问：闺女35 了还不结婚，到底该怎么劝她呢？\n        某全球头部 AI 应用公布过一组数据：2025年上半年，平均用户会话数较 2024 年同期增长 37%，达到7.8 次；用户日均使用时间达 16 分钟。\n        原子化的社会里，人们在找「说得着」的「人」，把「说得着」的「话」聚在一起，就能看出人们的心思了——想什么、盼什么、干什么。\n        今天，千问公布了「2025 年十大AI 提示词」，摘录如下：\n        股票、八字、情感咨询、朋友圈文案、景点推荐、双色球号码、失眠、解答这道题、离婚财产分割、人生的意义。\n        我一眼望过去，脑海中浮现五个大字——脱水的生活。它沥干了流行元素、小道八卦、国际风云，剩下干巴巴的生活元命题。\n        人，这一年，似乎就活这几个关键词。早上抬眼看一下股票，中午找找双色球灵感，下午妻子问啥时候离，晚上人困马乏却又睡不着，被子一蒙，开始思考人生的意义。\n        每一个提示词都藏着这一年中国人的心事，想动动发财的小手，想朋友圈装点一把人前显贵，想远方吹着想你的风，想迈过羁绊人生的坎，想如何摆脱命运的摆布。\n        这些啊，跟您说不着，累。但 AI 它乐此不疲，看尽了世间万象，听尽了人间冷暖，承载了中国人一年的心思。\n        换句话说，流行语里的「主理人」、「邪修者」，在比特世界混，身份都是互联网给的，等他们打开 AI，展开对话，便没有角色了，生活开始具体起来——房子、票子、孩子。\n        过去，我们想回看这一年，会查看朋友圈这一年生活与思想的「动线」，如今，向外求的欲望日减，真就得打开 AI 的对话框，那些提示词串联起来，是你一年的「大电影」。\n        可日子呢是过以后，不是过从前，这一年的心事说完就放下来了，向前看。\n        PS：今年我最有感触的一句话：日子怎么能跟谁过都一样呢？\n        思考题：这一年你和 AI 聊了什么？提示词里有你的心思吗？\n        过往年终盘点：优雅地说声：2022去你的吧这一年，破防赢了绝绝子那些慵懒的人已失去了2020我的2018年度汉字",
+          "link": "http://mp.weixin.qq.com/s?__biz=MjM5NTU0NTgyMg==&mid=2650410153&idx=1&sn=67b21b3f7bb7fae86eebff5c533cbf7f&chksm=bf3d6ee26c7e78993712f57ade895965b6d0fdd948e38539255751776f8f531842cbb7f256ba",
+          "publishedOn": "2025-12-22T10:02:32.000Z",
+          "wordCount": 264,
+          "title": "2025，中国人的心事",
+          "imageUrl": null
+        },
+        {
+          "id": "1694753",
+          "author": null,
+          "description": "随着影石创新(688775.SH)（下称“影石”）及大疆创新（下称“大疆”）先后于今年进军对方“腹地”——\n        无人机及全景相机赛道，这两家影像巨头正在越来越多的线下销售场景中直接“对垒”。\n        而近日，影石创始人刘靖康在一封内部信中指控大疆实施“供应链排他”，瞬间将这场战火从线下烧向了更加焦灼的线上舆论场。\n        不过，财联社记者对话多位产业链人士了解到，下游的终端企业要求上游供应商就某一技术甚至某一品类产品进行“独供”从而“排他”，在产业链时常发生。\n        “这类排他现象并非个例，而是消费电子行业竞争到一定阶段的典型手段。智能手机领域也频繁出现排它要求，但由于智能手机主机厂商众多，通常供应商不会答应客户级别的排他或者领域级别的排他，而是仅针对单一产品规格或共同开发技术进行排他。”\n        群智咨询（Sigmaintell）半导体事业部资深分析师刘大用向财联社记者表示道。\n        值得一提的是，当有越来越多舆论指控大疆联合供应链“霸凌”影石时，有供应链人士告诉记者，影石与大疆之间的“供应链隔离”并非单向。\n        在大疆进军全景相机期间，很多与影石合作的供应链厂商也表示无法供货大疆。\n        在此情况下，所谓“供应链排他”的指控究竟是行业巨头的“霸凌”，还是新进入者“摘果子”不得引发的新一轮“舆论战”？\n        “排他指控”的背后近日，影石CEO刘靖康一封内部信打破了影像行业的宁静。\n        信中直指影石新款无人机“影翎”在上市前半年，遭遇了来自某行业巨头的排山倒海般的“排他”压力。\n        这种指控迅速在舆论场发酵，将行业龙头大疆推向了“利用垄断地位打压竞品”的被告席，大疆从行业的“老大哥”，突然变成欺负后进的“霸凌者”。\n        但财联社记者在深入供应链采访后发…",
+          "link": "http://mp.weixin.qq.com/s?__biz=Mzg5MzEyNzEwNQ==&mid=2247780712&idx=1&sn=21a0d9f369a65536ce7ce61234832366&chksm=c1818caffb312aff426657d9ced0993f586d1e04b9b147cecaa7512e46b73d92535881c1756b",
+          "publishedOn": "2025-12-22T10:02:32.000Z",
+          "wordCount": 264,
+          "title": "大疆影石“供应链排他”，是舆论争议还是产业逻辑？",
+          "imageUrl": null
+        },
+        {
+          "id": "1694719",
+          "author": null,
+          "description": "文|凯风高铁一响，黄金万两。01高铁第一大省，再次易主。刚刚，广湛高铁、汕汕高铁（汕头南至汕头段）双双开通。\n        其中，广湛高铁是粤西首条设计时速350公里高铁，通行时间从2.5小时缩短到1.5小时。\n        广湛高铁开通，不仅带动佛山、肇庆、湛江、茂名、阳江等集体迈向350高铁时代，更意味着广东大幅反超山东，重回高铁第一大省之位。\n        以时速200公里及以上为基准，加上广湛高铁以及汕汕高铁全线贯通，广东高铁运营里程达3400公里。\n        目前，全国只有广东、山东两省高铁运营里程超过3000公里，而超过2000公里的省份则有10多个。\n        作为大陆南端省份，广东没有中部地区四面逢源的区位，没有西部广袤的土地面积，而是凭借密集的高铁网络脱颖而出。\n        与中西部早期普遍依托国家投资，借助八纵八横“过路”高铁而跃升不同，广东高铁建设基本都靠自身。\n        哪怕是欠发达的粤东西北，更多也是自力更生。广东之所以能建如此之多的高铁，除了充沛的财力保障外，更重要的是来自客流的强支撑。\n        作为中国人口第一大省，广东常住人口超过1.27亿，实时人口更是高达1.5亿，其中大湾区就聚集了8700多万人。\n        人口密度、客流规模，是所有大基建的核心指标，也是推动广东拼命建高铁的终极支撑。\n        02“市市通350高铁”第二省，呼之欲出。早在2021年，随着赣深高铁开通，广东就已完成“市市通高铁”的拼图，“市市通350高铁”成为新的目标。\n        此前，广东已有京广、广深港、赣深、广汕、汕汕、梅龙等“350高铁”，这一次开通的广湛高铁，更一次性将佛山、肇庆及粤东地区集体推向350时代。\n        作为全国行政区划最多的省份，广东共有21个地市，目前已有17市接入350高铁，只有中山、珠海、江门、潮州成了空白。\n        不过，随着广中珠澳高铁、珠肇高铁、漳汕高铁持续推进，未来几年广东有望完成“市市通350高铁”闭环。\n        此前，江西成为全国首个“市市有350高铁”的省份，打破“环江西高铁圈”尴尬，但多数地市只是接入，350高铁尚未串联成网。\n        未来几年，广东有望成为继江西之后的“市市通350高铁”第二省，高铁网络更为密集，也更具连通效应。\n        借助高铁网络，大湾区之间将形成1小时乃至半小时交通圈，珠三角与粤东西北也将形成90分钟交通圈。\n        时空距离收缩，带来显著的经济产业协同效应，助力粤东西北与大湾区比翼齐飞。\n        03第一高铁大省，还在建高铁。从高铁网络图来看，广东高铁明显以广州为中心。\n        京广、广深港、广深、贵广、南广、广湛、广汕汕等高铁，均交汇于广州，诠释了国际铁路枢纽的竞争力。\n        虽以广州为中心，但深圳铁路地位也在提升。普铁时代，深圳只是边缘角色，但在高铁时代，深圳一跃成为新的枢纽。\n        目前，赣深、深厦、深茂及广深港、广深等高铁交汇，在建的则有深南高铁、深汕高铁等路线。\n        无论广州还是深圳，都不局限于铁路，而是集海陆空铁为一体，均跻身20个国际性综合交通枢纽之列。\n        目前，广深之间已有众多铁路、城轨、地铁连通，但面对庞大的客流，仍然不够。\n        根据广东省“十五五”规划建议，未来5年，广东将推进广州新机场、广深第二高铁、广清永高铁、深珠通道、藏粤直流等一批标志性工程项目。\n        这其中，广深第二高铁着眼于广深，广清永高铁则要打造广东与湖南的第二通道。\n        不仅如此，连通海南自贸港、跨越琼州海峡的湛海高铁，连接广西的合浦高铁都在推进之中，离全面动工都只有一步之遥。\n        面向未来，广东不只要继续建高铁，甚至连磁悬浮也被纳入日程。\n        在广东及广州的省市相关规划中，多次提及“预留京港澳高速磁悬浮、沪（深）广高速磁悬浮”等通道。\n        高速磁悬浮，设计时速在600公里左右，介于民航与高铁之间，在民间素有“超级高铁”之称，被视为未来交通的代表。\n        当然，考虑到技术限制、资金压力以及大基建建设的周期，高速磁悬浮从规划到落地，或许没有那么快。\n        要不要继续建高铁，能不能建磁悬浮，考验的既是财力，更是人口密度与客流强度。\n        ▼好文推荐观察 |2026，最重要的事定了湾区 |最长跨市地铁，要来了经济 |20万亿大省，呼之欲出基建 |最强城市群，拼命建机场热点 |最大自贸港，来了",
+          "link": "http://mp.weixin.qq.com/s?__biz=MzUyMTI0MDkxMg==&mid=2247511319&idx=1&sn=b1142725e5458226e3957a5a88ca1294&chksm=f8b1773a1011db8329e1d92e10c9ef8f68d85bae65f19a7bc0c6bbc3e81496372494e2185cdd",
+          "publishedOn": "2025-12-22T08:02:30.000Z",
+          "wordCount": 264,
+          "title": "中国高铁第一大省，又易主了",
+          "imageUrl": null
+        },
         {
           "id": "1694133",
           "author": null,
@@ -15095,36 +15354,6 @@
           "publishedOn": "2025-12-16T02:03:29.000Z",
           "wordCount": 264,
           "title": "smart越大，销量越差？CEO曾拒价格战，如今降价又刺老车主 | 次世代车研所",
-          "imageUrl": null
-        },
-        {
-          "id": "1677081",
-          "author": null,
-          "description": "我的年终经济观察，今天是第三篇。前两篇分别谈了经济增长的大逻辑和与消费相关的问题。\n        今天谈谈办好自己的事与转变发展方式的问题。最大的确定性就是集中精力办好自己的事“集中力量办好自己的事”是中国这些年坚持的一个基本方略，即不管外部环境怎样变化，始终坚持把国家和民族发展放在自己力量的基点上，把命运牢牢掌握在自己手中。\n        “面对不确定性，最大的确定性就是集中精力办好自己的事。”\n        这几十年，我们一直坚持踏踏实实发展制造业，制造竞争力终于成了中国经济的牢固底盘，也印证了果来自因、技不压身、滴水穿石等道理。\n        今年中美之间有五轮经贸谈判。前一段听汇丰环球投资研究大中华区首席经济学家刘晶演讲，她研究了今年4月2日美国发起“对等关税”后所有国家的反应，发现中国应该是唯一一个能形成有效反制的国家。\n        相比其他一些被加征关税的制造业国家，目前中国对美出口的关税反而有了一些优势。\n        也因此，沿海有些地方最近出现了出海企业又回流的现象。\n        在我看来，中国的这种反制力与其说是谈出来的，不如说是长期集中精力干出来的。\n        中国今年的贸易出口顺差已突破1万亿美元，也充分证明，有能力就有底气，就有机遇。\n        12月10日至11日举行的中央经济工作会议，提出了通过实践获得的“五个必须”的新认识，最后一条是“必须以苦练内功来应对外部挑战”。\n        一切都要回到自己身上，凭内功，靠自己。未来如何办好自己的事？\n        关系到很多方面。本文聚焦于一点，就是切实转变思维，转变发展方式，“投资于物和投资于人紧密结合”——\n        这也是中央经济工作会议中提出的一个“必须”。新增供应量实在太大在上一篇关于消费的观察中，我谈到中国的实物消费量是有一定增长的，只是因为竞争性…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MzA3ODI5NDg0Mw==&mid=2654247452&idx=1&sn=51c2ec53154308cb7aa6656262108333&chksm=857dc685972bc5af3e539033f2255f6dd00802a48cb434b2a0140d24eff2b77a68a34783fd7f",
-          "publishedOn": "2025-12-16T00:02:29.000Z",
-          "wordCount": 264,
-          "title": "怎样才能办好自己的事——年终经济漫谈之三 || 大视野",
-          "imageUrl": null
-        },
-        {
-          "id": "1677080",
-          "author": null,
-          "description": "年末欢聚，共启新程！撰文 | 杜咏芳编辑 | 黄大路设计 | 甄尤美德累斯顿的易北河畔，一座通体由玻璃构筑的建筑格外醒目。\n        22年来，路人透过通透的幕墙，能清晰看见一辆辆大众汽车是如何被组装起来。\n        这就是大众著名的“透明工厂”。这座工厂以“Gläserne Manufaktur”的德语命名，自2002年启用以来，不仅以其建筑美学成为城市地标，更以“完全开放的生产过程”彰显大众对制造透明度的承诺。\n        从豪华燃油车辉腾，到电动版高尔夫，再到纯电ID.3，它见证了大众从燃油时代艰难迈向电动化的全过程，并一度成为集团旗下首个全面转型的电动汽车生产基地。\n        并且，每年接待超过10万名游客，也使透明工厂成为德累斯顿的著名景点之一。\n        而现在，这座工厂正走向终点。2025年12月16日，生产线将正式关停，这也是大众汽车88年历史上，首次关闭德国本土的整车制造厂。\n        在停产前的最后窗口期，公众仍可走进这座玻璃建筑，亲眼目睹ID.3电动车的诞生。\n        工厂的命运也牵动着员工的心。最初大众计划仅保留135个职位，在大众汽车乘用车品牌CEO施文韬（Thomas Schäfer）与集团工会主席丹妮拉·卡瓦洛（Daniela Cavallo）视察协商后，保留名额提升至155个。\n        本月结束汽车生产后，该厂约有50至60人将获得岗位调动或提前退休方案。\n        更引人关注的是，大众为鼓励优秀工人迁往沃尔夫斯堡总部，开出了3万欧元一次性安置奖金，却在员工会议上遭遇了一片嘘声。\n        那么，在这一片嘘声之中，等待透明工厂的未来又是什么？\n        工厂停产后被用来干什么？12月1日，就有了确切消息，大众萨克森公司将与萨克森州及德累斯顿工业大学合作，计划在此建立一个创新中…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MjM5OTQzOTE0MA==&mid=2651623168&idx=2&sn=4ecc6cec8d69140d0f2aa15170cde093&chksm=bdd5a342d596f62a67d451d228fa54be423e4eab4169c3a9467272b6fc410ee70e50d5f35e65",
-          "publishedOn": "2025-12-16T00:02:29.000Z",
-          "wordCount": 264,
-          "title": "今天，大众历史上首次关闭本土工厂",
-          "imageUrl": null
-        },
-        {
-          "id": "1677079",
-          "author": null,
-          "description": "最近一段时间，人工智能OPC概念在一些地方爆火。“一个人+AI员工=一家公司”，这就是人工智能时代的OPC（One Person Company）模式，或者叫“超级个体”。\n        2014～2015年，中国曾经兴起过“大众创业、万众创新”的浪潮。\n        这股浪潮伴随着2006年就已开启的海外高层次人才引进，使中国的创业实现了一次跨越式的突破。\n        OPC与大众创业、万众创新，何其相似。不一样的是，“十五五”期间的“加快高水平科技自立自强”，和当年引进海外人才、紧跟国外发展的路径，重心已然不同。\n        在原有的新兴产业发展基础上，提升科技自立自强水平，激发国内创新创业的内生动力，中国或将迎来新一轮创新创业创富的大潮。\n        原有的创新创业路径被迫重构回溯过往，过去二十年，中国的创新创业图景，在很大程度上是由一幅“回归与跟随”的画卷所描绘。\n        大批海外学子与人才在中国发展的吸引下，怀揣技术与梦想归国，将国外学习到的国际前沿理念、技术和管理模式带回这片创新创业热土，他们中的很多人也实现了创富的目标。\n        和国外人才引进同步的是，中国在亦步亦趋的学习中，参与激烈的市场竞争，逐步实现了新兴产业的迅猛崛起。\n        拿笔者所在的城市——苏州举例，从生物医药的实验室到新能源的广阔应用，从高端装备的轰鸣车间到新一代信息技术的数字洪流，这里与美欧等西方发达国家的技术差距以前所未有的速度缩小。\n        然而，这幅美好的发展图景在近年来被强行改写了底色。\n        当中国在全球产业链上不断向上攀登，与国外的发展差距越来越小时，来自外部的压力骤然升级。\n        贸易战、科技战骤然而至，原来突飞猛进的发展遭遇了前所未有的困境。\n        “脱钩断链”“技术封锁”“人才打压”“进出口管制”…",
-          "link": "http://mp.weixin.qq.com/s?__biz=MzA3ODI5NDg0Mw==&mid=2654247452&idx=2&sn=e366ee09cada79ae8ddfa2ff8e9ed8ba&chksm=85bcd8f894a141dec6bf3667d03abe425dde7e90b50402186dff97d192b7e4a06642d3f252ea",
-          "publishedOn": "2025-12-16T00:02:29.000Z",
-          "wordCount": 264,
-          "title": "人工智能OPC，新一轮创新创业创富机会？",
           "imageUrl": null
         }
       ]
