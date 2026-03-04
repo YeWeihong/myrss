@@ -308,9 +308,45 @@
     font-style: italic;
   }
 
-  /* ===== 媒体对象 ===== */
+  /* ===== 媒体对象 / Media Object ===== */
+  /* 强制图片在上、文字在下的垂直排列，防止图片压缩摘要 */
+  /* display:flex 覆盖默认的 display:grid，使宽屏横排模板失效 */
   .media-object {
-    gap: 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+  }
+
+  .media-object__media {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16/9 !important;
+    object-fit: cover !important;
+  }
+
+  /* ===== 摘要折叠 / Summary Truncation ===== */
+  .summary-text-truncated {
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 5 !important;
+    overflow: hidden !important;
+  }
+
+  .summary-expand-btn {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 0.72rem !important;
+    color: var(--np-link) !important;
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    cursor: pointer;
+    text-decoration: underline dotted;
+    font-style: italic;
+  }
+
+  .summary-expand-btn:hover {
+    color: var(--np-link-hover) !important;
   }
 
   /* ===== 页脚 / Footer ===== */
@@ -636,6 +672,8 @@
 document.addEventListener('DOMContentLoaded', function() {
   // 初始化筛选器
   initSourceFilter();
+  // 初始化摘要折叠
+  initSummaryTruncation();
 });
 
 function initSourceFilter() {
@@ -906,5 +944,63 @@ function escapeHtml(text) {
   const div = document.createElement('div');
   div.textContent = text;
   return div.innerHTML;
+}
+
+// ===== 摘要折叠功能 / Summary Truncation =====
+const SUMMARY_MAX_CHARS = 150;
+const SUMMARY_SELECTOR = '.media-object__text > span:first-child';
+
+function initSummaryTruncation() {
+  // 处理所有摘要文本
+  const summarySpans = document.querySelectorAll(SUMMARY_SELECTOR);
+  summarySpans.forEach(applyTruncation);
+
+  // 处理动态展开的文章（<details> 打开时）
+  document.addEventListener('toggle', function(e) {
+    if (e.target && e.target.classList.contains('article-expander')) {
+      const span = e.target.querySelector(SUMMARY_SELECTOR);
+      if (span) applyTruncation(span);
+    }
+  }, true);
+}
+
+function applyTruncation(span) {
+  // 避免重复处理
+  if (span.dataset.truncated) return;
+  span.dataset.truncated = '1';
+
+  const fullText = span.textContent;
+  if (fullText.length <= SUMMARY_MAX_CHARS) return;
+
+  const shortened = fullText.slice(0, SUMMARY_MAX_CHARS).trimEnd() + '…';
+
+  span.dataset.fullText = fullText;
+  span.dataset.shortText = shortened;
+  span.textContent = shortened;
+  span.classList.add('summary-text-truncated');
+
+  const btn = document.createElement('button');
+  btn.className = 'summary-expand-btn';
+  btn.textContent = '展开';
+  btn.setAttribute('aria-expanded', 'false');
+
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+    if (isExpanded) {
+      span.textContent = span.dataset.shortText;
+      span.classList.add('summary-text-truncated');
+      btn.textContent = '展开';
+      btn.setAttribute('aria-expanded', 'false');
+    } else {
+      span.textContent = span.dataset.fullText;
+      span.classList.remove('summary-text-truncated');
+      btn.textContent = '收起';
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+
+  span.parentNode.insertBefore(btn, span.nextSibling);
 }
 </script>
