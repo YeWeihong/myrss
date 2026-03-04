@@ -130,11 +130,11 @@
     letter-spacing: 0.03em !important;
   }
 
-  /* ===== 报刊多栏网格 / Newspaper Multi-column Grid ===== */
+  /* ===== 报刊多栏瀑布流 / Newspaper Multi-column Masonry ===== */
   .sources.card {
-    display: grid !important;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)) !important;
-    gap: 0 !important;
+    display: block !important;
+    column-width: 260px !important;
+    column-gap: 0 !important;
     background: var(--np-bg) !important;
     border: 1px solid var(--np-border) !important;
     border-top: none !important;
@@ -153,6 +153,7 @@
     display: flex !important;
     flex-direction: column !important;
     min-height: 120px;
+    break-inside: avoid !important;
   }
 
   .card__section:last-child {
@@ -382,7 +383,7 @@
   /* ===== 响应式 / Responsive ===== */
   @media (max-width: 900px) {
     .sources.card {
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)) !important;
+      column-width: 220px !important;
     }
   }
 
@@ -392,7 +393,8 @@
     }
 
     .sources.card {
-      grid-template-columns: repeat(2, 1fr) !important;
+      column-count: 2 !important;
+      column-width: auto !important;
     }
 
     .daily-heading-toggle {
@@ -410,7 +412,8 @@
 
   @media (max-width: 380px) {
     .sources.card {
-      grid-template-columns: 1fr !important;
+      column-count: 1 !important;
+      column-width: auto !important;
     }
   }
 
