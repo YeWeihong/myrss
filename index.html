@@ -14,411 +14,380 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <style>
-  /* 
-   * 适应浏览器/系统字体设置
-   * Adapt to browser/system font settings
-   */
+  /* ========== 报刊风格布局 / Newspaper-style Layout ========== */
+
   html {
-    /* 使用100%让字体大小尊重用户浏览器设置 */
     font-size: 100%;
-    /* 防止iOS上自动调整文字大小 */
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
   }
 
   :root {
-    /**
-     * Modern Light Theme
-     * 清新现代的配色方案
-     */
-    --base00: #f8fafc; /* 背景色 - 浅灰白 */
-    --base01: #ffffff; /* 卡片背景 - 纯白 */
-    --base02: #e2e8f0; /* 边框色 */
-    --base03: #94a3b8; /* 次要文字 */
-    --base04: #64748b; /* 普通文字 */
-    --base05: #475569; /* 主要文字 */
-    --base06: #334155; /* 深色文字 */
-    --base07: #1e293b; /* 最深文字 */
-    --base08: #ef4444; /* 红色 */
-    --base09: #f97316; /* 橙色 */
-    --base0A: #eab308; /* 黄色 */
-    --base0B: #22c55e; /* 绿色 */
-    --base0C: #06b6d4; /* 青色 */
-    --base0D: #3b82f6; /* 蓝色 */
-    --base0E: #8b5cf6; /* 紫色 */
-    --base0F: #ec4899; /* 粉色 */
+    /* 报刊配色方案 / Newspaper color palette */
+    --np-bg: #f5f3ee;          /* 报纸底色 */
+    --np-surface: #ffffff;     /* 栏目背景 */
+    --np-border-dark: #1a1a1a; /* 深色边框 */
+    --np-border: #c8c0b0;      /* 中性边框 */
+    --np-border-light: #e0d8cc; /* 浅色边框 */
+    --np-text: #1a1a1a;        /* 主要文字 */
+    --np-text-sub: #444444;    /* 次要文字 */
+    --np-text-muted: #888888;  /* 弱化文字 */
+    --np-accent: #c0392b;      /* 报刊红色点缀 */
+    --np-link: #1a3a6b;        /* 链接颜色 */
+    --np-link-hover: #c0392b;  /* 链接悬停 */
+    --np-section-header-bg: #1a1a1a; /* 栏目标题背景 */
+    --np-section-header-text: #f5f3ee; /* 栏目标题文字 */
+    --np-section-header-hover-bg: #333333; /* 栏目标题悬停背景 */
+    --np-text-light: #bbbbbb;  /* 淡色文字 */
+    --np-source-name-hover: #ffdd99; /* 来源名称悬停色 */
+    --np-summary-bg: #faf8f4;  /* 摘要背景 */
+    --np-summary-hover-bg: #f5f0e8; /* 摘要悬停背景 */
+    --np-selected-bg: #fef9f0; /* 选中背景 */
 
-    /**
-     * 排版 - 使用clamp()实现流体字体大小
-     * 在小屏幕和大屏幕之间自动缩放
-     */
-    --font-family-default: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", sans-serif;
-    /* clamp(最小值, 首选值, 最大值) - 自动在范围内调整 */
-    --font-size-L: clamp(1.75rem, 1.5rem + 1.25vw, 2.4rem);
-    --font-size-m: clamp(1rem, 0.9rem + 0.5vw, 1.6rem);
-    --font-size-s: clamp(0.875rem, 0.8rem + 0.375vw, 1.4rem);
-    --line-height-body: 1.6;
-
-    /**
-     * 组件样式
-     */
-    --body-color: var(--base05);
-    --body-bg: var(--base00);
-    --body-padding: 24px 16px;
-    --body-stack-gap: 24px;
-
-    --accordion-content-hover-rail-color: var(--base0D);
-    --accordion-content-rail-color: var(--base02);
-    --accordion-marker-color: var(--base0D);
-    --accordion-marker-expanded-color: var(--base03);
-    --accordion-marker-hover-color: var(--base0E);
-    --accordion-marker-expanded-hover-color: var(--base08);
-
-    --article-image-border-color: var(--base02);
-    --article-image-radius: 8px;
-    --article-image-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    --article-reading-time-color: var(--base03);
-    --article-stack-gap: 12px;
-    --article-summary-color: var(--base04);
-    --article-summary-hover-color: var(--base07);
-    --article-title-color: var(--base06);
-    --article-title-expanded-color: var(--base0D);
-
-    --card-bg: var(--base01);
-    --card-border-color: var(--base02);
-    --card-padding: 16px;
-    --card-radius: 12px;
-    --card-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    --card-stack-gap: 20px;
-
-    --daily-heading-color: var(--base07);
-    --daily-heading-hover-color: var(--base0D);
-
-    --footer-color: var(--base03);
-    --footer-link-hover-color: var(--base0D);
-
-    --source-link-color: var(--base0D);
-    --source-link-hover-color: var(--base0E);
-    --source-name-color: var(--base0E);
-    --source-name-hover-color: var(--base0D);
+    /* 覆盖 osmosfeed 默认变量 */
+    --font-size-scaler: 100%;
+    --body-bg: var(--np-bg);
+    --body-color: var(--np-text);
+    --body-padding: 0;
+    --body-stack-gap: 0;
+    --card-bg: var(--np-surface);
+    --card-border-color: var(--np-border);
+    --card-padding: 10px;
+    --card-radius: 0;
+    --card-shadow: none;
+    --font-size-L: 1.6rem;
+    --font-size-m: 0.875rem;
+    --font-size-s: 0.8rem;
+    --accordion-content-rail-color: var(--np-border-light);
+    --accordion-content-hover-rail-color: var(--np-accent);
+    --accordion-marker-color: var(--np-border);
+    --accordion-marker-expanded-color: var(--np-text-muted);
+    --accordion-marker-hover-color: var(--np-accent);
+    --accordion-marker-expanded-hover-color: var(--np-accent);
+    --article-title-color: var(--np-text);
+    --article-title-expanded-color: var(--np-link);
+    --article-summary-color: var(--np-text-sub);
+    --article-summary-hover-color: var(--np-text);
+    --article-reading-time-color: var(--np-text-muted);
+    --daily-heading-color: var(--np-text);
+    --daily-heading-hover-color: var(--np-accent);
+    --source-name-color: var(--np-section-header-text);
+    --source-name-hover-color: var(--np-source-name-hover);
+    --source-link-color: rgba(245, 243, 238, 0.7);
+    --source-link-hover-color: #ffffff;
+    --footer-color: var(--np-text-muted);
+    --footer-link-hover-color: var(--np-accent);
   }
 
-  /* 平滑过渡动画 - 仅应用于交互元素 */
-  a, button, .card, .article-expander__title, .article-summary-box-inner, 
-  .source-heading__link, .daily-heading-toggle, .article-image {
-    transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
-  }
-
-  /* 页面背景渐变 */
+  /* ===== 全局基础样式 ===== */
   body {
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
-    min-height: 100vh;
+    background-color: var(--np-bg) !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+    color: var(--np-text);
+    padding: 12px 16px !important;
+    max-width: 1600px;
+    margin: 0 auto;
   }
 
-  /* 卡片样式增强 */
-  .card {
-    box-shadow: 0 4px 16px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04) !important;
-    border: none !important;
+  a {
+    color: var(--np-link);
   }
 
-  .card__section {
-    border-bottom: 1px solid var(--base02);
+  a:hover {
+    color: var(--np-link-hover);
   }
 
-  .card__section:last-child {
-    border-bottom: none;
+  /* ===== 日期区块 / Daily Section ===== */
+  .daily-content {
+    margin-bottom: 20px;
   }
 
-  /* 日期标题样式 */
+  /* 日期标题 - 报刊版面风格 */
+  .daily-heading {
+    font-size: 1rem !important;
+    margin: 0 0 0 0 !important;
+  }
+
   .daily-heading-toggle {
-    padding: 12px 20px !important;
-    border-radius: 8px;
-    transition: all 0.3s ease;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 5px 10px !important;
+    background: var(--np-border-dark) !important;
+    color: var(--np-section-header-text) !important;
+    font-family: Georgia, "Noto Serif SC", "Times New Roman", serif !important;
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    width: 100% !important;
+    border: none !important;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
   }
 
   .daily-heading-toggle:hover {
-    background: rgba(59, 130, 246, 0.08);
-    transform: translateX(4px);
+    background: var(--np-section-header-hover-bg) !important;
+    transform: none !important;
   }
 
-  /* 文章标题样式 */
-  .article-expander__title {
-    font-weight: 500 !important;
-    padding: 8px 4px;
-    border-radius: 6px;
-    transition: all 0.2s ease;
+  .daily-heading-toggle__weekday {
+    color: var(--np-section-header-text);
   }
 
-  .article-expander__title:hover {
-    background: rgba(59, 130, 246, 0.06);
-    padding-left: 8px;
+  .daily-heading-toggle__date {
+    font-size: 0.78rem !important;
+    color: var(--np-text-light) !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.03em !important;
   }
 
-  /* 来源名称样式 */
+  /* ===== 报刊多栏网格 / Newspaper Multi-column Grid ===== */
+  .sources.card {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)) !important;
+    gap: 0 !important;
+    background: var(--np-bg) !important;
+    border: 1px solid var(--np-border) !important;
+    border-top: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+
+  /* ===== 栏目 / Column (per source) ===== */
+  .card__section {
+    background: var(--np-surface) !important;
+    padding: 0 !important;
+    border: none !important;
+    border-right: 1px solid var(--np-border) !important;
+    border-bottom: 1px solid var(--np-border) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 120px;
+  }
+
+  .card__section:last-child {
+    border-right: none !important;
+  }
+
+  /* ===== 栏目标题 / Section Header ===== */
+  .source-heading {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 6px !important;
+    padding: 5px 8px !important;
+    margin: 0 !important;
+    background: var(--np-section-header-bg) !important;
+    border-bottom: 2px solid var(--np-accent) !important;
+    min-height: 32px;
+  }
+
   .source-heading__name {
-    font-weight: 600 !important;
-    font-size: 1.5rem !important;
-    letter-spacing: -0.01em;
+    font-family: Georgia, "Noto Serif SC", "Times New Roman", serif !important;
+    font-size: 0.8rem !important;
+    font-weight: 700 !important;
+    color: var(--np-section-header-text) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    line-height: 1.3 !important;
+    text-align: left !important;
+    flex-grow: 1 !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    cursor: pointer;
   }
 
-  /* 链接悬停效果 */
+  .source-heading__name:hover {
+    color: var(--np-source-name-hover) !important;
+  }
+
   .source-heading__link {
-    padding: 4px 12px;
-    border-radius: 6px;
-    background: var(--base02);
-    transition: all 0.2s ease;
+    font-size: 0.65rem !important;
+    color: var(--source-link-color) !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    background: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    transition: color 0.15s ease;
   }
 
   .source-heading__link:hover {
-    background: var(--base0D) !important;
-    color: white !important;
-    text-decoration: none !important;
+    color: var(--source-link-hover-color) !important;
+    text-decoration: underline !important;
+    background: none !important;
   }
 
-  /* 文章摘要样式 */
+  /* ===== 文章列表 / Article List ===== */
+  .articles-per-source {
+    padding: 6px 8px;
+    flex: 1;
+  }
+
+  .article-expander {
+    padding: 0 !important;
+    border-bottom: 1px dotted var(--np-border-light);
+  }
+
+  .article-expander:last-child {
+    border-bottom: none;
+  }
+
+  /* 文章标题 - 报刊标题风格 */
+  .article-expander__title {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif !important;
+    font-size: 0.82rem !important;
+    font-weight: 500 !important;
+    color: var(--np-text) !important;
+    line-height: 1.45 !important;
+    padding: 5px 2px !important;
+    cursor: pointer;
+    -webkit-line-clamp: 2 !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    border-radius: 0 !important;
+    transition: color 0.15s ease;
+  }
+
+  .article-expander[open] .article-expander__title {
+    display: block !important;
+    color: var(--np-link) !important;
+    -webkit-line-clamp: unset !important;
+  }
+
+  .article-expander__title:hover {
+    color: var(--np-link-hover) !important;
+    background: none !important;
+    padding-left: 2px !important;
+  }
+
+  .article-expander__title::before {
+    content: "" !important;
+    width: 0 !important;
+    margin: 0 !important;
+    display: none !important;
+  }
+
+  /* ===== 文章摘要 / Article Summary ===== */
+  .article-summary-box-outer {
+    padding: 4px 2px 8px 2px !important;
+  }
+
   .article-summary-box-inner {
-    border-left: 2px solid var(--base0D) !important;
-    border-radius: 0 8px 8px 0;
-    padding: 12px 16px !important;
-    background: rgba(59, 130, 246, 0.03);
-    transition: all 0.2s ease;
+    font-size: 0.78rem !important;
+    color: var(--np-text-sub) !important;
+    line-height: 1.55 !important;
+    padding: 6px 8px !important;
+    background: var(--np-summary-bg) !important;
+    border-left: 2px solid var(--np-accent) !important;
+    border-radius: 0 !important;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   .article-summary-link:hover .article-summary-box-inner {
-    background: rgba(59, 130, 246, 0.08);
-    border-left-color: var(--base0E) !important;
+    background: var(--np-summary-hover-bg) !important;
+    border-left-color: var(--np-link) !important;
   }
 
-  /* 图片样式 */
+  /* ===== 图片 / Images ===== */
   .article-image {
-    border-radius: 8px !important;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border: 1px solid var(--np-border-light) !important;
+    transition: none !important;
   }
 
   .article-image:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15) !important;
+    transform: none !important;
+    box-shadow: none !important;
   }
 
-  /* 页脚样式 */
+  /* ===== 阅读时间 / Reading Time ===== */
+  .article-reading-time {
+    font-size: 0.7rem !important;
+    color: var(--np-text-muted) !important;
+    background: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    font-style: italic;
+  }
+
+  /* ===== 媒体对象 ===== */
+  .media-object {
+    gap: 8px !important;
+  }
+
+  /* ===== 页脚 / Footer ===== */
   footer {
-    margin-top: 20px;
-    padding: 16px 20px !important;
-    background: var(--base01);
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    margin-top: 16px !important;
+    padding: 8px 12px !important;
+    background: transparent !important;
+    border-top: 1px solid var(--np-border) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    font-size: 0.75rem !important;
   }
 
-  /* 滚动条美化 */
+  /* ===== 滚动条 ===== */
   ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
   }
 
   ::-webkit-scrollbar-track {
-    background: var(--base02);
-    border-radius: 4px;
+    background: var(--np-bg);
   }
 
   ::-webkit-scrollbar-thumb {
-    background: var(--base03);
-    border-radius: 4px;
+    background: var(--np-border);
+    border-radius: 0;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--base04);
+    background: var(--np-text-muted);
   }
 
-  /* 响应式优化 - 移动端适配 */
-  @media (max-width: 640px) {
-    :root {
-      /* 移动端使用更大的最小字体，同时保持流体缩放 */
-      --font-size-L: clamp(1.5rem, 1.25rem + 1.5vw, 2rem);
-      --font-size-m: clamp(1.1rem, 1rem + 0.5vw, 1.4rem);
-      --font-size-s: clamp(1rem, 0.9rem + 0.25vw, 1.2rem);
-      --body-padding: 12px 8px;
-      --card-padding: 12px;
+  /* ===== 响应式 / Responsive ===== */
+  @media (max-width: 900px) {
+    .sources.card {
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)) !important;
     }
-    
+  }
+
+  @media (max-width: 600px) {
     body {
-      padding: 12px 8px !important;
-      /* 确保触摸设备上的文字大小适合阅读 */
-      -webkit-text-size-adjust: 100%;
-      text-size-adjust: 100%;
+      padding: 8px 8px !important;
     }
-    
-    .card {
-      border-radius: 10px !important;
+
+    .sources.card {
+      grid-template-columns: repeat(2, 1fr) !important;
     }
-    
-    /* 日期标题在移动端的优化 - 使用em相对单位 */
+
     .daily-heading-toggle {
-      font-size: max(1rem, 4vw) !important;
-      padding: 10px 12px !important;
-      flex-direction: column;
-      gap: 4px !important;
-      width: 100%;
+      font-size: 0.78rem !important;
     }
-    
-    .daily-heading-toggle__date {
-      font-size: max(0.9rem, 3.5vw) !important;
-    }
-    
-    /* 来源标题在移动端的优化 */
-    .source-heading {
-      flex-direction: column;
-      align-items: flex-start !important;
-      gap: 8px !important;
-    }
-    
+
     .source-heading__name {
-      font-size: max(1rem, 3.5vw) !important;
-      overflow-wrap: break-word;
-      width: 100%;
+      font-size: 0.72rem !important;
     }
-    
-    .source-heading__link {
-      padding: 4px 10px;
-      font-size: max(0.875rem, 3vw) !important;
-      flex-shrink: 0;
-    }
-    
-    /* 文章标题在移动端的优化 */
+
     .article-expander__title {
-      font-size: max(1rem, 3.75vw) !important;
-      padding: 6px 2px;
-      -webkit-line-clamp: 2 !important;
-      line-height: 1.5;
-      overflow-wrap: break-word;
-    }
-    
-    .article-expander__title::before {
-      width: 14px;
-      margin-right: 4px;
-      font-size: max(0.875rem, 3vw);
-    }
-    
-    /* 文章摘要在移动端的优化 */
-    .article-summary-box-inner {
-      padding: 10px 12px !important;
-      font-size: max(0.9375rem, 3.5vw) !important;
-      overflow-wrap: break-word;
-      line-height: 1.6;
-    }
-    
-    .article-summary-box-outer {
-      padding: 4px 4px 10px 4px !important;
-    }
-    
-    /* 阅读时间标签在移动端的优化 */
-    .article-reading-time {
-      font-size: max(0.75rem, 2.5vw) !important;
-      padding: 2px 6px;
-      display: inline-block;
-      margin-top: 4px;
-    }
-    
-    /* 媒体对象在移动端的优化 */
-    .media-object {
-      gap: 10px;
-    }
-    
-    .media-object__media {
-      max-width: 100%;
-      height: auto !important;
-    }
-    
-    /* 图片在移动端的优化 */
-    .article-image {
-      max-width: 100% !important;
-      height: auto !important;
-    }
-    
-    .article-image:hover {
-      transform: none;
-    }
-    
-    /* 页脚在移动端的优化 */
-    footer {
-      padding: 12px !important;
-      flex-direction: column;
-      gap: 8px;
-      text-align: center;
-      font-size: max(0.875rem, 3vw) !important;
-    }
-    
-    /* 卡片内部区域在移动端的优化 */
-    .card__section {
-      padding: 12px !important;
-    }
-    
-    /* 禁用移动端不适合的悬停效果 */
-    .daily-heading-toggle:hover {
-      transform: none;
-    }
-    
-    .article-expander__title:hover {
-      padding-left: 2px;
+      font-size: 0.8rem !important;
     }
   }
 
-  /* 超小屏幕设备优化 (< 375px) */
-  @media (max-width: 375px) {
-    :root {
-      /* 超小屏幕使用更紧凑但仍可读的字体 */
-      --font-size-L: clamp(1.375rem, 1.125rem + 1.25vw, 1.8rem);
-      --font-size-m: clamp(1rem, 0.9rem + 0.5vw, 1.3rem);
-      --font-size-s: clamp(0.9375rem, 0.875rem + 0.25vw, 1.1rem);
+  @media (max-width: 380px) {
+    .sources.card {
+      grid-template-columns: 1fr !important;
     }
-    
-    body {
-      padding: 8px 6px !important;
-    }
-    
-    .daily-heading-toggle {
-      font-size: max(0.9375rem, 4vw) !important;
-      padding: 8px 10px !important;
-    }
-    
-    .article-expander__title {
-      font-size: max(0.9375rem, 4vw) !important;
-    }
-    
-    .source-heading__name {
-      font-size: max(0.875rem, 3.75vw) !important;
-    }
-    
-    .article-summary-box-inner {
-      padding: 8px 10px !important;
-      font-size: max(0.875rem, 3.75vw) !important;
-    }
-    
-    .card__section {
-      padding: 10px !important;
-    }
-  }
-
-  /* 文章展开动画 */
-  .article-expander[open] {
-    animation: expandIn 0.3s ease;
-  }
-
-  @keyframes expandIn {
-    from {
-      opacity: 0.8;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  /* 阅读时间标签样式 */
-  .article-reading-time {
-    background: var(--base02);
-    padding: 2px 8px;
-    border-radius: 10px;
-    font-size: 1.2rem !important;
   }
 
   /* ========== 订阅源筛选器样式 ========== */
@@ -436,28 +405,28 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 10px 16px;
-    background: var(--base01);
-    border: 1px solid var(--base02);
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 8px 14px;
+    background: var(--np-section-header-bg);
+    border: 1px solid var(--np-border-dark);
+    border-radius: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     cursor: pointer;
-    font-size: 1.4rem;
-    font-weight: 500;
-    color: var(--base06);
-    transition: all 0.2s ease;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--np-section-header-text);
+    transition: background-color 0.15s ease;
   }
 
   .source-filter-toggle:hover {
-    background: var(--base0D);
+    background: var(--np-accent);
+    border-color: var(--np-accent);
     color: white;
-    border-color: var(--base0D);
   }
 
   .source-filter-toggle.active {
-    background: var(--base0D);
+    background: var(--np-accent);
+    border-color: var(--np-accent);
     color: white;
-    border-color: var(--base0D);
   }
 
   .source-filter-toggle__icon {
@@ -466,35 +435,35 @@
   }
   
   .source-filter-toggle__icon svg {
-    width: 1.6rem;
-    height: 1.6rem;
+    width: 16px;
+    height: 16px;
   }
 
   .source-filter-toggle__count {
-    background: var(--base0E);
+    background: rgba(255,255,255,0.2);
     color: white;
-    padding: 2px 8px;
-    border-radius: 10px;
-    font-size: 1.2rem;
-    font-weight: 600;
+    padding: 1px 6px;
+    border-radius: 2px;
+    font-size: 0.75rem;
+    font-weight: 700;
   }
 
   .source-filter-toggle.active .source-filter-toggle__count {
-    background: white;
-    color: var(--base0D);
+    background: rgba(255,255,255,0.3);
+    color: white;
   }
 
   /* 筛选器面板 */
   .source-filter-panel {
     position: absolute;
-    top: 50px;
+    top: 40px;
     right: 0;
     width: 280px;
     max-height: 70vh;
-    background: var(--base01);
-    border: 1px solid var(--base02);
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    background: var(--np-surface);
+    border: 1px solid var(--np-border-dark);
+    border-radius: 0;
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.15);
     overflow: hidden;
     display: none;
     flex-direction: column;
@@ -506,67 +475,71 @@
 
   /* 面板头部 */
   .source-filter-header {
-    padding: 14px 16px;
-    border-bottom: 1px solid var(--base02);
+    padding: 10px 14px;
+    border-bottom: 2px solid var(--np-border-dark);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--base00);
+    background: var(--np-bg);
   }
 
   .source-filter-header__title {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: var(--base07);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--np-text);
+    font-family: Georgia, serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
   .source-filter-header__clear {
-    padding: 4px 10px;
-    background: var(--base02);
-    border: none;
-    border-radius: 6px;
-    font-size: 1.2rem;
-    color: var(--base05);
+    padding: 3px 8px;
+    background: var(--np-border-light);
+    border: 1px solid var(--np-border);
+    border-radius: 0;
+    font-size: 0.75rem;
+    color: var(--np-text-sub);
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.15s ease;
   }
 
   .source-filter-header__clear:hover {
-    background: var(--base08);
+    background: var(--np-accent);
+    border-color: var(--np-accent);
     color: white;
   }
 
   /* 搜索框 */
   .source-filter-search {
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--base02);
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--np-border);
   }
 
   .source-filter-search__input {
     width: 100%;
-    padding: 8px 12px;
-    border: 1px solid var(--base02);
-    border-radius: 8px;
-    font-size: 1.3rem;
-    background: var(--base00);
-    color: var(--base06);
-    transition: border-color 0.2s ease;
+    padding: 6px 10px;
+    border: 1px solid var(--np-border);
+    border-radius: 0;
+    font-size: 0.82rem;
+    background: var(--np-bg);
+    color: var(--np-text);
+    transition: border-color 0.15s ease;
   }
 
   .source-filter-search__input:focus {
     outline: none;
-    border-color: var(--base0D);
+    border-color: var(--np-border-dark);
   }
 
   .source-filter-search__input::placeholder {
-    color: var(--base03);
+    color: var(--np-text-muted);
   }
 
   /* 源列表 */
   .source-filter-list {
     list-style: none;
     margin: 0;
-    padding: 8px 0;
+    padding: 6px 0;
     overflow-y: auto;
     flex: 1;
     max-height: calc(70vh - 120px);
@@ -575,51 +548,57 @@
   .source-filter-item {
     display: flex;
     align-items: center;
-    padding: 10px 16px;
+    padding: 8px 14px;
     cursor: pointer;
-    transition: background-color 0.15s ease;
+    transition: background-color 0.1s ease;
+    border-bottom: 1px dotted var(--np-border-light);
+  }
+
+  .source-filter-item:last-child {
+    border-bottom: none;
   }
 
   .source-filter-item:hover {
-    background: var(--base00);
+    background: var(--np-bg);
   }
 
   .source-filter-item.selected {
-    background: color-mix(in srgb, var(--base0D) 10%, transparent);
+    background: var(--np-selected-bg);
   }
 
   .source-filter-item__checkbox {
-    width: 18px;
-    height: 18px;
-    margin-right: 12px;
-    accent-color: var(--base0D);
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    accent-color: var(--np-accent);
     cursor: pointer;
   }
 
   .source-filter-item__name {
     flex: 1;
-    font-size: 1.3rem;
-    color: var(--base06);
+    font-size: 0.8rem;
+    color: var(--np-text);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
 
   .source-filter-item__count {
-    font-size: 1.1rem;
-    color: var(--base03);
-    background: var(--base02);
-    padding: 2px 8px;
-    border-radius: 8px;
-    margin-left: 8px;
+    font-size: 0.7rem;
+    color: var(--np-text-muted);
+    background: var(--np-border-light);
+    padding: 1px 6px;
+    border-radius: 2px;
+    margin-left: 6px;
   }
 
   /* 空状态 */
   .source-filter-empty {
-    padding: 20px 16px;
+    padding: 16px 14px;
     text-align: center;
-    color: var(--base03);
-    font-size: 1.3rem;
+    color: var(--np-text-muted);
+    font-size: 0.8rem;
+    font-style: italic;
   }
 
   /* 隐藏被筛选的内容 */
@@ -634,13 +613,13 @@
   /* 移动端适配 */
   @media (max-width: 640px) {
     .source-filter-container {
-      top: 10px;
-      right: 10px;
+      top: 8px;
+      right: 8px;
     }
 
     .source-filter-toggle {
-      padding: 8px 12px;
-      font-size: 1.2rem;
+      padding: 7px 10px;
+      font-size: 0.78rem;
     }
 
     .source-filter-toggle__text {
@@ -648,18 +627,18 @@
     }
 
     .source-filter-toggle__icon svg {
-      width: 1.8rem;
-      height: 1.8rem;
+      width: 16px;
+      height: 16px;
     }
 
     .source-filter-panel {
       width: calc(100vw - 20px);
-      max-width: 320px;
+      max-width: 300px;
       max-height: 60vh;
     }
 
     .source-filter-list {
-      max-height: calc(60vh - 120px);
+      max-height: calc(60vh - 110px);
     }
   }
 </style>
@@ -1029,6 +1008,26 @@ function escapeHtml(text) {
                         </a>
                       </details>
                     </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://cn.nytimes.com/opinion/20260304/iran-revolution-khomeini-shah/"
+                        open
+                      >
+                        <summary class="article-expander__title">即将到来的伊朗革命</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://cn.nytimes.com/opinion/20260304/iran-revolution-khomeini-shah/">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://static01.nyt.com/images/2026/03/03/opinion/03milani-archive/03milani-archive-videoLarge.jpg" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>过去47年间，伊朗人民从未放弃过争取民主权利的斗争。如今，随着哈梅内伊以及约40名其他高级政治或军事成员死亡，变革近在咫尺。</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;1
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
                 </section>
               </section>
             </li>
@@ -1043,6 +1042,286 @@ function escapeHtml(text) {
                   <a class="source-heading__link" href="">Open</a>
                 </h3>
                 <section class="articles-per-source">
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://www.zaobao.com.sg/news/china/story20260304-8676153"
+                        open
+                      >
+                        <summary class="article-expander__title">娄勤俭：中国促进民营经济发展的基本方针政策不能变也不会变</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://www.zaobao.com.sg/news/china/story20260304-8676153">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://cassette.sphdigital.com.sg/image/zaobao/2d5e766d98f7fde6c495d32e84d1448b7eee6874c832f5e5f8c22302891eaa43" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>中国全国人大新闻发言人娄勤俭说，中共党和国家促进民营经济发展的基本方针政策一以贯之，“不能变，也不会变”。民营经济发展前景将更加广阔，民营企业和民营企业家大显身手正当其时。</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;2
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://www.zaobao.com.sg/news/china/story20260304-8676015"
+                        open
+                      >
+                        <summary class="article-expander__title">娄勤俭谈中日关系：决不允许外部势力干涉中国内政</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://www.zaobao.com.sg/news/china/story20260304-8676015">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://cassette.sphdigital.com.sg/image/zaobao/f6a7000c4effd8f111d737f3efe8cf66a1c792118a3089c3c1cc0fdbb17af0d7" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>中国全国人大新闻发言人娄勤俭谈及中日关系时说，中国对外交往以维护国家主权、安全和发展利益为出发点和落脚点。他对日本首相高市早苗涉台言论表示坚决反对，强调决不允许任何外部势力干涉中国内政。</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;1
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://www.zaobao.com.sg/news/china/story20260304-8676920"
+                        open
+                      >
+                        <summary class="article-expander__title">全国政协委员洪明基建议高考英语降为100分</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://www.zaobao.com.sg/news/china/story20260304-8676920">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://www.zaobao.com.sg/_web2/assets/social-share.png" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>中国全国政协委员洪明基受访时建议，高考英语降为100分。</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;1
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://www.zaobao.com.sg/news/china/story20260304-8677059"
+                        open
+                      >
+                        <summary class="article-expander__title">台网红称大陆“被妖魔化”引热议 国台办吁台民众亲赴了解真相</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://www.zaobao.com.sg/news/china/story20260304-8677059">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://cassette.sphdigital.com.sg/image/zaobao/7af9f3114cff60c14986222692658012f9646657ce3f8edfa8e35a620c008123" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>曾被贴上“亲绿”标签的台湾资深媒体人范琪斐赴四川旅行后，发表“中国被妖魔化太严重”等言论，引发舆论热议。中国大陆国台办回应说，热诚欢迎广大台湾民众赴大陆亲眼看看真实情况，并批评绿营媒体及网军侧翼“妖魔化”大陆的做法，指这一伎俩已越来越难以取信于人。</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;2
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://www.zaobao.com.sg/news/china/story20260304-8675919"
+                        open
+                      >
+                        <summary class="article-expander__title">中国将加强原始创新及关键核心技术攻关 推动取得决定性突破</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://www.zaobao.com.sg/news/china/story20260304-8675919">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://cassette.sphdigital.com.sg/image/zaobao/f0f2d4b3162ed845cac1711df24a69bfea17c5b5a7a0840739411cc275517b7f" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>“十五五”（2026年至2023年）期间，中国将加强原始创新和关键核心技术攻关，推动重点领域技术攻关取得决定性突破，并推动建立非歧视的全球科技发展环境。</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;1
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://www.zaobao.com.sg/news/china/story20260304-8674280"
+                        open
+                      >
+                        <summary class="article-expander__title">中使馆提醒在日中国公民防范“撞人族”</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://www.zaobao.com.sg/news/china/story20260304-8674280">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://cassette.sphdigital.com.sg/image/zaobao/ec3cf66c35c9b1a2b3dca2a7a36a9eb0b2a364425b19b09215223142d4597ba8" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>中国驻日本大使馆提醒在日中国公民防范日本“撞人族”。</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;1
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://www.zaobao.com.sg/news/china/story20260304-8676265"
+                        open
+                      >
+                        <summary class="article-expander__title">中国官方称高度关注伊朗局势 任何国家都没有主宰他国命运权力</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://www.zaobao.com.sg/news/china/story20260304-8676265">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://cassette.sphdigital.com.sg/image/zaobao/13c4e471750ed9679a035e3779240f4d728d763956f2e8607b0bc07c6048425f" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>中国全国人大会议新闻发布会发言人娄勤俭星期三（3月4日）说，中国高度关注伊朗局势，并指任何国家都没有控制国际事务、主宰他国命运、垄断发展优势的权力，更不能在世界上我行我素。</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;2
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://www.zaobao.com.sg/news/china/story20260304-8677218"
+                        open
+                      >
+                        <summary class="article-expander__title">马兴瑞未现身中国全国政协开幕会</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://www.zaobao.com.sg/news/china/story20260304-8677218">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://cassette.sphdigital.com.sg/image/zaobao/fb6c657f6d732584f581c0bfa48145cb33bfaf3e04b6bd62c0820a47d39095d0" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>去年11月起连续缺席重要高层会议的中共政治局委员马兴瑞，没有参加中国全国政协开幕会。</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;1
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://www.zaobao.com.sg/news/china/story20260304-8677001"
+                        open
+                      >
+                        <summary class="article-expander__title">【视频】两会开幕 北京安保措施升级</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://www.zaobao.com.sg/news/china/story20260304-8677001">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://cassette.sphdigital.com.sg/image/zaobao/a642ad2cb9d2437f13d49d653c2b3f565b2ed9ece8d3a9b9efe1879b8d2a115a" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>中国全国政协会议星期三（3月4日）开幕，北京的安保措施升级。</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;1
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://www.zaobao.com.sg/news/china/story20260304-8677184"
+                        open
+                      >
+                        <summary class="article-expander__title">被追问中日关系 吴江浩回应：开完会再说</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://www.zaobao.com.sg/news/china/story20260304-8677184">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://cassette.sphdigital.com.sg/image/zaobao/4942ae2b4154efeadbe8ecc6d359db0d04648f6bfd1df45ff26645b14a1806f5" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>中国全国政协会议星期三（3月4日）下午在北京开幕，在中东局势动荡、中日关系波折等背景下，身为全国政协委员的现任和前任中国外交官成为现场媒体追逐焦点。</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;1
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://www.zaobao.com.sg/news/china/story20260304-8677275"
+                        open
+                      >
+                        <summary class="article-expander__title">《太平年》热播 国台办：充分体现和平是两岸同胞共同追求</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://www.zaobao.com.sg/news/china/story20260304-8677275">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://cassette.sphdigital.com.sg/image/zaobao/abb48fbc81e657ce369e3138f0ddf17f8d9c0df8d1c12c7eb7fcaa889d1da8c5" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>大陆影视剧《太平年》在两岸播出并引发热议，中国大陆国台办发言人称，该剧表达了中华民族追求统一的精神信念，其剧情引发的关注和讨论则充分体现了和平是两岸同胞的共同追求。</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;2
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://www.zaobao.com.sg/news/china/story20260304-8677401"
+                        open
+                      >
+                        <summary class="article-expander__title">中国外交部：逾470名在伊朗中国公民安全撤离</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://www.zaobao.com.sg/news/china/story20260304-8677401">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://cassette.sphdigital.com.sg/image/zaobao/8f817e6722b75f290f2a3b09e1453d45a483456a2ffd16eb9b5cd8bbb3ce3527" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>美国与以色列联合空袭伊朗后，中国外交部披露，已有逾470名在伊朗的中国公民安全撤离。</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;2
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://www.zaobao.com.sg/news/china/story20260304-8677303"
+                        open
+                      >
+                        <summary class="article-expander__title">国民党征召三女性选将  郑丽文：女人当家成绩单亮丽</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://www.zaobao.com.sg/news/china/story20260304-8677303">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://www.zaobao.com.sg/_web2/assets/social-share.png" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>台湾在野的国民党征召三名女性选将，党主席郑丽文说，女人当家成绩单亮丽。</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;1
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://www.zaobao.com.sg/news/china/story20260304-8676400"
+                        open
+                      >
+                        <summary class="article-expander__title">官方：民族团结进步促进法顺应中华民族从多元凝聚为一体趋势</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://www.zaobao.com.sg/news/china/story20260304-8676400">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://cassette.sphdigital.com.sg/image/zaobao/61b1540d4e2108f134ac852d9c94ec237775e249aa14abd32e3f6905601e49e6" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>针对即将审议的民族团结进步促进法草案，中国全国人大会议新闻发布会发言人娄勤俭说，制定有关法律就是要顺应中华民族从历史走向未来、从传统走向现代、从多元凝聚为一体的发展大趋势。</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;1
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
                     <article>
                       <details
                         class="article-expander"
@@ -1721,6 +2000,72 @@ function escapeHtml(text) {
                       <details
                         class="article-expander"
                         data-action="toggle-native-accordion"
+                        data-accordion-key="http://www.infzm.com/contents/315998"
+                        open
+                      >
+                        <summary class="article-expander__title">非洲100天：那些一面之缘的人</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="http://www.infzm.com/contents/315998">
+                          <div class="article-summary-box-inner media-object">
+                            <span class="media-object__text">
+                              <span>2026-03-04 15:00:00
+一趟包车，和一个肯尼亚司机的人生账本
+非洲旅行结束三个月后，我还会偶尔在WhatsApp上收到消息，来自拉穆岛的快艇船夫、卢旺达加油站给我转照片的伙计、马拉维大学里主动充当向导的学生会主席、内罗毕的网约车司机。
+无论是否有过主顾关系，旅行中随手添加的人，在离开后大抵不会再有联系。偏偏这些仅仅一面之缘的非洲人，或许是出于善意的客户回访，抑或是希望我能施与帮助，还会隔三岔五地来句问候。这其中，我确信这位肯尼亚网约车司机Edward，是真心想要借着新年，对我表达祝福和感谢。
+
+肯尼亚网约车司机Edward  摄影 张海律
+在东非长途旅行，因为不堪忍受漫长时间以及经常挤到叠罗汉的中巴车Matatu，我和旅伴决定通过在城内搭乘网约车，并与司机谈价包车的方式，让其为我们提供跨城服务。就这样，40岁出头的Edward开着一辆小铃木，准时出现在内罗毕的公寓门口。从首都到安博塞利国家公园附近的Kimana小镇，去程4个多小时，回程送到奈瓦沙，再多2小时。停留的两天里，让他睡在所订公寓的客厅沙发，并随时待命，到国家公园入口接送我们。这样的安排，含油费，谈到了25000先令，按2025年6月的黑市汇率，大致合人民币1400元。因为担心惹到地头蛇，空闲的大量时间中，Edward也不敢接活。公寓里有厨房，我主动提议给他买一些吃的，他一边感谢一边挑选最便宜的食品。
+路上，Edward告诉我，自己老家在东部大城市纳库鲁，10岁失去双亲后，跟着奶奶长大。后来到内罗毕求学打工，结婚生子，并在社区开了家小商店，却不幸在两年前被一夜偷空。在这种普通社区，是不能指望警察和保险的。于是，这个老实本分人只好跑起网约车生意。同时，妻子开始经营起一家更小的店铺，再有一个好心的欧洲客人，主动担负着他其中一个孩子的学费。
+虽然也和当时掀起大规模示威的Z世代一样，对现任政府非常不满，但在…</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="http://www.infzm.com/contents/315986"
+                        open
+                      >
+                        <summary class="article-expander__title">微信家族群的“99+”未读——数字时代的亲情差序格局</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="http://www.infzm.com/contents/315986">
+                          <div class="article-summary-box-inner media-object">
+                            <span class="media-object__text">
+                              <span>2026-03-04 14:00:00
+广州，工地的工棚里，李建军躺在床上，后背贴着硬邦邦的床板，耳边是工友们此起彼伏的鼾声。
+他拿起枕边的手机，解锁屏幕，微信图标上的红色数字“99+”格外显眼，不用点开也知道，是王家村李氏家族群里又攒了一堆消息。这串“99+”，就像一根无形的线，一头连着他所在的陌生城市，一头牵着千里之外的故乡，也牵着他心里最柔软的牵挂。可看着这串数字，他心里却五味杂陈，有温暖，有思念，也有一丝难以言说的疏离。
+像李建军这样，靠着微信家族群维系亲情的乡村迁徙者还有很多。随着数字时代的到来，智能手机和互联网走进了乡村，走进了千家万户，微信家族群也成了乡村亲情联结的重要载体。
+对那些常年在外打工的迁徙者来说，微信家族群就像一个“线上家园”，能让他们随时了解家乡的动态，随时和亲人沟通交流，能让他们在异乡感受到家的温暖，也能让他们把对家人的思念传递回去。家族群里的每一条消息，都是亲人之间的牵挂；每一次互动，都是亲情的流动；每一张图片、每一个视频，都是家乡的印记，都能唤醒迁徙者内心深处的乡土记忆，也能让他们在悬浮的人生中，找到一丝心灵的归属感。
+可微信家族群带来的，不只是温暖和慰藉，还有难以言说的疏离和隔阂，更藏着数字时代乡村亲情的差序格局。
+费孝通在《乡土中国》里提出，中国传统乡土社会的亲情格局是“差序格局”，就像把一块石头丢在水面上所发生的一圈圈推出去的波纹，每个人都是他社会影响所推出去的圈子的中心，被圈子的波纹所推及的就发生联系，圈子的大小根据中心的势力厚薄而定，亲情的远近也随着圈子的远近而变化。而在数字时代，微信家族群里的亲情格局，依然延续着传统的差序格局，甚至被进一步强化，只是维系格局的方式，从传统的面对面互动，变成了线上的消息传递和互动。
+在李氏家族群里，亲情的差序格局清晰可见。群里的核心是李建军的父母、兄弟姐妹，还有大伯、二伯，他们是亲情圈子最内层的人…</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="http://www.infzm.com/contents/315982"
+                        open
+                      >
+                        <summary class="article-expander__title">刘永好谈AI幻觉</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="http://www.infzm.com/contents/315982">
+                          <div class="article-summary-box-inner media-object">
+                            <span class="media-object__text">
+                              <span>2026-03-04 13:00:00</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
                         data-accordion-key="http://www.infzm.com/contents/316008"
                         open
                       >
@@ -1845,6 +2190,144 @@ function escapeHtml(text) {
 一是立足职能维护安全稳定。常态化开展监狱、看守所等监管场所的安全防范检察。加强对监狱教育改造活动的监督，着力提升刑罚执行质效。加强社区矫正监督，2025年提出纠正意见4万余人，监督收监执行4100余人。积极参与特殊群体专项工作，规范社区矫正、强制医疗执行监督。
 二是持续完善“派驻+巡回+科技”监督机制。注重派驻检察室阵地作用，推动派驻检察室规范化标准化建设，基本实现派驻检察全覆盖和“两网一线”的全覆盖。坚持“哪里问题突出就巡回哪里、哪类问题突出就监督哪类问题”，完成《巡回检察工作规划（2023—2025）》，常态化、精准化、高质效推进巡回检察工作。最高检直接组织对10个省份的11个监狱、未成年犯管教所和看守所开展跨省交叉巡回检察，督促整改违规“减假暂”“捎买带”及混管混押等突出问题，发现了一批诉讼监督和相关职务犯罪线索，依法核查、交办。
 三是突出刑罚执行监督…</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                </section>
+              </section>
+            </li>
+            <li class="card__section">
+              <section class="js-toggle-accordions-scope">
+                <h3 class="source-heading">
+                  <button
+                    class="source-heading__name"
+                    data-action="toggle-accordions"
+                    title="Click to toggle the source, Ctrl + click to toggle all."
+                  >晚点LatePost</button>
+                  <a class="source-heading__link" href="https://new.qq.com/omn/author/8QMc3Hhc74cevD%2FR">Open</a>
+                </h3>
+                <section class="articles-per-source">
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://view.inews.qq.com/a/20260304A05A7300"
+                        open
+                      >
+                        <summary class="article-expander__title">晚点独家丨大钲资本已与雀巢签约，将收购 Blue Bottle</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://view.inews.qq.com/a/20260304A05A7300">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://inews.gtimg.com/om_ls/Oo9fPsc2G5OIjdsYgnqvRlMHwFvrOwJmz3NiGHG29mvnMAA_640330/0" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>大钲有完整产业链，Blue Bottle 有高端品牌。
+
+
+文丨徐煜萌编辑丨王姗姗
+《晚点 LatePost》独家获悉，大钲资本竞得蓝瓶咖啡（Blue Bottle Coffee），即将和雀巢完成交易。
+
+数位知情人士向我们证实了这一进展。一位接近瑞幸的人士告诉我们，大钲买下蓝瓶咖啡全球门店，雀巢将保留蓝瓶的咖啡机和胶囊业务。另一位接近大钲的人士称，目前交易已签字，尚未完成交割。
+
+我们向交易双方求证上述消息，雀巢表示不予置评，大钲没有回复。
+
+多位一级市场人士告诉我们，作为瑞幸咖啡的实际控制方，大钲资本去年底开始积极评估高端咖啡标的，除 Blue Bottle 之外，还包括 Costa、M Stand 和 % Arabica。
+
+大钲资本是 2017 年由黎辉创立的私募股权基金管理公司，目前管理规模超 70 亿美元。大钲在 2018 年成为瑞幸的早期投资者，2020 年瑞幸造假风波后主导瑞幸重组，接手创始人陆正耀的股权及持续跟投，以超过 50% 的投票权成为瑞幸的实控人。去年 5 月，黎辉出任瑞幸董事长。
+
+收购蓝瓶将有助于瑞幸推进高端化战略，瑞幸也会利用供应链能力优化蓝瓶的成本结构。用 “控股式投资” 拥有了瑞幸和蓝瓶的大钲资本，在咖啡赛道实现了从大众消费到高端精品的完整覆盖。
+
+被零售耽误的先锋咖啡品牌
+
+2002 年创立的蓝瓶，强调新鲜烘焙、精心制作和手冲仪式感，是全球第三次咖啡浪潮的代表品牌。根据精品咖啡协会（Specialty Coffee Association）的数据，一度小众的精品咖啡市场，2017 年已占美国咖啡消费量的 15% 到 20%。
+
+雀巢在 2017 年向蓝瓶咖啡的创始人詹姆斯·弗里曼（James Freeman）发出了收购邀约，最终以 4.25 亿美元的价格收购了蓝瓶咖啡 68% 的股份。这次交易对蓝瓶的估值达到 7 亿美元。当时它在全球拥…</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;8
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://view.inews.qq.com/a/20260304A0300B00"
+                        open
+                      >
+                        <summary class="article-expander__title">晚点独家丨林俊旸提出离职，Qwen 多位负责人离开，团队或将调整</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://view.inews.qq.com/a/20260304A0300B00">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://inews.gtimg.com/news_ls/O1lVDPAg3lBRxkMSLKCYPFG2QGwUO_W73_Ipkyga9nu9cAA_640330/0" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>前一天还在奋战模型发布，第二天提离职。
+
+
+文丨陈佳惠 程曼祺
+编辑丨程曼祺
+
+3 月 4 日（周三）凌晨，阿里 Qwen 团队技术负责人林俊旸突然在社交媒体发布状态：“me stepping down. bye my beloved qwen.”（我辞职了，再见了我爱的 qwen）。
+
+后来我们证实，前一天 3 月 3 日下午，林俊旸已正式向阿里提出辞职；稍晚，Qwen 团队小范围同步了这一消息。接近此事的人士说，有 Qwen 同事得知他将离职的消息后难掩情绪，“伤心地哭了”。
+   
+
+林俊旸的社交媒体发文，截至北京时间凌晨 4 点，已获得 5000+ 点赞，700 多条评论，多数是在感谢 Qwen 团队和开源大模型的贡献。
+
+同一天，Qwen 的后训练负责人郁博文也正式离职，他的工作将由今年初加入阿里通义实验室的前 DeepMind 高级资深研究员周浩接任。周浩向阿里云 CTO、通义实验室负责人周靖人汇报。
+
+我们还了解到，Qwen Code 负责人惠彬原也于 2026 年 1 月从阿里离职，加入 Meta。此后林俊旸曾接手负责 Qwen Code，就在上周，林俊旸还在社交媒体分享 Qwen Coding Agent 相关的招聘信息。
+
+多位接近此事的人告诉我们，林俊旸的离职很突然：“带着遗憾”“唏嘘”“他很爱 Qwen”。
+
+林俊旸最终选择离开，很可能与 Qwen 团队正经历的组织调整有关。
+
+林俊旸直接负责的 Qwen（通义千问）团队隶属于阿里云 CTO 周靖人负责的通义实验室。近期，通义实验室计划将 Qwen 团队分拆，从涵盖不同训练流程和模态的 “垂直整合” 体系，变成预训练、后训练、文本、多模态等一个个分开的水平分工团队，这些团队仍隶属通义实验室。林俊旸的管理范围被缩小。
+
+把模型团队拆开、打散的变化，也不符合林俊旸对技术趋势的判断。去年至今，林俊旸曾多次提…</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;7
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                </section>
+              </section>
+            </li>
+            <li class="card__section">
+              <section class="js-toggle-accordions-scope">
+                <h3 class="source-heading">
+                  <button
+                    class="source-heading__name"
+                    data-action="toggle-accordions"
+                    title="Click to toggle the source, Ctrl + click to toggle all."
+                  >看鉴中国 OutsightChina - Telegram Channel</button>
+                  <a class="source-heading__link" href="https://t.me/s/OutsightChina">Open</a>
+                </h3>
+                <section class="articles-per-source">
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://t.me/OutsightChina/9078"
+                        open
+                      >
+                        <summary class="article-expander__title">🖼 体制内躺平岗位排名引官媒批评 联合早报:躺平考公折射出年轻人避险心态</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://t.me/OutsightChina/9078">
+                          <div class="article-summary-box-inner media-object">
+                            <span class="media-object__text">
+                              <span>体制内躺平岗位排名引官媒批评   联合早报:躺平考公折射出年轻人避险心态
+近日，港媒报道，社交平台上流传各种「体制内躺平岗位排名」、「最清闲神仙单位指南」等，成为热议话题。不过这也引来官媒批评，认为误导年轻人，必须警惕。另有中媒评论则称岗位强度有差异，但都承担公共责任，各地持续整治“躺平式干部”。
+《联合早报》评论，“躺平攻略”走红的背后，是对铁饭碗日益激烈的竞争；当就业压力上升、上升通道收窄，“稳定”成为更高优先级，“清闲岗”的吸引力随之被放大。评论认为，正视“躺平考公”背后的结构性焦虑，或许比批评这样的心态更为关键。
+《南华早报》24年报道，一些城市以评选“蜗牛奖”点名低效干部整治“躺平式”作风。但受访学者认为，问题在激励机制：在高风险问责环境下，官员更倾向“不作为”，仅靠批评与点名难以根治。
+#看鉴 #公务员
+🔗原文链接
+《北辰遴选》体制内神仙单位大排名 
+《香港01》内地网络热传「体制内躺平岗位排名」 官媒批误导年轻人
+《南方网》头啖汤评论：“神仙单位躺平岗”，真能躺平吗？
+《联合早报》下午察：“考公”也刮躺平风
+《南华早报》（24年12月）中国多地用“蜗牛奖”整治“躺平”心态：点名工作表现差的干部 Chinese cities fight lying flat mentality with ‘snail awards’ for poor workers</span>
                             </span>
                           </div>
                         </a>
@@ -3256,6 +3739,105 @@ To subscribe to National Geographic Traveller (UK) magazine click here. (Avail
 （路透社）
 王毅3月3日“应约”同以色列外长萨尔通电话。以方介绍了对当前局势的立场，中方呼吁立即停止军事行动，防止战火进一步蔓延失控。王毅要求以方采取切实措施确保中国人员和机构安全，萨尔表示以方高度重视。
 （新华社）</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                </section>
+              </section>
+            </li>
+            <li class="card__section">
+              <section class="js-toggle-accordions-scope">
+                <h3 class="source-heading">
+                  <button
+                    class="source-heading__name"
+                    data-action="toggle-accordions"
+                    title="Click to toggle the source, Ctrl + click to toggle all."
+                  >晚点LatePost</button>
+                  <a class="source-heading__link" href="https://new.qq.com/omn/author/8QMc3Hhc74cevD%2FR">Open</a>
+                </h3>
+                <section class="articles-per-source">
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://view.inews.qq.com/a/20260303A06L5A00"
+                        open
+                      >
+                        <summary class="article-expander__title">一年百亿利润的大疆无人机生意，护城河能挖多深</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://view.inews.qq.com/a/20260303A06L5A00">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://inews.gtimg.com/news_ls/O6R18zj9cliRzJZCpKL27aEoYQ8EOBIcTOjYM-Qrhn3EoAA_640330/0" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>无人机不像汽车和手机，后来者更难追赶。
+
+
+文丨李梓楠
+编辑丨贺乾明 黄俊杰
+
+大疆无人机业务去年净利润超过百亿，中国汽车行业除了比亚迪，没有公司能赚这么多；放到消费电子领域，它与小米手机业务的利润相当。
+
+汽车和手机都是红海。还在增长的无人机行业，大疆基本没什么像样的对手。仅有的少数公司还在后退，道通两年前彻底放弃消费级无人机业务。
+
+“谈不上绝望，也没有希望。” 一位二线无人机公司人士说，他们几年前就不再研究大疆怎么做无人机，因为 “追不上，已经没意义了。” 反过来也成立，大疆的产品经理基本不会关注同行的无人机。
+
+直到 2025 年 12 月，影石子公司影翎推出全景无人机 A1。影石创始人刘靖康 2023 年判断，影石和大疆的竞争会更激烈，“无人机一定要做，晚做不如早做”。他把大疆当成 “魔鬼教练”，和顶级选手竞争，自己也会跑得更快。
+
+影翎无人机产研负责人布欧（花名）告诉我们，A1 上市一个月出货超 3 万台，超过许多大疆曾经的挑战者。道通放弃消费级无人机前，一年只卖几千台。
+
+我们了解到，大疆也研发了功能相似的产品，预计近期上市，入门款价格会低于影翎 A1。
+
+过去 1 个月，我们访谈了近十位无人机从业者，有大疆工程师和产品经理、影翎的产品经理和其他无人机公司的高管、工程师，尝试回答大疆无人机的护城河挖了多深。
+
+“我很反感动不动就要和大疆掰手腕的叙事。” 一位曾在大疆工作 8 年的工程师说。他离开大疆自己带队做无人机后感慨，汪滔比他想象中厉害十倍。他反复提醒我们：“你们可能不知道他到底有多强。”
+
+都在逃避和大疆正面对抗，影翎做不用云台的无人机
+
+无人机行业从来不缺挑战者，十年前的 CES 可以称得上半个无人机展，但大多数公司都失败了。今年 CES 上，真正引起关注的消费级无人机只有影翎一家。
+
+过去十年，大疆用持续迭代的五个产品线十多款无人机，覆盖从 1299…</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;12
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://view.inews.qq.com/a/20260303A04OF000"
+                        open
+                      >
+                        <summary class="article-expander__title">拆解银河通用：具身智能估值第一独角兽，春晚唯一没有彩排的节目背后</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://view.inews.qq.com/a/20260303A04OF000">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://inews.gtimg.com/om_ls/OTc8TLoOZj5ikHpvZepULSHkF16kASLCxPj3qMGVurKo8AA_640330/0" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>只有能自主干活的机器人才是未来。
+
+
+文丨江思远
+
+近日，银河通用机器人宣布完成 25 亿元新一轮融资。由国家人工智能产业基金（国家大基金三期全资基金）、中国石化、中信集团投资控股、中国银行、上汽集团金控、中芯聚源、亦庄国投、未来产业投资、鲲鹏基金、无锡创投、福建产投联合投资，深创投、上海人工智能基金等多家老股东继续追加。近一年来，银河通用累计融资额已超 55 亿元，投后估值超 200 亿元，融资额和估值都稳居中国具身智能领域独角兽第一。
+
+在 2026 年央视春晚上，银河通用 Galbot 携手沈腾、马丽，成为开年科技与文娱跨界的现象级爆款。作为春晚指定的具身大模型机器人，Galbot 并没有展示预先编程的舞蹈，而是自主完成了盘核桃、捡玻璃碎片、叠衣服、串烤肠等高难度非标准化操作。这些操作没有经过事先编程，每个画面都是具身大模型实时决策的结果。
+
+由于在人员密集的后台取景，录制窗口极为有限，相比其他节目，银河通用的节目是整台春晚唯一一个没有经过彩排的节目，整个过程一气呵成，非常考验机器人及技术团队的临场应变能力。
+
+主持人用六个字总结它的优势：“聪明脑，干活好。” 面对随机摆放的物品和变化的灯光，Galbot 展现出了极强的泛化能力，每一个动作都未经过事先排练，而是 “临场发挥”。
+
+这场极致拟人的技术秀迅速转化为了购买力：春晚结束后几分钟内，售价 69 万元的同款 Galbot 在京东平台迅速售罄，24 小时内获得超 300 单加购。
+
+春晚背后：一场没有彩排的技术大考
+
+在春晚及相关的花絮中，银河通用 Galbot 向外界展露了多项物理交互能力，包括叠衣服、捡玻璃碎片、货架取物、串烤肠，以及大部分人也做不到的双手盘核桃。这些操作都难以标准化，Galbot 每动一次背后都不是运动控制算法预设的精确轨迹，而是模型根据传感器数据实时反馈的决策。
+
+外界常常存在一个认知误区，…</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;12
+                                  min&hairsp;)</span>
                             </span>
                           </div>
                         </a>
@@ -5874,59 +6456,6 @@ https://feedx.site</span>
 她们唯一做错的事，就是在那一天，出现在了炸弹光临的小学。
 她们，随后会被安葬在这些小小的墓穴里，…</span>
                                 &ensp;<span class="article-reading-time">(&hairsp;4
-                                  min&hairsp;)</span>
-                            </span>
-                          </div>
-                        </a>
-                      </details>
-                    </article>
-                </section>
-              </section>
-            </li>
-            <li class="card__section">
-              <section class="js-toggle-accordions-scope">
-                <h3 class="source-heading">
-                  <button
-                    class="source-heading__name"
-                    data-action="toggle-accordions"
-                    title="Click to toggle the source, Ctrl + click to toggle all."
-                  >晚点LatePost</button>
-                  <a class="source-heading__link" href="https://new.qq.com/omn/author/8QMc3Hhc74cevD%2FR">Open</a>
-                </h3>
-                <section class="articles-per-source">
-                    <article>
-                      <details
-                        class="article-expander"
-                        data-action="toggle-native-accordion"
-                        data-accordion-key="https://view.inews.qq.com/a/20260303A04OF000"
-                        open
-                      >
-                        <summary class="article-expander__title">拆解银河通用：具身智能估值第一独角兽，春晚唯一没有彩排的节目背后</summary>
-                        <a class="article-summary-link article-summary-box-outer" href="https://view.inews.qq.com/a/20260303A04OF000">
-                          <div class="article-summary-box-inner media-object">
-                              <img src="https://inews.gtimg.com/om_ls/OTc8TLoOZj5ikHpvZepULSHkF16kASLCxPj3qMGVurKo8AA_640330/0" loading="lazy" class="media-object__media article-image" />
-                            <span class="media-object__text">
-                              <span>只有能自主干活的机器人才是未来。
-
-
-文丨江思远
-
-近日，银河通用机器人宣布完成 25 亿元新一轮融资。由国家人工智能产业基金（国家大基金三期全资基金）、中国石化、中信集团投资控股、中国银行、上汽集团金控、中芯聚源、亦庄国投、未来产业投资、鲲鹏基金、无锡创投、福建产投联合投资，深创投、上海人工智能基金等多家老股东继续追加。近一年来，银河通用累计融资额已超 55 亿元，投后估值超 200 亿元，融资额和估值都稳居中国具身智能领域独角兽第一。
-
-在 2026 年央视春晚上，银河通用 Galbot 携手沈腾、马丽，成为开年科技与文娱跨界的现象级爆款。作为春晚指定的具身大模型机器人，Galbot 并没有展示预先编程的舞蹈，而是自主完成了盘核桃、捡玻璃碎片、叠衣服、串烤肠等高难度非标准化操作。这些操作没有经过事先编程，每个画面都是具身大模型实时决策的结果。
-
-由于在人员密集的后台取景，录制窗口极为有限，相比其他节目，银河通用的节目是整台春晚唯一一个没有经过彩排的节目，整个过程一气呵成，非常考验机器人及技术团队的临场应变能力。
-
-主持人用六个字总结它的优势：“聪明脑，干活好。” 面对随机摆放的物品和变化的灯光，Galbot 展现出了极强的泛化能力，每一个动作都未经过事先排练，而是 “临场发挥”。
-
-这场极致拟人的技术秀迅速转化为了购买力：春晚结束后几分钟内，售价 69 万元的同款 Galbot 在京东平台迅速售罄，24 小时内获得超 300 单加购。
-
-春晚背后：一场没有彩排的技术大考
-
-在春晚及相关的花絮中，银河通用 Galbot 向外界展露了多项物理交互能力，包括叠衣服、捡玻璃碎片、货架取物、串烤肠，以及大部分人也做不到的双手盘核桃。这些操作都难以标准化，Galbot 每动一次背后都不是运动控制算法预设的精确轨迹，而是模型根据传感器数据实时反馈的决策。
-
-外界常常存在一个认知误区，…</span>
-                                &ensp;<span class="article-reading-time">(&hairsp;12
                                   min&hairsp;)</span>
                             </span>
                           </div>
@@ -21118,105 +21647,6 @@ https://feedx.site</span>
                 </section>
               </section>
             </li>
-            <li class="card__section">
-              <section class="js-toggle-accordions-scope">
-                <h3 class="source-heading">
-                  <button
-                    class="source-heading__name"
-                    data-action="toggle-accordions"
-                    title="Click to toggle the source, Ctrl + click to toggle all."
-                  >文章總匯 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權</button>
-                  <a class="source-heading__link" href="https://www.natgeomedia.com/science/article">Open</a>
-                </h3>
-                <section class="articles-per-source">
-                    <article>
-                      <details
-                        class="article-expander"
-                        data-action="toggle-native-accordion"
-                        data-accordion-key="https://www.natgeomedia.com/science/article/content-18884.html"
-                        open
-                      >
-                        <summary class="article-expander__title">台灣與國際合作發現首顆強重力透鏡極亮超新星</summary>
-                        <a class="article-summary-link article-summary-box-outer" href="https://www.natgeomedia.com/science/article/content-18884.html">
-                          <div class="article-summary-box-inner media-object">
-                              <img src="https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18884/2026022685400961.jpg" loading="lazy" class="media-object__media article-image" />
-                            <span class="media-object__text">
-                              <span>「極亮超新星」（Superluminous Supernova）是目前已知宇宙中最明亮的恆星爆炸事件之一。不過，若超新星發出的光又恰好受到重力透鏡效應分裂成多重影像，那又會如何呢？2月23日中央大學天文研究所宣布，陳婷琬助理教授及其研究團隊近日與德國慕尼黑工業大學、馬克斯普朗克天文物理研究所等國際團隊合作，針對超新星SN 2025wny（暱稱SN Winny）進行影像與光譜研究，首次證實其為星系尺度的強重力透鏡超新星系統，為解答宇宙學參數之謎提供關鍵線索。
-
-                    
-研究團隊鎖定的目標是位於御夫座的超新星SN 2025wny（暱稱 SN Winny）與其透鏡候選體 PS1 J0716+3821。團隊以光譜觀測量得超新星紅移z＝2.008，前景透鏡星系（包含主要透鏡與次級透鏡）紅移約 z&#x3D;0.375。綜合影像與光譜證據，研究團隊確認SN 2025wny為首次發現的「強重力透鏡極亮超新星」系統。
-在本次國際合作中，中央大學團隊於關鍵觀測與資料分析環節中扮演核心角色，為確認此一罕見強重力透鏡超新星系統提供重要數據。參與此次國際研究合作的中央大學陳婷琬助理教授團隊利用鹿林一米望遠鏡（LOT）進行影像確認與光度監測，她指出，在天氣與視寧度條件良好的夜晚，LOT影像甚至可分辨出SN 2025wny的個別透鏡影像，為後續分析提供重要依據。此外，中央大學的博士後研究員艾立安（Amar Aryan）也利用加法夏望遠鏡（CFHT）r 波段影像，在既有多重影像附近辨識出另一個短暫點源，並透過瞬變天體命名伺服器（TNS）AstroNote通報為「可能的第五個透鏡影像」。利用這五個影像的位置，團隊得以建立了第一版透鏡質量分佈模型。
-
-                    
-陳婷琬助理教授指出，重力透鏡就像宇宙的天然放大鏡，把同一個背景天體的光引導成多條不同的光路，讓我們看到好幾個「複製影像」。因為每條光路繞行的距離與受到的重力彎曲程度不同，光抵達地球的時間也不一樣，於是不同影像之間會出現「先後亮起」的時間差。透過精確量測多重影像之間的時間延遲，並結合透鏡星系的質量分佈模型，研究團隊可以推算宇宙尺度的距離與宇宙膨脹的關鍵參數，甚至用來估算哈伯常數。論文的第一作者德國慕尼黑工業大學Stefan Taubenberger博士補充，這種方法不同於「宇宙距離階梯法」，系統性不確定性的來源更少，有助於釐清長期以來的哈伯常數差異問題（Hubble tension）。
-天文學家們表示這是一個極其罕見的事件，要找到一顆極亮超新星剛好與一個合適的重力透鏡完美對齊，其機率低於百萬分之一。接下來數月，全球天文學家也將透過地面與太空望遠鏡持續追蹤SN 2025wny，以取得更完整的光譜與多波段光度資料，進一步完善透鏡模型與時間延遲量測，提升我們對宇宙的理解。
- 
-文轉載自臺北市立天文科學教育館網站。
-
-                    
-#極亮超新星
-#強重力透鏡
-#中央大學天文研究所</span>
-                                &ensp;<span class="article-reading-time">(&hairsp;1
-                                  min&hairsp;)</span>
-                            </span>
-                          </div>
-                        </a>
-                      </details>
-                    </article>
-                </section>
-              </section>
-            </li>
-            <li class="card__section">
-              <section class="js-toggle-accordions-scope">
-                <h3 class="source-heading">
-                  <button
-                    class="source-heading__name"
-                    data-action="toggle-accordions"
-                    title="Click to toggle the source, Ctrl + click to toggle all."
-                  >文章總匯 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權</button>
-                  <a class="source-heading__link" href="https://www.natgeomedia.com/environment/article">Open</a>
-                </h3>
-                <section class="articles-per-source">
-                    <article>
-                      <details
-                        class="article-expander"
-                        data-action="toggle-native-accordion"
-                        data-accordion-key="https://www.natgeomedia.com/environment/article/content-18883.html"
-                        open
-                      >
-                        <summary class="article-expander__title">阿拉伯洞穴中的獵豹木乃伊，揭開失落族群的罕見基因體</summary>
-                        <a class="article-summary-link article-summary-box-outer" href="https://www.natgeomedia.com/environment/article/content-18883.html">
-                          <div class="article-summary-box-inner media-object">
-                              <img src="https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18883/2026022683271473.jpg" loading="lazy" class="media-object__media article-image" />
-                            <span class="media-object__text">
-                              <span>因為乾燥環境、冷空氣和黑暗而保存下來的獵豹木乃伊，給了科學家一個深入探討已消失族群的DNA的機會，以及讓這個族群重返世界的想法。
-
-                    
-2022年，沙烏地阿拉伯國家野生動物中心（National Center for Wildlife）的研究人員出發探索一處廣大的洞穴系統，尋找蝙蝠、蟲和其他生物多樣性。但他們發現，隱藏在那遙遠且幾乎無法觸及的一連串洞穴裡的──其中一個只能靠垂降進15公尺深的溶洞之後才能進入──是驚人的東西：七隻已經木乃伊化的獵豹，尖牙還突出在皮革化的嘴唇之間。
-發現這些獵豹遺骸「是個驚喜」，沙烏地阿拉伯的阿布都拉國王科技大學（King Abdullah University of Science and Technology）的生態學家卡洛斯．杜亞特（Carlos Duarte）說。「起初，我們並不清楚那裡為什麼會有獵豹。從來就沒有人發表過獵豹會穴居的研究。」
-
-                    
-洞穴裡的乾燥氣候讓獵豹保存完好，有些大約是130年，還有些已有將近2000年歷史了。這是科學家第一次在阿拉伯半島發現天然木乃伊化的大型貓科動物。除了獵豹木乃伊之外，研究人員還發掘出超過50隻的獵豹遺骸，有些年代可追溯到約4000年前。
-「一代又一代的獵豹就生活在這些洞穴中。」杜亞特說。最早發現時他並未參與，但後來跟研究人員合作，從已木乃伊化的獵豹組織中萃取並分析整個基因組。
-他們的遺傳分析已於一月份發表在《通訊—地球與環境》期刊（Communications Earth &amp; Environment）中。研究發現，這些遠古獵豹跟亞洲獵豹及西北非獵豹關係相近，而這兩個亞種到目前都還存在。杜亞特說，阿拉伯半島當地的獵豹在1970年代絕跡，所以這項發現有助於把獵豹重新引入沙烏地阿拉伯野外的保育策略。
-
-  
-  
-
-
-
-   …</span>
-                                &ensp;<span class="article-reading-time">(&hairsp;2
-                                  min&hairsp;)</span>
-                            </span>
-                          </div>
-                        </a>
-                      </details>
-                    </article>
-                </section>
-              </section>
-            </li>
         </ul>
       </section>
       <section class="daily-content js-toggle-accordions-scope">
@@ -21226,65 +21656,11 @@ https://feedx.site</span>
             data-action="toggle-accordions"
             title="Click to toggle the day, Ctrl + click to toggle all."
           >
-            <time class="daily-heading-toggle__weekday js-offset-weekday" data-offset-date=2026-02-25 datetime="2026-02-25T10:45:38.000Z">2026-02-25</time>
-            <time class="daily-heading-toggle__date js-offset-date" data-offset-date=2026-02-25 datetime="2026-02-25T10:45:38.000Z"></time>
+            <time class="daily-heading-toggle__weekday js-offset-weekday" data-offset-date=2026-02-25 datetime="2026-02-25T05:58:04.000Z">2026-02-25</time>
+            <time class="daily-heading-toggle__date js-offset-date" data-offset-date=2026-02-25 datetime="2026-02-25T05:58:04.000Z"></time>
           </button>
         </h2>
         <ul class="sources card">
-            <li class="card__section">
-              <section class="js-toggle-accordions-scope">
-                <h3 class="source-heading">
-                  <button
-                    class="source-heading__name"
-                    data-action="toggle-accordions"
-                    title="Click to toggle the source, Ctrl + click to toggle all."
-                  >晚点LatePost</button>
-                  <a class="source-heading__link" href="https://new.qq.com/omn/author/8QMc3Hhc74cevD%2FR">Open</a>
-                </h3>
-                <section class="articles-per-source">
-                    <article>
-                      <details
-                        class="article-expander"
-                        data-action="toggle-native-accordion"
-                        data-accordion-key="https://view.inews.qq.com/a/20260225A06JRX00"
-                        open
-                      >
-                        <summary class="article-expander__title">莲花 CEO 冯擎峰：驯服赛道上的猛兽，克制追逐规模的野心</summary>
-                        <a class="article-summary-link article-summary-box-outer" href="https://view.inews.qq.com/a/20260225A06JRX00">
-                          <div class="article-summary-box-inner media-object">
-                              <img src="https://inews.gtimg.com/om_ls/OI-QXh6Z5IMaCRQX-1YgOYCIUIuZbnd4JXBkbJWYafoMwAA_640330/0" loading="lazy" class="media-object__media article-image" />
-                            <span class="media-object__text">
-                              <span>造一台直线加速极快的车很容易，造一台在极限状态下依然受控的性能车很难。
-
-
-文丨李安琪
-编辑丨龚方毅
-
-莲花跑车的上海办公室在上海陆家嘴，建筑俯瞰像一艘船。CEO 冯擎峰的办公室在 “船” 的顶层，挨着窗边也摆着一艘帆船模型，看起来像是大航海时代的意大利商船，那种曾经穿越大西洋的三桅帆船。
-
-冯擎峰持有赛照，微信昵称是 “引擎”，会亲自试驾原型车，还曾穿着赛车服把莲花 Evija 超跑开到每小时 300 公里以上。莲花的性能负责人 Gavan Kershaw 说，试车时只要看到冯擎峰脸上有笑容，就是一个好信号。
-
-电动化时代，大马力因为高速电机变得唾手可得，为了让车辆在极限状态下保持稳定，莲花的团队把家用级性能车的马力限制在 900 匹，并在底盘、轮胎和刹车上投入数以亿计的资金。
-
-“循序渐进也许是一种方法，但你打造的每一款产品，就代表了你是谁。就像沃尔沃，只要有一款车不安全，它就不再是沃尔沃。对我们来说，只要有一款车的驾控没做到极致，那就不再是莲花。” 冯擎峰说。
-
-“驾控” 也是莲花一直以来的核心能力。创始人柯林·查普曼在 F1 赛场上击败过法拉利和福特，留下一句后来成为品牌工程信条的话：宁减一公斤，不增十马力。冯擎峰用自己的方式翻译了这个传统：“不受控制的马力一文不值”。
-
-习惯了在赛道上掌控机器的冯擎峰，在过去几年的商业竞速中发现，自己要控制的东西远比方向盘复杂。
-
-去年美国中国出口电动车关税提升至 147.5% 后，几千台订单有一半退掉；中欧汽车关税谈判，也导致莲花在当地利润受到不同程度影响。他对去年两款产品降价引起的老车主不满感到遗憾，坦言如果再来一次，会一开始就在价格上保持进攻力。
-
-在看到纯电超豪华车市场的局限后，莲花务实地转向纯电、超混、燃油三线并进。今年 3 月，莲花将发布代号为 For Me 的新车，搭载超级混动系统，是团队在极致性能与真实生活场景间找…</span>
-                                &ensp;<span class="article-reading-time">(&hairsp;39
-                                  min&hairsp;)</span>
-                            </span>
-                          </div>
-                        </a>
-                      </details>
-                    </article>
-                </section>
-              </section>
-            </li>
             <li class="card__section">
               <section class="js-toggle-accordions-scope">
                 <h3 class="source-heading">
@@ -25095,8 +25471,8 @@ Apple Vision Pro 是目前业内算力最强的 XR 设备｜图片来源：Apple
       </section>
 
     <footer>
-      <a class="footer-link" href="https://github.com/YeWeihong/myrss/actions/runs/22655962267">
-        <time id="build-timestamp" datetime="2026-03-04T05:07:49.915Z">2026-03-04T05:07:49.915Z</time>
+      <a class="footer-link" href="https://github.com/YeWeihong/myrss/actions/runs/22659821111">
+        <time id="build-timestamp" datetime="2026-03-04T07:42:22.815Z">2026-03-04T07:42:22.815Z</time>
       </a>
       <a class="footer-link" href="https://github.com/osmoscraft/osmosfeed">osmosfeed 1.15.1</a>
     </footer>
