@@ -320,9 +320,45 @@
     font-style: italic;
   }
 
-  /* ===== 媒体对象 ===== */
+  /* ===== 媒体对象 / Media Object ===== */
+  /* 强制图片在上、文字在下的垂直排列，防止图片压缩摘要 */
+  /* display:flex 覆盖默认的 display:grid，使宽屏横排模板失效 */
   .media-object {
-    gap: 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+  }
+
+  .media-object__media {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16/9 !important;
+    object-fit: cover !important;
+  }
+
+  /* ===== 摘要折叠 / Summary Truncation ===== */
+  .summary-text-truncated {
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 5 !important;
+    overflow: hidden !important;
+  }
+
+  .summary-expand-btn {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 0.72rem !important;
+    color: var(--np-link) !important;
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    cursor: pointer;
+    text-decoration: underline dotted;
+    font-style: italic;
+  }
+
+  .summary-expand-btn:hover {
+    color: var(--np-link-hover) !important;
   }
 
   /* ===== 页脚 / Footer ===== */
@@ -648,6 +684,8 @@
 document.addEventListener('DOMContentLoaded', function() {
   // 初始化筛选器
   initSourceFilter();
+  // 初始化摘要折叠
+  initSummaryTruncation();
 });
 
 function initSourceFilter() {
@@ -919,6 +957,64 @@ function escapeHtml(text) {
   div.textContent = text;
   return div.innerHTML;
 }
+
+// ===== 摘要折叠功能 / Summary Truncation =====
+const SUMMARY_MAX_CHARS = 150;
+const SUMMARY_SELECTOR = '.media-object__text > span:first-child';
+
+function initSummaryTruncation() {
+  // 处理所有摘要文本
+  const summarySpans = document.querySelectorAll(SUMMARY_SELECTOR);
+  summarySpans.forEach(applyTruncation);
+
+  // 处理动态展开的文章（<details> 打开时）
+  document.addEventListener('toggle', function(e) {
+    if (e.target && e.target.classList.contains('article-expander')) {
+      const span = e.target.querySelector(SUMMARY_SELECTOR);
+      if (span) applyTruncation(span);
+    }
+  }, true);
+}
+
+function applyTruncation(span) {
+  // 避免重复处理
+  if (span.dataset.truncated) return;
+  span.dataset.truncated = '1';
+
+  const fullText = span.textContent;
+  if (fullText.length <= SUMMARY_MAX_CHARS) return;
+
+  const shortened = fullText.slice(0, SUMMARY_MAX_CHARS).trimEnd() + '…';
+
+  span.dataset.fullText = fullText;
+  span.dataset.shortText = shortened;
+  span.textContent = shortened;
+  span.classList.add('summary-text-truncated');
+
+  const btn = document.createElement('button');
+  btn.className = 'summary-expand-btn';
+  btn.textContent = '展开';
+  btn.setAttribute('aria-expanded', 'false');
+
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+    if (isExpanded) {
+      span.textContent = span.dataset.shortText;
+      span.classList.add('summary-text-truncated');
+      btn.textContent = '展开';
+      btn.setAttribute('aria-expanded', 'false');
+    } else {
+      span.textContent = span.dataset.fullText;
+      span.classList.remove('summary-text-truncated');
+      btn.textContent = '收起';
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+
+  span.parentNode.insertBefore(btn, span.nextSibling);
+}
 </script>
 
   </head>
@@ -1042,6 +1138,86 @@ function escapeHtml(text) {
                   <a class="source-heading__link" href="">Open</a>
                 </h3>
                 <section class="articles-per-source">
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://www.zaobao.com.sg/news/china/story20260304-8677575"
+                        open
+                      >
+                        <summary class="article-expander__title">24名中国全国政协委员过去一年被撤销资格</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://www.zaobao.com.sg/news/china/story20260304-8677575">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://cassette.sphdigital.com.sg/image/zaobao/32689f22671024cf924b63eb37d49e8bd1c96907dd38834b7c5073404e149612" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>过去一年，中国全国政协依照章程，共撤销24名全国政协委员资格。</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;1
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://www.zaobao.com.sg/news/china/story20260304-8675682"
+                        open
+                      >
+                        <summary class="article-expander__title">中美或进行新一轮贸易谈判前 李成钢会见美强生公司高层</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://www.zaobao.com.sg/news/china/story20260304-8675682">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://cassette.sphdigital.com.sg/image/zaobao/9697373e9b0a8b542ab9cea13385fd632a92959a85068c6c3e2c38a76f6de8a6" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>中美据报将在元首会晤前举行新一轮贸易谈判之际，中国商务部贸易谈判代表兼副部长李成钢会见美国强生公司高层，就中美经贸关系等课题进行交流。</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;2
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://www.zaobao.com.sg/news/china/story20260304-8677696"
+                        open
+                      >
+                        <summary class="article-expander__title">王沪宁政协报告涉台部分仅提两岸基层交流</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://www.zaobao.com.sg/news/china/story20260304-8677696">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://cassette.sphdigital.com.sg/image/zaobao/e8f1830d4f0639bfc651d6fdc3728540bd2780706cebaa952d60e371875d0877" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>中国全国政协主席王沪宁今年在全国政协会议开幕会上做工作报告时，与去年一样没有过多着墨两岸议题。他仅在回顾去年的工作时提到，举办了两岸基层治理论坛。</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;2
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://www.zaobao.com.sg/news/china/story20260304-8677767"
+                        open
+                      >
+                        <summary class="article-expander__title">特朗普因伊朗问题威胁西班牙 北京吁贸易不应被武器化</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://www.zaobao.com.sg/news/china/story20260304-8677767">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://cassette.sphdigital.com.sg/image/zaobao/1fcaf731cdb290d9a3bca6bd71db4b1a694ceb4e426a9b7f0164c9cfa757935c" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>由于西班牙拒绝允许美国军方使用它的基地执行打击伊朗的军事任务，美国总统特朗普威胁对西班牙实施全面贸易禁运。中国外交部就此呼吁，贸易不应被武器化。</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;2
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
                     <article>
                       <details
                         class="article-expander"
@@ -1992,6 +2168,39 @@ function escapeHtml(text) {
                     class="source-heading__name"
                     data-action="toggle-accordions"
                     title="Click to toggle the source, Ctrl + click to toggle all."
+                  >中国经济时报</button>
+                  <a class="source-heading__link" href="">Open</a>
+                </h3>
+                <section class="articles-per-source">
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://www.163.com/dy/article/KN406J4K0512D71I.html?spss&#x3D;dy_author"
+                        open
+                      >
+                        <summary class="article-expander__title">理大与以太坊基金会签署合作备忘录 携手推动区块链人才培育与前沿研究</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://www.163.com/dy/article/KN406J4K0512D71I.html?spss&#x3D;dy_author">
+                          <div class="article-summary-box-inner media-object">
+                            <span class="media-object__text">
+                              <span>理大与以太坊基金会签署合作备忘录 携手推动区块链人才培育与前沿研究,理大,区块链技术,以太坊基金会</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;6
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                </section>
+              </section>
+            </li>
+            <li class="card__section">
+              <section class="js-toggle-accordions-scope">
+                <h3 class="source-heading">
+                  <button
+                    class="source-heading__name"
+                    data-action="toggle-accordions"
+                    title="Click to toggle the source, Ctrl + click to toggle all."
                   >南方周末</button>
                   <a class="source-heading__link" href="http://infzm.com">Open</a>
                 </h3>
@@ -2205,6 +2414,77 @@ function escapeHtml(text) {
                     class="source-heading__name"
                     data-action="toggle-accordions"
                     title="Click to toggle the source, Ctrl + click to toggle all."
+                  >少数派</button>
+                  <a class="source-heading__link" href="https://sspai.com">Open</a>
+                </h3>
+                <section class="articles-per-source">
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://sspai.com/post/106477"
+                        open
+                      >
+                        <summary class="article-expander__title">从采集到回顾，我用 AI 搭建了一套个人信息处理系统</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://sspai.com/post/106477">
+                          <div class="article-summary-box-inner media-object">
+                            <span class="media-object__text">
+                              <span>面对信息过载，我为用 AI 为自己搭了一套信息工作流，希望也能给你带来一丝启发。查看全文</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;3
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://sspai.com/post/106660"
+                        open
+                      >
+                        <summary class="article-expander__title">一日一技｜将 Obsidian 剪藏文章自动添加至当天日记</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://sspai.com/post/106660">
+                          <div class="article-summary-box-inner media-object">
+                            <span class="media-object__text">
+                              <span>为了解决手动记录的繁琐并保持记录的连贯性，我通过一套自动化方案实现了如下效果：当 Clippings 文件夹中新增剪藏文件时，自动获取文章标题和文章总结，以文章总结的格式自动添加到当天日记的底部。查看全文</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;2
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://sspai.com/post/106811"
+                        open
+                      >
+                        <summary class="article-expander__title">派早报：Apple 发布 M5 系列芯片及 Studio Display、MacBook 系列新品</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://sspai.com/post/106811">
+                          <div class="article-summary-box-inner media-object">
+                            <span class="media-object__text">
+                              <span>Unihertz 发布全键盘新机 Titan 2 Elite 等。查看全文</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;3
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                </section>
+              </section>
+            </li>
+            <li class="card__section">
+              <section class="js-toggle-accordions-scope">
+                <h3 class="source-heading">
+                  <button
+                    class="source-heading__name"
+                    data-action="toggle-accordions"
+                    title="Click to toggle the source, Ctrl + click to toggle all."
                   >晚点LatePost</button>
                   <a class="source-heading__link" href="https://new.qq.com/omn/author/8QMc3Hhc74cevD%2FR">Open</a>
                 </h3>
@@ -2328,58 +2608,6 @@ function escapeHtml(text) {
 《南方网》头啖汤评论：“神仙单位躺平岗”，真能躺平吗？
 《联合早报》下午察：“考公”也刮躺平风
 《南华早报》（24年12月）中国多地用“蜗牛奖”整治“躺平”心态：点名工作表现差的干部 Chinese cities fight lying flat mentality with ‘snail awards’ for poor workers</span>
-                            </span>
-                          </div>
-                        </a>
-                      </details>
-                    </article>
-                </section>
-              </section>
-            </li>
-            <li class="card__section">
-              <section class="js-toggle-accordions-scope">
-                <h3 class="source-heading">
-                  <button
-                    class="source-heading__name"
-                    data-action="toggle-accordions"
-                    title="Click to toggle the source, Ctrl + click to toggle all."
-                  >少数派</button>
-                  <a class="source-heading__link" href="https://sspai.com">Open</a>
-                </h3>
-                <section class="articles-per-source">
-                    <article>
-                      <details
-                        class="article-expander"
-                        data-action="toggle-native-accordion"
-                        data-accordion-key="https://sspai.com/post/106660"
-                        open
-                      >
-                        <summary class="article-expander__title">一日一技｜将 Obsidian 剪藏文章自动添加至当天日记</summary>
-                        <a class="article-summary-link article-summary-box-outer" href="https://sspai.com/post/106660">
-                          <div class="article-summary-box-inner media-object">
-                            <span class="media-object__text">
-                              <span>为了解决手动记录的繁琐并保持记录的连贯性，我通过一套自动化方案实现了如下效果：当 Clippings 文件夹中新增剪藏文件时，自动获取文章标题和文章总结，以文章总结的格式自动添加到当天日记的底部。查看全文</span>
-                                &ensp;<span class="article-reading-time">(&hairsp;2
-                                  min&hairsp;)</span>
-                            </span>
-                          </div>
-                        </a>
-                      </details>
-                    </article>
-                    <article>
-                      <details
-                        class="article-expander"
-                        data-action="toggle-native-accordion"
-                        data-accordion-key="https://sspai.com/post/106811"
-                        open
-                      >
-                        <summary class="article-expander__title">派早报：Apple 发布 M5 系列芯片及 Studio Display、MacBook 系列新品</summary>
-                        <a class="article-summary-link article-summary-box-outer" href="https://sspai.com/post/106811">
-                          <div class="article-summary-box-inner media-object">
-                            <span class="media-object__text">
-                              <span>Unihertz 发布全键盘新机 Titan 2 Elite 等。查看全文</span>
-                                &ensp;<span class="article-reading-time">(&hairsp;3
-                                  min&hairsp;)</span>
                             </span>
                           </div>
                         </a>
@@ -2528,6 +2756,82 @@ function escapeHtml(text) {
 归根结底，是皇家海军的能力早已无法匹配其野心。
 作品声明：首发于头条，观点不代表平台立场</span>
                                 &ensp;<span class="article-reading-time">(&hairsp;4
+                                  min&hairsp;)</span>
+                            </span>
+                          </div>
+                        </a>
+                      </details>
+                    </article>
+                </section>
+              </section>
+            </li>
+            <li class="card__section">
+              <section class="js-toggle-accordions-scope">
+                <h3 class="source-heading">
+                  <button
+                    class="source-heading__name"
+                    data-action="toggle-accordions"
+                    title="Click to toggle the source, Ctrl + click to toggle all."
+                  >人物</button>
+                  <a class="source-heading__link" href="https://new.qq.com/omn/author/8QMf33ZY5YwduT%2FQ">Open</a>
+                </h3>
+                <section class="articles-per-source">
+                    <article>
+                      <details
+                        class="article-expander"
+                        data-action="toggle-native-accordion"
+                        data-accordion-key="https://view.inews.qq.com/a/20260304A03JLZ00"
+                        open
+                      >
+                        <summary class="article-expander__title">春节过完了，那些「吃」进医院的人还没出院</summary>
+                        <a class="article-summary-link article-summary-box-outer" href="https://view.inews.qq.com/a/20260304A03JLZ00">
+                          <div class="article-summary-box-inner media-object">
+                              <img src="https://inews.gtimg.com/om_ls/O7p7vuT-HaEnssht2kNHiBSEvhkE_NvxfK0idyjVBOG_AAA_640330/0" loading="lazy" class="media-object__media article-image" />
+                            <span class="media-object__text">
+                              <span>春节前，消化内科的很多病人都会办理出院，准备回家过年，病房也不像平时那么忙碌，气氛紧张的医院也有了一些即将放假的松弛。但医生们知道，节日的气氛里暗含着危险的信号，这些病房通常不会空得太久，胰腺炎的病人很快又会住进来。
+
+
+
+
+
+
+
+
+
+
+
+文｜涂雨清
+
+编辑｜张跃
+
+
+
+
+
+
+
+胰腺在哪里？胰腺炎是什么？
+
+
+
+
+陈千千记得自己生病前吃的最后一顿好吃的。那是去年的大年三十，她们一家三口在上海亲戚家里聚餐，两桌菜满满当当的，还有很多坚果。很快就已经吃饱了，但她觉得自己还能吃。像过去的每个春节一样，接着和亲戚一边聊天一边嗑瓜子花生。
+
+
+吃完没多久，左边肋骨附近的位置突然开始疼，起初，她觉得应该是「厉害一点的胃疼」，想忍一忍，在床上滚了一下，觉得疼痛还能忍受，一直忍到了第二天，「熬不住了」，「呼吸都在痛」。
+
+
+她被确诊了急性胰腺炎。医生说，「你要马上住院」，「病程很快的，如果你不去治疗，它就自己把器官给消化了」。这让陈千千感到害怕，她随后在社交媒体上发帖，标题是「大年初一胰腺炎住院记录」，很快收到了几百条评论。「目前胰腺炎住院第五天」、「胰腺炎正在抢救室」、「我也是大年初一住院」、「我家里人也是过年这样」……过年期间患急性胰腺炎的人一下子就找到了彼此。
+
+
+对于这样的状况，消化内科和急诊科的医生们早已不陌生——一到过年，胰腺炎病人就会多起来。在上海市第一人民医院消化内科副主任医生蔡晓波的印象中，数量至少会是平时的两倍，急诊医生有时打来电话调侃，「今天又该是你们科室的主场了。」
+
+
+陈千千今年30岁，确诊胰腺炎之前，她从来没有听说过这个疾病，她只听说过肠胃炎，胰腺在哪里？胰腺炎是什么？
+
+
+人们通常比较了解胃，却不了解长在胃后面那个小小的胰腺。但在整个消化系统中，胰腺扮演的作用却非常重要——一方面，胰腺会释放胰岛素，将食物中的糖转化为能量，送进人体细胞；另一方面，胰腺里还储存了…</span>
+                                &ensp;<span class="article-reading-time">(&hairsp;16
                                   min&hairsp;)</span>
                             </span>
                           </div>
@@ -22013,75 +22317,6 @@ Conway, Martin A., and Catherine Loveday. &quot;Remembering, imagining, false me
                     class="source-heading__name"
                     data-action="toggle-accordions"
                     title="Click to toggle the source, Ctrl + click to toggle all."
-                  >人物</button>
-                  <a class="source-heading__link" href="https://new.qq.com/omn/author/8QMf33ZY5YwduT%2FQ">Open</a>
-                </h3>
-                <section class="articles-per-source">
-                    <article>
-                      <details
-                        class="article-expander"
-                        data-action="toggle-native-accordion"
-                        data-accordion-key="https://view.inews.qq.com/a/20260225A01NB800"
-                        open
-                      >
-                        <summary class="article-expander__title">2026年，我们将继续面对失控的四季</summary>
-                        <a class="article-summary-link article-summary-box-outer" href="https://view.inews.qq.com/a/20260225A01NB800">
-                          <div class="article-summary-box-inner media-object">
-                              <img src="https://inews.gtimg.com/om_ls/ObfTbx4R5FvcS_9ahldHGohxmR_wpJLr9CyCJqG-B_jYkAA_640330/0" loading="lazy" class="media-object__media article-image" />
-                            <span class="media-object__text">
-                              <span>整个2025年，人类积累至今的一切四季经验都在逐渐失效，压缩的春天，漫长而多变的夏天，骤然转向的秋天，不再稳定的冬天，古人留下的节气童谣不再能指导我们的日常生活，然而，构建起我们身边世界的一切——建筑、材料、社会运转规则——都是基于曾经人类对四季的理解。这种变化对我们所有人来说都是一种挑战，如何在陌生的四季中生存下去？我们要如何熬过下一个新的春夏秋冬？
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-文｜查非
-
-
-
-
-
-
-
-
-
-
-陌生的四季
-
-
-刚刚过去的这个冬天，天气像是总在跟人开玩笑。入冬后人们刚习惯了说「这个冬天不太冷」，没多久后的寒潮就让所有人重温了寒冷的定义——西湖荷塘结冰了，上海下雪了，北京人经历了接连几天零下十几度的工作日，就连最熟悉寒冷的东北人，也在这个冬天差点见识了新纪录，入冬后的沈阳最低气温极值达到了零下30.5摄氏度，比1957年的历史最低值只差了一度。
-
-
-整个北半球都经受了寒冬的考验。美国遭遇了历史罕见的冬季风暴，暴风雪给许多地方带来了超过30厘米的降雪，多地气温平均下降20摄氏度，导致交通中断、航班取消，学校大范围停课，已经有超过数十人死于暴雪。日本北海道经历了有统计数据以来最高降雪纪录，札幌48小时内降雪量超过64厘米，周边地面交通大面积瘫痪。欧洲也在这个冬天一直要对付寒潮带来的强降雪、冻雨、大风，多国机场大量航班取消，「欧洲之星」列车一度大面积停运。
-
-
-其实就在这一切发生不久前，冬天明明是另一种样子。滑雪爱好者第一次见到了12月还没下雪的日本北海道二世谷雪场，由于日本气温低于零摄氏度的天数逐年减少，部分滑雪场的导览手册不再宣传「粉雪滑雪」，转而倡导单纯搭乘缆车欣赏山景。阿尔卑斯山区雪线也在不断上移，当地人总是抱怨，冬天现在下雨的日子比下雪多，2025年当地滑雪行业会议主题之一就是「如何在没有雪的情况下吸引游客」。还有同样以冰雪出名的哈尔滨，一年一度的冰雪大世界…</span>
-                                &ensp;<span class="article-reading-time">(&hairsp;20
-                                  min&hairsp;)</span>
-                            </span>
-                          </div>
-                        </a>
-                      </details>
-                    </article>
-                </section>
-              </section>
-            </li>
-            <li class="card__section">
-              <section class="js-toggle-accordions-scope">
-                <h3 class="source-heading">
-                  <button
-                    class="source-heading__name"
-                    data-action="toggle-accordions"
-                    title="Click to toggle the source, Ctrl + click to toggle all."
                   >MDARK</button>
                   <a class="source-heading__link" href="">Open</a>
                 </h3>
@@ -25471,8 +25706,8 @@ Apple Vision Pro 是目前业内算力最强的 XR 设备｜图片来源：Apple
       </section>
 
     <footer>
-      <a class="footer-link" href="https://github.com/YeWeihong/myrss/actions/runs/22659821111">
-        <time id="build-timestamp" datetime="2026-03-04T07:42:22.815Z">2026-03-04T07:42:22.815Z</time>
+      <a class="footer-link" href="https://github.com/YeWeihong/myrss/actions/runs/22660893619">
+        <time id="build-timestamp" datetime="2026-03-04T08:18:44.181Z">2026-03-04T08:18:44.181Z</time>
       </a>
       <a class="footer-link" href="https://github.com/osmoscraft/osmosfeed">osmosfeed 1.15.1</a>
     </footer>
