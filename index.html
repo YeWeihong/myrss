@@ -154,6 +154,33 @@
             <span class="truncate">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
           </button>
           <button
+            data-src="南方周末"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">南方周末</span>
+          </button>
+          <button
+            data-src="凤凰军事"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">凤凰军事</span>
+          </button>
+          <button
+            data-src="北青深一度 via zmonster on Inoreader"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">北青深一度 via zmonster on Inoreader</span>
+          </button>
+          <button
             data-src="MDARK"
             @click="setActive($el.dataset.src); sidebarOpen = false"
             :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
@@ -163,6 +190,15 @@
             <span class="truncate">MDARK</span>
           </button>
           <button
+            data-src="少数派"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">少数派</span>
+          </button>
+          <button
             data-src="中国经济时报"
             @click="setActive($el.dataset.src); sidebarOpen = false"
             :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
@@ -170,15 +206,6 @@
           >
             <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
             <span class="truncate">中国经济时报</span>
-          </button>
-          <button
-            data-src="南方周末"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">南方周末</span>
           </button>
           <button
             data-src="也谈钱"
@@ -197,24 +224,6 @@
           >
             <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
             <span class="truncate">环球科学</span>
-          </button>
-          <button
-            data-src="凤凰军事"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">凤凰军事</span>
-          </button>
-          <button
-            data-src="少数派"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">少数派</span>
           </button>
           <button
             data-src="大文獨家 - 大公文匯網"
@@ -473,8 +482,8 @@
 
         <!-- Sidebar Footer -->
         <div class="px-4 py-3 border-t border-[#f5bcd8] text-[10px] text-[#b88aaa]">
-          <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/YeWeihong/myrss/actions/runs/22842544323">
-            构建于 <time datetime="2026-03-09T07:17:41.705Z">2026-03-09T07:17:41.705Z</time>
+          <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/YeWeihong/myrss/actions/runs/22845197845">
+            构建于 <time datetime="2026-03-09T08:42:52.391Z">2026-03-09T08:42:52.391Z</time>
           </a>
           <div class="mt-0.5">
             <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/osmoscraft/osmosfeed">osmosfeed 1.15.1</a>
@@ -758,6 +767,770 @@
                 </div>
               </article>
               <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">台湾官方过去10天里有九天未在台湾海峡周边侦获任何中国大陆军机，令专家对解放军活动数量骤降感到不解。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://www.zaobao.com.sg/_web2/assets/social-share.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-09"
+                      datetime="2026-03-09T08:42:33.164Z"
+                    >2026-03-09</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    台海周边大陆军机数量骤降引发质疑
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    台湾官方过去10天里有九天未在台湾海峡周边侦获任何中国大陆军机，令专家对解放军活动数量骤降感到不解。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260309-8702660"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">中国传媒大学去年砍掉了翻译、摄影等16个本科专业和方向。这家知名学府的中共党委书记廖祥忠说，未来将是人机分工时代，大学正在做“课堂革命”。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://www.zaobao.com.sg/_web2/assets/social-share.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-09"
+                      datetime="2026-03-09T08:42:33.149Z"
+                    >2026-03-09</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国传媒大学砍掉翻译等16个本科专业
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国传媒大学去年砍掉了翻译、摄影等16个本科专业和方向。这家知名学府的中共党委书记廖祥忠说，未来将是人机分工时代，大学正在做“课堂革命”。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260309-8702930"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">伊朗驻华大使法兹里受访时称，美国只要离开，即可保证霍尔木兹海峡通道安全。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/7214aac5759161d88ae545aac3c212a7371f8b450015788860050f0170456431"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-09"
+                      datetime="2026-03-09T08:42:33.139Z"
+                    >2026-03-09</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    伊朗驻华大使：美国只要离开即可保证霍尔木兹海峡通道安全
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    伊朗驻华大使法兹里受访时称，美国只要离开，即可保证霍尔木兹海峡通道安全。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260309-8703100"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">伊朗宣布已故最高领袖哈梅内伊之子穆杰塔巴为新任最高领袖后，中国外交部星期一（3月9日）称，这是伊朗基于本国宪法做出的决定。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/91b7265bfa03729197027872901fbeec127a4a5661fdce495c69d6ade6fdd083"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-09"
+                      datetime="2026-03-09T08:42:33.119Z"
+                    >2026-03-09</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    哈梅内伊之子任伊朗最高领袖 中国称伊朗基于宪法做出决定
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    伊朗宣布已故最高领袖哈梅内伊之子穆杰塔巴为新任最高领袖后，中国外交部星期一（3月9日）称，这是伊朗基于本国宪法做出的决定。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260309-8702819"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">针对台湾行政院长卓荣泰上周末赴东京观赛，中国大陆外交部回应时，指他鬼祟跑到日本搞谋独挑衅小动作，北京反对日本在台湾问题打擦边球，并称日本将为此付出代价。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://www.zaobao.com.sg/_web2/assets/social-share.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-09"
+                      datetime="2026-03-09T08:42:33.098Z"
+                    >2026-03-09</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    卓荣泰赴日观赛 大陆称反对日本在台湾问题打擦边球
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    针对台湾行政院长卓荣泰上周末赴东京观赛，中国大陆外交部回应时，指他鬼祟跑到日本搞谋独挑衅小动作，北京反对日本在台湾问题打擦边球，并称日本将为此付出代价。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260309-8702912"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">中国副总理张国清本周将前往法国，出席核能峰会。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://www.zaobao.com.sg/_web2/assets/social-share.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-09"
+                      datetime="2026-03-09T08:42:33.067Z"
+                    >2026-03-09</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国副总理张国清赴法出席核能峰会
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国副总理张国清本周将前往法国，出席核能峰会。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260309-8702818"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="南方周末"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">2026-03-09 16:00:00</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">南方周末</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-09"
+                      datetime="2026-03-09T08:25:06.000Z"
+                    >2026-03-09</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    补贴超百万，你会打“飞的”出行吗？
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    2026-03-09 16:00:00
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="http://www.infzm.com/contents/316328"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="凤凰军事"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">03-09 12:15
+【军武次位面】作者：天狼
+2月28日，美国与以色列对伊朗发动大规模军事打击，其中最震撼的一幕，就是伊朗最高领袖哈梅内伊在袭击中身亡。作为伊朗政权核心人物，他的突然离世一度让外界认为伊朗政治体系可能陷入巨大动荡，甚至出现权力真空。然而仅仅数天之后，伊朗政坛就迅速给出了答案。3月9日，伊朗官方媒体确认，伊朗专家会议已经作出最终决定，推举哈梅内伊的次子穆杰塔巴·哈梅内伊出任新一任最高领袖。这一结果并不完全出乎意料，却依然在国际社会引发巨大震动——在战争阴影笼罩、外部威胁加剧的时刻，这位长期在幕后运作的神秘人物被推到聚光灯下，成为掌控伊朗国家命运的关键人物。
+
+根据伊朗宪法，最高领袖是国家权力的核心，不仅拥有对国家重大事务的最终决定权，还直接担任武装力量最高统帅。从军事指挥、国家战略到外交政策，几乎所有关键决策都必须由最高领袖拍板。因此，在伊朗这样的政治体制中，最高领袖不仅仅是象征性的精神领袖，更是实际意义上的最高统帅。也正因如此，在战争仍在持续、美以威胁不断升级的情况下，伊朗必须尽快完成权力交接，以确保国家机器继续正常运转。
+新任最高领袖穆杰塔巴·哈梅内伊今年56岁，出生于伊朗宗教圣城马什哈德，是已故最高领袖的次子。从履历来看，他既是一名神职人员，也拥有军事背景。1980年至1988年的两伊战争期间，穆杰塔巴曾加入伊朗伊斯兰革命卫队的志愿部队作战，与后来成为伊朗军政高层的许多人物建立了深厚关系。战争结束后，他前往宗教重镇库姆深造，在神学院学习多年，并逐渐获得宗教头衔。2022年，他被授予“阿亚图拉”称号，这被视为具备担任最高领袖的重要条件之一。
+不过，与伊朗政坛许多公开活跃的政治人物不同，穆杰塔巴长期处于幕后。他几乎没有担任过正式政府职务，却被普遍认为是哈梅内伊权力体系中的核心人物。过去二十年间，他在父亲办公室中扮演着关键角色，被视为进入最高领袖权力核心的…</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://x0.ifengimg.com/res/2026/B83A0CC2D0C69DC976D7E049B571631B5CEA7F0E_size7_w631_h333.webp"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">凤凰军事</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-09"
+                      datetime="2026-03-09T07:58:03.000Z"
+                    >2026-03-09</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    伊朗完成权力交接！哈梅内伊之子“冒死接班”，中东局势一夜变天
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    03-09 12:15
+【军武次位面】作者：天狼
+2月28日，美国与以色列对伊朗发动大规模军事打击，其中最震撼的一幕，就是伊朗最高领袖哈梅内伊在袭击中身亡。作为伊朗政权核心人物，他的突然离世一度让外界认为伊朗政治体系可能陷入巨大动荡，甚至出现权力真空。然而仅仅数天之后，伊朗政坛就迅速给出了答案。3月9日，伊朗官方媒体确认，伊朗专家会议已经作出最终决定，推举哈梅内伊的次子穆杰塔巴·哈梅内伊出任新一任最高领袖。这一结果并不完全出乎意料，却依然在国际社会引发巨大震动——在战争阴影笼罩、外部威胁加剧的时刻，这位长期在幕后运作的神秘人物被推到聚光灯下，成为掌控伊朗国家命运的关键人物。
+
+根据伊朗宪法，最高领袖是国家权力的核心，不仅拥有对国家重大事务的最终决定权，还直接担任武装力量最高统帅。从军事指挥、国家战略到外交政策，几乎所有关键决策都必须由最高领袖拍板。因此，在伊朗这样的政治体制中，最高领袖不仅仅是象征性的精神领袖，更是实际意义上的最高统帅。也正因如此，在战争仍在持续、美以威胁不断升级的情况下，伊朗必须尽快完成权力交接，以确保国家机器继续正常运转。
+新任最高领袖穆杰塔巴·哈梅内伊今年56岁，出生于伊朗宗教圣城马什哈德，是已故最高领袖的次子。从履历来看，他既是一名神职人员，也拥有军事背景。1980年至1988年的两伊战争期间，穆杰塔巴曾加入伊朗伊斯兰革命卫队的志愿部队作战，与后来成为伊朗军政高层的许多人物建立了深厚关系。战争结束后，他前往宗教重镇库姆深造，在神学院学习多年，并逐渐获得宗教头衔。2022年，他被授予“阿亚图拉”称号，这被视为具备担任最高领袖的重要条件之一。
+不过，与伊朗政坛许多公开活跃的政治人物不同，穆杰塔巴长期处于幕后。他几乎没有担任过正式政府职务，却被普遍认为是哈梅内伊权力体系中的核心人物。过去二十年间，他在父亲办公室中扮演着关键角色，被视为进入最高领袖权力核心的…
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://news.ifeng.com/c/8rLpAZI7aMB"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="凤凰军事"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">03-09 13:38
+近日，伊朗伊斯兰革命卫队公布了一些战果卫星照片，其中提到了位于约旦首都安曼以东的穆瓦法格空军基地的一套“萨德”系统、配套的AN/TPY-2型火控雷达已被摧毁的消息。卫星照片拍的比较糊，分辨率不高，只能看到部署该雷达的场坪存在大量烟迹，推定为雷达被摧毁。
+
+随后欧洲空客公司的卫星照片补了一刀，证实该雷达确实遭重，雷达和EEU/CEU单元均有大片过火的痕迹，相比伊斯兰革命卫队公布的卫星照片，空客的卫片基本上算实锤。
+萨德的损失情况
+但是，无论哪张照片都没有约旦现地美军自己拍摄的照片来的直接、权威。这不今天早上，一张来自于穆瓦法格空军基地的、不知道是谁拍摄、但大概率出自美军一线士兵之手的照片在网上刷屏，确凿无疑地证实穆瓦法格空军基地的AN/TPY-2雷达挨了重重一击：
+
+AN/TPY-2雷达被毁画面
+照片中，可以看到这台AN/TPY-2型雷达阵面损毁、连四个支腿中的两个都断裂了，整个阵面的复合材料防护外罩都被炸飞、阵面上方铁皮翻卷、阵面本体则漆黑一片、过火痕迹明显，地面上一片狼藉有消防水迹、润滑油油迹、各种乱七八糟的碎片和外壳材料。看到这张照片，毋庸置疑，这台AN/TPY-2型火控雷达已经被彻底摧毁，家属可以进来了，节哀吧。
+
+毕竟，从精密相控阵火控雷达的设计性能来看，相控阵雷达尽管使用了多个T/R组件作为子阵，在部分T/R组件发射机出现问题的情况下可以利用其它阵面进行弥补。但是大面积过火可是物理攻击，直接就给你所有的T/R组件都给你烧毁了，T/R组件本来对温度就比较敏感，几百上千度的火焰烧一通还能用个毛线。更不用说相控阵雷达还有后端的大量线缆，管路，这些线缆管路可不是什么防火材料制作的，一通过火之后烧得一塌糊涂，修都不知道怎么修。
+
+网传美军基地被毁画面
+因此我们可以认定，约旦穆瓦法格空军基地的这台AN/TPY-2型雷达，彻底摧毁、退出战斗，可以从美国反…</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://x0.ifengimg.com/res/2026/87F508E2AA35DCBE0FE9AB5409C97C5BF1AA166F_size15_w720_h380.webp"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">凤凰军事</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-09"
+                      datetime="2026-03-09T07:58:03.000Z"
+                    >2026-03-09</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    这不得气炸了！美国萨德雷达被伊朗摧毁，带来2个严重连锁反应
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    03-09 13:38
+近日，伊朗伊斯兰革命卫队公布了一些战果卫星照片，其中提到了位于约旦首都安曼以东的穆瓦法格空军基地的一套“萨德”系统、配套的AN/TPY-2型火控雷达已被摧毁的消息。卫星照片拍的比较糊，分辨率不高，只能看到部署该雷达的场坪存在大量烟迹，推定为雷达被摧毁。
+
+随后欧洲空客公司的卫星照片补了一刀，证实该雷达确实遭重，雷达和EEU/CEU单元均有大片过火的痕迹，相比伊斯兰革命卫队公布的卫星照片，空客的卫片基本上算实锤。
+萨德的损失情况
+但是，无论哪张照片都没有约旦现地美军自己拍摄的照片来的直接、权威。这不今天早上，一张来自于穆瓦法格空军基地的、不知道是谁拍摄、但大概率出自美军一线士兵之手的照片在网上刷屏，确凿无疑地证实穆瓦法格空军基地的AN/TPY-2雷达挨了重重一击：
+
+AN/TPY-2雷达被毁画面
+照片中，可以看到这台AN/TPY-2型雷达阵面损毁、连四个支腿中的两个都断裂了，整个阵面的复合材料防护外罩都被炸飞、阵面上方铁皮翻卷、阵面本体则漆黑一片、过火痕迹明显，地面上一片狼藉有消防水迹、润滑油油迹、各种乱七八糟的碎片和外壳材料。看到这张照片，毋庸置疑，这台AN/TPY-2型火控雷达已经被彻底摧毁，家属可以进来了，节哀吧。
+
+毕竟，从精密相控阵火控雷达的设计性能来看，相控阵雷达尽管使用了多个T/R组件作为子阵，在部分T/R组件发射机出现问题的情况下可以利用其它阵面进行弥补。但是大面积过火可是物理攻击，直接就给你所有的T/R组件都给你烧毁了，T/R组件本来对温度就比较敏感，几百上千度的火焰烧一通还能用个毛线。更不用说相控阵雷达还有后端的大量线缆，管路，这些线缆管路可不是什么防火材料制作的，一通过火之后烧得一塌糊涂，修都不知道怎么修。
+
+网传美军基地被毁画面
+因此我们可以认定，约旦穆瓦法格空军基地的这台AN/TPY-2型雷达，彻底摧毁、退出战斗，可以从美国反…
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://news.ifeng.com/c/8rLuQUFTBIk"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="凤凰军事"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">03-09 14:57
+【军武次位面】 作者：丰羽
+据《EADaily》报道，以色列对德黑兰南部和西部的石油储存设施实施空袭后，巨大的爆炸摧毁了多处储油罐的防护结构，大量成品油与原油泄漏并被引燃。随着火势不断扩大，城市上空被浓烟覆盖，部分地区在降雨时出现了被污染的黑色雨水。CNN记者称之为“石油雨”。
+当然，这不是因为石油被炸飞了像雨水一样直接落下，而是因为石油燃烧产生大量碳烟和油滴进入空气，这些悬浮颗粒在冷空气的作用下与水汽结合，随后在降雨时随水滴落下，肉眼看到的就是黑色雨点。城市上空的烟柱规模越大，降雨污染越明显，部分靠近袭击区域的建筑物外墙和路面已经被黑色的黏稠物覆盖。
+德黑兰这次情况之所以引起关注，是因为城市规模巨大，人口接近1000万，工业设施密集。油库燃烧后的烟雾在城市上空形成巨大的污染层，视觉效果非常强烈，黑色雨滴落在玻璃上很像墨水。
+
+▲俄媒报道截图
+除了天上下黑雨之外，更具末日景象的是在陆地上游走的火蛇。德黑兰西北部的能源节点被摧毁后，由于储油设施的防漏墙在空袭中遭到严重破坏，易燃成品油的大量泄漏没有得到有效拦截，数百万升燃油和原油倾泻而出，迅速灌入了城市的排雨系统和下水道网。
+由于德黑兰的地形存在明显的坡度，北高南低的地势使得这些被引燃的油料顺着管网快速蔓延，沿着德黑兰特有的开放式路面排雨明渠滚滚而下，在街道的排水口和裂缝中喷薄而出，形成了流动火流。这种火蛇恐怖的地方在于，它们不仅在燃烧，而且在移动。
+
+▲伊朗能源设施遭到空袭后
+CNN记者发布的实测画面显示，火焰顺着沙赫兰油库周边的开放式水渠行进，附近的住宅楼在黑暗中被火光映照得如同炼狱。这种现象给城市消防体系带来了巨大压力，因为应对重型石化火灾本应依赖专业的泡沫灭火剂，但随着数百万升油料涌入长达数公里的开放式市政管网，专业消防装备的储备面临极速耗尽的问题，且根本无法实现全域覆盖。而在普通街区，由于石油比水轻，人们使用常规消防水枪不仅无法灭火，反而会带着燃烧的油料扩散到更大的范围。
+
+▲火蛇在街头蔓延
+当然，问题的关键并不是这种景象带来的冲击，而在于为什么会这样，它说明美以换了打法，已经开始攻击伊朗的能源设施。这种战术的转变，意味着打击的重心从单纯的削弱武装力量，转向了对国家整体生存基础的破坏。在此之前，外界普遍预计打击目标主要集中在军事基地或防空阵地，但美以一开始就炸了学校，这次又直接针对关系国家经济运转的基础设施，意图通过切断能源供应链来制造内部的混乱与压力。而一旦城市的供水、供电、通信以及医院的急救设备停摆，内部必然会出现更大的动荡。
+而且在某种程度上，这可以算是化学战，虽然没有直接使用国际禁用的毒气弹，但这种具有腐蚀性的黑雨对人体肺部和皮肤的伤害是实实在在的。伊朗红新月会随后便发布了6点紧急安全建议，警告民众这种降水具有强酸性，并紧急呼吁居民待在室内，避免接触有毒碳氢化合物，同时建议使用盐水漱口以清理吸入的油灰颗粒。
+
+▲伊朗能源设施遭到空袭后
+这种针对平民生活和城市基础架构的无差别破坏，意味着当前的冲突已经突破了之前的范围，进入了一个不设限的新阶段。这似乎意味着美以联军的地面攻势很快就会开始。根据美国以前的套路来看，通过高强度的空袭彻底摧毁对方的后勤保障、基础设施和抵抗意志，往往是大规模地面部队推进前最常规的铺垫动作。当对方的核心城市陷入彻底的瘫痪和内部混乱时，前线的防御力量将很难获得有效的补给和支援，从而为地面部队的行动创造条件。而根据美媒透露的方案，美以联军可能进入伊朗夺取高丰度浓缩铀，特朗普也暗示地面攻势仍在选项之中。
+作品声明：首发于头条，观点不代表平台立场</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://x0.ifengimg.com/res/2026/28E895BEE6265DD92FFDF17590FCBD5573C5644D_size18_w720_h380.webp"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">凤凰军事</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-09"
+                      datetime="2026-03-09T07:58:03.000Z"
+                    >2026-03-09</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    美以换打法，伊朗出现地狱景象：天上下黑雨，地上走火蛇
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    03-09 14:57
+【军武次位面】 作者：丰羽
+据《EADaily》报道，以色列对德黑兰南部和西部的石油储存设施实施空袭后，巨大的爆炸摧毁了多处储油罐的防护结构，大量成品油与原油泄漏并被引燃。随着火势不断扩大，城市上空被浓烟覆盖，部分地区在降雨时出现了被污染的黑色雨水。CNN记者称之为“石油雨”。
+当然，这不是因为石油被炸飞了像雨水一样直接落下，而是因为石油燃烧产生大量碳烟和油滴进入空气，这些悬浮颗粒在冷空气的作用下与水汽结合，随后在降雨时随水滴落下，肉眼看到的就是黑色雨点。城市上空的烟柱规模越大，降雨污染越明显，部分靠近袭击区域的建筑物外墙和路面已经被黑色的黏稠物覆盖。
+德黑兰这次情况之所以引起关注，是因为城市规模巨大，人口接近1000万，工业设施密集。油库燃烧后的烟雾在城市上空形成巨大的污染层，视觉效果非常强烈，黑色雨滴落在玻璃上很像墨水。
+
+▲俄媒报道截图
+除了天上下黑雨之外，更具末日景象的是在陆地上游走的火蛇。德黑兰西北部的能源节点被摧毁后，由于储油设施的防漏墙在空袭中遭到严重破坏，易燃成品油的大量泄漏没有得到有效拦截，数百万升燃油和原油倾泻而出，迅速灌入了城市的排雨系统和下水道网。
+由于德黑兰的地形存在明显的坡度，北高南低的地势使得这些被引燃的油料顺着管网快速蔓延，沿着德黑兰特有的开放式路面排雨明渠滚滚而下，在街道的排水口和裂缝中喷薄而出，形成了流动火流。这种火蛇恐怖的地方在于，它们不仅在燃烧，而且在移动。
+
+▲伊朗能源设施遭到空袭后
+CNN记者发布的实测画面显示，火焰顺着沙赫兰油库周边的开放式水渠行进，附近的住宅楼在黑暗中被火光映照得如同炼狱。这种现象给城市消防体系带来了巨大压力，因为应对重型石化火灾本应依赖专业的泡沫灭火剂，但随着数百万升油料涌入长达数公里的开放式市政管网，专业消防装备的储备面临极速耗尽的问题，且根本无法实现全域覆盖。而在普通街区，由于石油比水轻，人们使用常规消防水枪不仅无法灭火，反而会带着燃烧的油料扩散到更大的范围。
+
+▲火蛇在街头蔓延
+当然，问题的关键并不是这种景象带来的冲击，而在于为什么会这样，它说明美以换了打法，已经开始攻击伊朗的能源设施。这种战术的转变，意味着打击的重心从单纯的削弱武装力量，转向了对国家整体生存基础的破坏。在此之前，外界普遍预计打击目标主要集中在军事基地或防空阵地，但美以一开始就炸了学校，这次又直接针对关系国家经济运转的基础设施，意图通过切断能源供应链来制造内部的混乱与压力。而一旦城市的供水、供电、通信以及医院的急救设备停摆，内部必然会出现更大的动荡。
+而且在某种程度上，这可以算是化学战，虽然没有直接使用国际禁用的毒气弹，但这种具有腐蚀性的黑雨对人体肺部和皮肤的伤害是实实在在的。伊朗红新月会随后便发布了6点紧急安全建议，警告民众这种降水具有强酸性，并紧急呼吁居民待在室内，避免接触有毒碳氢化合物，同时建议使用盐水漱口以清理吸入的油灰颗粒。
+
+▲伊朗能源设施遭到空袭后
+这种针对平民生活和城市基础架构的无差别破坏，意味着当前的冲突已经突破了之前的范围，进入了一个不设限的新阶段。这似乎意味着美以联军的地面攻势很快就会开始。根据美国以前的套路来看，通过高强度的空袭彻底摧毁对方的后勤保障、基础设施和抵抗意志，往往是大规模地面部队推进前最常规的铺垫动作。当对方的核心城市陷入彻底的瘫痪和内部混乱时，前线的防御力量将很难获得有效的补给和支援，从而为地面部队的行动创造条件。而根据美媒透露的方案，美以联军可能进入伊朗夺取高丰度浓缩铀，特朗普也暗示地面攻势仍在选项之中。
+作品声明：首发于头条，观点不代表平台立场
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://news.ifeng.com/c/8rM0xOcgjaw"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="北青深一度 via zmonster on Inoreader"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">记者/朴云
+编辑/郝鸣
+     
+ 在旷野岩壁之上，有两双手正以不同的方式触摸着自然边界。一双常年与冰层、风雪、岩壁为伴，沉稳而有力，守护着每一次出发与归来；另一双轻盈且敏锐，在岩壁找寻落点，遵循身体本能，奔赴一次次突破与热爱。
+她们正是始祖鸟运动员杨小华与李美妮——一位是ENSA见习高山向导，另一位是斩获第十五届全运会女子攀石冠军的16岁天才少女。
+在始祖鸟发布2026年高山户外女性纪录片《她顺流而上》中，两位女性攀登者分别在“与山同频”与“贴壁听风”中出镜，直面征程中的课题与转变，不断向内探索，而她们的故事却不止于山间，更藏着每一位女性都能拥有的心流力量。
+ 
+    
+ 始于热爱，归于专业
+杨小华生活在法国霞慕尼，这座被阿尔卑斯山环抱的小镇是无数攀登者心中的圣地。2026 年，是她成为实习高山向导的第一年，也是她在全球顶尖的法国国家滑雪与登山学校（École Nationale de Ski et d’Alpinisme，简称ENSA）学习的第二年。
+     
+ 作为 ENSA 实习高山向导，这条路充满挑战与压力。但热爱让杨小华在一次次跌倒后重新站起，伤痛与疲惫都没能让她停下。老师的一句话深深印在她心里：“没有问题，只有解决办法”。她说：“处理好当下这一段绳距、这一块岩壁、这一个判断。不论在考试、训练，还是在山里，那种全神贯注会让我忘记其他一切的时刻，带来一种很纯粹的满足感。”
+从攀登者到高山向导，杨小华始于热爱，归于专业。作为中国攀登界的标志性人物，杨小华曾斩获第15届中国金犀牛最佳攀登成就奖，完成过多条高难度山峰的首次登顶。“攀爬时，我只想着手上的点是不是抓住了，脚下的点是不是踩稳了，那个时候会忘记时间、忘记饥饿，就像世界突然静止了，我就在当下那一刻。”长年与高山和风险共处，她早已在专注与坚守里，练就让人安心的力量。
+在这片女性从业者极少的领域，杨小华从未被性…</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://static.ws.126.net/163/frontend/images/logo-netease-114.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">北青深一度 via zmonster on Inoreader</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-09"
+                      datetime="2026-03-09T07:57:18.000Z"
+                    >2026-03-09</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    顺流而上，改变在她们身上自然发生
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    记者/朴云
+编辑/郝鸣
+     
+ 在旷野岩壁之上，有两双手正以不同的方式触摸着自然边界。一双常年与冰层、风雪、岩壁为伴，沉稳而有力，守护着每一次出发与归来；另一双轻盈且敏锐，在岩壁找寻落点，遵循身体本能，奔赴一次次突破与热爱。
+她们正是始祖鸟运动员杨小华与李美妮——一位是ENSA见习高山向导，另一位是斩获第十五届全运会女子攀石冠军的16岁天才少女。
+在始祖鸟发布2026年高山户外女性纪录片《她顺流而上》中，两位女性攀登者分别在“与山同频”与“贴壁听风”中出镜，直面征程中的课题与转变，不断向内探索，而她们的故事却不止于山间，更藏着每一位女性都能拥有的心流力量。
+ 
+    
+ 始于热爱，归于专业
+杨小华生活在法国霞慕尼，这座被阿尔卑斯山环抱的小镇是无数攀登者心中的圣地。2026 年，是她成为实习高山向导的第一年，也是她在全球顶尖的法国国家滑雪与登山学校（École Nationale de Ski et d’Alpinisme，简称ENSA）学习的第二年。
+     
+ 作为 ENSA 实习高山向导，这条路充满挑战与压力。但热爱让杨小华在一次次跌倒后重新站起，伤痛与疲惫都没能让她停下。老师的一句话深深印在她心里：“没有问题，只有解决办法”。她说：“处理好当下这一段绳距、这一块岩壁、这一个判断。不论在考试、训练，还是在山里，那种全神贯注会让我忘记其他一切的时刻，带来一种很纯粹的满足感。”
+从攀登者到高山向导，杨小华始于热爱，归于专业。作为中国攀登界的标志性人物，杨小华曾斩获第15届中国金犀牛最佳攀登成就奖，完成过多条高难度山峰的首次登顶。“攀爬时，我只想着手上的点是不是抓住了，脚下的点是不是踩稳了，那个时候会忘记时间、忘记饥饿，就像世界突然静止了，我就在当下那一刻。”长年与高山和风险共处，她早已在专注与坚守里，练就让人安心的力量。
+在这片女性从业者极少的领域，杨小华从未被性…
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://c.m.163.com/news/a/KNJB8NAG0512BN99.html?from&#x3D;subscribe"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
                 data-src="纽约时报中文网"
                 x-show="active === 'all' || active === $el.dataset.src"
                 x-transition:enter="transition ease-out duration-200"
@@ -806,6 +1579,86 @@
                   <!-- Read link – @click.stop so the card click doesn't also fire -->
                   <a
                     href="https://cn.nytimes.com/china/20260309/china-iran-power/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="南方周末"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">2026-03-09 15:00:00
+
+
+2026年3月7日上午，宁夏代表团召开会议。全国人大代表、作家马慧娟就“统筹农用地布局优化“提出建议。（南方周末记者翟星理｜摄）
+2026年3月7日上午，在全国人大会议中心第一会议室，宁夏代表团正在审查计划报告和草案、预算报告和草案。
+轮到马慧娟发言时，这位作家代表提起基层调研中常见的情形：不少地方耕地、林地、草地彼此交织，呈“插花式”散落——一块耕地边上可能是零星草地，再往前又接着一片未利用地。
+现实里，土地难以成片，制度政策上却很难“挪一挪”。“农用地之间缺少双向甚至多向的流通机制。”马慧娟说。
+几天前的3月4日，全国政协委员、山东省兰陵县代村党委书记王传喜在接受南方周末记者采访时谈到的，则是另一种紧迫感：保护耕地面临的突出问题是，一些地方耕地“非农化”“非粮化”抬头，本该用于种植粮食的耕地被改变了用途。
+一个来自高原山地的“插花式”土地分布困局，一个来自产粮区的“非粮化”警报，在两会会场内外共同指向一项写入“十五五”规划纲要草案的举措：统筹农用地布局优化。
+审查、讨论“十五五”规划纲要草案是2026年全国两会的重要议程。南方周末记者注意到，连续数日，会场内外，不少代表委员们就“十五五”期间面临的农用地布局以及统筹方案展开热议。
+耕地被林地、园地挤压
+从公开信息溯源，在中央层面，自然资源部2024年8月发布的文件中已提出“农用地布局优化”这一概念。
+李登旺是中国社会科学院农村发展研究所土地经济研究室助理研究员。他对南方周末记者介绍，所谓统筹农用地布局优化，是以国土“三调”统一底图为基础，在守住耕地红线、严格占补平衡的约束下，统筹耕地与园、林、草、湿等农用地的空间关系，纠正林粮错配、治理碎片化与空间混杂，推动形成耕地集中连片、优质稳定、用途受控的农业空间格局。
+这一概念的提出，源于耕地保护面临的新挑战。
+近年来中国耕地保护面临的…</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">南方周末</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-09"
+                      datetime="2026-03-09T07:25:05.000Z"
+                    >2026-03-09</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    农用地老问题，“十五五”新解法
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    2026-03-09 15:00:00
+
+
+2026年3月7日上午，宁夏代表团召开会议。全国人大代表、作家马慧娟就“统筹农用地布局优化“提出建议。（南方周末记者翟星理｜摄）
+2026年3月7日上午，在全国人大会议中心第一会议室，宁夏代表团正在审查计划报告和草案、预算报告和草案。
+轮到马慧娟发言时，这位作家代表提起基层调研中常见的情形：不少地方耕地、林地、草地彼此交织，呈“插花式”散落——一块耕地边上可能是零星草地，再往前又接着一片未利用地。
+现实里，土地难以成片，制度政策上却很难“挪一挪”。“农用地之间缺少双向甚至多向的流通机制。”马慧娟说。
+几天前的3月4日，全国政协委员、山东省兰陵县代村党委书记王传喜在接受南方周末记者采访时谈到的，则是另一种紧迫感：保护耕地面临的突出问题是，一些地方耕地“非农化”“非粮化”抬头，本该用于种植粮食的耕地被改变了用途。
+一个来自高原山地的“插花式”土地分布困局，一个来自产粮区的“非粮化”警报，在两会会场内外共同指向一项写入“十五五”规划纲要草案的举措：统筹农用地布局优化。
+审查、讨论“十五五”规划纲要草案是2026年全国两会的重要议程。南方周末记者注意到，连续数日，会场内外，不少代表委员们就“十五五”期间面临的农用地布局以及统筹方案展开热议。
+耕地被林地、园地挤压
+从公开信息溯源，在中央层面，自然资源部2024年8月发布的文件中已提出“农用地布局优化”这一概念。
+李登旺是中国社会科学院农村发展研究所土地经济研究室助理研究员。他对南方周末记者介绍，所谓统筹农用地布局优化，是以国土“三调”统一底图为基础，在守住耕地红线、严格占补平衡的约束下，统筹耕地与园、林、草、湿等农用地的空间关系，纠正林粮错配、治理碎片化与空间混杂，推动形成耕地集中连片、优质稳定、用途受控的农业空间格局。
+这一概念的提出，源于耕地保护面临的新挑战。
+近年来中国耕地保护面临的…
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="http://www.infzm.com/contents/316426"
                     target="_blank"
                     rel="noopener noreferrer"
                     @click.stop
@@ -2029,6 +2882,58 @@
                   <!-- Read link – @click.stop so the card click doesn't also fire -->
                   <a
                     href="https://www.zaobao.com.sg/news/china/story20260309-8702221"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="少数派"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">快递送货上门是我们的权利。查看全文</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">少数派</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-09"
+                      datetime="2026-03-09T06:44:09.000Z"
+                    >2026-03-09</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    我与驿站斗智斗勇 3 个月，终于如愿让快递送货上门
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    快递送货上门是我们的权利。查看全文
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://sspai.com/post/106611"
                     target="_blank"
                     rel="noopener noreferrer"
                     @click.stop
@@ -74987,165 +75892,6 @@ AI 评分：92
                   <!-- Read link – @click.stop so the card click doesn't also fire -->
                   <a
                     href="https://www.bestblogs.dev/article/e2dd0765"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="BestBlogs.dev - 精选文章"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">📌 一句话摘要
-            
-Meta 通过与社区合作实现高性能多路转码和实时质量指标，成功从分化的内部 FFmpeg 分支迁移到上游版本，支撑每日数百亿次的执行规模。
-📝 详细摘要
-            
-本文详细介绍了 Meta 从维护重度修改的内部 FFmpeg 分支转向采用上游版本的战略转变。面对每日 10 亿次视频上传的巨大规模，Meta 最初开发了用于多线程编码和实时质量指标的自定义功能。通过与 FFlabs 和 VideoLAN 合作，他们成功将这些能力整合到 FFmpeg 6.0 至 8.0 版本中，引发了该工具数十年来最重大的重构。文章重点介绍了并行输出编码和用于实时质量监控的“环内”解码等技术进步。此外，它还解释了 Meta 在开源方面的平衡策略：将通用的效率提升贡献给上游，同时保留针对特定基础设施的补丁（如对其专有 MSVP ASIC 的支持）在内部。
-💡 主要观点
-            
-Meta 通过将关键性能特性推向上游，成功废弃了其内部 FFmpeg 分支。
-                         为了解决分化分支带来的维护负担，Meta 与社区合作实现了多路线程和实时指标，在简化自身基础设施的同时造福了整个行业。
-                    
-
-                        通过在单个进程中并行化编码器实例，实现了多路转码效率的最大化。
-                         现代 FFmpeg 版本现在支持多个输出分辨率的并行编码，而非串行执行，这显著降低了高流量视频平台的计算开销和延迟。
-                    
-
-                        通过在转码过程中进行“环内”解码，实现了实时质量指标监控。
-                         通过在编码器后立即插入解码器，系统可以实时对比压缩位图与原始帧，这对于维持直播环境中的质量至关重要。
-                    
-
-                        战略性上游化区分了通用社区利益与特定的内部硬件支持。
-                         Meta 将造福所有用户的架构改进推向上游，但保留了对其专有 MSVP ASIC 的支持在内部，以避免让社区维护者承担无法访问的硬件维护负担。
-                    
-💬 文章金句
-            
-Meta 每天执行 ffmpeg 二进制文件数百亿次，在处理媒体文件时带来了独特的挑战。
-这一进展导致了 FFmpeg 数十年来最复杂的重构，并为所有 FFmpeg 用户实现了更高效的编码。
-为了完全从内部分支迁移出来，我们需要在上游实现最后一个功能：实时质量指标。
-我们努力在上游推动这些发展，以造福 FFmpeg 社区和更广泛的行业。
-FFmpeg 经受住了时间的考验，拥有超过 25 年的活跃开发历史。
-📊 文章信息
-            
-AI 评分：92
-精选文章：是
-来源：Engineering at Meta
-作者：Engineering at Meta
-分类：软件编程
-语言：英文
-阅读时间：6 分钟
-字数：1285
-标签：
-                    
-                        FFmpeg, 视频工程, 开源策略, 可扩展性, 转码
-                    
-                
-            
-        
-
-        
-            阅读完整文章</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://image.jido.dev/20260303045923_FFmpeg-at-Meta-hero_2.png"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">BestBlogs.dev - 精选文章</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-03-03"
-                      datetime="2026-03-02T19:50:14.000Z"
-                    >2026-03-03</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    Meta 的 FFmpeg 实践：大规模媒体处理
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    📌 一句话摘要
-            
-Meta 通过与社区合作实现高性能多路转码和实时质量指标，成功从分化的内部 FFmpeg 分支迁移到上游版本，支撑每日数百亿次的执行规模。
-📝 详细摘要
-            
-本文详细介绍了 Meta 从维护重度修改的内部 FFmpeg 分支转向采用上游版本的战略转变。面对每日 10 亿次视频上传的巨大规模，Meta 最初开发了用于多线程编码和实时质量指标的自定义功能。通过与 FFlabs 和 VideoLAN 合作，他们成功将这些能力整合到 FFmpeg 6.0 至 8.0 版本中，引发了该工具数十年来最重大的重构。文章重点介绍了并行输出编码和用于实时质量监控的“环内”解码等技术进步。此外，它还解释了 Meta 在开源方面的平衡策略：将通用的效率提升贡献给上游，同时保留针对特定基础设施的补丁（如对其专有 MSVP ASIC 的支持）在内部。
-💡 主要观点
-            
-Meta 通过将关键性能特性推向上游，成功废弃了其内部 FFmpeg 分支。
-                         为了解决分化分支带来的维护负担，Meta 与社区合作实现了多路线程和实时指标，在简化自身基础设施的同时造福了整个行业。
-                    
-
-                        通过在单个进程中并行化编码器实例，实现了多路转码效率的最大化。
-                         现代 FFmpeg 版本现在支持多个输出分辨率的并行编码，而非串行执行，这显著降低了高流量视频平台的计算开销和延迟。
-                    
-
-                        通过在转码过程中进行“环内”解码，实现了实时质量指标监控。
-                         通过在编码器后立即插入解码器，系统可以实时对比压缩位图与原始帧，这对于维持直播环境中的质量至关重要。
-                    
-
-                        战略性上游化区分了通用社区利益与特定的内部硬件支持。
-                         Meta 将造福所有用户的架构改进推向上游，但保留了对其专有 MSVP ASIC 的支持在内部，以避免让社区维护者承担无法访问的硬件维护负担。
-                    
-💬 文章金句
-            
-Meta 每天执行 ffmpeg 二进制文件数百亿次，在处理媒体文件时带来了独特的挑战。
-这一进展导致了 FFmpeg 数十年来最复杂的重构，并为所有 FFmpeg 用户实现了更高效的编码。
-为了完全从内部分支迁移出来，我们需要在上游实现最后一个功能：实时质量指标。
-我们努力在上游推动这些发展，以造福 FFmpeg 社区和更广泛的行业。
-FFmpeg 经受住了时间的考验，拥有超过 25 年的活跃开发历史。
-📊 文章信息
-            
-AI 评分：92
-精选文章：是
-来源：Engineering at Meta
-作者：Engineering at Meta
-分类：软件编程
-语言：英文
-阅读时间：6 分钟
-字数：1285
-标签：
-                    
-                        FFmpeg, 视频工程, 开源策略, 可扩展性, 转码
-                    
-                
-            
-        
-
-        
-            阅读完整文章
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.bestblogs.dev/article/abf2bb46"
                     target="_blank"
                     rel="noopener noreferrer"
                     @click.stop
