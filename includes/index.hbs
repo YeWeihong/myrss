@@ -149,7 +149,7 @@
                 style="display:flex;"
               >
                 <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">{{{description}}}</template>
+                <template class="desc-data">{{description}}</template>
 
                 {{#if imageUrl}}
                 <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
@@ -340,6 +340,11 @@
             const timeEl   = el.querySelector('time');
             const titleEl  = el.querySelector('.card-title');
             const linkEl   = el.querySelector('.read-link');
+            // osmosfeed converts RSS HTML to plain text (newline-separated paragraphs).
+            // template.innerHTML gives back HTML-encoded text (safe to embed in <p>).
+            const rawDesc  = descTpl ? descTpl.innerHTML.trim() : '';
+            const paragraphs = rawDesc.split(/\n+/).filter(s => s.trim());
+            const descHTML = paragraphs.map(s => `<p>${s.trim()}</p>`).join('');
             this.selectedArticle = {
               el:          el,
               title:       titleEl  ? titleEl.textContent.trim()          : '',
@@ -347,7 +352,7 @@
               dateDisplay: timeEl   ? timeEl.textContent.trim()            : '',
               link:        linkEl   ? linkEl.href                          : '#',
               imageUrl:    imgEl    ? imgEl.src                            : '',
-              descHTML:    descTpl  ? descTpl.innerHTML                    : '',
+              descHTML:    descHTML,
             };
             this.detailOpen = true;
           }
