@@ -18,4 +18,33 @@
   @media (min-width: 768px) {
     aside { position: sticky !important; }
   }
+  /* On desktop the detail panel becomes a sticky column – override the mobile fixed/transform */
+  @media (min-width: 1024px) {
+    .detail-panel {
+      position: sticky !important;
+      top: 0;
+      height: 100vh;
+      width: 380px !important;
+      transform: none !important;
+      box-shadow: none !important;
+      flex-shrink: 0;
+    }
+  }
+  /* Prose styles for HTML content rendered inside the detail panel */
+  .prose-detail img  { max-width: 100%; height: auto; border-radius: .5rem; margin: .5rem 0; }
+  .prose-detail a    { color: #e8649a; text-decoration: underline; overflow-wrap: break-word; }
+  .prose-detail p    { margin-bottom: .75rem; }
+  .prose-detail h1,
+  .prose-detail h2,
+  .prose-detail h3   { font-weight: 600; margin-bottom: .5rem; color: #2d2d2d; }
+  .prose-detail ul,
+  .prose-detail ol   { padding-left: 1.25rem; margin-bottom: .75rem; }
+  .prose-detail li   { margin-bottom: .25rem; }
+  .prose-detail blockquote {
+    border-left: 3px solid #ffa0bf;
+    padding-left: .75rem;
+    color: #777;
+    font-style: italic;
+    margin: .5rem 0;
+  }
 </style>
