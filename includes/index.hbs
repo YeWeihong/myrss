@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  <head>
+    <title>{{siteTitle}}</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="{{siteTitle}}" href="{{feedHref}}" />
+    <!-- %before-head-end.html% -->
+  </head>
+
+  <body class="bg-[#fff9f9] text-[#333333]" style="min-height:100vh;">
+
+    <div x-data="rssReader()" class="flex" style="min-height:100vh;">
+
+      <!-- ===== Mobile sidebar overlay ===== -->
+      <div
+        x-show="sidebarOpen"
+        x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in duration-150"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        @click="sidebarOpen = false"
+        class="fixed inset-0 z-20 bg-black/30 md:hidden"
+        style="display:none;"
+      ></div>
+
+      <!-- ===== Sidebar ===== -->
+      <aside
+        :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'"
+        class="fixed md:relative md:translate-x-0 z-30 flex flex-col w-64 bg-[#fce4f0] border-r border-[#f9c8e0] transition-transform duration-300 ease-in-out flex-shrink-0 overflow-y-auto"
+        style="height:100vh; top:0;"
+      >
+        <!-- Brand / Title -->
+        <div class="px-5 py-6 border-b border-[#f5bcd8]">
+          <h1 class="text-lg font-bold text-[#e8649a] leading-tight">🌸 {{siteTitle}}</h1>
+          <p class="text-xs text-[#c47aa0] mt-1">RSS 聚合阅读</p>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
+
+          <!-- All Articles -->
+          <button
+            data-src="all"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === 'all' ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="text-base leading-none">📰</span>
+            <span>全部文章</span>
+          </button>
+
+          <!-- Divider -->
+          <div class="pt-2 pb-1 px-2">
+            <span class="text-[10px] font-semibold text-[#c47aa0] uppercase tracking-widest">订阅源</span>
+          </div>
+
+          <!-- Sources list -->
+          {{#each sources}}
+          <button
+            data-src="{{title}}"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">{{title}}</span>
+          </button>
+          {{/each}}
+
+        </nav>
+
+        <!-- Sidebar Footer -->
+        <div class="px-4 py-3 border-t border-[#f5bcd8] text-[10px] text-[#b88aaa]">
+          {{#if githubRunUrl}}
+          <a class="hover:text-[#e8649a] transition-colors" href="{{githubRunUrl}}">
+            构建于 <time datetime="{{siteBuildTimestamp}}">{{siteBuildTimestamp}}</time>
+          </a>
+          {{else}}
+          <time datetime="{{siteBuildTimestamp}}">{{siteBuildTimestamp}}</time>
+          {{/if}}
+          <div class="mt-0.5">
+            <a class="hover:text-[#e8649a] transition-colors" href="{{projectUrl}}">osmosfeed {{cliVersion}}</a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- ===== Main Content ===== -->
+      <div class="flex-1 flex flex-col min-w-0">
+
+        <!-- Mobile top bar -->
+        <header class="md:hidden sticky top-0 z-10 bg-[#fff9f9]/95 backdrop-blur-sm border-b border-[#fddaeb] px-4 py-3 flex items-center gap-3 flex-shrink-0">
+          <button
+            @click="sidebarOpen = true"
+            class="p-2 rounded-xl hover:bg-[#fddaeb] text-[#e8649a] transition-colors"
+            aria-label="打开菜单"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+          <h2 class="font-semibold text-[#e8649a] text-sm truncate" x-text="active === 'all' ? '全部文章' : active">全部文章</h2>
+          <span class="ml-auto text-xs text-[#b88aaa]" x-text="visibleCount + ' 篇'"></span>
+        </header>
+
+        <!-- Desktop page title bar -->
+        <div class="hidden md:flex items-center justify-between px-6 py-4 border-b border-[#fddaeb] flex-shrink-0">
+          <h2 class="font-bold text-[#e8649a] text-base" x-text="active === 'all' ? '全部文章' : active">全部文章</h2>
+          <span class="text-xs text-[#b88aaa]" x-text="visibleCount + ' 篇文章'"></span>
+        </div>
+
+        <!-- Article Grid -->
+        <main class="flex-1 p-4 md:p-6 overflow-y-auto">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-5">
+
+            {{#each articles}}
+            <article
+              data-src="{{source.title}}"
+              x-show="active === 'all' || active === $el.dataset.src"
+              x-transition:enter="transition ease-out duration-200"
+              x-transition:enter-start="opacity-0 scale-95"
+              x-transition:enter-end="opacity-100 scale-100"
+              class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col"
+              style="display:flex;"
+            >
+              {{#if imageUrl}}
+              <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                <img
+                  src="{{imageUrl}}"
+                  alt=""
+                  loading="lazy"
+                  class="w-full h-full object-cover"
+                  onerror="this.parentElement.style.display='none'"
+                />
+              </div>
+              {{/if}}
+
+              <div class="p-4 flex flex-col flex-1 gap-2">
+                <!-- Source + Date meta -->
+                <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                  <span class="truncate font-medium">{{source.title}}</span>
+                  <span class="flex-shrink-0 opacity-50">·</span>
+                  <time
+                    class="flex-shrink-0 js-offset-date"
+                    data-offset-date="{{isoOffsetPublishDate}}"
+                    datetime="{{isoUtcPublishTime}}"
+                  >{{isoOffsetPublishDate}}</time>
+                </div>
+
+                <!-- Title -->
+                <h3 class="font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                  {{title}}
+                </h3>
+
+                <!-- Description -->
+                <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                  {{description}}
+                </p>
+
+                <!-- Read link -->
+                <a
+                  href="{{link}}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                >
+                  阅读原文
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                  </svg>
+                </a>
+              </div>
+            </article>
+            {{/each}}
+
+          </div>
+
+          <!-- Empty state -->
+          <div
+            x-show="visibleCount === 0"
+            class="flex flex-col items-center justify-center py-20 text-[#ccbbcc]"
+            style="display:none;"
+          >
+            <span class="text-5xl mb-4">🌸</span>
+            <p class="text-sm">暂无文章</p>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script>
+      function rssReader() {
+        return {
+          active: 'all',
+          sidebarOpen: false,
+          visibleCount: 0,
+          _articleCache: null,
+          init() {
+            // Cache article elements once since the list is static after page load
+            this._articleCache = Array.from(document.querySelectorAll('article[data-src]'));
+            this._updateCount();
+            this.$watch('active', () => {
+              this.$nextTick(() => this._updateCount());
+            });
+          },
+          _updateCount() {
+            if (this.active === 'all') {
+              this.visibleCount = this._articleCache.length;
+            } else {
+              this.visibleCount = this._articleCache.filter(el => el.dataset.src === this.active).length;
+            }
+          },
+          setActive(src) {
+            this.active = src;
+          }
+        };
+      }
+    </script>
+
+    <!-- osmosfeed runtime for date localisation -->
+    <script src="index.js?v1.14.4"></script>
+
+  </body>
+
+</html>
