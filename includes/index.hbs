@@ -344,7 +344,10 @@
             // template.innerHTML gives back HTML-encoded text (safe to embed in <p>).
             const rawDesc  = descTpl ? descTpl.innerHTML.trim() : '';
             const paragraphs = rawDesc.split(/\n+/).filter(s => s.trim());
-            const descHTML = paragraphs.map(s => `<p>${s.trim()}</p>`).join('');
+            const unsafeHTML = paragraphs.map(s => `<p>${s.trim()}</p>`).join('');
+            const descHTML = typeof DOMPurify !== 'undefined'
+              ? DOMPurify.sanitize(unsafeHTML)
+              : unsafeHTML;
             this.selectedArticle = {
               el:          el,
               title:       titleEl  ? titleEl.textContent.trim()          : '',
