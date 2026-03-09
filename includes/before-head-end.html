@@ -88,6 +88,10 @@
   /* ===== 日期区块 / Daily Section ===== */
   .daily-content {
     margin-bottom: 20px;
+    /* 跳过屏幕外日期区块的渲染，显著提升长页面性能 */
+    /* contain-intrinsic-size: auto 关键字在首次渲染后使用实际测量高度，500px 仅作初始占位估值 */
+    content-visibility: auto;
+    contain-intrinsic-size: auto 500px;
   }
 
   /* 日期标题 - 报刊版面风格 */
@@ -673,6 +677,10 @@
 <!-- 订阅源筛选器脚本 -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  // 图片懒加载：仅为文章内图片添加 loading="lazy"（文章图片藏于 <details> 中，均位于屏幕外）
+  document.querySelectorAll('.article-expander img, .media-object img').forEach(function(img) {
+    if (!img.hasAttribute('loading')) img.setAttribute('loading', 'lazy');
+  });
   // 初始化筛选器
   initSourceFilter();
   // 初始化摘要折叠
@@ -954,11 +962,13 @@ const SUMMARY_MAX_CHARS = 150;
 const SUMMARY_SELECTOR = '.media-object__text > span:first-child';
 
 function initSummaryTruncation() {
-  // 处理所有摘要文本
-  const summarySpans = document.querySelectorAll(SUMMARY_SELECTOR);
-  summarySpans.forEach(applyTruncation);
+  // 仅处理初始已展开的文章（通常为零），避免页面加载时处理所有隐藏摘要
+  document.querySelectorAll('.article-expander[open]').forEach(function(article) {
+    const span = article.querySelector(SUMMARY_SELECTOR);
+    if (span) applyTruncation(span);
+  });
 
-  // 处理动态展开的文章（<details> 打开时）
+  // 展开文章时按需处理摘要（toggle 事件已覆盖所有后续展开操作）
   document.addEventListener('toggle', function(e) {
     if (e.target && e.target.classList.contains('article-expander')) {
       const span = e.target.querySelector(SUMMARY_SELECTOR);
