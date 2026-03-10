@@ -136,6 +136,15 @@
 
           <!-- Sources list -->
           <button
+            data-src="看鉴中国 OutsightChina - Telegram Channel"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">看鉴中国 OutsightChina - Telegram Channel</span>
+          </button>
+          <button
             data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
             @click="setActive($el.dataset.src); sidebarOpen = false"
             :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
@@ -161,6 +170,15 @@
           >
             <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
             <span class="truncate">竹新社 - Telegram Channel</span>
+          </button>
+          <button
+            data-src="差评X.PIN"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">差评X.PIN</span>
           </button>
           <button
             data-src="南方周末"
@@ -224,15 +242,6 @@
           >
             <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
             <span class="truncate">凤凰军事</span>
-          </button>
-          <button
-            data-src="看鉴中国 OutsightChina - Telegram Channel"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">看鉴中国 OutsightChina - Telegram Channel</span>
           </button>
           <button
             data-src="iDaily · 每日环球视野"
@@ -359,15 +368,6 @@
           >
             <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
             <span class="truncate">文章總匯 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權</span>
-          </button>
-          <button
-            data-src="差评X.PIN"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">差评X.PIN</span>
           </button>
           <button
             data-src="深网"
@@ -500,8 +500,8 @@
 
         <!-- Sidebar Footer -->
         <div class="px-4 py-3 border-t border-[#f5bcd8] text-[10px] text-[#b88aaa]">
-          <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/YeWeihong/myrss/actions/runs/22914110306">
-            构建于 <time datetime="2026-03-10T16:55:27.930Z">2026-03-10T16:55:27.930Z</time>
+          <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/YeWeihong/myrss/actions/runs/22922984454">
+            构建于 <time datetime="2026-03-10T20:33:08.391Z">2026-03-10T20:33:08.391Z</time>
           </a>
           <div class="mt-0.5">
             <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/osmoscraft/osmosfeed">osmosfeed 1.15.1</a>
@@ -540,6 +540,74 @@
           <main class="flex-1 p-4 md:p-6 overflow-y-auto">
             <div class="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-4 md:gap-5">
 
+              <article
+                data-src="看鉴中国 OutsightChina - Telegram Channel"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">看鉴中国 OutsightChina:
+台行政院长赴日本看球 国台办：日本放任民进党当局头面人物窜访   台湾行政院长卓荣泰3月7日包机赴东京巨蛋观看世界棒球经典赛台捷之战，称此行程&quot;休假自费的私人活动&quot;。台媒指出，这是1972年台日断交以来，首次有现任台湾行政院长踏上日本国土，引发外界关注与中国不满，中国外交部副部长孙卫东当晚即致电日本驻华大使提出抗议。  国台办称日本放任台湾官员赴日，违反“一个中国原则”及中日政治文件精神。日本政府则回应称，卓荣泰此行未与日本政府官员接触，日本方面注意到台湾称其为私人行程，因此不予评论。  学者向外媒表示，…
+
+如何看待中国就台湾行政院長以“私人行程”赴日本看球提出抗議？
+Anonymous Poll
+21% - 完全认同，台湾官员赴日具有政治含义，必須谴责與抗議
+13% - 基本认同，私人行程但身份特殊，中方表达不满可以理解
+33% - 不太认同，私人活动且未与日本政府接触，不必上升外交问题
+33% - 完全不认同，私人活动属个人行程，與中国無涉</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">看鉴中国 OutsightChina - Telegram Channel</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-11"
+                      datetime="2026-03-10T17:25:04.000Z"
+                    >2026-03-11</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    ↩️📊 如何看待中国就台湾行政院長以“私人行程”赴日本看球提出抗議？
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    看鉴中国 OutsightChina:
+台行政院长赴日本看球 国台办：日本放任民进党当局头面人物窜访   台湾行政院长卓荣泰3月7日包机赴东京巨蛋观看世界棒球经典赛台捷之战，称此行程&quot;休假自费的私人活动&quot;。台媒指出，这是1972年台日断交以来，首次有现任台湾行政院长踏上日本国土，引发外界关注与中国不满，中国外交部副部长孙卫东当晚即致电日本驻华大使提出抗议。  国台办称日本放任台湾官员赴日，违反“一个中国原则”及中日政治文件精神。日本政府则回应称，卓荣泰此行未与日本政府官员接触，日本方面注意到台湾称其为私人行程，因此不予评论。  学者向外媒表示，…
+
+如何看待中国就台湾行政院長以“私人行程”赴日本看球提出抗議？
+Anonymous Poll
+21% - 完全认同，台湾官员赴日具有政治含义，必須谴责與抗議
+13% - 基本认同，私人行程但身份特殊，中方表达不满可以理解
+33% - 不太认同，私人活动且未与日本政府接触，不必上升外交问题
+33% - 完全不认同，私人活动属个人行程，與中国無涉
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://t.me/OutsightChina/9126"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
               <article
                 data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
                 x-show="active === 'all' || active === $el.dataset.src"
@@ -1376,6 +1444,318 @@ Q：请发一张你最难绷的图片? 
                   <!-- Read link – @click.stop so the card click doesn't also fire -->
                   <a
                     href="https://t.me/tnews365/34985"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="差评X.PIN"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">期待苹果重拳出击。</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">差评X.PIN</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-11"
+                      datetime="2026-03-10T16:01:00.000Z"
+                    >2026-03-11</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    你买的全新iPhone，屏幕可能早被人偷偷换走了？
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    期待苹果重拳出击。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://mp.weixin.qq.com/s?__biz&#x3D;MzA5NDc1NzQ4MA&#x3D;&#x3D;&amp;mid&#x3D;2654643799&amp;idx&#x3D;1&amp;sn&#x3D;ad0acc949d905eb7c0911bd9fcb4e13d"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="差评X.PIN"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">虽迟但到有点太迟了。</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">差评X.PIN</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-11"
+                      datetime="2026-03-10T16:01:00.000Z"
+                    >2026-03-11</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    第一个把双腔空悬干到20万内的，竟然是丰田？
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    虽迟但到有点太迟了。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://mp.weixin.qq.com/s?__biz&#x3D;MzA5NDc1NzQ4MA&#x3D;&#x3D;&amp;mid&#x3D;2654643799&amp;idx&#x3D;2&amp;sn&#x3D;ac93afadfade8723816d33d5fb70b70e"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="差评X.PIN"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">No content preview</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">差评X.PIN</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-11"
+                      datetime="2026-03-10T16:01:00.000Z"
+                    >2026-03-11</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    折叠屏电池比直板机还大，荣耀这次有点离谱。
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    No content preview
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://mp.weixin.qq.com/s?__biz&#x3D;MzA5NDc1NzQ4MA&#x3D;&#x3D;&amp;mid&#x3D;2654643799&amp;idx&#x3D;3&amp;sn&#x3D;a8b8d568f18f9fd289ca70e792c19863"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="差评X.PIN"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">仙走一步了。。。</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">差评X.PIN</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-11"
+                      datetime="2026-03-10T16:01:00.000Z"
+                    >2026-03-11</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    今日最佳：世界上最忧郁的逃单。
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    仙走一步了。。。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://mp.weixin.qq.com/s?__biz&#x3D;MzA5NDc1NzQ4MA&#x3D;&#x3D;&amp;mid&#x3D;2654643799&amp;idx&#x3D;4&amp;sn&#x3D;b19529f3da38b4516bf83cd2bafad8a6"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="差评X.PIN"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">聊一聊</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">差评X.PIN</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-11"
+                      datetime="2026-03-10T16:01:00.000Z"
+                    >2026-03-11</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    聊一聊：国补这么久，你觉得买什么赚了？
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    聊一聊
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://mp.weixin.qq.com/s?__biz&#x3D;MzA5NDc1NzQ4MA&#x3D;&#x3D;&amp;mid&#x3D;2654643799&amp;idx&#x3D;5&amp;sn&#x3D;40b849187865c3d25e80c2fc4a782323"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="差评X.PIN"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">今天是 3 月 10 日，农历正月廿二。</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">差评X.PIN</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-11"
+                      datetime="2026-03-10T16:01:00.000Z"
+                    >2026-03-11</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    小红书将打击AI托管账号，豆包内测购物下单功能，SpaceX拟纳斯达克上市，minimax市值达3826.4亿港元，这就是今天的其他大新闻！
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    今天是 3 月 10 日，农历正月廿二。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://mp.weixin.qq.com/s?__biz&#x3D;MzA5NDc1NzQ4MA&#x3D;&#x3D;&amp;mid&#x3D;2654643799&amp;idx&#x3D;6&amp;sn&#x3D;c2692f6ea4b1015c69c367f85699c00b"
                     target="_blank"
                     rel="noopener noreferrer"
                     @click.stop
@@ -2815,6 +3195,67 @@ This island has recently acquired a cachet as a bohemian bolthole, its reputatio
                   <!-- Read link – @click.stop so the card click doesn't also fire -->
                   <a
                     href="http://www.infzm.com/contents/316562"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="UN News - Global perspective Human stories"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">Nicaragua’s Government is financing the repression of its opponents through illegal misuse of public funds and targeting exiles through a transnational surveillance and intelligence network, the UN Group of Independent Human Rights Experts on Nicaragua warned in its latest report on Tuesday.</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/UNHCR/Embargoed%202/22-20-2025_Wiki_Managua.jpg/image560x340cropped.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">UN News - Global perspective Human stories</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-10"
+                      datetime="2026-03-10T12:00:00.000Z"
+                    >2026-03-10</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Nicaragua: Rights experts uncover State corruption fuelling repression, spying on exiles
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Nicaragua’s Government is financing the repression of its opponents through illegal misuse of public funds and targeting exiles through a transnational surveillance and intelligence network, the UN Group of Independent Human Rights Experts on Nicaragua warned in its latest report on Tuesday.
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://news.un.org/feed/view/en/story/2026/03/1167108"
                     target="_blank"
                     rel="noopener noreferrer"
                     @click.stop
@@ -76375,82 +76816,6 @@ https://feedx.site
                 </div>
               </article>
               <article
-                data-src="南方周末"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">2026-03-04 16:00:00
-
-2025年10月22日，湖北丹江口水库实时水位线达170米。（视觉中国|供图）
-1050平方公里水域面积、4000多公里长库岸线，横跨鄂、豫两省，坐落于汉江中上游的丹江口水库是亚洲第一大人工淡水湖，更是南水北调中线工程的水源地。其重要性不言而喻。
-但很长一段时间以来，水土流失及水质保护工作，一直是丹江口水库面临的一个大问题。
-来自水利部的数据显示，2022年，在经过11年水土保持工作后，丹江口库区水土流失面积仍有2.70万平方公里，库区及上游水土流失面积占该区域国土总面积的20.44%，其中0.6万平方公里中度及以上侵蚀强度水土流失面积中，仅坡耕地就占0.44万平方公里。
-三年前，正是在这样的背景下，全国政协人口环境资源委员会委员、水利部长江委原主任马建华在政协十四届全国委员会第一次会议上提出了关于“加快推进丹江口库区及上游水质安全保障”的提案。为水库保护立法，曾被他列为提案中首要的一条建议。
-“今年我将继续关注丹江口水库的水质安全保障问题。”2026年全国两会召开期间，在其余几条建议都进入落实阶段后，马建华决定，继续推进丹江口水库水源保护立法工作。在他看来，出台行政法规可有效超越省级立法权限，为跨省协调、重大利益调整等事项提供明确的上位法依据，从根本上化解地方协同立法中面临的权责不对等、约束力不足等难题。
-“诸多不协调”
-平稳运行11年后，来自水利部长江水利委员会的数据显示，截至2025年12月，丹江口水库已累计向北方供水超750亿立方米，直接受益人口约1.18亿人。
-而作为在水利部长江委工作多年的业内人士，马建华有个明显的感受，“库区及其上游流域管理要求之高、事项之多、涉及面之广远超一般大型水库，相关法规制度建设与其重要性不相匹配”。
-跨区域是丹江口水库治理的特点之一，也是难点之一。
-丹江口水库位于汉江中上游，水源分别由发源于陕…</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">南方周末</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-03-04"
-                      datetime="2026-03-04T08:25:05.000Z"
-                    >2026-03-04</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    丹江口库区水土保护跨省协调难，长江委原主任3年后再提立法
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    2026-03-04 16:00:00
-
-2025年10月22日，湖北丹江口水库实时水位线达170米。（视觉中国|供图）
-1050平方公里水域面积、4000多公里长库岸线，横跨鄂、豫两省，坐落于汉江中上游的丹江口水库是亚洲第一大人工淡水湖，更是南水北调中线工程的水源地。其重要性不言而喻。
-但很长一段时间以来，水土流失及水质保护工作，一直是丹江口水库面临的一个大问题。
-来自水利部的数据显示，2022年，在经过11年水土保持工作后，丹江口库区水土流失面积仍有2.70万平方公里，库区及上游水土流失面积占该区域国土总面积的20.44%，其中0.6万平方公里中度及以上侵蚀强度水土流失面积中，仅坡耕地就占0.44万平方公里。
-三年前，正是在这样的背景下，全国政协人口环境资源委员会委员、水利部长江委原主任马建华在政协十四届全国委员会第一次会议上提出了关于“加快推进丹江口库区及上游水质安全保障”的提案。为水库保护立法，曾被他列为提案中首要的一条建议。
-“今年我将继续关注丹江口水库的水质安全保障问题。”2026年全国两会召开期间，在其余几条建议都进入落实阶段后，马建华决定，继续推进丹江口水库水源保护立法工作。在他看来，出台行政法规可有效超越省级立法权限，为跨省协调、重大利益调整等事项提供明确的上位法依据，从根本上化解地方协同立法中面临的权责不对等、约束力不足等难题。
-“诸多不协调”
-平稳运行11年后，来自水利部长江水利委员会的数据显示，截至2025年12月，丹江口水库已累计向北方供水超750亿立方米，直接受益人口约1.18亿人。
-而作为在水利部长江委工作多年的业内人士，马建华有个明显的感受，“库区及其上游流域管理要求之高、事项之多、涉及面之广远超一般大型水库，相关法规制度建设与其重要性不相匹配”。
-跨区域是丹江口水库治理的特点之一，也是难点之一。
-丹江口水库位于汉江中上游，水源分别由发源于陕…
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="http://www.infzm.com/contents/316034"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
                 data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
                 x-show="active === 'all' || active === $el.dataset.src"
                 x-transition:enter="transition ease-out duration-200"
@@ -76682,214 +77047,6 @@ https://feedx.site
                   <!-- Read link – @click.stop so the card click doesn't also fire -->
                   <a
                     href="https://www.zaobao.com.sg/news/china/story20260304-8677767"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="中国经济时报"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">理大与以太坊基金会签署合作备忘录 携手推动区块链人才培育与前沿研究,理大,区块链技术,以太坊基金会</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">中国经济时报</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-03-04"
-                      datetime="2026-03-04T07:57:20.000Z"
-                    >2026-03-04</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    理大与以太坊基金会签署合作备忘录 携手推动区块链人才培育与前沿研究
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    理大与以太坊基金会签署合作备忘录 携手推动区块链人才培育与前沿研究,理大,区块链技术,以太坊基金会
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.163.com/dy/article/KN406J4K0512D71I.html?spss&#x3D;dy_author"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="DeepTech深科技"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">过去几年，不少企业管理者被“人工智能将解放劳动力”的说法吸引，投入大量预算采购 SaaS（Software as a Service / 软件即服务）平台，期待这些“即插即用”的工具能切实降低运营成本</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">DeepTech深科技</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-03-04"
-                      datetime="2026-03-04T07:54:39.000Z"
-                    >2026-03-04</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    硅谷夫妻用AI颠覆传统客服，一天清零积压工单，6人团队撑起多个行业品牌
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    过去几年，不少企业管理者被“人工智能将解放劳动力”的说法吸引，投入大量预算采购 SaaS（Software as a Service / 软件即服务）平台，期待这些“即插即用”的工具能切实降低运营成本
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="http://mp.weixin.qq.com/s?__biz&#x3D;MzA3NTIyODUzNA&#x3D;&#x3D;&amp;mid&#x3D;2649791291&amp;idx&#x3D;1&amp;sn&#x3D;6d3b54339a858a0c4907b9f6753519dd&amp;chksm&#x3D;869948e350ab1955be03212189d39e12eeb481c5d721e1e516c3765f04e4f7ea1f5f1190ed6d&amp;scene&#x3D;0&amp;xtrack&#x3D;1#rd"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="DeepTech深科技"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">如果数据中心不再是“吃电大户”，而是电网的“缓冲器”，会发生什么？最近，英伟达、英国国家电网、Emerald AI、Nebius 等联合团队进行了一项首创试验：通过智能调节 AI 算力负载的运行节奏，</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">DeepTech深科技</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-03-04"
-                      datetime="2026-03-04T07:54:39.000Z"
-                    >2026-03-04</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    AI吃电吃到电网崩溃，英伟达用反常识方案救场：“让服务器慢点跑”
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    如果数据中心不再是“吃电大户”，而是电网的“缓冲器”，会发生什么？最近，英伟达、英国国家电网、Emerald AI、Nebius 等联合团队进行了一项首创试验：通过智能调节 AI 算力负载的运行节奏，
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="http://mp.weixin.qq.com/s?__biz&#x3D;MzA3NTIyODUzNA&#x3D;&#x3D;&amp;mid&#x3D;2649791291&amp;idx&#x3D;2&amp;sn&#x3D;095e21b8583599900a7abae49c886378&amp;chksm&#x3D;864c0d45084106064befa655a259a322c604c13f26a9d49e51b6e6acd5538490301b12770525&amp;scene&#x3D;0&amp;xtrack&#x3D;1#rd"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="DeepTech深科技"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">2026 年开年以来，科技圈最炙手可热的名字大概非 OpenClaw 莫属了。3 月初，OpenClaw 以超过 25 万颗 Star 超越 React，成为 GitHub 上 Star 数最高的非聚</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">DeepTech深科技</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-03-04"
-                      datetime="2026-03-04T07:54:39.000Z"
-                    >2026-03-04</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    OpenClaw安全审计翻车：安全通过率仅58.9%，六个安全维度一个直接挂零
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    2026 年开年以来，科技圈最炙手可热的名字大概非 OpenClaw 莫属了。3 月初，OpenClaw 以超过 25 万颗 Star 超越 React，成为 GitHub 上 Star 数最高的非聚
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="http://mp.weixin.qq.com/s?__biz&#x3D;MzA3NTIyODUzNA&#x3D;&#x3D;&amp;mid&#x3D;2649791291&amp;idx&#x3D;3&amp;sn&#x3D;95c0aa01f7c7a892aaba2327ad493ef7&amp;chksm&#x3D;86820a757b720d27ce53978ee7b56c099f0d0eb39507808310aca62b062b16455c4a5e94880a&amp;scene&#x3D;0&amp;xtrack&#x3D;1#rd"
                     target="_blank"
                     rel="noopener noreferrer"
                     @click.stop
@@ -77757,282 +77914,6 @@ https://feedx.site
                 </div>
               </article>
               <article
-                data-src="南方周末"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">2026-03-04 15:00:00
-一趟包车，和一个肯尼亚司机的人生账本
-非洲旅行结束三个月后，我还会偶尔在WhatsApp上收到消息，来自拉穆岛的快艇船夫、卢旺达加油站给我转照片的伙计、马拉维大学里主动充当向导的学生会主席、内罗毕的网约车司机。
-无论是否有过主顾关系，旅行中随手添加的人，在离开后大抵不会再有联系。偏偏这些仅仅一面之缘的非洲人，或许是出于善意的客户回访，抑或是希望我能施与帮助，还会隔三岔五地来句问候。这其中，我确信这位肯尼亚网约车司机Edward，是真心想要借着新年，对我表达祝福和感谢。
-
-肯尼亚网约车司机Edward  摄影 张海律
-在东非长途旅行，因为不堪忍受漫长时间以及经常挤到叠罗汉的中巴车Matatu，我和旅伴决定通过在城内搭乘网约车，并与司机谈价包车的方式，让其为我们提供跨城服务。就这样，40岁出头的Edward开着一辆小铃木，准时出现在内罗毕的公寓门口。从首都到安博塞利国家公园附近的Kimana小镇，去程4个多小时，回程送到奈瓦沙，再多2小时。停留的两天里，让他睡在所订公寓的客厅沙发，并随时待命，到国家公园入口接送我们。这样的安排，含油费，谈到了25000先令，按2025年6月的黑市汇率，大致合人民币1400元。因为担心惹到地头蛇，空闲的大量时间中，Edward也不敢接活。公寓里有厨房，我主动提议给他买一些吃的，他一边感谢一边挑选最便宜的食品。
-路上，Edward告诉我，自己老家在东部大城市纳库鲁，10岁失去双亲后，跟着奶奶长大。后来到内罗毕求学打工，结婚生子，并在社区开了家小商店，却不幸在两年前被一夜偷空。在这种普通社区，是不能指望警察和保险的。于是，这个老实本分人只好跑起网约车生意。同时，妻子开始经营起一家更小的店铺，再有一个好心的欧洲客人，主动担负着他其中一个孩子的学费。
-虽然也和当时掀起大规模示威的Z世代一样，对现任政府非常不满，但在…</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">南方周末</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-03-04"
-                      datetime="2026-03-04T07:25:06.000Z"
-                    >2026-03-04</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    非洲100天：那些一面之缘的人
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    2026-03-04 15:00:00
-一趟包车，和一个肯尼亚司机的人生账本
-非洲旅行结束三个月后，我还会偶尔在WhatsApp上收到消息，来自拉穆岛的快艇船夫、卢旺达加油站给我转照片的伙计、马拉维大学里主动充当向导的学生会主席、内罗毕的网约车司机。
-无论是否有过主顾关系，旅行中随手添加的人，在离开后大抵不会再有联系。偏偏这些仅仅一面之缘的非洲人，或许是出于善意的客户回访，抑或是希望我能施与帮助，还会隔三岔五地来句问候。这其中，我确信这位肯尼亚网约车司机Edward，是真心想要借着新年，对我表达祝福和感谢。
-
-肯尼亚网约车司机Edward  摄影 张海律
-在东非长途旅行，因为不堪忍受漫长时间以及经常挤到叠罗汉的中巴车Matatu，我和旅伴决定通过在城内搭乘网约车，并与司机谈价包车的方式，让其为我们提供跨城服务。就这样，40岁出头的Edward开着一辆小铃木，准时出现在内罗毕的公寓门口。从首都到安博塞利国家公园附近的Kimana小镇，去程4个多小时，回程送到奈瓦沙，再多2小时。停留的两天里，让他睡在所订公寓的客厅沙发，并随时待命，到国家公园入口接送我们。这样的安排，含油费，谈到了25000先令，按2025年6月的黑市汇率，大致合人民币1400元。因为担心惹到地头蛇，空闲的大量时间中，Edward也不敢接活。公寓里有厨房，我主动提议给他买一些吃的，他一边感谢一边挑选最便宜的食品。
-路上，Edward告诉我，自己老家在东部大城市纳库鲁，10岁失去双亲后，跟着奶奶长大。后来到内罗毕求学打工，结婚生子，并在社区开了家小商店，却不幸在两年前被一夜偷空。在这种普通社区，是不能指望警察和保险的。于是，这个老实本分人只好跑起网约车生意。同时，妻子开始经营起一家更小的店铺，再有一个好心的欧洲客人，主动担负着他其中一个孩子的学费。
-虽然也和当时掀起大规模示威的Z世代一样，对现任政府非常不满，但在…
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="http://www.infzm.com/contents/315998"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="少数派"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">面对信息过载，我为用 AI 为自己搭了一套信息工作流，希望也能给你带来一丝启发。查看全文</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">少数派</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-03-04"
-                      datetime="2026-03-04T07:00:46.000Z"
-                    >2026-03-04</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    从采集到回顾，我用 AI 搭建了一套个人信息处理系统
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    面对信息过载，我为用 AI 为自己搭了一套信息工作流，希望也能给你带来一丝启发。查看全文
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://sspai.com/post/106477"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="中科院物理所"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">在观看赛马比赛时，令许多观众最为揪心的，可能就是马匹跌倒的生死时刻。作为马临床兽医，我常被问到这样一个问题：“为什么马一旦骨折，往往就意味着安乐死？难道真的没有救治的机会吗？”跌倒的马匹在骨折严重、难</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">中科院物理所</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-03-04"
-                      datetime="2026-03-04T06:53:39.000Z"
-                    >2026-03-04</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    马一旦骨折，真的就“没救了”吗？
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    在观看赛马比赛时，令许多观众最为揪心的，可能就是马匹跌倒的生死时刻。作为马临床兽医，我常被问到这样一个问题：“为什么马一旦骨折，往往就意味着安乐死？难道真的没有救治的机会吗？”跌倒的马匹在骨折严重、难
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="http://mp.weixin.qq.com/s?__biz&#x3D;MzAwNTA5NTYxOA&#x3D;&#x3D;&amp;mid&#x3D;2651584529&amp;idx&#x3D;1&amp;sn&#x3D;6c1e8d762b46449ddf2a175c3fd6e102&amp;chksm&#x3D;817ef9a0c834dbc6ec909435161d42d5dbb26a3e23f5cb9012c304e8e23562ecc7b156d575f8&amp;scene&#x3D;0&amp;xtrack&#x3D;1#rd"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="中科院物理所"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">来源：极简史编辑：可去奇点转载内容仅代表作者观点不代表中科院物理所立场如需转载请联系原公众号近期热门文章Top10↓ 点击标题即可查看 ↓1. 一针青霉素就能解决的梅毒，为什么不能被彻底消灭？2. 概</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">中科院物理所</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-03-04"
-                      datetime="2026-03-04T06:53:39.000Z"
-                    >2026-03-04</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    自带BGM，会让效率变更高？
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    来源：极简史编辑：可去奇点转载内容仅代表作者观点不代表中科院物理所立场如需转载请联系原公众号近期热门文章Top10↓ 点击标题即可查看 ↓1. 一针青霉素就能解决的梅毒，为什么不能被彻底消灭？2. 概
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="http://mp.weixin.qq.com/s?__biz&#x3D;MzAwNTA5NTYxOA&#x3D;&#x3D;&amp;mid&#x3D;2651584529&amp;idx&#x3D;2&amp;sn&#x3D;e06372fc2ccfa477f108dc186d935b0a&amp;chksm&#x3D;81ad92cf7a86899719b3b88eee6bce31297ff3785018be90580001a9a3f5071ab1a30efb89bf&amp;scene&#x3D;0&amp;xtrack&#x3D;1#rd"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="中科院物理所"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">1954年6月7日，41岁的艾伦·图灵被发现在家中的床上去世。在他的床头，放着一个被咬了一口的、泡过氰化物的苹果。这位伟大的英国科学家，选择了以这种特殊方式，离开他所挚爱的世界。他的悲剧性结局，与他的</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">中科院物理所</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-03-04"
-                      datetime="2026-03-04T06:53:39.000Z"
-                    >2026-03-04</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    艾伦·图灵的传奇人生
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    1954年6月7日，41岁的艾伦·图灵被发现在家中的床上去世。在他的床头，放着一个被咬了一口的、泡过氰化物的苹果。这位伟大的英国科学家，选择了以这种特殊方式，离开他所挚爱的世界。他的悲剧性结局，与他的
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="http://mp.weixin.qq.com/s?__biz&#x3D;MzAwNTA5NTYxOA&#x3D;&#x3D;&amp;mid&#x3D;2651584529&amp;idx&#x3D;3&amp;sn&#x3D;bd2ea042c904ed05f27635f61a5da8b1&amp;chksm&#x3D;81205e948e3721c4ddae2d8775ff2b1c13ea573fe2e2257690910a4cf5f41abdd396d035c2d7&amp;scene&#x3D;0&amp;xtrack&#x3D;1#rd"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
                 data-src="尘世烟火"
                 x-show="active === 'all' || active === $el.dataset.src"
                 x-transition:enter="transition ease-out duration-200"
@@ -78072,72 +77953,6 @@ https://feedx.site
                   <!-- Read link – @click.stop so the card click doesn't also fire -->
                   <a
                     href="https://500px.com.cn/community/set/a1df05fe997b4f35acda5974aa5b18bb/details"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="南方周末"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">2026-03-04 14:00:00
-广州，工地的工棚里，李建军躺在床上，后背贴着硬邦邦的床板，耳边是工友们此起彼伏的鼾声。
-他拿起枕边的手机，解锁屏幕，微信图标上的红色数字“99+”格外显眼，不用点开也知道，是王家村李氏家族群里又攒了一堆消息。这串“99+”，就像一根无形的线，一头连着他所在的陌生城市，一头牵着千里之外的故乡，也牵着他心里最柔软的牵挂。可看着这串数字，他心里却五味杂陈，有温暖，有思念，也有一丝难以言说的疏离。
-像李建军这样，靠着微信家族群维系亲情的乡村迁徙者还有很多。随着数字时代的到来，智能手机和互联网走进了乡村，走进了千家万户，微信家族群也成了乡村亲情联结的重要载体。
-对那些常年在外打工的迁徙者来说，微信家族群就像一个“线上家园”，能让他们随时了解家乡的动态，随时和亲人沟通交流，能让他们在异乡感受到家的温暖，也能让他们把对家人的思念传递回去。家族群里的每一条消息，都是亲人之间的牵挂；每一次互动，都是亲情的流动；每一张图片、每一个视频，都是家乡的印记，都能唤醒迁徙者内心深处的乡土记忆，也能让他们在悬浮的人生中，找到一丝心灵的归属感。
-可微信家族群带来的，不只是温暖和慰藉，还有难以言说的疏离和隔阂，更藏着数字时代乡村亲情的差序格局。
-费孝通在《乡土中国》里提出，中国传统乡土社会的亲情格局是“差序格局”，就像把一块石头丢在水面上所发生的一圈圈推出去的波纹，每个人都是他社会影响所推出去的圈子的中心，被圈子的波纹所推及的就发生联系，圈子的大小根据中心的势力厚薄而定，亲情的远近也随着圈子的远近而变化。而在数字时代，微信家族群里的亲情格局，依然延续着传统的差序格局，甚至被进一步强化，只是维系格局的方式，从传统的面对面互动，变成了线上的消息传递和互动。
-在李氏家族群里，亲情的差序格局清晰可见。群里的核心是李建军的父母、兄弟姐妹，还有大伯、二伯，他们是亲情圈子最内层的人…</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">南方周末</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-03-04"
-                      datetime="2026-03-04T06:25:06.000Z"
-                    >2026-03-04</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    微信家族群的“99+”未读——数字时代的亲情差序格局
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    2026-03-04 14:00:00
-广州，工地的工棚里，李建军躺在床上，后背贴着硬邦邦的床板，耳边是工友们此起彼伏的鼾声。
-他拿起枕边的手机，解锁屏幕，微信图标上的红色数字“99+”格外显眼，不用点开也知道，是王家村李氏家族群里又攒了一堆消息。这串“99+”，就像一根无形的线，一头连着他所在的陌生城市，一头牵着千里之外的故乡，也牵着他心里最柔软的牵挂。可看着这串数字，他心里却五味杂陈，有温暖，有思念，也有一丝难以言说的疏离。
-像李建军这样，靠着微信家族群维系亲情的乡村迁徙者还有很多。随着数字时代的到来，智能手机和互联网走进了乡村，走进了千家万户，微信家族群也成了乡村亲情联结的重要载体。
-对那些常年在外打工的迁徙者来说，微信家族群就像一个“线上家园”，能让他们随时了解家乡的动态，随时和亲人沟通交流，能让他们在异乡感受到家的温暖，也能让他们把对家人的思念传递回去。家族群里的每一条消息，都是亲人之间的牵挂；每一次互动，都是亲情的流动；每一张图片、每一个视频，都是家乡的印记，都能唤醒迁徙者内心深处的乡土记忆，也能让他们在悬浮的人生中，找到一丝心灵的归属感。
-可微信家族群带来的，不只是温暖和慰藉，还有难以言说的疏离和隔阂，更藏着数字时代乡村亲情的差序格局。
-费孝通在《乡土中国》里提出，中国传统乡土社会的亲情格局是“差序格局”，就像把一块石头丢在水面上所发生的一圈圈推出去的波纹，每个人都是他社会影响所推出去的圈子的中心，被圈子的波纹所推及的就发生联系，圈子的大小根据中心的势力厚薄而定，亲情的远近也随着圈子的远近而变化。而在数字时代，微信家族群里的亲情格局，依然延续着传统的差序格局，甚至被进一步强化，只是维系格局的方式，从传统的面对面互动，变成了线上的消息传递和互动。
-在李氏家族群里，亲情的差序格局清晰可见。群里的核心是李建军的父母、兄弟姐妹，还有大伯、二伯，他们是亲情圈子最内层的人…
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="http://www.infzm.com/contents/315986"
                     target="_blank"
                     rel="noopener noreferrer"
                     @click.stop
@@ -78239,277 +78054,6 @@ https://feedx.site
                   <!-- Read link – @click.stop so the card click doesn't also fire -->
                   <a
                     href="https://view.inews.qq.com/a/20260304A05A7300"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="BestBlogs.dev - 精选文章"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">📌 一句话摘要
-            
-Martin Fowler 提出了一个“人类在环上”（human-on-the-loop）的框架，开发者应专注于“治理工程”（Harness Engineering）——即设计引导 AI 智能体的系统和约束，而非微观管理代码或放弃监管。
-📝 详细摘要
-            
-在本文中，Martin Fowler 探讨了在 AI 增强的软件开发生命周期中，人类角色如何演变。他区分了“Why 循环”（定义目标和结果，这仍是人类的特权）与“How 循环”（实现和产出物，正越来越多地由 AI 智能体处理）。Fowler 批评了两种极端：一种是“氛围编程”（vibe coding，人类在环外，导致潜在的技术债），另一种是“人类在环中”（humans-in-the-loop，人类作为逐行检查代码的瓶颈）。相反，他提倡“人类在环上”（humans-on-the-loop），即开发者参与“治理工程”——构建规范、测试和工作流来管理智能体的行为。这种方法最终形成一个“智能体飞轮”，智能体根据运行数据和反馈，最终帮助改进自身的开发治理体系，从而构建出健壮且自我改进的系统。
-💡 主要观点
-            
-区分思想的“Why 循环”与实现的“How 循环”。
-                         人类必须主导“Why 循环”，因为他们定义了预期的结果；而 AI 智能体擅长“How 循环”，通过生成代码和测试等中间产物来完成任务。
-                    
-
-                        采取“人类在环上”的立场，避免成为开发瓶颈。
-                         与其手动检查 AI 生成的每一行代码（在环中），人类应该设计“治理体系”——即允许智能体自我纠正并保持质量的规则和测试，以避免成为开发瓶颈。
-                    
-
-                        内部代码质量对于 AI 智能体的效率和性能仍然至关重要。
-                         干净、结构良好的代码库能让 LLM 更快地理解和修改系统，而不会陷入“死循环”，这证明了内部质量是实现高性价比 AI 驱动开发的先决条件。
-                    
-
-                        治理工程是管理 AI 智能体环境的新兴实践。
-                         这涉及构建一系列规范和质量检查来控制“How 循环”，将人类的精力从编写代码转向设计产出代码的系统。
-                    
-
-                        “智能体飞轮”使智能体能够改进自身的开发治理体系。
-                         通过向智能体提供运行数据和性能信号，它们可以针对自身的约束和工作流提出改进建议，从而创建一个自我优化且具有反脆弱性的软件交付流程。
-                    
-💬 文章金句
-            
-我们人类的正确位置是构建和管理工作循环，而不是要么撒手不管让智能体去做，要么对它们的产出进行微观管理。
-当我们坚持过度深入地参与过程时，挑战在于我们会成为瓶颈。智能体生成代码的速度比人类手动检查的速度要快得多。
-“在环上”的方式是改变产生该产出物的治理体系，使其产生我们想要的结果。
-当 LLM 能够更快地理解和修改代码时，它们的工作速度会更快，陷入死循环的情况也会更少。我们确实关心构建所需系统的时间和成本。
-通过治理工程，我们得到的将不仅仅是单次的、“足够好”的解决方案，我们将获得健壮的、甚至可能是反脆弱的、能够持续自我改进的系统。
-📊 文章信息
-            
-AI 评分：93
-精选文章：是
-来源：Martin Fowler
-作者：Martin Fowler
-分类：人工智能
-语言：英文
-阅读时间：7 分钟
-字数：1603
-标签：
-                    
-                        软件工程, AI 智能体, 治理工程, SDLC, 开发者生产力
-                    
-                
-            
-        
-
-        
-            阅读完整文章</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://image.jido.dev/20260206060522_donkey-card.png"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">BestBlogs.dev - 精选文章</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-03-04"
-                      datetime="2026-03-04T05:42:00.000Z"
-                    >2026-03-04</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    软件工程循环中的人类与智能体
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    📌 一句话摘要
-            
-Martin Fowler 提出了一个“人类在环上”（human-on-the-loop）的框架，开发者应专注于“治理工程”（Harness Engineering）——即设计引导 AI 智能体的系统和约束，而非微观管理代码或放弃监管。
-📝 详细摘要
-            
-在本文中，Martin Fowler 探讨了在 AI 增强的软件开发生命周期中，人类角色如何演变。他区分了“Why 循环”（定义目标和结果，这仍是人类的特权）与“How 循环”（实现和产出物，正越来越多地由 AI 智能体处理）。Fowler 批评了两种极端：一种是“氛围编程”（vibe coding，人类在环外，导致潜在的技术债），另一种是“人类在环中”（humans-in-the-loop，人类作为逐行检查代码的瓶颈）。相反，他提倡“人类在环上”（humans-on-the-loop），即开发者参与“治理工程”——构建规范、测试和工作流来管理智能体的行为。这种方法最终形成一个“智能体飞轮”，智能体根据运行数据和反馈，最终帮助改进自身的开发治理体系，从而构建出健壮且自我改进的系统。
-💡 主要观点
-            
-区分思想的“Why 循环”与实现的“How 循环”。
-                         人类必须主导“Why 循环”，因为他们定义了预期的结果；而 AI 智能体擅长“How 循环”，通过生成代码和测试等中间产物来完成任务。
-                    
-
-                        采取“人类在环上”的立场，避免成为开发瓶颈。
-                         与其手动检查 AI 生成的每一行代码（在环中），人类应该设计“治理体系”——即允许智能体自我纠正并保持质量的规则和测试，以避免成为开发瓶颈。
-                    
-
-                        内部代码质量对于 AI 智能体的效率和性能仍然至关重要。
-                         干净、结构良好的代码库能让 LLM 更快地理解和修改系统，而不会陷入“死循环”，这证明了内部质量是实现高性价比 AI 驱动开发的先决条件。
-                    
-
-                        治理工程是管理 AI 智能体环境的新兴实践。
-                         这涉及构建一系列规范和质量检查来控制“How 循环”，将人类的精力从编写代码转向设计产出代码的系统。
-                    
-
-                        “智能体飞轮”使智能体能够改进自身的开发治理体系。
-                         通过向智能体提供运行数据和性能信号，它们可以针对自身的约束和工作流提出改进建议，从而创建一个自我优化且具有反脆弱性的软件交付流程。
-                    
-💬 文章金句
-            
-我们人类的正确位置是构建和管理工作循环，而不是要么撒手不管让智能体去做，要么对它们的产出进行微观管理。
-当我们坚持过度深入地参与过程时，挑战在于我们会成为瓶颈。智能体生成代码的速度比人类手动检查的速度要快得多。
-“在环上”的方式是改变产生该产出物的治理体系，使其产生我们想要的结果。
-当 LLM 能够更快地理解和修改代码时，它们的工作速度会更快，陷入死循环的情况也会更少。我们确实关心构建所需系统的时间和成本。
-通过治理工程，我们得到的将不仅仅是单次的、“足够好”的解决方案，我们将获得健壮的、甚至可能是反脆弱的、能够持续自我改进的系统。
-📊 文章信息
-            
-AI 评分：93
-精选文章：是
-来源：Martin Fowler
-作者：Martin Fowler
-分类：人工智能
-语言：英文
-阅读时间：7 分钟
-字数：1603
-标签：
-                    
-                        软件工程, AI 智能体, 治理工程, SDLC, 开发者生产力
-                    
-                
-            
-        
-
-        
-            阅读完整文章
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.bestblogs.dev/article/03980cf2"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="也谈钱"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">前两年和伙伴们聊天，如何更好度过逆风、困难时期，发现有个矛盾的现象</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">也谈钱</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-03-04"
-                      datetime="2026-03-04T05:30:00.000Z"
-                    >2026-03-04</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    准备过冬
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    前两年和伙伴们聊天，如何更好度过逆风、困难时期，发现有个矛盾的现象
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://mp.weixin.qq.com/s?__biz&#x3D;MzUzNjE3NzQ3Nw&#x3D;&#x3D;&amp;mid&#x3D;2247494882&amp;idx&#x3D;1&amp;sn&#x3D;b107af94b14ffc9fb742a11ba1bd7008"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="南方周末"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">2026-03-04 13:00:00</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">南方周末</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-03-04"
-                      datetime="2026-03-04T05:25:05.000Z"
-                    >2026-03-04</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    刘永好谈AI幻觉
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    2026-03-04 13:00:00
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="http://www.infzm.com/contents/315982"
                     target="_blank"
                     rel="noopener noreferrer"
                     @click.stop
