@@ -145,13 +145,13 @@
             <span class="truncate">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
           </button>
           <button
-            data-src="MDARK"
+            data-src="South China Morning Post"
             @click="setActive($el.dataset.src); sidebarOpen = false"
             :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
             class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
           >
             <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">MDARK</span>
+            <span class="truncate">South China Morning Post</span>
           </button>
           <button
             data-src="南方周末"
@@ -163,15 +163,6 @@
             <span class="truncate">南方周末</span>
           </button>
           <button
-            data-src="South China Morning Post"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">South China Morning Post</span>
-          </button>
-          <button
             data-src="钛媒体：引领未来商业与生活新知"
             @click="setActive($el.dataset.src); sidebarOpen = false"
             :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
@@ -179,6 +170,15 @@
           >
             <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
             <span class="truncate">钛媒体：引领未来商业与生活新知</span>
+          </button>
+          <button
+            data-src="MDARK"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">MDARK</span>
           </button>
           <button
             data-src="环球科学"
@@ -514,15 +514,6 @@
             <span class="truncate">也谈钱</span>
           </button>
           <button
-            data-src="文章總匯 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">文章總匯 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權</span>
-          </button>
-          <button
             data-src="猫笔刀公众号 - SupSub"
             @click="setActive($el.dataset.src); sidebarOpen = false"
             :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
@@ -545,8 +536,8 @@
 
         <!-- Sidebar Footer -->
         <div class="px-4 py-3 border-t border-[#f5bcd8] text-[10px] text-[#b88aaa]">
-          <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/YeWeihong/myrss/actions/runs/23104140452">
-            构建于 <time datetime="2026-03-15T05:27:44.495Z">2026-03-15T05:27:44.495Z</time>
+          <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/YeWeihong/myrss/actions/runs/23106795649">
+            构建于 <time datetime="2026-03-15T08:35:36.334Z">2026-03-15T08:35:36.334Z</time>
           </a>
           <div class="mt-0.5">
             <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/osmoscraft/osmosfeed">osmosfeed 1.15.1</a>
@@ -585,6 +576,1876 @@
           <main class="flex-1 p-4 md:p-6 overflow-y-auto">
             <div class="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-4 md:gap-5">
 
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">中国全国人大会议通过“十五五”规划纲要，香港财政司长陈茂波说，香港必须快马加鞭全力配合。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/8bb01351a9c2abaa53285ea1ccff1abb2ffb1a972caf2c16b4a7febb1347fc3e"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-15"
+                      datetime="2026-03-15T08:35:11.700Z"
+                    >2026-03-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    港财政司长：香港须快马加鞭配合“十五五”规划
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国全国人大会议通过“十五五”规划纲要，香港财政司长陈茂波说，香港必须快马加鞭全力配合。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260315-8734654"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">中美高级官员星期天（3月15日）在法国巴黎举行两天经贸磋商，预计为三周后两国元首北京峰会铺路。中国官媒星期天发评论，指新一轮经贸磋商是机遇也是考验，呼吁双方应算大账，多看合作带来的长远利益，拉长合作清单、压缩问题清单，争取更多积极进展，为中美关系打开新的合作空间。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/8af48b51e5f752582cc7949f4833e2c547144d3e304f16cc35f91b4b5cb329d4"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-15"
+                      datetime="2026-03-15T08:35:11.684Z"
+                    >2026-03-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中美高官今在巴黎会谈 中国官媒：是机遇也是考验
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中美高级官员星期天（3月15日）在法国巴黎举行两天经贸磋商，预计为三周后两国元首北京峰会铺路。中国官媒星期天发评论，指新一轮经贸磋商是机遇也是考验，呼吁双方应算大账，多看合作带来的长远利益，拉长合作清单、压缩问题清单，争取更多积极进展，为中美关系打开新的合作空间。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260315-8734998"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">美国和以色列与伊朗的冲突持续逾两周，有官方背景的中国自媒体“牛弹琴”评论说，美国的目标已从推翻伊朗政权，变成打通霍尔木兹海峡。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/8dba6b0a61c447adaa55cf63cf419e5c269071b56ff673a995ae2f9ec631f699"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-15"
+                      datetime="2026-03-15T08:35:11.269Z"
+                    >2026-03-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国官方背景自媒体：美国目标变成打通霍尔木兹海峡
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    美国和以色列与伊朗的冲突持续逾两周，有官方背景的中国自媒体“牛弹琴”评论说，美国的目标已从推翻伊朗政权，变成打通霍尔木兹海峡。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260315-8735103"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">中国河南省首家人形机器人4S店星期天（3月15日）在郑州正式开业。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/30fdc88685659ab95032d41f07d7509fd15e16a63bd8278c8fdd371df0739f30"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-15"
+                      datetime="2026-03-15T08:35:11.260Z"
+                    >2026-03-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    河南首家人形机器人4S店开业
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国河南省首家人形机器人4S店星期天（3月15日）在郑州正式开业。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260315-8734989"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">开源AI代理软件OpenClaw（俗称“龙虾”）在中国爆火，中国互联网金融协会发布相关风险提示。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/bd5da020da202aa1015be142f57681234d50ed2d0de7d744b242689fad906f43"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-15"
+                      datetime="2026-03-15T08:35:11.216Z"
+                    >2026-03-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国互联网金融协会发布OpenClaw风险提示
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    开源AI代理软件OpenClaw（俗称“龙虾”）在中国爆火，中国互联网金融协会发布相关风险提示。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260315-8735266"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">南京市中级法院今年1月判决出炉，苏宁创办人、现年63岁的张近东个人资产清零，他持有的38家苏宁系企业股权全部无偿转让。这个背负2387.1亿元（人民币，下同，445.5亿新元）债务的商业传奇，就此正式谢幕。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/0984ba3a14e69b01303ee64931266ac37cc26291816af89b50e5a5af212beb1d"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-15"
+                      datetime="2026-03-15T08:35:11.207Z"
+                    >2026-03-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    抵债2300亿人民币 苏宁创办人张近东资产清零
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    南京市中级法院今年1月判决出炉，苏宁创办人、现年63岁的张近东个人资产清零，他持有的38家苏宁系企业股权全部无偿转让。这个背负2387.1亿元（人民币，下同，445.5亿新元）债务的商业传奇，就此正式谢幕。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260315-8735243"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">中国知名连锁便利店美宜佳近日被网民指售卖假烟。有网民甚至指美宜佳是“假烟聚集地”，调侃其有“自己的卷烟厂”。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/cd7bf7c6700a672e8e934b2607d077eebe19603edb267152ac51f8bfac74195c"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-15"
+                      datetime="2026-03-15T08:35:11.159Z"
+                    >2026-03-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国连锁便利店美宜佳被指沦为假烟重灾区
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国知名连锁便利店美宜佳近日被网民指售卖假烟。有网民甚至指美宜佳是“假烟聚集地”，调侃其有“自己的卷烟厂”。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260315-8735418"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">对于网络传言称公司在湖北武汉的研发中心将关闭，全部员工被裁，中国科技巨头字节跳动公开辟谣，并称将加大对湖北投入。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/84d0e92bee85d346c5810331c5eff795d33d15e274c7c4f12f8660daa46f59de"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-15"
+                      datetime="2026-03-15T08:35:11.143Z"
+                    >2026-03-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    字节跳动辟谣武汉研发中心谢幕全员被裁
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    对于网络传言称公司在湖北武汉的研发中心将关闭，全部员工被裁，中国科技巨头字节跳动公开辟谣，并称将加大对湖北投入。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260315-8735350"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">台湾总统赖清德称国民党对台湾人比日本殖民统治还差，引发朝野论战，总统府秘书长潘孟安称，国民政府只把台湾当作反攻大陆跳板，台湾人到了1996年“才是国家的主人”。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://www.zaobao.com.sg/_web2/assets/social-share.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-15"
+                      datetime="2026-03-15T08:35:11.128Z"
+                    >2026-03-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    台总统府秘书长：国民政府只把台湾当反攻大陆跳板
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    台湾总统赖清德称国民党对台湾人比日本殖民统治还差，引发朝野论战，总统府秘书长潘孟安称，国民政府只把台湾当作反攻大陆跳板，台湾人到了1996年“才是国家的主人”。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260315-8735368"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">中国江西省九江市发生一起户外运动致死事故。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://www.zaobao.com.sg/_web2/assets/social-share.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-15"
+                      datetime="2026-03-15T08:35:11.104Z"
+                    >2026-03-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    江西户外岩降项目发生事故 三人死亡
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国江西省九江市发生一起户外运动致死事故。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260315-8735450"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="South China Morning Post"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">Artificial intelligence (AI) runs on electricity. Sometimes that electricity might come from a jet engine. FTAI Aviation, a New York-based aircraft engine lessor and maintenance provider valued at more than US$25 billion, plans to convert roughly 100 retired CFM56 engines a year into turbines producing about 25 megawatts each.
+The CFM56 is one of the most widely used jet engines, with more than 30,000 delivered to date, powering the Boeing 737 and Airbus A320 families. Having exhausted their...</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/03/15/6642d61d-7986-42a7-81df-bc062838048b_b929c54e.jpg?itok&#x3D;jrkUNpMU&amp;v&#x3D;1773538368"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">South China Morning Post</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-15"
+                      datetime="2026-03-15T08:30:08.000Z"
+                    >2026-03-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    How jet engines can help power the global AI economy
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Artificial intelligence (AI) runs on electricity. Sometimes that electricity might come from a jet engine. FTAI Aviation, a New York-based aircraft engine lessor and maintenance provider valued at more than US$25 billion, plans to convert roughly 100 retired CFM56 engines a year into turbines producing about 25 megawatts each.
+The CFM56 is one of the most widely used jet engines, with more than 30,000 delivered to date, powering the Boeing 737 and Airbus A320 families. Having exhausted their...
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.scmp.com/opinion/world-opinion/article/3346359/how-jet-engines-can-help-power-global-ai-economy?utm_source&#x3D;rss_feed"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="南方周末"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">2026-03-15 16:00:00
+
+2021年5月25日，浙江湖州，长兴县林城镇畎桥小学实行“小班化”教学。课上老师关注每一位同学的学习情况。（视觉中国｜供图）
+
+2025年招收新生300人，2027年预计只招170人。全国人大代表、重庆市九龙坡区谢家湾学校党委书记刘希娅注意到，重庆一所小学的招生规模将在两年内“腰斩”。
+而有些省份有所不同。由于省外户籍子女涌入，学生规模仍然较大，导致有些地市教师编制紧缺。全国人大代表、浙江省镇海中学党委书记张咏梅了解到，2025年有120万省外户籍子女在浙江就读，当地一些地区因高中师资不足，开设班级时只能固定科目，在新高考下，学生无法自由选科。
+这折射出当下区域差异和学龄人口“排浪式”波动带来的影响。
+2026年3月6日，十四届全国人大四次会议经济主题记者会上，国家发展改革委主任郑栅洁表示，我国初中、高中和高等教育三个阶段的学龄人口将分别于2026年、2029年、2032年达峰。
+面对这一变化，有地方已开始“两条腿走路”。宁波市镇海区要求教师考取高学段教学资格证，提前为师资调配做准备。
+教师队伍未来将如何调整？围绕这一问题，南方周末邀请刘希娅、张咏梅、华南师范大学教育科学学院特聘教授刘善槐展开讨论。
+结构性紧缺
+南方周末：面对学龄人口减少的趋势，如何看待中国的教师编制？
+刘希娅：当前有不少声音说“教师要减少”“教师要有退出机制”，我认为这种说法是不理智的。我们的师生比是依据2001年中央编办、教育部、财政部共同制定的《关于制定中小学教职工编制标准的意见》来确认的。其中，小学的师生比为1:19—1:23；初中为1:13.5—1:18；高中为1:12.5—1:13.5。
+面对未来学龄人口下降的趋势，如果按照这一标准进行教师数量配备，那教师是“多”的，必然会面临被大量裁员的问题。但如果调整师生比，可以让现有的教师继续留在教育岗位上发挥作用…</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">南方周末</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-15"
+                      datetime="2026-03-15T08:25:05.000Z"
+                    >2026-03-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    学龄人口依次渡峰：“为小班化教学创造了条件”
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    2026-03-15 16:00:00
+
+2021年5月25日，浙江湖州，长兴县林城镇畎桥小学实行“小班化”教学。课上老师关注每一位同学的学习情况。（视觉中国｜供图）
+
+2025年招收新生300人，2027年预计只招170人。全国人大代表、重庆市九龙坡区谢家湾学校党委书记刘希娅注意到，重庆一所小学的招生规模将在两年内“腰斩”。
+而有些省份有所不同。由于省外户籍子女涌入，学生规模仍然较大，导致有些地市教师编制紧缺。全国人大代表、浙江省镇海中学党委书记张咏梅了解到，2025年有120万省外户籍子女在浙江就读，当地一些地区因高中师资不足，开设班级时只能固定科目，在新高考下，学生无法自由选科。
+这折射出当下区域差异和学龄人口“排浪式”波动带来的影响。
+2026年3月6日，十四届全国人大四次会议经济主题记者会上，国家发展改革委主任郑栅洁表示，我国初中、高中和高等教育三个阶段的学龄人口将分别于2026年、2029年、2032年达峰。
+面对这一变化，有地方已开始“两条腿走路”。宁波市镇海区要求教师考取高学段教学资格证，提前为师资调配做准备。
+教师队伍未来将如何调整？围绕这一问题，南方周末邀请刘希娅、张咏梅、华南师范大学教育科学学院特聘教授刘善槐展开讨论。
+结构性紧缺
+南方周末：面对学龄人口减少的趋势，如何看待中国的教师编制？
+刘希娅：当前有不少声音说“教师要减少”“教师要有退出机制”，我认为这种说法是不理智的。我们的师生比是依据2001年中央编办、教育部、财政部共同制定的《关于制定中小学教职工编制标准的意见》来确认的。其中，小学的师生比为1:19—1:23；初中为1:13.5—1:18；高中为1:12.5—1:13.5。
+面对未来学龄人口下降的趋势，如果按照这一标准进行教师数量配备，那教师是“多”的，必然会面临被大量裁员的问题。但如果调整师生比，可以让现有的教师继续留在教育岗位上发挥作用…
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="http://www.infzm.com/contents/317016"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="South China Morning Post"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">The hottest new gig-economy job in Los Angeles is performing at home to help artificial intelligence understand how humans move.
+Hundreds of people from Santa Monica to Los Feliz are strapping cameras on their heads and hands as they do chores at home so bots can watch how they make coffee, scrub toilets, water plants and wash dishes.
+At a corner table at Urth Caffe downtown, a woman is sitting next to a big black bag. A constant flow of visitors stops by. She slips each a package and...</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/03/13/d3ab4b75-f423-4c23-85d4-79c574a1b265_8e10cf0e.jpg?itok&#x3D;954dt3gr&amp;v&#x3D;1773397336"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">South China Morning Post</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-15"
+                      datetime="2026-03-15T08:15:08.000Z"
+                    >2026-03-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    People in Los Angeles are wearing cameras while doing housework - and getting paid for it
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    The hottest new gig-economy job in Los Angeles is performing at home to help artificial intelligence understand how humans move.
+Hundreds of people from Santa Monica to Los Feliz are strapping cameras on their heads and hands as they do chores at home so bots can watch how they make coffee, scrub toilets, water plants and wash dishes.
+At a corner table at Urth Caffe downtown, a woman is sitting next to a big black bag. A constant flow of visitors stops by. She slips each a package and...
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.scmp.com/lifestyle/gadgets/article/3346501/people-los-angeles-are-wearing-cameras-while-doing-housework-and-getting-paid-it?utm_source&#x3D;rss_feed"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="South China Morning Post"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">A survey showing workers in Indonesia as the happiest in Asia-Pacific has prompted discussions about the factors underpinning their positive attitudes relative to their regional peers.
+A workplace report published this month by employment marketplace Jobstreet by SEEK found 82 per cent of Indonesian respondents said they felt somewhat or extremely happy at work, the highest level among eight regional markets surveyed.
+The headline figure inevitably begs the question: does the result reflect...</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/03/13/a61c9492-d99a-4dec-96b8-5dc08fe3f5a9_7c729fc1.jpg?itok&#x3D;A_qBBp61&amp;v&#x3D;1773406096"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">South China Morning Post</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-15"
+                      datetime="2026-03-15T08:00:12.000Z"
+                    >2026-03-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Top of the world: why Indonesian workers are happiest in Asia-Pacific
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    A survey showing workers in Indonesia as the happiest in Asia-Pacific has prompted discussions about the factors underpinning their positive attitudes relative to their regional peers.
+A workplace report published this month by employment marketplace Jobstreet by SEEK found 82 per cent of Indonesian respondents said they felt somewhat or extremely happy at work, the highest level among eight regional markets surveyed.
+The headline figure inevitably begs the question: does the result reflect...
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.scmp.com/week-asia/lifestyle-culture/article/3346545/top-world-why-indonesian-workers-are-happiest-asia-pacific?utm_source&#x3D;rss_feed"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="钛媒体：引领未来商业与生活新知"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">三家中国大模型厂商，正以截然不同的路径，卷入由OpenClaw引爆的Agent浪潮。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://images.tmtpost.com/uploads/images/zhaopian/nuxtpic/change_logo3/og_image.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">钛媒体：引领未来商业与生活新知</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-15"
+                      datetime="2026-03-15T07:54:39.000Z"
+                    >2026-03-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    龙虾风暴下的国产大模型厂商：搭上火箭的Kimi与港股双雄的盛宴
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    三家中国大模型厂商，正以截然不同的路径，卷入由OpenClaw引爆的Agent浪潮。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.tmtpost.com/7914749.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="South China Morning Post"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">A Hong Kong couple have been arrested after their one-year-old son fell to his death from a high-rise residential building in Tsuen Wan, the South China Morning Post has learned.
+Preliminary investigations showed that the living room windows in the family’s fifth-floor unit were neither locked nor fitted with grilles, according to a source.
+The parents, including the boy’s 47-year-old father, were arrested on Sunday on suspicion of ill-treatment or neglect of a child.
+The case is being...</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/03/15/0a93b5a9-b55b-489e-9602-6c466aeb649a_1e48176e.jpg?itok&#x3D;WixEJ1Sx&amp;v&#x3D;1773560586"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">South China Morning Post</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-15"
+                      datetime="2026-03-15T07:26:04.000Z"
+                    >2026-03-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Couple arrested after 1-year-old son falls to his death from Hong Kong flat
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    A Hong Kong couple have been arrested after their one-year-old son fell to his death from a high-rise residential building in Tsuen Wan, the South China Morning Post has learned.
+Preliminary investigations showed that the living room windows in the family’s fifth-floor unit were neither locked nor fitted with grilles, according to a source.
+The parents, including the boy’s 47-year-old father, were arrested on Sunday on suspicion of ill-treatment or neglect of a child.
+The case is being...
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.scmp.com/news/hong-kong/society/article/3346648/couple-arrested-after-their-1-year-old-son-falls-his-death-hong-kong-flat?utm_source&#x3D;rss_feed"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="South China Morning Post"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">Hong Kong’s terrorism threat level remains moderate amid the escalating conflict in the Middle East, the city’s security chief has said, urging residents to stay vigilant in the globally connected city.
+Secretary for Security Chris Tang Ping-keung said on Sunday there was no intelligence suggesting an imminent attack, but Hong Kong needed to “be prepared”, urging the public to report anything suspicious to police.
+“The Russia-Ukraine war is not over, and there is conflict in the Middle East,”...</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/03/15/3a6472a8-4e3d-4112-9d41-b68dc37d5b8a_5890805d.jpg?itok&#x3D;XngSC9LC&amp;v&#x3D;1773554712"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">South China Morning Post</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-15"
+                      datetime="2026-03-15T07:25:24.000Z"
+                    >2026-03-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Terrorism threat in Hong Kong ‘moderate’ amid Middle East war: security chief
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Hong Kong’s terrorism threat level remains moderate amid the escalating conflict in the Middle East, the city’s security chief has said, urging residents to stay vigilant in the globally connected city.
+Secretary for Security Chris Tang Ping-keung said on Sunday there was no intelligence suggesting an imminent attack, but Hong Kong needed to “be prepared”, urging the public to report anything suspicious to police.
+“The Russia-Ukraine war is not over, and there is conflict in the Middle East,”...
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.scmp.com/news/hong-kong/law-and-crime/article/3346643/terrorism-threat-hong-kong-moderate-amid-middle-east-war-security-chief?utm_source&#x3D;rss_feed"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="南方周末"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">2026-03-15 15:00:00
+近日，一起机票超售事件引发关注。据《大河报》报道，2026年3月11日，有网友发帖称，日前她乘坐东方航空公司航班飞往上海，在已经值机选座并抵达登机口的情况下，被工作人员拒绝登机。网友表示，她是去上海看病的，好不容易才约到专家号，不能迟到。但东航工作人员表示只能给她办理改签升舱，并最高赔偿四百元。工作人员解释，拒绝她登机的原因是航班“超售”，至于为什么选择这位乘客拒载，工作人员解释说是“系统的原因”。
+机票超售，是航空公司为了利润最大化制定的商业运营策略。航空公司执飞一趟航班，成本大致是固定的，不能满座起飞的话就会损失部分收入。“尽可能满座起飞”以提高边际收益，是所有航空公司都在努力实现的策略。而一趟航班总可能出现部分乘客退票、改签的情况，这样就空出了一些座位。航空公司为了尽可能地提高座位利用率，就会多卖一些票，保证在有人退票、改签等情况下，航班仍然可以满座。
+通常而言，航空公司的超售策略是依据航线的历史退票率制定的，会控制在一个区间，俾使飞机座位足以容纳未退票乘客。不过，航空公司偶尔也会“玩脱”，那就必须给愿意下飞机的乘客改签到其他航班并额外补偿一些权益（升舱或补偿一笔钱）。
+首先要明确一点，机票超售是合法的，也是航空业行之有年的运营策略。关键在于，处理超售问题应当依照法定程序，并在过程中尊重乘客的权益。“愿意下飞机”一般应是双向合意的“自愿”，而不应该变成航空公司单方面“强制拒载”。即使最后不得不强制拒载，也应该遵循已经公布的原则公平选择拒载乘客。
+交通运输部制定的《公共航空运输旅客服务管理规定》有专门一章规定超售问题，其中第44条规定，因承运人超售导致实际乘机旅客人数超过座位数时，承运人或者其地面服务代理人应当根据征集自愿者程序，寻找自愿放弃行程的旅客；未经征集自愿者程序，不得使用优先登机规则确定被拒绝登机的旅客。第46条规定，承运人的优先登机规则应当符合公序良俗原则，考虑的因素至少应当包括老幼病残孕等特殊旅客的需求、后续航班承接等；只有在经征集自愿者程序未能寻找到足够的自愿者后，方可根据优先登机规则确定被拒绝登机的旅客。
+东方航空公司的《国内运输条件》第6条也规定，出现航班超售时，东航将在办理乘机手续的区域张贴《航班超售告知书》《征寻自愿者告知书》，告知乘客超售情况、赔偿方案以及旅客享有的权利，寻找自愿弃乘的旅客。如果没有足够的旅客愿意放弃本次航班旅行，东航将根据其确定的优先登机规则拒绝运输部分旅客，并对这部分乘客安排搭乘其他航班，并给予合理补偿。
+所以，这一事件的关键，就在于东方航空拒载这名乘客，是否依照法规和自己制定的规则，履行了相关的程序。3月12日，东航客服回应媒体称，如果遇到航班超售的情况，会有工作人员帮忙办理客票的改签手续，但具体不让谁登机要靠现场工作人员判断。这与东航现场工作人员的说法并不一致。选择拒载这名乘客，到底是由现场工作人员判断的，还是“系统”选择的？
+《东航航班超售服务方案》的“旅客拒载原则”中，“证明有特殊困难急于成行的旅客”也属于可以优先登机的旅客。本事件中，当事人自称急于看病，也向工作人员出示了预约医生的信息，应当属于证明了有特殊困难急于成行，航空公司就应该让其排在其他没有证明有特殊困难急于成行的旅客之前登机。
+从视频画面与后续报道来看，当事人遭遇的显然是“非自愿改签”。有网友事后“出招”说，托运行李了就不会被非自愿改签；还有网友爆料说，来得晚的那位乘客之所以能够登机是因为要转乘国际航班。姑且不论这些是不是事实，航司在确定“弃乘旅客”时还是会有一些轻重缓急之分的，“看人下菜碟”。既然如此，航司就更应留足冗余度，依法依约处理，首先履行征求自愿者的程序，这本身也是对消费者的尊重。
+在2017年轰动全球的“美联航拖拽乘客下机事件”中，同样因为超售，航空公司动用保安强行将一名乘客拖下飞机，严重践踏消费者权益。这起字面意义上的“暴力毁约”事件之所以举世瞩目，正是因为美联航的“吃相难看”，在乘客已经落座，而且本身是医生出诊的情况下，依然选择了最为难看的解决方式。在被全球舆论讨伐并可能被告上法庭的情况下，美联航最终选择了与乘客达成保密的和解协议，赔偿一笔钱来了结此事。试问，如果航空公司事先履行公开征求自愿者程序，只要赔偿够高，总有乘客会选择接受赔偿乘坐下一班飞机。航空公司需要付出的代价，远比事情闹大后的损失要小。
+机票超售尽管是合法的商业运营行为，但航空公司处置超售流程依然有待规范、细化与完善。至少，法律法规规定的“公开征求自愿者”程序应该得到遵守。航空公司执行机票超售策略无可厚非，但必须尊重消费者权益，同时也要细化“优先登机规则”，让真正有需要的乘客顺利登机。此外，有关超售补偿标准、超售风险提示的细节，业界也有进一步改进的空间，保护各方权益。</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">南方周末</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-15"
+                      datetime="2026-03-15T07:25:05.000Z"
+                    >2026-03-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    乘客在登机口被拒载：航空公司未依法依约处置超售应担责
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    2026-03-15 15:00:00
+近日，一起机票超售事件引发关注。据《大河报》报道，2026年3月11日，有网友发帖称，日前她乘坐东方航空公司航班飞往上海，在已经值机选座并抵达登机口的情况下，被工作人员拒绝登机。网友表示，她是去上海看病的，好不容易才约到专家号，不能迟到。但东航工作人员表示只能给她办理改签升舱，并最高赔偿四百元。工作人员解释，拒绝她登机的原因是航班“超售”，至于为什么选择这位乘客拒载，工作人员解释说是“系统的原因”。
+机票超售，是航空公司为了利润最大化制定的商业运营策略。航空公司执飞一趟航班，成本大致是固定的，不能满座起飞的话就会损失部分收入。“尽可能满座起飞”以提高边际收益，是所有航空公司都在努力实现的策略。而一趟航班总可能出现部分乘客退票、改签的情况，这样就空出了一些座位。航空公司为了尽可能地提高座位利用率，就会多卖一些票，保证在有人退票、改签等情况下，航班仍然可以满座。
+通常而言，航空公司的超售策略是依据航线的历史退票率制定的，会控制在一个区间，俾使飞机座位足以容纳未退票乘客。不过，航空公司偶尔也会“玩脱”，那就必须给愿意下飞机的乘客改签到其他航班并额外补偿一些权益（升舱或补偿一笔钱）。
+首先要明确一点，机票超售是合法的，也是航空业行之有年的运营策略。关键在于，处理超售问题应当依照法定程序，并在过程中尊重乘客的权益。“愿意下飞机”一般应是双向合意的“自愿”，而不应该变成航空公司单方面“强制拒载”。即使最后不得不强制拒载，也应该遵循已经公布的原则公平选择拒载乘客。
+交通运输部制定的《公共航空运输旅客服务管理规定》有专门一章规定超售问题，其中第44条规定，因承运人超售导致实际乘机旅客人数超过座位数时，承运人或者其地面服务代理人应当根据征集自愿者程序，寻找自愿放弃行程的旅客；未经征集自愿者程序，不得使用优先登机规则确定被拒绝登机的旅客。第46条规定，承运人的优先登机规则应当符合公序良俗原则，考虑的因素至少应当包括老幼病残孕等特殊旅客的需求、后续航班承接等；只有在经征集自愿者程序未能寻找到足够的自愿者后，方可根据优先登机规则确定被拒绝登机的旅客。
+东方航空公司的《国内运输条件》第6条也规定，出现航班超售时，东航将在办理乘机手续的区域张贴《航班超售告知书》《征寻自愿者告知书》，告知乘客超售情况、赔偿方案以及旅客享有的权利，寻找自愿弃乘的旅客。如果没有足够的旅客愿意放弃本次航班旅行，东航将根据其确定的优先登机规则拒绝运输部分旅客，并对这部分乘客安排搭乘其他航班，并给予合理补偿。
+所以，这一事件的关键，就在于东方航空拒载这名乘客，是否依照法规和自己制定的规则，履行了相关的程序。3月12日，东航客服回应媒体称，如果遇到航班超售的情况，会有工作人员帮忙办理客票的改签手续，但具体不让谁登机要靠现场工作人员判断。这与东航现场工作人员的说法并不一致。选择拒载这名乘客，到底是由现场工作人员判断的，还是“系统”选择的？
+《东航航班超售服务方案》的“旅客拒载原则”中，“证明有特殊困难急于成行的旅客”也属于可以优先登机的旅客。本事件中，当事人自称急于看病，也向工作人员出示了预约医生的信息，应当属于证明了有特殊困难急于成行，航空公司就应该让其排在其他没有证明有特殊困难急于成行的旅客之前登机。
+从视频画面与后续报道来看，当事人遭遇的显然是“非自愿改签”。有网友事后“出招”说，托运行李了就不会被非自愿改签；还有网友爆料说，来得晚的那位乘客之所以能够登机是因为要转乘国际航班。姑且不论这些是不是事实，航司在确定“弃乘旅客”时还是会有一些轻重缓急之分的，“看人下菜碟”。既然如此，航司就更应留足冗余度，依法依约处理，首先履行征求自愿者的程序，这本身也是对消费者的尊重。
+在2017年轰动全球的“美联航拖拽乘客下机事件”中，同样因为超售，航空公司动用保安强行将一名乘客拖下飞机，严重践踏消费者权益。这起字面意义上的“暴力毁约”事件之所以举世瞩目，正是因为美联航的“吃相难看”，在乘客已经落座，而且本身是医生出诊的情况下，依然选择了最为难看的解决方式。在被全球舆论讨伐并可能被告上法庭的情况下，美联航最终选择了与乘客达成保密的和解协议，赔偿一笔钱来了结此事。试问，如果航空公司事先履行公开征求自愿者程序，只要赔偿够高，总有乘客会选择接受赔偿乘坐下一班飞机。航空公司需要付出的代价，远比事情闹大后的损失要小。
+机票超售尽管是合法的商业运营行为，但航空公司处置超售流程依然有待规范、细化与完善。至少，法律法规规定的“公开征求自愿者”程序应该得到遵守。航空公司执行机票超售策略无可厚非，但必须尊重消费者权益，同时也要细化“优先登机规则”，让真正有需要的乘客顺利登机。此外，有关超售补偿标准、超售风险提示的细节，业界也有进一步改进的空间，保护各方权益。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="http://www.infzm.com/contents/317018"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="South China Morning Post"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">China coach Ante Milicic declared his team has no fear of facing hosts Australia in front of a big crowd in their Women’s Asian Cup semi-final, calling them “resilient and patriotic”, as ruthless Japan crushed the Philippines 7-0 on Sunday to book their spot against South Korea.
+Defending champions China meet Sam Kerr’s Matildas at the 60,000-capacity Perth Stadium on Tuesday after needing extra time to edge Chinese Taipei 2-0 in their last-eight clash on Saturday despite being raging...</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/03/15/08fe1c27-a0ee-4be8-a6cb-e9cced21e5c6_eb8736be.jpg?itok&#x3D;xQ6e-bqs&amp;v&#x3D;1773559417"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">South China Morning Post</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-15"
+                      datetime="2026-03-15T07:23:40.000Z"
+                    >2026-03-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Women’s Asian Cup: ‘resilient’ China do not fear hosts Australia, Japan smash Philippines
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    China coach Ante Milicic declared his team has no fear of facing hosts Australia in front of a big crowd in their Women’s Asian Cup semi-final, calling them “resilient and patriotic”, as ruthless Japan crushed the Philippines 7-0 on Sunday to book their spot against South Korea.
+Defending champions China meet Sam Kerr’s Matildas at the 60,000-capacity Perth Stadium on Tuesday after needing extra time to edge Chinese Taipei 2-0 in their last-eight clash on Saturday despite being raging...
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.scmp.com/sport/football/article/3346647/womens-asian-cup-resilient-china-dont-fear-hosts-australia-japan-smash-philippines?utm_source&#x3D;rss_feed"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="South China Morning Post"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">Indonesian President Prabowo Subianto said he was “pretty surprised” by the US-Israel war on Iran, adding that he did not see any “rationality” in the military campaign.
+Prabowo, a retired general who now heads the world’s largest Muslim-majority nation, said in an interview that Iran recently told him they were wary of entering into negotiations with the US to stop the war because they felt “basically they have been tricked” twice. In an asymmetrical war, he added, “they really just have to...</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/03/15/906dc5ea-ce6d-41e3-af57-5df6c0b23ff8_c1ce5342.jpg?itok&#x3D;pwLeSGF2&amp;v&#x3D;1773557370"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">South China Morning Post</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-15"
+                      datetime="2026-03-15T06:49:36.000Z"
+                    >2026-03-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Indonesia’s Prabowo ‘surprised’ by Iran war, says US bombing won’t spark regime change
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Indonesian President Prabowo Subianto said he was “pretty surprised” by the US-Israel war on Iran, adding that he did not see any “rationality” in the military campaign.
+Prabowo, a retired general who now heads the world’s largest Muslim-majority nation, said in an interview that Iran recently told him they were wary of entering into negotiations with the US to stop the war because they felt “basically they have been tricked” twice. In an asymmetrical war, he added, “they really just have to...
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.scmp.com/news/asia/southeast-asia/article/3346646/indonesias-prabowo-surprised-iran-war-says-us-bombing-wont-spark-regime-change?utm_source&#x3D;rss_feed"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="南方周末"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">2026-03-15 14:00:00
+今年两会期间，“龙虾”热席卷全国，以OpenClaw为代表的智能体安全问题，成为公众关注的焦点。
+全国人大代表、中海油海南分公司深海工程研究中心首席工程师雷亚飞是一位资深的智能体使用者，对此深有体会。巧合的是，今年两会他带来的建议正巧是关注智能体安全问题，无意间踩中了当下的热点。
+他告诉南方周末记者，人工智能正在从“辅助决策”走向“自主操控”，智能体的安全问题已经刻不容缓。对此，南方周末记者就智能体安全问题专访了雷亚飞。
+
+
+
+全国人大代表、中海油海南分公司深海工程研究中心首席工程师雷亚飞。受访者供图
+
+南方周末：你如何看待当下的智能体热潮？行业目前发展有哪些特点？
+雷亚飞：2025年以来，以AI编程助手、AI办公助手、AI手机助手为代表的智能体快速兴起，AI不再局限于回答问题，而是直接在用户的电脑和手机上执行操作，从读写文件、发送消息、控制浏览器到跨应用调度。
+国内外主要AI厂商已发布数十款此类产品，覆盖编程、办公、通信、金融等场景，用户规模快速扩张。
+与此同时，智能体的操控深度正在从应用层下沉到操作系统层。电脑端，部分智能体已默认获得与用户等同的完整系统权限，可执行任意命令、读写全部文件；手机端，部分产品通过与设备厂商合作获取系统级权限，以截取屏幕画面并模拟用户操作的方式实现跨应用调度。
+随着大模型能力的持续提升和AI应用的普及，智能体的操控范围和用户规模仍在快速扩大，AI正在触及用户数字生活的底层基础设施，亟须构筑安全可靠的治理体系，为产业健康持续发展打好坚实基础。
+南方周末：为什么当下安全问题已经刻不容缓？
+雷亚飞：智能体正在从低权限向高权限加速演进，但安全建设却远未跟上。当前智能体产品的权限深度差异极大，从仅观察屏幕到获得操作系统级特殊权限，操控能力和风险等级截然不同，低权限产品的漏洞影响通常局限于某个应用，而高权限产品的一…</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">南方周末</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-15"
+                      datetime="2026-03-15T06:25:07.000Z"
+                    >2026-03-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    全国人大代表雷亚飞：智能体正在加速演进，但安全建设远未跟上
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    2026-03-15 14:00:00
+今年两会期间，“龙虾”热席卷全国，以OpenClaw为代表的智能体安全问题，成为公众关注的焦点。
+全国人大代表、中海油海南分公司深海工程研究中心首席工程师雷亚飞是一位资深的智能体使用者，对此深有体会。巧合的是，今年两会他带来的建议正巧是关注智能体安全问题，无意间踩中了当下的热点。
+他告诉南方周末记者，人工智能正在从“辅助决策”走向“自主操控”，智能体的安全问题已经刻不容缓。对此，南方周末记者就智能体安全问题专访了雷亚飞。
+
+
+
+全国人大代表、中海油海南分公司深海工程研究中心首席工程师雷亚飞。受访者供图
+
+南方周末：你如何看待当下的智能体热潮？行业目前发展有哪些特点？
+雷亚飞：2025年以来，以AI编程助手、AI办公助手、AI手机助手为代表的智能体快速兴起，AI不再局限于回答问题，而是直接在用户的电脑和手机上执行操作，从读写文件、发送消息、控制浏览器到跨应用调度。
+国内外主要AI厂商已发布数十款此类产品，覆盖编程、办公、通信、金融等场景，用户规模快速扩张。
+与此同时，智能体的操控深度正在从应用层下沉到操作系统层。电脑端，部分智能体已默认获得与用户等同的完整系统权限，可执行任意命令、读写全部文件；手机端，部分产品通过与设备厂商合作获取系统级权限，以截取屏幕画面并模拟用户操作的方式实现跨应用调度。
+随着大模型能力的持续提升和AI应用的普及，智能体的操控范围和用户规模仍在快速扩大，AI正在触及用户数字生活的底层基础设施，亟须构筑安全可靠的治理体系，为产业健康持续发展打好坚实基础。
+南方周末：为什么当下安全问题已经刻不容缓？
+雷亚飞：智能体正在从低权限向高权限加速演进，但安全建设却远未跟上。当前智能体产品的权限深度差异极大，从仅观察屏幕到获得操作系统级特殊权限，操控能力和风险等级截然不同，低权限产品的漏洞影响通常局限于某个应用，而高权限产品的一…
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="http://www.infzm.com/contents/316870"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="South China Morning Post"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">Some trains were misaligned with the platform screen doors on the MTR’s Tsuen Wan line on the first day a new signalling system was implemented in Hong Kong, but such teething problems were rare in a launch that went largely according to plan.
+The MTR Corporation said on Sunday overall operations had been “smooth” following the departure of the first train at 6am, despite some “isolated” glitches. About 200 staff members were deployed to ensure the line ran normally.
+“This morning we saw a few...</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/03/15/4e42e193-72e5-4d0a-b3cc-98d9cfb1d335_70d2cd2c.jpg?itok&#x3D;Gka5Em46&amp;v&#x3D;1773555140"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">South China Morning Post</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-15"
+                      datetime="2026-03-15T06:12:21.000Z"
+                    >2026-03-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    New signalling system launches smoothly despite minor glitches on MTR’s Tsuen Wan line
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Some trains were misaligned with the platform screen doors on the MTR’s Tsuen Wan line on the first day a new signalling system was implemented in Hong Kong, but such teething problems were rare in a launch that went largely according to plan.
+The MTR Corporation said on Sunday overall operations had been “smooth” following the departure of the first train at 6am, despite some “isolated” glitches. About 200 staff members were deployed to ensure the line ran normally.
+“This morning we saw a few...
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.scmp.com/news/hong-kong/transport/article/3346644/new-signalling-system-launches-smoothly-despite-minor-glitches-mtrs-tsuen-wan-line?utm_source&#x3D;rss_feed"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="South China Morning Post"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">Ricardo Rambo has urged Hong Kong to use their Asian Games platform to send a message that the city is ready for professional women’s football.
+Fears that revised qualification criteria would sideline the city men’s and women’s teams from this year’s Games were banished on Thursday when the Football Association of Hong Kong, China (HKFA) revealed the Olympic Council of Asia had approved their participation in Japan.
+Head coach Rambo, whose side were recently forced to quit the four-team Pink...</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/03/15/2db795a5-f77e-4e40-8ffd-6198b4deb8e3_450528d2.jpg?itok&#x3D;utiI0Lce&amp;v&#x3D;1773542963"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">South China Morning Post</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-15"
+                      datetime="2026-03-15T06:00:20.000Z"
+                    >2026-03-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Hong Kong boss hopes playing at Asian Games helps usher in professional women’s game
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Ricardo Rambo has urged Hong Kong to use their Asian Games platform to send a message that the city is ready for professional women’s football.
+Fears that revised qualification criteria would sideline the city men’s and women’s teams from this year’s Games were banished on Thursday when the Football Association of Hong Kong, China (HKFA) revealed the Olympic Council of Asia had approved their participation in Japan.
+Head coach Rambo, whose side were recently forced to quit the four-team Pink...
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.scmp.com/sport/football/article/3346636/hong-kong-boss-hopes-playing-asian-games-helps-usher-professional-womens-game?utm_source&#x3D;rss_feed"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="South China Morning Post"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">Since the Iran war began late last month, it has threatened shipping across the Middle East’s two most important maritime chokepoints – the Strait of Hormuz and the Bab el-Mandeb – through which much of Asia’s energy imports and manufactured exports flow.
+For Gulf states and their major trading partners in Asia, the conflict is forcing a hard question: what, if anything, can protect supply chains if US security guarantees can no longer be taken for granted?
+Analysts say the usual answers –...</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/03/15/e5da2d07-943c-4ac8-95d3-11e4e46e7e20_7cd5627b.jpg?itok&#x3D;dqQzFD88&amp;v&#x3D;1773505017"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">South China Morning Post</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-15"
+                      datetime="2026-03-15T06:00:16.000Z"
+                    >2026-03-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Iran war exposes fragility of Gulf-Asia supply chains
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Since the Iran war began late last month, it has threatened shipping across the Middle East’s two most important maritime chokepoints – the Strait of Hormuz and the Bab el-Mandeb – through which much of Asia’s energy imports and manufactured exports flow.
+For Gulf states and their major trading partners in Asia, the conflict is forcing a hard question: what, if anything, can protect supply chains if US security guarantees can no longer be taken for granted?
+Analysts say the usual answers –...
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.scmp.com/week-asia/economics/article/3346627/iran-war-exposes-fragility-gulf-asia-supply-chains?utm_source&#x3D;rss_feed"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="South China Morning Post"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">Central Asian governments are leveraging the diplomatic fallout from the US-Israel war on Iran to assert their autonomy and reinforce their long-standing strategy of balancing major powers, according to analysts.
+For decades, the five former Soviet republics have been seen as Russia’s “backyard”. However, as the conflict in Iran deepens, these nations are moving to recalibrate their geopolitical ties, signalling a shift away from their role as a passive buffer zone for great powers.
+The shift...</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/03/14/6bc43024-1bc5-4447-9d2f-b08e7dd64f09_22898f79.jpg?itok&#x3D;ZKLktMmq&amp;v&#x3D;1773488412"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">South China Morning Post</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-15"
+                      datetime="2026-03-15T06:00:14.000Z"
+                    >2026-03-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Beyond a ‘buffer zone’: how the Iran war is recalibrating Central Asian ties
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Central Asian governments are leveraging the diplomatic fallout from the US-Israel war on Iran to assert their autonomy and reinforce their long-standing strategy of balancing major powers, according to analysts.
+For decades, the five former Soviet republics have been seen as Russia’s “backyard”. However, as the conflict in Iran deepens, these nations are moving to recalibrate their geopolitical ties, signalling a shift away from their role as a passive buffer zone for great powers.
+The shift...
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.scmp.com/news/china/diplomacy/article/3346611/beyond-buffer-zone-how-iran-war-recalibrating-central-asian-ties?utm_source&#x3D;rss_feed"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="South China Morning Post"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">A pet shop owner from southwestern China discovered an abandoned cat with a note and cash, uncovering an elderly person’s final, loving gesture for their pet.
+On March 7, the woman surnamed Sun, who runs a pet shop in Chuxiong, Yunnan province, found a grey pet carrier outside her shop.
+Hearing a kitten meowing, she opened it to find a tabby cat surrounded by cat food.
+“I was furious, thinking an irresponsible owner had abandoned it,” Sun said.
+
+But as she looked closer, she found a crumpled...</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/03/11/507e013e-8f42-4ec1-bdf0-b2fbcbcda33e_2e23852d.jpg?itok&#x3D;BRQMl8Q6&amp;v&#x3D;1773216764"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">South China Morning Post</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-15"
+                      datetime="2026-03-15T06:00:09.000Z"
+                    >2026-03-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    China pet shop owner finds dumped cat with touching note and cash from elderly facing surgery
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    A pet shop owner from southwestern China discovered an abandoned cat with a note and cash, uncovering an elderly person’s final, loving gesture for their pet.
+On March 7, the woman surnamed Sun, who runs a pet shop in Chuxiong, Yunnan province, found a grey pet carrier outside her shop.
+Hearing a kitten meowing, she opened it to find a tabby cat surrounded by cat food.
+“I was furious, thinking an irresponsible owner had abandoned it,” Sun said.
+
+But as she looked closer, she found a crumpled...
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.scmp.com/news/people-culture/trending-china/article/3346210/china-pet-shop-owner-finds-dumped-cat-touching-note-and-cash-elderly-facing-surgery?utm_source&#x3D;rss_feed"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="钛媒体：引领未来商业与生活新知"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">板块层面，受行业政策支持及供需格局改善影响，风电设备、农化制品板块表现突出；主力资金呈现防御性布局特征，重点流入低估值、高股息的权重标的，同时对前期涨幅过大的题材股进行集中减持，在数据中心、新能源等赛道内也有资金博弈修复行情，市场情绪对高位标的分歧显著加大，获利了结压力集中释放。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://images.tmtpost.com/uploads/images/zhaopian/nuxtpic/change_logo3/og_image.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">钛媒体：引领未来商业与生活新知</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-15"
+                      datetime="2026-03-15T05:46:04.000Z"
+                    >2026-03-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    价值判断：跌停板的投资机会和风险提示（3月13日）｜证券市场观察
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    板块层面，受行业政策支持及供需格局改善影响，风电设备、农化制品板块表现突出；主力资金呈现防御性布局特征，重点流入低估值、高股息的权重标的，同时对前期涨幅过大的题材股进行集中减持，在数据中心、新能源等赛道内也有资金博弈修复行情，市场情绪对高位标的分歧显著加大，获利了结压力集中释放。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.tmtpost.com/7914798.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="钛媒体：引领未来商业与生活新知"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">板块层面，受行业景气度回升及资金关注带动，厨卫家电、医用耗材板块部分标的实现首次涨停；主力资金呈现结构性布局特征，重点流入低估值、高安全边际的首次涨停标的，同时在煤炭、化工等周期性板块内炒作连板股，市场情绪对高位标的分歧明显加大。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://images.tmtpost.com/uploads/images/zhaopian/nuxtpic/change_logo3/og_image.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">钛媒体：引领未来商业与生活新知</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-15"
+                      datetime="2026-03-15T05:45:50.000Z"
+                    >2026-03-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    价值判断：涨停板的投资机会和风险提示（3月13日）｜证券市场观察
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    板块层面，受行业景气度回升及资金关注带动，厨卫家电、医用耗材板块部分标的实现首次涨停；主力资金呈现结构性布局特征，重点流入低估值、高安全边际的首次涨停标的，同时在煤炭、化工等周期性板块内炒作连板股，市场情绪对高位标的分歧明显加大。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.tmtpost.com/7914792.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="钛媒体：引领未来商业与生活新知"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">你不需要在暴跌时给自己打气，只需要按既定的方法去调仓；你不需要在暴涨时硬生生管住手，只需要遵守再平衡机制。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://images.tmtpost.com/uploads/images/zhaopian/nuxtpic/change_logo3/og_image.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">钛媒体：引领未来商业与生活新知</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-15"
+                      datetime="2026-03-15T05:45:28.000Z"
+                    >2026-03-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    定价是价值投资的基石｜济安学派
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    你不需要在暴跌时给自己打气，只需要按既定的方法去调仓；你不需要在暴涨时硬生生管住手，只需要遵守再平衡机制。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.tmtpost.com/7914784.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
               <article
                 data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
                 x-show="active === 'all' || active === $el.dataset.src"
@@ -102141,91 +104002,6 @@ AI 评分：92
                   <!-- Read link – @click.stop so the card click doesn't also fire -->
                   <a
                     href="https://www.natgeomedia.com/science/article/content-18905.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="文章總匯 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">俄烏戰爭不僅對人類家園造成傷害，野生動物也未能倖免。烏克蘭的獨立媒體揭露，俄羅斯持續從歐洲最大的原始草原非法轉移、走私和販賣動物，自從這個烏克蘭最古老的自然保護區遭侵占後，就有不少烏克蘭的瀕危物種開始出現在俄羅斯的二手交易網站上，被公然兜售。
-
-                    
-公然兜售保護區動物
-阿斯卡尼亞諾瓦保護區（Askaniya-Nova Biosphere Reserve）是烏克蘭最古老的自然保護區，也是重要的自然科學研究據點，其歷史可追溯至1898年。這裡擁有歐洲最大、從未被開墾過的原始草原，佔地超過3.3萬公頃，超過2500種植物和2200種動物在此棲息，其中300多種更是烏克蘭官方認定的瀕危物種，受法律保護。
-然而，這塊保護區自2022年2月被俄羅斯佔領，隨後陸續傳出軍事活動引發多起火災，加上管理疏忽，造成大量動植物死亡，不僅動物的食物與供水不穩定，甚至傳出動物遭到獵殺。
-根據烏克蘭獨立媒體《Svidomi》，截至2024年7月，保護區內已發生69起火災，燒毀面積超過7000公頃。此外，俄羅斯更將此處作為非法運送與販賣動物的中心。
-關注環境議題的烏克蘭媒體《URSA.MEDIA》是其中一個追蹤調查的媒體。調查小組嘗試聯繫保護區內、由俄羅斯安插的管理階層，並與其他潛在買家一同洽談買賣動物，包括稀有的查普曼斑馬（Chapman’s zebras）。在一次交流中，俄方開價每隻動物以100萬俄羅斯盧布出售，折合新台幣約一隻38萬元。
-調查還發現，俄羅斯最大的二手交易網站Avito刊有出售保護區動物的廣告。克里米亞（Crimea）、俄羅斯的克拉斯諾達爾邊疆區都有私人動物園或公園經營者參與這些非法交易。
-
-                    
-已知搬運紀錄達20起以上
-2023年，俄軍接管保護區，使原本烏克蘭的管理階層失去進出保護區的權限，只能透過俄羅斯的媒…</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/18904/2026030946430521.jpg"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">文章總匯 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-03-09"
-                      datetime="2026-03-08T16:00:00.000Z"
-                    >2026-03-09</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    俄烏生態戰爭罪！ 烏保護區動物每隻賣38萬 至少20起非法轉移
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    俄烏戰爭不僅對人類家園造成傷害，野生動物也未能倖免。烏克蘭的獨立媒體揭露，俄羅斯持續從歐洲最大的原始草原非法轉移、走私和販賣動物，自從這個烏克蘭最古老的自然保護區遭侵占後，就有不少烏克蘭的瀕危物種開始出現在俄羅斯的二手交易網站上，被公然兜售。
-
-                    
-公然兜售保護區動物
-阿斯卡尼亞諾瓦保護區（Askaniya-Nova Biosphere Reserve）是烏克蘭最古老的自然保護區，也是重要的自然科學研究據點，其歷史可追溯至1898年。這裡擁有歐洲最大、從未被開墾過的原始草原，佔地超過3.3萬公頃，超過2500種植物和2200種動物在此棲息，其中300多種更是烏克蘭官方認定的瀕危物種，受法律保護。
-然而，這塊保護區自2022年2月被俄羅斯佔領，隨後陸續傳出軍事活動引發多起火災，加上管理疏忽，造成大量動植物死亡，不僅動物的食物與供水不穩定，甚至傳出動物遭到獵殺。
-根據烏克蘭獨立媒體《Svidomi》，截至2024年7月，保護區內已發生69起火災，燒毀面積超過7000公頃。此外，俄羅斯更將此處作為非法運送與販賣動物的中心。
-關注環境議題的烏克蘭媒體《URSA.MEDIA》是其中一個追蹤調查的媒體。調查小組嘗試聯繫保護區內、由俄羅斯安插的管理階層，並與其他潛在買家一同洽談買賣動物，包括稀有的查普曼斑馬（Chapman’s zebras）。在一次交流中，俄方開價每隻動物以100萬俄羅斯盧布出售，折合新台幣約一隻38萬元。
-調查還發現，俄羅斯最大的二手交易網站Avito刊有出售保護區動物的廣告。克里米亞（Crimea）、俄羅斯的克拉斯諾達爾邊疆區都有私人動物園或公園經營者參與這些非法交易。
-
-                    
-已知搬運紀錄達20起以上
-2023年，俄軍接管保護區，使原本烏克蘭的管理階層失去進出保護區的權限，只能透過俄羅斯的媒…
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.natgeomedia.com/environment/article/content-18904.html"
                     target="_blank"
                     rel="noopener noreferrer"
                     @click.stop
