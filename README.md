@@ -16,7 +16,7 @@ This is repository hosts the UI and content of an RSS feed reader.
 <!-- FEED_STATUS_START -->
 ## 订阅源抓取状态
 
-> ✅ 56 个成功，❌ 3 个失败，最后更新：2026/03/16 21:10
+> ✅ 57 个成功，❌ 2 个失败，最后更新：2026/03/17 01:00
 
 | 状态 | 订阅源链接 |
 | :---: | --- |
@@ -54,7 +54,7 @@ This is repository hosts the UI and content of an RSS feed reader.
 | ✅ | https://rsshub.rssforever.com/natgeo/environment/article |
 | ✅ | https://rsshub.rssforever.com/natgeo/history/article |
 | ✅ | https://plink.anyfeeder.com/idaily/today |
-| ❌ | https://rsshub.rssforever.com/reuters/world/china |
+| ✅ | https://rsshub.rssforever.com/reuters/world/china |
 | ✅ | https://rsshub.rssforever.com/apnews/topics/china |
 | ✅ | https://news.un.org/feed/subscribe/en/news/all/rss.xml |
 | ❌ | https://morss.saha.qzz.io/https://gijn.org/feed/ |
