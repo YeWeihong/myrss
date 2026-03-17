@@ -154,6 +154,15 @@
             <span class="truncate">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
           </button>
           <button
+            data-src="南方周末"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">南方周末</span>
+          </button>
+          <button
             data-src="South China Morning Post"
             @click="setActive($el.dataset.src); sidebarOpen = false"
             :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
@@ -188,15 +197,6 @@
           >
             <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
             <span class="truncate">中国经济时报</span>
-          </button>
-          <button
-            data-src="南方周末"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">南方周末</span>
           </button>
           <button
             data-src="校长读报 - Telegram Channel"
@@ -554,8 +554,8 @@
 
         <!-- Sidebar Footer -->
         <div class="px-4 py-3 border-t border-[#f5bcd8] text-[10px] text-[#b88aaa]">
-          <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/YeWeihong/myrss/actions/runs/23173979888">
-            构建于 <time datetime="2026-03-17T01:25:35.701Z">2026-03-17T01:25:35.701Z</time>
+          <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/YeWeihong/myrss/actions/runs/23174051733">
+            构建于 <time datetime="2026-03-17T01:28:23.581Z">2026-03-17T01:28:23.581Z</time>
           </a>
           <div class="mt-0.5">
             <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/osmoscraft/osmosfeed">osmosfeed 1.15.1</a>
@@ -704,6 +704,80 @@
                   <!-- Read link – @click.stop so the card click doesn't also fire -->
                   <a
                     href="https://www.zaobao.com.sg/news/china/story20260317-8745565"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="南方周末"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">2026-03-17 09:00:00
+近日，AI虚拟形象“老赵”意外走红网络。这个自带“权威履历”、说着中老年话语的虚拟人物，凭借“讲道理”劝父母放手、拆解养老骗局等内容，嫣然成了年轻人与长辈之间最默契的第三方传声筒。不过，“老赵”实际上是一个年轻人为了和父母等老一辈沟通而利用AI技术生成的虚拟人物。
+当代家庭的代际关系，始终游走在亲密与张力的边缘，这是“老赵”能站稳脚跟的现实土壤。从传统大家庭到现代小家庭，父母在子女教育、升学、工作、婚恋上的投入也近乎极致。可这份沉甸甸的付出，往往裹挟一层无形枷锁，父母将人生经验奉为“标准答案”，试图为子女铺就一条“最优路径”，却鲜少顾及时代剧变，更忽略了子女作为独立个体的独特诉求。
+而个体化思潮下长大的年轻人，更看重自我价值实现与人生自主选择权，对家庭式规训天然带着疏离与抵触。于是乎，当下代际沟通经常陷入死循环：年轻人的解释被当成“顶嘴”，长辈的叮嘱被视作束缚，好好说话动辄升级为立场对立，真诚表达多以情绪对抗收尾。直接沟通成本居高不下，年轻人只能转向“迂回策略”，“老赵”的出现，提供了一个珍贵的缓冲地带，以虚拟第三方的温和权威，将年轻人的心声转译为长辈更易接受的表达，让剑拔弩张的面对面博弈，变成平和从容的隔屏倾听。
+“老赵”的出圈，精准踩中了两代人在互动中的心理缺口，让技术成了缓解沟通焦虑的一剂临时解药。对中老年群体而言，他们成长于崇尚权威的年代，对“专业背景”的话语天然信任，而“老赵”接地气的表达、聚焦家庭日常的内容，又消解了权威的距离感。比起子女的“据理力争”，这位虚拟“权威”“娓娓讲道理”，对老年人来说，更入耳入心。对年轻人来说，面对长辈的过度关切，他们想守住自我选择，又不愿激化矛盾、背负“不孝”的道德压力，“老赵”便成了最安全的情绪出口。借由这个虚拟形象，他们不必直面沟通冲撞，便能委婉传递心声，既守住人生自主权，也保全了亲情的体面。
+可以说，“老赵”是技术对当代代际沟通困境的一次轻巧回应，以最便捷的方式解决了最现实的问题，却也暴露了年轻人在亲密关系里的深层无奈。当真实心声需要披上虚拟外衣，亲情对话需要第三方介入，这份看似聪明的解法背后，实则隐藏着代际情感联结的缺位。
+技术终究只是辅助，AI可以模拟语态，却无法复刻真情，更不能从根源上消弭代际隔阂。“老赵讲道理”能让长辈听进一句道理，缓解一次争执，却无法让他们真正读懂年轻人内心的追求与困惑，填平两代人因成长环境、价值观念差异形成的认知鸿沟。当代代际隔阂的核心，不是“道理讲不通”，而是家庭中彼此主体视角的缺失。长辈习惯以“为你好”之名单向输出经验，忽视子女的独立情感与人生选择；年轻人急于挣脱规训、奔向自由，却忽略了长辈话语里藏着的牵挂。双方都执着于自认为正确的“道理”，却忘了在亲情里，理解与共情，永远比输赢更重要。
+真正的代际和解，是两代人放下立场、平视彼此。长辈要学会适时“放手”，明白真正的亲情不是掌控与规划，而是尊重和守护。时代奔涌向前，人生本无唯一标准答案，与其用旧经验框定新人生，不如静心倾听、耐心理解，允许子女在自主选择中成长，即便走些弯路，亦是独属于他们的生命历程。年轻人也要学会“看见”，看见长辈唠叨背后的牵挂，焦虑背后的不安，强势背后对亲情的珍视。
+代际沟通并非“谁说服谁”的博弈，而是一场双向的情感奔赴，需要换位思考的理解，更需要彼此尊重的包容。长辈放下固有的权威姿态，站在子女视角打量世界；年轻人收起棱角，置于长辈立场换位思考，那些看似不可调和的认知分歧、沟通矛盾，终将在共情里慢慢消融。
+“老赵讲道理”的走红，揭示出当代代际沟通的真实窘迫，也迫使我们重新思考技术与亲情的边界。技术可以成为沟通的权宜之计，却永远替代不了真实的陪伴与真诚的交流。跳出虚拟缓冲，回归真实对话，代际隔阂才能真正化作温暖相拥。
+
+• （本文仅为作者个人观点，不代表本报立场）</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">南方周末</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-17"
+                      datetime="2026-03-17T01:25:05.000Z"
+                    >2026-03-17</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    虚拟“老赵”走红，代际沟通为何需要第三方缓冲？
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    2026-03-17 09:00:00
+近日，AI虚拟形象“老赵”意外走红网络。这个自带“权威履历”、说着中老年话语的虚拟人物，凭借“讲道理”劝父母放手、拆解养老骗局等内容，嫣然成了年轻人与长辈之间最默契的第三方传声筒。不过，“老赵”实际上是一个年轻人为了和父母等老一辈沟通而利用AI技术生成的虚拟人物。
+当代家庭的代际关系，始终游走在亲密与张力的边缘，这是“老赵”能站稳脚跟的现实土壤。从传统大家庭到现代小家庭，父母在子女教育、升学、工作、婚恋上的投入也近乎极致。可这份沉甸甸的付出，往往裹挟一层无形枷锁，父母将人生经验奉为“标准答案”，试图为子女铺就一条“最优路径”，却鲜少顾及时代剧变，更忽略了子女作为独立个体的独特诉求。
+而个体化思潮下长大的年轻人，更看重自我价值实现与人生自主选择权，对家庭式规训天然带着疏离与抵触。于是乎，当下代际沟通经常陷入死循环：年轻人的解释被当成“顶嘴”，长辈的叮嘱被视作束缚，好好说话动辄升级为立场对立，真诚表达多以情绪对抗收尾。直接沟通成本居高不下，年轻人只能转向“迂回策略”，“老赵”的出现，提供了一个珍贵的缓冲地带，以虚拟第三方的温和权威，将年轻人的心声转译为长辈更易接受的表达，让剑拔弩张的面对面博弈，变成平和从容的隔屏倾听。
+“老赵”的出圈，精准踩中了两代人在互动中的心理缺口，让技术成了缓解沟通焦虑的一剂临时解药。对中老年群体而言，他们成长于崇尚权威的年代，对“专业背景”的话语天然信任，而“老赵”接地气的表达、聚焦家庭日常的内容，又消解了权威的距离感。比起子女的“据理力争”，这位虚拟“权威”“娓娓讲道理”，对老年人来说，更入耳入心。对年轻人来说，面对长辈的过度关切，他们想守住自我选择，又不愿激化矛盾、背负“不孝”的道德压力，“老赵”便成了最安全的情绪出口。借由这个虚拟形象，他们不必直面沟通冲撞，便能委婉传递心声，既守住人生自主权，也保全了亲情的体面。
+可以说，“老赵”是技术对当代代际沟通困境的一次轻巧回应，以最便捷的方式解决了最现实的问题，却也暴露了年轻人在亲密关系里的深层无奈。当真实心声需要披上虚拟外衣，亲情对话需要第三方介入，这份看似聪明的解法背后，实则隐藏着代际情感联结的缺位。
+技术终究只是辅助，AI可以模拟语态，却无法复刻真情，更不能从根源上消弭代际隔阂。“老赵讲道理”能让长辈听进一句道理，缓解一次争执，却无法让他们真正读懂年轻人内心的追求与困惑，填平两代人因成长环境、价值观念差异形成的认知鸿沟。当代代际隔阂的核心，不是“道理讲不通”，而是家庭中彼此主体视角的缺失。长辈习惯以“为你好”之名单向输出经验，忽视子女的独立情感与人生选择；年轻人急于挣脱规训、奔向自由，却忽略了长辈话语里藏着的牵挂。双方都执着于自认为正确的“道理”，却忘了在亲情里，理解与共情，永远比输赢更重要。
+真正的代际和解，是两代人放下立场、平视彼此。长辈要学会适时“放手”，明白真正的亲情不是掌控与规划，而是尊重和守护。时代奔涌向前，人生本无唯一标准答案，与其用旧经验框定新人生，不如静心倾听、耐心理解，允许子女在自主选择中成长，即便走些弯路，亦是独属于他们的生命历程。年轻人也要学会“看见”，看见长辈唠叨背后的牵挂，焦虑背后的不安，强势背后对亲情的珍视。
+代际沟通并非“谁说服谁”的博弈，而是一场双向的情感奔赴，需要换位思考的理解，更需要彼此尊重的包容。长辈放下固有的权威姿态，站在子女视角打量世界；年轻人收起棱角，置于长辈立场换位思考，那些看似不可调和的认知分歧、沟通矛盾，终将在共情里慢慢消融。
+“老赵讲道理”的走红，揭示出当代代际沟通的真实窘迫，也迫使我们重新思考技术与亲情的边界。技术可以成为沟通的权宜之计，却永远替代不了真实的陪伴与真诚的交流。跳出虚拟缓冲，回归真实对话，代际隔阂才能真正化作温暖相拥。
+
+• （本文仅为作者个人观点，不代表本报立场）
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="http://www.infzm.com/contents/317124"
                     target="_blank"
                     rel="noopener noreferrer"
                     @click.stop
@@ -952,6 +1026,67 @@ This is not a fight of Trump’s choosing, but rather one being pursued by Wada 
                   <!-- Read link – @click.stop so the card click doesn't also fire -->
                   <a
                     href="https://www.tmtpost.com/7916320.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="钛媒体：引领未来商业与生活新知"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">3月16日最新并购信息及价值分析。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://images.tmtpost.com/uploads/images/zhaopian/nuxtpic/change_logo3/og_image.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">钛媒体：引领未来商业与生活新知</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-17"
+                      datetime="2026-03-17T01:10:58.000Z"
+                    >2026-03-17</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    纸质载带全球龙头拟收购埃福思科技；军用通信龙头筹划收购凯睿星通控制权；【并购一线】
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    3月16日最新并购信息及价值分析。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.tmtpost.com/7916408.html"
                     target="_blank"
                     rel="noopener noreferrer"
                     @click.stop
@@ -116626,84 +116761,6 @@ Read Full Article at RT.com
                   <!-- Read link – @click.stop so the card click doesn't also fire -->
                   <a
                     href="http://mp.weixin.qq.com/s?__biz&#x3D;MjM5NDA1Njg2MA&#x3D;&#x3D;&amp;mid&#x3D;2652092736&amp;idx&#x3D;2&amp;sn&#x3D;b55b4bbbf7f18b7145387fc60bd2c4fb&amp;chksm&#x3D;bcd599df80c214a70926eb507a2e3809f5d740916b4c7e950c4ef99450c15ea7336e88e69531&amp;scene&#x3D;0&amp;xtrack&#x3D;1#rd"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="南方周末"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">2026-03-10 21:00:00
-
-2026年3月6日，贵州仁怀，仁怀市实验小学学生在体育课上开展趣味体育活动。（视觉中国｜供图）
-全国人大代表、山东省单县一中副校长樊董伟在2025年调研时感触颇深。十四五岁的少年做引体向上，班里竟没一个男生能拉上去。
-很长一段时间里，樊董伟都明显感受到学生身体素质的下滑。当选十四届全国人大代表以来，他连续提出关于中小学生健康成长的建议。2026年全国两会，他再次呼吁保障体育课课时，并建议将体育成绩纳入中考、高考评价体系。
-不只是挤占学生体育课，近年来，课间不准学生出教室等现象，也一度引发热议。
-早在2024年，全国政协委员、上海新纪元教育集团总校长陈伟志就发出“把课间十分钟还给学生”的呼吁。
-2025年，《教育强国建设规划纲要（2024—2035 年）》正式确立“每天综合体育活动时间不低于两小时”。但在现实中，时间不足、场地限制、师资短缺、评价导向单一等问题，仍让这一目标在不少学校难以落实。
-2026年2月25日，教育部召开深入落实“健康第一”工作部署会，强调通过“晒课表”等方式强化监督，严查挤占体育课、课间不准学生出教室等行为。
-围绕体育教育的现实困境、改进方法和评价机制，南方周末邀请樊董伟、陈伟志、北京师范大学体育与运动学院教授张瑞林、聚焦体育公益事业的蔡崇信公益基金会的秘书长李海市等深入探讨。
-不是“散养”
-南方周末：在你们的观察中，当前青少年身心健康面临哪些突出问题？
-樊董伟：我是学校的排球教练。几年前发生的一件事让我印象深刻：一次军训开营仪式上，不到半小时就有五十多位同学晕倒，而那天还是阴天，天气比较凉爽。另外，肥胖率、近视率上升，学校在一些运动会上的成绩，都令人担心。
-陈伟志：有调查显示，小学升初中阶段是抑郁检出率的一个“跃升期”，初中生和高中生的抑郁检出率分别高达30%和40%。心理健康问题本可以通过丰富多彩的课间活动…</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">南方周末</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-03-10"
-                      datetime="2026-03-10T13:25:15.000Z"
-                    >2026-03-10</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    谁偷走了学生的体育课和课间时间？丨两会圆桌
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    2026-03-10 21:00:00
-
-2026年3月6日，贵州仁怀，仁怀市实验小学学生在体育课上开展趣味体育活动。（视觉中国｜供图）
-全国人大代表、山东省单县一中副校长樊董伟在2025年调研时感触颇深。十四五岁的少年做引体向上，班里竟没一个男生能拉上去。
-很长一段时间里，樊董伟都明显感受到学生身体素质的下滑。当选十四届全国人大代表以来，他连续提出关于中小学生健康成长的建议。2026年全国两会，他再次呼吁保障体育课课时，并建议将体育成绩纳入中考、高考评价体系。
-不只是挤占学生体育课，近年来，课间不准学生出教室等现象，也一度引发热议。
-早在2024年，全国政协委员、上海新纪元教育集团总校长陈伟志就发出“把课间十分钟还给学生”的呼吁。
-2025年，《教育强国建设规划纲要（2024—2035 年）》正式确立“每天综合体育活动时间不低于两小时”。但在现实中，时间不足、场地限制、师资短缺、评价导向单一等问题，仍让这一目标在不少学校难以落实。
-2026年2月25日，教育部召开深入落实“健康第一”工作部署会，强调通过“晒课表”等方式强化监督，严查挤占体育课、课间不准学生出教室等行为。
-围绕体育教育的现实困境、改进方法和评价机制，南方周末邀请樊董伟、陈伟志、北京师范大学体育与运动学院教授张瑞林、聚焦体育公益事业的蔡崇信公益基金会的秘书长李海市等深入探讨。
-不是“散养”
-南方周末：在你们的观察中，当前青少年身心健康面临哪些突出问题？
-樊董伟：我是学校的排球教练。几年前发生的一件事让我印象深刻：一次军训开营仪式上，不到半小时就有五十多位同学晕倒，而那天还是阴天，天气比较凉爽。另外，肥胖率、近视率上升，学校在一些运动会上的成绩，都令人担心。
-陈伟志：有调查显示，小学升初中阶段是抑郁检出率的一个“跃升期”，初中生和高中生的抑郁检出率分别高达30%和40%。心理健康问题本可以通过丰富多彩的课间活动…
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="http://www.infzm.com/contents/316506"
                     target="_blank"
                     rel="noopener noreferrer"
                     @click.stop
