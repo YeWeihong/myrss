@@ -16,7 +16,7 @@ This is repository hosts the UI and content of an RSS feed reader.
 <!-- FEED_STATUS_START -->
 ## 订阅源抓取状态
 
-> ✅ 57 个成功，❌ 2 个失败，最后更新：2026/03/17 04:37
+> ✅ 55 个成功，❌ 1 个失败，最后更新：2026/03/17 09:10
 
 | 状态 | 订阅源链接 |
 | :---: | --- |
@@ -58,15 +58,13 @@ This is repository hosts the UI and content of an RSS feed reader.
 | ✅ | https://rsshub.rssforever.com/apnews/topics/china |
 | ✅ | https://news.un.org/feed/subscribe/en/news/all/rss.xml |
 | ❌ | https://morss.saha.qzz.io/https://gijn.org/feed/ |
-| ✅ | http://rsshub.saha.qzz.io/telegram/channel/OutsightChina |
+| ✅ | https://rsshub.saha.qzz.io/telegram/channel/OutsightChina |
 | ✅ | https://rsshub.saha.qzz.io/telegram/channel/tnews365 |
 | ✅ | https://rsshub.saha.qzz.io/telegram/channel/xiaozhangdubao |
 | ✅ | https://morss.saha.qzz.io/:items=||*[class=content-header]/https://www.zaobao.com/news/china |
 | ✅ | https://www.scmp.com/rss/feed |
 | ✅ | https://www.rt.com/rss/news/ |
 | ✅ | https://morss.saha.qzz.io/:items=%7C%7Cli%5B%40class%5D%5B.%7C%7Ca%5D:item_title=.%7C%7Ch2:item_content=%7C%7Cdiv%5B%40class%3D%22summary-container%22%5D:mode=html/https:/m.cn.nytimes.com/ |
-| ✅ | https://supsub.net/feed/public/d991895c/rss |
-| ✅ | https://supsub.net/feed/public/30d661b1/rss |
 | ✅ | https://raw.githubusercontent.com/osnsyc/Wechat-Scholar/main/channels/gh_27c43c799b0c.xml |
 | ✅ | https://wechat2rss.xlab.app/feed/f2fd5af8dc3590b99509f0c501de09066d063028.xml |
 | ✅ | https://wechat2rss.xlab.app/feed/a55006fab25a17c43a412246fda317822609f2ea.xml |
@@ -75,8 +73,7 @@ This is repository hosts the UI and content of an RSS feed reader.
 | ✅ | https://wechat2rss.xlab.app/feed/644f104d713e906e00ad1c5a0f91db5374cb5fb1.xml |
 | ✅ | https://wechat2rss.xlab.app/feed/01c05fce74822ac6f30656f22e0ca542dfb7c8c0.xml |
 | ✅ | https://wechat2rss.xlab.app/feed/8d839de8dd3290a1f1be7a94423cccb30c1b087d.xml |
-| ✅ | https://www.zhihu.com/rss |
+| ✅ | http://feeds.feedburner.com/ruanyifeng |
 | ✅ | https://rsshub.saha.qzz.io/zhihu/daily |
-| ❌ | http://www.ruanyifeng.com/blog/atom.xml |
 | ✅ | https://rsshub.rssforever.com/nippon/culture |
 <!-- FEED_STATUS_END -->
