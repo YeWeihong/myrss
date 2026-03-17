@@ -19,7 +19,7 @@ This is repository hosts the UI and content of an RSS feed reader.
 <!-- FEED_STATUS_START -->
 ## 订阅源抓取状态
 
-> ✅ 53 个成功，❌ 0 个失败，最后更新：2026/03/17 15:36
+> ✅ 54 个成功，❌ 0 个失败，最后更新：2026/03/17 16:14
 
 | 状态 | 订阅源链接 |
 | :---: | --- |
@@ -33,6 +33,7 @@ This is repository hosts the UI and content of an RSS feed reader.
 | ✅ | https://rsshub.rssforever.com/tencent/news/author/8QMf33ZY5YwduT%2FQ |
 | ✅ | https://rsshub.rssforever.com/tencent/news/author/8QMc3Hhc74cevD%2FR |
 | ✅ | https://rsshub.rssforever.com/tencent/news/author/8QMX33xf5YUevTY%3D |
+| ✅ | https://www.tmtpost.com/rss.xml |
 | ✅ | https://rsshub.rssforever.com/lifeweek/channel/9 |
 | ✅ | https://feedx.net/rss/ifengmil.xml |
 | ✅ | https://morss.saha.qzz.io/https:/rsshub.saha.qzz.io/dapenti/tugua |
