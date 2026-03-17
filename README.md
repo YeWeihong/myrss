@@ -1,5 +1,7 @@
 # About
 
+这是一个基于 GitHub page 搭建的新闻 rss 订阅网页，无需服务器，copilot 是主要贡献者😜，欢迎大家一起搭建
+
 This is repository hosts the UI and content of an RSS feed reader.
 
 ## Documentation / 文档
