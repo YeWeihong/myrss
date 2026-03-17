@@ -182,7 +182,7 @@
 
                   <!-- Description preview -->
                   <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    {{description}}
+                    {{#if description}}{{description}}{{else}}暂无内容预览{{/if}}
                   </p>
 
                   <!-- Read link – @click.stop so the card click doesn't also fire -->
@@ -340,11 +340,19 @@
             const timeEl   = el.querySelector('time');
             const titleEl  = el.querySelector('.card-title');
             const linkEl   = el.querySelector('.read-link');
-            // osmosfeed converts RSS HTML to plain text (newline-separated paragraphs).
-            // template.innerHTML gives back HTML-encoded text (safe to embed in <p>).
-            const rawDesc  = descTpl ? descTpl.innerHTML.trim() : '';
-            const paragraphs = rawDesc.split(/\n+/).filter(s => s.trim());
-            const unsafeHTML = paragraphs.map(s => `<p>${s.trim()}</p>`).join('');
+            // Use textContent to decode HTML entities, then strip any residual HTML tags
+            // (literal angle-bracket sequences from content:encoded in morss-processed feeds).
+            const rawText = descTpl
+              ? ((descTpl.content ? descTpl.content.textContent : descTpl.textContent) || '').trim()
+              : '';
+            // Split into paragraphs first, then strip HTML tags and normalize whitespace within each.
+            const paragraphs = rawText
+              .split(/\n+/)
+              .map(s => s.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim())
+              .filter(s => s.length > 0);
+            const unsafeHTML = paragraphs.length > 0
+              ? paragraphs.map(s => `<p>${s}</p>`).join('')
+              : '<p>暂无内容预览</p>';
             const descHTML = typeof DOMPurify !== 'undefined'
               ? DOMPurify.sanitize(unsafeHTML)
               : unsafeHTML;
