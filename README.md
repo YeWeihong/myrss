@@ -1,6 +1,6 @@
 # About
 
-这是一个基于 GitHub page 搭建的新闻 rss 订阅网页，无需服务器，copilot 是主要贡献者😜，欢迎大家一起搭建！
+这是一个基于 GitHub page 搭建的新闻 rss 订阅网页，无需服务器，copilot 是主要贡献者😜，大家一起搭建属于自己的rss阅读器吧!
 
 This is repository hosts the UI and content of an RSS feed reader.
 <img width="1920" height="869" alt="image" src="https://github.com/user-attachments/assets/c5b03c40-538d-4aeb-bdaf-4682c61479ab" />
