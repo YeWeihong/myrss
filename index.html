@@ -163,6 +163,15 @@
             <span class="truncate">РИА Новости</span>
           </button>
           <button
+            data-src="中国新闻周刊--社会"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">中国新闻周刊--社会</span>
+          </button>
+          <button
             data-src="中国经济时报"
             @click="setActive($el.dataset.src); sidebarOpen = false"
             :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
@@ -215,15 +224,6 @@
           >
             <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
             <span class="truncate">中国新闻周刊--国际</span>
-          </button>
-          <button
-            data-src="中国新闻周刊--社会"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">中国新闻周刊--社会</span>
           </button>
           <button
             data-src="环球科学"
@@ -545,8 +545,8 @@
 
         <!-- Sidebar Footer -->
         <div class="px-4 py-3 border-t border-[#f5bcd8] text-[10px] text-[#b88aaa]">
-          <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/YeWeihong/myrss/actions/runs/23182469184">
-            构建于 <time datetime="2026-03-17T07:03:33.162Z">2026-03-17T07:03:33.162Z</time>
+          <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/YeWeihong/myrss/actions/runs/23182848086">
+            构建于 <time datetime="2026-03-17T07:16:33.680Z">2026-03-17T07:16:33.680Z</time>
           </a>
           <div class="mt-0.5">
             <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/osmoscraft/osmosfeed">osmosfeed 1.15.1</a>
@@ -902,6 +902,67 @@
                 style="display:flex;"
               >
                 <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">越共总书记苏林会见访越的中国外长王毅、公安部长王小洪、防长董军时，呼吁越中根据高层共识管控和处理好海上分歧，坚持在恪守国际法和1982年《联合国海洋法公约》基础上，以和平方式解决分歧，为巩固互信、维护地区和平稳定作出贡献。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/391139e6636d3e68e2aef37d4cf4e90c7d4b1b5d9676a1034c2bab32163d97e7"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-17"
+                      datetime="2026-03-17T07:16:09.464Z"
+                    >2026-03-17</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    苏林会王毅王小洪董军 吁管控处理好越中海上分歧
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    越共总书记苏林会见访越的中国外长王毅、公安部长王小洪、防长董军时，呼吁越中根据高层共识管控和处理好海上分歧，坚持在恪守国际法和1982年《联合国海洋法公约》基础上，以和平方式解决分歧，为巩固互信、维护地区和平稳定作出贡献。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260317-8747293"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
                 <template class="desc-data">中国常驻联合国副代表孙磊呼吁国际社会，对伊斯兰恐惧症零容忍。</template>
 
                 <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
@@ -922,7 +983,7 @@
                     <time
                       class="flex-shrink-0 js-offset-date"
                       data-offset-date="2026-03-17"
-                      datetime="2026-03-17T07:03:15.521Z"
+                      datetime="2026-03-17T07:16:09.118Z"
                     >2026-03-17</time>
                   </div>
 
@@ -952,7 +1013,7 @@
                 </div>
               </article>
               <article
-                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                data-src="РИА Новости"
                 x-show="active === 'all' || active === $el.dataset.src"
                 x-transition:enter="transition ease-out duration-200"
                 x-transition:enter-start="opacity-0 scale-95"
@@ -963,11 +1024,11 @@
                 style="display:flex;"
               >
                 <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">越共总书记苏林会见访越的中国外长王毅、公安部长王小洪、防长董军时，呼吁越中根据高层共识管控和处理好海上分歧，坚持在恪守国际法和1982年《联合国海洋法公约》基础上，以和平方式解决分歧，为巩固互信、维护地区和平稳定作出贡献。</template>
+                <template class="desc-data">No content preview</template>
 
                 <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
                   <img
-                    src="https://cassette.sphdigital.com.sg/image/zaobao/391139e6636d3e68e2aef37d4cf4e90c7d4b1b5d9676a1034c2bab32163d97e7"
+                    src="https://cdnn21.img.ria.ru/images/07e9/05/14/2018074532_0:160:3072:1888_650x0_80_0_0_056587d036553621ffd43e10b4011458.jpg"
                     alt=""
                     loading="lazy"
                     class="w-full h-full object-cover"
@@ -978,28 +1039,435 @@
                 <div class="p-4 flex flex-col flex-1 gap-2">
                   <!-- Source + Date meta -->
                   <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="truncate font-medium">РИА Новости</span>
                     <span class="flex-shrink-0 opacity-50">·</span>
                     <time
                       class="flex-shrink-0 js-offset-date"
                       data-offset-date="2026-03-17"
-                      datetime="2026-03-17T07:03:15.497Z"
+                      datetime="2026-03-17T07:12:42.000Z"
                     >2026-03-17</time>
                   </div>
 
                   <!-- Title -->
                   <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    苏林会王毅王小洪董军 吁管控处理好越中海上分歧
+                    СК возбудил уголовное дело после исчезновения двух детей в Твери
                   </h3>
 
                   <!-- Description preview -->
                   <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    越共总书记苏林会见访越的中国外长王毅、公安部长王小洪、防长董军时，呼吁越中根据高层共识管控和处理好海上分歧，坚持在恪守国际法和1982年《联合国海洋法公约》基础上，以和平方式解决分歧，为巩固互信、维护地区和平稳定作出贡献。
+                    No content preview
                   </p>
 
                   <!-- Read link – @click.stop so the card click doesn't also fire -->
                   <a
-                    href="https://www.zaobao.com.sg/news/china/story20260317-8747293"
+                    href="https://ria.ru/20260317/tver-2081166455.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="РИА Новости"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">No content preview</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cdnn21.img.ria.ru/images/07e8/0b/0e/1983827906_0:320:3072:2048_650x0_80_0_0_3e2b0e631a5f3a08f25fd4794e86de4b.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">РИА Новости</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-17"
+                      datetime="2026-03-17T07:11:28.000Z"
+                    >2026-03-17</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    ВСУ атаковали Курскую область 37 раз за сутки
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    No content preview
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://ria.ru/20260317/vsu-2081166294.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="РИА Новости"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">No content preview</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cdnn21.img.ria.ru/images/07e5/0c/03/1761987765_0:58:1595:955_650x0_80_0_0_60d4ad7ff541677a38814399a252cf75.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">РИА Новости</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-17"
+                      datetime="2026-03-17T07:09:44.000Z"
+                    >2026-03-17</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    ФСБ в 2025 году предотвратила ущерб для ОПК на более 30 миллиардов рублей
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    No content preview
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://ria.ru/20260317/fsb-2081166042.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻周刊--社会"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">“‘上岸’的幻想，在看到他成绩那一刻就破灭了。”
+ 
+去年12月，2026届硕士生李明（化名）报考了广东省公务员考试中的一个法官助理岗位，该岗位仅招录一人。笔试成绩公布后，一名自称该岗位笔试第一的网友发出了自己的“成绩单”，79.7分。李明的笔试成绩是65.25分，他瞬间陷入绝望。
+ 
+按照广东省2026年考试录用公务员公告笔试和面试成绩各占50%的要求，这意味着李明要在面试环节高出对方15分左右才能反超。“这几乎不可能。”他对中国新闻周刊说，原本准备报名面试培训班、系统备考的计划，也随之变成了“重在参与”。
+ 
+直到3月7日，入围体检的人选揭晓，李明惊讶地发现，对方的笔试成绩只比自己高0.05分。他被一张P出来的成绩单“诈胡”了。
+ 
+短暂的希望
+ 
+距离笔试结束39天后，1月15日广东省公务员笔试成绩公布，考生仅可查询自己的分数及岗位排名。
+ 
+李明回忆，查到自己65.25分的成绩时，他的心情颇为复杂。参考往年的情况，他的笔试分数并不理想。在三名面试入围者中，他排名第二，但该岗位仅招录一人。李明开始考虑报名培训班，为接下来的面试做更充分的准备。
+ 
+这份意外之喜持续了不到五个小时。
+ 
+当晚，李明的室友转给他一篇网帖。发帖者自称是该岗位笔试第一名，正在寻找同岗位考生，并附上一张成绩单截图：行政职业能力测验（以下简称“行测”）84.4分、申论75分，笔试成绩为79.7分，名次位列同岗位第1名。
+ 
+
+
+
+自称笔试第一名考生的网帖中的成绩截图。图/受访者提供
+ 
+近15分的笔试差距，让李明第一时间判断面试翻盘无望。他随即在该帖子下留言，并在另一条广东省考成绩讨论帖中公开了自己的分数。不久后，这名自称“第一名”的考生通过私信联系到他。
+ 
+李明称，对方在聊天中不断强调自己的投入与处境。例如已经备考7个月，“几乎是all in考公”，秋招期间几乎没有投递简历，目前“0 offe…</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻周刊--社会</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-17"
+                      datetime="2026-03-17T07:07:25.000Z"
+                    >2026-03-17</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    考公P高14分？“我确实挺卑劣的”
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    “‘上岸’的幻想，在看到他成绩那一刻就破灭了。”
+ 
+去年12月，2026届硕士生李明（化名）报考了广东省公务员考试中的一个法官助理岗位，该岗位仅招录一人。笔试成绩公布后，一名自称该岗位笔试第一的网友发出了自己的“成绩单”，79.7分。李明的笔试成绩是65.25分，他瞬间陷入绝望。
+ 
+按照广东省2026年考试录用公务员公告笔试和面试成绩各占50%的要求，这意味着李明要在面试环节高出对方15分左右才能反超。“这几乎不可能。”他对中国新闻周刊说，原本准备报名面试培训班、系统备考的计划，也随之变成了“重在参与”。
+ 
+直到3月7日，入围体检的人选揭晓，李明惊讶地发现，对方的笔试成绩只比自己高0.05分。他被一张P出来的成绩单“诈胡”了。
+ 
+短暂的希望
+ 
+距离笔试结束39天后，1月15日广东省公务员笔试成绩公布，考生仅可查询自己的分数及岗位排名。
+ 
+李明回忆，查到自己65.25分的成绩时，他的心情颇为复杂。参考往年的情况，他的笔试分数并不理想。在三名面试入围者中，他排名第二，但该岗位仅招录一人。李明开始考虑报名培训班，为接下来的面试做更充分的准备。
+ 
+这份意外之喜持续了不到五个小时。
+ 
+当晚，李明的室友转给他一篇网帖。发帖者自称是该岗位笔试第一名，正在寻找同岗位考生，并附上一张成绩单截图：行政职业能力测验（以下简称“行测”）84.4分、申论75分，笔试成绩为79.7分，名次位列同岗位第1名。
+ 
+
+
+
+自称笔试第一名考生的网帖中的成绩截图。图/受访者提供
+ 
+近15分的笔试差距，让李明第一时间判断面试翻盘无望。他随即在该帖子下留言，并在另一条广东省考成绩讨论帖中公开了自己的分数。不久后，这名自称“第一名”的考生通过私信联系到他。
+ 
+李明称，对方在聊天中不断强调自己的投入与处境。例如已经备考7个月，“几乎是all in考公”，秋招期间几乎没有投递简历，目前“0 offe…
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="http://news.inewsweek.cn/society/2026-03-17/29367.shtml"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="РИА Новости"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">No content preview</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cdnn21.img.ria.ru/images/07e9/03/0e/2004929528_0:160:3072:1888_650x0_80_0_0_17f1a8f39eddb39413013964e461ab16.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">РИА Новости</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-17"
+                      datetime="2026-03-17T07:04:48.000Z"
+                    >2026-03-17</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    При атаке ВСУ на запорожскую Васильевку пострадали два человека
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    No content preview
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://ria.ru/20260317/drony-2081165719.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="РИА Новости"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">No content preview</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cdnn21.img.ria.ru/images/07e6/0a/0d/1823618354_0:0:3072:1728_650x0_80_0_0_2d409a1df356f7f54129cb4a03b4250f.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">РИА Новости</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-17"
+                      datetime="2026-03-17T07:02:27.000Z"
+                    >2026-03-17</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    При падении обломков БПЛА под Славянском-на-Кубани пострадал человек
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    No content preview
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://ria.ru/20260317/bpla-2081165610.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="РИА Новости"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">No content preview</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cdnn21.img.ria.ru/images/07e9/04/1b/2013692743_0:166:3053:1883_650x0_80_0_0_2a04908204d41244cc4778538b28e1ee.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">РИА Новости</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-17"
+                      datetime="2026-03-17T07:02:17.000Z"
+                    >2026-03-17</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    В аэропорту Пскова сняли временные ограничения
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    No content preview
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://ria.ru/20260317/pskov-2081165487.html"
                     target="_blank"
                     rel="noopener noreferrer"
                     @click.stop
