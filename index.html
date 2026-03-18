@@ -145,6 +145,33 @@
             <span class="truncate">纽约时报中文网</span>
           </button>
           <button
+            data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+          </button>
+          <button
+            data-src="РИА Новости"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">РИА Новости</span>
+          </button>
+          <button
+            data-src="钛媒体：引领未来商业与生活新知"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">钛媒体：引领未来商业与生活新知</span>
+          </button>
+          <button
             data-src="大文獨家 - 大公文匯網"
             @click="setActive($el.dataset.src); sidebarOpen = false"
             :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
@@ -163,15 +190,6 @@
             <span class="truncate">MDARK</span>
           </button>
           <button
-            data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
-          </button>
-          <button
             data-src="竹新社 - Telegram Channel"
             @click="setActive($el.dataset.src); sidebarOpen = false"
             :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
@@ -179,15 +197,6 @@
           >
             <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
             <span class="truncate">竹新社 - Telegram Channel</span>
-          </button>
-          <button
-            data-src="РИА Новости"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">РИА Новости</span>
           </button>
           <button
             data-src="南方周末"
@@ -224,15 +233,6 @@
           >
             <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
             <span class="truncate">环球科学</span>
-          </button>
-          <button
-            data-src="钛媒体：引领未来商业与生活新知"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">钛媒体：引领未来商业与生活新知</span>
           </button>
           <button
             data-src="看鉴中国 OutsightChina - Telegram Channel"
@@ -554,8 +554,8 @@
 
         <!-- Sidebar Footer -->
         <div class="px-4 py-3 border-t border-[#f5bcd8] text-[10px] text-[#b88aaa]">
-          <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/YeWeihong/myrss/actions/runs/23230038715">
-            构建于 <time datetime="2026-03-18T05:08:27.471Z">2026-03-18T05:08:27.471Z</time>
+          <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/YeWeihong/myrss/actions/runs/23230442871">
+            构建于 <time datetime="2026-03-18T05:25:30.122Z">2026-03-18T05:25:30.122Z</time>
           </a>
           <div class="mt-0.5">
             <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/osmoscraft/osmosfeed">osmosfeed 1.15.1</a>
@@ -1238,6 +1238,546 @@ Meta收购Manus的交易可能会成为中美官员会谈的议题，同样有�
                   <!-- Read link – @click.stop so the card click doesn't also fire -->
                   <a
                     href="https://cn.nytimes.com/world/20260318/iran-war-china-us-trump-xi/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">中国多地宣布生物学、地理将不再计入中考总分。
+中考是初中学业水平考试的简称，是中国义务教育阶段的终结性考试。
+据微信公众号“吉林教育”星期二（3月17日）消息，自2027年开始，将生物学、地理学科调整为考查科目，不作为中考计分科目，考试形式为开卷，从2025年入学的初一学生开始实施，考试结果以等级形式呈现。
+近年来，已有多地宣布生物学、地理将不再计入中考总分。
+据央视网报道，安徽省黄山市教育局去年11月宣布，自2027届初中毕业生起，生物学、地理考试成绩不再计入中考总分，两个科目以等级方式呈现并作为省级示范高中录取门槛（合格考生数占参加考试总人数的97%）。生物学实验操作考试成绩不再计入总分。信息科技考试成绩不再以等级形式呈现，不作为普通高中录取门槛。
+延伸阅读
+
+              中国传媒大学砍掉翻译等16个本科专业 
+            
+陕西省咸阳市教育局今年1月宣布，2027年开始，咸阳市普通高中招生录取计分科目调整为八科，分别为语文、数学、英语、物理、道德与法治、化学、历史、体育与健康。生物学、地理两科不再计入普通高中招生录取计分科目，以等级方式呈现，作为初中毕业的基本依据。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://www.zaobao.com.sg/_web2/assets/social-share.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-18"
+                      datetime="2026-03-18T05:25:11.398Z"
+                    >2026-03-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国多地宣布生物地理不再计入中考总分
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国多地宣布生物学、地理将不再计入中考总分。
+中考是初中学业水平考试的简称，是中国义务教育阶段的终结性考试。
+据微信公众号“吉林教育”星期二（3月17日）消息，自2027年开始，将生物学、地理学科调整为考查科目，不作为中考计分科目，考试形式为开卷，从2025年入学的初一学生开始实施，考试结果以等级形式呈现。
+近年来，已有多地宣布生物学、地理将不再计入中考总分。
+据央视网报道，安徽省黄山市教育局去年11月宣布，自2027届初中毕业生起，生物学、地理考试成绩不再计入中考总分，两个科目以等级方式呈现并作为省级示范高中录取门槛（合格考生数占参加考试总人数的97%）。生物学实验操作考试成绩不再计入总分。信息科技考试成绩不再以等级形式呈现，不作为普通高中录取门槛。
+延伸阅读
+
+              中国传媒大学砍掉翻译等16个本科专业 
+            
+陕西省咸阳市教育局今年1月宣布，2027年开始，咸阳市普通高中招生录取计分科目调整为八科，分别为语文、数学、英语、物理、道德与法治、化学、历史、体育与健康。生物学、地理两科不再计入普通高中招生录取计分科目，以等级方式呈现，作为初中毕业的基本依据。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260318-8752925"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="РИА Новости"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">ИРКУТСК, 18 мар - РИА Новости. Четыре человека, в том числе 11-месячный ребенок, доставлены в больницу после лобового столкновения двух иномарок на трассе Р-255 &quot;Сибирь&quot;. 
+В Нижнеудинском районе сотрудники ГАИ разбираются в обстоятельствах ДТП с участием четырех человек. По предварительным данным, 23-летний водитель автомобиля Toyota Vitz, на трассе &quot;Сибирь&quot;, двигаясь в сторону Иркутска, выехал на встречную полосу и столкнулся с Kia Rio. 
+&quot;В результате происшествия водитель и пассажир автомобиля Kia Rio, а также два пассажира автомобиля Toyota Vitz, в том числе 11-месячный ребенок, доставлены в медицинское учреждение с травмами различной степени тяжести&quot;, - говорится в сообщении Госавтоинспекции. 
+Полиция проводит проверку.</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cdnn21.img.ria.ru/images/07e4/0a/02/1578125867_0:159:3077:1889_650x0_80_0_0_a5ccad6e8a5859bdcf3a599ca6f5b785.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">РИА Новости</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-18"
+                      datetime="2026-03-18T05:22:58.000Z"
+                    >2026-03-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Четыре человека, в том числе младенец, пострадали в ДТП на трассе &quot;Сибирь&quot;
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    ИРКУТСК, 18 мар - РИА Новости. Четыре человека, в том числе 11-месячный ребенок, доставлены в больницу после лобового столкновения двух иномарок на трассе Р-255 &quot;Сибирь&quot;. 
+В Нижнеудинском районе сотрудники ГАИ разбираются в обстоятельствах ДТП с участием четырех человек. По предварительным данным, 23-летний водитель автомобиля Toyota Vitz, на трассе &quot;Сибирь&quot;, двигаясь в сторону Иркутска, выехал на встречную полосу и столкнулся с Kia Rio. 
+&quot;В результате происшествия водитель и пассажир автомобиля Kia Rio, а также два пассажира автомобиля Toyota Vitz, в том числе 11-месячный ребенок, доставлены в медицинское учреждение с травмами различной степени тяжести&quot;, - говорится в сообщении Госавтоинспекции. 
+Полиция проводит проверку.
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://ria.ru/20260318/dtp-2081348376.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="РИА Новости"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">МОСКВА, 18 мар - РИА Новости. Почти в половине веб-приложений была обнаружена хотя бы одна сложная уязвимость, среди которых встречались недочеты, связанные с некорректной реализацией контроля доступа и внедрением команд для добавления, изменения или удаления информации в базах данных, сообщили РИА Новости эксперты компании по анализу защищенности DSEC, которая входит в группу компаний &quot;Солар&quot;. 
+&quot;В 47% веб-приложений обнаружена хотя бы одна уязвимость высокого уровня критичности. Среди них чаще встречались недостатки, связанные с некорректной реализацией контроля доступа (46%) и с внедрением SQL-кода в запросы к базе данных (14%)&quot;, - сообщили они. 
+Россельхозбанк предупредил о фейковом приложении банка в App Store
+16 марта, 18:57
+Специалисты также изучили исходный код веб-приложений. Так, в 42% случаев он содержал уязвимости, которые хакеры могли бы использовать, чтобы нанести ущерб IT-активам компании. В одном из случаев найденная уязвимость позволила бы злоумышленникам получить доступ к личной информации пользователей, включая паспортные данные и номера телефонов. 
+Также в половине десктоп-приложений, которые устанавливаются через специальные сервисы и работают без интернета, были обнаружены уязвимости. 
+Кроме того, аналитики провели симуляцию фишинговых рассылок: в 100% случаев хотя бы один сотрудник перешел по вредоносной ссылке, а в 86% случаев сотрудники ввели свои учетные данные на фейковом сайте или запустили вредоносное ПО. 
+Специалисты проанализировали корпоративные Wi-Fi-сети. Так, в 43% случаев хакеры могли бы получить доступ во внутреннюю сеть компании из-за отсутствия корректных сетевых разграничений, добавили там. 
+Эксперты компании напоминают, что нужно проводить регулярные внешние и внутренние проверки сети и использовать комплексный подход к защите информационной инфраструктуры, который включает в себя защиту Wi-Fi-сетей, десктоп приложений и других объектов.
+Белый список сайтов: какие сервисы будут работать без мобильного интернета
+12 марта, 12:07</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cdnn21.img.ria.ru/images/07e4/0c/02/1587322579_189:0:3567:1900_650x0_80_0_0_85fb8da2feb53adc2e29db643067fb4d.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">РИА Новости</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-18"
+                      datetime="2026-03-18T05:21:14.000Z"
+                    >2026-03-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Эксперты определили, сколько веб-приложений имеют хотя бы одну уязвимость
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    МОСКВА, 18 мар - РИА Новости. Почти в половине веб-приложений была обнаружена хотя бы одна сложная уязвимость, среди которых встречались недочеты, связанные с некорректной реализацией контроля доступа и внедрением команд для добавления, изменения или удаления информации в базах данных, сообщили РИА Новости эксперты компании по анализу защищенности DSEC, которая входит в группу компаний &quot;Солар&quot;. 
+&quot;В 47% веб-приложений обнаружена хотя бы одна уязвимость высокого уровня критичности. Среди них чаще встречались недостатки, связанные с некорректной реализацией контроля доступа (46%) и с внедрением SQL-кода в запросы к базе данных (14%)&quot;, - сообщили они. 
+Россельхозбанк предупредил о фейковом приложении банка в App Store
+16 марта, 18:57
+Специалисты также изучили исходный код веб-приложений. Так, в 42% случаев он содержал уязвимости, которые хакеры могли бы использовать, чтобы нанести ущерб IT-активам компании. В одном из случаев найденная уязвимость позволила бы злоумышленникам получить доступ к личной информации пользователей, включая паспортные данные и номера телефонов. 
+Также в половине десктоп-приложений, которые устанавливаются через специальные сервисы и работают без интернета, были обнаружены уязвимости. 
+Кроме того, аналитики провели симуляцию фишинговых рассылок: в 100% случаев хотя бы один сотрудник перешел по вредоносной ссылке, а в 86% случаев сотрудники ввели свои учетные данные на фейковом сайте или запустили вредоносное ПО. 
+Специалисты проанализировали корпоративные Wi-Fi-сети. Так, в 43% случаев хакеры могли бы получить доступ во внутреннюю сеть компании из-за отсутствия корректных сетевых разграничений, добавили там. 
+Эксперты компании напоминают, что нужно проводить регулярные внешние и внутренние проверки сети и использовать комплексный подход к защите информационной инфраструктуры, который включает в себя защиту Wi-Fi-сетей, десктоп приложений и других объектов.
+Белый список сайтов: какие сервисы будут работать без мобильного интернета
+12 марта, 12:07
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://ria.ru/20260318/prilozhenie-2081348206.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="РИА Новости"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">НИЖНИЙ НОВГОРОД, 18 мар - РИА Новости. Ликвидацию скота проводят только на территории очага заболевания пастереллезом в Батыревском округе, массовой выбраковки поголовья не планируется, сообщает госветслужба Чувашии.
+Ранее минсельхоз республики заявил, что бактерии рода Pasteurella выявлены у крупного рогатого скота, принадлежащего ЗАО &quot;Батыревский&quot;, в Батыревском муниципальном округе введен карантин по пастереллезу.
+&quot;Ветеринарами республики реализуется весь предусмотренный комплекс мероприятий, направленных на устранение эпизоотического очага и предотвращение распространения инфекции. Как отметил руководитель госветслужбы Чувашии Александр Шакин, ликвидационные мероприятия проводятся исключительно на территории очага заболевания. Он подчеркнул, что предусмотренные меры касаются лишь непосредственно указанного хозяйства, и массовой выбраковки поголовья скота на территории Чувашии не планируется&quot;, - говорится в сообщении.
+Глава госветслужбы Чувашии призвал животноводов и владельцев хозяйств Чувашии &quot;сохранять спокойствие, не поддаваться провокациям и быть предельно бдительными&quot;.
+Пастереллез - тяжелое инфекционное заболевание, распространяющееся среди сельскохозяйственных и домашних животных, диких зверей и птиц и характеризующееся высокой заразностью и многочисленными осложнениями. Заболеваемость среди людей регистрируется редко.</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cdnn21.img.ria.ru/images/07e8/03/0b/1932284620_0:0:3097:1742_650x0_80_0_0_93b4cdf1fda51803fd75a45467d39d56.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">РИА Новости</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-18"
+                      datetime="2026-03-18T05:19:20.000Z"
+                    >2026-03-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    В Чувашии скот ликвидируют только в очаге заболевания пастереллезом
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    НИЖНИЙ НОВГОРОД, 18 мар - РИА Новости. Ликвидацию скота проводят только на территории очага заболевания пастереллезом в Батыревском округе, массовой выбраковки поголовья не планируется, сообщает госветслужба Чувашии.
+Ранее минсельхоз республики заявил, что бактерии рода Pasteurella выявлены у крупного рогатого скота, принадлежащего ЗАО &quot;Батыревский&quot;, в Батыревском муниципальном округе введен карантин по пастереллезу.
+&quot;Ветеринарами республики реализуется весь предусмотренный комплекс мероприятий, направленных на устранение эпизоотического очага и предотвращение распространения инфекции. Как отметил руководитель госветслужбы Чувашии Александр Шакин, ликвидационные мероприятия проводятся исключительно на территории очага заболевания. Он подчеркнул, что предусмотренные меры касаются лишь непосредственно указанного хозяйства, и массовой выбраковки поголовья скота на территории Чувашии не планируется&quot;, - говорится в сообщении.
+Глава госветслужбы Чувашии призвал животноводов и владельцев хозяйств Чувашии &quot;сохранять спокойствие, не поддаваться провокациям и быть предельно бдительными&quot;.
+Пастереллез - тяжелое инфекционное заболевание, распространяющееся среди сельскохозяйственных и домашних животных, диких зверей и птиц и характеризующееся высокой заразностью и многочисленными осложнениями. Заболеваемость среди людей регистрируется редко.
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://ria.ru/20260318/skot-2081347945.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="РИА Новости"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">МОСКВА, 18 мар - РИА Новости. США, в отличие от Израиля, который настроен на полную капитуляцию Тегерана, хотели бы объявить свою победу над Ираном вне зависимости от фактического результата &quot;на земле&quot;, объяснила РИА Новости кандидат исторических наук, старший научный сотрудник Центра изучения стран Ближнего и Среднего Востока Института востоковедения (ИВ) РАН Ирина Федорова. 
+США и Израиль 28 февраля начали наносить удары по объектам на территории Ирана, в том числе по Тегерану, сообщается о разрушениях и гибели гражданских лиц. Иран осуществляет ответные удары по израильской территории, а также по военным объектам США в регионе Ближнего Востока. 
+&quot;Я думаю, что здесь наблюдается различие в подходах Соединенных Штатов и Израиля... Соединенные Штаты могут выйти и, может быть, не могут, а хотели бы, очевидно, выйти из этой ситуации, но независимо от реальности &quot;на земле&quot;, объявив победу. С другой стороны, для Израиля такой вариант, я думаю, что неприемлем. Нетаньяху необходима полная победа и реальная капитуляция Ирана, его полный отказ от ракетной ядерной программы, полное прекращение поддержки иранских антиизраильских прокси в регионе, ну и, конечно, смена идеологических установок режима&quot;, - сказала Федорова. 
+Она объяснила, что США не собирались вести в Иране длительную войну, оккупировать страну и задействовать всю свою мощь, а рассчитывали на блицкриг, но при текущем сценарии даже небольшие по военным меркам потери США ставят определенные вопросы перед руководством страны. В частности, такие вопросы звучат со стороны представителей Демократической партии США и части республиканцев, которые, конечно, ни в коем случае не являются сторонниками дипломатического урегулирования конфликта, а просто недовольны лично американским президентом. 
+&quot;На мой взгляд, эта война объединяет Израиль, Нетаньяху и оппозицию ему внутри страны. Поэтому я думаю, что Израиль будет готов вести войну до победного конца&quot;, - подытожила эксперт.</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">РИА Новости</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-18"
+                      datetime="2026-03-18T05:16:25.000Z"
+                    >2026-03-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Эксперт рассказала, что США и Израиль будут считать победой над Ираном
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    МОСКВА, 18 мар - РИА Новости. США, в отличие от Израиля, который настроен на полную капитуляцию Тегерана, хотели бы объявить свою победу над Ираном вне зависимости от фактического результата &quot;на земле&quot;, объяснила РИА Новости кандидат исторических наук, старший научный сотрудник Центра изучения стран Ближнего и Среднего Востока Института востоковедения (ИВ) РАН Ирина Федорова. 
+США и Израиль 28 февраля начали наносить удары по объектам на территории Ирана, в том числе по Тегерану, сообщается о разрушениях и гибели гражданских лиц. Иран осуществляет ответные удары по израильской территории, а также по военным объектам США в регионе Ближнего Востока. 
+&quot;Я думаю, что здесь наблюдается различие в подходах Соединенных Штатов и Израиля... Соединенные Штаты могут выйти и, может быть, не могут, а хотели бы, очевидно, выйти из этой ситуации, но независимо от реальности &quot;на земле&quot;, объявив победу. С другой стороны, для Израиля такой вариант, я думаю, что неприемлем. Нетаньяху необходима полная победа и реальная капитуляция Ирана, его полный отказ от ракетной ядерной программы, полное прекращение поддержки иранских антиизраильских прокси в регионе, ну и, конечно, смена идеологических установок режима&quot;, - сказала Федорова. 
+Она объяснила, что США не собирались вести в Иране длительную войну, оккупировать страну и задействовать всю свою мощь, а рассчитывали на блицкриг, но при текущем сценарии даже небольшие по военным меркам потери США ставят определенные вопросы перед руководством страны. В частности, такие вопросы звучат со стороны представителей Демократической партии США и части республиканцев, которые, конечно, ни в коем случае не являются сторонниками дипломатического урегулирования конфликта, а просто недовольны лично американским президентом. 
+&quot;На мой взгляд, эта война объединяет Израиль, Нетаньяху и оппозицию ему внутри страны. Поэтому я думаю, что Израиль будет готов вести войну до победного конца&quot;, - подытожила эксперт.
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://ria.ru/20260318/ekspert-2081347722.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="РИА Новости"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">МЕХИКО, 18 мар - РИА Новости. Обращений от российских граждан в связи с выходом из строя национальной энергосети на Кубе в дипмиссию РФ не поступало, сообщили РИА Новости в посольстве. 
+&quot;На данный момент обращений в связи с выходом из строя национальной энергосети в посольство и генконсульство России в Гаване не поступало. Ведутся восстановительные работы&quot;, - сказали в дипмиссии РФ. 
+Кубинская государственная энергокомпания сообщила в понедельник о масштабном сбое, приведшем к полному отключению национальной электроэнергетической системы. Во вторник энергетики заявили о восстановлении взаимосвязанности всех провинций и продолжении работ по подключению генерирующих мощностей.</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">РИА Новости</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-18"
+                      datetime="2026-03-18T05:15:36.000Z"
+                    >2026-03-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Посольство России не получало обращений граждан из-за блэкаута на Кубе
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    МЕХИКО, 18 мар - РИА Новости. Обращений от российских граждан в связи с выходом из строя национальной энергосети на Кубе в дипмиссию РФ не поступало, сообщили РИА Новости в посольстве. 
+&quot;На данный момент обращений в связи с выходом из строя национальной энергосети в посольство и генконсульство России в Гаване не поступало. Ведутся восстановительные работы&quot;, - сказали в дипмиссии РФ. 
+Кубинская государственная энергокомпания сообщила в понедельник о масштабном сбое, приведшем к полному отключению национальной электроэнергетической системы. Во вторник энергетики заявили о восстановлении взаимосвязанности всех провинций и продолжении работ по подключению генерирующих мощностей.
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://ria.ru/20260318/posolstvo-2081347569.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="РИА Новости"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">НИЖНИЙ НОВГОРОД, 18 мар - РИА Новости. Карантин по пастереллезу введен в Батыревском муниципальном округе Чувашии из-за заболевания крупного рогатого скота у местных фермеров, сообщает минсельхоз республики. 
+&quot;Бактерии рода Pasteurella выявлены у крупного рогатого скота, принадлежащего ЗАО &quot;Батыревский&quot;. Наличие заболевания подтверждено в ходе исследования методом полимеразной цепной реакции в Чувашской республиканской ветлаборатории Госветслужбы Чувашии. В Батыревском муниципальном округе введен карантин по пастереллезу. Ограничительные мероприятия установлены распоряжением Госветслужбы Чувашии&quot;, - говорится в сообщении. 
+По словам вице-премьера и министра сельского хозяйства Чувашии Андрея Макушева, пастереллез – новая для региона инфекция. 
+&quot;Восприимчивыми животными здесь являются крупн…</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cdnn21.img.ria.ru/images/07e8/01/1a/1923727366_0:0:2899:1630_650x0_80_0_0_346c85dd847ca319a57b0e44e02a2c2b.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">РИА Новости</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-18"
+                      datetime="2026-03-18T05:10:07.000Z"
+                    >2026-03-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    В Чувашии ввели карантин по пастереллезу
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    НИЖНИЙ НОВГОРОД, 18 мар - РИА Новости. Карантин по пастереллезу введен в Батыревском муниципальном округе Чувашии из-за заболевания крупного рогатого скота у местных фермеров, сообщает минсельхоз республики. 
+&quot;Бактерии рода Pasteurella выявлены у крупного рогатого скота, принадлежащего ЗАО &quot;Батыревский&quot;. Наличие заболевания подтверждено в ходе исследования методом полимеразной цепной реакции в Чувашской республиканской ветлаборатории Госветслужбы Чувашии. В Батыревском муниципальном округе введен карантин по пастереллезу. Ограничительные мероприятия установлены распоряжением Госветслужбы Чувашии&quot;, - говорится в сообщении. 
+По словам вице-премьера и министра сельского хозяйства Чувашии Андрея Макушева, пастереллез – новая для региона инфекция. 
+&quot;Восприимчивыми животными здесь являются крупн…
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://ria.ru/20260318/chuvashija-2081347046.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="钛媒体：引领未来商业与生活新知"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">黄仁勋出手，SRAM成2026最大黑马。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://images.tmtpost.com/uploads/images/zhaopian/nuxtpic/change_logo3/og_image.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">钛媒体：引领未来商业与生活新知</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-03-18"
+                      datetime="2026-03-18T05:09:42.000Z"
+                    >2026-03-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    英伟达出手，SRAM重回C位
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    黄仁勋出手，SRAM成2026最大黑马。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.tmtpost.com/7918304.html"
                     target="_blank"
                     rel="noopener noreferrer"
                     @click.stop
