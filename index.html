@@ -145,6 +145,33 @@
             <span class="truncate">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
           </button>
           <button
+            data-src="南方周末"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">南方周末</span>
+          </button>
+          <button
+            data-src="少数派"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">少数派</span>
+          </button>
+          <button
+            data-src="钛媒体：引领未来商业与生活新知"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">钛媒体：引领未来商业与生活新知</span>
+          </button>
+          <button
             data-src="MDARK"
             @click="setActive($el.dataset.src); sidebarOpen = false"
             :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
@@ -161,24 +188,6 @@
           >
             <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
             <span class="truncate">凤凰军事</span>
-          </button>
-          <button
-            data-src="钛媒体：引领未来商业与生活新知"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">钛媒体：引领未来商业与生活新知</span>
-          </button>
-          <button
-            data-src="南方周末"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">南方周末</span>
           </button>
           <button
             data-src="RT World News"
@@ -305,15 +314,6 @@
           >
             <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
             <span class="truncate">纽约时报中文网</span>
-          </button>
-          <button
-            data-src="少数派"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">少数派</span>
           </button>
           <button
             data-src="iDaily · 每日环球视野"
@@ -554,8 +554,8 @@
 
         <!-- Sidebar Footer -->
         <div class="px-4 py-3 border-t border-[#f5bcd8] text-[10px] text-[#b88aaa]">
-          <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/YeWeihong/myrss/actions/runs/24275599873">
-            构建于 <time datetime="2026-04-11T05:24:35.975Z">2026-04-11T05:24:35.975Z</time>
+          <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/YeWeihong/myrss/actions/runs/24278832208">
+            构建于 <time datetime="2026-04-11T08:42:09.288Z">2026-04-11T08:42:09.288Z</time>
           </a>
           <div class="mt-0.5">
             <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/osmoscraft/osmosfeed">osmosfeed 1.15.1</a>
@@ -594,6 +594,793 @@
           <main class="flex-1 p-4 md:p-6 overflow-y-auto">
             <div class="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-4 md:gap-5">
 
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">消息人士称，美国情报显示中国正准备在几周内向伊朗提供防空系统。
+彭博社引述美国有线电视新闻网（CNN）报道，预计中国将向伊朗运送名为“单兵便携式防空系统”（Man-Portable Air Defense Systems或MANPADS）的肩扛式地对空导弹。
+MANPADS可以一人操作，容易运送、隐藏和使用，美国几十年来一直将防止MANPADS扩散作为优先事项。
+中国驻美国大使馆发言人驳斥这一说法，并告诉CNN：“中国从未向冲突任何一方提供武器；相关信息是不实的。”
+彭博社也报道，如果中国向伊朗运送武器，人们会对中国在冲突中所扮演的角色产生质疑。中国此前据报协助促成美国和伊朗之间为期两周的停火。对于中国据报所扮演的角色，中国既未证实也未否认。
+延伸阅读
+
+              由万斯率的美国谈判代表团抵达巴基斯坦
+            
+美国副总统万斯本周末率领美国代表团前往巴基斯坦首都伊斯兰堡，与伊朗官员举行会谈。会谈结果将可能决定停火协议将会被转化成持久的和平，还是会宣告破裂。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/dcc4efd4ec8b4b5bd552536455ff476b966e0fa2179a57ce210626704a6dc81b"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-11"
+                      datetime="2026-04-11T08:41:36.515Z"
+                    >2026-04-11</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    美媒：情报显示中国正准备几周内向伊朗提供防空系统
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    消息人士称，美国情报显示中国正准备在几周内向伊朗提供防空系统。
+彭博社引述美国有线电视新闻网（CNN）报道，预计中国将向伊朗运送名为“单兵便携式防空系统”（Man-Portable Air Defense Systems或MANPADS）的肩扛式地对空导弹。
+MANPADS可以一人操作，容易运送、隐藏和使用，美国几十年来一直将防止MANPADS扩散作为优先事项。
+中国驻美国大使馆发言人驳斥这一说法，并告诉CNN：“中国从未向冲突任何一方提供武器；相关信息是不实的。”
+彭博社也报道，如果中国向伊朗运送武器，人们会对中国在冲突中所扮演的角色产生质疑。中国此前据报协助促成美国和伊朗之间为期两周的停火。对于中国据报所扮演的角色，中国既未证实也未否认。
+延伸阅读
+
+              由万斯率的美国谈判代表团抵达巴基斯坦
+            
+美国副总统万斯本周末率领美国代表团前往巴基斯坦首都伊斯兰堡，与伊朗官员举行会谈。会谈结果将可能决定停火协议将会被转化成持久的和平，还是会宣告破裂。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260411-8877853"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">众所瞩目的习郑会登场后，台湾在野的国民党主席郑丽文继续大陆行，星期六（4月11日）前往北京西郊香山碧云寺，参谒孙中山衣冠冢。
+综合ETtoday新闻云和《联合报》报道，郑丽文上午近9时率国民党访问团抵达香山碧云寺。由于安保规格高，周边居民似乎早就感觉到将有“大人物”要来，8时多就拿着手机在家门口准备拍照。至于碧云寺内，这一天未见有任何游客，疑似是专门保留给国民党访团。
+参访期间，一行人前往孙中山纪念堂向孙中山塑像鞠躬，并观看相关墨宝、著作，还有给苏联的遗书等。纪念堂内还有花圈，以及繁体字书写、署名中国国民党主席郑丽文率全体党员敬献的缎带。随后不断踏上阶梯前往衣冠冢。
+郑丽文在衣冠冢前，主动提出要行礼，随后由国民党副主席张荣恭担纲司仪之职，行三鞠躬礼后，饱览周边景色。
+孙中山1925年3月12日在北京逝世，当时治丧委员会决定将孙中山的灵柩先行暂厝于北京碧云寺的金刚宝座塔的石券门内，其后灵柩由市区移往香山，数十万北京民众沿途送别。直到1929年南京中山陵落成，灵柩才奉移南京安葬。郑丽文早前在南京中山陵谒陵。
+遗体在移灵前由原用的楠木棺换入铜棺，所换下的大礼服、礼帽则被郑重放回原棺，封存于金刚宝座塔的石龛，现为孙中山的衣冠冢。
+访团众人也在寺内看到前党主席连战20年前来此处拜谒孙中山衣冠冢时，所种植的白皮松树，郑丽文特别要访问团成员之一、连战的儿子连胜武上前来一起合影。
+郑丽文也问连胜武：“种这棵树的时候你在吗？”连胜武回应：“那时候我没有来”，郑丽文笑着说：“你爸种的”，连胜武说家里面还有一张相片。
+郑丽文接着感叹该树“长挺大的”，旁人则说“当年真的就是个小树苗”。报道称，一旁有人曾鼓励连胜武上前抱树拍照，但被另一名访问团成员、文传会主委尹乃菁连忙制止。
+除了香山碧云寺之外，郑丽文也在星期六上午前往中关村展示中心，并与中共北京市委书记尹力会面，下午将参观北京故宫。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/b7ec3c6cdce90e9183ebbb9f8776025071679bc74a2066cc5425c59fabc924db"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-11"
+                      datetime="2026-04-11T08:41:36.506Z"
+                    >2026-04-11</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    郑丽文继续大陆行 赴孙中山衣冠冢行礼
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    众所瞩目的习郑会登场后，台湾在野的国民党主席郑丽文继续大陆行，星期六（4月11日）前往北京西郊香山碧云寺，参谒孙中山衣冠冢。
+综合ETtoday新闻云和《联合报》报道，郑丽文上午近9时率国民党访问团抵达香山碧云寺。由于安保规格高，周边居民似乎早就感觉到将有“大人物”要来，8时多就拿着手机在家门口准备拍照。至于碧云寺内，这一天未见有任何游客，疑似是专门保留给国民党访团。
+参访期间，一行人前往孙中山纪念堂向孙中山塑像鞠躬，并观看相关墨宝、著作，还有给苏联的遗书等。纪念堂内还有花圈，以及繁体字书写、署名中国国民党主席郑丽文率全体党员敬献的缎带。随后不断踏上阶梯前往衣冠冢。
+郑丽文在衣冠冢前，主动提出要行礼，随后由国民党副主席张荣恭担纲司仪之职，行三鞠躬礼后，饱览周边景色。
+孙中山1925年3月12日在北京逝世，当时治丧委员会决定将孙中山的灵柩先行暂厝于北京碧云寺的金刚宝座塔的石券门内，其后灵柩由市区移往香山，数十万北京民众沿途送别。直到1929年南京中山陵落成，灵柩才奉移南京安葬。郑丽文早前在南京中山陵谒陵。
+遗体在移灵前由原用的楠木棺换入铜棺，所换下的大礼服、礼帽则被郑重放回原棺，封存于金刚宝座塔的石龛，现为孙中山的衣冠冢。
+访团众人也在寺内看到前党主席连战20年前来此处拜谒孙中山衣冠冢时，所种植的白皮松树，郑丽文特别要访问团成员之一、连战的儿子连胜武上前来一起合影。
+郑丽文也问连胜武：“种这棵树的时候你在吗？”连胜武回应：“那时候我没有来”，郑丽文笑着说：“你爸种的”，连胜武说家里面还有一张相片。
+郑丽文接着感叹该树“长挺大的”，旁人则说“当年真的就是个小树苗”。报道称，一旁有人曾鼓励连胜武上前抱树拍照，但被另一名访问团成员、文传会主委尹乃菁连忙制止。
+除了香山碧云寺之外，郑丽文也在星期六上午前往中关村展示中心，并与中共北京市委书记尹力会面，下午将参观北京故宫。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260411-8877492"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">中国浙江绍兴一博物馆战国青铜剑文物被指疑有“拼接痕”，当地官方成立工作组展开调查。
+据新京报报道，一名男子星期四（4月9日）称，在浙江绍兴柯桥区博物馆移交工作中发现一馆藏二级文物战国青铜剑疑有“拼接痕”。
+男子称，登记号为2958的二级文物青铜剑完残情况栏写着“完整”，花92万元（人民币，约17.18万新元）向社会征集，“这剑征集来后一直保存在库房”。
+报料男子称，这把战国青铜剑在2023年移交的时候就发现有疑似“拼接痕迹”问题。报料人认为，这把剑应属于残次品，“它是断为五截之后粘接起来的”，而且接痕明显。
+报道引述博物馆库保员称，“入库时没发现”。该馆文物考古部主任则称，这剑入库时鉴定为“完整”，但“拼接痕”说不清楚。
+柯桥博物馆副馆长星期五（10日）称，“此事已向上级部门反映”。
+绍兴市柯桥区文物局星期五深夜通报称，已第一时间成立专项工作组，对媒体反映的问题展开全面调查核实，并邀请省市相关专家参与核查。后续调查结果将及时向社会发布。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://www.zaobao.com.sg/_web2/assets/social-share.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-11"
+                      datetime="2026-04-11T08:41:36.474Z"
+                    >2026-04-11</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    浙江绍兴一博物馆青铜剑被指有拼接痕 官方展开调查
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国浙江绍兴一博物馆战国青铜剑文物被指疑有“拼接痕”，当地官方成立工作组展开调查。
+据新京报报道，一名男子星期四（4月9日）称，在浙江绍兴柯桥区博物馆移交工作中发现一馆藏二级文物战国青铜剑疑有“拼接痕”。
+男子称，登记号为2958的二级文物青铜剑完残情况栏写着“完整”，花92万元（人民币，约17.18万新元）向社会征集，“这剑征集来后一直保存在库房”。
+报料男子称，这把战国青铜剑在2023年移交的时候就发现有疑似“拼接痕迹”问题。报料人认为，这把剑应属于残次品，“它是断为五截之后粘接起来的”，而且接痕明显。
+报道引述博物馆库保员称，“入库时没发现”。该馆文物考古部主任则称，这剑入库时鉴定为“完整”，但“拼接痕”说不清楚。
+柯桥博物馆副馆长星期五（10日）称，“此事已向上级部门反映”。
+绍兴市柯桥区文物局星期五深夜通报称，已第一时间成立专项工作组，对媒体反映的问题展开全面调查核实，并邀请省市相关专家参与核查。后续调查结果将及时向社会发布。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260411-8876940"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">韩国更改电子入境卡内容，删除出现“中国（台湾）”选项的栏目。
+综合台湾ETtoday新闻云和壹苹新闻网报道，韩方系统星期五（4月10日）完成改版，原先引发争议的“前一出发地”及“下一目的地”栏位已正式删除，而“国家／地区”栏位仍维持可选择“TAIWAN”。
+“前一出发地”及“下一目的地”栏位出现“CHINA（TAIWAN）”选项，引起台湾方面不满。
+台湾外交部曾多次抗议无效，进而宣布，为维护台湾尊严及落实对等原则，若韩国截至3月31日仍未正面回应，4月起台湾电子入境登记表的出生地和居住地，会将韩国的标示调整为“南韩”。
+台湾外交部说，已注意到韩国在星期五完成系统更新，并称此举有助两地民众往来与交流，尊重韩国基于便利旅客及简化入境流程所做的技术调整，也期待双方持续深化关系。
+韩联社早前引述未具名的韩国外交部官员报道，韩国将在电子入境卡移除“中国（台湾）”标注。
+这名官员告诉记者，韩国计划删除电子入境卡的“前一出发地”和“下一目的地”栏目，并称此举是简化系统、改善台湾游客的便利性，并统一纸质和电子入境格式的做法之一。这名官员也说，纸质版并没有这两个栏目。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/d4d9cf65c98e0df05a32b08468261778a804c8247de719b52614c1aa7ab1af30"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-11"
+                      datetime="2026-04-11T08:41:36.451Z"
+                    >2026-04-11</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    韩国更改电子入境卡 删除有“中国（台湾）”选项栏目
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    韩国更改电子入境卡内容，删除出现“中国（台湾）”选项的栏目。
+综合台湾ETtoday新闻云和壹苹新闻网报道，韩方系统星期五（4月10日）完成改版，原先引发争议的“前一出发地”及“下一目的地”栏位已正式删除，而“国家／地区”栏位仍维持可选择“TAIWAN”。
+“前一出发地”及“下一目的地”栏位出现“CHINA（TAIWAN）”选项，引起台湾方面不满。
+台湾外交部曾多次抗议无效，进而宣布，为维护台湾尊严及落实对等原则，若韩国截至3月31日仍未正面回应，4月起台湾电子入境登记表的出生地和居住地，会将韩国的标示调整为“南韩”。
+台湾外交部说，已注意到韩国在星期五完成系统更新，并称此举有助两地民众往来与交流，尊重韩国基于便利旅客及简化入境流程所做的技术调整，也期待双方持续深化关系。
+韩联社早前引述未具名的韩国外交部官员报道，韩国将在电子入境卡移除“中国（台湾）”标注。
+这名官员告诉记者，韩国计划删除电子入境卡的“前一出发地”和“下一目的地”栏目，并称此举是简化系统、改善台湾游客的便利性，并统一纸质和电子入境格式的做法之一。这名官员也说，纸质版并没有这两个栏目。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260411-8877383"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">在中共总书记习近平与台湾在野的国民党主席郑丽文会面之际，台湾军方在24小时内侦获17架次大陆军机，以及八艘军舰等船只在台海周边活动。
+台湾国防部星期六（4月11日）在官网通报，自星期五（10日）早上6时至星期六早上6时，侦获17架次大陆军机、七艘军舰，以及一艘公务船持续在台海周边活动，其中15架次军机逾越中线进入北部及西南空域。
+通报显示，台军星期五上午8时35分至下午1时15分，在北部空域侦获12架次大陆主战机，全部逾越中线进入北部空域。
+同日上午10时30分至下午2时45分，台军在台湾海峡空域侦获四架次大陆主战机，其中两架次逾越中线。
+此外，星期五下午4时35分至下午5时45分，台军在海峡中线以东的西南空域侦获一架次大陆主战机。
+台湾国防部指出，台军运用任务机舰及岸置导弹系统严密监控与应处。
+据路透社报道，台湾政府的大陆委员会副主委沈有忠星期六在台北对媒体说，以军事施压推动政治谈判，一直是北京的“惯用策略”。“一方面释放和平讯号，另一方面却持续以军事力量对台湾施压，从未停止。”
+习近平星期五在北京与郑丽文会面，双方讲话内容在政治表述上高度呼应，主轴集中于坚持九二共识、反对台独，将两岸关系置于中华民族与中华文明的大叙事之下，并把和平作为会面的核心主轴。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://www.zaobao.com.sg/_web2/assets/social-share.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-11"
+                      datetime="2026-04-11T08:41:36.435Z"
+                    >2026-04-11</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    习郑会举行之时 大陆25军机舰在台海周边活动
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    在中共总书记习近平与台湾在野的国民党主席郑丽文会面之际，台湾军方在24小时内侦获17架次大陆军机，以及八艘军舰等船只在台海周边活动。
+台湾国防部星期六（4月11日）在官网通报，自星期五（10日）早上6时至星期六早上6时，侦获17架次大陆军机、七艘军舰，以及一艘公务船持续在台海周边活动，其中15架次军机逾越中线进入北部及西南空域。
+通报显示，台军星期五上午8时35分至下午1时15分，在北部空域侦获12架次大陆主战机，全部逾越中线进入北部空域。
+同日上午10时30分至下午2时45分，台军在台湾海峡空域侦获四架次大陆主战机，其中两架次逾越中线。
+此外，星期五下午4时35分至下午5时45分，台军在海峡中线以东的西南空域侦获一架次大陆主战机。
+台湾国防部指出，台军运用任务机舰及岸置导弹系统严密监控与应处。
+据路透社报道，台湾政府的大陆委员会副主委沈有忠星期六在台北对媒体说，以军事施压推动政治谈判，一直是北京的“惯用策略”。“一方面释放和平讯号，另一方面却持续以军事力量对台湾施压，从未停止。”
+习近平星期五在北京与郑丽文会面，双方讲话内容在政治表述上高度呼应，主轴集中于坚持九二共识、反对台独，将两岸关系置于中华民族与中华文明的大叙事之下，并把和平作为会面的核心主轴。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260411-8877704"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">台湾在野的国民党主席郑丽文说，去年两岸故宫未能共同举办百年院庆活动“相当遗憾”，并称国民党若重新执政，将快速恢复两岸故宫之间的密切交流。
+综合台湾《联合报》和中时新闻网报道，郑丽文星期六（4月11日）与中共北京市委书记尹力会面时说，“昨天非常顺利圆满的完成了重要的会见，也把和平的讯息清楚的传达到了全世界”，并称这对全球而言都是值得祝福和高兴的好消息。
+谈及未来京台交流，郑丽文提出三项期待。第一，她希望进一步深化国共两党之间党史档案与文物交流，并扩大与大学、研究机构之间的文史与学术合作。她还提到，希望围绕抗日战争、台湾光复等两岸关系重要史料，加强保存、研究与交流，同时促进两岸青年往来。
+第二，她主张全面推动两岸文化与旅游交流、弘扬中华文化。郑丽文提到北京故宫、长城、颐和园、天坛、恭王府等景点，称北京一直是台湾民众旅游的热门目的地。她说，两岸同属中华民族、共享中华文化，扩大旅游与文化交流，“有助于两岸人民的心平气和”。
+她还说，去年两岸故宫因“众所周知的原因”未能共同举办百年院庆活动，“我们觉得相当的遗憾”。但她说，“国民党很快就会重新执政了”，届时“一定会尽快恢复两岸故宫的密切交流”。
+第三，她希望加强科技产业跟城市治理经验交流合作。郑丽文提到此次参访中关村，并称尹力在公共卫生事务方面拥有丰富的学术与实务经验，也具备处理国际及两岸事务的背景。
+根据台方新闻稿，尹力说，北京是政治、文化、国际交往科技创新中心，也是一座传统与现代融合且富有活力的超大型城市。
+他指出，京台科技论坛连续举行了28次，“我们对于台胞在京的投资兴业学习生活有系列的便利政策和措施，支持台企台胞在京展业发展”。
+中共总书记习近平星期五（4月10日）在北京与郑丽文会面，双方讲话内容在政治表述上高度呼应，主轴集中于坚持九二共识、反对台独，将两岸关系置于中华民族与中华文明的大叙事之下，并把和平作为会面的核心主轴。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/7aebaa987e12c15a87247663004c5a8d4a6d5b191e9ff493f166dac9a8b7426e"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-11"
+                      datetime="2026-04-11T08:41:36.413Z"
+                    >2026-04-11</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    郑丽文：若国民党重返执政 一定恢复两岸故宫交流
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    台湾在野的国民党主席郑丽文说，去年两岸故宫未能共同举办百年院庆活动“相当遗憾”，并称国民党若重新执政，将快速恢复两岸故宫之间的密切交流。
+综合台湾《联合报》和中时新闻网报道，郑丽文星期六（4月11日）与中共北京市委书记尹力会面时说，“昨天非常顺利圆满的完成了重要的会见，也把和平的讯息清楚的传达到了全世界”，并称这对全球而言都是值得祝福和高兴的好消息。
+谈及未来京台交流，郑丽文提出三项期待。第一，她希望进一步深化国共两党之间党史档案与文物交流，并扩大与大学、研究机构之间的文史与学术合作。她还提到，希望围绕抗日战争、台湾光复等两岸关系重要史料，加强保存、研究与交流，同时促进两岸青年往来。
+第二，她主张全面推动两岸文化与旅游交流、弘扬中华文化。郑丽文提到北京故宫、长城、颐和园、天坛、恭王府等景点，称北京一直是台湾民众旅游的热门目的地。她说，两岸同属中华民族、共享中华文化，扩大旅游与文化交流，“有助于两岸人民的心平气和”。
+她还说，去年两岸故宫因“众所周知的原因”未能共同举办百年院庆活动，“我们觉得相当的遗憾”。但她说，“国民党很快就会重新执政了”，届时“一定会尽快恢复两岸故宫的密切交流”。
+第三，她希望加强科技产业跟城市治理经验交流合作。郑丽文提到此次参访中关村，并称尹力在公共卫生事务方面拥有丰富的学术与实务经验，也具备处理国际及两岸事务的背景。
+根据台方新闻稿，尹力说，北京是政治、文化、国际交往科技创新中心，也是一座传统与现代融合且富有活力的超大型城市。
+他指出，京台科技论坛连续举行了28次，“我们对于台胞在京的投资兴业学习生活有系列的便利政策和措施，支持台企台胞在京展业发展”。
+中共总书记习近平星期五（4月10日）在北京与郑丽文会面，双方讲话内容在政治表述上高度呼应，主轴集中于坚持九二共识、反对台独，将两岸关系置于中华民族与中华文明的大叙事之下，并把和平作为会面的核心主轴。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260411-8877429"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">今年是中美“乒乓外交”55周年，中国国家主席习近平向相关活动发贺信，希望两国各界人士、特别是青年一代为推动中美关系稳定、健康发展作出新贡献。
+据新华社消息，中美“乒乓外交”55周年纪念大会暨中美青少年体育交流系列活动启动仪式星期五（4月10日）在北京举行，习近平向活动致贺信。
+习近平指出，55年前，中美老一辈领导人以卓越的政治智慧和战略远见，重新开启两国人民友好往来的大门，成就了“小球转动大球”的历史佳话。今天，两国青少年再续“乒乓情缘”，开展体育交流系列活动，对于推进中美友好事业很有意义。
+习近平强调，中美关系的根基由人民浇筑，未来靠青年创造。希望两国各界人士特别是青年一代从历史中汲取智慧和力量，在交流合作中相知相亲，在互学互鉴中携手前行，共同拉紧友谊纽带，为推动中美关系稳定、健康、可持续发展作出新贡献。
+另据中国外交部官网消息，中国国家副主席韩正当天在北京出席上述活动，宣读习近平贺信并致辞。
+韩正说，稳定、健康、可持续的中美关系符合两国人民的共同利益，也符合国际社会的共同期待。中美双方应从历史中汲取经验，以两国元首重要共识为指引，秉持相互尊重的态度，守住和平共处的底线，争取合作共赢的前景。
+韩正表示，“55年前，小小银球击碎了隔阂的坚冰。今天，我们需要用更大的诚意、更实的行动，让‘乒乓外交’精神在新时代焕发新生”。
+他续称，要为中美民间、地方、青年等交流合作搭建桥梁，让更多人成为中美友好的参与者、受益者、支持者。希望到中国参加体育交流活动的美国青少年朋友们，带着对中国的好奇而来，带着对中国的客观认知和中国伙伴的珍贵友谊而归。
+据报道，中美“乒乓外交”亲历者、青年乒乓球运动员、体育界人士以及美方青少年橄榄球运动员等约500人出席纪念大会。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/5f231c71de91a2caea28953feda8e337b066522e5d5070c64e728241b92c3af4"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-11"
+                      datetime="2026-04-11T08:41:36.398Z"
+                    >2026-04-11</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    “乒乓外交”55周年 习近平吁青年推动中美关系稳定发展
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    今年是中美“乒乓外交”55周年，中国国家主席习近平向相关活动发贺信，希望两国各界人士、特别是青年一代为推动中美关系稳定、健康发展作出新贡献。
+据新华社消息，中美“乒乓外交”55周年纪念大会暨中美青少年体育交流系列活动启动仪式星期五（4月10日）在北京举行，习近平向活动致贺信。
+习近平指出，55年前，中美老一辈领导人以卓越的政治智慧和战略远见，重新开启两国人民友好往来的大门，成就了“小球转动大球”的历史佳话。今天，两国青少年再续“乒乓情缘”，开展体育交流系列活动，对于推进中美友好事业很有意义。
+习近平强调，中美关系的根基由人民浇筑，未来靠青年创造。希望两国各界人士特别是青年一代从历史中汲取智慧和力量，在交流合作中相知相亲，在互学互鉴中携手前行，共同拉紧友谊纽带，为推动中美关系稳定、健康、可持续发展作出新贡献。
+另据中国外交部官网消息，中国国家副主席韩正当天在北京出席上述活动，宣读习近平贺信并致辞。
+韩正说，稳定、健康、可持续的中美关系符合两国人民的共同利益，也符合国际社会的共同期待。中美双方应从历史中汲取经验，以两国元首重要共识为指引，秉持相互尊重的态度，守住和平共处的底线，争取合作共赢的前景。
+韩正表示，“55年前，小小银球击碎了隔阂的坚冰。今天，我们需要用更大的诚意、更实的行动，让‘乒乓外交’精神在新时代焕发新生”。
+他续称，要为中美民间、地方、青年等交流合作搭建桥梁，让更多人成为中美友好的参与者、受益者、支持者。希望到中国参加体育交流活动的美国青少年朋友们，带着对中国的好奇而来，带着对中国的客观认知和中国伙伴的珍贵友谊而归。
+据报道，中美“乒乓外交”亲历者、青年乒乓球运动员、体育界人士以及美方青少年橄榄球运动员等约500人出席纪念大会。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260411-8877479"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">香港官员星期五（4月11日）透露，随着全球油价飙升，香港上月的非法燃料交易显著增加。
+据法新社报道，香港缺乏本地炼油能力，汽车燃料完全依赖进口，其中相当一部分来自中国大陆。由于香港本地油价居全球最贵之列，不法分子有动机将较廉价燃料从边境非法运入牟利。
+香港消防处指出，今年3月，涉及非法加油活动的投诉显著增加，当月共接获154起，较前两个月平均水平高出约40%。海关同期查获近1万9500公升非法燃料，超过今年1月和2月合计查获总量。
+香港当局也发现，走私分子愈发倾向改装七人车和轻型货车，并加以伪装，作为流动加油站使用。
+执法部门指出，已在与中国大陆的边境口岸使用机器人和X光扫描设备加强查缉，并出动无人机进行空中巡查。根据香港消费者委员会数据，本周普通汽油零售价约为每公升32.4港元（5.2新元）。
+为缓解燃料价格上涨带来的压力，香港政府星期四（4月9日）推出多项措施，包括为商用车辆和船只使用的柴油提供每升3港元补贴，并为使用政府管理隧道的商用车辆提供50%的过路费折扣。香港立法会财务委员会在星期五（10日）召开会议，通过上述18亿港元的柴油补贴拨款申请。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://www.zaobao.com.sg/_web2/assets/social-share.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-11"
+                      datetime="2026-04-11T08:41:36.375Z"
+                    >2026-04-11</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    香港3月非法燃料交易显著增加
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    香港官员星期五（4月11日）透露，随着全球油价飙升，香港上月的非法燃料交易显著增加。
+据法新社报道，香港缺乏本地炼油能力，汽车燃料完全依赖进口，其中相当一部分来自中国大陆。由于香港本地油价居全球最贵之列，不法分子有动机将较廉价燃料从边境非法运入牟利。
+香港消防处指出，今年3月，涉及非法加油活动的投诉显著增加，当月共接获154起，较前两个月平均水平高出约40%。海关同期查获近1万9500公升非法燃料，超过今年1月和2月合计查获总量。
+香港当局也发现，走私分子愈发倾向改装七人车和轻型货车，并加以伪装，作为流动加油站使用。
+执法部门指出，已在与中国大陆的边境口岸使用机器人和X光扫描设备加强查缉，并出动无人机进行空中巡查。根据香港消费者委员会数据，本周普通汽油零售价约为每公升32.4港元（5.2新元）。
+为缓解燃料价格上涨带来的压力，香港政府星期四（4月9日）推出多项措施，包括为商用车辆和船只使用的柴油提供每升3港元补贴，并为使用政府管理隧道的商用车辆提供50%的过路费折扣。香港立法会财务委员会在星期五（10日）召开会议，通过上述18亿港元的柴油补贴拨款申请。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260411-8877905"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="南方周末"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">2026-04-11 16:00:00
+2025年，合肥全市地区生产总值（GDP）14210亿元，与济南并列全国城市第18名。
+时间回到2015年，合肥GDP不到现在的四成，在全国仅排在第31位，在二线城市的阵营里艰难卡位——其身前是竞争胶着的石家庄、长春，与身后的潍坊、徐州也只拉开两三百亿元的差距。如今，曾经的对手被甩在身后，合肥先一步迈进了万亿俱乐部，身位在十年间连进13位，成为不可多得的一匹“黑马”。
+在如此之长的时间窗口内持续超车，意味着要把产业梯度铺得足够宽，在每一次产业换挡时反应够快，而合肥正是对风口有着敏锐的嗅觉。
+2025年度的南方周末中国企业科创力数据库收录了绝大部份运营主体/控股股东在中国的A股、港股和美股公司7065家，注册地在合肥的上市公司有89家，其中近五年内上市的公司占了将近一半。这些“新鲜血液”将合肥上市公司的平均研发强度和研发人员占比双双提升了约两个百分点，并重塑了合肥的产业版图，一些新的产业实现从零到一的生长。
+科创定义了合肥的增长内核。根据2025年的“自然指数—科研城市”榜单，合肥已居全球第12，五年间前进了8位；全社会研发投入强度已达到4.11%，居中国省会城市第三位。
+这座城市追逐前沿产业的决心巨大且执着，在过去一段时间，它靠激进的风投策略赌赢了当下，但政府的“有形之手”偏好硬件，由此造成的“偏科”也已呈现在其产业结构中。未来，随着产业角逐向更长周期、高风险、强不确定性演变，这种依赖“下注”的模式也将被重新审视。
+“偏科”严重
+跟五年前相比，合肥新增了39家上市公司，增量不算大，在全国只排第12名，但考虑到其基数小，增幅达到78%，在全部一线与新一线城市中冲进前3名，仅次于苏州和东莞。
+这将近一半的新上市公司，将合肥入库公司的整体研发强度从5.46%提升到了7.17%，研发人员占比从19.78%提升到了21.40%，也让合肥的产业版…</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">南方周末</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-11"
+                      datetime="2026-04-11T08:25:06.000Z"
+                    >2026-04-11</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    上市公司五年翻番，合肥的赌注与隐忧丨区域科创解读
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    2026-04-11 16:00:00
+2025年，合肥全市地区生产总值（GDP）14210亿元，与济南并列全国城市第18名。
+时间回到2015年，合肥GDP不到现在的四成，在全国仅排在第31位，在二线城市的阵营里艰难卡位——其身前是竞争胶着的石家庄、长春，与身后的潍坊、徐州也只拉开两三百亿元的差距。如今，曾经的对手被甩在身后，合肥先一步迈进了万亿俱乐部，身位在十年间连进13位，成为不可多得的一匹“黑马”。
+在如此之长的时间窗口内持续超车，意味着要把产业梯度铺得足够宽，在每一次产业换挡时反应够快，而合肥正是对风口有着敏锐的嗅觉。
+2025年度的南方周末中国企业科创力数据库收录了绝大部份运营主体/控股股东在中国的A股、港股和美股公司7065家，注册地在合肥的上市公司有89家，其中近五年内上市的公司占了将近一半。这些“新鲜血液”将合肥上市公司的平均研发强度和研发人员占比双双提升了约两个百分点，并重塑了合肥的产业版图，一些新的产业实现从零到一的生长。
+科创定义了合肥的增长内核。根据2025年的“自然指数—科研城市”榜单，合肥已居全球第12，五年间前进了8位；全社会研发投入强度已达到4.11%，居中国省会城市第三位。
+这座城市追逐前沿产业的决心巨大且执着，在过去一段时间，它靠激进的风投策略赌赢了当下，但政府的“有形之手”偏好硬件，由此造成的“偏科”也已呈现在其产业结构中。未来，随着产业角逐向更长周期、高风险、强不确定性演变，这种依赖“下注”的模式也将被重新审视。
+“偏科”严重
+跟五年前相比，合肥新增了39家上市公司，增量不算大，在全国只排第12名，但考虑到其基数小，增幅达到78%，在全部一线与新一线城市中冲进前3名，仅次于苏州和东莞。
+这将近一半的新上市公司，将合肥入库公司的整体研发强度从5.46%提升到了7.17%，研发人员占比从19.78%提升到了21.40%，也让合肥的产业版…
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="http://www.infzm.com/contents/319002"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="少数派"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">AX 专门探讨如何设计产品形态，使 AI Agent 能够可靠地「理解」、自主操作并高效集成，而非仅服务于人类用户。查看全文</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">少数派</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-11"
+                      datetime="2026-04-11T07:18:26.000Z"
+                    >2026-04-11</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    浅谈人工智能时代的用户体验：Agent Experience 导论
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    AX 专门探讨如何设计产品形态，使 AI Agent 能够可靠地「理解」、自主操作并高效集成，而非仅服务于人类用户。查看全文
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://sspai.com/post/107600"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="钛媒体：引领未来商业与生活新知"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">没有捷径，只有更难的路。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://images.tmtpost.com/uploads/images/zhaopian/nuxtpic/change_logo3/og_image.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">钛媒体：引领未来商业与生活新知</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-11"
+                      datetime="2026-04-11T06:18:42.000Z"
+                    >2026-04-11</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    出去过的每个人都在讲，国外的钱也没有那么好挣
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    没有捷径，只有更难的路。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.tmtpost.com/7949674.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
               <article
                 data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
                 x-show="active === 'all' || active === $el.dataset.src"
@@ -135925,80 +136712,6 @@ Read Full Article at RT.com
                 </div>
               </article>
               <article
-                data-src="MDARK"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">【参考信息第579期】考公考编学院；专硕规培生透支
-继续分享马督工睡前消息编辑部关注的新闻
-大家好，我是小戴，欢迎来到第579期参考信息。
-多地中考改革：科目瘦身与随迁子女门槛降低
-新学期开始，新一轮中考“瘦身”又开始了。近期，吉林省、安徽黄山、江西吉安、陕西咸阳等地明确，2024年起，生物、地理不再作为中考计分科目。
-中考改革遵循“三年早知道”原则，因为这是先前已经确定的改革。今年，长沙中考生物、地理不计入总分；西安化学、生物、地理三科不计入总分；北京2025年开始就把历史、地理、化学、生物列为等级考察科目。
-减少机械记忆、减轻学生备考负担也是趋势。深圳近日宣布，道德与法治由闭卷调整为开卷，旨在落实“双减”政策，推动教学方式变革，减少死记硬背与机械刷题，引导学生独立思考和深度思考。
-广东多地还降低了体育的考评标准，可选项目增加，难度更加适中。深圳增加过程性评价，现场统一考试由两大类调整为三大类，考生从16小项中选考三项。东莞的体能素质考试项目改为学生自选，增加受众广、易学习的项目，减少容易受伤、存在安全风险的项目。
-考试科目减少之后，最直接的变化就是语数英分值权重上升。北京中考三大主科分值权重从15%上升到19%；理科薄弱考生的短板会被放大，物理权重从12%上升到15%。长沙增加语数英三科总成绩排序，适当提高区分度。
-根据人口趋势，初中在校生规模今年达峰，高中在校生2029年达峰。因此有地区中考改革同步扩大普高招生，推进普职融通。吉林取消了职普比例，保证学生自主选择权，持续提升指标到校比例，取消单独设置的指标生录取控制线限制。
-此外，流动人口随迁子女在流入地参加中考的门槛有望降低。今年政府工作报告和“十四五”规划提出，因地制宜放宽在流入地参加中考报名条件。此前，北京协作者社会工作发展中心报告显示，流动儿童家庭面临政策壁垒、信息不畅、家庭支持能力弱等挑战。
-超过七成受访家长…</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">MDARK</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-04-05"
-                      datetime="2026-04-04T20:30:29.092Z"
-                    >2026-04-05</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    【参考信息第579期】考公考编学院；专硕规培生透支2026-03-21T11:37:01.000Z
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    【参考信息第579期】考公考编学院；专硕规培生透支
-继续分享马督工睡前消息编辑部关注的新闻
-大家好，我是小戴，欢迎来到第579期参考信息。
-多地中考改革：科目瘦身与随迁子女门槛降低
-新学期开始，新一轮中考“瘦身”又开始了。近期，吉林省、安徽黄山、江西吉安、陕西咸阳等地明确，2024年起，生物、地理不再作为中考计分科目。
-中考改革遵循“三年早知道”原则，因为这是先前已经确定的改革。今年，长沙中考生物、地理不计入总分；西安化学、生物、地理三科不计入总分；北京2025年开始就把历史、地理、化学、生物列为等级考察科目。
-减少机械记忆、减轻学生备考负担也是趋势。深圳近日宣布，道德与法治由闭卷调整为开卷，旨在落实“双减”政策，推动教学方式变革，减少死记硬背与机械刷题，引导学生独立思考和深度思考。
-广东多地还降低了体育的考评标准，可选项目增加，难度更加适中。深圳增加过程性评价，现场统一考试由两大类调整为三大类，考生从16小项中选考三项。东莞的体能素质考试项目改为学生自选，增加受众广、易学习的项目，减少容易受伤、存在安全风险的项目。
-考试科目减少之后，最直接的变化就是语数英分值权重上升。北京中考三大主科分值权重从15%上升到19%；理科薄弱考生的短板会被放大，物理权重从12%上升到15%。长沙增加语数英三科总成绩排序，适当提高区分度。
-根据人口趋势，初中在校生规模今年达峰，高中在校生2029年达峰。因此有地区中考改革同步扩大普高招生，推进普职融通。吉林取消了职普比例，保证学生自主选择权，持续提升指标到校比例，取消单独设置的指标生录取控制线限制。
-此外，流动人口随迁子女在流入地参加中考的门槛有望降低。今年政府工作报告和“十四五”规划提出，因地制宜放宽在流入地参加中考报名条件。此前，北京协作者社会工作发展中心报告显示，流动儿童家庭面临政策壁垒、信息不畅、家庭支持能力弱等挑战。
-超过七成受访家长…
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://mdark.org/docs/refnews/0501_0600/refnews_0579"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
                 data-src="РИА Новости"
                 x-show="active === 'all' || active === $el.dataset.src"
                 x-transition:enter="transition ease-out duration-200"
@@ -136639,69 +137352,6 @@ Read Full Article at RT.com
                 </div>
               </article>
               <article
-                data-src="RT World News"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">Populist candidate Rumen Radev is on track to win Bulgaria’s parliamentary election, unless the EU’s censorship machine can stop him 
-Read Full Article at RT.com</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://mf.b37mrtl.ru/files/2026.04/thumbnail/69d149aa85f54064e328fbb4.jpg"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">RT World News</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-04-05"
-                      datetime="2026-04-04T18:37:17.000Z"
-                    >2026-04-05</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    Battle for Bulgaria: The EU opens a new front in its election war
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    Populist candidate Rumen Radev is on track to win Bulgaria’s parliamentary election, unless the EU’s censorship machine can stop him 
-Read Full Article at RT.com
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.rt.com/news/637295-bulgaria-eu-election-hungary/?utm_source&#x3D;rss&amp;utm_medium&#x3D;rss&amp;utm_campaign&#x3D;RSS"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
                 data-src="РИА Новости"
                 x-show="active === 'all' || active === $el.dataset.src"
                 x-transition:enter="transition ease-out duration-200"
@@ -136967,69 +137617,6 @@ Read Full Article at RT.com
                   <!-- Read link – @click.stop so the card click doesn't also fire -->
                   <a
                     href="https://ria.ru/20260404/vsu-2085232343.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="RT World News"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">China and Vietnam are testing a new format of cooperation, building a more complete partnership for a changing Asia 
-Read Full Article at RT.com</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://mf.b37mrtl.ru/files/2026.04/thumbnail/69d13300203027740a1cfe75.jpg"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">RT World News</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-04-05"
-                      datetime="2026-04-04T17:29:47.000Z"
-                    >2026-04-05</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    A new security paradigm is emerging in Asia
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    China and Vietnam are testing a new format of cooperation, building a more complete partnership for a changing Asia 
-Read Full Article at RT.com
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.rt.com/news/637294-china-vietnam-security-paradigm-asia/?utm_source&#x3D;rss&amp;utm_medium&#x3D;rss&amp;utm_campaign&#x3D;RSS"
                     target="_blank"
                     rel="noopener noreferrer"
                     @click.stop
