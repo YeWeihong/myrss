@@ -136,6 +136,15 @@
 
           <!-- Sources list -->
           <button
+            data-src="UN News - Global perspective Human stories"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">UN News - Global perspective Human stories</span>
+          </button>
+          <button
             data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
             @click="setActive($el.dataset.src); sidebarOpen = false"
             :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
@@ -143,6 +152,51 @@
           >
             <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
             <span class="truncate">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+          </button>
+          <button
+            data-src="RT World News"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">RT World News</span>
+          </button>
+          <button
+            data-src="南方周末"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">南方周末</span>
+          </button>
+          <button
+            data-src="钛媒体：引领未来商业与生活新知"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">钛媒体：引领未来商业与生活新知</span>
+          </button>
+          <button
+            data-src="Latest Stories from National Geographic"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">Latest Stories from National Geographic</span>
+          </button>
+          <button
+            data-src="iDaily · 每日环球视野"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">iDaily · 每日环球视野</span>
           </button>
           <button
             data-src="MDARK"
@@ -161,33 +215,6 @@
           >
             <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
             <span class="truncate">РИА Новости</span>
-          </button>
-          <button
-            data-src="南方周末"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">南方周末</span>
-          </button>
-          <button
-            data-src="RT World News"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">RT World News</span>
-          </button>
-          <button
-            data-src="钛媒体：引领未来商业与生活新知"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">钛媒体：引领未来商业与生活新知</span>
           </button>
           <button
             data-src="DeepTech深科技"
@@ -262,15 +289,6 @@
             <span class="truncate">每日一拍</span>
           </button>
           <button
-            data-src="Latest Stories from National Geographic"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">Latest Stories from National Geographic</span>
-          </button>
-          <button
             data-src="竹新社 - Telegram Channel"
             @click="setActive($el.dataset.src); sidebarOpen = false"
             :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
@@ -343,15 +361,6 @@
             <span class="truncate">地球知识局</span>
           </button>
           <button
-            data-src="UN News - Global perspective Human stories"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">UN News - Global perspective Human stories</span>
-          </button>
-          <button
             data-src="呦呦鹿鸣"
             @click="setActive($el.dataset.src); sidebarOpen = false"
             :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
@@ -386,15 +395,6 @@
           >
             <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
             <span class="truncate">调查</span>
-          </button>
-          <button
-            data-src="iDaily · 每日环球视野"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">iDaily · 每日环球视野</span>
           </button>
           <button
             data-src="凤凰军事"
@@ -563,8 +563,8 @@
 
         <!-- Sidebar Footer -->
         <div class="px-4 py-3 border-t border-[#f5bcd8] text-[10px] text-[#b88aaa]">
-          <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/YeWeihong/myrss/actions/runs/24598065573">
-            构建于 <time datetime="2026-04-18T05:40:58.516Z">2026-04-18T05:40:58.516Z</time>
+          <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/YeWeihong/myrss/actions/runs/24601130891">
+            构建于 <time datetime="2026-04-18T08:50:29.656Z">2026-04-18T08:50:29.656Z</time>
           </a>
           <div class="mt-0.5">
             <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/osmoscraft/osmosfeed">osmosfeed 1.15.1</a>
@@ -603,6 +603,1545 @@
           <main class="flex-1 p-4 md:p-6 overflow-y-auto">
             <div class="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-4 md:gap-5">
 
+              <article
+                data-src="UN News - Global perspective Human stories"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">The UN Children’s Fund (UNICEF) has raised alarm over the killing of two contracted workers delivering clean water to families in the Gaza Strip.</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Production%20Library/18-04-2026-UNICEF-Gaza-water.jpg/image560x340cropped.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">UN News - Global perspective Human stories</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-18"
+                      datetime="2026-04-18T12:00:00.000Z"
+                    >2026-04-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    UNICEF ‘outraged’ by killing of Gaza water truck drivers, urges investigation
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    The UN Children’s Fund (UNICEF) has raised alarm over the killing of two contracted workers delivering clean water to families in the Gaza Strip.
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://news.un.org/feed/view/en/story/2026/04/1167331"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">白罗斯总统卢卡申科在一个访谈中说，如果美国连伊朗都应对不了，就更不可能应对中国。
+据白罗斯国家通讯社报道，卢卡申科接受今日俄罗斯（RT）电视台采访时说：“别招惹中国。中国拥有的实力是美国永远无法抗衡的。”
+卢卡申科也就美国可能与俄罗斯对抗发出警告：“俄罗斯幅员辽阔，想用导弹在那里达成目的是不可能的。导弹耗尽的速度，会比俄罗斯的领土走完还快。伊朗也已经证明了这一点。”
+白罗斯总统卢卡申科在一个访谈中说，如果美国连伊朗都应对不了，就更不可能应对中国。 （路透社档案照片）
+白罗斯总统卢卡申科在一个访谈中说，如果美国连伊朗都应对不了，就更不可能应对中国。
+据白罗斯国家通讯社报道，卢卡申科接受今日俄罗斯（RT）电视台采访时说：“别招惹中国。中国拥有的实力是美国永远无法抗衡的。”
+卢卡申科也就美国可能与俄罗斯对抗发出警告：“俄罗斯幅员辽阔，想用导弹在那里达成目的是不可能的。导弹耗尽的速度，会比俄罗斯的领土走完还快。伊朗也已经证明了这一点。”</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/348013db8e083e59f138ed9b3bc5f959e0f37f04fa4633d48e57e225e4fdd790"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-18"
+                      datetime="2026-04-18T08:50:04.341Z"
+                    >2026-04-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    卢卡申科：美若连伊朗都应对不了 更不可能应对中国
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    白罗斯总统卢卡申科在一个访谈中说，如果美国连伊朗都应对不了，就更不可能应对中国。
+据白罗斯国家通讯社报道，卢卡申科接受今日俄罗斯（RT）电视台采访时说：“别招惹中国。中国拥有的实力是美国永远无法抗衡的。”
+卢卡申科也就美国可能与俄罗斯对抗发出警告：“俄罗斯幅员辽阔，想用导弹在那里达成目的是不可能的。导弹耗尽的速度，会比俄罗斯的领土走完还快。伊朗也已经证明了这一点。”
+白罗斯总统卢卡申科在一个访谈中说，如果美国连伊朗都应对不了，就更不可能应对中国。 （路透社档案照片）
+白罗斯总统卢卡申科在一个访谈中说，如果美国连伊朗都应对不了，就更不可能应对中国。
+据白罗斯国家通讯社报道，卢卡申科接受今日俄罗斯（RT）电视台采访时说：“别招惹中国。中国拥有的实力是美国永远无法抗衡的。”
+卢卡申科也就美国可能与俄罗斯对抗发出警告：“俄罗斯幅员辽阔，想用导弹在那里达成目的是不可能的。导弹耗尽的速度，会比俄罗斯的领土走完还快。伊朗也已经证明了这一点。”
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260418-8914543"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">中国监管部门就“幽灵外卖”案对七家主要电商平台开出巨额罚单，其中拼多多以15.22亿元（人民币，下同，2.85亿新元）的罚没金额高居榜首，更被指暴力抗法。
+中国市场监管总局星期五（4月17日）对中国七大电商平台开出35.97亿元罚单，责令平台改正违法行为。其中拼多多（上海寻梦信息技术有限公司）以15.22亿元的罚没金额高居榜首。
+中国媒体称，这创下中国互联网平台经济领域史上最高罚单纪录。
+据21世纪经济报道，中国市场监管总局对拼多多处罚决定书中还特别指出，在调查拼多多的过程中，市场监管总局多次出具《限期提供材料通知书》《责令改正通知书》，但是“当事人多次出现无正当理由拒绝提供有关材料、信息，或提供虚假材料、信息等行为，甚至采用暴力、软对抗等手段阻碍监管执法”。
+另据新华社报道，市场监管总局查办“幽灵外卖”案的过程并不轻松。报道称，有的平台以“系统升级”“数据涉密”为由，故意拖延、拒不配合；有的平台提供碎片化、乱码数据，企图掩盖事实；更有甚者，直接暴力抗法——拼多多专案组的一名执法人员，因企业员工故意关门，导致左手食指骨折及右脚脚踝软组织挫伤。
+据财新网报道，这种暴力与软对抗的行为，在七家同案平台中仅拼多多一家出现。此前还有媒体报道称，2025年12月3日，市场监管总局接获拼多多虚假发货举报后，到公司上海总部调查，过程中拼多多数名员工与执法人员“产生肢体冲突”。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/3f6376da049f2c9dfaf6bb6ef17b6b05c79a883ea9c9138faa71f51649efe02d"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-18"
+                      datetime="2026-04-18T08:50:04.325Z"
+                    >2026-04-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    拼多多被指用暴力、软对抗阻碍监管执法罚款15.2亿人民币
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国监管部门就“幽灵外卖”案对七家主要电商平台开出巨额罚单，其中拼多多以15.22亿元（人民币，下同，2.85亿新元）的罚没金额高居榜首，更被指暴力抗法。
+中国市场监管总局星期五（4月17日）对中国七大电商平台开出35.97亿元罚单，责令平台改正违法行为。其中拼多多（上海寻梦信息技术有限公司）以15.22亿元的罚没金额高居榜首。
+中国媒体称，这创下中国互联网平台经济领域史上最高罚单纪录。
+据21世纪经济报道，中国市场监管总局对拼多多处罚决定书中还特别指出，在调查拼多多的过程中，市场监管总局多次出具《限期提供材料通知书》《责令改正通知书》，但是“当事人多次出现无正当理由拒绝提供有关材料、信息，或提供虚假材料、信息等行为，甚至采用暴力、软对抗等手段阻碍监管执法”。
+另据新华社报道，市场监管总局查办“幽灵外卖”案的过程并不轻松。报道称，有的平台以“系统升级”“数据涉密”为由，故意拖延、拒不配合；有的平台提供碎片化、乱码数据，企图掩盖事实；更有甚者，直接暴力抗法——拼多多专案组的一名执法人员，因企业员工故意关门，导致左手食指骨折及右脚脚踝软组织挫伤。
+据财新网报道，这种暴力与软对抗的行为，在七家同案平台中仅拼多多一家出现。此前还有媒体报道称，2025年12月3日，市场监管总局接获拼多多虚假发货举报后，到公司上海总部调查，过程中拼多多数名员工与执法人员“产生肢体冲突”。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260418-8914636"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">中国指一家新西兰军机抵近中国周边空域侦察滋扰后，新西兰军方为军机现身中国附近辩护称，军机是根据联合国安理会决议，在“北亚海域执行监视朝鲜规避制裁行为活动”。
+新西兰国防军星期六（4月18日）在官网新闻稿中说，新西兰自2018年起便参与联合国制裁监督工作，并强调：“这些活动并非针对中国，而且目的是要监督朝鲜规避联合国制裁的行为，而这些活动就发生在黄海和东海。”
+新西兰国防军称，国防军人员以专业的态度进行操作，并遵守国际法和地区民用航空程序。国防军已审查了飞行路线和所有可用信息。“我们并没有可显示他们干扰了民用航空的数据。”
+国防军强调，新西兰针对这些行动的做法是公开透明的，为此新西兰和中国两国官员进行了对话，“我们已明确表示，这是一项长期部署，以执行联合国针对对朝鲜授权的制裁措施”。
+中国外交部星期五（17日）指新西兰空军一架P－8A反潜巡逻机持续在黄海、东海海空域抵近侦察滋扰，损害中国安全利益，增加误解误判风险，也对相关空域民航飞行秩序造成严重干扰。
+延伸阅读
+
+              北京指新西兰军机多次抵近中国周边侦察滋扰
+            
+中国外交部发言人郭嘉昆在例行记者会上说，中国已作出坚决有力应对，并向新西兰提出严正交涉。“中方敦促新方切实遵守国际法和国际关系基本准则，尊重中国主权和安全关切，维护民用航空安全和秩序。”</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/682de40a67e800f6996821f92c4442c2496ebea5e4c549d695505203687dfb44"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-18"
+                      datetime="2026-04-18T08:50:04.314Z"
+                    >2026-04-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    新西兰军方为军机现身中国附近辩护
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国指一家新西兰军机抵近中国周边空域侦察滋扰后，新西兰军方为军机现身中国附近辩护称，军机是根据联合国安理会决议，在“北亚海域执行监视朝鲜规避制裁行为活动”。
+新西兰国防军星期六（4月18日）在官网新闻稿中说，新西兰自2018年起便参与联合国制裁监督工作，并强调：“这些活动并非针对中国，而且目的是要监督朝鲜规避联合国制裁的行为，而这些活动就发生在黄海和东海。”
+新西兰国防军称，国防军人员以专业的态度进行操作，并遵守国际法和地区民用航空程序。国防军已审查了飞行路线和所有可用信息。“我们并没有可显示他们干扰了民用航空的数据。”
+国防军强调，新西兰针对这些行动的做法是公开透明的，为此新西兰和中国两国官员进行了对话，“我们已明确表示，这是一项长期部署，以执行联合国针对对朝鲜授权的制裁措施”。
+中国外交部星期五（17日）指新西兰空军一架P－8A反潜巡逻机持续在黄海、东海海空域抵近侦察滋扰，损害中国安全利益，增加误解误判风险，也对相关空域民航飞行秩序造成严重干扰。
+延伸阅读
+
+              北京指新西兰军机多次抵近中国周边侦察滋扰
+            
+中国外交部发言人郭嘉昆在例行记者会上说，中国已作出坚决有力应对，并向新西兰提出严正交涉。“中方敦促新方切实遵守国际法和国际关系基本准则，尊重中国主权和安全关切，维护民用航空安全和秩序。”
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260418-8914715"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">中国财政部长蓝佛安在世界银行的会议上表示，中国将继续发挥全球增长主要引擎作用，大力扩大内需、提振消费，进一步释放中国超大规模市场活力潜力，与世界共享中国发展的机遇和红利。
+据财政部网站星期六（4月18日）发布的消息，世界银行本周四（16日）在美国华盛顿举行发展委员会第113次会议，审议通过了《创造有利环境，促进就业增加与收入提升》报告、《2025年股权审议理事报告》。
+中国财政部部长、世行中国理事蓝佛安与会并发言，中国财政部副部长、世行中国副理事廖岷陪同参会。
+蓝佛安表示，当前全球经济复苏乏力，地缘冲突不断升级，中方希望世行践行多边主义，为维护好现行国际秩序贡献正能量。
+同时，希望世行推动股权改革取得实质性进展，进一步提高发展中国家话语权和代表性，维护好机构自身合法性和公信力。
+蓝佛安也强调，作为全球第二大经济体和最大的发展中国家，近年来中国对全球经济增长贡献率稳定在30%左右，为全球发展作出积极贡献。
+他表示，中国将继续发挥全球增长主要引擎作用，大力扩大内需、提振消费，进一步释放中国超大规模市场活力潜力，与世界共享中国发展的机遇和红利。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://www.zaobao.com.sg/_web2/assets/social-share.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-18"
+                      datetime="2026-04-18T08:50:04.297Z"
+                    >2026-04-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    蓝佛安：中国将继续发挥全球增长主要引擎作用
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国财政部长蓝佛安在世界银行的会议上表示，中国将继续发挥全球增长主要引擎作用，大力扩大内需、提振消费，进一步释放中国超大规模市场活力潜力，与世界共享中国发展的机遇和红利。
+据财政部网站星期六（4月18日）发布的消息，世界银行本周四（16日）在美国华盛顿举行发展委员会第113次会议，审议通过了《创造有利环境，促进就业增加与收入提升》报告、《2025年股权审议理事报告》。
+中国财政部部长、世行中国理事蓝佛安与会并发言，中国财政部副部长、世行中国副理事廖岷陪同参会。
+蓝佛安表示，当前全球经济复苏乏力，地缘冲突不断升级，中方希望世行践行多边主义，为维护好现行国际秩序贡献正能量。
+同时，希望世行推动股权改革取得实质性进展，进一步提高发展中国家话语权和代表性，维护好机构自身合法性和公信力。
+蓝佛安也强调，作为全球第二大经济体和最大的发展中国家，近年来中国对全球经济增长贡献率稳定在30%左右，为全球发展作出积极贡献。
+他表示，中国将继续发挥全球增长主要引擎作用，大力扩大内需、提振消费，进一步释放中国超大规模市场活力潜力，与世界共享中国发展的机遇和红利。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260418-8914525"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">中东战局扰乱传统能源供应之际，中国清洁能源和技术产品出口在3月份显著增长，进一步印证了制造商正受益于全球对替代能源需求上升的趋势。
+据彭博社报道，最显著的增长来自锂离子电池和电动车的出口。中国海关总署发布的数据显示，这两类产品分别同比增长34%和53%。太阳能电池上月也录得80%的增长。这三类产品的出口较2月份也有所上升。
+这是自美国和以色列七周前对伊朗发动袭击以来，中国清洁技术出口的首个全面数据。中东的冲突实际上导致霍尔木兹海峡关闭，并引发全球能源危机，不仅加剧了依赖燃料进口国家的能源安全问题，也促使消费者和工业领域寻找替代方案。
+总部在伦敦的独立能源智库Ember高级分析师尤安·格雷厄姆（Euan Graham）表示：“这只是开始，高能源价格的连锁效应将在未来数月持续显现。对消费者而言，清洁技术是摆脱燃料成本飙升的出路；对各国来说，则是减少对化石燃料依赖的长期路径。中国具备满足这一不断增长需求的有利条件。”
+报道称，尽管伊朗星期五（4月17日）表示已重新开放霍尔木兹海峡，但即使达成和平协议，航运恢复至正常水平仍可能需要数月时间。
+而中国在太阳能和风能、电池以及电动车等领域已主导全球供应链，将迎来进一步扩大影响力的新机遇。多年来以牺牲盈利能力为代价的产能建设，使中国制造商能够快速且具竞争力地拓展海外市场，使绿色产品成为出口的新增长引擎。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/8be0742bef92513ab39de7bd4124ad4e10fdef22c1040062ee044b2a734b7788"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-18"
+                      datetime="2026-04-18T08:50:04.281Z"
+                    >2026-04-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国清洁能源和技术出口在全球动荡中激增
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中东战局扰乱传统能源供应之际，中国清洁能源和技术产品出口在3月份显著增长，进一步印证了制造商正受益于全球对替代能源需求上升的趋势。
+据彭博社报道，最显著的增长来自锂离子电池和电动车的出口。中国海关总署发布的数据显示，这两类产品分别同比增长34%和53%。太阳能电池上月也录得80%的增长。这三类产品的出口较2月份也有所上升。
+这是自美国和以色列七周前对伊朗发动袭击以来，中国清洁技术出口的首个全面数据。中东的冲突实际上导致霍尔木兹海峡关闭，并引发全球能源危机，不仅加剧了依赖燃料进口国家的能源安全问题，也促使消费者和工业领域寻找替代方案。
+总部在伦敦的独立能源智库Ember高级分析师尤安·格雷厄姆（Euan Graham）表示：“这只是开始，高能源价格的连锁效应将在未来数月持续显现。对消费者而言，清洁技术是摆脱燃料成本飙升的出路；对各国来说，则是减少对化石燃料依赖的长期路径。中国具备满足这一不断增长需求的有利条件。”
+报道称，尽管伊朗星期五（4月17日）表示已重新开放霍尔木兹海峡，但即使达成和平协议，航运恢复至正常水平仍可能需要数月时间。
+而中国在太阳能和风能、电池以及电动车等领域已主导全球供应链，将迎来进一步扩大影响力的新机遇。多年来以牺牲盈利能力为代价的产能建设，使中国制造商能够快速且具竞争力地拓展海外市场，使绿色产品成为出口的新增长引擎。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260418-8914554"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">日本官方公布的数据显示，日本自卫队战机去年升空应对中国军机次数同比减少近百次。
+综合日本共同社和日本放送协会报道，日本防卫省统合幕僚监部星期五（4月17日）公布的统计数据显示，日本自卫队战机2025年针对可能侵犯领空的外国飞机紧急升空595次，较上一年度减少109次，为14年来最少次数。日本自卫队战机2012年紧急升空次数为567次。
+数据指出，根据国家和地区来看，包括推定结果在内，日本自卫队战机去年针对中国军机紧急升空366次，约占总数六成，较上一年度减少98次；针对俄罗斯军机则有214次，较上一年度减少23次，两项数据占总数97%。
+日本防卫省最高将官、统合幕僚长内仓浩昭星期五在例行记者会上称，“升空次数维持在较高水平，紧急升空次数减少的原因正在分析中”，并补充称：“我们将继续尽一切努力，对侵犯领空的行为采取严厉措施。”
+据防卫省介绍，2025年5月，一架直升机在进入日本领海的中国海警船上起飞，飞越了冲绳县尖阁诸岛（中国称钓鱼岛）附近的日本领空。
+防卫省还提及紧急升空中的特殊情况，包括中国海军航母辽宁舰上起飞的战机对自卫队战机实施断续的激光照射、中俄轰炸机在东海至日本四国附近的太平洋之间实施长途飞行等。两起事件在去年12月发生，防卫省均在事后立即公布消息。
+在日本四支航空自卫队中，紧急升空次数最多的是，负责应对包括尖阁诸岛空域在内的南西航空自卫队，达348次，与近年趋势一致。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://www.zaobao.com.sg/_web2/assets/social-share.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-18"
+                      datetime="2026-04-18T08:50:04.269Z"
+                    >2026-04-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    日自卫队战机去年升空应对中国军机次数同比减少近百次
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    日本官方公布的数据显示，日本自卫队战机去年升空应对中国军机次数同比减少近百次。
+综合日本共同社和日本放送协会报道，日本防卫省统合幕僚监部星期五（4月17日）公布的统计数据显示，日本自卫队战机2025年针对可能侵犯领空的外国飞机紧急升空595次，较上一年度减少109次，为14年来最少次数。日本自卫队战机2012年紧急升空次数为567次。
+数据指出，根据国家和地区来看，包括推定结果在内，日本自卫队战机去年针对中国军机紧急升空366次，约占总数六成，较上一年度减少98次；针对俄罗斯军机则有214次，较上一年度减少23次，两项数据占总数97%。
+日本防卫省最高将官、统合幕僚长内仓浩昭星期五在例行记者会上称，“升空次数维持在较高水平，紧急升空次数减少的原因正在分析中”，并补充称：“我们将继续尽一切努力，对侵犯领空的行为采取严厉措施。”
+据防卫省介绍，2025年5月，一架直升机在进入日本领海的中国海警船上起飞，飞越了冲绳县尖阁诸岛（中国称钓鱼岛）附近的日本领空。
+防卫省还提及紧急升空中的特殊情况，包括中国海军航母辽宁舰上起飞的战机对自卫队战机实施断续的激光照射、中俄轰炸机在东海至日本四国附近的太平洋之间实施长途飞行等。两起事件在去年12月发生，防卫省均在事后立即公布消息。
+在日本四支航空自卫队中，紧急升空次数最多的是，负责应对包括尖阁诸岛空域在内的南西航空自卫队，达348次，与近年趋势一致。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260418-8914776"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">中国已批准从罗马尼亚进口乳制品。
+中国海关总署星期四（4月16日）公告显示，自发布公告之日起，允许符合检验检疫要求的罗马尼亚乳品进口，包括原产于罗马尼亚，用牛乳、绵羊乳和山羊乳为主要原料加工而成、符合中国食品安全国家标准的各类乳及乳制食品。
+公告声明，输华乳品生产企业须经罗方批准或注册，在官方监督之下于罗马尼亚生产，且符合中国和罗马尼亚有关动物卫生和公共卫生的要求；向中国出口乳品的生产企业应当在中国注册，未获得注册的企业生产的产品不得向中国出口。
+据中国农村农业部消息，中国和罗马尼亚于3月17日签署了农业合作备忘录，旨在扩大农产品贸易。
+中国乳业协会预测，到2024年，中国乳制品企业营收规模将达到约710亿美元（901亿8400万新元）。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://www.zaobao.com.sg/_web2/assets/social-share.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-18"
+                      datetime="2026-04-18T08:50:04.200Z"
+                    >2026-04-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国向罗马尼亚开放710亿美元乳制品市场
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国已批准从罗马尼亚进口乳制品。
+中国海关总署星期四（4月16日）公告显示，自发布公告之日起，允许符合检验检疫要求的罗马尼亚乳品进口，包括原产于罗马尼亚，用牛乳、绵羊乳和山羊乳为主要原料加工而成、符合中国食品安全国家标准的各类乳及乳制食品。
+公告声明，输华乳品生产企业须经罗方批准或注册，在官方监督之下于罗马尼亚生产，且符合中国和罗马尼亚有关动物卫生和公共卫生的要求；向中国出口乳品的生产企业应当在中国注册，未获得注册的企业生产的产品不得向中国出口。
+据中国农村农业部消息，中国和罗马尼亚于3月17日签署了农业合作备忘录，旨在扩大农产品贸易。
+中国乳业协会预测，到2024年，中国乳制品企业营收规模将达到约710亿美元（901亿8400万新元）。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260418-8914785"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">中国上海一名女子因举报虐猫群聊，反遭恶意“开盒”人肉，不仅自己和家人身份证号被曝光，自己的照片也被制作成涉黄信息传播。
+据新民晚报、大象新闻报道，去年12月以來，中国多个动物友好交流群发生“炸群事件”，群内忽然涌入不明人士，大量传播虐猫视频。多名志愿者1月到各地派出所报案，其中上海一林姓女士于1月4日向上海警方报案。
+据报道，林姓女士主动向警方举报虐猫行为后，相关人士因扰乱公共秩序或网络寻衅滋事受到了行政处罚，但她本人遭遇了恶意“开盒”，自己及父母、外公外婆的身份证号、手机号、家庭住址等户籍信息均被非法曝光，还有人将她的照片恶意制作成涉黄信息传播。
+她也不断接到骚扰电话，有人打电话到单位造谣她卖淫，家人的住址附近有陌生人拍照徘徊。目前，她已向海口、上海两地派出所报案，但派出所工作人员称，案件进展不方便透露。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://www.zaobao.com.sg/_web2/assets/social-share.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-18"
+                      datetime="2026-04-18T08:50:04.191Z"
+                    >2026-04-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    上海女子举报虐猫群聊 遭开盒、造黄谣
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国上海一名女子因举报虐猫群聊，反遭恶意“开盒”人肉，不仅自己和家人身份证号被曝光，自己的照片也被制作成涉黄信息传播。
+据新民晚报、大象新闻报道，去年12月以來，中国多个动物友好交流群发生“炸群事件”，群内忽然涌入不明人士，大量传播虐猫视频。多名志愿者1月到各地派出所报案，其中上海一林姓女士于1月4日向上海警方报案。
+据报道，林姓女士主动向警方举报虐猫行为后，相关人士因扰乱公共秩序或网络寻衅滋事受到了行政处罚，但她本人遭遇了恶意“开盒”，自己及父母、外公外婆的身份证号、手机号、家庭住址等户籍信息均被非法曝光，还有人将她的照片恶意制作成涉黄信息传播。
+她也不断接到骚扰电话，有人打电话到单位造谣她卖淫，家人的住址附近有陌生人拍照徘徊。目前，她已向海口、上海两地派出所报案，但派出所工作人员称，案件进展不方便透露。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260418-8914861"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">关于下星期举行的靖国神社春季例行祭祀，日本官员星期五（4月17日）说，首相高市早苗是否前往参拜，将由她本人做出妥当的判断。
+据日本放送协会报道，靖国神社将从下星期二（21日）起举行为期三天的春季例行祭祀。
+有记者在星期五举行的记者会上问道，高市是否有意并有计划在春季例行祭祀期间前往靖国神社参拜，木原做出上述回应。木原也就他本人是否前往参拜一事说，也将同样做出妥当的判断。
+高市在担任首相之前，包括其担任阁僚的时间在内，每年春秋两季的例行祭祀期间以及8月15日都会参拜靖国神社。
+不过，在高市当选自民党总裁不久之后、就任首相之前，她并没有在2025年10月举行的靖国神社秋季例行祭祀期间进行参拜。
+日本时事通讯社则引述消息人士报道，高市早苗正考虑是否放弃在春季例行祭祀期间，到靖国神社参拜。
+时事通讯社也报道，高市早苗可能考虑到“台湾有事”言论在中国引起越来越大的反弹，以及通过“穿梭外交”、即日韩领导人互访，来改善与韩国之间的关系。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/3ccb165d67e4caebe2750fed52c4f05691e4cc95406cb68c5dc2504674e6378f"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-18"
+                      datetime="2026-04-18T08:50:04.174Z"
+                    >2026-04-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    高市下周是否赴靖国神社参拜？日官员：由她本人做判断
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    关于下星期举行的靖国神社春季例行祭祀，日本官员星期五（4月17日）说，首相高市早苗是否前往参拜，将由她本人做出妥当的判断。
+据日本放送协会报道，靖国神社将从下星期二（21日）起举行为期三天的春季例行祭祀。
+有记者在星期五举行的记者会上问道，高市是否有意并有计划在春季例行祭祀期间前往靖国神社参拜，木原做出上述回应。木原也就他本人是否前往参拜一事说，也将同样做出妥当的判断。
+高市在担任首相之前，包括其担任阁僚的时间在内，每年春秋两季的例行祭祀期间以及8月15日都会参拜靖国神社。
+不过，在高市当选自民党总裁不久之后、就任首相之前，她并没有在2025年10月举行的靖国神社秋季例行祭祀期间进行参拜。
+日本时事通讯社则引述消息人士报道，高市早苗正考虑是否放弃在春季例行祭祀期间，到靖国神社参拜。
+时事通讯社也报道，高市早苗可能考虑到“台湾有事”言论在中国引起越来越大的反弹，以及通过“穿梭外交”、即日韩领导人互访，来改善与韩国之间的关系。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260418-8914967"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">中国电动汽车巨企比亚迪寻求成为欧洲汽车工业协会的首个中国会员。
+欧洲汽车工业协会（ACEA）发言人星期五（4月17日）向彭博社证实，比亚迪申请加入ACEA，但协会尚未就接受比亚迪成为会员作出决定。
+如果成功入会，比亚迪将成为首个加入ACEA的中国汽车制造商。ACEA官网信息显示，总部位于比利时布鲁塞尔的ACEA拥有17个会员，大部分来自欧洲，部分欧洲以外的会员包括美国福特汽车和日本本田汽车。
+在与大众汽车、斯特兰蒂斯等欧洲车企竞争加剧的背景下，加入ACEA将有助于提升比亚迪在欧洲的影响力。在中国本土价格战持续的情况下，比亚迪仍在欧洲市场取得进展，并在一定程度上缓解了欧盟关税所带来的压力。
+比亚迪在匈牙利兴建造车厂，为欧洲首创，计划在本季度开始量产。此举将有助比亚迪规避欧盟对中国制造汽车额外征收的关税。
+报道引述知情者称，部分ACEA现有会员反对比亚迪入会。ACEA发言人说，成为会员意味着必须长期在欧洲造车，与协会建立起“功能关系”（functional relationship）。
+ACEA会员之间就比亚迪入会所存在的分歧，与欧洲应对中国车企崛起的态度雷同。德国政府反对向中国车企征收关税，显示德国汽车行业对中国市场的依赖。法国和欧盟委员会官员则采取保护主义立场，辩称北京支持中国车企，制造不公平的竞争环境。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/2925f4bfb6cb84e593c1840a480ce12488cffab8dd58aec2108d41c559c78f47"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-18"
+                      datetime="2026-04-18T08:50:04.155Z"
+                    >2026-04-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    比亚迪寻求成为欧洲汽车工业协会首个中国会员
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国电动汽车巨企比亚迪寻求成为欧洲汽车工业协会的首个中国会员。
+欧洲汽车工业协会（ACEA）发言人星期五（4月17日）向彭博社证实，比亚迪申请加入ACEA，但协会尚未就接受比亚迪成为会员作出决定。
+如果成功入会，比亚迪将成为首个加入ACEA的中国汽车制造商。ACEA官网信息显示，总部位于比利时布鲁塞尔的ACEA拥有17个会员，大部分来自欧洲，部分欧洲以外的会员包括美国福特汽车和日本本田汽车。
+在与大众汽车、斯特兰蒂斯等欧洲车企竞争加剧的背景下，加入ACEA将有助于提升比亚迪在欧洲的影响力。在中国本土价格战持续的情况下，比亚迪仍在欧洲市场取得进展，并在一定程度上缓解了欧盟关税所带来的压力。
+比亚迪在匈牙利兴建造车厂，为欧洲首创，计划在本季度开始量产。此举将有助比亚迪规避欧盟对中国制造汽车额外征收的关税。
+报道引述知情者称，部分ACEA现有会员反对比亚迪入会。ACEA发言人说，成为会员意味着必须长期在欧洲造车，与协会建立起“功能关系”（functional relationship）。
+ACEA会员之间就比亚迪入会所存在的分歧，与欧洲应对中国车企崛起的态度雷同。德国政府反对向中国车企征收关税，显示德国汽车行业对中国市场的依赖。法国和欧盟委员会官员则采取保护主义立场，辩称北京支持中国车企，制造不公平的竞争环境。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260418-8914930"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">中国解放军东部战区在东海相关海空域，组织海空兵力开展联合战备巡航。
+据“东部战区”发布，东部战区新闻发言人徐承华陆军大校公布，星期六（4月18日）中国人民解放军东部战区在东海相关海空域，组织海空兵力开展联合战备巡航，这是年度计划内的正常安排，旨在检验部队联合作战能力。战区部队将根据安全形势需要，常态组织有关军事行动，维护国家主权安全和地区和平稳定。
+前一天，一艘日本自卫队舰艇星期五（4月17日）进入台湾海峡。中国外交部发言人郭嘉昆当天在例行记者会应询时说，日本自卫队舰艇进入台湾海峡活动，中国军队已依法依规处置。日本首相高市早苗发表涉台言论，已经给中日关系带来严重冲击。
+徐承华星期五表示，4月17日凌晨4时02分至傍晚5时50分，日本“雷”号驱逐舰过航台湾海峡，向“台独”分裂势力传递错误信号，解放军东部战区组织海空兵力全程跟监警戒，实施有效规制管控。战区部队时刻保持高度戒备，坚决捍卫国家主权安全和地区和平稳定。
+中国央视新媒体号“玉渊谭天”星期六也公开了日本“雷”号驱逐舰过航台湾海峡，东部战区全程跟监警戒的无人机拍摄画面。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/34e177ba69dd473f9eb65ac4190bdc86ef0ffbec072155329c5ccdc7e5211729"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-18"
+                      datetime="2026-04-18T08:50:03.900Z"
+                    >2026-04-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    解放军东部战区在东海空域战备巡航
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国解放军东部战区在东海相关海空域，组织海空兵力开展联合战备巡航。
+据“东部战区”发布，东部战区新闻发言人徐承华陆军大校公布，星期六（4月18日）中国人民解放军东部战区在东海相关海空域，组织海空兵力开展联合战备巡航，这是年度计划内的正常安排，旨在检验部队联合作战能力。战区部队将根据安全形势需要，常态组织有关军事行动，维护国家主权安全和地区和平稳定。
+前一天，一艘日本自卫队舰艇星期五（4月17日）进入台湾海峡。中国外交部发言人郭嘉昆当天在例行记者会应询时说，日本自卫队舰艇进入台湾海峡活动，中国军队已依法依规处置。日本首相高市早苗发表涉台言论，已经给中日关系带来严重冲击。
+徐承华星期五表示，4月17日凌晨4时02分至傍晚5时50分，日本“雷”号驱逐舰过航台湾海峡，向“台独”分裂势力传递错误信号，解放军东部战区组织海空兵力全程跟监警戒，实施有效规制管控。战区部队时刻保持高度戒备，坚决捍卫国家主权安全和地区和平稳定。
+中国央视新媒体号“玉渊谭天”星期六也公开了日本“雷”号驱逐舰过航台湾海峡，东部战区全程跟监警戒的无人机拍摄画面。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260418-8915009"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">对于昨晚疑被喷辣椒水，台湾在野的民众党前主席柯文哲星期六（4月18日）称“眼睛还在流泪”，他认为台湾社会对立情绪升高，希望社会和谐、政党和解，呼吁各界保持理性与克制。
+综合台湾ETtoday新闻云、TVBS及联合报报道，柯文哲星期五（17日）晚间陪同市议员参选人刘芩妤到台中逢甲夜市扫街拜票，突遭不明人士以辣椒水攻击，至少20人身体不适、不断咳嗽，柯文哲星期六则继续在彰化展开长达17小时的助选行程。
+柯文哲星期六受访还原当时情况说，他自己走路很快，觉得味道怪怪的就赶快憋气走过去，其他人没防备就咳得一塌糊涂。
+他表示，今天虽仍略感不适、“眼睛还在流眼泪”，但不影响助选行程。他一早前往和美市场，陪同议员候选人苏智弦扫街拜票，不过又有民众举牌呛声。
+柯文哲说，台湾社会近年对立情绪升高，一旦被激化就难以转弯，强调“社会和谐、政党和解”是他和民众党的一贯主张，呼吁各界保持理性与克制，不要刻意制造冲突。
+台中市长卢秀燕星期六上午出席活动时针对事件公开回应，称已要求警方全力追查，绝对不容许任何暴力行为，挑战台中的法治与治安。
+她进一步强调，台中是崇尚民主与法治的城市，无论任何人的政治立场为何，其人身安全都不应受到侵害。
+据报道，警方获报后已调阅现场周边监视器画面，目前正在比对可疑人物。初步调查显示，嫌犯疑似趁乱下手后迅速逃离现场，动机仍有待进一步厘清。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://www.zaobao.com.sg/_web2/assets/social-share.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-18"
+                      datetime="2026-04-18T08:50:03.882Z"
+                    >2026-04-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    被喷辣椒水 柯文哲吁社会和谐政党和解
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    对于昨晚疑被喷辣椒水，台湾在野的民众党前主席柯文哲星期六（4月18日）称“眼睛还在流泪”，他认为台湾社会对立情绪升高，希望社会和谐、政党和解，呼吁各界保持理性与克制。
+综合台湾ETtoday新闻云、TVBS及联合报报道，柯文哲星期五（17日）晚间陪同市议员参选人刘芩妤到台中逢甲夜市扫街拜票，突遭不明人士以辣椒水攻击，至少20人身体不适、不断咳嗽，柯文哲星期六则继续在彰化展开长达17小时的助选行程。
+柯文哲星期六受访还原当时情况说，他自己走路很快，觉得味道怪怪的就赶快憋气走过去，其他人没防备就咳得一塌糊涂。
+他表示，今天虽仍略感不适、“眼睛还在流眼泪”，但不影响助选行程。他一早前往和美市场，陪同议员候选人苏智弦扫街拜票，不过又有民众举牌呛声。
+柯文哲说，台湾社会近年对立情绪升高，一旦被激化就难以转弯，强调“社会和谐、政党和解”是他和民众党的一贯主张，呼吁各界保持理性与克制，不要刻意制造冲突。
+台中市长卢秀燕星期六上午出席活动时针对事件公开回应，称已要求警方全力追查，绝对不容许任何暴力行为，挑战台中的法治与治安。
+她进一步强调，台中是崇尚民主与法治的城市，无论任何人的政治立场为何，其人身安全都不应受到侵害。
+据报道，警方获报后已调阅现场周边监视器画面，目前正在比对可疑人物。初步调查显示，嫌犯疑似趁乱下手后迅速逃离现场，动机仍有待进一步厘清。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260418-8914968"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">欧洲汽车巨企斯特兰蒂斯集团（Stellantis NV）据报与中国东风汽车商讨在欧洲和中国联合造车。
+彭博社星期四（4月16日）引述知情人士称，斯特兰蒂斯正与东风汽车就允许东风在斯特兰蒂斯于欧洲使用率不足的工厂造车开展磋商。东风汽车预计也将在中国制造部分斯特兰蒂斯品牌车型。
+知情者透露，东风汽车代表近期到斯特兰蒂斯在德国和意大利的工厂参访。两家公司的商讨将可能涉及在较迟时候收购或投资一个或更多的欧洲工厂。
+在应对大众汽车和比亚迪竞争加剧和需求不均的背景下，斯特兰蒂斯与东风汽车商讨合作，将有助提振公司业务。
+彭博社上月引述知情人士称，斯特兰蒂斯集团高管已与小米集团和小鹏汽车管理层会面，商讨对斯特兰蒂斯欧洲业务进行整改的各种方案，包括收购斯特兰蒂斯旗下玛莎拉蒂或其他品牌的股份。
+斯特兰蒂斯在声明中说，“斯特兰蒂斯与多家同行就世界不同议题进行磋商，属于正常业务范畴，目的是为消费者提供最佳的出行选择。”
+东风汽车说，“东风与斯特兰蒂斯的合作基础坚实，双方未来将持续强化互补优势”。法国《回声报》报道，东风汽车代表本周在武汉一场活动上称，中国将为斯特兰蒂斯提供巨大的成长和合作机会。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/aa868b828a11943dfec6a7803dd372aa0e65bd3a7f0523e420ecda6924ea04ad"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-18"
+                      datetime="2026-04-18T08:50:03.863Z"
+                    >2026-04-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    斯特兰蒂斯据报与东风汽车磋商在欧洲和中国联合造车
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    欧洲汽车巨企斯特兰蒂斯集团（Stellantis NV）据报与中国东风汽车商讨在欧洲和中国联合造车。
+彭博社星期四（4月16日）引述知情人士称，斯特兰蒂斯正与东风汽车就允许东风在斯特兰蒂斯于欧洲使用率不足的工厂造车开展磋商。东风汽车预计也将在中国制造部分斯特兰蒂斯品牌车型。
+知情者透露，东风汽车代表近期到斯特兰蒂斯在德国和意大利的工厂参访。两家公司的商讨将可能涉及在较迟时候收购或投资一个或更多的欧洲工厂。
+在应对大众汽车和比亚迪竞争加剧和需求不均的背景下，斯特兰蒂斯与东风汽车商讨合作，将有助提振公司业务。
+彭博社上月引述知情人士称，斯特兰蒂斯集团高管已与小米集团和小鹏汽车管理层会面，商讨对斯特兰蒂斯欧洲业务进行整改的各种方案，包括收购斯特兰蒂斯旗下玛莎拉蒂或其他品牌的股份。
+斯特兰蒂斯在声明中说，“斯特兰蒂斯与多家同行就世界不同议题进行磋商，属于正常业务范畴，目的是为消费者提供最佳的出行选择。”
+东风汽车说，“东风与斯特兰蒂斯的合作基础坚实，双方未来将持续强化互补优势”。法国《回声报》报道，东风汽车代表本周在武汉一场活动上称，中国将为斯特兰蒂斯提供巨大的成长和合作机会。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260418-8915076"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">中国二手交易平台出现收购废旧CT片、X光片等医用胶片的信息，声称用来提炼白银。专家提醒，非法炼银可能污染环境，危害健康。
+中国央视新闻报道，记者在北京走访发现，小区门口、医院周边出现一些医用胶片回收摊贩，开价1到2元（人民币，约0.19-0.37新元）回收一张CT片。有回收摊贩称，“我们给人收，他说是二次利用，有的还说能提炼银”。
+报道称，在社交平台和二手交易平台搜索，发现不少医疗胶片收购的内容，大多打着“高价上门回收”的旗号，有的还标注“绿色回收”“环保心意”。回收商们用行话将不同银含量的胶片分为“灰片”“蓝片”“绿片”三种，不同类型胶片价格不同。
+对于医用胶片回收后如何处理，有回收商称，他们将自行焚烧，提炼白银。短视频平台上也有不少博主发布过“CT片炼银”的详细教程，声称“在家就能提炼”。
+广东省环境保护产业协会固体废物分处秘书长林仰璇说，早期的CT片可能含银，上面涂有一层卤化银，以溴化银为主。如果拿去显影、定影之后，留在胶片上的就少了，数据显示在0.75%左右。
+但“土法炼银”隐藏着巨大环保风险，与回收商口中所谓的“绿色回收”完全背道而驰。
+根据《国家危险废物名录》，废CT胶片及废显定影剂被明确列为HW16类感光材料废物。《中华人民共和国固体废物污染环境防治法》明确规定，收集、贮存、利用、处置危险废物必须取得许可证，禁止无资质单位或个人擅自经营。
+至于旧医疗胶片应如何处理，林仰璇表示，胶片的基材是PET塑料且含溴，在缺少专用设备和环保措施的情况下，直接焚烧会造成严重大气污染，还可能会对个人健康产生严重危害。
+报道指出，如今新一代医用干式热敏胶片已逐渐成为主流，它不含银盐，不仅环保，而且成像即打即取，非常方便。也有很多医院推行数字影像服务，也就是“云胶片”。
+对于普通市民家中废弃的医用胶片，林仰璇提醒，最安全、便捷的处理方式，就是遵循垃圾分类原则，扔到“有害垃圾”一类。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://www.zaobao.com.sg/_web2/assets/social-share.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-18"
+                      datetime="2026-04-18T08:50:03.841Z"
+                    >2026-04-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    废旧Ct片回收炼银？专家提醒：污染环境危害健康
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国二手交易平台出现收购废旧CT片、X光片等医用胶片的信息，声称用来提炼白银。专家提醒，非法炼银可能污染环境，危害健康。
+中国央视新闻报道，记者在北京走访发现，小区门口、医院周边出现一些医用胶片回收摊贩，开价1到2元（人民币，约0.19-0.37新元）回收一张CT片。有回收摊贩称，“我们给人收，他说是二次利用，有的还说能提炼银”。
+报道称，在社交平台和二手交易平台搜索，发现不少医疗胶片收购的内容，大多打着“高价上门回收”的旗号，有的还标注“绿色回收”“环保心意”。回收商们用行话将不同银含量的胶片分为“灰片”“蓝片”“绿片”三种，不同类型胶片价格不同。
+对于医用胶片回收后如何处理，有回收商称，他们将自行焚烧，提炼白银。短视频平台上也有不少博主发布过“CT片炼银”的详细教程，声称“在家就能提炼”。
+广东省环境保护产业协会固体废物分处秘书长林仰璇说，早期的CT片可能含银，上面涂有一层卤化银，以溴化银为主。如果拿去显影、定影之后，留在胶片上的就少了，数据显示在0.75%左右。
+但“土法炼银”隐藏着巨大环保风险，与回收商口中所谓的“绿色回收”完全背道而驰。
+根据《国家危险废物名录》，废CT胶片及废显定影剂被明确列为HW16类感光材料废物。《中华人民共和国固体废物污染环境防治法》明确规定，收集、贮存、利用、处置危险废物必须取得许可证，禁止无资质单位或个人擅自经营。
+至于旧医疗胶片应如何处理，林仰璇表示，胶片的基材是PET塑料且含溴，在缺少专用设备和环保措施的情况下，直接焚烧会造成严重大气污染，还可能会对个人健康产生严重危害。
+报道指出，如今新一代医用干式热敏胶片已逐渐成为主流，它不含银盐，不仅环保，而且成像即打即取，非常方便。也有很多医院推行数字影像服务，也就是“云胶片”。
+对于普通市民家中废弃的医用胶片，林仰璇提醒，最安全、便捷的处理方式，就是遵循垃圾分类原则，扔到“有害垃圾”一类。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260418-8914684"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="RT World News"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">Europe should build up its defenses by 2030 to be ready for a war with Russia, Frederik Vansina has said 
+Read Full Article at RT.com</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://mf.b37mrtl.ru/files/2026.04/thumbnail/69e340c02030277e1f6b852a.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">RT World News</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-18"
+                      datetime="2026-04-18T08:33:49.000Z"
+                    >2026-04-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    EU has four years to militarize – Belgian defense chief
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Europe should build up its defenses by 2030 to be ready for a war with Russia, Frederik Vansina has said 
+Read Full Article at RT.com
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.rt.com/news/638627-eu-four-years-war-russia/?utm_source&#x3D;rss&amp;utm_medium&#x3D;rss&amp;utm_campaign&#x3D;RSS"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="南方周末"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">2026-04-18 16:00:00
+
+获取更多RSS：
+https://feedx.net 
+https://feedx.site</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">南方周末</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-18"
+                      datetime="2026-04-18T08:25:06.000Z"
+                    >2026-04-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    万亿级的“地方附加税”来了，又要多交一笔钱？
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    2026-04-18 16:00:00
+
+获取更多RSS：
+https://feedx.net 
+https://feedx.site
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="http://www.infzm.com/contents/319610"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="钛媒体：引领未来商业与生活新知"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">B10既是一把进攻的刀，也是一面防守的盾。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://images.tmtpost.com/uploads/images/zhaopian/nuxtpic/change_logo3/og_image.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">钛媒体：引领未来商业与生活新知</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-18"
+                      datetime="2026-04-18T08:01:10.000Z"
+                    >2026-04-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    哈啰推变速车，被逼到墙角的自救
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    B10既是一把进攻的刀，也是一面防守的盾。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.tmtpost.com/7958263.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="Latest Stories from National Geographic"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">This article was produced by National Geographic Traveller (UK).
+               undefined  undefined                    Away from the town, you’ll find pigs walking freely on the beaches of picturesque fishing villages, waterfalls tumbling through the rainforest and plenty of spots for swimming.   Water activities used to be something only boys did, and household duties were reserved for girls, but that has changed in recent years.                    
+Rainbow Tours offers tailor-made trips to São Tomé and Príncipe. Eight nights from £5,215, including flights and full-board accommodation. 
+      
+Published in the May 2026 issue by National Geographic Traveller (UK).
+To subscribe to National Geographic Traveller (UK) magazine click here. (Available in select countries only).</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://i.natgeofe.com/n/93aa6ac7-0983-4c12-b648-e66ef6878f74/inpics_saotomeprincipe_DSC02707-Enhanced-NR_ukHR_16x9.jpg?w&#x3D;1200"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">Latest Stories from National Geographic</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-18"
+                      datetime="2026-04-18T08:00:00.000Z"
+                    >2026-04-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    A photographer&#x27;s love letter to São Tomé &amp; Príncipe
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    This article was produced by National Geographic Traveller (UK).
+               undefined  undefined                    Away from the town, you’ll find pigs walking freely on the beaches of picturesque fishing villages, waterfalls tumbling through the rainforest and plenty of spots for swimming.   Water activities used to be something only boys did, and household duties were reserved for girls, but that has changed in recent years.                    
+Rainbow Tours offers tailor-made trips to São Tomé and Príncipe. Eight nights from £5,215, including flights and full-board accommodation. 
+      
+Published in the May 2026 issue by National Geographic Traveller (UK).
+To subscribe to National Geographic Traveller (UK) magazine click here. (Available in select countries only).
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.nationalgeographic.com/travel/article/photographers-love-letter-sao-tome-principe-the-twin-equatorial-islands"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="南方周末"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">2026-04-18 15:00:00
+ 
+
+贵州独山“天下第一水司楼”已改建为酒店。（视觉中国|供图）
+投资审批领域首次明确了“决策终身负责制”。
+2026年4月15日，新华社报道称，国务院办公厅印发《关于深化投资审批制度改革的意见》（以下简称《意见》），提出实行政府投资项目决策终身负责制，对违规决策造成重大损失、恶劣影响的领导人员和直接责任人员要严肃追究责任。
+燕山大学公共管理学院教授、廉政与治理研究中心主任杜治洲表示，以往多省份频发盲目决策造成政府资金严重浪费、地方债务高企的现象。和以往的项目责任制、党政领导干部问责制相比，这一规定对党委“一把手”和行政首长的决策责任要求，从阶段性负责延展为终身负责。
+流程失守
+杜治洲对南方周末记者分析，实行政府投资项目决策终身负责制的一个重要背景是少数地方领导干部政绩观存在偏差。
+十八大以来，中央已查处多起典型案件，其中比较有代表性的就有湖南省人大常委会原秘书长曹炯芳为“争取尽快搞副省级”，拍板违规举债435亿元，形成33个烂尾工程；贵州省独山县县委原书记潘志立，在县年财政收入不足10亿元的情况下，举债近2亿元建设“天下第一水司楼”，后因资金链断裂导致烂尾。
+这样的投资决策“给政府和社会都造成了巨大损失”，杜治洲说，“而且还往往伴随着利用政府投资来牟利的腐败现象。”
+观察目前已经公布的典型案例，杜治洲发现这一类的违规决策具有一个共同的特点：决策的流程失守。
+“是不是经过了科学论证、集体讨论？”杜治洲说，“还有一些国有企业的领导干部，是不是遵守了‘三重一大’（国有企业凡属重大决策、重要人事任免、重大项目安排和大额度资金运作事项必须由领导班子集体作出决定）决策制度？”
+事实上，国办印发的意见也着重强调了决策流程的重要性，要求政府投资项目均应严格履行项目建议书、可行性研究报告、初步设计和投资概算审批程序。对应由政府采取直接投资、资本金注入…</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">南方周末</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-18"
+                      datetime="2026-04-18T07:25:05.000Z"
+                    >2026-04-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    投资审批领域首次明确“决策终身负责制”｜ 时政周报
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    2026-04-18 15:00:00
+ 
+
+贵州独山“天下第一水司楼”已改建为酒店。（视觉中国|供图）
+投资审批领域首次明确了“决策终身负责制”。
+2026年4月15日，新华社报道称，国务院办公厅印发《关于深化投资审批制度改革的意见》（以下简称《意见》），提出实行政府投资项目决策终身负责制，对违规决策造成重大损失、恶劣影响的领导人员和直接责任人员要严肃追究责任。
+燕山大学公共管理学院教授、廉政与治理研究中心主任杜治洲表示，以往多省份频发盲目决策造成政府资金严重浪费、地方债务高企的现象。和以往的项目责任制、党政领导干部问责制相比，这一规定对党委“一把手”和行政首长的决策责任要求，从阶段性负责延展为终身负责。
+流程失守
+杜治洲对南方周末记者分析，实行政府投资项目决策终身负责制的一个重要背景是少数地方领导干部政绩观存在偏差。
+十八大以来，中央已查处多起典型案件，其中比较有代表性的就有湖南省人大常委会原秘书长曹炯芳为“争取尽快搞副省级”，拍板违规举债435亿元，形成33个烂尾工程；贵州省独山县县委原书记潘志立，在县年财政收入不足10亿元的情况下，举债近2亿元建设“天下第一水司楼”，后因资金链断裂导致烂尾。
+这样的投资决策“给政府和社会都造成了巨大损失”，杜治洲说，“而且还往往伴随着利用政府投资来牟利的腐败现象。”
+观察目前已经公布的典型案例，杜治洲发现这一类的违规决策具有一个共同的特点：决策的流程失守。
+“是不是经过了科学论证、集体讨论？”杜治洲说，“还有一些国有企业的领导干部，是不是遵守了‘三重一大’（国有企业凡属重大决策、重要人事任免、重大项目安排和大额度资金运作事项必须由领导班子集体作出决定）决策制度？”
+事实上，国办印发的意见也着重强调了决策流程的重要性，要求政府投资项目均应严格履行项目建议书、可行性研究报告、初步设计和投资概算审批程序。对应由政府采取直接投资、资本金注入…
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="http://www.infzm.com/contents/319616"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="南方周末"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">2026-04-18 14:00:00
+巴黎时间2026年4月13日（周一）晚上，法国文化部部长卡特琳·佩加尔（Catherine Pégard）推动法国国民议会通过了一项备受瞩目的法案，法案的全称为《关于归还因非法占有而导致相关国家流失之文物的法案》，这一消息立刻在中国、非洲、东南亚等曾遭受法国侵略与殖民的国家和地区引起关注。在中国互联网上，法国文豪维克多·雨果在一百多年前的呼吁得到了热烈转发：“法兰西能脱胎换骨，将不义之财归还被抢掠的中国，……这一天终于到来。”
+
+
+1860年10月，英法联军火烧圆明园，大量文物流失。左图为如今的圆明园西洋楼大水法遗址，图右为2010年10月，为纪念圆明园罹难150周年，由法中友协联合会、中国人民对外友好协会和法国东方华人协会等单位共同捐赠的雨果半身雕像，在圆明园大水法遗址东侧揭幕。视觉中国丨图
+据法国媒体报道，尽管当晚的辩论气氛较为平和，但在议会大厅内，持左右两方立场的议员仍展开了长达六小时的交锋。双方辩论的焦点并不在于否决或通过这项法案——议员们以170票对0票一致表态通过了这项法案，而是针对法案文本中的措辞是否恰当。右翼方面，来自多尔多涅省的国民联盟党（RN）议员弗洛伦斯·朱贝尔（Florence Joubert）对那种“基于‘赎罪’的极左言论”表示反对；而来自瓦兹河谷省的左翼不屈法国党（LFI）议员奥雷利安·塔谢（Aurélien Taché）则强调，“有必要直面我们的殖民历史”。
+归还殖民时期被劫掠的文物一直是一个世界性难题。“法国议会能够全票通过这样一个法律，我觉得给世界上其他国家开了一个好头。至少我想欧洲其他国家，比如德国、荷兰、比利时这些国家应该会受到一个正向的激励。”中国政法大学国际法学院教授霍政欣得知这一消息之后，第一时间对媒体表达了欣喜之情。霍政欣的团队在过去的十多年中，一直致力于研究与追索流失海外的中国文物。
+“…</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">南方周末</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-18"
+                      datetime="2026-04-18T06:25:05.000Z"
+                    >2026-04-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    文物何时归还中国？法国全票通过相关法案背后
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    2026-04-18 14:00:00
+巴黎时间2026年4月13日（周一）晚上，法国文化部部长卡特琳·佩加尔（Catherine Pégard）推动法国国民议会通过了一项备受瞩目的法案，法案的全称为《关于归还因非法占有而导致相关国家流失之文物的法案》，这一消息立刻在中国、非洲、东南亚等曾遭受法国侵略与殖民的国家和地区引起关注。在中国互联网上，法国文豪维克多·雨果在一百多年前的呼吁得到了热烈转发：“法兰西能脱胎换骨，将不义之财归还被抢掠的中国，……这一天终于到来。”
+
+
+1860年10月，英法联军火烧圆明园，大量文物流失。左图为如今的圆明园西洋楼大水法遗址，图右为2010年10月，为纪念圆明园罹难150周年，由法中友协联合会、中国人民对外友好协会和法国东方华人协会等单位共同捐赠的雨果半身雕像，在圆明园大水法遗址东侧揭幕。视觉中国丨图
+据法国媒体报道，尽管当晚的辩论气氛较为平和，但在议会大厅内，持左右两方立场的议员仍展开了长达六小时的交锋。双方辩论的焦点并不在于否决或通过这项法案——议员们以170票对0票一致表态通过了这项法案，而是针对法案文本中的措辞是否恰当。右翼方面，来自多尔多涅省的国民联盟党（RN）议员弗洛伦斯·朱贝尔（Florence Joubert）对那种“基于‘赎罪’的极左言论”表示反对；而来自瓦兹河谷省的左翼不屈法国党（LFI）议员奥雷利安·塔谢（Aurélien Taché）则强调，“有必要直面我们的殖民历史”。
+归还殖民时期被劫掠的文物一直是一个世界性难题。“法国议会能够全票通过这样一个法律，我觉得给世界上其他国家开了一个好头。至少我想欧洲其他国家，比如德国、荷兰、比利时这些国家应该会受到一个正向的激励。”中国政法大学国际法学院教授霍政欣得知这一消息之后，第一时间对媒体表达了欣喜之情。霍政欣的团队在过去的十多年中，一直致力于研究与追索流失海外的中国文物。
+“…
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="http://www.infzm.com/contents/319618"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="iDaily · 每日环球视野"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">「C/2025 R3」彗星划过富士山上空，日本静冈县。4月17日，「C/2025 R3」彗星进入北半球最佳观测期，亮度达到肉眼可见级别。该彗星目前位于飞马座，预计4月27日抵达距离地球约7081万公里的近地点，有望成为2026年地球上可肉眼观测的最亮彗星。「C/2025 R3」由美国泛星计划（PanSTARRS）巡天望远镜于2025年9月8日发现，是一颗来自太阳系边缘「奥尔特云」的长周期彗星，轨道周期约为17万年。摄影师：Koji Ito</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="http://pic.yupoo.com/fotomag/70299dc83f/6ec78505.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">iDaily · 每日环球视野</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-18"
+                      datetime="2026-04-18T05:59:00.000Z"
+                    >2026-04-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    「C/2025 R3」彗星接近地球 - April 18, 2026
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    「C/2025 R3」彗星划过富士山上空，日本静冈县。4月17日，「C/2025 R3」彗星进入北半球最佳观测期，亮度达到肉眼可见级别。该彗星目前位于飞马座，预计4月27日抵达距离地球约7081万公里的近地点，有望成为2026年地球上可肉眼观测的最亮彗星。「C/2025 R3」由美国泛星计划（PanSTARRS）巡天望远镜于2025年9月8日发现，是一颗来自太阳系边缘「奥尔特云」的长周期彗星，轨道周期约为17万年。摄影师：Koji Ito
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://m.idai.ly/se/868iFy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
               <article
                 data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
                 x-show="active === 'all' || active === $el.dataset.src"
@@ -2495,6 +4034,67 @@ https://feedx.site
                 </div>
               </article>
               <article
+                data-src="iDaily · 每日环球视野"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">2026年巴黎图书节（Festival du Livre）在巴黎大皇宫开幕，法国。巴黎图书节由法国国家出版社主办，是该国规模最大的图书博览会。本届巴黎书展主题为「旅行」（Voyage），共有超过450家出版商参展，时间从4月17日持续至19日。法国国家图书中心（CNL）最新调查报告显示，2025年法国7至19岁青少年平均每天阅读时间为18分钟，比2024年减少1分钟，平均每天电子屏幕使用时间达3小时1分钟。摄影师：iDaily Media</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="http://pic.yupoo.com/fotomag/020a0c4cef/70926caa.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">iDaily · 每日环球视野</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-18"
+                      datetime="2026-04-18T04:58:00.000Z"
+                    >2026-04-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    2026巴黎图书节 - April 18, 2026
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    2026年巴黎图书节（Festival du Livre）在巴黎大皇宫开幕，法国。巴黎图书节由法国国家出版社主办，是该国规模最大的图书博览会。本届巴黎书展主题为「旅行」（Voyage），共有超过450家出版商参展，时间从4月17日持续至19日。法国国家图书中心（CNL）最新调查报告显示，2025年法国7至19岁青少年平均每天阅读时间为18分钟，比2024年减少1分钟，平均每天电子屏幕使用时间达3小时1分钟。摄影师：iDaily Media
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://m.idai.ly/se/33bjzr"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
                 data-src="РИА Новости"
                 x-show="active === 'all' || active === $el.dataset.src"
                 x-transition:enter="transition ease-out duration-200"
@@ -2622,6 +4222,250 @@ Read Full Article at RT.com
                   <!-- Read link – @click.stop so the card click doesn't also fire -->
                   <a
                     href="https://www.rt.com/news/638618-trump-stunned-netanyahu-lebanon/?utm_source&#x3D;rss&amp;utm_medium&#x3D;rss&amp;utm_campaign&#x3D;RSS"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="iDaily · 每日环球视野"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">黎巴嫩民众在以黎停火后重返家园，一名男孩在车上挥舞真主党旗帜，贝鲁特。4月16日，美国总统 Donald Trump 宣布以色列与黎巴嫩已同意停火10天，并表示已邀请两国领导人到白宫举行和平谈判。以色列总理 Netanyahu 发表声明证实同意停火，但是拒绝从黎巴嫩南部撤军。伊朗伊斯兰革命卫队宣布将在黎巴嫩停火期间向民用商船开放霍尔木兹海峡，但是船只必须通过伊朗指定航线通行。伊朗国防部警告称，如果黎巴嫩再次遭到以色列袭击，将重新关闭霍尔木兹海峡。摄影师：Fadel Itani</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="http://pic.yupoo.com/fotomag/9ffaab7b38/66394066.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">iDaily · 每日环球视野</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-18"
+                      datetime="2026-04-18T03:57:00.000Z"
+                    >2026-04-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    以色列黎巴嫩临时停火 - April 18, 2026
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    黎巴嫩民众在以黎停火后重返家园，一名男孩在车上挥舞真主党旗帜，贝鲁特。4月16日，美国总统 Donald Trump 宣布以色列与黎巴嫩已同意停火10天，并表示已邀请两国领导人到白宫举行和平谈判。以色列总理 Netanyahu 发表声明证实同意停火，但是拒绝从黎巴嫩南部撤军。伊朗伊斯兰革命卫队宣布将在黎巴嫩停火期间向民用商船开放霍尔木兹海峡，但是船只必须通过伊朗指定航线通行。伊朗国防部警告称，如果黎巴嫩再次遭到以色列袭击，将重新关闭霍尔木兹海峡。摄影师：Fadel Itani
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://m.idai.ly/se/670Mdm"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="iDaily · 每日环球视野"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">缅甸政府大赦释放的囚犯乘坐巴士离开监狱，仰光。4月17日，缅甸新一届联邦政府发布新年特赦令，共对4335名缅籍囚犯和179名外籍囚犯进行减刑释放。缅甸前总统温敏在本次特赦中获释，缅甸前国务资政昂山素季的刑期从27年缩减至22年6个月。亚洲开发银行（ADB）最新报告估计缅甸2025财年 GDP 增速为-2.2%，主要受政局不稳定、自然灾害频发等因素影响，预计2026财年经济将恢复正增长2.4%。摄影师：Sai Aung Main</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="http://pic.yupoo.com/fotomag/d218fbc015/8823422b.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">iDaily · 每日环球视野</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-18"
+                      datetime="2026-04-18T03:55:00.000Z"
+                    >2026-04-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    缅甸宣布新年特赦 - April 18, 2026
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    缅甸政府大赦释放的囚犯乘坐巴士离开监狱，仰光。4月17日，缅甸新一届联邦政府发布新年特赦令，共对4335名缅籍囚犯和179名外籍囚犯进行减刑释放。缅甸前总统温敏在本次特赦中获释，缅甸前国务资政昂山素季的刑期从27年缩减至22年6个月。亚洲开发银行（ADB）最新报告估计缅甸2025财年 GDP 增速为-2.2%，主要受政局不稳定、自然灾害频发等因素影响，预计2026财年经济将恢复正增长2.4%。摄影师：Sai Aung Main
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://m.idai.ly/se/f446Ys"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="iDaily · 每日环球视野"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">荷兰海牙举行联合国国际法院成立80周年纪念仪式。4月17日，联合国秘书长 António Guterres 出席国际法院成立80周年纪念仪式并发表致辞，他指出国际法院的建立是和平世界的基石，是各国领导人选择以国际法和《联合国宪章》为基础的秩序，而非由胁迫与暴力主导的未来。他警告当前全球违反国际法的现象正在加剧，全球和平与安全基础正在被削弱，呼吁各国重申对和平解决争端的承诺，尊重并落实国际法院判决与咨询意见，恪守《联合国宪章》的宗旨与原则。国际法院是联合国6大主要机关之一，1946年4月开始运作，共有15名法官，核心职责是解决国家间的法律争端，迄今已受理超过200个案件。摄影师：Lina Selg</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="http://pic.yupoo.com/fotomag/f2a8dd2c30/f35e9fd1.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">iDaily · 每日环球视野</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-18"
+                      datetime="2026-04-18T03:53:00.000Z"
+                    >2026-04-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    国际法院成立80周年 - April 18, 2026
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    荷兰海牙举行联合国国际法院成立80周年纪念仪式。4月17日，联合国秘书长 António Guterres 出席国际法院成立80周年纪念仪式并发表致辞，他指出国际法院的建立是和平世界的基石，是各国领导人选择以国际法和《联合国宪章》为基础的秩序，而非由胁迫与暴力主导的未来。他警告当前全球违反国际法的现象正在加剧，全球和平与安全基础正在被削弱，呼吁各国重申对和平解决争端的承诺，尊重并落实国际法院判决与咨询意见，恪守《联合国宪章》的宗旨与原则。国际法院是联合国6大主要机关之一，1946年4月开始运作，共有15名法官，核心职责是解决国家间的法律争端，迄今已受理超过200个案件。摄影师：Lina Selg
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://m.idai.ly/se/d93T91"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="iDaily · 每日环球视野"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">德国波罗的海沿岸搁浅的座头鲸在水中扬起尾鳍。4月17日，德国珀尔岛搁浅座头鲸的民间救援行动正式启动，本次救援行动由德国企业家 Walter Gunz 和 Karin Walter-Mommert 出资并获得州政府批准，计划方案是使用气垫托起鲸鱼，将其安置至浮台之间的防水布上，然后由拖船推送至深水区释放。这只年轻的雄性座头鲸自3月23日起在德国波罗的海沿岸3次搁浅，经过多轮营救均未成功，官方救援行动已于4月1日终止。摄影师：Jens Büttner</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="http://pic.yupoo.com/fotomag/e01836f4d7/0a7f68b0.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">iDaily · 每日环球视野</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-04-18"
+                      datetime="2026-04-18T03:51:00.000Z"
+                    >2026-04-18</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    德国搁浅座头鲸民间救援 - April 18, 2026
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    德国波罗的海沿岸搁浅的座头鲸在水中扬起尾鳍。4月17日，德国珀尔岛搁浅座头鲸的民间救援行动正式启动，本次救援行动由德国企业家 Walter Gunz 和 Karin Walter-Mommert 出资并获得州政府批准，计划方案是使用气垫托起鲸鱼，将其安置至浮台之间的防水布上，然后由拖船推送至深水区释放。这只年轻的雄性座头鲸自3月23日起在德国波罗的海沿岸3次搁浅，经过多轮营救均未成功，官方救援行动已于4月1日终止。摄影师：Jens Büttner
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://m.idai.ly/se/7365YX"
                     target="_blank"
                     rel="noopener noreferrer"
                     @click.stop
@@ -140811,356 +142655,6 @@ Read Full Article at RT.com
                   <!-- Read link – @click.stop so the card click doesn't also fire -->
                   <a
                     href="https://www.rt.com/news/638111-us-and-its-allies-after-iran/?utm_source&#x3D;rss&amp;utm_medium&#x3D;rss&amp;utm_campaign&#x3D;RSS"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="MDARK"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">【参考信息第582期】“黄金时代”落幕；超电磁炮完结
-继续分享马督工睡前消息编辑部关注的新闻
-大家好，欢迎来到第582期参考信息。
-优化营商环境下的“吐槽”禁区
-578期说过，景区不让吐槽。随着各地大力优化营商环境，企业也不能随意吐槽了，哪怕是前员工也不行。
-3月23日，28岁的河南女孩小王发微博吐槽老东家海底捞的工作制度，内容有：点炮制度、上厕所上了16分钟被开会批评等。一个多月后，自称四川简阳民警的陌生人突然联系她，要求她到简阳配合核实情况。
-小王询问四川简阳110，确认号码真实。她多次询问该民警的警号和具体的核实事宜，但该民警始终不透露任何信息。小王想起海底捞在简阳起家，深感不安，每天在微博报平安。目前，简阳警方、涉事民警、海底捞方面都没有进一步回应。
-汽车自媒体“车圈记事”公号近日自曝，因为一篇《北汽加班潮》的文章被北汽起诉，和腾讯一起被索赔100万，案件将于4月1日在北京互联网法院开庭。
-去年7月，“车圈记事”在公众号发文《加班潮蔓延到北汽，周加班20小时是否必要》。11月，文章被投诉删除，理由是涉及诉讼和仲裁。之后，北汽起诉该公号和公号发布平台腾讯。
-甚至官媒也未能幸免。沈阳一家官媒因为涉及药品安全的监督报道，被常州一家药企起诉，索赔520万。去年10月，《指尖新闻·沈阳晚报》刊发报道，常州一药厂被举报曾把化工产品换包装后当原料生产药品。药监部门先认定假药又否定的结论引发质疑。
-报道引用了多位曾参与生产的员工签字材料，并引用官方文件进行说明，记者也走访了相关企业及监管部门核实。药企认为，报道主要依据举报人陈述，且使用“假药”等表述，易使公众误认为企业制售假药，损害企业社会评价及商誉，因此提起名誉权诉讼。
-被告媒体表示，报告围绕药品安全及监管争议展开，直接关系公众健康与重大公共利益，属于正当舆论监督，且报道根本不存在内容失实一说。3月25日，该案在常州市天宁区法院…</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">MDARK</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-04-12"
-                      datetime="2026-04-11T20:32:23.451Z"
-                    >2026-04-12</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    【参考信息第582期】“黄金时代”落幕；超电磁炮完结2026-03-28T13:29:53.000Z
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    【参考信息第582期】“黄金时代”落幕；超电磁炮完结
-继续分享马督工睡前消息编辑部关注的新闻
-大家好，欢迎来到第582期参考信息。
-优化营商环境下的“吐槽”禁区
-578期说过，景区不让吐槽。随着各地大力优化营商环境，企业也不能随意吐槽了，哪怕是前员工也不行。
-3月23日，28岁的河南女孩小王发微博吐槽老东家海底捞的工作制度，内容有：点炮制度、上厕所上了16分钟被开会批评等。一个多月后，自称四川简阳民警的陌生人突然联系她，要求她到简阳配合核实情况。
-小王询问四川简阳110，确认号码真实。她多次询问该民警的警号和具体的核实事宜，但该民警始终不透露任何信息。小王想起海底捞在简阳起家，深感不安，每天在微博报平安。目前，简阳警方、涉事民警、海底捞方面都没有进一步回应。
-汽车自媒体“车圈记事”公号近日自曝，因为一篇《北汽加班潮》的文章被北汽起诉，和腾讯一起被索赔100万，案件将于4月1日在北京互联网法院开庭。
-去年7月，“车圈记事”在公众号发文《加班潮蔓延到北汽，周加班20小时是否必要》。11月，文章被投诉删除，理由是涉及诉讼和仲裁。之后，北汽起诉该公号和公号发布平台腾讯。
-甚至官媒也未能幸免。沈阳一家官媒因为涉及药品安全的监督报道，被常州一家药企起诉，索赔520万。去年10月，《指尖新闻·沈阳晚报》刊发报道，常州一药厂被举报曾把化工产品换包装后当原料生产药品。药监部门先认定假药又否定的结论引发质疑。
-报道引用了多位曾参与生产的员工签字材料，并引用官方文件进行说明，记者也走访了相关企业及监管部门核实。药企认为，报道主要依据举报人陈述，且使用“假药”等表述，易使公众误认为企业制售假药，损害企业社会评价及商誉，因此提起名誉权诉讼。
-被告媒体表示，报告围绕药品安全及监管争议展开，直接关系公众健康与重大公共利益，属于正当舆论监督，且报道根本不存在内容失实一说。3月25日，该案在常州市天宁区法院…
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://mdark.org/docs/refnews/0501_0600/refnews_0582"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="凤凰军事"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">04-11 01:41
-
-“在中东地缘政治格局不断变化的背景下，印度正寻求外交途径，派遣两位高级部长前往海湾地区，以利用近期美伊停火带来的短暂窗口期。”《新印度快报》9日报道称，印度石油和天然气部长普里9日抵达卡塔尔，开启为期两天的访问。与此同时，印度外交部长苏杰生计划于11日至12日访问阿拉伯联合酋长国。
-
-报道称，地区局势紧张扰乱了贸易，普里此次访问卡塔尔，凸显了印度稳定关键供应链的紧迫性。印度官员称，作为印度重要的能源合作伙伴，在航运充满不确定性的背景下，卡塔尔的地位愈发凸显。普里在此访中预计将与卡方优先讨论“（能源）供应的可靠性与连续性”，而非只是常规的外交接触。有消息人士对《印度快报》透露，优先保障对印度的天然气供应可能是普里与卡塔尔方面讨论的首要议程。
-4月11日，苏杰生将启程前往阿联酋进行为期两天的访问。印度外交部称，苏杰生将与阿联酋领导人会晤，回顾两国密切合作，并探讨深化两国全面战略伙伴关系。这是印度做出的最新外交努力，以在美伊于巴基斯坦展开谈判的关键节点紧急与中东国家接触。《印度快报》提到，在访问阿联酋之前，苏杰生9日抵达毛里求斯路易港，参加第九届印度洋会议，在为期两天的会议期间与印度洋沿岸国家，包括阿曼、沙特阿拉伯等中东国家的部长们交谈，旨在讨论在持续40天的美以伊冲突之后各方面临的挑战。苏杰生日前还分别与卡塔尔首相兼外交大臣穆罕默德、阿联酋副总理兼外长阿卜杜拉、伊朗外长阿拉格齐就中东局势通话。
-印度媒体称这些“紧急接触”背后有着深层的能源焦虑。印度《今日商业》报道称，印度石油和天然气部秘书米塔尔日前表示，近期发生的中东及海湾危机暴露了印度在能源备战方面的脆弱性，并凸显了加强国家基础设施规划的紧迫性。印度约50%的天然气需求依赖进口，其中55%至60%通过霍尔木兹海峡，仅卡塔尔就占印度液化天然气进口总额的40%以上，是印度最大的液化天然气来源地。至于液化石油气，印度的进口依存度约为60%，其中90%的进口液化石油气经由霍尔木兹海峡，卡塔尔供应的份额就超过了20%。
-霍尔木兹海峡船舶通行基本停滞，印度的液化天然气和液化石油气供应受严重影响。《印度快报》称，自3月初以来，没有一艘液化天然气运输船从波斯湾驶向印度。印度政府已削减某些行业的天然气配额，以确保优先领域供应充足。液化石油气的供应短缺对印度的打击更为严重，商用和工业供应被大幅削减，以确保家庭烹饪所需的燃料充足。
-据印度《商业世界》报道，印度“施里拉姆”共同基金在季度报告中指出，受地缘政治和能源冲击引发的市场下跌、汇率走软和财政压力影响，印度经济前景正迅速恶化。印度《前线》杂志9日称，对霍尔木兹海峡的依赖使印度极易受外部冲击影响，美以伊冲突凸显印度的能源结构性脆弱，进一步强化能源来源和供应路线多元化的必要性。
-印度紧急接触海湾国家的同时，巴基斯坦正为美国和伊朗谈判做准备。对此，印度媒体心态复杂。印度《电线报》8日称，印度正眼睁睁看着自己被边缘化。报道称，印度政府在维持与以色列关系的同时，试图采取一种“选择性沉默”的政策，但这最终导致了印度在战略上无足轻重。当巴基斯坦在积极进行斡旋时，印度为了避免得罪美国或以色列，选择袖手旁观，这种消极姿态让印度丧失了数十年来在“全球南方”苦心经营的影响力。
-《前线》杂志称，批评者认为，在需要展现更强领导力的时刻，印度的“中立”实际上等同于被动。文章写道，尽管印度继续维持与以色列、西方伙伴以及伊朗的关系，但在这类高风险危机中，它并未展现出左右结果的能力。
-
-获取更多RSS：
-https://feedx.net 
-https://feedx.site</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">凤凰军事</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-04-12"
-                      datetime="2026-04-11T19:58:04.000Z"
-                    >2026-04-12</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    担心失去外交影响？印度正紧急接触中东国家
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    04-11 01:41
-
-“在中东地缘政治格局不断变化的背景下，印度正寻求外交途径，派遣两位高级部长前往海湾地区，以利用近期美伊停火带来的短暂窗口期。”《新印度快报》9日报道称，印度石油和天然气部长普里9日抵达卡塔尔，开启为期两天的访问。与此同时，印度外交部长苏杰生计划于11日至12日访问阿拉伯联合酋长国。
-
-报道称，地区局势紧张扰乱了贸易，普里此次访问卡塔尔，凸显了印度稳定关键供应链的紧迫性。印度官员称，作为印度重要的能源合作伙伴，在航运充满不确定性的背景下，卡塔尔的地位愈发凸显。普里在此访中预计将与卡方优先讨论“（能源）供应的可靠性与连续性”，而非只是常规的外交接触。有消息人士对《印度快报》透露，优先保障对印度的天然气供应可能是普里与卡塔尔方面讨论的首要议程。
-4月11日，苏杰生将启程前往阿联酋进行为期两天的访问。印度外交部称，苏杰生将与阿联酋领导人会晤，回顾两国密切合作，并探讨深化两国全面战略伙伴关系。这是印度做出的最新外交努力，以在美伊于巴基斯坦展开谈判的关键节点紧急与中东国家接触。《印度快报》提到，在访问阿联酋之前，苏杰生9日抵达毛里求斯路易港，参加第九届印度洋会议，在为期两天的会议期间与印度洋沿岸国家，包括阿曼、沙特阿拉伯等中东国家的部长们交谈，旨在讨论在持续40天的美以伊冲突之后各方面临的挑战。苏杰生日前还分别与卡塔尔首相兼外交大臣穆罕默德、阿联酋副总理兼外长阿卜杜拉、伊朗外长阿拉格齐就中东局势通话。
-印度媒体称这些“紧急接触”背后有着深层的能源焦虑。印度《今日商业》报道称，印度石油和天然气部秘书米塔尔日前表示，近期发生的中东及海湾危机暴露了印度在能源备战方面的脆弱性，并凸显了加强国家基础设施规划的紧迫性。印度约50%的天然气需求依赖进口，其中55%至60%通过霍尔木兹海峡，仅卡塔尔就占印度液化天然气进口总额的40%以上，是印度最大的液化天然气来源地。至于液化石油气，印度的进口依存度约为60%，其中90%的进口液化石油气经由霍尔木兹海峡，卡塔尔供应的份额就超过了20%。
-霍尔木兹海峡船舶通行基本停滞，印度的液化天然气和液化石油气供应受严重影响。《印度快报》称，自3月初以来，没有一艘液化天然气运输船从波斯湾驶向印度。印度政府已削减某些行业的天然气配额，以确保优先领域供应充足。液化石油气的供应短缺对印度的打击更为严重，商用和工业供应被大幅削减，以确保家庭烹饪所需的燃料充足。
-据印度《商业世界》报道，印度“施里拉姆”共同基金在季度报告中指出，受地缘政治和能源冲击引发的市场下跌、汇率走软和财政压力影响，印度经济前景正迅速恶化。印度《前线》杂志9日称，对霍尔木兹海峡的依赖使印度极易受外部冲击影响，美以伊冲突凸显印度的能源结构性脆弱，进一步强化能源来源和供应路线多元化的必要性。
-印度紧急接触海湾国家的同时，巴基斯坦正为美国和伊朗谈判做准备。对此，印度媒体心态复杂。印度《电线报》8日称，印度正眼睁睁看着自己被边缘化。报道称，印度政府在维持与以色列关系的同时，试图采取一种“选择性沉默”的政策，但这最终导致了印度在战略上无足轻重。当巴基斯坦在积极进行斡旋时，印度为了避免得罪美国或以色列，选择袖手旁观，这种消极姿态让印度丧失了数十年来在“全球南方”苦心经营的影响力。
-《前线》杂志称，批评者认为，在需要展现更强领导力的时刻，印度的“中立”实际上等同于被动。文章写道，尽管印度继续维持与以色列、西方伙伴以及伊朗的关系，但在这类高风险危机中，它并未展现出左右结果的能力。
-
-获取更多RSS：
-https://feedx.net 
-https://feedx.site
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://news.ifeng.com/c/8sEDYQPGigf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="凤凰军事"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">04-11 06:18
-
-新华社伊斯兰堡4月11日电（记者邹学冕 杨恺）巴基斯坦外交部11日凌晨发表声明说，由伊朗伊斯兰议会议长卡利巴夫、外交部长阿拉格齐等高级官员组成的伊朗谈判代表团当天抵达巴首都伊斯兰堡参加美伊谈判。
-
-声明说，伊朗代表团抵达时，受到巴副总理兼外交部长达尔、国民议会议长萨迪克、陆军参谋长穆尼尔和内政部长纳克维的迎接。
-声明说，达尔表示，希望各方进行建设性接触，并重申巴基斯坦愿继续为各方达成冲突持久解决方案提供便利。
-巴政府权威人士接受新华社记者电话采访时表示，巴官方确认美伊谈判将于当天在伊斯兰堡塞雷纳酒店举行，伊朗代表团已入住这家酒店。</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">凤凰军事</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-04-12"
-                      datetime="2026-04-11T19:58:04.000Z"
-                    >2026-04-12</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    巴基斯坦外交部：伊朗代表团抵达　巴方高官现场迎接
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    04-11 06:18
-
-新华社伊斯兰堡4月11日电（记者邹学冕 杨恺）巴基斯坦外交部11日凌晨发表声明说，由伊朗伊斯兰议会议长卡利巴夫、外交部长阿拉格齐等高级官员组成的伊朗谈判代表团当天抵达巴首都伊斯兰堡参加美伊谈判。
-
-声明说，伊朗代表团抵达时，受到巴副总理兼外交部长达尔、国民议会议长萨迪克、陆军参谋长穆尼尔和内政部长纳克维的迎接。
-声明说，达尔表示，希望各方进行建设性接触，并重申巴基斯坦愿继续为各方达成冲突持久解决方案提供便利。
-巴政府权威人士接受新华社记者电话采访时表示，巴官方确认美伊谈判将于当天在伊斯兰堡塞雷纳酒店举行，伊朗代表团已入住这家酒店。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://news.ifeng.com/c/8sE5tvJG7Qm"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="凤凰军事"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">04-11 06:19
-
-新华社马德里4月10日电（记者陈雨峥 谢宇智）西班牙首相佩德罗·桑切斯10日表示，欧盟应采取行动制约以色列政府，并呼吁暂停欧盟与以色列的联系国协议。
-
-桑切斯当天在巴塞罗那出席活动时发表讲话说，以色列在加沙地带及黎巴嫩等地的军事行动“公然违反”国际人道主义法，欧洲必须协同一致，以免黎巴嫩“重蹈加沙覆辙”。
-欧盟与以色列2000年签订《欧盟-以色列联系国协议》，旨在为双方之间的政治对话和经济合作提供法律和体制框架。桑切斯强调，以色列当前行为“践踏并违反”联系国协议中的多项条款，西班牙已准备好与欧洲其他国家一道采取行动。
-当天早些时候，西班牙外交大臣阿尔瓦雷斯说，应将黎巴嫩纳入美伊停火协议范围，并指责以色列对黎巴嫩发动大规模空袭违反国际法和国际人道主义法，其暴力行为“不可接受”。
-同一天，以色列总理内塔尼亚胡指认西班牙对以色列发动“外交战争”，并抨击西班牙在以色列轰炸黎巴嫩事件中持批评立场。以色列外交部长萨尔称，由于西班牙政府“存在明显的反以偏见”，以方决定“不再允许”西班牙参与有关加沙事务的“军民协调中心”工作。
-黎巴嫩卫生部10日发表声明说，以色列8日发动的大规模空袭已造成357人死亡，另有1223人受伤。自3月2日黎以战火重燃以来，以色列对黎巴嫩的袭击已造成1953人死亡、6303人受伤。</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">凤凰军事</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-04-12"
-                      datetime="2026-04-11T19:58:04.000Z"
-                    >2026-04-12</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    西班牙呼吁欧盟制约以色列　不能使黎巴嫩重蹈加沙覆辙
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    04-11 06:19
-
-新华社马德里4月10日电（记者陈雨峥 谢宇智）西班牙首相佩德罗·桑切斯10日表示，欧盟应采取行动制约以色列政府，并呼吁暂停欧盟与以色列的联系国协议。
-
-桑切斯当天在巴塞罗那出席活动时发表讲话说，以色列在加沙地带及黎巴嫩等地的军事行动“公然违反”国际人道主义法，欧洲必须协同一致，以免黎巴嫩“重蹈加沙覆辙”。
-欧盟与以色列2000年签订《欧盟-以色列联系国协议》，旨在为双方之间的政治对话和经济合作提供法律和体制框架。桑切斯强调，以色列当前行为“践踏并违反”联系国协议中的多项条款，西班牙已准备好与欧洲其他国家一道采取行动。
-当天早些时候，西班牙外交大臣阿尔瓦雷斯说，应将黎巴嫩纳入美伊停火协议范围，并指责以色列对黎巴嫩发动大规模空袭违反国际法和国际人道主义法，其暴力行为“不可接受”。
-同一天，以色列总理内塔尼亚胡指认西班牙对以色列发动“外交战争”，并抨击西班牙在以色列轰炸黎巴嫩事件中持批评立场。以色列外交部长萨尔称，由于西班牙政府“存在明显的反以偏见”，以方决定“不再允许”西班牙参与有关加沙事务的“军民协调中心”工作。
-黎巴嫩卫生部10日发表声明说，以色列8日发动的大规模空袭已造成357人死亡，另有1223人受伤。自3月2日黎以战火重燃以来，以色列对黎巴嫩的袭击已造成1953人死亡、6303人受伤。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://news.ifeng.com/c/8sEBLai8f3H"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="凤凰军事"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">04-10 23:05
-
-新华社德黑兰4月10日电　伊朗媒体10日援引一名伊朗高级安全消息人士的话报道说，在伊方坚持要求和施压下，以色列军队已停止对黎巴嫩首都贝鲁特的袭击。
-
-按这名消息人士说法，伊朗代表团赴巴基斯坦伊斯兰堡的行程多次推迟。伊朗方面警告，以军若继续袭击黎巴嫩，可能导致谈判“彻底破裂”。在伊方持续施压并威胁退出谈判的情况下，美国被迫迫使以色列停止袭击。
-据报道，以色列此前对黎巴嫩发动“猛烈袭击”，伊朗将以军停止袭击作为参与美伊停火谈判的先决条件。
-美国白宫新闻秘书莱维特8日在记者会上宣布，美伊将于当地时间11日上午在伊斯兰堡举行首轮会谈。</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">凤凰军事</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-04-12"
-                      datetime="2026-04-11T19:58:04.000Z"
-                    >2026-04-12</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    伊朗媒体：以军已停止袭击黎巴嫩首都贝鲁特
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    04-10 23:05
-
-新华社德黑兰4月10日电　伊朗媒体10日援引一名伊朗高级安全消息人士的话报道说，在伊方坚持要求和施压下，以色列军队已停止对黎巴嫩首都贝鲁特的袭击。
-
-按这名消息人士说法，伊朗代表团赴巴基斯坦伊斯兰堡的行程多次推迟。伊朗方面警告，以军若继续袭击黎巴嫩，可能导致谈判“彻底破裂”。在伊方持续施压并威胁退出谈判的情况下，美国被迫迫使以色列停止袭击。
-据报道，以色列此前对黎巴嫩发动“猛烈袭击”，伊朗将以军停止袭击作为参与美伊停火谈判的先决条件。
-美国白宫新闻秘书莱维特8日在记者会上宣布，美伊将于当地时间11日上午在伊斯兰堡举行首轮会谈。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://news.ifeng.com/c/8sDgHNygYXO"
                     target="_blank"
                     rel="noopener noreferrer"
                     @click.stop
