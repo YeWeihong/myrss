@@ -19,7 +19,7 @@ This is repository hosts the UI and content of an RSS feed reader.
 <!-- FEED_STATUS_START -->
 ## 订阅源抓取状态
 
-> ✅ 53 个成功，❌ 0 个失败，最后更新：2026/06/14 22:00
+> ✅ 53 个成功，❌ 0 个失败，最后更新：2026/06/15 01:20
 
 | 状态 | 订阅源链接 |
 | :---: | --- |
