@@ -136,6 +136,15 @@
 
           <!-- Sources list -->
           <button
+            data-src="RT World News"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">RT World News</span>
+          </button>
+          <button
             data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
             @click="setActive($el.dataset.src); sidebarOpen = false"
             :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
@@ -145,13 +154,13 @@
             <span class="truncate">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
           </button>
           <button
-            data-src="RT World News"
+            data-src="差评X.PIN"
             @click="setActive($el.dataset.src); sidebarOpen = false"
             :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
             class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
           >
             <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">RT World News</span>
+            <span class="truncate">差评X.PIN</span>
           </button>
           <button
             data-src="Latest Stories"
@@ -433,15 +442,6 @@
             <span class="truncate">知识分子</span>
           </button>
           <button
-            data-src="差评X.PIN"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">差评X.PIN</span>
-          </button>
-          <button
             data-src="深网"
             @click="setActive($el.dataset.src); sidebarOpen = false"
             :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
@@ -536,8 +536,8 @@
 
         <!-- Sidebar Footer -->
         <div class="px-4 py-3 border-t border-[#f5bcd8] text-[10px] text-[#b88aaa]">
-          <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/YeWeihong/myrss/actions/runs/31199584081">
-            构建于 <time datetime="2026-08-07T16:52:58.094Z">2026-08-07T16:52:58.094Z</time>
+          <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/YeWeihong/myrss/actions/runs/31216689379">
+            构建于 <time datetime="2026-08-07T20:38:53.869Z">2026-08-07T20:38:53.869Z</time>
           </a>
           <div class="mt-0.5">
             <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/osmoscraft/osmosfeed">osmosfeed 1.15.1</a>
@@ -576,6 +576,195 @@
           <main class="flex-1 p-4 md:p-6 overflow-y-auto">
             <div class="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-4 md:gap-5">
 
+              <article
+                data-src="RT World News"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">The US Senate has voted overwhelmingly to pass an anti-Russian sanctions bill authored by deceased Senator Lindsey Graham 
+Read Full Article at RT.com</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://mf.b37mrtl.ru/files/2026.08/thumbnail/6a76258920302728622c953b.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">RT World News</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-08"
+                      datetime="2026-08-07T19:12:36.000Z"
+                    >2026-08-08</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    US Senate passes Lindsey Graham’s Russia sanctions bill
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    The US Senate has voted overwhelmingly to pass an anti-Russian sanctions bill authored by deceased Senator Lindsey Graham 
+Read Full Article at RT.com
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.rt.com/news/644003-lindsey-graham-sanctions-bill-senate/?utm_source&#x3D;rss&amp;utm_medium&#x3D;rss&amp;utm_campaign&#x3D;RSS"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="RT World News"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">DOGE credited itself with billions of dollars in federal budget savings that could not be substantiated, a US government watchdog has found 
+Read Full Article at RT.com</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://mf.b37mrtl.ru/files/2026.08/thumbnail/6a7600b420302728622c9521.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">RT World News</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-08"
+                      datetime="2026-08-07T18:38:55.000Z"
+                    >2026-08-08</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Musk’s DOGE savings claims unverifiable – government watchdog
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    DOGE credited itself with billions of dollars in federal budget savings that could not be substantiated, a US government watchdog has found 
+Read Full Article at RT.com
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.rt.com/news/643999-musks-doge-savings-claims-unverifiable/?utm_source&#x3D;rss&amp;utm_medium&#x3D;rss&amp;utm_campaign&#x3D;RSS"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="RT World News"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">Saudi Arabia, Pakistan, and NATO-member Türkiye have signed a mutual defense pact amid escalating conflict across the Middle East 
+Read Full Article at RT.com</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://mf.b37mrtl.ru/files/2026.08/thumbnail/6a7605372030270c4b41a9aa.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">RT World News</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-08"
+                      datetime="2026-08-07T18:35:40.000Z"
+                    >2026-08-08</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Iranian lawmaker blasts Saudi-led defense pact with Pakistan and Türkiye
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Saudi Arabia, Pakistan, and NATO-member Türkiye have signed a mutual defense pact amid escalating conflict across the Middle East 
+Read Full Article at RT.com
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.rt.com/news/644000-saudi-pakistan-turkiye-pact/?utm_source&#x3D;rss&amp;utm_medium&#x3D;rss&amp;utm_campaign&#x3D;RSS"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
               <article
                 data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
                 x-show="active === 'all' || active === $el.dataset.src"
@@ -951,6 +1140,326 @@ Read Full Article at RT.com
                   <!-- Read link – @click.stop so the card click doesn't also fire -->
                   <a
                     href="https://www.rt.com/news/643997-affordable-healthcare-not-happening/?utm_source&#x3D;rss&amp;utm_medium&#x3D;rss&amp;utm_campaign&#x3D;RSS"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="差评X.PIN"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">“用iPhone能避孕？” 美国论文也搞标题党？</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">差评X.PIN</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-08"
+                      datetime="2026-08-07T16:00:00.000Z"
+                    >2026-08-08</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    年轻人不想生孩子，可能还真是手机玩多了。。。
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    “用iPhone能避孕？” 美国论文也搞标题党？
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://mp.weixin.qq.com/s?__biz&#x3D;MzA5NDc1NzQ4MA&#x3D;&#x3D;&amp;mid&#x3D;2654680240&amp;idx&#x3D;1&amp;sn&#x3D;20051c16e9713b13eece709ec8b63822"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="差评X.PIN"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">一手好牌，打得稀烂。</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">差评X.PIN</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-08"
+                      datetime="2026-08-07T16:00:00.000Z"
+                    >2026-08-08</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    三星手机还没退出中国，门店先扛不住了。。。
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    一手好牌，打得稀烂。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://mp.weixin.qq.com/s?__biz&#x3D;MzA5NDc1NzQ4MA&#x3D;&#x3D;&amp;mid&#x3D;2654680240&amp;idx&#x3D;2&amp;sn&#x3D;8564594e18ce6d015ac84a1cef41d9f9"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="差评X.PIN"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">2025 年，一家卖椰子水的公司在港交所上市，开盘即大涨，市值一度超百亿。 而他的员工人数为：46 人。</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">差评X.PIN</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-08"
+                      datetime="2026-08-07T16:00:00.000Z"
+                    >2026-08-08</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    夏天顶流饮料椰子水，在这个夏天塌房了？
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    2025 年，一家卖椰子水的公司在港交所上市，开盘即大涨，市值一度超百亿。 而他的员工人数为：46 人。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://mp.weixin.qq.com/s?__biz&#x3D;MzA5NDc1NzQ4MA&#x3D;&#x3D;&amp;mid&#x3D;2654680240&amp;idx&#x3D;3&amp;sn&#x3D;354bdf1b0bdb0a8b604d990b33652f31"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="差评X.PIN"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">瞬间凝固！</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">差评X.PIN</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-08"
+                      datetime="2026-08-07T16:00:00.000Z"
+                    >2026-08-08</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    今日最佳：糟糕，亲到死对头了。
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    瞬间凝固！
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://mp.weixin.qq.com/s?__biz&#x3D;MzA5NDc1NzQ4MA&#x3D;&#x3D;&amp;mid&#x3D;2654680240&amp;idx&#x3D;4&amp;sn&#x3D;78c705f7ad83646f6cab6109a727a125"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="差评X.PIN"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">聊一聊 2026-08-08 00:00 浙江
+
+
+
+跳转微信打开</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">差评X.PIN</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-08"
+                      datetime="2026-08-07T16:00:00.000Z"
+                    >2026-08-08</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    聊一聊：你用了最久的网名是啥？
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    聊一聊 2026-08-08 00:00 浙江
+
+
+
+跳转微信打开
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://mp.weixin.qq.com/s?__biz&#x3D;MzA5NDc1NzQ4MA&#x3D;&#x3D;&amp;mid&#x3D;2654680240&amp;idx&#x3D;5&amp;sn&#x3D;1ef58acf2072d449980a885f37f01044"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="差评X.PIN"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">今天是 8 月 7 日，农历六月廿五。</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">差评X.PIN</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-08"
+                      datetime="2026-08-07T16:00:00.000Z"
+                    >2026-08-08</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    王兴兴回应DeepSeek投资宇树，AI艺人带货美瞳广告下架，东航允许提前14天免费退改签，传雪佛兰退出中国市场，这就是今天的其他大新闻！
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    今天是 8 月 7 日，农历六月廿五。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://mp.weixin.qq.com/s?__biz&#x3D;MzA5NDc1NzQ4MA&#x3D;&#x3D;&amp;mid&#x3D;2654680240&amp;idx&#x3D;6&amp;sn&#x3D;767e5d50ed1cc1d490aae0b3b8ec0284"
                     target="_blank"
                     rel="noopener noreferrer"
                     @click.stop
@@ -2089,6 +2598,128 @@ Read Full Article at RT.com
                   <!-- Read link – @click.stop so the card click doesn't also fire -->
                   <a
                     href="https://view.inews.qq.com/a/20260807A0E97M00"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="UN News - Global perspective Human stories"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">In a new twist on panda diplomacy, UN Geneva welcomed five young peacocks to the Palace of Nations on Friday, a gift of India that preserves a tradition of keeping the stately birds in the grounds, that predates both the global body and its ill-fated predecessor, the League of Nations.</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Production%20Library/2026/08/07-08-2026-UN-Photo-peacocks-01.jpg/image560x340cropped.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">UN News - Global perspective Human stories</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-07"
+                      datetime="2026-08-07T12:00:00.000Z"
+                    >2026-08-07</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Peacock party takes pride of place in nod to decades of turbulent history
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    In a new twist on panda diplomacy, UN Geneva welcomed five young peacocks to the Palace of Nations on Friday, a gift of India that preserves a tradition of keeping the stately birds in the grounds, that predates both the global body and its ill-fated predecessor, the League of Nations.
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://news.un.org/feed/view/en/story/2026/08/1168099"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="UN News - Global perspective Human stories"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">More than 300 children have died in the Ebola outbreak in the eastern Democratic Republic of the Congo (DRC), the UN said on Friday, as health experts urged trials of the only vaccine against the disease to halt further spread of the rare Bundibugyo species.</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/2026/06/19-06-2026-WHO-DR-Congo-ebola-01.jpg/image560x340cropped.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">UN News - Global perspective Human stories</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-07"
+                      datetime="2026-08-07T12:00:00.000Z"
+                    >2026-08-07</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Ebola in DR Congo: Childhood deaths rise; hopes raised over new vaccine
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    More than 300 children have died in the Ebola outbreak in the eastern Democratic Republic of the Congo (DRC), the UN said on Friday, as health experts urged trials of the only vaccine against the disease to halt further spread of the rare Bundibugyo species.
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://news.un.org/feed/view/en/story/2026/08/1168100"
                     target="_blank"
                     rel="noopener noreferrer"
                     @click.stop
@@ -88454,2211 +89085,6 @@ Read Full Article at RT.com
                   <!-- Read link – @click.stop so the card click doesn't also fire -->
                   <a
                     href="https://www.tmtpost.com/8088001.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="钛媒体：引领未来商业与生活新知"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">本文拆解的不是八卦，而是企业家把私生活&quot;证券化&quot;之后必须面对的定价逻辑。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://images.tmtpost.com/uploads/images/zhaopian/nuxtpic/change_logo3/og_image.png"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">钛媒体：引领未来商业与生活新知</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-01"
-                      datetime="2026-08-01T08:33:01.000Z"
-                    >2026-08-01</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    蔡崇信这场离婚，没瓜可吃才是最该看懂的事
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    本文拆解的不是八卦，而是企业家把私生活&quot;证券化&quot;之后必须面对的定价逻辑。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.tmtpost.com/8088043.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="喷嚏-70"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">【1】连云港消防回应
-
-
- 
-
-
- 
-
-
-【2】七月份股民人均亏损1.4万，这个数据有点扎心啊。
-
-
- 
-
-
-【3】胡锡进：建议查一查今天谁在砸盘。
-
-
- 
-
-
-【4】穿上裤子就不认了
-
-
- 
-
-
-【5】DeepSeek V4 Flash的竞技场跑分开榜：
-
-
-智能水平排名Top 13，任务成本排名最低，比它聪明的没它便宜，比它便宜的⋯⋯哦，没有比它便宜的。
-
-
- 
-
-
- 
-
-
- 
-
-
- 
-
-
-【6】中国将开展为期一年的“深化扫黑除恶”专项斗争
-
-
- 
-
-
-【7】发改委：正研究制定扩内需增量政策
-
-
- 
-
-
- 
-
-
- 
-
-
-【8】《#国务院关于出境入境管理的规定#》9月15日起施行
-
-
-《国务院关于出境入境管理的规定》7月31日公布，自2026年9月15日起施行。规定共19条，旨在规范出境入境管理，保障出境入境人员合法权益，维护国家主权、安全、发展利益。
- 
-
-
-【9】看到这个热搜我都惊呆了，能想出喜羊羊擦边的这都是什么脑袋呀
-
-
- 
-
-
-【10】不正宗，至少得有五个中心
-
-
- 
-
-
- 
-
-
-【11】蔡崇信与吴明华还是离婚了，声明“和平离婚”不影响球队运作。
-
-
-阿里巴巴董事长，美国职篮NBA布鲁克林篮网队(Brooklyn Nets)台裔老板蔡崇信(Joseph Tsai)与美国国家女子职篮WNBA纽约自由人队(New York Liberty)老板吴明华(Clara Wu Tsai)近30年的婚姻走到了尽头。
-
-
-美国八卦媒体「Page Six」7月31日独家获得这对夫妇发言人的声明，表示「蔡崇信与吴明华已经决定结束婚姻，这是双方共同的决定，两人彼此之间充满尊重。」
-
-
-至于蔡崇信在科技巨头阿里巴巴的所有权，不会受影响。声明指蔡崇信「目前没有出售任何阿里巴巴股份的计划，作为阿里巴巴董事长的职务也不会受到影响。」
- 
-
-
-【12】偷偷告诉各位，现在医院开替尔泊肽比网上买更…</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">喷嚏-70</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-01"
-                      datetime="2026-08-01T08:22:00.000Z"
-                    >2026-08-01</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    【喷嚏图卦20260801】不正宗，至少得有五个中心
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    【1】连云港消防回应
-
-
- 
-
-
- 
-
-
-【2】七月份股民人均亏损1.4万，这个数据有点扎心啊。
-
-
- 
-
-
-【3】胡锡进：建议查一查今天谁在砸盘。
-
-
- 
-
-
-【4】穿上裤子就不认了
-
-
- 
-
-
-【5】DeepSeek V4 Flash的竞技场跑分开榜：
-
-
-智能水平排名Top 13，任务成本排名最低，比它聪明的没它便宜，比它便宜的⋯⋯哦，没有比它便宜的。
-
-
- 
-
-
- 
-
-
- 
-
-
- 
-
-
-【6】中国将开展为期一年的“深化扫黑除恶”专项斗争
-
-
- 
-
-
-【7】发改委：正研究制定扩内需增量政策
-
-
- 
-
-
- 
-
-
- 
-
-
-【8】《#国务院关于出境入境管理的规定#》9月15日起施行
-
-
-《国务院关于出境入境管理的规定》7月31日公布，自2026年9月15日起施行。规定共19条，旨在规范出境入境管理，保障出境入境人员合法权益，维护国家主权、安全、发展利益。
- 
-
-
-【9】看到这个热搜我都惊呆了，能想出喜羊羊擦边的这都是什么脑袋呀
-
-
- 
-
-
-【10】不正宗，至少得有五个中心
-
-
- 
-
-
- 
-
-
-【11】蔡崇信与吴明华还是离婚了，声明“和平离婚”不影响球队运作。
-
-
-阿里巴巴董事长，美国职篮NBA布鲁克林篮网队(Brooklyn Nets)台裔老板蔡崇信(Joseph Tsai)与美国国家女子职篮WNBA纽约自由人队(New York Liberty)老板吴明华(Clara Wu Tsai)近30年的婚姻走到了尽头。
-
-
-美国八卦媒体「Page Six」7月31日独家获得这对夫妇发言人的声明，表示「蔡崇信与吴明华已经决定结束婚姻，这是双方共同的决定，两人彼此之间充满尊重。」
-
-
-至于蔡崇信在科技巨头阿里巴巴的所有权，不会受影响。声明指蔡崇信「目前没有出售任何阿里巴巴股份的计划，作为阿里巴巴董事长的职务也不会受到影响。」
- 
-
-
-【12】偷偷告诉各位，现在医院开替尔泊肽比网上买更…
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.dapenti.com/blog/more.asp?name&#x3D;xilei&amp;id&#x3D;194688"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="钛媒体：引领未来商业与生活新知"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">一门课程，一个圈子，七天“狼狈”。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://images.tmtpost.com/uploads/images/zhaopian/nuxtpic/change_logo3/og_image.png"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">钛媒体：引领未来商业与生活新知</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-01"
-                      datetime="2026-08-01T08:19:52.000Z"
-                    >2026-08-01</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    一群富豪的牛津梦，标价108万
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    一门课程，一个圈子，七天“狼狈”。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.tmtpost.com/8087957.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="钛媒体：引领未来商业与生活新知"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">AI Infra的效率革命</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://images.tmtpost.com/uploads/images/zhaopian/nuxtpic/change_logo3/og_image.png"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">钛媒体：引领未来商业与生活新知</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-01"
-                      datetime="2026-08-01T08:19:49.000Z"
-                    >2026-08-01</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    “榨”出硅的极限：怎么让GPU不“闲着”？
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    AI Infra的效率革命
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.tmtpost.com/8088046.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="钛媒体：引领未来商业与生活新知"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">180万亿日均Token调用量的豆包，700万辆搭载的智能汽车，100%覆盖的主流车企。这些数字背后是中国AI从跟随到被需要的完整路径。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://images.tmtpost.com/uploads/images/zhaopian/nuxtpic/change_logo3/og_image.png"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">钛媒体：引领未来商业与生活新知</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-01"
-                      datetime="2026-08-01T08:19:41.000Z"
-                    >2026-08-01</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    自研大模型的马斯克，把豆包装进了特斯拉
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    180万亿日均Token调用量的豆包，700万辆搭载的智能汽车，100%覆盖的主流车企。这些数字背后是中国AI从跟随到被需要的完整路径。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.tmtpost.com/8087804.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="钛媒体：引领未来商业与生活新知"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">从“多生孩子好打架”的扩张哲学，到全员“断舍离” ，全球汽车业用几十年走完了一场完整的商业轮回。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://images.tmtpost.com/uploads/images/zhaopian/nuxtpic/change_logo3/og_image.png"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">钛媒体：引领未来商业与生活新知</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-01"
-                      datetime="2026-08-01T08:19:35.000Z"
-                    >2026-08-01</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    车型越多，死得越快？全球车企正在抛弃车海战术
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    从“多生孩子好打架”的扩张哲学，到全员“断舍离” ，全球汽车业用几十年走完了一场完整的商业轮回。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.tmtpost.com/8087383.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="钛媒体：引领未来商业与生活新知"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">当大档期变得稀缺，用户选择更加谨慎，在烈度升级的市场竞争中，足够清晰明确的类型、卖点和情绪价值，成为一部影片能在观众有限的注意力里占据「优先级」的先决条件。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://images.tmtpost.com/uploads/images/zhaopian/nuxtpic/change_logo3/og_image.png"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">钛媒体：引领未来商业与生活新知</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-01"
-                      datetime="2026-08-01T08:19:31.000Z"
-                    >2026-08-01</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    撤档、提档、空降、点映，什么制造了史上最激烈的暑期档
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    当大档期变得稀缺，用户选择更加谨慎，在烈度升级的市场竞争中，足够清晰明确的类型、卖点和情绪价值，成为一部影片能在观众有限的注意力里占据「优先级」的先决条件。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.tmtpost.com/8087665.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="钛媒体：引领未来商业与生活新知"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">手机Agent的独家报价权松动了</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://images.tmtpost.com/uploads/images/zhaopian/nuxtpic/change_logo3/og_image.png"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">钛媒体：引领未来商业与生活新知</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-01"
-                      datetime="2026-08-01T08:19:23.000Z"
-                    >2026-08-01</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    Qwen还是看到了开源的好
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    手机Agent的独家报价权松动了
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.tmtpost.com/8087652.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="钛媒体：引领未来商业与生活新知"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">AI办公进入“集团军”时代。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://images.tmtpost.com/uploads/images/zhaopian/nuxtpic/change_logo3/og_image.png"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">钛媒体：引领未来商业与生活新知</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-01"
-                      datetime="2026-08-01T08:19:18.000Z"
-                    >2026-08-01</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    重组ToB业务，字节在赌什么？
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    AI办公进入“集团军”时代。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.tmtpost.com/8087590.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="钛媒体：引领未来商业与生活新知"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">换挡之困</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://images.tmtpost.com/uploads/images/zhaopian/nuxtpic/change_logo3/og_image.png"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">钛媒体：引领未来商业与生活新知</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-01"
-                      datetime="2026-08-01T08:19:12.000Z"
-                    >2026-08-01</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    “非洲之王”传音控股：“V型”反弹之后，市场在犹豫什么？
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    换挡之困
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.tmtpost.com/8087203.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="钛媒体：引领未来商业与生活新知"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">全球市值第一的AI转型答卷。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://images.tmtpost.com/uploads/images/zhaopian/nuxtpic/change_logo3/og_image.png"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">钛媒体：引领未来商业与生活新知</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-01"
-                      datetime="2026-08-01T08:19:07.000Z"
-                    >2026-08-01</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    苹果的5万亿美元时刻：最强财报，最弱AI
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    全球市值第一的AI转型答卷。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.tmtpost.com/8087556.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="钛媒体：引领未来商业与生活新知"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">2027年冲刺上市计划的一环？</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://images.tmtpost.com/uploads/images/zhaopian/nuxtpic/change_logo3/og_image.png"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">钛媒体：引领未来商业与生活新知</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-01"
-                      datetime="2026-08-01T08:19:04.000Z"
-                    >2026-08-01</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    独家|行深智能创始人退出公司管理，C轮资方全面接管
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    2027年冲刺上市计划的一环？
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.tmtpost.com/8087401.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="钛媒体：引领未来商业与生活新知"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">上游吃尽红利，下游集体拒单。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://images.tmtpost.com/uploads/images/zhaopian/nuxtpic/change_logo3/og_image.png"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">钛媒体：引领未来商业与生活新知</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-01"
-                      datetime="2026-08-01T08:19:00.000Z"
-                    >2026-08-01</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    存储巨头赚翻了，下游扛不住了
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    上游吃尽红利，下游集体拒单。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.tmtpost.com/8087502.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="RT World News"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">The US can take “whatever we want” from Ukraine’s rare earth deposits under a 2025 pact, Donald Trump has claimed 
-Read Full Article at RT.com</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://mf.b37mrtl.ru/files/2026.08/thumbnail/6a6da57185f54067fb780f69.jpg"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">RT World News</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-01"
-                      datetime="2026-08-01T07:52:11.000Z"
-                    >2026-08-01</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    US can take ‘whatever we want’ from Ukraine – Trump
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    The US can take “whatever we want” from Ukraine’s rare earth deposits under a 2025 pact, Donald Trump has claimed 
-Read Full Article at RT.com
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.rt.com/news/643741-us-take-whatever-we-want-ukraine-trump/?utm_source&#x3D;rss&amp;utm_medium&#x3D;rss&amp;utm_campaign&#x3D;RSS"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="南方周末"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">2026-08-01 15:00:00
- 
-
-一名少年在玩联机游戏。（视觉中国|供图）
-近年来，一些国家掀起了一股“社交媒体禁令潮”。2025年12月，澳大利亚率先通过全球首部针对16岁以下未成年人的社交媒体禁令，印度尼西亚、马来西亚、法国、英国、西班牙等国相继跟进，引发全球范围内的热议。
-上述国家不约而同地选择“社交媒体禁令”这一治理工具，背后有着深刻的社会动因。最直接的导火索，是未成年人社交媒体使用的低龄化趋势与相关风险的显性化。
-欧盟《数字服务法》监测数据显示，2024年上半年，欧洲儿童日均接触网络暴力内容时长达47分钟，13岁以下儿童遭遇网络欺凌的比例同比上升18%。法国2025年民调表明，37%的6至18岁受访青少年曾遭遇网络暴力，其中1/4因此产生自残或自杀念头。
-当网络欺凌和暴力持续刺痛公众神经，“一刀切”的禁令是成本最低、见效最快的政治表态，既能快速占据道德高地，也能向科技巨头展示监管决心，天然具备传播优势和动员效应。
-禁令的政策初衷固然具有合理性和正当性，然而，这种治理手段能否匹配治理目标，简单依靠封禁手段能否真正化解未成年人网络风险，值得冷静审视。
-越禁越漏：禁令执行的失效逻辑
-澳大利亚作为全球首个“吃螃蟹”的国家，其半年多的实践提供了鲜活的观察样本。
-研究显示，禁令的实际效果远低于预期，甚至陷入“越禁越漏”的恶性循环。
-首先，执行效果严重不足。澳大利亚纽卡斯尔大学在《英国医学杂志》发表的研究表明，禁令实施后，约86%的16岁以下青少年称过去一周内访问过至少一个受限社交平台，约66%的人遇到过某种形式的年龄验证措施，约15%至19%的人承认使用虚假账户访问平台。清华大学《全球多国未成年人社交媒体管控研究报告》也显示，澳大利亚禁令实施后，主流平台账号可见度下降约18%，但约七成原有账号持有者仍保留账号，14至15岁群体实际合规率仅约27%，仅19.2%的受…</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">南方周末</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-01"
-                      datetime="2026-08-01T07:25:06.000Z"
-                    >2026-08-01</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    “一刀切”成效几何？社交媒体禁令的治理迷思 | 法眼
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    2026-08-01 15:00:00
- 
-
-一名少年在玩联机游戏。（视觉中国|供图）
-近年来，一些国家掀起了一股“社交媒体禁令潮”。2025年12月，澳大利亚率先通过全球首部针对16岁以下未成年人的社交媒体禁令，印度尼西亚、马来西亚、法国、英国、西班牙等国相继跟进，引发全球范围内的热议。
-上述国家不约而同地选择“社交媒体禁令”这一治理工具，背后有着深刻的社会动因。最直接的导火索，是未成年人社交媒体使用的低龄化趋势与相关风险的显性化。
-欧盟《数字服务法》监测数据显示，2024年上半年，欧洲儿童日均接触网络暴力内容时长达47分钟，13岁以下儿童遭遇网络欺凌的比例同比上升18%。法国2025年民调表明，37%的6至18岁受访青少年曾遭遇网络暴力，其中1/4因此产生自残或自杀念头。
-当网络欺凌和暴力持续刺痛公众神经，“一刀切”的禁令是成本最低、见效最快的政治表态，既能快速占据道德高地，也能向科技巨头展示监管决心，天然具备传播优势和动员效应。
-禁令的政策初衷固然具有合理性和正当性，然而，这种治理手段能否匹配治理目标，简单依靠封禁手段能否真正化解未成年人网络风险，值得冷静审视。
-越禁越漏：禁令执行的失效逻辑
-澳大利亚作为全球首个“吃螃蟹”的国家，其半年多的实践提供了鲜活的观察样本。
-研究显示，禁令的实际效果远低于预期，甚至陷入“越禁越漏”的恶性循环。
-首先，执行效果严重不足。澳大利亚纽卡斯尔大学在《英国医学杂志》发表的研究表明，禁令实施后，约86%的16岁以下青少年称过去一周内访问过至少一个受限社交平台，约66%的人遇到过某种形式的年龄验证措施，约15%至19%的人承认使用虚假账户访问平台。清华大学《全球多国未成年人社交媒体管控研究报告》也显示，澳大利亚禁令实施后，主流平台账号可见度下降约18%，但约七成原有账号持有者仍保留账号，14至15岁群体实际合规率仅约27%，仅19.2%的受…
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="http://www.infzm.com/contents/327546"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="深网"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">图源：视觉中国  
-
-
-作者丨胡世鑫  
-编辑丨叶锦言
-出品丨深网·腾讯新闻小满工作室
-
-7月30日清晨，华尔街多家机构正争抢一批急于出售的股票。
-这批公开市场组合规模约160亿美元，谈判从深夜持续到天亮。最终，全球头部对冲基金Citadel接走大部分仓位。
-卖家是24岁的莱奥波德·阿申布伦纳（Leopold Aschenbrenner）。六天前，他还在劝投资人加仓。
-阿申布伦纳曾供职于OpenAI，离职后凭借一篇165页的AI预测报告在硅谷成名。不到两年，他创办的对冲基金Situational Awareness从数亿美元扩张至200亿美元以上，押注贯穿芯片、存储、电力、云计算和数据中心等AI基础设施。
-7月24日，他在投资人信中公布上半年净回报439%的成绩，并称市场出现难得的买入机会。几天后，有媒体披露，Situational Awareness在7月的净值跌幅约为67%。
-阿申布伦纳在另一封信中写道：“这个月，我们让你们失望了。”
-Situational Awareness并未清盘，仍持有Anthropic等私人资产（据悉他的未婚妻是公司CEO达里奥·阿莫迪的幕僚长）。但这场交易留下一个更具戏剧性的问题：一个靠预判AI未来掌管200多亿美元的年轻人，为何没能继续等下去？
-管理200多亿美元
-华尔街很少把200多亿美元交给一个几乎没有专业交易履历的年轻人。阿申布伦纳做到了。
-Situational Awareness成立于2024年。到2025年8月，相关报道显示，其管理规模已超过15亿美元；九个月后，这一数字突破200亿美元。基金向美国监管机构提交的持仓文件开始被投资者逐项拆解，一些追随者将其视作观察AI交易方向的指南。
-资金押注的不只一名年轻基金经理，也是一套关于AI未来的完整叙事。
-阿申布伦纳出生于德国，15岁进入哥伦比亚大学，19岁毕业。此后，他短暂供职于FT…</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://inews.gtimg.com/om_ls/OjM23b9Vluxs4FiGNJKP2BsZOyVPn4uMGtuP3aKIaYSJkAA_640330/0"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">深网</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-01"
-                      datetime="2026-08-01T06:39:26.000Z"
-                    >2026-08-01</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    15岁上哥大，24岁握200亿美金：硅谷天才狂赚439%后，输给华尔街
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    图源：视觉中国  
-
-
-作者丨胡世鑫  
-编辑丨叶锦言
-出品丨深网·腾讯新闻小满工作室
-
-7月30日清晨，华尔街多家机构正争抢一批急于出售的股票。
-这批公开市场组合规模约160亿美元，谈判从深夜持续到天亮。最终，全球头部对冲基金Citadel接走大部分仓位。
-卖家是24岁的莱奥波德·阿申布伦纳（Leopold Aschenbrenner）。六天前，他还在劝投资人加仓。
-阿申布伦纳曾供职于OpenAI，离职后凭借一篇165页的AI预测报告在硅谷成名。不到两年，他创办的对冲基金Situational Awareness从数亿美元扩张至200亿美元以上，押注贯穿芯片、存储、电力、云计算和数据中心等AI基础设施。
-7月24日，他在投资人信中公布上半年净回报439%的成绩，并称市场出现难得的买入机会。几天后，有媒体披露，Situational Awareness在7月的净值跌幅约为67%。
-阿申布伦纳在另一封信中写道：“这个月，我们让你们失望了。”
-Situational Awareness并未清盘，仍持有Anthropic等私人资产（据悉他的未婚妻是公司CEO达里奥·阿莫迪的幕僚长）。但这场交易留下一个更具戏剧性的问题：一个靠预判AI未来掌管200多亿美元的年轻人，为何没能继续等下去？
-管理200多亿美元
-华尔街很少把200多亿美元交给一个几乎没有专业交易履历的年轻人。阿申布伦纳做到了。
-Situational Awareness成立于2024年。到2025年8月，相关报道显示，其管理规模已超过15亿美元；九个月后，这一数字突破200亿美元。基金向美国监管机构提交的持仓文件开始被投资者逐项拆解，一些追随者将其视作观察AI交易方向的指南。
-资金押注的不只一名年轻基金经理，也是一套关于AI未来的完整叙事。
-阿申布伦纳出生于德国，15岁进入哥伦比亚大学，19岁毕业。此后，他短暂供职于FT…
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://view.inews.qq.com/a/20260801A082QW00"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="钛媒体：引领未来商业与生活新知"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">FCC禁令真正改变的，或许不是中国具身机器人的研发速度，而是具身企业全球化的难度。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://images.tmtpost.com/uploads/images/zhaopian/nuxtpic/change_logo3/og_image.png"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">钛媒体：引领未来商业与生活新知</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-01"
-                      datetime="2026-08-01T06:31:24.000Z"
-                    >2026-08-01</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    FCC禁令之后，具身智能企业还能站上CES2027么？｜ 出海参考
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    FCC禁令真正改变的，或许不是中国具身机器人的研发速度，而是具身企业全球化的难度。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.tmtpost.com/8087586.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">中国脱口秀演员“房主任”因与派出所户籍工作人员发生争执，被经纪公司停演三个月。
-艺名“房主任”的脱口秀演员房绍莉星期五（7月31日）晚发布视频道歉，称自己在综艺节目《姐姐当家2》里，对工作人员发泄情绪，感到“很愧疚”，“向那位工作人员和所有支持喜欢过我的粉丝说一声对不起。不管当时什么原因，我都不该把情绪撒给工作人员。”
-据新浪娱乐频道、九派新闻、极目新闻等报道，事源房绍莉在综艺节目中因分户问题情绪崩溃，她与前夫离婚后户口并未独立迁出，她希望自己能完全脱离前夫，在村中拥有独立户口，确保2028年重新承包时可以拥有土地承包权。
-山东临沂罗庄区盛庄派出所工作人员向她解释了几种迁户方案，例如投靠父母、迁到本人房产、离婚分得的房产或社区集体户。
-但她父母已经去世，自己名下没有房产，又不愿迁入集体户，所以双方一直无法找到符合她诉求的处理办法。
-据报道，在沟通过程中，房绍莉情绪激动，对一名女工作人员说了类似“你也是女人吧，你应该理解我”的话。
-部分网民认为她是在向没有决策权的一线工作人员施压或“道德绑架”；另一些人则认为，她的崩溃反映了离异农村女性在户籍、住房和土地权益方面的现实困境。
-舆论发酵后，社交平台流传出房绍莉被所在的经纪公司“北京波波笑文化传媒有限公司”对她不当行为的处理公告。
-公告称，房主任在临沂市罗庄区盛庄办事处盛庄派出所与现场工作人员接触时，存在态度恶劣、言语不当等不尊重他人的行为，对此，公司高度重视并立即对该事件进行核实与反思，为严肃纪律、惩前毖后，决定自7月26日起暂停房主任一切演艺工作，为期三个月，并责令房主任在此期间进行深刻自我反省，并接受职业道德及法律法规的学习教育。
-房绍莉本人在道歉视频中说，不应把情绪发泄在工作人员身上，她也私下致电当事工作人员道歉，双方已经相互谅解；户口后来迁到了沈阳一处师父为她购买的房产，相关业务已经办结。
-相关话题星期五晚登上中国微博热搜。许多网民认为她对基层人员的态度的确不好，但她本人也是户籍制度的受害者，质疑她只是情绪崩溃一下，就要停演3个月的处罚过重。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://cassette.sphdigital.com.sg/image/zaobao/70582958dd1f2bf990421a4509a6204d77bc4a9f66f23bf2955c773be9a527c6"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-01"
-                      datetime="2026-08-01T06:27:39.812Z"
-                    >2026-08-01</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    离婚后因户口问题与户籍人员争执 “房主任”被停演三个月
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    中国脱口秀演员“房主任”因与派出所户籍工作人员发生争执，被经纪公司停演三个月。
-艺名“房主任”的脱口秀演员房绍莉星期五（7月31日）晚发布视频道歉，称自己在综艺节目《姐姐当家2》里，对工作人员发泄情绪，感到“很愧疚”，“向那位工作人员和所有支持喜欢过我的粉丝说一声对不起。不管当时什么原因，我都不该把情绪撒给工作人员。”
-据新浪娱乐频道、九派新闻、极目新闻等报道，事源房绍莉在综艺节目中因分户问题情绪崩溃，她与前夫离婚后户口并未独立迁出，她希望自己能完全脱离前夫，在村中拥有独立户口，确保2028年重新承包时可以拥有土地承包权。
-山东临沂罗庄区盛庄派出所工作人员向她解释了几种迁户方案，例如投靠父母、迁到本人房产、离婚分得的房产或社区集体户。
-但她父母已经去世，自己名下没有房产，又不愿迁入集体户，所以双方一直无法找到符合她诉求的处理办法。
-据报道，在沟通过程中，房绍莉情绪激动，对一名女工作人员说了类似“你也是女人吧，你应该理解我”的话。
-部分网民认为她是在向没有决策权的一线工作人员施压或“道德绑架”；另一些人则认为，她的崩溃反映了离异农村女性在户籍、住房和土地权益方面的现实困境。
-舆论发酵后，社交平台流传出房绍莉被所在的经纪公司“北京波波笑文化传媒有限公司”对她不当行为的处理公告。
-公告称，房主任在临沂市罗庄区盛庄办事处盛庄派出所与现场工作人员接触时，存在态度恶劣、言语不当等不尊重他人的行为，对此，公司高度重视并立即对该事件进行核实与反思，为严肃纪律、惩前毖后，决定自7月26日起暂停房主任一切演艺工作，为期三个月，并责令房主任在此期间进行深刻自我反省，并接受职业道德及法律法规的学习教育。
-房绍莉本人在道歉视频中说，不应把情绪发泄在工作人员身上，她也私下致电当事工作人员道歉，双方已经相互谅解；户口后来迁到了沈阳一处师父为她购买的房产，相关业务已经办结。
-相关话题星期五晚登上中国微博热搜。许多网民认为她对基层人员的态度的确不好，但她本人也是户籍制度的受害者，质疑她只是情绪崩溃一下，就要停演3个月的处罚过重。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.zaobao.com.sg/news/china/story20260801-9454658"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">彭博社引述知情人士报道，中国人工智能企业月之暗面与阿里巴巴达成算力合作协议，可使用阿里巴巴的约2万颗英伟达晶片集群。
-发于星期五（7月31日）的报道称，这凸显中国在推动人工智能发展方面，仍持续依赖西方半导体。
-知情人士说，这批硬件占月之暗面旗下Kimi模型所使用整体算力的相当大一部分。
-知情人士还称，阿里巴巴是月之暗面的最大投资者之一，并希望其投资的公司使用阿里云服务。不过，这两家中国企业同时也是竞争对手。如今，Kimi利用阿里巴巴提供的基础设施，在多项重要性能指标上超越了阿里巴巴自家的通义千问（Qwen）产品。
-一名了解阿里巴巴内部讨论的人士说，这令部分阿里巴巴员工感到失望，因为这些相互竞争的人工智能团队所能获得的训练资源大致相近。
-报道称，月之暗面和英伟达均拒绝就有关安排置评。
-美国多年来一直限制中国取得英伟达晶片以及制造先进制程晶片所需的光刻机设备。但月之暗面仍成功开发出Kimi K3，引发投资者质疑美国政府现行政策是否真正有效。
-不过，一名白宫官员指月之暗面规避了相关规定。美国白宫科技政策办公室主任克拉齐奥斯（Michael Kratsios）上周指控，月之暗面非法取得英伟达最先进的Blackwell晶片。这些晶片目前是市场上性能最强的人工智能加速器。目前尚不清楚美国政府认为月之暗面持有多少颗相关处理器。
-彭博社此前报道，美国官员也认为深度求索（DeepSeek）持有Blackwell晶片。
-不过，美国现行规定一般允许中国企业通过租用算力的方式，使用这些同样的晶片。
-克拉齐奥斯称，月之暗面也通过泰国一家未具名机构采用这种方式，并可能用来训练Kimi K3。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://cassette.sphdigital.com.sg/image/zaobao/417a22c457c88847cb2dd3d53922561d579e14e1764d9c15dbaef3fce4eed49c"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-01"
-                      datetime="2026-08-01T06:27:39.785Z"
-                    >2026-08-01</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    美媒：月之暗面Kimi可使用阿里巴巴2万颗英伟达晶片集群
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    彭博社引述知情人士报道，中国人工智能企业月之暗面与阿里巴巴达成算力合作协议，可使用阿里巴巴的约2万颗英伟达晶片集群。
-发于星期五（7月31日）的报道称，这凸显中国在推动人工智能发展方面，仍持续依赖西方半导体。
-知情人士说，这批硬件占月之暗面旗下Kimi模型所使用整体算力的相当大一部分。
-知情人士还称，阿里巴巴是月之暗面的最大投资者之一，并希望其投资的公司使用阿里云服务。不过，这两家中国企业同时也是竞争对手。如今，Kimi利用阿里巴巴提供的基础设施，在多项重要性能指标上超越了阿里巴巴自家的通义千问（Qwen）产品。
-一名了解阿里巴巴内部讨论的人士说，这令部分阿里巴巴员工感到失望，因为这些相互竞争的人工智能团队所能获得的训练资源大致相近。
-报道称，月之暗面和英伟达均拒绝就有关安排置评。
-美国多年来一直限制中国取得英伟达晶片以及制造先进制程晶片所需的光刻机设备。但月之暗面仍成功开发出Kimi K3，引发投资者质疑美国政府现行政策是否真正有效。
-不过，一名白宫官员指月之暗面规避了相关规定。美国白宫科技政策办公室主任克拉齐奥斯（Michael Kratsios）上周指控，月之暗面非法取得英伟达最先进的Blackwell晶片。这些晶片目前是市场上性能最强的人工智能加速器。目前尚不清楚美国政府认为月之暗面持有多少颗相关处理器。
-彭博社此前报道，美国官员也认为深度求索（DeepSeek）持有Blackwell晶片。
-不过，美国现行规定一般允许中国企业通过租用算力的方式，使用这些同样的晶片。
-克拉齐奥斯称，月之暗面也通过泰国一家未具名机构采用这种方式，并可能用来训练Kimi K3。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.zaobao.com.sg/news/china/story20260801-9454462"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">中国浙江温州泰顺县南浦溪镇福庆桥发生断裂，两人落水，其中一人获救，另一人失踪后被找到，抢救无效身亡。
-据央视新闻报道，受10级瞬时雷暴大风天气影响，泰顺县南浦溪镇新孙线路边福庆桥星期五（7月31日）下午发生局部陷落。福庆桥一侧的桥面发生陷落，陷落部分占整座桥梁的三分之一。
-报道称，当天下午4时许接到群众电话反映福庆桥断裂，南浦溪镇应急部门、专职消防队、派出所、120急救中心赶赴现场开展处置。一人落水后成功获救，无生命危险；另一人失踪，正在全力搜救。
-澎湃新闻当晚从泰顺县政府相关负责人处获悉，南浦溪镇的福庆桥发生局部陷落，一名坠桥人员成功获救，另一名失踪人员已被找到，经送医抢救无效不幸身亡。
-相关负责人表示，下一步政府会跟进善后处置工作，对涉事廊桥可能存在的质量问题也会跟进调查。
-据报道，泰顺县气象台星期五下午连发三条橙色预警，先后将暴雨黄色预警信号升级为暴雨橙色预警信号，将雷暴大风黄色预警信号升级为雷暴大风橙色预警信号，并发布冰雹橙色预警信号。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://www.zaobao.com.sg/_web2/assets/social-share.png"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-01"
-                      datetime="2026-08-01T06:27:39.739Z"
-                    >2026-08-01</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    浙江温州廊桥断裂一人获救一人死亡
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    中国浙江温州泰顺县南浦溪镇福庆桥发生断裂，两人落水，其中一人获救，另一人失踪后被找到，抢救无效身亡。
-据央视新闻报道，受10级瞬时雷暴大风天气影响，泰顺县南浦溪镇新孙线路边福庆桥星期五（7月31日）下午发生局部陷落。福庆桥一侧的桥面发生陷落，陷落部分占整座桥梁的三分之一。
-报道称，当天下午4时许接到群众电话反映福庆桥断裂，南浦溪镇应急部门、专职消防队、派出所、120急救中心赶赴现场开展处置。一人落水后成功获救，无生命危险；另一人失踪，正在全力搜救。
-澎湃新闻当晚从泰顺县政府相关负责人处获悉，南浦溪镇的福庆桥发生局部陷落，一名坠桥人员成功获救，另一名失踪人员已被找到，经送医抢救无效不幸身亡。
-相关负责人表示，下一步政府会跟进善后处置工作，对涉事廊桥可能存在的质量问题也会跟进调查。
-据报道，泰顺县气象台星期五下午连发三条橙色预警，先后将暴雨黄色预警信号升级为暴雨橙色预警信号，将雷暴大风黄色预警信号升级为雷暴大风橙色预警信号，并发布冰雹橙色预警信号。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.zaobao.com.sg/news/china/story20260801-9454357"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">中菲两国在主权有争议的黄岩岛（菲律宾称斯卡伯勒浅滩）海域冲突频发之际，中国官方多个部门宣布印发《黄岩岛国家级自然保护区管理办法》。
-据央视新闻报道，中国自然资源部、国家林业和草原局、中国海警局、海南省人民政府星期六（8月1日）联合印发《黄岩岛国家级自然保护区管理办法》。
-该《管理办法》重点就管理机制、管护措施、法律责任等作出规定，共十六条。
-根据《管理办法》，黄岩岛国家级自然保护区由自然资源部负责组织保护区勘界、规划审查、自然资源保护利用管理和资产核算、确权登记、领海基点保护管理等工作；国家林业和草原局负责保护区的监督管理工作，负责保护区调整、规划、建设等工作的审查审批；自然资源部南海局承担管理机构职责，具体负责保护区的日常保护管理工作，负责资源调查监测、生态保护修复等工作。
-自然资源部、国家林业和草原局、中国海警局、海南省人民政府等建立协同机制，协调解决保护区保护管理中的重大问题，加强工作协同、信息共享。
-同一天，中国解放军南部战区在黄岩岛海空域和周边海空域组织海空联合演训，并不点名地指出是针对当前南中国海局势及“个别域内国家破坏地区和平稳定的必要行动”。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://cassette.sphdigital.com.sg/image/zaobao/1e6d998ffb8fd54c57d32d094350ec1809e9371daab40b6fb816089ff6a01397"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-01"
-                      datetime="2026-08-01T06:27:39.718Z"
-                    >2026-08-01</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    中国印发黄岩岛自然保护区管理办法
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    中菲两国在主权有争议的黄岩岛（菲律宾称斯卡伯勒浅滩）海域冲突频发之际，中国官方多个部门宣布印发《黄岩岛国家级自然保护区管理办法》。
-据央视新闻报道，中国自然资源部、国家林业和草原局、中国海警局、海南省人民政府星期六（8月1日）联合印发《黄岩岛国家级自然保护区管理办法》。
-该《管理办法》重点就管理机制、管护措施、法律责任等作出规定，共十六条。
-根据《管理办法》，黄岩岛国家级自然保护区由自然资源部负责组织保护区勘界、规划审查、自然资源保护利用管理和资产核算、确权登记、领海基点保护管理等工作；国家林业和草原局负责保护区的监督管理工作，负责保护区调整、规划、建设等工作的审查审批；自然资源部南海局承担管理机构职责，具体负责保护区的日常保护管理工作，负责资源调查监测、生态保护修复等工作。
-自然资源部、国家林业和草原局、中国海警局、海南省人民政府等建立协同机制，协调解决保护区保护管理中的重大问题，加强工作协同、信息共享。
-同一天，中国解放军南部战区在黄岩岛海空域和周边海空域组织海空联合演训，并不点名地指出是针对当前南中国海局势及“个别域内国家破坏地区和平稳定的必要行动”。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.zaobao.com.sg/news/china/story20260801-9454770"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">中国退役军人事务部官员称，确实有老兵生活碰到了特殊困难，将完善国家、地方立体多元的帮扶体系，解决困难退役军人存在的困难。
-中国国务院新闻办公室星期五（7月31日）举行新闻发布会，介绍加快推动“十五五”时期退役军人工作高质量发展有关情况。
-据中国网文字实录，针对退役军人事务部如何加强对困难退役军人的帮扶援助的提问，退役军人事务部部长裴金佳强调，“正因为有千千万万的军人为我们站岗放哨，才有今天的家国安宁。我们不能忘记退役军人曾经为国防和军队建设奉献了青春，作出了重要贡献。”
-他说，“今天，确实有一些老兵生活碰到了特殊的困难。对他们的冷暖疾苦，我们要时刻放在心上，真心关爱、真诚帮扶。”
-裴金佳提到，“十五五”期间将进一步强化资源统筹、精准对接施策、扩大受益范围，切实解决困难退役军人存在的暂时的一些困难。
-他列举了几个重点方向，包括坚持政府主导引领、国资企业带动示范，鼓励慈善组织、民营企业、爱心人士共同参与帮扶，健全完善国家、地方立体多元的帮扶体系；退役军人家庭如遇到突发困难，在实施普惠政策外，要更好地发挥退役军人关爱协会的作用，设立专项基金、实施帮扶项目等方式，加大帮扶力度；对因下岗失业、重大疾病、家庭变故、自然灾害等致困的退役军人，将针对性地采取扶持就业、医疗救助、心理疏导、受灾应急等服务，特别要重视对孤老失能退役军人等重点群体的服务帮扶工作。
-退役军人事务部副部长隋洪波在同场记者会上说，“十五五”期间将持续拓宽退役军人就业渠道。继续巩固行业合作，加强与应急、公安、教育等部门的协作，引导更多退役军人进入教师、辅警、消防等岗位。深化政企合作，进一步扩大签约企业的数量，常态化举办中央企业、优强民营企业面向退役军人的专项招聘等。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://cassette.sphdigital.com.sg/image/zaobao/9895348188c1ec0a3adb901c4af0adb6b60ea110906e7bb250642ea58380fb6e"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-01"
-                      datetime="2026-08-01T06:27:39.701Z"
-                    >2026-08-01</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    中国退役军人事务部长：确有老兵生活碰到特殊困难
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    中国退役军人事务部官员称，确实有老兵生活碰到了特殊困难，将完善国家、地方立体多元的帮扶体系，解决困难退役军人存在的困难。
-中国国务院新闻办公室星期五（7月31日）举行新闻发布会，介绍加快推动“十五五”时期退役军人工作高质量发展有关情况。
-据中国网文字实录，针对退役军人事务部如何加强对困难退役军人的帮扶援助的提问，退役军人事务部部长裴金佳强调，“正因为有千千万万的军人为我们站岗放哨，才有今天的家国安宁。我们不能忘记退役军人曾经为国防和军队建设奉献了青春，作出了重要贡献。”
-他说，“今天，确实有一些老兵生活碰到了特殊的困难。对他们的冷暖疾苦，我们要时刻放在心上，真心关爱、真诚帮扶。”
-裴金佳提到，“十五五”期间将进一步强化资源统筹、精准对接施策、扩大受益范围，切实解决困难退役军人存在的暂时的一些困难。
-他列举了几个重点方向，包括坚持政府主导引领、国资企业带动示范，鼓励慈善组织、民营企业、爱心人士共同参与帮扶，健全完善国家、地方立体多元的帮扶体系；退役军人家庭如遇到突发困难，在实施普惠政策外，要更好地发挥退役军人关爱协会的作用，设立专项基金、实施帮扶项目等方式，加大帮扶力度；对因下岗失业、重大疾病、家庭变故、自然灾害等致困的退役军人，将针对性地采取扶持就业、医疗救助、心理疏导、受灾应急等服务，特别要重视对孤老失能退役军人等重点群体的服务帮扶工作。
-退役军人事务部副部长隋洪波在同场记者会上说，“十五五”期间将持续拓宽退役军人就业渠道。继续巩固行业合作，加强与应急、公安、教育等部门的协作，引导更多退役军人进入教师、辅警、消防等岗位。深化政企合作，进一步扩大签约企业的数量，常态化举办中央企业、优强民营企业面向退役军人的专项招聘等。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.zaobao.com.sg/news/china/story20260801-9454568"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">中美关系因科技竞争、企业制裁出现不确定性之际，中国企业家代表团在华盛顿与美中贸易全国委员会及其会员企业进行交流座谈。
-据新华社报道，中国贸促会组织中国企业家代表团星期五（7月31日）在华盛顿与美中贸易全国委员会及其会员企业交流座谈，来自多个行业的中美企业代表参会并进行了积极沟通交流。中国贸促会会长任鸿斌、中国驻美国大使馆经商处公参李勰、美中贸委会会长谭森等出席并发言。
-任鸿斌表示，两国元首北京会晤达成的重要共识，为两国企业务实合作提供了战略引领。美中贸委会是中国贸促会在美国的重要对口机构，双方既是历史中的朋友，也是现实中的伙伴。
-任鸿斌称，美中贸委会积极发挥自身影响，在拓展中美经贸合作、密切人文交流、增进相互了解等方面发挥了重要桥梁纽带作用。面向未来，中国贸促会愿与美中贸委会一道，搭建更多高质量政商对话、经贸交流平台，助力营造良好投资环境，深化多边领域合作，继续做中美友好的践行者、中美互利合作的促进者、全球产供链稳定畅通的维护者，为推动中美工商界合作共同努力。
-据中方文告，美方代表表示，美国工商界始终是推动美中交流合作的坚定声音。今年是亚太经合组织(APEC)“中国年”，这为美中双方开展更深入的合作提供了机遇。链博会是中美工商界开展务实合作的重要平台，有效推动中美两国深化产供链合作和助力维护全球产供链稳定畅通。美国企业非常渴望以建设性、务实的方式参与其中并发挥积极作用。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://www.zaobao.com.sg/_web2/assets/social-share.png"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-01"
-                      datetime="2026-08-01T06:27:39.688Z"
-                    >2026-08-01</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    中企代表团与美中贸委会企业座谈
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    中美关系因科技竞争、企业制裁出现不确定性之际，中国企业家代表团在华盛顿与美中贸易全国委员会及其会员企业进行交流座谈。
-据新华社报道，中国贸促会组织中国企业家代表团星期五（7月31日）在华盛顿与美中贸易全国委员会及其会员企业交流座谈，来自多个行业的中美企业代表参会并进行了积极沟通交流。中国贸促会会长任鸿斌、中国驻美国大使馆经商处公参李勰、美中贸委会会长谭森等出席并发言。
-任鸿斌表示，两国元首北京会晤达成的重要共识，为两国企业务实合作提供了战略引领。美中贸委会是中国贸促会在美国的重要对口机构，双方既是历史中的朋友，也是现实中的伙伴。
-任鸿斌称，美中贸委会积极发挥自身影响，在拓展中美经贸合作、密切人文交流、增进相互了解等方面发挥了重要桥梁纽带作用。面向未来，中国贸促会愿与美中贸委会一道，搭建更多高质量政商对话、经贸交流平台，助力营造良好投资环境，深化多边领域合作，继续做中美友好的践行者、中美互利合作的促进者、全球产供链稳定畅通的维护者，为推动中美工商界合作共同努力。
-据中方文告，美方代表表示，美国工商界始终是推动美中交流合作的坚定声音。今年是亚太经合组织(APEC)“中国年”，这为美中双方开展更深入的合作提供了机遇。链博会是中美工商界开展务实合作的重要平台，有效推动中美两国深化产供链合作和助力维护全球产供链稳定畅通。美国企业非常渴望以建设性、务实的方式参与其中并发挥积极作用。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.zaobao.com.sg/news/china/story20260801-9454710"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">中国国家电网原党组书记、董事长辛保安被查，中国国家电网公司党组召开会议通报这一消息，与会者一致表示坚决拥护这一决定。
-中国国家电网公司党组星期六（8月1日）召开会议，通报中央纪委国家监委对辛保安涉嫌严重违纪违法进行纪律审查和监察调查的决定。
-该公司现任党组书记、董事长张智刚主持会议并讲话。公司党组副书记、总经理张文峰，公司党组副书记邵国勇，公司党组成员出席会议。与会者一致表示，坚决拥护党中央决定，坚决拥护中央纪委国家监委决定。
-会议指出，对辛保安涉嫌严重违纪违法进行纪律审查和监察调查，充分彰显了以中共总书记习近平同志为核心的党中央持之以恒推进全面从严治党、把党的自我革命进行到底的坚定决心和坚强意志，深刻体现了中共坚持反腐败斗争无禁区、全覆盖、零容忍，有腐必反、有贪必肃的鲜明立场，再次释放了一步不停歇、半步不退让、把反腐败斗争进行到底的强烈信号。公司党组坚决拥护党中央决定，坚决拥护中央纪委国家监委决定。
-会议强调，公司各级党组织和广大党员干部要坚决把思想和行动统一到中共党中央决定精神上来，认真落实“五个进一步到位”和“三个更加”重要要求，以更高标准、更实举措推进全面从严治党不断向纵深发展，以实际行动坚定拥护“两个确立”、坚决做到“两个维护”。要旗帜鲜明加强党的政治建设，始终做到对党绝对忠诚；更加清醒坚定地推进反腐败斗争，坚决铲除腐败滋生的土壤和条件；更加科学有效地把权力关进制度笼子，确保权力正确行使；更加坚决有力地落实管党治党政治责任，把严的基调、严的措施、严的氛围一贯到底。
-会议也要求公司广大党员干部以案为鉴、深刻警醒，严守廉洁自律底线，严格遵守党章党规党纪等，“习惯在受监督和约束的环境中工作和生活，始终清清白白做人、干干净净做事”。
-会议也要求公司各级领导干部要带头忠诚履职、担当作为，扑下身子抓落实、心无旁骛干事业，确保安全生产和电力可靠供应，高质量完成全年目标任务，努力实现“十五五”良好开局。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://www.zaobao.com.sg/_web2/assets/social-share.png"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-01"
-                      datetime="2026-08-01T06:27:39.617Z"
-                    >2026-08-01</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    辛保安被查 中国国家电网表示“坚决拥护”
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    中国国家电网原党组书记、董事长辛保安被查，中国国家电网公司党组召开会议通报这一消息，与会者一致表示坚决拥护这一决定。
-中国国家电网公司党组星期六（8月1日）召开会议，通报中央纪委国家监委对辛保安涉嫌严重违纪违法进行纪律审查和监察调查的决定。
-该公司现任党组书记、董事长张智刚主持会议并讲话。公司党组副书记、总经理张文峰，公司党组副书记邵国勇，公司党组成员出席会议。与会者一致表示，坚决拥护党中央决定，坚决拥护中央纪委国家监委决定。
-会议指出，对辛保安涉嫌严重违纪违法进行纪律审查和监察调查，充分彰显了以中共总书记习近平同志为核心的党中央持之以恒推进全面从严治党、把党的自我革命进行到底的坚定决心和坚强意志，深刻体现了中共坚持反腐败斗争无禁区、全覆盖、零容忍，有腐必反、有贪必肃的鲜明立场，再次释放了一步不停歇、半步不退让、把反腐败斗争进行到底的强烈信号。公司党组坚决拥护党中央决定，坚决拥护中央纪委国家监委决定。
-会议强调，公司各级党组织和广大党员干部要坚决把思想和行动统一到中共党中央决定精神上来，认真落实“五个进一步到位”和“三个更加”重要要求，以更高标准、更实举措推进全面从严治党不断向纵深发展，以实际行动坚定拥护“两个确立”、坚决做到“两个维护”。要旗帜鲜明加强党的政治建设，始终做到对党绝对忠诚；更加清醒坚定地推进反腐败斗争，坚决铲除腐败滋生的土壤和条件；更加科学有效地把权力关进制度笼子，确保权力正确行使；更加坚决有力地落实管党治党政治责任，把严的基调、严的措施、严的氛围一贯到底。
-会议也要求公司广大党员干部以案为鉴、深刻警醒，严守廉洁自律底线，严格遵守党章党规党纪等，“习惯在受监督和约束的环境中工作和生活，始终清清白白做人、干干净净做事”。
-会议也要求公司各级领导干部要带头忠诚履职、担当作为，扑下身子抓落实、心无旁骛干事业，确保安全生产和电力可靠供应，高质量完成全年目标任务，努力实现“十五五”良好开局。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.zaobao.com.sg/news/china/story20260801-9455088"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">中国驻日大使吴江浩称，当前中日关系面临严重困难，日本言行违背双方多次确认的政治共识，是导致目前局面的根源。
-据中国驻日本大使馆官网新闻稿，中国驻日使馆星期四（7月30日）举行招待会庆祝解放军建军99周年。吴江浩致辞时说，当今世界变乱交织，中国将坚定走和平发展道路，始终坚持站在历史正确一边，为世界和平与发展注入更多稳定性确定性。
-谈到中日关系时，吴江浩称，中日互为重要邻国，当前中日关系面临严重困难，并不断承受新的冲击。日本言行违背双方多次确认的政治共识，是导致目前局面的根源所在。
-他敦促日本重信守诺，以实际行动维护中日四个政治文件确定的重大原则，以实际行动履行走和平发展道路的政策宣示。
-驻日本大使馆国防武官陈永靖则称，台湾是中国领土不可分割的一部分，中国军队有信心、有能力挫败一切外部势力干涉，粉碎“台独”分裂图谋，实现祖国完全统一。他也提到，今年是东京审判开庭80周年，要以史为鉴，携手维护战后国际秩序，维护来之不易的和平局面。
-中国驻日使馆称，日本部分政要和官员，各国驻日武官，各界友好人士，华侨华人，中资机构及留学生代表等340余人参加了招待会。来宾观看了《维护世界和平的中国军队》图片展和《制胜》等宣传片。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://cassette.sphdigital.com.sg/image/zaobao/23b980d93a9cc13768a57271f0e2a309d7f6c30a73196120618603f64d81e191"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-01"
-                      datetime="2026-08-01T06:27:39.601Z"
-                    >2026-08-01</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    中国驻日大使吴江浩批日本违背政治共识
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    中国驻日大使吴江浩称，当前中日关系面临严重困难，日本言行违背双方多次确认的政治共识，是导致目前局面的根源。
-据中国驻日本大使馆官网新闻稿，中国驻日使馆星期四（7月30日）举行招待会庆祝解放军建军99周年。吴江浩致辞时说，当今世界变乱交织，中国将坚定走和平发展道路，始终坚持站在历史正确一边，为世界和平与发展注入更多稳定性确定性。
-谈到中日关系时，吴江浩称，中日互为重要邻国，当前中日关系面临严重困难，并不断承受新的冲击。日本言行违背双方多次确认的政治共识，是导致目前局面的根源所在。
-他敦促日本重信守诺，以实际行动维护中日四个政治文件确定的重大原则，以实际行动履行走和平发展道路的政策宣示。
-驻日本大使馆国防武官陈永靖则称，台湾是中国领土不可分割的一部分，中国军队有信心、有能力挫败一切外部势力干涉，粉碎“台独”分裂图谋，实现祖国完全统一。他也提到，今年是东京审判开庭80周年，要以史为鉴，携手维护战后国际秩序，维护来之不易的和平局面。
-中国驻日使馆称，日本部分政要和官员，各国驻日武官，各界友好人士，华侨华人，中资机构及留学生代表等340余人参加了招待会。来宾观看了《维护世界和平的中国军队》图片展和《制胜》等宣传片。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.zaobao.com.sg/news/china/story20260801-9454746"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="南方周末"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">2026-08-01 09:00:00</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">南方周末</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-01"
-                      datetime="2026-08-01T06:25:07.000Z"
-                    >2026-08-01</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    理想之城榜
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    2026-08-01 09:00:00
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="http://www.infzm.com/contents/243068"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="南方周末"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">2026-08-01 13:57:27
-“我们怎么能承认一个殖民其他国家的国家呢？”在被提及与以色列关系时，马来西亚总理安瓦尔反问道。
-据人民网消息，2026年7月22日，在森美兰州芙蓉市出席“青年伙伴巡回活动”时，安瓦尔强调政府不会因部分美国国会议员施压，改变长期以来禁止以色列公民入境的政策。
-此前，针对柔佛州森林城市“网络学校”社区的藏匿事件，他作出强硬表态，若调查证实有以色列公民进入马来西亚，马方会立即将其驱逐出境。
-这体现了马以关系的政治基调。
-“本护照适用于所有国家，以色列除外。”马来西亚护照的扉页部分如是声明。该国自20世纪60年代正式独立以来，在巴以问题上始终坚定支持巴勒斯坦，从未与以色列建立过外交关系。
-“安瓦尔的强硬立场虽然冒险，却是‘必须作出的决定’。”马来西亚槟城研究院（Penang Institute）执行主任黄基明（Ooi Kee Beng）在接受南方周末记者采访时表示，相较于美国等西方国家的声讨，忽视国内民意的代价显然更为沉重。
-彻底审查有难度
-马来西亚是东南亚少数设立数字游民签证的国家之一，近年来持该签证入境的外籍人士数量总体增加。
-然而，2026年7月上旬，一则涉及以色列人的消息，在当地数字游民圈引发轩然大波。
-导火索源于柔佛州森林城市“网络学校”社区（下称“社区”）发布的一则宣传视频，由以色列籍知名网红Nas Daily出镜介绍。随着消息的持续发酵，社区更多人员被指控隐瞒身份，涉嫌使用美国、欧洲或加勒比岛国等第二本护照入境，以规避马来西亚对以色列护照的入境禁令。
-对此，柔佛州务大臣哈菲兹（Onn Hafiz Ghazi）正式致函马来西亚联邦内政部，要求就移民与国家安全、社区运营合规两大维度展开联合专项调查。
-
-位于马来西亚柔佛州的森林城市地产项目。图/视觉中国
-“柔佛州毗邻新加坡，经贸、科技、文化等领域的对外协作紧密。”中山大学特聘副研究员…</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">南方周末</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-01"
-                      datetime="2026-08-01T06:25:07.000Z"
-                    >2026-08-01</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    “不承认以色列主权”：马来西亚总理下达“逐客令”
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    2026-08-01 13:57:27
-“我们怎么能承认一个殖民其他国家的国家呢？”在被提及与以色列关系时，马来西亚总理安瓦尔反问道。
-据人民网消息，2026年7月22日，在森美兰州芙蓉市出席“青年伙伴巡回活动”时，安瓦尔强调政府不会因部分美国国会议员施压，改变长期以来禁止以色列公民入境的政策。
-此前，针对柔佛州森林城市“网络学校”社区的藏匿事件，他作出强硬表态，若调查证实有以色列公民进入马来西亚，马方会立即将其驱逐出境。
-这体现了马以关系的政治基调。
-“本护照适用于所有国家，以色列除外。”马来西亚护照的扉页部分如是声明。该国自20世纪60年代正式独立以来，在巴以问题上始终坚定支持巴勒斯坦，从未与以色列建立过外交关系。
-“安瓦尔的强硬立场虽然冒险，却是‘必须作出的决定’。”马来西亚槟城研究院（Penang Institute）执行主任黄基明（Ooi Kee Beng）在接受南方周末记者采访时表示，相较于美国等西方国家的声讨，忽视国内民意的代价显然更为沉重。
-彻底审查有难度
-马来西亚是东南亚少数设立数字游民签证的国家之一，近年来持该签证入境的外籍人士数量总体增加。
-然而，2026年7月上旬，一则涉及以色列人的消息，在当地数字游民圈引发轩然大波。
-导火索源于柔佛州森林城市“网络学校”社区（下称“社区”）发布的一则宣传视频，由以色列籍知名网红Nas Daily出镜介绍。随着消息的持续发酵，社区更多人员被指控隐瞒身份，涉嫌使用美国、欧洲或加勒比岛国等第二本护照入境，以规避马来西亚对以色列护照的入境禁令。
-对此，柔佛州务大臣哈菲兹（Onn Hafiz Ghazi）正式致函马来西亚联邦内政部，要求就移民与国家安全、社区运营合规两大维度展开联合专项调查。
-
-位于马来西亚柔佛州的森林城市地产项目。图/视觉中国
-“柔佛州毗邻新加坡，经贸、科技、文化等领域的对外协作紧密。”中山大学特聘副研究员…
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="http://www.infzm.com/contents/327556"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="南方周末"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">2026-08-01 13:00:00
-高压忙碌了整整两个月后，我和朋友都感觉必须要休假一趟了。钢筋森林中的牛马需要前往自然中和真正的牛马相见，为紧绷的发条松松劲。
-最后我们挑选了休闲的海边度假作为生活的解药。
-来之前我特意在网上做好了攻略，挑选了一处相对小众，保护得又较好的海滩。好在很幸运，到了之后果然没让我们失望，海边天宽地广，海天一色，阳光洒进海水里，近处是清浅的透明蓝，远处是浅蓝堆叠出的蔚蓝色，也许宇航员从太空俯视地球所看到的就是这样堆叠出的蓝。
-不少热门海滩游客众多，难免近海都有些被污染，这次能看到这么清澈透亮的大海本身的颜色，让我和朋友不禁拿出手机疯狂拍照。可能因为是错峰出行，工作日的海边不像节假日密密麻麻都是下饺子的人群，细软沙滩边只有零星的一些游客，更显得景色宜人。
-在海边拍完照，趁着人少不用排队，我们去体验了一些海上娱乐项目，有一个小小的下沉式景观车可以带着大家在近海区域下潜，人在车里就可以和各类海底朋友们打个招呼。
-作为两个旱鸭子，我和朋友都非常兴奋，拿着手机全程录像，虽然没有深潜到海下，但也七七八八见了不少自己没见过的新鲜鱼类。
-结束一天的行程回到酒店，朋友在翻相册的时候随口吐槽了一句，“我手机这色差有点严重，这鱼看着好鲜艳”。我凑过去看，虽然用的是原相机拍摄，但现在手机基本都会自动美颜，给这条原本只是浅色的鱼浓妆艳抹了一把，将它原本普通的“鱼生”人工调到了多姿多彩的频道。
-我点开自己的相册，很不幸，我的手机原相机也非常贴心地有自动美颜和修正色彩的功能，拍出来的也和这条鱼原本的样貌有些区别，替它还原了一下人类心目中的“美貌”。
-回翻其他的照片，虽然海边的照片依旧好看，甚至我直接将其中一张设置成了屏幕壁纸，但总归和肉眼所见相比少了许多灵动。
-想起民国时期，相机刚刚从西方引进中国的时候，许多人对这种咔嚓一下就能将自己的样貌留在一张纸上的设备很畏惧，觉得会被“吸走灵魂”。现如今虽然知道这些都是无稽之谈，但相比之下，这些静态的照片乃至动态的视频，和那时那刻的实景相比，确实是少了灵魂。
-网络上大家调侃，中国人不管发生什么事，就算再危急，第一反应永远都是先掏出手机拍照录像，诚然我也难免俗，被玻璃海的景色治愈的第一反应是来来回回将同样的海水拍了无数张照片，却没能放下手机静下心，好好用自己的眼睛细细欣赏一下这一片蔚蓝。旱鸭子潜水看到小鱼时，更是全程从手机屏幕看完所有景色，没能抬头用自己的眼睛好好看看这条鱼究竟长什么样，是什么颜色。等到发现有色差的时候，自己脑海中却一点都回想不起来真实的原貌。
-人们总是想在开心和觉得值得纪念的时候通过拍照来表达喜爱，总觉得拍下照片就能将这一刻的心情永久封存记录。但为了匆忙拍照而错过实景，镜头中畸变的景物和被调色的画面真的能代替我们留下这一刻的感受吗？
-不如在那一刻放下手机，不要只匆忙于用摄像头记录，而是做生活的亲历者，用眼睛，用心，好好记住这份美好与感受，让它可以在心中留下一个美丽而久远的印记。
-（作者为上海企业职员）
-
-• （南方周末App“hi，南周”栏目期待您的来稿。投稿邮箱：nfzmreaders@163.com）</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">南方周末</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-01"
-                      datetime="2026-08-01T05:25:11.000Z"
-                    >2026-08-01</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    做生活的亲历者：放下手机，我决定把风景还给眼睛
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    2026-08-01 13:00:00
-高压忙碌了整整两个月后，我和朋友都感觉必须要休假一趟了。钢筋森林中的牛马需要前往自然中和真正的牛马相见，为紧绷的发条松松劲。
-最后我们挑选了休闲的海边度假作为生活的解药。
-来之前我特意在网上做好了攻略，挑选了一处相对小众，保护得又较好的海滩。好在很幸运，到了之后果然没让我们失望，海边天宽地广，海天一色，阳光洒进海水里，近处是清浅的透明蓝，远处是浅蓝堆叠出的蔚蓝色，也许宇航员从太空俯视地球所看到的就是这样堆叠出的蓝。
-不少热门海滩游客众多，难免近海都有些被污染，这次能看到这么清澈透亮的大海本身的颜色，让我和朋友不禁拿出手机疯狂拍照。可能因为是错峰出行，工作日的海边不像节假日密密麻麻都是下饺子的人群，细软沙滩边只有零星的一些游客，更显得景色宜人。
-在海边拍完照，趁着人少不用排队，我们去体验了一些海上娱乐项目，有一个小小的下沉式景观车可以带着大家在近海区域下潜，人在车里就可以和各类海底朋友们打个招呼。
-作为两个旱鸭子，我和朋友都非常兴奋，拿着手机全程录像，虽然没有深潜到海下，但也七七八八见了不少自己没见过的新鲜鱼类。
-结束一天的行程回到酒店，朋友在翻相册的时候随口吐槽了一句，“我手机这色差有点严重，这鱼看着好鲜艳”。我凑过去看，虽然用的是原相机拍摄，但现在手机基本都会自动美颜，给这条原本只是浅色的鱼浓妆艳抹了一把，将它原本普通的“鱼生”人工调到了多姿多彩的频道。
-我点开自己的相册，很不幸，我的手机原相机也非常贴心地有自动美颜和修正色彩的功能，拍出来的也和这条鱼原本的样貌有些区别，替它还原了一下人类心目中的“美貌”。
-回翻其他的照片，虽然海边的照片依旧好看，甚至我直接将其中一张设置成了屏幕壁纸，但总归和肉眼所见相比少了许多灵动。
-想起民国时期，相机刚刚从西方引进中国的时候，许多人对这种咔嚓一下就能将自己的样貌留在一张纸上的设备很畏惧，觉得会被“吸走灵魂”。现如今虽然知道这些都是无稽之谈，但相比之下，这些静态的照片乃至动态的视频，和那时那刻的实景相比，确实是少了灵魂。
-网络上大家调侃，中国人不管发生什么事，就算再危急，第一反应永远都是先掏出手机拍照录像，诚然我也难免俗，被玻璃海的景色治愈的第一反应是来来回回将同样的海水拍了无数张照片，却没能放下手机静下心，好好用自己的眼睛细细欣赏一下这一片蔚蓝。旱鸭子潜水看到小鱼时，更是全程从手机屏幕看完所有景色，没能抬头用自己的眼睛好好看看这条鱼究竟长什么样，是什么颜色。等到发现有色差的时候，自己脑海中却一点都回想不起来真实的原貌。
-人们总是想在开心和觉得值得纪念的时候通过拍照来表达喜爱，总觉得拍下照片就能将这一刻的心情永久封存记录。但为了匆忙拍照而错过实景，镜头中畸变的景物和被调色的画面真的能代替我们留下这一刻的感受吗？
-不如在那一刻放下手机，不要只匆忙于用摄像头记录，而是做生活的亲历者，用眼睛，用心，好好记住这份美好与感受，让它可以在心中留下一个美丽而久远的印记。
-（作者为上海企业职员）
-
-• （南方周末App“hi，南周”栏目期待您的来稿。投稿邮箱：nfzmreaders@163.com）
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="http://www.infzm.com/contents/327528"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="iDaily · 每日环球视野"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">汉堡动物福利协会收容所，工作人员展示一只被饲主弃养的非洲大蜗牛（Giant agate snail），德国。7月29日，汉堡动物福利协会发布公告指出该机构2026年6月共接收181只遭弃养的宠物动物，包括61只猫、28只兔子、22只观赏鸟类、20只缎子鼠、17只乌龟、16只鸽子、7只狗、4只豚鼠、3条鱼、2只鸭子和2只非洲大蜗牛。汉堡市动物收容机构收留的动物总数超过800只，因空间不足已停止接收新的弃养宠物猫。根据德国《动物福利法》，遗弃动物属于违法行为，最高可面临2.5万欧元罚款。摄影师：Christian Charisius</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="http://pic.yupoo.com/fotomag/a219da7f10/a512c4a2.jpg"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">iDaily · 每日环球视野</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-01"
-                      datetime="2026-08-01T04:59:00.000Z"
-                    >2026-08-01</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    德国弃养宠物数量上升 - August 1, 2026
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    汉堡动物福利协会收容所，工作人员展示一只被饲主弃养的非洲大蜗牛（Giant agate snail），德国。7月29日，汉堡动物福利协会发布公告指出该机构2026年6月共接收181只遭弃养的宠物动物，包括61只猫、28只兔子、22只观赏鸟类、20只缎子鼠、17只乌龟、16只鸽子、7只狗、4只豚鼠、3条鱼、2只鸭子和2只非洲大蜗牛。汉堡市动物收容机构收留的动物总数超过800只，因空间不足已停止接收新的弃养宠物猫。根据德国《动物福利法》，遗弃动物属于违法行为，最高可面临2.5万欧元罚款。摄影师：Christian Charisius
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://m.idai.ly/se/befWZy"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="少数派"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">真正的比赛往往不只发生在赛道上，也发生在每一次进站窗口打开的时候。查看全文</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://rssfile.sspai.com/2026/07/29/42797619af281f6008ccc44e28b52022.png?imageMogr2/auto-orient/format/webp/ignore-error/1"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">少数派</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-01"
-                      datetime="2026-08-01T04:54:31.000Z"
-                    >2026-08-01</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    「弯道超车」赛车入门指北：进站不只为换胎，策略里的那本时间账
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    真正的比赛往往不只发生在赛道上，也发生在每一次进站窗口打开的时候。查看全文
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://sspai.com/post/112701"
                     target="_blank"
                     rel="noopener noreferrer"
                     @click.stop
