@@ -145,6 +145,33 @@
             <span class="truncate">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
           </button>
           <button
+            data-src="RT World News"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">RT World News</span>
+          </button>
+          <button
+            data-src="竹新社 - Telegram Channel"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">竹新社 - Telegram Channel</span>
+          </button>
+          <button
+            data-src="中科院物理所"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">中科院物理所</span>
+          </button>
+          <button
             data-src="钛媒体：引领未来商业与生活新知"
             @click="setActive($el.dataset.src); sidebarOpen = false"
             :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
@@ -152,6 +179,33 @@
           >
             <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
             <span class="truncate">钛媒体：引领未来商业与生活新知</span>
+          </button>
+          <button
+            data-src="校长读报 - Telegram Channel"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">校长读报 - Telegram Channel</span>
+          </button>
+          <button
+            data-src="凤凰军事"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">凤凰军事</span>
+          </button>
+          <button
+            data-src="南方周末"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">南方周末</span>
           </button>
           <button
             data-src="知识分子"
@@ -181,15 +235,6 @@
             <span class="truncate">知乎日报</span>
           </button>
           <button
-            data-src="RT World News"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">RT World News</span>
-          </button>
-          <button
             data-src="差评X.PIN"
             @click="setActive($el.dataset.src); sidebarOpen = false"
             :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
@@ -197,24 +242,6 @@
           >
             <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
             <span class="truncate">差评X.PIN</span>
-          </button>
-          <button
-            data-src="南方周末"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">南方周末</span>
-          </button>
-          <button
-            data-src="凤凰军事"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">凤凰军事</span>
           </button>
           <button
             data-src="每日一拍"
@@ -251,15 +278,6 @@
           >
             <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
             <span class="truncate">UN News - Global perspective Human stories</span>
-          </button>
-          <button
-            data-src="竹新社 - Telegram Channel"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">竹新社 - Telegram Channel</span>
           </button>
           <button
             data-src="BestBlogs.dev - 精选文章"
@@ -314,15 +332,6 @@
           >
             <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
             <span class="truncate">地球知识局</span>
-          </button>
-          <button
-            data-src="中科院物理所"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">中科院物理所</span>
           </button>
           <button
             data-src="人物"
@@ -442,15 +451,6 @@
             <span class="truncate">中国新闻周刊--经济</span>
           </button>
           <button
-            data-src="校长读报 - Telegram Channel"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">校长读报 - Telegram Channel</span>
-          </button>
-          <button
             data-src="阮一峰的网络日志"
             @click="setActive($el.dataset.src); sidebarOpen = false"
             :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
@@ -505,24 +505,6 @@
             <span class="truncate">中国新闻周刊--时政</span>
           </button>
           <button
-            data-src="文章總匯 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">文章總匯 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權</span>
-          </button>
-          <button
-            data-src="文章總匯 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">文章總匯 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權</span>
-          </button>
-          <button
             data-src="China News | Today&#x27;s Breaking Stories | Reuters"
             @click="setActive($el.dataset.src); sidebarOpen = false"
             :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
@@ -536,8 +518,8 @@
 
         <!-- Sidebar Footer -->
         <div class="px-4 py-3 border-t border-[#f5bcd8] text-[10px] text-[#b88aaa]">
-          <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/YeWeihong/myrss/actions/runs/31918971341">
-            构建于 <time datetime="2026-08-16T01:11:42.631Z">2026-08-16T01:11:42.631Z</time>
+          <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/YeWeihong/myrss/actions/runs/31926895418">
+            构建于 <time datetime="2026-08-16T04:33:59.376Z">2026-08-16T04:33:59.376Z</time>
           </a>
           <div class="mt-0.5">
             <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/osmoscraft/osmosfeed">osmosfeed 1.15.1</a>
@@ -576,6 +558,1777 @@
           <main class="flex-1 p-4 md:p-6 overflow-y-auto">
             <div class="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-4 md:gap-5">
 
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">多名女子在深圳一家酒吧内，穿着与海南航空高度相似的制服热舞。海航回应称，此举严重损害品牌形象，已向涉事方寄发律师函。
+据《南方都市报》报道，网传视频显示，在深圳iDSHENZHEN3.0酒吧舞台上，一群女子身穿与海南航空“海天祥云”制服高度相似的服饰跳舞。
+海航星期六（8月14日）回应称，“海天祥云”制服系航司与知名设计师联合打造的第五代品牌制服，航司依法享有该制服的外观设计专利、著作权等知识产权。涉事方未经合法授权，擅自使用与海航制服高度近似的服饰开展商业活动，该行为不仅侵犯了航司合法权益，更易对公众造成混淆与误导，严重损害航司品牌形象与声誉。
+海航称，已第一时间向相关网络平台发起侵权投诉，要求下架违规内容；正式向涉事方寄发律师函，责令其立即停止侵权行为、消除不良影响，并保留通过诉讼等法律途径进一步追究其法律责任的全部权利。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/8d4f3fbaaf199ffc6f75cee4e23b5c657e06568c21ff4d6b96dfb39015ec7466"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-16"
+                      datetime="2026-08-16T04:33:25.717Z"
+                    >2026-08-16</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    酒吧女穿空姐制服热舞 海航：已发律师函
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    多名女子在深圳一家酒吧内，穿着与海南航空高度相似的制服热舞。海航回应称，此举严重损害品牌形象，已向涉事方寄发律师函。
+据《南方都市报》报道，网传视频显示，在深圳iDSHENZHEN3.0酒吧舞台上，一群女子身穿与海南航空“海天祥云”制服高度相似的服饰跳舞。
+海航星期六（8月14日）回应称，“海天祥云”制服系航司与知名设计师联合打造的第五代品牌制服，航司依法享有该制服的外观设计专利、著作权等知识产权。涉事方未经合法授权，擅自使用与海航制服高度近似的服饰开展商业活动，该行为不仅侵犯了航司合法权益，更易对公众造成混淆与误导，严重损害航司品牌形象与声誉。
+海航称，已第一时间向相关网络平台发起侵权投诉，要求下架违规内容；正式向涉事方寄发律师函，责令其立即停止侵权行为、消除不良影响，并保留通过诉讼等法律途径进一步追究其法律责任的全部权利。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260816-9526164"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">中国去年的幼儿园专任教师数量减少近22万人。
+第一财经报道，根据中国教育部公布的2025年全国教育事业发展统计公报，中国共有学前教育专任教师261.26万人。在2024年，学前教育专任教师有283.19万人。这意味着，去年幼儿园专任教师减少21.93万人。
+报道分析，人口结构的变化，给以培养幼教师资为主的师范院校和高校幼师专业带来了明显影响。
+中国国家统计局1月公布的数据显示，去年中国总人口减少339万人至14亿零489万人，降幅大于2024年的139万人，也是自2022年中国总人口减少以来，降幅最大的一年。
+新生儿总数从2024年的954万人骤降至去年的792万人，出生率为1949年有记录以来最低；同期死亡人口则从2024年的1093万人增至1131万人。全年人口死亡率为8.04‰，人口自然增长率为负2.41‰。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://www.zaobao.com.sg/_web2/assets/social-share.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-16"
+                      datetime="2026-08-16T04:33:25.634Z"
+                    >2026-08-16</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国去年幼儿园教师减少近22万
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国去年的幼儿园专任教师数量减少近22万人。
+第一财经报道，根据中国教育部公布的2025年全国教育事业发展统计公报，中国共有学前教育专任教师261.26万人。在2024年，学前教育专任教师有283.19万人。这意味着，去年幼儿园专任教师减少21.93万人。
+报道分析，人口结构的变化，给以培养幼教师资为主的师范院校和高校幼师专业带来了明显影响。
+中国国家统计局1月公布的数据显示，去年中国总人口减少339万人至14亿零489万人，降幅大于2024年的139万人，也是自2022年中国总人口减少以来，降幅最大的一年。
+新生儿总数从2024年的954万人骤降至去年的792万人，出生率为1949年有记录以来最低；同期死亡人口则从2024年的1093万人增至1131万人。全年人口死亡率为8.04‰，人口自然增长率为负2.41‰。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260816-9525894"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">英国国防部在发现部分海军无人机曾向中国传输信号后，正加强对供应链的审查。
+据彭博社报道，英国国防部本周早些时候透露，一项例行网络漏洞评估发现，英国皇家海军使用的Kraken Technology Group制造的K3 Scout无人机存在问题。
+知情者透露，相关官员正在排查国防工业中的其他漏洞，包括其他承包商是否也使用了Kraken所采用的同一家供应商生产的摄像头。
+英国国防部在声明中称：“我们的保障和测试流程旨在及早发现并解决潜在漏洞，我们也持续针对各类系统和设备开展安全工作……其中包括持续实施相关项目，评估供应链可能暴露于潜在对手的风险，并制定适当的缓解措施。”
+据《每日电讯报》本周早些时候报道，Kraken监视无人机含有中国制造的组件，这些组件一直在秘密向中国境内的一台设备传输信息。英国和法国正在筹备一项拟于美伊达成和平协议后实施的扫雷任务；如果任务推进，部分无人机可能被派往霍尔木兹海峡。
+英国国防部说，调查未发现政府数据或系统遭访问、安全受到侵害或被传输至外部的迹象。据《每日电讯报》报道并经英国国防官员证实，这些无人机的摄像头向中国的一个IP地址发送了所谓的“心跳信号”，这些信号可用于确定无人机的位置，以及当时是否处于使用状态。
+Kraken一名发言人说，一些符合美国《国防授权法案》规定的第三方摄像机，含有少量来自英国以外的组件。发言人称，没有共享任何敏感信息，任何潜在漏洞也均已发现并修复。
+彭博社报道认为，这一发现暴露了国防供应链的脆弱性，尤其是可能在不知情的情况下使用来自某些国家的零部件，而这些国家可能试图利用此类漏洞刺探英国的军事活动。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://www.zaobao.com.sg/_web2/assets/social-share.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-16"
+                      datetime="2026-08-16T04:33:25.617Z"
+                    >2026-08-16</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    部分海军无人机向中国传输信号 英国加强审查国防供应链
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    英国国防部在发现部分海军无人机曾向中国传输信号后，正加强对供应链的审查。
+据彭博社报道，英国国防部本周早些时候透露，一项例行网络漏洞评估发现，英国皇家海军使用的Kraken Technology Group制造的K3 Scout无人机存在问题。
+知情者透露，相关官员正在排查国防工业中的其他漏洞，包括其他承包商是否也使用了Kraken所采用的同一家供应商生产的摄像头。
+英国国防部在声明中称：“我们的保障和测试流程旨在及早发现并解决潜在漏洞，我们也持续针对各类系统和设备开展安全工作……其中包括持续实施相关项目，评估供应链可能暴露于潜在对手的风险，并制定适当的缓解措施。”
+据《每日电讯报》本周早些时候报道，Kraken监视无人机含有中国制造的组件，这些组件一直在秘密向中国境内的一台设备传输信息。英国和法国正在筹备一项拟于美伊达成和平协议后实施的扫雷任务；如果任务推进，部分无人机可能被派往霍尔木兹海峡。
+英国国防部说，调查未发现政府数据或系统遭访问、安全受到侵害或被传输至外部的迹象。据《每日电讯报》报道并经英国国防官员证实，这些无人机的摄像头向中国的一个IP地址发送了所谓的“心跳信号”，这些信号可用于确定无人机的位置，以及当时是否处于使用状态。
+Kraken一名发言人说，一些符合美国《国防授权法案》规定的第三方摄像机，含有少量来自英国以外的组件。发言人称，没有共享任何敏感信息，任何潜在漏洞也均已发现并修复。
+彭博社报道认为，这一发现暴露了国防供应链的脆弱性，尤其是可能在不知情的情况下使用来自某些国家的零部件，而这些国家可能试图利用此类漏洞刺探英国的军事活动。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260816-9526078"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">距离台湾九合一地方选举仅剩三个月，国民党副主席萧旭岑在美国出席活动时表示，国民党全党为团结胜选冲刺努力，并强调在国民党主席郑丽文带领下，国民党一步一步迈向重返执政。
+综合《联合报》、《自由时报》、ETtoday新闻云等报道，萧旭岑在美东时间星期六（8月15日）出席纽约全美台湾同乡联谊会年会。
+萧旭岑说，这届年会的主题是“团结自强，扩展视野，永续中华”，反映绝大多数台湾人民的心声，也是郑丽文带领国民党的目标。尤其是国民党能处理好两岸关系，与中国大陆在同属中华民族、都是炎黄子孙的基础上，一起维持台海和平稳定，永续中华民族在世界上生生不息的力量。
+萧旭岑说，郑丽文带领国民党的政策就是“和平兴台”，并称今年郑丽文率团出访大陆、美国，成功与中共总书记习近平会面，致力推动两岸和平稳定，与各方保持平衡，就是和平路线；而郑丽文与民众党主席黄国昌密切合作，推动包括《台湾儿少成长及未来账户条例》的重大民生法案，嘉惠台湾下一代，就是兴台路线。
+萧旭岑也说，这半年来，他密集走访台湾各县市，发现基层党员与支持者非常支持郑丽文的政策与路线。他强调，有这样的民意与底气，党内团结绝对不是问题。
+萧旭岑并特别向与会人士说明了选举的一些概况，称国民党全党为团结胜选冲刺努力。
+台湾九合一地方选举将在11月28日举行。郑丽文此前曾表示，她希望蓝营团结力拼在选举中取得胜利，然后朝着2028年重返执政目标迈进。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://www.zaobao.com.sg/_web2/assets/social-share.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-16"
+                      datetime="2026-08-16T04:33:25.603Z"
+                    >2026-08-16</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    国民党副主席萧旭岑：全党为团结胜选冲刺努力
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    距离台湾九合一地方选举仅剩三个月，国民党副主席萧旭岑在美国出席活动时表示，国民党全党为团结胜选冲刺努力，并强调在国民党主席郑丽文带领下，国民党一步一步迈向重返执政。
+综合《联合报》、《自由时报》、ETtoday新闻云等报道，萧旭岑在美东时间星期六（8月15日）出席纽约全美台湾同乡联谊会年会。
+萧旭岑说，这届年会的主题是“团结自强，扩展视野，永续中华”，反映绝大多数台湾人民的心声，也是郑丽文带领国民党的目标。尤其是国民党能处理好两岸关系，与中国大陆在同属中华民族、都是炎黄子孙的基础上，一起维持台海和平稳定，永续中华民族在世界上生生不息的力量。
+萧旭岑说，郑丽文带领国民党的政策就是“和平兴台”，并称今年郑丽文率团出访大陆、美国，成功与中共总书记习近平会面，致力推动两岸和平稳定，与各方保持平衡，就是和平路线；而郑丽文与民众党主席黄国昌密切合作，推动包括《台湾儿少成长及未来账户条例》的重大民生法案，嘉惠台湾下一代，就是兴台路线。
+萧旭岑也说，这半年来，他密集走访台湾各县市，发现基层党员与支持者非常支持郑丽文的政策与路线。他强调，有这样的民意与底气，党内团结绝对不是问题。
+萧旭岑并特别向与会人士说明了选举的一些概况，称国民党全党为团结胜选冲刺努力。
+台湾九合一地方选举将在11月28日举行。郑丽文此前曾表示，她希望蓝营团结力拼在选举中取得胜利，然后朝着2028年重返执政目标迈进。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260816-9526182"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">台湾前总统陈水扁女儿陈幸妤证实，已正式离婚并切断与骨科医师赵建铭的婚姻关系。陈水扁星期六（8月15日）在社媒发文称，“不管承受多少风雨，家人永远支持你！”
+陈水扁星期六在脸书发文，并引用他在狱中著作《关不住的声音》当中的内容称：“2009年1月27日农历大年初二，阿扁在土城鬼地方写给女儿幸妤的一封信，这几天夜深人静，阿扁一读再读，眼泪不听使唤夺眶而出。阿扁想跟女儿说，幸妤，爸爸对不起妳！”
+陈水扁最后在贴文中称，女儿辛苦了，并表示不管承受多少风雨，“家人永远支持你！”
+综合《联合报》、《镜周刊》等报道，陈幸妤早前在赵建铭诊所的谷歌评论留言，指对方对她跟孩子态度冷淡，并提到赵建铭的感情纠纷。同时，她证实已经离婚，更批评赵建铭诊所内部“搞男女关系”。
+相关留言迅速被截图转发，成为台湾舆论话题。目前在谷歌评论上已无法找到留言。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://www.zaobao.com.sg/_web2/assets/social-share.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-16"
+                      datetime="2026-08-16T04:33:25.569Z"
+                    >2026-08-16</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    陈水扁公开发声支持女儿：家人永远支持你
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    台湾前总统陈水扁女儿陈幸妤证实，已正式离婚并切断与骨科医师赵建铭的婚姻关系。陈水扁星期六（8月15日）在社媒发文称，“不管承受多少风雨，家人永远支持你！”
+陈水扁星期六在脸书发文，并引用他在狱中著作《关不住的声音》当中的内容称：“2009年1月27日农历大年初二，阿扁在土城鬼地方写给女儿幸妤的一封信，这几天夜深人静，阿扁一读再读，眼泪不听使唤夺眶而出。阿扁想跟女儿说，幸妤，爸爸对不起妳！”
+陈水扁最后在贴文中称，女儿辛苦了，并表示不管承受多少风雨，“家人永远支持你！”
+综合《联合报》、《镜周刊》等报道，陈幸妤早前在赵建铭诊所的谷歌评论留言，指对方对她跟孩子态度冷淡，并提到赵建铭的感情纠纷。同时，她证实已经离婚，更批评赵建铭诊所内部“搞男女关系”。
+相关留言迅速被截图转发，成为台湾舆论话题。目前在谷歌评论上已无法找到留言。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260816-9526364"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="RT World News"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">Five people were shot, one fatally, at a park in Lexington, Kentucky, police said 
+Read Full Article at RT.com</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://mf.b37mrtl.ru/files/2026.08/thumbnail/6a812e1f85f54005de0be69d.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">RT World News</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-16"
+                      datetime="2026-08-16T03:39:32.000Z"
+                    >2026-08-16</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    5 shot, 1 killed after downtown Lexington shooting
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Five people were shot, one fatally, at a park in Lexington, Kentucky, police said 
+Read Full Article at RT.com
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.rt.com/news/644298-5-shot-1-killed-after/?utm_source&#x3D;rss&amp;utm_medium&#x3D;rss&amp;utm_campaign&#x3D;RSS"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="竹新社 - Telegram Channel"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">竹新社:
+伊朗外交部长阿拉格齐8月8日表示，伊朗目前没有与美国进行谈判，仅通过中间人交换消息。除非美国纠正违反谅解备忘录的行为，否则谈判无法恢复。 一名美国官员7日表示，美国预计伊朗和阿曼很快将达成协议，届时石油运输就能恢复正常。 阿拉格齐证实，伊朗和阿曼在霍尔木兹海峡航线变更上“非常接近”达成共识，但航线变更属于技术和法律层面的问题，并不等同于该海峡的开放。海峡开放取决于其他条件，包括美国是否向伊朗提供补偿。 阿曼称，谈判取得积极进展，但谴责针对海峡船只的袭击。阿联酋8日称，一艘油轮在通过海峡时遭到伊朗导弹袭击。…
+
+卡塔尔3月2日击落了2架伊朗轰炸机，3名飞行员在飞机被击落后失踪。伊朗8月15日声称，卡塔尔抓获并扣押了3名伊朗飞行员，且卡塔尔不允许飞行员与家人或伊朗官员会面沟通。卡塔尔否认伊朗的说法，表示击落飞机后仅发现一名飞行员遗骸。卡塔尔曾邀请伊朗4月份听取相关简报，但未得到回应。
+特朗普14日声称，战争结束后将宣布霍尔木兹海峡为美国领土。伊朗回应称，霍尔木兹海峡“不可能靠一条推文、一艘航母、一项行政令或一次竞选演讲就占领”。
+以色列15日继续空袭黎巴嫩南部，造成至少11人死亡，其中包括妇女儿童。以色列称，真主党用无人机袭击以色列军队，造成3名以色列士兵受伤。此次空袭是以色列的报复，针对真主党成员。
+也门胡赛武装14日晚袭击红海的摩卡港，造成至少7人死亡，摩卡港暂停运营。
+由于“林肯”号航母在中东部署时间过长，人们对船员的心理健康和供应问题愈发担心。美国将派遣部署在太平洋的“乔治·华盛顿”号航母前往中东，替代“林肯”号航母。
+“林肯”号航母上的一名船员形容船上士气非常低落，多次听到他人有自杀倾向。船上生活设施短缺，厕所和饮水机经常关闭，热水也经常供应不足。据报道，此前有2名船员跳海后被救起，还有一些试图跳海但被阻止。
+（CNN，美联社）</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">竹新社 - Telegram Channel</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-16"
+                      datetime="2026-08-16T03:31:30.000Z"
+                    >2026-08-16</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    ↩️ 卡塔尔3月2日击落了2架伊朗轰炸机，3名飞行员在飞机被击落后失踪。伊朗8月15日声称，卡塔尔抓获并扣押了3名伊朗飞行员，且卡塔尔不允许飞行员与家人或伊朗...
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    竹新社:
+伊朗外交部长阿拉格齐8月8日表示，伊朗目前没有与美国进行谈判，仅通过中间人交换消息。除非美国纠正违反谅解备忘录的行为，否则谈判无法恢复。 一名美国官员7日表示，美国预计伊朗和阿曼很快将达成协议，届时石油运输就能恢复正常。 阿拉格齐证实，伊朗和阿曼在霍尔木兹海峡航线变更上“非常接近”达成共识，但航线变更属于技术和法律层面的问题，并不等同于该海峡的开放。海峡开放取决于其他条件，包括美国是否向伊朗提供补偿。 阿曼称，谈判取得积极进展，但谴责针对海峡船只的袭击。阿联酋8日称，一艘油轮在通过海峡时遭到伊朗导弹袭击。…
+
+卡塔尔3月2日击落了2架伊朗轰炸机，3名飞行员在飞机被击落后失踪。伊朗8月15日声称，卡塔尔抓获并扣押了3名伊朗飞行员，且卡塔尔不允许飞行员与家人或伊朗官员会面沟通。卡塔尔否认伊朗的说法，表示击落飞机后仅发现一名飞行员遗骸。卡塔尔曾邀请伊朗4月份听取相关简报，但未得到回应。
+特朗普14日声称，战争结束后将宣布霍尔木兹海峡为美国领土。伊朗回应称，霍尔木兹海峡“不可能靠一条推文、一艘航母、一项行政令或一次竞选演讲就占领”。
+以色列15日继续空袭黎巴嫩南部，造成至少11人死亡，其中包括妇女儿童。以色列称，真主党用无人机袭击以色列军队，造成3名以色列士兵受伤。此次空袭是以色列的报复，针对真主党成员。
+也门胡赛武装14日晚袭击红海的摩卡港，造成至少7人死亡，摩卡港暂停运营。
+由于“林肯”号航母在中东部署时间过长，人们对船员的心理健康和供应问题愈发担心。美国将派遣部署在太平洋的“乔治·华盛顿”号航母前往中东，替代“林肯”号航母。
+“林肯”号航母上的一名船员形容船上士气非常低落，多次听到他人有自杀倾向。船上生活设施短缺，厕所和饮水机经常关闭，热水也经常供应不足。据报道，此前有2名船员跳海后被救起，还有一些试图跳海但被阻止。
+（CNN，美联社）
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://t.me/tnews365/35502"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中科院物理所"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">2015年5月12日早晨7:30，美国密歇根州桑德莱克，几声枪响从马丁的家里传来。因为马丁平时会打猎，所以偶尔响起的枪声并不足以让人联想到一桩谋杀。当天晚些时候，邻居发现马丁一天没有回消息，便到他的家</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中科院物理所</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-16"
+                      datetime="2026-08-16T03:23:08.000Z"
+                    >2026-08-16</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    谋杀案中最意想不到的“证人”，法庭能否让它直接作证？
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    2015年5月12日早晨7:30，美国密歇根州桑德莱克，几声枪响从马丁的家里传来。因为马丁平时会打猎，所以偶尔响起的枪声并不足以让人联想到一桩谋杀。当天晚些时候，邻居发现马丁一天没有回消息，便到他的家
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="http://mp.weixin.qq.com/s?__biz&#x3D;MzAwNTA5NTYxOA&#x3D;&#x3D;&amp;mid&#x3D;2651592088&amp;idx&#x3D;1&amp;sn&#x3D;fcf404e11661441572f39ddd79ddc55d&amp;chksm&#x3D;81beffa46be41df8cf845c33db4c4d9029c0fe32a9728b3835aaea82de60676807cb344815a7&amp;scene&#x3D;0&amp;xtrack&#x3D;1#rd"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中科院物理所"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">图中分别是太阳锥尾鹦鹉、和尚鹦鹉、绿颊锥尾鹦鹉｜网络对于“五彩斑斓的黑”有所追求的，除了甲方，还有鹦鹉。网络上偶尔会看到如下视频：家养鹦鹉把自己或其他鹦鹉身上薅来的羽毛，一根根插进人的头发里，排列得整</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中科院物理所</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-16"
+                      datetime="2026-08-16T03:23:08.000Z"
+                    >2026-08-16</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    为啥鹦鹉会在人头发里插羽毛，是嫌人类太丑吗？
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    图中分别是太阳锥尾鹦鹉、和尚鹦鹉、绿颊锥尾鹦鹉｜网络对于“五彩斑斓的黑”有所追求的，除了甲方，还有鹦鹉。网络上偶尔会看到如下视频：家养鹦鹉把自己或其他鹦鹉身上薅来的羽毛，一根根插进人的头发里，排列得整
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="http://mp.weixin.qq.com/s?__biz&#x3D;MzAwNTA5NTYxOA&#x3D;&#x3D;&amp;mid&#x3D;2651592088&amp;idx&#x3D;2&amp;sn&#x3D;faeaa0b9e2ea2c597721eaf8c964f1c0&amp;chksm&#x3D;8188c316494ebc48737518cde7f0f0d85f81b7ae5d9489af1929095579b2ca43fe4a0639026b&amp;scene&#x3D;0&amp;xtrack&#x3D;1#rd"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中科院物理所"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">薯片如何延缓变质，到波浪形、马鞍形的独特设计，薯片里藏着满满有趣的科学，一起来揭开薯片背后的奥秘！为了 “陪” 我们更久，包装袋里藏着化学小心机为了使薯片在长途运输中不受潮软化，用蜡密封的桶装薯片应运</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中科院物理所</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-16"
+                      datetime="2026-08-16T03:23:08.000Z"
+                    >2026-08-16</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    薯片袋里充的“气”是什么？不是空气，很多人都猜错了
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    薯片如何延缓变质，到波浪形、马鞍形的独特设计，薯片里藏着满满有趣的科学，一起来揭开薯片背后的奥秘！为了 “陪” 我们更久，包装袋里藏着化学小心机为了使薯片在长途运输中不受潮软化，用蜡密封的桶装薯片应运
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="http://mp.weixin.qq.com/s?__biz&#x3D;MzAwNTA5NTYxOA&#x3D;&#x3D;&amp;mid&#x3D;2651592088&amp;idx&#x3D;3&amp;sn&#x3D;9b61504bc379f0710f433c178f5894fd&amp;chksm&#x3D;81920d0cbeb8c50d196feaefb62db770c0acfd92adec2eac375d5635f47e399f0f5537f698fa&amp;scene&#x3D;0&amp;xtrack&#x3D;1#rd"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="竹新社 - Telegram Channel"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">印度尼西亚弗洛勒斯岛附近海域8月15日早上发生7.7级地震，造成至少47人死亡、50人受伤。
+（新华社）</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">竹新社 - Telegram Channel</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-16"
+                      datetime="2026-08-16T03:11:48.000Z"
+                    >2026-08-16</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    印度尼西亚弗洛勒斯岛附近海域8月15日早上发生7.7级地震，造成至少47人死亡、50人受伤。 （新华社）
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    印度尼西亚弗洛勒斯岛附近海域8月15日早上发生7.7级地震，造成至少47人死亡、50人受伤。
+（新华社）
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://t.me/tnews365/35501"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="钛媒体：引领未来商业与生活新知"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">2026 年中国科技财报季，资金正从消费互联网平台流向 AI 硬件与算力基础设施。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://images.tmtpost.com/uploads/images/zhaopian/nuxtpic/change_logo3/og_image.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">钛媒体：引领未来商业与生活新知</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-16"
+                      datetime="2026-08-16T02:26:46.000Z"
+                    >2026-08-16</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国科技板块的资金偏好正在改变：为什么是硬件先拿到钱
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    2026 年中国科技财报季，资金正从消费互联网平台流向 AI 硬件与算力基础设施。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.tmtpost.com/8104860.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="校长读报 - Telegram Channel"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">2026年8月16日周日读报！一切美好从❤开始：
+1、《中华人民共和国生态环境法典》8月15日起正式实施，这是我国第二部以“法典”命名的法律。自然资源部南海局14日集中发布南海岛礁生态系统状况，西沙、中沙和南沙其中9个岛礁生态状况整体优良但各具差异。(央视)
+2、第二届世界人形机器人运动会将于8月22日在北京开幕。本届赛事赛期5天，666支队伍参赛，竞赛单元、赛项和场次较去年均有明显增加。(CCTV2)
+3、北京经开区8月15日启动“2026 E-Town机器人消费节”。今年的消费节在2025年基础上全面升级，促消费专项资金从首届的1500万元提升至1800万元，重点向人工智能、具身智能产业倾斜。(财联社)
+4、14日，在美国加州进行的2026泛太平洋游泳锦标赛进入第三个比赛日。唐钱婷在女子50米蛙泳决赛中以29秒67获得冠军，这是中国队时隔29年再次在该赛事上夺金。(新华社) 
+5、据猫眼专业版数据，电影 《欢迎来龙餐馆》 上映5天， 总票房破7亿。(新浪)
+6、为纪念中国原国家主席江泽民诞辰100周年，中国人民银行将发行四款纪念币，包括一款普通纪念币、两款金质纪念币和一款银质纪念币。纪念币将从17日起陆续发行，四款纪念币均为中国法定货币。(新华社)
+7、8月15日，韩国总统李在明称将追缴亲日派财产，韩国政府将调查、追缴亲日反民族行为者不当聚敛的财产，并追究其历史责任。相关财产将用于对独立有功者及其遗属的礼遇和支援。(四川观察)
+8、根据印尼国家抗灾署公布的最新数据，截至印尼雅加达时间8月15日18时48分(北京时间19时48分)，印尼东努沙登加拉省7.7级地震造成的死亡人数已升至47人。 (财联社)
+9、当地时间8月15日，伊朗外交部发言人巴加埃表示，尽管美国从中阻挠，伊朗和阿曼之间的会谈仍在积极推进，双方已就霍尔木兹海峡航道通行方案达成协议。(央视)
+10、美国总统特朗普14日在纽约州长岛发表讲话时声称，伊朗正遭受惨败，“击败伊朗后”他很快就会“宣布霍尔木兹海峡为美国领土”。此前，特朗普12日在社交媒体发文称，“美国完全控制着霍尔木兹海峡，伊朗对此束手无策”。而据伊朗伊斯兰共和国通讯社13日报道，伊朗武装部队哈塔姆·安比亚中央司令部发言人在一份声明中表示，霍尔木兹海峡处于伊朗“完全掌控”中，未经伊朗许可，任何船只都无法安全通过。(央视)
+11、据日本共同社消息，8月15日，高市早苗向靖国神社供奉“玉串料”。当天，日本防卫大臣小泉进次郎、日本自民党干事长铃木俊一、总务会长有村治子以及选举对策委员长西村康稔一同参拜靖国神社，这是日本自民党高层首次集体参拜。分析认为，自民党罕见集体参拜不仅体现了高市执政下，自民党高层的集体意志，更是一种挑衅，妄图制造一个新的范例，一步步试探破坏底线。据日本媒体此前披露，高市政府企图在今年年底修订“安保三文件”时，对“无核三原则”中“不运进核武器”的原则进行修改。7月，日本防卫大臣小泉进次郎在一档节目中公然提出，日本应毫无禁忌地讨论与核武器相关的政策。(CCTV4)
+12、任何时候都要对自己负责，不带怒气出门，不带怨气工作，不枕着烦恼入睡。把简单的食物做得美味，把朴素的服饰穿得舒服，把不大的房子整理整洁，把琐碎的日子过得精彩。愿你我都能成为一个情绪稳定的人，自由自在，不慌不忙；心中有梦，眼里有光。美好一天从“情绪稳定”开始！</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">校长读报 - Telegram Channel</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-16"
+                      datetime="2026-08-16T02:05:07.000Z"
+                    >2026-08-16</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    2026年8月16日周日读报！一切美好从❤开始： 1、《中华人民共和国生态环境法典》8月15日起正式实施，这是我国第二部以“法典”命名的法律。自然资源部南海局14日...
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    2026年8月16日周日读报！一切美好从❤开始：
+1、《中华人民共和国生态环境法典》8月15日起正式实施，这是我国第二部以“法典”命名的法律。自然资源部南海局14日集中发布南海岛礁生态系统状况，西沙、中沙和南沙其中9个岛礁生态状况整体优良但各具差异。(央视)
+2、第二届世界人形机器人运动会将于8月22日在北京开幕。本届赛事赛期5天，666支队伍参赛，竞赛单元、赛项和场次较去年均有明显增加。(CCTV2)
+3、北京经开区8月15日启动“2026 E-Town机器人消费节”。今年的消费节在2025年基础上全面升级，促消费专项资金从首届的1500万元提升至1800万元，重点向人工智能、具身智能产业倾斜。(财联社)
+4、14日，在美国加州进行的2026泛太平洋游泳锦标赛进入第三个比赛日。唐钱婷在女子50米蛙泳决赛中以29秒67获得冠军，这是中国队时隔29年再次在该赛事上夺金。(新华社) 
+5、据猫眼专业版数据，电影 《欢迎来龙餐馆》 上映5天， 总票房破7亿。(新浪)
+6、为纪念中国原国家主席江泽民诞辰100周年，中国人民银行将发行四款纪念币，包括一款普通纪念币、两款金质纪念币和一款银质纪念币。纪念币将从17日起陆续发行，四款纪念币均为中国法定货币。(新华社)
+7、8月15日，韩国总统李在明称将追缴亲日派财产，韩国政府将调查、追缴亲日反民族行为者不当聚敛的财产，并追究其历史责任。相关财产将用于对独立有功者及其遗属的礼遇和支援。(四川观察)
+8、根据印尼国家抗灾署公布的最新数据，截至印尼雅加达时间8月15日18时48分(北京时间19时48分)，印尼东努沙登加拉省7.7级地震造成的死亡人数已升至47人。 (财联社)
+9、当地时间8月15日，伊朗外交部发言人巴加埃表示，尽管美国从中阻挠，伊朗和阿曼之间的会谈仍在积极推进，双方已就霍尔木兹海峡航道通行方案达成协议。(央视)
+10、美国总统特朗普14日在纽约州长岛发表讲话时声称，伊朗正遭受惨败，“击败伊朗后”他很快就会“宣布霍尔木兹海峡为美国领土”。此前，特朗普12日在社交媒体发文称，“美国完全控制着霍尔木兹海峡，伊朗对此束手无策”。而据伊朗伊斯兰共和国通讯社13日报道，伊朗武装部队哈塔姆·安比亚中央司令部发言人在一份声明中表示，霍尔木兹海峡处于伊朗“完全掌控”中，未经伊朗许可，任何船只都无法安全通过。(央视)
+11、据日本共同社消息，8月15日，高市早苗向靖国神社供奉“玉串料”。当天，日本防卫大臣小泉进次郎、日本自民党干事长铃木俊一、总务会长有村治子以及选举对策委员长西村康稔一同参拜靖国神社，这是日本自民党高层首次集体参拜。分析认为，自民党罕见集体参拜不仅体现了高市执政下，自民党高层的集体意志，更是一种挑衅，妄图制造一个新的范例，一步步试探破坏底线。据日本媒体此前披露，高市政府企图在今年年底修订“安保三文件”时，对“无核三原则”中“不运进核武器”的原则进行修改。7月，日本防卫大臣小泉进次郎在一档节目中公然提出，日本应毫无禁忌地讨论与核武器相关的政策。(CCTV4)
+12、任何时候都要对自己负责，不带怒气出门，不带怨气工作，不枕着烦恼入睡。把简单的食物做得美味，把朴素的服饰穿得舒服，把不大的房子整理整洁，把琐碎的日子过得精彩。愿你我都能成为一个情绪稳定的人，自由自在，不慌不忙；心中有梦，眼里有光。美好一天从“情绪稳定”开始！
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://t.me/XiaoZhangDuBao/2170"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="校长读报 - Telegram Channel"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">2026年8月15日周六读报！一切美好从❤开始：
+1、受台风“白海豚”残余环流和冷空气及季风槽等影响，预计8月14-16日，江苏南部、上海、浙江、安徽东部南部、江西大部、福建南部西部、广东中部东部等地将有大到暴雨；其中，江苏南部、浙江东北部、广东中部等地局部将有大暴雨。(人民日报)
+2、《江苏省商业航天高质量发展三年行动计划(2026-2028年)》印发：①支持火箭卫星总体、卫星载荷等领域龙头企业对接资本市场，加快上市步伐。②到2028年有序推进若干个卫星星座建设，商业航天重点企业年产值力争达到600亿元。③拟突破大运力和可重复使用火箭关键技术，强化发射回收验证能力建设。④推进太空计算全链条降本，支持太空超算中心等前瞻性试验建设。(财联社)
+3、8月14日24时起，国内汽、柴油零售限价每吨分别下调230元和220元。全国平均来看，92号汽油、95号汽油和0号柴油每升分别下调0.18元、0.19元、0.19元。本轮成品油零售限价下调确认后，私家车单次加满一箱50L的92号汽油，将少花9元。(CCTV2)
+4、8月14日5时08分，湖南省涟源市杨梅山煤矿发生一起瓦斯突出事故。初步查明，当班入井作业人员52人，安全出井44人，失联7人，1人正在抢救。目前，市县两级已组织应急、卫健等相关部门现场开展应急救援处置工作，事故原因正在进一步调查。(新华社)
+5、8月13日，追觅手机负责人在朋友圈透露，公司已正式交付001号AURORA手机。据其透露，3万美金（约合人民币20.23万元）交易款项已全部到账，其中首付款1万美金，尾款21184美金。其称，这是“中国智能手机历史上迄今为止卖出去单台售价最高的旗舰智能手机”。(红星资本局)
+6、智谱8月14日正式发布GLM-5.3。据介绍，与GLM-5.2相比，GLM-5.3基座模型未变，但通过极致的后训练Scaling大大提高了模型的智能上界。GLM-5.3拥有更强的编程能力，在内部自建体感评测中较GLM-5.2提升50%，在包括TerminalBench3.0、Agents’LastExam(CLI)在内的公开基准测试中取得开源第一。智谱还表示，将在发布两周后开放模型权重。(新浪)
+7、中国台湾地区民进党当局经济事务主管部门日前会同多部门，于台湾新北市查扣首辆入台“张雪机车”820RR。岛内民众批评此举是政治操弄，滥用权力限阻两岸交流。报道称，今年3月以来，“张雪机车”在世界超级机车锦标赛多次夺冠，成为“机车之岛”台湾的热议话题，夺冠同款的量产820RR令不少台湾车迷向往。(新华社)
+8、菲律宾和澳大利亚近期举行防长会并发表联合声明，对中国海警近期位仁爱礁采取的行动表达“严重关切”，敦促各方“专业、安全地”开展行动。外交部：我们坚决反对菲澳对中方的无端指责和攻击抹黑。关于菲方在仁爱礁蓄意挑衅、袭击中方人员一事，中国海警已经发布了消息，并公布了现场证据。中方采取必要应对措施，专业克制、无可非议。(人民日报)
+9、当地时间 8月13日，特朗普签署公告，以国家安全为由，对进口无人机及零部件征收10%-100% 从价关税。最大起飞重量超25公斤、带热成像功能等高敏感无人机及关键组件税率100%；普通小型无人机及组件征25%；欧盟、日韩等地区产品税率15%；满足技术来源条件的英国无人机税率10%。相关关税签署21天后生效，非高敏感无人机组件则延后至180天后实施。(综合每日经济新闻)
+10、据英国《独立报》8月12日报道，由于“林肯”号航母上恶劣的生存环境和巨大的精神压力已接近崩溃边缘，多名水兵曾试图跳海。据报道，这艘载有约5000名水兵和海军陆战队员的航母自去年11月起就在战区执行任务，该舰已在海上航行9个月，连续250天未曾靠岸。(参考消息)
+11、阿联酋外交部14日凌晨发表声明称，阿布扎比国家石油公司两艘油轮通过霍尔木兹海峡时遭伊朗袭击。声明还称，伊朗的袭击对地区稳定、民众安全以及全球能源安全造成威胁。阿布扎比国家石油公司14日凌晨发布消息称，袭击发生于13日晚，未造成人员伤亡。(新华社)
+12、祝愿你我都能喜欢上每个阶段的自己，放下那些折磨自己的执念，原谅曾经笨拙的自己。过往不负、当下珍惜、未来可期，最珍贵的自愈，永远是懂得善待自己。美好一天从“善待自己”开始！</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">校长读报 - Telegram Channel</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-16"
+                      datetime="2026-08-16T02:04:42.000Z"
+                    >2026-08-16</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    2026年8月15日周六读报！一切美好从❤开始： 1、受台风“白海豚”残余环流和冷空气及季风槽等影响，预计8月14-16日，江苏南部、上海、浙江、安徽东部南部、江西...
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    2026年8月15日周六读报！一切美好从❤开始：
+1、受台风“白海豚”残余环流和冷空气及季风槽等影响，预计8月14-16日，江苏南部、上海、浙江、安徽东部南部、江西大部、福建南部西部、广东中部东部等地将有大到暴雨；其中，江苏南部、浙江东北部、广东中部等地局部将有大暴雨。(人民日报)
+2、《江苏省商业航天高质量发展三年行动计划(2026-2028年)》印发：①支持火箭卫星总体、卫星载荷等领域龙头企业对接资本市场，加快上市步伐。②到2028年有序推进若干个卫星星座建设，商业航天重点企业年产值力争达到600亿元。③拟突破大运力和可重复使用火箭关键技术，强化发射回收验证能力建设。④推进太空计算全链条降本，支持太空超算中心等前瞻性试验建设。(财联社)
+3、8月14日24时起，国内汽、柴油零售限价每吨分别下调230元和220元。全国平均来看，92号汽油、95号汽油和0号柴油每升分别下调0.18元、0.19元、0.19元。本轮成品油零售限价下调确认后，私家车单次加满一箱50L的92号汽油，将少花9元。(CCTV2)
+4、8月14日5时08分，湖南省涟源市杨梅山煤矿发生一起瓦斯突出事故。初步查明，当班入井作业人员52人，安全出井44人，失联7人，1人正在抢救。目前，市县两级已组织应急、卫健等相关部门现场开展应急救援处置工作，事故原因正在进一步调查。(新华社)
+5、8月13日，追觅手机负责人在朋友圈透露，公司已正式交付001号AURORA手机。据其透露，3万美金（约合人民币20.23万元）交易款项已全部到账，其中首付款1万美金，尾款21184美金。其称，这是“中国智能手机历史上迄今为止卖出去单台售价最高的旗舰智能手机”。(红星资本局)
+6、智谱8月14日正式发布GLM-5.3。据介绍，与GLM-5.2相比，GLM-5.3基座模型未变，但通过极致的后训练Scaling大大提高了模型的智能上界。GLM-5.3拥有更强的编程能力，在内部自建体感评测中较GLM-5.2提升50%，在包括TerminalBench3.0、Agents’LastExam(CLI)在内的公开基准测试中取得开源第一。智谱还表示，将在发布两周后开放模型权重。(新浪)
+7、中国台湾地区民进党当局经济事务主管部门日前会同多部门，于台湾新北市查扣首辆入台“张雪机车”820RR。岛内民众批评此举是政治操弄，滥用权力限阻两岸交流。报道称，今年3月以来，“张雪机车”在世界超级机车锦标赛多次夺冠，成为“机车之岛”台湾的热议话题，夺冠同款的量产820RR令不少台湾车迷向往。(新华社)
+8、菲律宾和澳大利亚近期举行防长会并发表联合声明，对中国海警近期位仁爱礁采取的行动表达“严重关切”，敦促各方“专业、安全地”开展行动。外交部：我们坚决反对菲澳对中方的无端指责和攻击抹黑。关于菲方在仁爱礁蓄意挑衅、袭击中方人员一事，中国海警已经发布了消息，并公布了现场证据。中方采取必要应对措施，专业克制、无可非议。(人民日报)
+9、当地时间 8月13日，特朗普签署公告，以国家安全为由，对进口无人机及零部件征收10%-100% 从价关税。最大起飞重量超25公斤、带热成像功能等高敏感无人机及关键组件税率100%；普通小型无人机及组件征25%；欧盟、日韩等地区产品税率15%；满足技术来源条件的英国无人机税率10%。相关关税签署21天后生效，非高敏感无人机组件则延后至180天后实施。(综合每日经济新闻)
+10、据英国《独立报》8月12日报道，由于“林肯”号航母上恶劣的生存环境和巨大的精神压力已接近崩溃边缘，多名水兵曾试图跳海。据报道，这艘载有约5000名水兵和海军陆战队员的航母自去年11月起就在战区执行任务，该舰已在海上航行9个月，连续250天未曾靠岸。(参考消息)
+11、阿联酋外交部14日凌晨发表声明称，阿布扎比国家石油公司两艘油轮通过霍尔木兹海峡时遭伊朗袭击。声明还称，伊朗的袭击对地区稳定、民众安全以及全球能源安全造成威胁。阿布扎比国家石油公司14日凌晨发布消息称，袭击发生于13日晚，未造成人员伤亡。(新华社)
+12、祝愿你我都能喜欢上每个阶段的自己，放下那些折磨自己的执念，原谅曾经笨拙的自己。过往不负、当下珍惜、未来可期，最珍贵的自愈，永远是懂得善待自己。美好一天从“善待自己”开始！
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://t.me/XiaoZhangDuBao/2169"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="钛媒体：引领未来商业与生活新知"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">Alo还没有来，它的明星同款、Logo、消费者和假货已经先到了。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://images.tmtpost.com/uploads/images/zhaopian/nuxtpic/change_logo3/og_image.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">钛媒体：引领未来商业与生活新知</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-16"
+                      datetime="2026-08-16T02:02:43.000Z"
+                    >2026-08-16</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    lululemon的对手ALO来了，只是有点晚
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Alo还没有来，它的明星同款、Logo、消费者和假货已经先到了。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.tmtpost.com/8104920.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="凤凰军事"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">08-16 06:00
+【军武次位面】作者：乐乐
+作为这两个月俄罗斯猛烈远程打击的总结，美国“军事观察”杂志近日援引乌克兰情报总局副局长斯基比茨的说法，称俄罗斯军事工业已经完成了战争改革，其弹道导弹和远程无人机产能，已经达到满足前线需求，不会断线的巅峰水平。
+
+▲俄罗斯远程打击强度明显增加
+应该说，这个趋势其实挺明显的。在战争爆发早期，俄罗斯依然处于“有什么就用什么”的迷茫状态，而受限于对战争模式估计不准确，这个时候俄罗斯连亚音速巡航导弹的储量都不高，导致开战前几天能打出去的导弹数量很少，浪费了乌克兰缺乏防空掩护的宝贵时间。第二阶段是俄罗斯调整军工产线，尽量按照战前产能扩大规模。因此，在这个时候就出现了，俄罗斯同时使用多种不同型号、平台和性能的导弹，看起来密密麻麻，其实效果非常有限，乌克兰多次宣布拦截率突破80%的情况。
+
+▲早期“爱国者”在乌克兰表现确实不错
+理论上俄罗斯完全具备产线转型，供应新型导弹以增加突防效率的能力，但前线岌岌可危的局势、旺盛的装备需求，使得俄罗斯始终无法下定决心，以破釜沉舟的勇气完成产线更换。直到2025年，在盟军支援下将乌克兰赶出库尔斯克，并堵住其他方面的口袋，甚至还打通滑翔制导炸弹高速产线后，喘过气来的俄罗斯才下定决心集中物资，供应经过战争验证的先进武器。对于其他效果不佳的武器，则暂时放弃或闲置。
+
+▲图-95MS连续发射Kh-101看似其实威力恢弘，实则效果有限
+按照斯基比茨的描述，“锆石”高超声速导弹、射程升级到1000千米的“伊斯坎德尔-M”，以及被证明性价比极高的“小摩托”，被确认为主力生产的进攻性武器。其他包括大名鼎鼎的“匕首”在内，暂时都停止大规模生产，将人力和生产物资都供应核心项目。因此出现的结局，就是俄罗斯远程无人机产能突破11000架，这是个比美伊冲突期间，后者先后发射无人机总数还多的数字。同时，“伊斯坎德尔-M”也因为速度快、突防率高，证明了自己的价值，产能实际上达到预期的120%左右，与“锆石”成为这两个月打击乌克兰腹地的主力武器。
+
+▲升级后的“伊斯坎德尔-M”很强
+面对这种局面，乌克兰就比较痛苦了。无人机的威胁其实还好，一方面其杀伤力终究不够，乌克兰又不像驻西亚美军那样拥有大量脆弱设备，本身也拥有非常成熟的反无人机体系，拦截效率还不错；另一方面俄罗斯对待远程无人机的态度，一直都是掩护导弹行动，也不指望真造成太大杀伤，但“伊斯坎德尔-M”和“锆石”就不一样了。乌克兰目前对“锆石”几乎没有任何办法，甚至美国也束手无策，只能硬抗，不过这款导弹目前产能确实不高。
+
+▲“锆石”已经取代了“匕首”的地位
+而“伊斯坎德尔-M”突防率一直在90%以上，上个月还创造了白昼命中乌克兰无人机展会现场，造成上百人伤亡的战例。同时数百千克战斗机威力巨大，速度又快得乌克兰难以反应，叠加每年数百枚产量，实际上造成了极大伤害。乌克兰这一阵子一直希望获得美国授权，在本地组装生产“爱国者”，就是希望通过堆数量来拦截“伊斯坎德尔-M”。但其实拦截战术导弹是世界性难题，不要说乌克兰，就算是让美国人自己来，“萨德”全力出手，效果也不会有多出色。
+
+▲“萨德”也挡不住战术导弹齐射
+如果再算上因为乌克兰率先开打，俄罗斯被迫在民用物流中心、海上港口等领域反击，后者实际上是到了2026年，才真正打出军事大国的些许风范。而按照这种破坏程度，乌克兰恐怕是撑不了多久的。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://x0.ifengimg.com/ucms/2026_34/D4671006E20A057EB6AC05481C67DD634D2FC117_size16_w640_h359.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">凤凰军事</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-16"
+                      datetime="2026-08-16T01:58:03.000Z"
+                    >2026-08-16</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    鏖战4年多终于明白了？美媒：俄罗斯导弹和无人机变得源源不断
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    08-16 06:00
+【军武次位面】作者：乐乐
+作为这两个月俄罗斯猛烈远程打击的总结，美国“军事观察”杂志近日援引乌克兰情报总局副局长斯基比茨的说法，称俄罗斯军事工业已经完成了战争改革，其弹道导弹和远程无人机产能，已经达到满足前线需求，不会断线的巅峰水平。
+
+▲俄罗斯远程打击强度明显增加
+应该说，这个趋势其实挺明显的。在战争爆发早期，俄罗斯依然处于“有什么就用什么”的迷茫状态，而受限于对战争模式估计不准确，这个时候俄罗斯连亚音速巡航导弹的储量都不高，导致开战前几天能打出去的导弹数量很少，浪费了乌克兰缺乏防空掩护的宝贵时间。第二阶段是俄罗斯调整军工产线，尽量按照战前产能扩大规模。因此，在这个时候就出现了，俄罗斯同时使用多种不同型号、平台和性能的导弹，看起来密密麻麻，其实效果非常有限，乌克兰多次宣布拦截率突破80%的情况。
+
+▲早期“爱国者”在乌克兰表现确实不错
+理论上俄罗斯完全具备产线转型，供应新型导弹以增加突防效率的能力，但前线岌岌可危的局势、旺盛的装备需求，使得俄罗斯始终无法下定决心，以破釜沉舟的勇气完成产线更换。直到2025年，在盟军支援下将乌克兰赶出库尔斯克，并堵住其他方面的口袋，甚至还打通滑翔制导炸弹高速产线后，喘过气来的俄罗斯才下定决心集中物资，供应经过战争验证的先进武器。对于其他效果不佳的武器，则暂时放弃或闲置。
+
+▲图-95MS连续发射Kh-101看似其实威力恢弘，实则效果有限
+按照斯基比茨的描述，“锆石”高超声速导弹、射程升级到1000千米的“伊斯坎德尔-M”，以及被证明性价比极高的“小摩托”，被确认为主力生产的进攻性武器。其他包括大名鼎鼎的“匕首”在内，暂时都停止大规模生产，将人力和生产物资都供应核心项目。因此出现的结局，就是俄罗斯远程无人机产能突破11000架，这是个比美伊冲突期间，后者先后发射无人机总数还多的数字。同时，“伊斯坎德尔-M”也因为速度快、突防率高，证明了自己的价值，产能实际上达到预期的120%左右，与“锆石”成为这两个月打击乌克兰腹地的主力武器。
+
+▲升级后的“伊斯坎德尔-M”很强
+面对这种局面，乌克兰就比较痛苦了。无人机的威胁其实还好，一方面其杀伤力终究不够，乌克兰又不像驻西亚美军那样拥有大量脆弱设备，本身也拥有非常成熟的反无人机体系，拦截效率还不错；另一方面俄罗斯对待远程无人机的态度，一直都是掩护导弹行动，也不指望真造成太大杀伤，但“伊斯坎德尔-M”和“锆石”就不一样了。乌克兰目前对“锆石”几乎没有任何办法，甚至美国也束手无策，只能硬抗，不过这款导弹目前产能确实不高。
+
+▲“锆石”已经取代了“匕首”的地位
+而“伊斯坎德尔-M”突防率一直在90%以上，上个月还创造了白昼命中乌克兰无人机展会现场，造成上百人伤亡的战例。同时数百千克战斗机威力巨大，速度又快得乌克兰难以反应，叠加每年数百枚产量，实际上造成了极大伤害。乌克兰这一阵子一直希望获得美国授权，在本地组装生产“爱国者”，就是希望通过堆数量来拦截“伊斯坎德尔-M”。但其实拦截战术导弹是世界性难题，不要说乌克兰，就算是让美国人自己来，“萨德”全力出手，效果也不会有多出色。
+
+▲“萨德”也挡不住战术导弹齐射
+如果再算上因为乌克兰率先开打，俄罗斯被迫在民用物流中心、海上港口等领域反击，后者实际上是到了2026年，才真正打出军事大国的些许风范。而按照这种破坏程度，乌克兰恐怕是撑不了多久的。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://news.ifeng.com/c/8vbufTdc8yp"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="凤凰军事"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">08-16 06:08
+【军武次位面】作者：——全域机动★无人智胜——
+据俄罗斯空军司令兼空天军副总司令谢尔盖·科比拉什前两天宣布了一项突出战绩，俄军空天军一名苏-35S战斗机飞行员在一次空中交战中，面对电磁干扰环境，以一敌二，先后发射三枚空空导弹击落了两架乌克兰空军的苏-27战斗机。
+
+▲苏-27与苏-35
+从俄方披露的信息来看，当时乌军两架苏-27组成双机编队升空执行任务，遭遇了这架俄军苏-35S。按常理说，二对一在空战中意味着很大的战术主动权，一架负责缠斗，另一架可以绕后包抄，这是最基本的空中配合。结果乌军的苏-27编队不仅没占到便宜，反而在短时间内被逐个击落。据俄方飞行员描述，交战中他先后发射了三枚导弹，第一枚命中第一架苏-27，随后在机动中锁定第二架目标，两枚导弹确保了第二个击杀。整场空战节奏很快，乌军编队基本没组织起有效反击。
+
+据报道，乌军苏-27在交战中尝试过电子干扰，想压制苏-35S的雷达锁定，但效果不理想。苏-35S装备的是希比内系列电子战系统，在俄军现役战斗机里属于顶级配置，既有被动侦察和告警能力，也能主动对敌方雷达实施欺骗和压制。简单说就是，你想干扰我，我不仅扛得住，还能反过来干扰你。而乌军苏-27搭载的电子战设备基本还是苏联时代的老底子，几十年前的技术水平，面对苏-35S这个级别的对手，干扰效果大打折扣很正常。电子战这东西从来不是有就行，是谁的更强谁说了算。
+飞行员素质也是胜利的重要因素。这位俄军飞行员能在一对二的不利态势下保持冷静，先打乱敌方编队节奏再逐个歼灭，说明他对苏-35S的机动性能和武器系统运用得很熟练。
+
+▲苏-35面对乌军有巨大优势
+苏-35S配备的雪豹-E无源相控阵雷达，最大探测距离据称可达350公里以上，配合R-77-1中距主动雷达制导导弹和R-73近距格斗弹，形成了远近兼顾的火力体系。该飞行员三枚导弹拿到两个战果，命中率相当可观，说明导弹可靠性、火控精度和发射时机把握都在线。当然，空战中任何一方的战报都可能存在夸大，具体细节有待更多证据，但从技术层面看，苏-35S确实具备一对二的实力基础。
+
+▲乌克兰苏-27挂载R-73与R-27导弹准备升空
+看看乌克兰空军的整体现状，在空战中碰上俄军基本上铁定吃亏的。乌克兰空军的主力战斗机基本就是苏联解体时留下的那批遗产，苏-27和米格-29。平均机龄相当可观，早期批次甚至服役了三四十年。机体老化带来的不只是结构疲劳，更关键的是航电系统严重落后。苏联时代的老式雷达、老式座舱、老式数据链，放在今天的战场上，态势感知能力跟苏-35S完全不在一个层面。
+举个简单的例子，苏-35S飞行员在座舱里通过多功能显示器就能实时获取战场信息，而老苏-27的飞行员可能还得靠目视搜索和地面引导，这个差距在战场上直接影响双方的反应速度。
+西方盟友虽然陆续向乌克兰提供了一些战斗机援助，但数量和质量都不够改变局面。荷兰、丹麦等国承诺的F-16陆续到位，数量有限，而且乌克兰飞行员从苏式飞机转飞美式飞机需要较长的改装训练周期，短期很难形成规模战斗力。此前波兰和斯洛伐克移交的少量米格-29同样是老旧型号，只能对地攻击，空战纯送人头。
+
+▲乌军缺乏有经验的飞行员
+更大的问题是飞行员培训，乌克兰空军战前就面临训练时数不足的困境，战争爆发后人员损耗加速，新人培训周期一再压缩。很多飞行员训练阶段就坠机失事，实战阶段更是不会打，主要原因还是训练培训的水平太低，撑不起战斗力。
+现代空战是体系对抗，单一环节的差距会被成倍放大。一架苏-35S能在一对二中取胜，靠的不只是飞机本身性能，更是飞行员训练、电子战系统、机载武器和战术素养的综合优势。但不管怎么说，俄乌的空战还是菜鸡互啄的低端局，距离真正的体系对抗还有不少距离。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://x0.ifengimg.com/res/2026/7CB0FA9FE637A6D383A984047E2CA71581CE3099_size11_w720_h380.webp"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">凤凰军事</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-16"
+                      datetime="2026-08-16T01:58:03.000Z"
+                    >2026-08-16</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    电子干扰全失效！俄军苏-35一对二击落两架乌克兰苏-27
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    08-16 06:08
+【军武次位面】作者：——全域机动★无人智胜——
+据俄罗斯空军司令兼空天军副总司令谢尔盖·科比拉什前两天宣布了一项突出战绩，俄军空天军一名苏-35S战斗机飞行员在一次空中交战中，面对电磁干扰环境，以一敌二，先后发射三枚空空导弹击落了两架乌克兰空军的苏-27战斗机。
+
+▲苏-27与苏-35
+从俄方披露的信息来看，当时乌军两架苏-27组成双机编队升空执行任务，遭遇了这架俄军苏-35S。按常理说，二对一在空战中意味着很大的战术主动权，一架负责缠斗，另一架可以绕后包抄，这是最基本的空中配合。结果乌军的苏-27编队不仅没占到便宜，反而在短时间内被逐个击落。据俄方飞行员描述，交战中他先后发射了三枚导弹，第一枚命中第一架苏-27，随后在机动中锁定第二架目标，两枚导弹确保了第二个击杀。整场空战节奏很快，乌军编队基本没组织起有效反击。
+
+据报道，乌军苏-27在交战中尝试过电子干扰，想压制苏-35S的雷达锁定，但效果不理想。苏-35S装备的是希比内系列电子战系统，在俄军现役战斗机里属于顶级配置，既有被动侦察和告警能力，也能主动对敌方雷达实施欺骗和压制。简单说就是，你想干扰我，我不仅扛得住，还能反过来干扰你。而乌军苏-27搭载的电子战设备基本还是苏联时代的老底子，几十年前的技术水平，面对苏-35S这个级别的对手，干扰效果大打折扣很正常。电子战这东西从来不是有就行，是谁的更强谁说了算。
+飞行员素质也是胜利的重要因素。这位俄军飞行员能在一对二的不利态势下保持冷静，先打乱敌方编队节奏再逐个歼灭，说明他对苏-35S的机动性能和武器系统运用得很熟练。
+
+▲苏-35面对乌军有巨大优势
+苏-35S配备的雪豹-E无源相控阵雷达，最大探测距离据称可达350公里以上，配合R-77-1中距主动雷达制导导弹和R-73近距格斗弹，形成了远近兼顾的火力体系。该飞行员三枚导弹拿到两个战果，命中率相当可观，说明导弹可靠性、火控精度和发射时机把握都在线。当然，空战中任何一方的战报都可能存在夸大，具体细节有待更多证据，但从技术层面看，苏-35S确实具备一对二的实力基础。
+
+▲乌克兰苏-27挂载R-73与R-27导弹准备升空
+看看乌克兰空军的整体现状，在空战中碰上俄军基本上铁定吃亏的。乌克兰空军的主力战斗机基本就是苏联解体时留下的那批遗产，苏-27和米格-29。平均机龄相当可观，早期批次甚至服役了三四十年。机体老化带来的不只是结构疲劳，更关键的是航电系统严重落后。苏联时代的老式雷达、老式座舱、老式数据链，放在今天的战场上，态势感知能力跟苏-35S完全不在一个层面。
+举个简单的例子，苏-35S飞行员在座舱里通过多功能显示器就能实时获取战场信息，而老苏-27的飞行员可能还得靠目视搜索和地面引导，这个差距在战场上直接影响双方的反应速度。
+西方盟友虽然陆续向乌克兰提供了一些战斗机援助，但数量和质量都不够改变局面。荷兰、丹麦等国承诺的F-16陆续到位，数量有限，而且乌克兰飞行员从苏式飞机转飞美式飞机需要较长的改装训练周期，短期很难形成规模战斗力。此前波兰和斯洛伐克移交的少量米格-29同样是老旧型号，只能对地攻击，空战纯送人头。
+
+▲乌军缺乏有经验的飞行员
+更大的问题是飞行员培训，乌克兰空军战前就面临训练时数不足的困境，战争爆发后人员损耗加速，新人培训周期一再压缩。很多飞行员训练阶段就坠机失事，实战阶段更是不会打，主要原因还是训练培训的水平太低，撑不起战斗力。
+现代空战是体系对抗，单一环节的差距会被成倍放大。一架苏-35S能在一对二中取胜，靠的不只是飞机本身性能，更是飞行员训练、电子战系统、机载武器和战术素养的综合优势。但不管怎么说，俄乌的空战还是菜鸡互啄的低端局，距离真正的体系对抗还有不少距离。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://news.ifeng.com/c/8vbl2aLnJFu"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="凤凰军事"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">08-16 06:30
+【军武次位面】作者：太白
+在又一次吐槽福特级航母的电磁弹射器之后，特朗普动了真格。 8 月 13 日，据《华尔街日报》报道，特朗普签署了一份国家安全备忘录，下令美国海军在未来的&quot;福特&quot;级航母上放弃电磁弹射系统，改回传统的蒸汽弹射器，预计这一改动将耗费数十亿美元。
+
+▲维护电磁弹射
+按照特朗普的指示，“福特”级的前三艘航母“福特”号、“肯尼迪”号和“企业”号可以继续保留电磁弹射器，但从正在建造的四号舰“米勒”号开始，后续所有新建航母都必须改回蒸汽弹射。
+特朗普对电磁弹射系统的不满由来已久。早在2017年接受《时代》周刊采访时，他就曾直言这套系统“不好”，还说自己已经要求海军恢复使用蒸汽弹射。2019 年在日本横须贺访问时，站在&quot;黄蜂&quot;号两栖攻击舰上对美军士兵放话，说电磁弹射太烧钱，要下令新航母换回蒸汽弹射，还反问&quot;蒸汽有什么不行的&quot; 。去年 10 月他登上&quot;华盛顿&quot;号航母演讲，两次问台下水兵蒸汽和电磁哪个好，听到有人喊&quot;蒸汽&quot;，他立刻来了精神，骂电磁弹射&quot;愚蠢、荒唐&quot;。
+
+▲电磁弹射系统概念图
+当然特朗普骂归骂，&quot;福特&quot;级的电磁弹射自己也不争气。美国海军给这套系统定的指标是平均弹射4000多次才允许出一次严重故障。可现实是，2013 年陆地测试时，1967 次试射失败了 201 次，故障率超过 10%。服役之后的数据也好不到哪去，2021 年的官方测试报告显示，平均弹射 181 次就出一次任务故障，后来改进到最好水平也就 400 次左右 。更要命的是设计上的先天缺陷。四条弹射器共用储能飞轮和逆变器，彼此无法电气隔离。一条轨道出问题，全舰四条都得趴窝。
+除了可靠性差，电磁弹射的推力也达不到设计要求。官方标称最大能弹射 41 吨的飞机，可实际测试中，安全弹射的重量上限连 25 吨都很勉强。最新的 F-35C 隐形舰载战斗机，在福特号上根本没法正常起降。F-35C 满油满弹的起飞重量超过 31 吨，远远超出了福特号电磁弹射的实际能力。电磁弹射的推力曲线和 F-35C 的机身设计也不匹配，需要重新改造。
+
+▲建造中的&quot;福特&quot;级
+讽刺的是，用了几十年蒸汽弹射的尼米兹级航母，反而能正常起降 F-35C。现在已经有多艘尼米兹级完成了适配改装，可以搭载五代机执行任务。那因为这些原因，特朗普要求的改回蒸汽弹射，真的可行吗？
+美国最后一艘搭载蒸汽弹射系统的航母是“布什”号，该舰完工下水至今已有二十年时间。二十年间，美国全力推进电磁弹射技术研发和应用，彻底放弃了蒸汽弹射技术的迭代和生产线维护。美国国内唯一具备蒸汽弹射系统完整生产能力的巴布科克-威尔科克斯公司，因为长期没有相关军工订单，已在2020年前后关停了蒸汽弹射相关军工部门，拆除了全套生产设备和生产线。相关核心技术文档、生产工艺资料也大量流失，熟练的技术工人和研发团队早已解散、流失。
+
+▲蒸汽弹射起飞的战机
+就算蒸汽弹射器能造出来，装到福特级上也是个大麻烦。福特级航母的整个船体设计，从一开始就是围绕电力系统做的。核反应堆发的电供给全舰电网，电磁弹射、电磁阻拦、先进升降机，全都是用电的。舰体内部根本没有预留蒸汽管道的空间。如果要改蒸汽弹射，就得重新设计舱室布局，跟重新设计一艘航母没多大区别。
+这些原因意味着特朗普此次命令无法落地。按照美军以往的行事风格，大概率会拖延糊弄两年半左右，待舆论热度消退、换届之后，又会重新恢复电磁弹射的搭载规划。这种反复横跳的操作，依旧不会有任何部门和个人承担责任。
+
+▲&quot;福特&quot;级
+福特级电磁弹射的失败，当然不是电磁弹射路线错了，而是美国的工程实现能力出了问题。电磁弹射本身肯定是未来的方向，它出动效率高、对飞机损伤小、能适配各种不同重量的机型，优势是明摆着的。技术原理也不复杂，能想明白的国家不少。但变成可靠可用的装备，考验的是一个国家的工业底子和系统集成能力。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://x0.ifengimg.com/res/2026/9A28CF36670121D677EC1F98E6B3568E4A9D4BB9_size21_w720_h380.webp"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">凤凰军事</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-16"
+                      datetime="2026-08-16T01:58:03.000Z"
+                    >2026-08-16</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    把航母改回蒸汽弹射？特朗普太天真，美国造船业彻底没救了
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    08-16 06:30
+【军武次位面】作者：太白
+在又一次吐槽福特级航母的电磁弹射器之后，特朗普动了真格。 8 月 13 日，据《华尔街日报》报道，特朗普签署了一份国家安全备忘录，下令美国海军在未来的&quot;福特&quot;级航母上放弃电磁弹射系统，改回传统的蒸汽弹射器，预计这一改动将耗费数十亿美元。
+
+▲维护电磁弹射
+按照特朗普的指示，“福特”级的前三艘航母“福特”号、“肯尼迪”号和“企业”号可以继续保留电磁弹射器，但从正在建造的四号舰“米勒”号开始，后续所有新建航母都必须改回蒸汽弹射。
+特朗普对电磁弹射系统的不满由来已久。早在2017年接受《时代》周刊采访时，他就曾直言这套系统“不好”，还说自己已经要求海军恢复使用蒸汽弹射。2019 年在日本横须贺访问时，站在&quot;黄蜂&quot;号两栖攻击舰上对美军士兵放话，说电磁弹射太烧钱，要下令新航母换回蒸汽弹射，还反问&quot;蒸汽有什么不行的&quot; 。去年 10 月他登上&quot;华盛顿&quot;号航母演讲，两次问台下水兵蒸汽和电磁哪个好，听到有人喊&quot;蒸汽&quot;，他立刻来了精神，骂电磁弹射&quot;愚蠢、荒唐&quot;。
+
+▲电磁弹射系统概念图
+当然特朗普骂归骂，&quot;福特&quot;级的电磁弹射自己也不争气。美国海军给这套系统定的指标是平均弹射4000多次才允许出一次严重故障。可现实是，2013 年陆地测试时，1967 次试射失败了 201 次，故障率超过 10%。服役之后的数据也好不到哪去，2021 年的官方测试报告显示，平均弹射 181 次就出一次任务故障，后来改进到最好水平也就 400 次左右 。更要命的是设计上的先天缺陷。四条弹射器共用储能飞轮和逆变器，彼此无法电气隔离。一条轨道出问题，全舰四条都得趴窝。
+除了可靠性差，电磁弹射的推力也达不到设计要求。官方标称最大能弹射 41 吨的飞机，可实际测试中，安全弹射的重量上限连 25 吨都很勉强。最新的 F-35C 隐形舰载战斗机，在福特号上根本没法正常起降。F-35C 满油满弹的起飞重量超过 31 吨，远远超出了福特号电磁弹射的实际能力。电磁弹射的推力曲线和 F-35C 的机身设计也不匹配，需要重新改造。
+
+▲建造中的&quot;福特&quot;级
+讽刺的是，用了几十年蒸汽弹射的尼米兹级航母，反而能正常起降 F-35C。现在已经有多艘尼米兹级完成了适配改装，可以搭载五代机执行任务。那因为这些原因，特朗普要求的改回蒸汽弹射，真的可行吗？
+美国最后一艘搭载蒸汽弹射系统的航母是“布什”号，该舰完工下水至今已有二十年时间。二十年间，美国全力推进电磁弹射技术研发和应用，彻底放弃了蒸汽弹射技术的迭代和生产线维护。美国国内唯一具备蒸汽弹射系统完整生产能力的巴布科克-威尔科克斯公司，因为长期没有相关军工订单，已在2020年前后关停了蒸汽弹射相关军工部门，拆除了全套生产设备和生产线。相关核心技术文档、生产工艺资料也大量流失，熟练的技术工人和研发团队早已解散、流失。
+
+▲蒸汽弹射起飞的战机
+就算蒸汽弹射器能造出来，装到福特级上也是个大麻烦。福特级航母的整个船体设计，从一开始就是围绕电力系统做的。核反应堆发的电供给全舰电网，电磁弹射、电磁阻拦、先进升降机，全都是用电的。舰体内部根本没有预留蒸汽管道的空间。如果要改蒸汽弹射，就得重新设计舱室布局，跟重新设计一艘航母没多大区别。
+这些原因意味着特朗普此次命令无法落地。按照美军以往的行事风格，大概率会拖延糊弄两年半左右，待舆论热度消退、换届之后，又会重新恢复电磁弹射的搭载规划。这种反复横跳的操作，依旧不会有任何部门和个人承担责任。
+
+▲&quot;福特&quot;级
+福特级电磁弹射的失败，当然不是电磁弹射路线错了，而是美国的工程实现能力出了问题。电磁弹射本身肯定是未来的方向，它出动效率高、对飞机损伤小、能适配各种不同重量的机型，优势是明摆着的。技术原理也不复杂，能想明白的国家不少。但变成可靠可用的装备，考验的是一个国家的工业底子和系统集成能力。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://news.ifeng.com/c/8vaUbS14B1o"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="凤凰军事"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">08-16 06:30
+【军武次位面】作者：乐乐
+在《华盛顿邮报》证实美军损失至少45架MQ-9无人机，成为美军在美伊冲突中战损最高的装备仅一天后，这个数字就变成了“至少46架”，因为美军在14日对伊朗空中侦察时，没控制好范围又被击落一架MQ-9B。
+
+▲美军MQ-9确实损失惨重
+这个事和近期在美国内部掀起巨大声浪的“林肯”号航母，甚至是之前的“福特”号航母一样，本质上都属于美军传统基地被重创之后，暂时没有其他解决办法的结果，充分证明了伊朗革命卫队的卓越眼光。在此之前，一个让很多人费解，甚至是引起一些嘲讽的操作是，革命卫队在已经重创美军基地，内部装备和人员均撤出的情况下，仍然会持续发射导弹和无人机，来打击这些“空荡荡的基地”。其中最具代表性的就是美国海军第五舰队司令部驻地，从2月28日开始就遭到伊朗导弹袭击。
+
+▲美军第五舰队司令部在开战第一天就被伊朗命中
+美军鉴于这处位于巴林的基地，距离伊朗实在太近，不具备建设有效防空系统的可能性，所以开战后就进行了疏散。然而，伊朗对该基地的空袭，几乎贯穿了三、四月份的交战，甚至到了七月双方再次爆发冲突时，该基地又升起浓烟。这看起来是非常严重的浪费，因为理论上经过长期空袭后，基地里除了固定建筑外就没有其他东西了，但实际上这严重高估了无人机的杀伤力。作为一个能容纳上千人的大型基地，第五舰队司令部的面积非常广阔，而伊朗受限于战时火力通道，最初也只能发射无人机和少量弹道导弹先瘫痪基地，必然留下了大量次要目标。
+
+▲伊朗弹道导弹终究数量有限
+它们可以是用来储存普通物资的仓库，也可以是原本支持MQ-9等无人机部署的机库，甚至是战斗机的维护保障车间。由于缺乏直观战果，这些目标往往不在统计范畴，也少有人关注，但随着革命卫队挨个点名，对美军的持续作战能力影响极大。两艘核动力航母爆发严重内部问题，彻底撕掉了“核动力航母无限巡航”的假面，背后是美国海军中东后勤补给系统的崩溃。哪怕到2026年，想要维持航母上5000多人的物资消耗，靠港依然是最有效的渠道，但在伊朗将海湾沿岸这类目标都破坏之后，最接近的补给港口实际上在迪戈加西亚基地。
+
+▲这下核动力航母的理论无限续航应该没人吹了
+美军无法承受航母脱离战场的代价，又无法提供足够多的运力保证物资供应，那后勤保障失能就是必然结果。MQ-9的情况其实差不多，当前沿情报侦查体系被伊朗敲掉，这款察打无人机就被迫发挥航程优势，前往危险的伊朗境内侦查目标，到四月份停战前损失了近30架MQ-9B。后续为了补充战损，调拨库存MQ-9A发往前线，结果在约旦被伊朗弹道导弹击穿，一次性报废了10多架。
+
+▲美军损失的第46架MQ-9
+美军明明拥有名义上的全球最强军队，却因为前沿军事基地都被伊朗拔掉，而失去着力点，一身本事无法发挥，内心是非常憋屈的。这也是自停战以来，美军高层一直态度强硬，多次表态希望重启大规模交手的关键原因。相比之下，伊朗革命卫队表现出极高的战术素养，既没有因为即时战果而冲昏头脑，也始终没有放弃对美军的戒心，直到现在依然发射无人机支援伊拉克境内的盟友，更坚定趁美军虚弱，持续打击前沿基地的决心，比“十二日战争”期间强了很多倍。
+
+▲美军有力使不出确实很憋屈
+到了现在这个份上，美军因为失去前沿基地的问题越来越大，伊朗则面临比较严峻的内部压力，在霍尔木兹海峡这个纠结点上，双方都在等对手坚持不住。考虑到伊朗的里海、中亚物资运输渠道依然畅通，而美军后勤保障难点一直无法解决，伊朗人的胜率要大很多。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://x0.ifengimg.com/ucms/2026_34/C502E18368E92B3CF0A37053468004491BEBA3BA_size80_w676_h380.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">凤凰军事</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-16"
+                      datetime="2026-08-16T01:58:03.000Z"
+                    >2026-08-16</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    伊朗是真打到美军要害了？第46架MQ-9折戟，第2艘航母濒临崩溃
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    08-16 06:30
+【军武次位面】作者：乐乐
+在《华盛顿邮报》证实美军损失至少45架MQ-9无人机，成为美军在美伊冲突中战损最高的装备仅一天后，这个数字就变成了“至少46架”，因为美军在14日对伊朗空中侦察时，没控制好范围又被击落一架MQ-9B。
+
+▲美军MQ-9确实损失惨重
+这个事和近期在美国内部掀起巨大声浪的“林肯”号航母，甚至是之前的“福特”号航母一样，本质上都属于美军传统基地被重创之后，暂时没有其他解决办法的结果，充分证明了伊朗革命卫队的卓越眼光。在此之前，一个让很多人费解，甚至是引起一些嘲讽的操作是，革命卫队在已经重创美军基地，内部装备和人员均撤出的情况下，仍然会持续发射导弹和无人机，来打击这些“空荡荡的基地”。其中最具代表性的就是美国海军第五舰队司令部驻地，从2月28日开始就遭到伊朗导弹袭击。
+
+▲美军第五舰队司令部在开战第一天就被伊朗命中
+美军鉴于这处位于巴林的基地，距离伊朗实在太近，不具备建设有效防空系统的可能性，所以开战后就进行了疏散。然而，伊朗对该基地的空袭，几乎贯穿了三、四月份的交战，甚至到了七月双方再次爆发冲突时，该基地又升起浓烟。这看起来是非常严重的浪费，因为理论上经过长期空袭后，基地里除了固定建筑外就没有其他东西了，但实际上这严重高估了无人机的杀伤力。作为一个能容纳上千人的大型基地，第五舰队司令部的面积非常广阔，而伊朗受限于战时火力通道，最初也只能发射无人机和少量弹道导弹先瘫痪基地，必然留下了大量次要目标。
+
+▲伊朗弹道导弹终究数量有限
+它们可以是用来储存普通物资的仓库，也可以是原本支持MQ-9等无人机部署的机库，甚至是战斗机的维护保障车间。由于缺乏直观战果，这些目标往往不在统计范畴，也少有人关注，但随着革命卫队挨个点名，对美军的持续作战能力影响极大。两艘核动力航母爆发严重内部问题，彻底撕掉了“核动力航母无限巡航”的假面，背后是美国海军中东后勤补给系统的崩溃。哪怕到2026年，想要维持航母上5000多人的物资消耗，靠港依然是最有效的渠道，但在伊朗将海湾沿岸这类目标都破坏之后，最接近的补给港口实际上在迪戈加西亚基地。
+
+▲这下核动力航母的理论无限续航应该没人吹了
+美军无法承受航母脱离战场的代价，又无法提供足够多的运力保证物资供应，那后勤保障失能就是必然结果。MQ-9的情况其实差不多，当前沿情报侦查体系被伊朗敲掉，这款察打无人机就被迫发挥航程优势，前往危险的伊朗境内侦查目标，到四月份停战前损失了近30架MQ-9B。后续为了补充战损，调拨库存MQ-9A发往前线，结果在约旦被伊朗弹道导弹击穿，一次性报废了10多架。
+
+▲美军损失的第46架MQ-9
+美军明明拥有名义上的全球最强军队，却因为前沿军事基地都被伊朗拔掉，而失去着力点，一身本事无法发挥，内心是非常憋屈的。这也是自停战以来，美军高层一直态度强硬，多次表态希望重启大规模交手的关键原因。相比之下，伊朗革命卫队表现出极高的战术素养，既没有因为即时战果而冲昏头脑，也始终没有放弃对美军的戒心，直到现在依然发射无人机支援伊拉克境内的盟友，更坚定趁美军虚弱，持续打击前沿基地的决心，比“十二日战争”期间强了很多倍。
+
+▲美军有力使不出确实很憋屈
+到了现在这个份上，美军因为失去前沿基地的问题越来越大，伊朗则面临比较严峻的内部压力，在霍尔木兹海峡这个纠结点上，双方都在等对手坚持不住。考虑到伊朗的里海、中亚物资运输渠道依然畅通，而美军后勤保障难点一直无法解决，伊朗人的胜率要大很多。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://news.ifeng.com/c/8vbxxxWpMJo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="凤凰军事"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">08-16 06:32
+【军武次位面】作者：乐乐
+随着《央视军事》在8月14日证实，中国空军将出动远程编队，联手埃及空军举行“文明之鹰-2026”军演，有关埃及采购歼-10CE的信息再度复活，毕竟这种高水平且常态化的军演，和当年俄罗斯对埃及出口武器之前的状态，几乎一模一样。
+
+▲时隔一年多之后中国空军编队又要前往埃及了
+在2013年7月时任国防部长塞西掌权之前，埃及空军实际上是一支严重依赖美国装备的空中力量。但当美国一手挑起阿拉伯世界的动荡，塞西实质性控制埃及后，就开始转向欧洲和俄罗斯。双方在2015年举行了“友谊之桥-2015”海上联合军演，虽然演习科目比较简单，但埃及出动了主力战斗机F-16，俄罗斯甚至连黑海舰队头号主力“莫斯科”号巡洋舰都派过去了。在这个背景下，双方第二年又举行了，陆上大规模联合演习“友谊捍卫者-2016”，其中伊尔-76空投BMD-2战车的表现，令人印象极为深刻。
+
+▲埃及F-16在当时还是有战斗力的
+而最终在2019年举行的“友谊之箭-2019”联合空中军演里，俄罗斯出动的中近程防空系统，联手战斗机实弹模拟现代联合防空系统，最终坚定了埃及采购苏-35SE的信心。同时，在埃及首次采购“阵风”前后，其与法国的空中演习频率、质量也明显提高，可见高规格军演确实和高等级军售的密切关系。对国内而言，与埃及的历史关系和外交水平，明显配不上歼-10C、空警-500和运油-20联手出动，也没有像泰国这样维护邻里关系的需求，那就基本能肯定和推动军售有关，无非是多少的问题。
+
+▲哪怕法国也需要通过演习维护与埃及的关系
+米格-29M理论上，是最有可能被歼-10CE取代的机型，但塞西政府采购这款战斗机不到10年，绝不可能直接放弃。从80年代就开始列装，美国至今都不愿意升级的200多架F-16，才是歼-10CE真正盯上的猎物。美国对待塞西政府的态度非常复杂，一方面埃及的地位至关重要，加上以色列的三方合作框架，事关美国对苏伊士运河的控制，一旦出事就是大事。所以哪怕在特朗普2025年大面积叫停对外援助时，都得特意强调对埃及援助不受限制。
+
+▲歼-10CE取代不了米格-29M不是因为性能
+另一方面，塞西政府从上台开始，就一直想脱离美国控制，双方已经多年没有重量级军售落地，美国对其不满也溢于言表。因此，歼-10CE想落地埃及，遇到的阻力将和苏-35SE是一个级别。而后者恰恰是因为美国一再向埃及施压，最终埃及内部顶不住压力才不得不放弃。歼-10CE如果不想落得这种结局，就必须要表现得足够优秀，既能证明自己足以顶替F-16机群，为埃及空军撑起一片天，还要打动埃及内部的中立派系，至少让他们一直保持中立，而不是出来搅局。
+
+▲国内目前出口歼-10CE没什么压力，关键在于买家
+而国内之所以愿意费这么大劲，当然也是因为有足够的预期收益在刺激。当年埃及接收F-16有多激动，现在就有多痛苦，放在2026年仍然不具备中距拦射能力，实际对空交战距离只有50千米的初代F-16A/B，本质上和活靶子无异。因此，埃及空军是真的有非常旺盛的换机需求，“阵风”和米格-29M显然不具备这种能力，那就意味着歼-10CE真有一次性出口埃及上百架的潜力，这也就是之前出现埃及有心连生产线打包引进传闻的原因。
+
+▲这么大的预期收益值得付出努力去争取
+综合算下来上百亿美元的交易金额，在经济上已经令人很心动，更何况埃及控制苏伊士运河、身为阿拉伯世界军事屏障的标签，在政治和军事领域还拥有特殊价值。因此，最起码这是非常值得国内争取的一笔订单，不会轻易放弃。
+作品声明：首发于头条，观点不代表平台立场</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://x0.ifengimg.com/res/2026/988388DE02D80076B4CE7DAB0B870FB213947EE9_size24_w720_h380.webp"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">凤凰军事</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-16"
+                      datetime="2026-08-16T01:58:03.000Z"
+                    >2026-08-16</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    奔着上百架订单去的？央视证实歼-10C再次出征，埃及该给结果了
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    08-16 06:32
+【军武次位面】作者：乐乐
+随着《央视军事》在8月14日证实，中国空军将出动远程编队，联手埃及空军举行“文明之鹰-2026”军演，有关埃及采购歼-10CE的信息再度复活，毕竟这种高水平且常态化的军演，和当年俄罗斯对埃及出口武器之前的状态，几乎一模一样。
+
+▲时隔一年多之后中国空军编队又要前往埃及了
+在2013年7月时任国防部长塞西掌权之前，埃及空军实际上是一支严重依赖美国装备的空中力量。但当美国一手挑起阿拉伯世界的动荡，塞西实质性控制埃及后，就开始转向欧洲和俄罗斯。双方在2015年举行了“友谊之桥-2015”海上联合军演，虽然演习科目比较简单，但埃及出动了主力战斗机F-16，俄罗斯甚至连黑海舰队头号主力“莫斯科”号巡洋舰都派过去了。在这个背景下，双方第二年又举行了，陆上大规模联合演习“友谊捍卫者-2016”，其中伊尔-76空投BMD-2战车的表现，令人印象极为深刻。
+
+▲埃及F-16在当时还是有战斗力的
+而最终在2019年举行的“友谊之箭-2019”联合空中军演里，俄罗斯出动的中近程防空系统，联手战斗机实弹模拟现代联合防空系统，最终坚定了埃及采购苏-35SE的信心。同时，在埃及首次采购“阵风”前后，其与法国的空中演习频率、质量也明显提高，可见高规格军演确实和高等级军售的密切关系。对国内而言，与埃及的历史关系和外交水平，明显配不上歼-10C、空警-500和运油-20联手出动，也没有像泰国这样维护邻里关系的需求，那就基本能肯定和推动军售有关，无非是多少的问题。
+
+▲哪怕法国也需要通过演习维护与埃及的关系
+米格-29M理论上，是最有可能被歼-10CE取代的机型，但塞西政府采购这款战斗机不到10年，绝不可能直接放弃。从80年代就开始列装，美国至今都不愿意升级的200多架F-16，才是歼-10CE真正盯上的猎物。美国对待塞西政府的态度非常复杂，一方面埃及的地位至关重要，加上以色列的三方合作框架，事关美国对苏伊士运河的控制，一旦出事就是大事。所以哪怕在特朗普2025年大面积叫停对外援助时，都得特意强调对埃及援助不受限制。
+
+▲歼-10CE取代不了米格-29M不是因为性能
+另一方面，塞西政府从上台开始，就一直想脱离美国控制，双方已经多年没有重量级军售落地，美国对其不满也溢于言表。因此，歼-10CE想落地埃及，遇到的阻力将和苏-35SE是一个级别。而后者恰恰是因为美国一再向埃及施压，最终埃及内部顶不住压力才不得不放弃。歼-10CE如果不想落得这种结局，就必须要表现得足够优秀，既能证明自己足以顶替F-16机群，为埃及空军撑起一片天，还要打动埃及内部的中立派系，至少让他们一直保持中立，而不是出来搅局。
+
+▲国内目前出口歼-10CE没什么压力，关键在于买家
+而国内之所以愿意费这么大劲，当然也是因为有足够的预期收益在刺激。当年埃及接收F-16有多激动，现在就有多痛苦，放在2026年仍然不具备中距拦射能力，实际对空交战距离只有50千米的初代F-16A/B，本质上和活靶子无异。因此，埃及空军是真的有非常旺盛的换机需求，“阵风”和米格-29M显然不具备这种能力，那就意味着歼-10CE真有一次性出口埃及上百架的潜力，这也就是之前出现埃及有心连生产线打包引进传闻的原因。
+
+▲这么大的预期收益值得付出努力去争取
+综合算下来上百亿美元的交易金额，在经济上已经令人很心动，更何况埃及控制苏伊士运河、身为阿拉伯世界军事屏障的标签，在政治和军事领域还拥有特殊价值。因此，最起码这是非常值得国内争取的一笔订单，不会轻易放弃。
+作品声明：首发于头条，观点不代表平台立场
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://news.ifeng.com/c/8vbnyFudiD8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="凤凰军事"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">08-16 06:34
+【军武次位面】 作者：丰羽
+据环球网8月14日报道，伊拉克总理阿里·法利赫·扎伊迪会见美国中央司令部司令布拉德·库珀时，发出最后通牒，将9月30日定为美国撤军的固定且最终日期。扎伊迪强调，10月1日将成为伊拉克国家进程中的一个新节点，届时伊拉克领土上将不再存在外国军事力量。美联社随后援引美国官员的话确认，美方预计按期完成撤离。驻埃尔比勒的美军人员和装备已经在往外撤，撤军并没有停留在外交辞令上。
+关于美军撤出伊拉克的谈判，已经持续了很久。2024年美国和伊拉克谈判时，美方还想赖着，留了一些回旋的余地。美国国防部当时公布的是两阶段过渡方案，第一阶段到2025年9月结束联军在伊拉克大部分地区的任务，第二阶段允许部分力量继续利用伊拉克支援叙利亚方向的反ISIS行动，至少延续到2026年9月。美国官员当时还特意强调，美国没有撤出伊拉克，未来准备把军事关系转成双边顾问、协助和安全合作。现在伊拉克直接咬死了，就是9月30日，通通撤走，没有余地。
+
+▲会谈现场
+这并非美军第一次从伊拉克撤离，2011年，美军曾大规模撤走，2014年ISIS崛起后，美军又应伊拉克政府邀请返回，兜兜转转，美军打进来了之后，就一直没有离开。所以，这一次真正具有标志性的地方，是伊拉克政府要做个彻底的了断，从2003年美军进来开始算总账，彻底清空美军23年的存在。
+2003年，美国发动伊拉克战争时，声称伊拉克有所谓的大规模杀伤性武器。后来美国自己的伊拉克调查组没有找到任何大规模杀伤性武器，美国参议院情报委员会也得出结论，当年关于伊拉克大规模杀伤性武器计划的很多关键判断存在夸大，或者得不到底层情报支持。
+
+▲美军撤离示意图
+这场战争，对于伊拉克来说是灾难，对于美国也一样。美军占领巴格达后，美国主导的联盟临时管理当局解散了伊拉克国防部、军队以及一系列安全机构，同时推行大规模“去复兴党化”。美国陆军出版社2025年回顾伊拉克战争时也承认，2003年入侵推翻原有政权后形成了权力真空，叛乱力量在其中滋长。
+后来发生的一切，代价远远超出了美国的设想。布朗大学“战争成本”项目估算，2003年3月至2023年3月，伊拉克战争相关直接暴力造成约28.1万至31.5万人死亡，其中平民约18.7万至21万人。
+
+▲美军撤离示意图
+更讽刺的是，美国当初以“反恐”和输出“民主”为目标进入伊拉克，结果却成了养蛊，又搞出了ISIS。虽然ISIS不是美国建立的，但美国入侵后打碎原有国家安全结构，长期占领带来的反美情绪和随后的政治失序，确实给极端组织留下了扩张空间。布朗大学的战争研究也指出，ISIS的成长至少部分与伊拉克战争造成的破坏有关。美国在2011年撤走大批作战部队，3年以后又为了打ISIS重新回来，这本身就是很能说明问题。
+
+▲美军入侵伊拉克
+而这很可能成为中东的新趋势。虽然不代表其他海湾国家也都会赶走美军，但只要有人开了先例，美军归零就不再是不可考虑的选项了，尤其是这次美国打伊朗给海湾国家造成了重大损失。既然美国已经无法提供保护，还养着美军干什么？即便短期内仍留着美军，海湾国家也会重新衡量驻军成本，毕竟美国只会带来灾难，而美国的安全承诺已经无法抵消由美国军事存在带来的后果。只要这个成本持续上升，美国在中东维持军事网络的代价就会越高。
+这种趋势已经出现了一些苗头，与伊拉克撤军形成了联动。比如沙特和巴基斯坦、土耳其建立了一个小北约。本质上，这就是因为沙特不认为美国能够提供保护了，所以开始找其他的保护伞，土耳其常规军力在北约中排第二，巴基斯坦则有核武器，在功能性上，不比美国差多少。最关键的是，不会因为与巴土结盟就挨打，美国总宣称自己可以解决问题，但始终在制造麻烦，就是中东乃至全世界的祸乱之源，只要没了这个罪魁祸首本身，又有谁真的需要保护呢？</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://x0.ifengimg.com/res/2026/CF42D4AEFDD46990FB1EA5DDC0F08E7A4AB1B500_size23_w720_h380.webp"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">凤凰军事</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-16"
+                      datetime="2026-08-16T01:58:03.000Z"
+                    >2026-08-16</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    第一个赶走美军的海湾国家出现，只给46天时间，美军已开始卷铺盖
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    08-16 06:34
+【军武次位面】 作者：丰羽
+据环球网8月14日报道，伊拉克总理阿里·法利赫·扎伊迪会见美国中央司令部司令布拉德·库珀时，发出最后通牒，将9月30日定为美国撤军的固定且最终日期。扎伊迪强调，10月1日将成为伊拉克国家进程中的一个新节点，届时伊拉克领土上将不再存在外国军事力量。美联社随后援引美国官员的话确认，美方预计按期完成撤离。驻埃尔比勒的美军人员和装备已经在往外撤，撤军并没有停留在外交辞令上。
+关于美军撤出伊拉克的谈判，已经持续了很久。2024年美国和伊拉克谈判时，美方还想赖着，留了一些回旋的余地。美国国防部当时公布的是两阶段过渡方案，第一阶段到2025年9月结束联军在伊拉克大部分地区的任务，第二阶段允许部分力量继续利用伊拉克支援叙利亚方向的反ISIS行动，至少延续到2026年9月。美国官员当时还特意强调，美国没有撤出伊拉克，未来准备把军事关系转成双边顾问、协助和安全合作。现在伊拉克直接咬死了，就是9月30日，通通撤走，没有余地。
+
+▲会谈现场
+这并非美军第一次从伊拉克撤离，2011年，美军曾大规模撤走，2014年ISIS崛起后，美军又应伊拉克政府邀请返回，兜兜转转，美军打进来了之后，就一直没有离开。所以，这一次真正具有标志性的地方，是伊拉克政府要做个彻底的了断，从2003年美军进来开始算总账，彻底清空美军23年的存在。
+2003年，美国发动伊拉克战争时，声称伊拉克有所谓的大规模杀伤性武器。后来美国自己的伊拉克调查组没有找到任何大规模杀伤性武器，美国参议院情报委员会也得出结论，当年关于伊拉克大规模杀伤性武器计划的很多关键判断存在夸大，或者得不到底层情报支持。
+
+▲美军撤离示意图
+这场战争，对于伊拉克来说是灾难，对于美国也一样。美军占领巴格达后，美国主导的联盟临时管理当局解散了伊拉克国防部、军队以及一系列安全机构，同时推行大规模“去复兴党化”。美国陆军出版社2025年回顾伊拉克战争时也承认，2003年入侵推翻原有政权后形成了权力真空，叛乱力量在其中滋长。
+后来发生的一切，代价远远超出了美国的设想。布朗大学“战争成本”项目估算，2003年3月至2023年3月，伊拉克战争相关直接暴力造成约28.1万至31.5万人死亡，其中平民约18.7万至21万人。
+
+▲美军撤离示意图
+更讽刺的是，美国当初以“反恐”和输出“民主”为目标进入伊拉克，结果却成了养蛊，又搞出了ISIS。虽然ISIS不是美国建立的，但美国入侵后打碎原有国家安全结构，长期占领带来的反美情绪和随后的政治失序，确实给极端组织留下了扩张空间。布朗大学的战争研究也指出，ISIS的成长至少部分与伊拉克战争造成的破坏有关。美国在2011年撤走大批作战部队，3年以后又为了打ISIS重新回来，这本身就是很能说明问题。
+
+▲美军入侵伊拉克
+而这很可能成为中东的新趋势。虽然不代表其他海湾国家也都会赶走美军，但只要有人开了先例，美军归零就不再是不可考虑的选项了，尤其是这次美国打伊朗给海湾国家造成了重大损失。既然美国已经无法提供保护，还养着美军干什么？即便短期内仍留着美军，海湾国家也会重新衡量驻军成本，毕竟美国只会带来灾难，而美国的安全承诺已经无法抵消由美国军事存在带来的后果。只要这个成本持续上升，美国在中东维持军事网络的代价就会越高。
+这种趋势已经出现了一些苗头，与伊拉克撤军形成了联动。比如沙特和巴基斯坦、土耳其建立了一个小北约。本质上，这就是因为沙特不认为美国能够提供保护了，所以开始找其他的保护伞，土耳其常规军力在北约中排第二，巴基斯坦则有核武器，在功能性上，不比美国差多少。最关键的是，不会因为与巴土结盟就挨打，美国总宣称自己可以解决问题，但始终在制造麻烦，就是中东乃至全世界的祸乱之源，只要没了这个罪魁祸首本身，又有谁真的需要保护呢？
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://news.ifeng.com/c/8vaMsuRBhMM"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="凤凰军事"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">08-16 06:58
+【军武次位面】作者：太白
+8月11日，乌克兰再次对俄罗斯黑海沿岸的军事重镇新罗西斯克港发动了大规模的无人机突袭行动，导致俄军又有舰艇在袭击中受损。相关高清的画面和视频都已证实战果属实。
+
+▲受损的俄军舰
+乌军报道称，在此次行动中使用了“帕利亚尼察”喷气式无人机、海王星反舰导弹以及海上无人艇，发动了一场对新罗西斯克的联合海空打击，导致港口部分设施瘫痪，粮食出口码头停止作业，港内的军舰也遭到了损失。
+
+▲俄军拼尽全力也防不住
+目前官方确认总共有4艘军舰遭到了损伤，包含2艘11356R型护卫舰“马卡罗夫海军上将”号和“埃森海军上将”号、艘21631型“暴风-M”级小型导弹舰、1艘22160型“瓦西里·比科夫”级巡逻舰，还有1艘1135&quot;风暴海燕&quot;型护卫舰、1艘266M型扫雷舰、1艘20360 OS型试验科研船“维克多·切罗科夫”号、1艘864型侦察船“普里亚佐维耶”号，以及1艘干散货船也在袭击中不同程度受损。
+其中，2艘11356R型是俄黑海舰队的核心主力舰艇。据《海军新闻》分析，两舰的垂直发射系统受到了严重损伤，导致失去了“口径”巡航导弹的发射能力。高清卫星图片显示，“埃森海军上将”号垂直毁坏明显，“马卡罗夫海军上将”号的垂发、后部舰艇上层建筑等均明显损伤。这部分，其安装的是防空雷达和大量核心电子设备。
+
+▲11356R型护卫舰的垂发布置位置
+11356R是俄黑海舰队核心的远洋多用途主力水面舰艇，满载排水量大约4000吨。“马卡罗夫海军上将”号被公认是原来的旗舰“莫斯科”号沉没后，整个黑海舰队事实上的新旗舰。它装备了8单元的3S14型通用垂发系统，可发射“口径”巡航导弹、“锆玛瑙”反舰导弹，或填装24枚的“施基利”防空导弹。整体防空、反舰和对陆打击能力相当均衡，也是从海上对乌克兰各大城市实施远程空袭的主力平台。
+另外，俄海军还有一艘21631型“暴徒-M”级小型导弹艇受损，它同样具备发射巡航导弹的能力，能对乌克兰内陆地区的纵深关键目标进行远程精确打击。它的排水量只有950吨左右，是一种近海或封闭海域专用的重火力轻型导弹艇。尽管吨位不大，但它同样塞下了8单元的3S14垂发系统，是典型的小船扛大炮。它的防空与远洋性能极差，但火力凶猛。再加上超强的海上机动性，一度也让乌克兰非常头疼。
+
+▲受损的22160型
+另外，俄海军还有一艘22160型大型巡逻艇“瓦西里·贝科夫”号受损。该舰排水量约1700吨，主要被用于近海防御与巡逻。受损的贝科夫号也是该级舰的首舰，它装备了一门76毫米舰炮，武器相当薄弱。理论上可在舰尾的集装箱模块内临时加装可发射口径巡航导弹的发射架。它的主要优势在于采用了极为激进的隐身外形设计，在俄乌战争中表现相当平庸。由于缺乏区域防空武器，使得它在面对乌克兰的多维打击时，几乎没有任何防御能力。
+4艘舰艇在一夜之间损伤惨重，对俄罗斯黑海舰队的实力削弱肉眼可见——11356R型是舰队的指挥舰和区域防空舰、21631型是投射巡航导弹的火力舰、22160型则是被部署在最前沿的巡逻舰。它们全部战损，意味着俄黑海舰队相关任务的执行力度将大幅度削弱。
+
+▲4艘小型舰艇也受损
+此次乌克兰成功袭击的幕后功臣当属“帕利亚尼察”喷气式自杀无人机了。正所谓天下武功唯快不破，这款无人机就是专门为高速度而设计的，它采用廉价的小型涡喷发动机，速度每小时400-500公里，能大幅压缩俄军防空的反应时间。它不仅速度快，而且能加入智能芯片模块，飞行过程紧贴海面，如同造价高昂的巡航导弹一般。为了防御无人机，俄罗斯已经在新罗西斯克附近的较高海拔山地上部署了S-400和S-300。
+
+▲受损的油轮
+但让俄军想不到的是，这款无人机的速度实在太快，以至于当晚岸防的雷达站也出现了不同程度的损失。这款无人机堪称乌克兰军队中穷人的战斧导弹，它的周身采用了大量3D打印出来的碳纤维材料，成本不足巡航导弹的几十分之一，但却已经具备了和巡航导弹类似的突防能力和速度。
+
+▲受损的港口设施
+在实战中，“帕利亚尼察”利用低空高速优势率先突防，击中了俄军防空导弹的雷达，也戳瞎了俄军的“防空之眼”。接下来在第二波的袭击中，“海王星”反舰导弹呼啸而出，精准袭击码头上的俄军军舰。
+到了第三波进攻时，由于港内发生连环爆炸，幸存的俄军军舰紧急起锚疏散，港内已经混乱不堪。但它们很快就被乌军海上无人艇牢牢盯上，并遭到了蜂群进攻。负责拦截的“贝科夫”号巡逻舰就是在这时被重创的。经此一战，黑海舰队失去了3艘向乌克兰内陆投送远程火力的主力舰艇，再说什么精准打击乌纵深目标，已经相当奢侈了。
+
+获取更多RSS：
+https://feedx.net 
+https://feedx.site</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://x0.ifengimg.com/res/2026/A4313DB1C23C9BA150FB2EF43A204900BDD537A2_size16_w720_h380.webp"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">凤凰军事</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-16"
+                      datetime="2026-08-16T01:58:03.000Z"
+                    >2026-08-16</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    8艘主力舰被重创，乌克兰无人机狂轰一夜，黑海舰队几乎团灭
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    08-16 06:58
+【军武次位面】作者：太白
+8月11日，乌克兰再次对俄罗斯黑海沿岸的军事重镇新罗西斯克港发动了大规模的无人机突袭行动，导致俄军又有舰艇在袭击中受损。相关高清的画面和视频都已证实战果属实。
+
+▲受损的俄军舰
+乌军报道称，在此次行动中使用了“帕利亚尼察”喷气式无人机、海王星反舰导弹以及海上无人艇，发动了一场对新罗西斯克的联合海空打击，导致港口部分设施瘫痪，粮食出口码头停止作业，港内的军舰也遭到了损失。
+
+▲俄军拼尽全力也防不住
+目前官方确认总共有4艘军舰遭到了损伤，包含2艘11356R型护卫舰“马卡罗夫海军上将”号和“埃森海军上将”号、艘21631型“暴风-M”级小型导弹舰、1艘22160型“瓦西里·比科夫”级巡逻舰，还有1艘1135&quot;风暴海燕&quot;型护卫舰、1艘266M型扫雷舰、1艘20360 OS型试验科研船“维克多·切罗科夫”号、1艘864型侦察船“普里亚佐维耶”号，以及1艘干散货船也在袭击中不同程度受损。
+其中，2艘11356R型是俄黑海舰队的核心主力舰艇。据《海军新闻》分析，两舰的垂直发射系统受到了严重损伤，导致失去了“口径”巡航导弹的发射能力。高清卫星图片显示，“埃森海军上将”号垂直毁坏明显，“马卡罗夫海军上将”号的垂发、后部舰艇上层建筑等均明显损伤。这部分，其安装的是防空雷达和大量核心电子设备。
+
+▲11356R型护卫舰的垂发布置位置
+11356R是俄黑海舰队核心的远洋多用途主力水面舰艇，满载排水量大约4000吨。“马卡罗夫海军上将”号被公认是原来的旗舰“莫斯科”号沉没后，整个黑海舰队事实上的新旗舰。它装备了8单元的3S14型通用垂发系统，可发射“口径”巡航导弹、“锆玛瑙”反舰导弹，或填装24枚的“施基利”防空导弹。整体防空、反舰和对陆打击能力相当均衡，也是从海上对乌克兰各大城市实施远程空袭的主力平台。
+另外，俄海军还有一艘21631型“暴徒-M”级小型导弹艇受损，它同样具备发射巡航导弹的能力，能对乌克兰内陆地区的纵深关键目标进行远程精确打击。它的排水量只有950吨左右，是一种近海或封闭海域专用的重火力轻型导弹艇。尽管吨位不大，但它同样塞下了8单元的3S14垂发系统，是典型的小船扛大炮。它的防空与远洋性能极差，但火力凶猛。再加上超强的海上机动性，一度也让乌克兰非常头疼。
+
+▲受损的22160型
+另外，俄海军还有一艘22160型大型巡逻艇“瓦西里·贝科夫”号受损。该舰排水量约1700吨，主要被用于近海防御与巡逻。受损的贝科夫号也是该级舰的首舰，它装备了一门76毫米舰炮，武器相当薄弱。理论上可在舰尾的集装箱模块内临时加装可发射口径巡航导弹的发射架。它的主要优势在于采用了极为激进的隐身外形设计，在俄乌战争中表现相当平庸。由于缺乏区域防空武器，使得它在面对乌克兰的多维打击时，几乎没有任何防御能力。
+4艘舰艇在一夜之间损伤惨重，对俄罗斯黑海舰队的实力削弱肉眼可见——11356R型是舰队的指挥舰和区域防空舰、21631型是投射巡航导弹的火力舰、22160型则是被部署在最前沿的巡逻舰。它们全部战损，意味着俄黑海舰队相关任务的执行力度将大幅度削弱。
+
+▲4艘小型舰艇也受损
+此次乌克兰成功袭击的幕后功臣当属“帕利亚尼察”喷气式自杀无人机了。正所谓天下武功唯快不破，这款无人机就是专门为高速度而设计的，它采用廉价的小型涡喷发动机，速度每小时400-500公里，能大幅压缩俄军防空的反应时间。它不仅速度快，而且能加入智能芯片模块，飞行过程紧贴海面，如同造价高昂的巡航导弹一般。为了防御无人机，俄罗斯已经在新罗西斯克附近的较高海拔山地上部署了S-400和S-300。
+
+▲受损的油轮
+但让俄军想不到的是，这款无人机的速度实在太快，以至于当晚岸防的雷达站也出现了不同程度的损失。这款无人机堪称乌克兰军队中穷人的战斧导弹，它的周身采用了大量3D打印出来的碳纤维材料，成本不足巡航导弹的几十分之一，但却已经具备了和巡航导弹类似的突防能力和速度。
+
+▲受损的港口设施
+在实战中，“帕利亚尼察”利用低空高速优势率先突防，击中了俄军防空导弹的雷达，也戳瞎了俄军的“防空之眼”。接下来在第二波的袭击中，“海王星”反舰导弹呼啸而出，精准袭击码头上的俄军军舰。
+到了第三波进攻时，由于港内发生连环爆炸，幸存的俄军军舰紧急起锚疏散，港内已经混乱不堪。但它们很快就被乌军海上无人艇牢牢盯上，并遭到了蜂群进攻。负责拦截的“贝科夫”号巡逻舰就是在这时被重创的。经此一战，黑海舰队失去了3艘向乌克兰内陆投送远程火力的主力舰艇，再说什么精准打击乌纵深目标，已经相当奢侈了。
+
+获取更多RSS：
+https://feedx.net 
+https://feedx.site
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://news.ifeng.com/c/8vbkVPQhdGJ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="南方周末"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">2026-08-16 09:00:00
+
+2026年7月29日，北京市西城区一社区，赵师傅和同事操作履带式爬楼机，护送一位老者下楼。张琛摄
+萍阿姨77岁，住在北京市西城区一栋1950年代的筒子楼里。住得久了，大家都这么称呼她。没有电梯，家在三楼，腿脚好的时候，她能慢慢挪下楼。但去社区医院做针灸的日子，她需要帮助：膝盖有旧疾，犯病时肿得厉害，疼得下不了地。
+爬楼机就这样出现在她的生活里。她被固定在一台履带式机器上，楼道很窄，圆形拐角，从三楼缓缓运下。2026年7月29日，这是萍阿姨今年第六次购买爬楼机上门服务，一趟40元钱，她觉得有点贵，“没办法，要治病”。
+从2022年多地将爬楼机等康复辅具纳入居家养老服务、辅具租赁试点算起，爬楼机服务进入公众视野已逾四年。这项被称为“悬空老人第二双腿”的服务，从大城市到小县城均有探索，模式包括政府购买公益服务、社区驿站低偿运营、市场化公司收费等多种形态，却始终困在“叫好不叫座”的局面里。
+“核心的问题，还是钱的问题。”深圳市盐田区长者助行项目负责人张玉珂说。
+2026年7月14日，民政部、国家医保局等14部门联合印发《康复辅助器具产业扩能提质三年行动方案（2026—2028）》，研究探索将长期护理相关智能化服务和支持性辅助器具纳入长期护理保险支付范围。多地推进爬楼机上门服务，南京、苏州、威海、滨州等地已将辅具租赁纳入长护险报销范围，报销比例普遍在70%至95%之间，个人承担部分大幅降低。
+非必要不下楼
+萍阿姨在这栋楼里住了五十多年，她的房子只有17.6平方米，是全楼栋最小的。浴室、卫生间、厨房都得公用。她花钱在屋内隔出一间小卫生间，装了洗手池和淋浴设备，但面积太小装不下马桶，还是得用楼里的公共蹲厕。“蹲下去就起不来了，有一次我差点坐那儿，幸亏扒着旁边。”
+萍阿姨是失独老人。三年前，家庭遭遇变故，儿子因意外去世，老伴受了刺激，半年之内也离世…</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">南方周末</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-16"
+                      datetime="2026-08-16T01:25:06.000Z"
+                    >2026-08-16</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    “悬空老人”下楼难：等待长护险，租一辆爬楼机
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    2026-08-16 09:00:00
+
+2026年7月29日，北京市西城区一社区，赵师傅和同事操作履带式爬楼机，护送一位老者下楼。张琛摄
+萍阿姨77岁，住在北京市西城区一栋1950年代的筒子楼里。住得久了，大家都这么称呼她。没有电梯，家在三楼，腿脚好的时候，她能慢慢挪下楼。但去社区医院做针灸的日子，她需要帮助：膝盖有旧疾，犯病时肿得厉害，疼得下不了地。
+爬楼机就这样出现在她的生活里。她被固定在一台履带式机器上，楼道很窄，圆形拐角，从三楼缓缓运下。2026年7月29日，这是萍阿姨今年第六次购买爬楼机上门服务，一趟40元钱，她觉得有点贵，“没办法，要治病”。
+从2022年多地将爬楼机等康复辅具纳入居家养老服务、辅具租赁试点算起，爬楼机服务进入公众视野已逾四年。这项被称为“悬空老人第二双腿”的服务，从大城市到小县城均有探索，模式包括政府购买公益服务、社区驿站低偿运营、市场化公司收费等多种形态，却始终困在“叫好不叫座”的局面里。
+“核心的问题，还是钱的问题。”深圳市盐田区长者助行项目负责人张玉珂说。
+2026年7月14日，民政部、国家医保局等14部门联合印发《康复辅助器具产业扩能提质三年行动方案（2026—2028）》，研究探索将长期护理相关智能化服务和支持性辅助器具纳入长期护理保险支付范围。多地推进爬楼机上门服务，南京、苏州、威海、滨州等地已将辅具租赁纳入长护险报销范围，报销比例普遍在70%至95%之间，个人承担部分大幅降低。
+非必要不下楼
+萍阿姨在这栋楼里住了五十多年，她的房子只有17.6平方米，是全楼栋最小的。浴室、卫生间、厨房都得公用。她花钱在屋内隔出一间小卫生间，装了洗手池和淋浴设备，但面积太小装不下马桶，还是得用楼里的公共蹲厕。“蹲下去就起不来了，有一次我差点坐那儿，幸亏扒着旁边。”
+萍阿姨是失独老人。三年前，家庭遭遇变故，儿子因意外去世，老伴受了刺激，半年之内也离世…
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="http://www.infzm.com/contents/328468"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
               <article
                 data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
                 x-show="active === 'all' || active === $el.dataset.src"
@@ -96591,1282 +98344,6 @@ Read Full Article at RT.com
                   <!-- Read link – @click.stop so the card click doesn't also fire -->
                   <a
                     href="https://www.rt.com/news/644039-is-everyone-going-to-garden/?utm_source&#x3D;rss&amp;utm_medium&#x3D;rss&amp;utm_campaign&#x3D;RSS"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">（浙江/福建/上海综合讯）强台风“白海豚”星期天（8月9日）登陆中国浙江省，中国中央气象台发布最高级别红色预警，超过100万人疏散，至少1600多趟航班取消。
-综合新华社、路透社等报道，第13号台风“白海豚”星期天傍晚在浙江省玉环市登陆，之后在乐清市沿海二次登陆，带来狂风暴雨。
-中央气象台此前发布了台风红色预警。这是继今年7月台风“红霞”后，中央气象台今年第二次发布红色预警。
-台风登陆前，各地已展开大规模人员转移。据路透社估计，受影响地区共疏散超过100万人，包括福建省近10万人、浙江台州市约八万人，上海市超过三万人。
-台风也打乱多地交通运输。截至星期天，上海两大机场共取消1384趟航班，杭州机场则有近300趟航班取消。被取消的包括新加坡航空公司八趟往返新加坡和上海的航班，另有10趟新航航班调整起飞时间。
-此外，宁波舟山港、上海港等航运枢纽的作业也被迫暂停或调整。
-中央气象台首席预报员王海平警告，这次台风的强降雨量级、影响范围和持续时间都较突出，须高度警惕。
-气象台预计，从星期天至星期三（12日），福建省、浙江省、上海市、江西省、江苏省、安徽省、湖北省、河南省、山东省将出现暴雨到大暴雨，其中浙江中东部和安徽南部将有特大暴雨。当局警告，相关省份须防范强降雨引发的次生灾害。
-今年夏季以来，“红霞”“巴威”“白海豚”等台风接踵侵袭中国。科学家警告，在厄尔尼诺现象推动下，中国今年或将持续面对极端天气。
-在登陆中国大陆前，“白海豚”星期六（8日）席卷日本南部冲绳县，造成六人受伤，五万多栋建筑断电。此外，台风外围环流也为台湾带来强降雨，造成六人受伤。
-目前尚未有台风登陆中国大陆后的人员伤亡报告。 不过据报道，浙江温岭石塘镇海边星期五（7日）已掀起巨浪，一名九岁男孩被大浪卷入海中，至今生死未卜。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://cassette.sphdigital.com.sg/image/zaobao/88111fbae7ca4548d2b98499e7470dcc15034f510b377d93eed49df6e588e735"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-10"
-                      datetime="2026-08-09T16:32:41.784Z"
-                    >2026-08-10</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    台风“白海豚”登陆浙江 各地超过100万人疏散
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    （浙江/福建/上海综合讯）强台风“白海豚”星期天（8月9日）登陆中国浙江省，中国中央气象台发布最高级别红色预警，超过100万人疏散，至少1600多趟航班取消。
-综合新华社、路透社等报道，第13号台风“白海豚”星期天傍晚在浙江省玉环市登陆，之后在乐清市沿海二次登陆，带来狂风暴雨。
-中央气象台此前发布了台风红色预警。这是继今年7月台风“红霞”后，中央气象台今年第二次发布红色预警。
-台风登陆前，各地已展开大规模人员转移。据路透社估计，受影响地区共疏散超过100万人，包括福建省近10万人、浙江台州市约八万人，上海市超过三万人。
-台风也打乱多地交通运输。截至星期天，上海两大机场共取消1384趟航班，杭州机场则有近300趟航班取消。被取消的包括新加坡航空公司八趟往返新加坡和上海的航班，另有10趟新航航班调整起飞时间。
-此外，宁波舟山港、上海港等航运枢纽的作业也被迫暂停或调整。
-中央气象台首席预报员王海平警告，这次台风的强降雨量级、影响范围和持续时间都较突出，须高度警惕。
-气象台预计，从星期天至星期三（12日），福建省、浙江省、上海市、江西省、江苏省、安徽省、湖北省、河南省、山东省将出现暴雨到大暴雨，其中浙江中东部和安徽南部将有特大暴雨。当局警告，相关省份须防范强降雨引发的次生灾害。
-今年夏季以来，“红霞”“巴威”“白海豚”等台风接踵侵袭中国。科学家警告，在厄尔尼诺现象推动下，中国今年或将持续面对极端天气。
-在登陆中国大陆前，“白海豚”星期六（8日）席卷日本南部冲绳县，造成六人受伤，五万多栋建筑断电。此外，台风外围环流也为台湾带来强降雨，造成六人受伤。
-目前尚未有台风登陆中国大陆后的人员伤亡报告。 不过据报道，浙江温岭石塘镇海边星期五（7日）已掀起巨浪，一名九岁男孩被大浪卷入海中，至今生死未卜。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.zaobao.com.sg/news/china/story20260809-9495660"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="每日一拍"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">岚子 选编</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">每日一拍</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-10"
-                      datetime="2026-08-09T16:10:40.000Z"
-                    >2026-08-10</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    2026-08-10 每日一拍精选
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    岚子 选编
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://500px.com.cn/community/set/cf27cb0671ee437bbd6f30fd4ff26e2c/details"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="RT World News"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">The EU is unprepared to fast-track Ukraine’s membership bid as the country is too corrupt, FT has reported, citing a senior diplomat 
-Read Full Article at RT.com</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://mf.b37mrtl.ru/files/2026.08/thumbnail/6a789d4f2030275e8271635f.jpg"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">RT World News</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-10"
-                      datetime="2026-08-09T16:07:47.000Z"
-                    >2026-08-10</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    Ukraine too corrupt to join the EU – diplomat to FT
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    The EU is unprepared to fast-track Ukraine’s membership bid as the country is too corrupt, FT has reported, citing a senior diplomat 
-Read Full Article at RT.com
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.rt.com/news/644038-ukraine-too-corrupt-eu-membership/?utm_source&#x3D;rss&amp;utm_medium&#x3D;rss&amp;utm_campaign&#x3D;RSS"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="RT World News"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">The Pentagon is pressing US arms makers to accelerate weapons production as the Iran war drains already diminished munitions stockpiles 
-Read Full Article at RT.com</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://mf.b37mrtl.ru/files/2026.08/thumbnail/6a788c5420302772227f94d4.jpg"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">RT World News</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-10"
-                      datetime="2026-08-09T16:07:12.000Z"
-                    >2026-08-10</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    Pentagon pushes arms makers to boost output as Iran war drains stocks – WaPo
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    The Pentagon is pressing US arms makers to accelerate weapons production as the Iran war drains already diminished munitions stockpiles 
-Read Full Article at RT.com
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.rt.com/news/644036-pentagon-arms-makers-boost-output/?utm_source&#x3D;rss&amp;utm_medium&#x3D;rss&amp;utm_campaign&#x3D;RSS"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="BestBlogs.dev - 精选文章"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">📌 一句话摘要
-            
-Runta 创始人戴冠兰与 Koji 深度对谈，阐述为什么 Agent 执行底座是 AI 的下一场核心竞争，并分享从 Token Maxxing 到 Token Minimizing 的行业反转、创业方法论以及对灾难性事故的预言。
-📝 详细摘要
-            
-本期十字路口邀请到刚完成 a16z 领投 2000 万美元种子轮、Jeff Dean 与李飞飞个人天使投资的 Runta 创始人戴冠兰，系统拆解 Agent Infra 赛道。访谈从行业风向急转切入——短短半年，企业从鼓励消耗 Token 的 “Token Maxxing” 转向强调 ROI、预算与归因的 “Token Minimizing”，揭示出模型落地的成本与治理困境。戴冠兰结合自己在 Cloudflare 和 Kong 的 Infra 构建经验，指出 AI 正在动摇软件世界的确定性地基：当执行单元从确定性逻辑变成概率性的大模型，执行层已经成为系统工程里最难的问题。他详细阐述了 Runta 的解题思路，即在不改动模型的前提下，通过执行底座为 Agent 加入确定性的管控、审计与恢复能力，让企业敢于把生产权限交给智能体。对话还对比了创业公司、公有云与大模型公司在 Infra 赛道的优劣势，戴冠兰提出暴论“模型能力已经够了，要卷就卷 infra”，并预测未来必然会发生灾难性的 Agent 安全事故，这将是行业建立执行底座共识的转折点。后半部分还分享了职场新人如何识别浪潮、选择团队、用投资人视角思考职业，以及团队如何使用 Codex 进行 95% 以上的 Vibe Coding 实践。
-💡 主要观点
-            
-模型能力已趋于饱和，下一场核心竞争在于 Agent 执行基础设施
-                         戴冠兰认为模型能力的…</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://image.jido.dev/20251127045524_c750c286"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">BestBlogs.dev - 精选文章</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-10"
-                      datetime="2026-08-09T16:00:00.000Z"
-                    >2026-08-10</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    「模型能力已经够了，要卷就卷 infra」｜对谈戴冠兰：Runta 创始人
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    📌 一句话摘要
-            
-Runta 创始人戴冠兰与 Koji 深度对谈，阐述为什么 Agent 执行底座是 AI 的下一场核心竞争，并分享从 Token Maxxing 到 Token Minimizing 的行业反转、创业方法论以及对灾难性事故的预言。
-📝 详细摘要
-            
-本期十字路口邀请到刚完成 a16z 领投 2000 万美元种子轮、Jeff Dean 与李飞飞个人天使投资的 Runta 创始人戴冠兰，系统拆解 Agent Infra 赛道。访谈从行业风向急转切入——短短半年，企业从鼓励消耗 Token 的 “Token Maxxing” 转向强调 ROI、预算与归因的 “Token Minimizing”，揭示出模型落地的成本与治理困境。戴冠兰结合自己在 Cloudflare 和 Kong 的 Infra 构建经验，指出 AI 正在动摇软件世界的确定性地基：当执行单元从确定性逻辑变成概率性的大模型，执行层已经成为系统工程里最难的问题。他详细阐述了 Runta 的解题思路，即在不改动模型的前提下，通过执行底座为 Agent 加入确定性的管控、审计与恢复能力，让企业敢于把生产权限交给智能体。对话还对比了创业公司、公有云与大模型公司在 Infra 赛道的优劣势，戴冠兰提出暴论“模型能力已经够了，要卷就卷 infra”，并预测未来必然会发生灾难性的 Agent 安全事故，这将是行业建立执行底座共识的转折点。后半部分还分享了职场新人如何识别浪潮、选择团队、用投资人视角思考职业，以及团队如何使用 Codex 进行 95% 以上的 Vibe Coding 实践。
-💡 主要观点
-            
-模型能力已趋于饱和，下一场核心竞争在于 Agent 执行基础设施
-                         戴冠兰认为模型能力的…
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.bestblogs.dev/podcast/8594faac7?utm_source&#x3D;rss&amp;utm_medium&#x3D;feed&amp;utm_campaign&#x3D;resources&amp;entry&#x3D;rss_article_item"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="文章總匯 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">運動造成的肌肉損傷，在什麼情況下會從促進肌肉生長的正常刺激，演變成罕見但可能危及生命的橫紋肌溶解症？科學家正試圖找出其中的生理臨界點。
-在追求健身成效的過程中，我們常常受到一句熟悉的口號驅策：更拚、更快、更強。我們一次次挑戰身體極限，追求更進一步的成果──但是當身體開始反過來抗議，會發生什麼事？
-肌肉具有極強的適應能力，不過還是有其極限。最極端的情況，就是發生橫紋肌溶解症（rhabdomyolysis），這是一種骨骼肌組織分解的疾病，會將蛋白質和電解質釋放到血液中，可能危及心臟、腎臟等器官。
-因身體活動引起的橫紋肌溶解症，稱為運動性橫紋肌溶解症（exertional rhabdomyolysis，簡稱ER）。「證據顯示，運動性橫紋肌溶解症的病例從2020年以來持續增加。」荷蘭拉德堡德大學醫學中心的學術研究員尼克．克魯伊特（Nick Kruijt）表示：「這種情況似乎在軍隊的新兵身上比較常見，極度耗費體力和過熱都可能是造成運動性橫紋肌溶解症的因素。不過，運動性橫紋肌溶解症在一般運動愛好者身上的發生率也在上升，尤其是運動項目中包含離心訓練的人；在這類運動中，肌肉需要在被拉伸的同時出力。」
-研究人員認為，病例增加是多項因素共同造成的。如今，不論是運動者、教練還是醫生，對於這種疾病都有更多認識和警覺，可能也因此提高了診斷率。同時也有專家指出，疫情過後人們重新開始運動，以及耐力挑戰日益盛行、社群媒體帶動各種健身風潮，都可能是促成病例增加的因素。
-「現在各式各樣的身體活動都有出現橫紋肌溶解症的案例，」韋恩州立大學運動表現研究員塔瑪拉．休-巴特勒（Tamara Hew-Butler）表示。「從飛輪課、足球到游泳，都有通報案例。還有一些比較特殊的病例，像有一位患者是長時間從事園藝活動，還有一位是連續好幾個小時都在打鼓，而且打得非常賣力。」
-此外，也有在CrossFit訓練、Murph挑戰和…</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/19298/2026081048787413.jpg"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">文章總匯 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-10"
-                      datetime="2026-08-09T16:00:00.000Z"
-                    >2026-08-10</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    運動到什麼程度，會從強健身體變成傷害肌肉？
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    運動造成的肌肉損傷，在什麼情況下會從促進肌肉生長的正常刺激，演變成罕見但可能危及生命的橫紋肌溶解症？科學家正試圖找出其中的生理臨界點。
-在追求健身成效的過程中，我們常常受到一句熟悉的口號驅策：更拚、更快、更強。我們一次次挑戰身體極限，追求更進一步的成果──但是當身體開始反過來抗議，會發生什麼事？
-肌肉具有極強的適應能力，不過還是有其極限。最極端的情況，就是發生橫紋肌溶解症（rhabdomyolysis），這是一種骨骼肌組織分解的疾病，會將蛋白質和電解質釋放到血液中，可能危及心臟、腎臟等器官。
-因身體活動引起的橫紋肌溶解症，稱為運動性橫紋肌溶解症（exertional rhabdomyolysis，簡稱ER）。「證據顯示，運動性橫紋肌溶解症的病例從2020年以來持續增加。」荷蘭拉德堡德大學醫學中心的學術研究員尼克．克魯伊特（Nick Kruijt）表示：「這種情況似乎在軍隊的新兵身上比較常見，極度耗費體力和過熱都可能是造成運動性橫紋肌溶解症的因素。不過，運動性橫紋肌溶解症在一般運動愛好者身上的發生率也在上升，尤其是運動項目中包含離心訓練的人；在這類運動中，肌肉需要在被拉伸的同時出力。」
-研究人員認為，病例增加是多項因素共同造成的。如今，不論是運動者、教練還是醫生，對於這種疾病都有更多認識和警覺，可能也因此提高了診斷率。同時也有專家指出，疫情過後人們重新開始運動，以及耐力挑戰日益盛行、社群媒體帶動各種健身風潮，都可能是促成病例增加的因素。
-「現在各式各樣的身體活動都有出現橫紋肌溶解症的案例，」韋恩州立大學運動表現研究員塔瑪拉．休-巴特勒（Tamara Hew-Butler）表示。「從飛輪課、足球到游泳，都有通報案例。還有一些比較特殊的病例，像有一位患者是長時間從事園藝活動，還有一位是連續好幾個小時都在打鼓，而且打得非常賣力。」
-此外，也有在CrossFit訓練、Murph挑戰和…
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.natgeomedia.com/science/article/content-19298.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="文章總匯 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">南非沿海的沙丘裡，住著一群圓滾滾的沙漠雨蛙（Breviceps macrops）。牠們身型嬌小、叫聲像在擠壓玩具般響亮，十分可愛，是少數能在乾燥沙漠生活的蛙類。
-
- 
-
-同樣特別的還有深海熱泉口的軟體動物，黑暗、高溫還有毒的嚴苛環境，讓牠們演化出奇特的長相。根據世界自然保育聯盟（IUCN）最新發布的紅皮書，這些珍貴生物正瀕臨滅絕風險。
-演化優勢不敵棲地破壞威脅
-自1964年來，IUCN定期發布並更新「受脅物種紅皮書」（The Red List of Threatened Species），是了解動植物與真菌滅絕風險最全面的資訊。物種依受脅程度列為不同等級，易危（VU）、瀕危（EN）、極危（CR）都代表生存面臨危機。
-今年7月公布的最新紅皮書涵蓋超過17.6萬種物種，其中超過4.9萬種面臨滅絕風險，最受矚目的是沙漠的雨蛙與深海熱泉口的軟體動物。
-IUCN秘書長艾吉拉（Grethel Aguilar）感嘆，地球上的生命歷經長久演化，才有了能在最惡劣環境生存的本領。但如今，牠們的處境岌岌可危。
-沙漠蛙的多重危機
-蛙類大多喜歡溫熱潮濕的環境，沙漠雨蛙卻能在缺水的沙漠裡生活。牠們身型嬌小，即便是成年蛙，體長也僅5公分左右。強勁的後腿猶如迷你鏟子，能在短短幾秒內就把自己埋進沙堆，能向下鑽約30公分，直到挖到濕潤、適合棲身的沙層。
-多數時間，沙漠雨蛙都窩在沙丘裡，能待上數個月，僅靠土壤中微量的氧氣生存。牠們會利用夜晚時分出來捕食白蟻等昆蟲，偶爾爬回地面來吸收水分。沙漠雨蛙的腹部有塊布滿血管的區域，像是吸水紙，只要趴在露珠上，就能用這塊皮膚迅速吸收水分。
-這麼獨特的雨蛙僅生活在南非西北與納米比亞交接處的沿岸地帶。然而，這片棲地正因鑽石開採與能源基礎建設開發而飽受威脅。伯戈拜（Boegoebaai）港口與鐵路的開發，可能就會毀掉牠們在南非1/3的棲地與在納米比亞2/3的棲地。
-
-      …</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/19297/2026081044645521.jpg"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">文章總匯 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-10"
-                      datetime="2026-08-09T16:00:00.000Z"
-                    >2026-08-10</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    數月窩在沙裡也能生存 圓胖可愛的「沙漠雨蛙」難敵人類開發
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    南非沿海的沙丘裡，住著一群圓滾滾的沙漠雨蛙（Breviceps macrops）。牠們身型嬌小、叫聲像在擠壓玩具般響亮，十分可愛，是少數能在乾燥沙漠生活的蛙類。
-
- 
-
-同樣特別的還有深海熱泉口的軟體動物，黑暗、高溫還有毒的嚴苛環境，讓牠們演化出奇特的長相。根據世界自然保育聯盟（IUCN）最新發布的紅皮書，這些珍貴生物正瀕臨滅絕風險。
-演化優勢不敵棲地破壞威脅
-自1964年來，IUCN定期發布並更新「受脅物種紅皮書」（The Red List of Threatened Species），是了解動植物與真菌滅絕風險最全面的資訊。物種依受脅程度列為不同等級，易危（VU）、瀕危（EN）、極危（CR）都代表生存面臨危機。
-今年7月公布的最新紅皮書涵蓋超過17.6萬種物種，其中超過4.9萬種面臨滅絕風險，最受矚目的是沙漠的雨蛙與深海熱泉口的軟體動物。
-IUCN秘書長艾吉拉（Grethel Aguilar）感嘆，地球上的生命歷經長久演化，才有了能在最惡劣環境生存的本領。但如今，牠們的處境岌岌可危。
-沙漠蛙的多重危機
-蛙類大多喜歡溫熱潮濕的環境，沙漠雨蛙卻能在缺水的沙漠裡生活。牠們身型嬌小，即便是成年蛙，體長也僅5公分左右。強勁的後腿猶如迷你鏟子，能在短短幾秒內就把自己埋進沙堆，能向下鑽約30公分，直到挖到濕潤、適合棲身的沙層。
-多數時間，沙漠雨蛙都窩在沙丘裡，能待上數個月，僅靠土壤中微量的氧氣生存。牠們會利用夜晚時分出來捕食白蟻等昆蟲，偶爾爬回地面來吸收水分。沙漠雨蛙的腹部有塊布滿血管的區域，像是吸水紙，只要趴在露珠上，就能用這塊皮膚迅速吸收水分。
-這麼獨特的雨蛙僅生活在南非西北與納米比亞交接處的沿岸地帶。然而，這片棲地正因鑽石開採與能源基礎建設開發而飽受威脅。伯戈拜（Boegoebaai）港口與鐵路的開發，可能就會毀掉牠們在南非1/3的棲地與在納米比亞2/3的棲地。
-
-      …
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.natgeomedia.com/environment/article/content-19297.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="文章總匯 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">寮國新近發掘出一口裝有人類遺骨的巨石時代容器，或許終能解開所謂「石缸平原」之謎。
-
-                    
-位於寮國北部的川壙高原（Xieng Khouang Plateau），是全世界最令人費解的考古遺址之一，也是神祕「石缸平原」（Plain of Jars）的所在地。
-這個名字來自四散分布在該地區的上百個「石缸」。將近一世紀以來，考古學家一直在思考這些石缸的用途，他們懷疑那是一種甕棺，因為有些缸裡曾經發現燒過的骨骸和灰燼。現在，有一支探索這片地區的研究團隊找到了一個巨大的石甕，內有至少37個人的骨骸，從幼兒到成人都有，年代可以追溯到一千多年前。
-「我們很振奮，因為這是我們第一次在石缸裡發現沒燒過的骨頭。」澳洲詹姆斯．庫克大學的考古學家、也是這項研究的第一作者尼可拉斯．史科帕爾（Nicholas Skopal）說。這篇文章發表在今年春天的《古物》（Antiquity）期刊上。
-石缸裡的遺骨並不是隨便亂塞一通，史科帕爾說，因為比較大的骨頭和頭骨都放在靠近外圍。這項發現提供了更進一步的證據，證實這些神祕的石缸是一種複雜喪葬程序的一部分，或許也能解釋為何平原上其他較小的石缸中通常都沒有人類遺骸。
-但有些考古學家對該團隊對這些石製容器用途的解讀抱持懷疑態度。
-「我們無法確切知道這些容器的製作目的是不是跟喪葬有關。」凱莉．布蘭道（Kelly Brandão）說。她是巴西聖保羅大學和位於特費的瑪米勞瓦研究所（Mamirauá Institute at Tefé）的考古學家，並未參與這項研究。「光是這一項研究就很令人驚嘆了，但若是能發現這些石缸是為了其他用途而製造，也一樣會令人讚嘆。若想回答這個問題，想必這個團隊還有許多工作要做。」
-這是公共墓穴嗎？
-史科帕爾和團隊找到的這個巨大石缸，名為「一號缸」，高約1.2公尺、寬將近2公尺。他們從2022到2024一共花了三個田…</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://img.natgeomedia.com/userfiles/sm/sm1200630_images_A1/19300/2026081050389361.jpg"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">文章總匯 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-10"
-                      datetime="2026-08-09T16:00:00.000Z"
-                    >2026-08-10</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    一口巨型「甕棺」竟葬了37人，考古學家揭開神秘墓葬
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    寮國新近發掘出一口裝有人類遺骨的巨石時代容器，或許終能解開所謂「石缸平原」之謎。
-
-                    
-位於寮國北部的川壙高原（Xieng Khouang Plateau），是全世界最令人費解的考古遺址之一，也是神祕「石缸平原」（Plain of Jars）的所在地。
-這個名字來自四散分布在該地區的上百個「石缸」。將近一世紀以來，考古學家一直在思考這些石缸的用途，他們懷疑那是一種甕棺，因為有些缸裡曾經發現燒過的骨骸和灰燼。現在，有一支探索這片地區的研究團隊找到了一個巨大的石甕，內有至少37個人的骨骸，從幼兒到成人都有，年代可以追溯到一千多年前。
-「我們很振奮，因為這是我們第一次在石缸裡發現沒燒過的骨頭。」澳洲詹姆斯．庫克大學的考古學家、也是這項研究的第一作者尼可拉斯．史科帕爾（Nicholas Skopal）說。這篇文章發表在今年春天的《古物》（Antiquity）期刊上。
-石缸裡的遺骨並不是隨便亂塞一通，史科帕爾說，因為比較大的骨頭和頭骨都放在靠近外圍。這項發現提供了更進一步的證據，證實這些神祕的石缸是一種複雜喪葬程序的一部分，或許也能解釋為何平原上其他較小的石缸中通常都沒有人類遺骸。
-但有些考古學家對該團隊對這些石製容器用途的解讀抱持懷疑態度。
-「我們無法確切知道這些容器的製作目的是不是跟喪葬有關。」凱莉．布蘭道（Kelly Brandão）說。她是巴西聖保羅大學和位於特費的瑪米勞瓦研究所（Mamirauá Institute at Tefé）的考古學家，並未參與這項研究。「光是這一項研究就很令人驚嘆了，但若是能發現這些石缸是為了其他用途而製造，也一樣會令人讚嘆。若想回答這個問題，想必這個團隊還有許多工作要做。」
-這是公共墓穴嗎？
-史科帕爾和團隊找到的這個巨大石缸，名為「一號缸」，高約1.2公尺、寬將近2公尺。他們從2022到2024一共花了三個田…
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.natgeomedia.com/history/article/content-19300.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="差评X.PIN"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">七月，一场赛博告别正在上演。</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">差评X.PIN</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-10"
-                      datetime="2026-08-09T16:00:00.000Z"
-                    >2026-08-10</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    大厂拔掉插头，她们下载爱人
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    七月，一场赛博告别正在上演。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://mp.weixin.qq.com/s?__biz&#x3D;MzA5NDc1NzQ4MA&#x3D;&#x3D;&amp;mid&#x3D;2654680396&amp;idx&#x3D;1&amp;sn&#x3D;b50e3128889a778d9f93da07b92fcb03"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="差评X.PIN"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">AI 复刻 App 太快了</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">差评X.PIN</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-10"
-                      datetime="2026-08-09T16:00:00.000Z"
-                    >2026-08-10</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    想要杀死一个原创软件，有多简单？
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    AI 复刻 App 太快了
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://mp.weixin.qq.com/s?__biz&#x3D;MzA5NDc1NzQ4MA&#x3D;&#x3D;&amp;mid&#x3D;2654680396&amp;idx&#x3D;2&amp;sn&#x3D;8172aa83be6975758199341cbf66d429"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="差评X.PIN"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">今日最佳 2026-08-10 00:00 浙江
-
-
-来源抖音：于阿鱼
-白海豚：不白来啊
-
-跳转微信打开</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">差评X.PIN</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-10"
-                      datetime="2026-08-09T16:00:00.000Z"
-                    >2026-08-10</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    今日最佳：大自然的馈赠
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    今日最佳 2026-08-10 00:00 浙江
-
-
-来源抖音：于阿鱼
-白海豚：不白来啊
-
-跳转微信打开
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://mp.weixin.qq.com/s?__biz&#x3D;MzA5NDc1NzQ4MA&#x3D;&#x3D;&amp;mid&#x3D;2654680396&amp;idx&#x3D;3&amp;sn&#x3D;8e724553516bcc2ba480349ce441e7ed"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="差评X.PIN"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">聊一聊 2026-08-10 00:00 浙江
-
-
-
-跳转微信打开</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">差评X.PIN</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-10"
-                      datetime="2026-08-09T16:00:00.000Z"
-                    >2026-08-10</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    聊一聊：台风天你都在家干啥？
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    聊一聊 2026-08-10 00:00 浙江
-
-
-
-跳转微信打开
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://mp.weixin.qq.com/s?__biz&#x3D;MzA5NDc1NzQ4MA&#x3D;&#x3D;&amp;mid&#x3D;2654680396&amp;idx&#x3D;4&amp;sn&#x3D;2b86ef808319f197f8908410abcfcfe8"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="差评X.PIN"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">今天是 8 月 9 日农历六月廿七</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">差评X.PIN</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-10"
-                      datetime="2026-08-09T16:00:00.000Z"
-                    >2026-08-10</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    和平精英刺激之夜圆满收官，OpenAI 新模型被指抄袭，苹果回应删除接入千问手册，传音控股最快9月登陆港交所，这就是今天的其他大新闻！
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    今天是 8 月 9 日农历六月廿七
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://mp.weixin.qq.com/s?__biz&#x3D;MzA5NDc1NzQ4MA&#x3D;&#x3D;&amp;mid&#x3D;2654680396&amp;idx&#x3D;5&amp;sn&#x3D;b6ece6353d00c6c528e21a41c2034c8a"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="BestBlogs.dev - 精选文章"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">📌 一句话摘要
-            
-主播明浩通过 23 页数据驱动的 PPT，深度剖析了 AI 行业在资本市场、商业落地和模型竞争中的最新趋势与残酷现实，揭示出从“斩杀线”到“一切皆 loop”的行业共识变迁。
-📝 详细摘要
-            
-本期节目是主播明浩在一场二级市场策略会上的分享，内容完全由数据驱动，旨在客观记录 AI 行业的现状而“不做判断”。分享从标普 500 屡创新高和 AI 与软件股表现巨大分化的市场图景切入，深入探讨了云厂商如何成为 AI 最直接的收入受益者，并剖析了 OpenAI 与 Anthropic 等模型公司 ARR 数据的复杂性。核心亮点在于提出了模型竞争力“斩杀线”的概念，生动展示了模型能力与价格战的动态关系。在 AI 应用层面，节目冷静地指出了国内 AI 办公智能体（Work Agent）领域用户量数据注水、付费转化率可能低至千分之一等尴尬现状，并转向探讨 AI 数据训练和强化学习环境搭建服务这一新兴蓝海市场。最后，通过 Roblox 股价的兴衰案例和“一切皆 loop”的行业共识，反思了 AI 叙事与市场预期之间的巨大鸿沟，强调一切才刚刚开始。
-💡 主要观点
-            
-“斩杀线”成为模型厂商竞争的核心标尺
-                         以 DeepSeek V4 的能力和价格为基准，其他模型要么比它强，要么比它便宜，否则将失去商业意义。所有厂商都在努力逃离这条“斩杀线”，向更优性能和更低价格的方向演进。
-                    
-
-                        AI 应用的付费转化率远低于预期，商业模式仍待验证
-                         在国内，即便是豆包这样的头部 AI 办公应用，其付费用户转化率可能仅为千分之一，与业界期待的 3%相距甚远，揭示了 AI 应用商业化变现的巨大挑战。
-                    
-
-                        为模型厂商“卖铲子”的中间层服务商正在崛起
-                         相对于直接面向用户的 AI 应用，为模型厂商提供数据训练、强化学习环境搭建等更细致执行工作的中间平台，正成为商业价值明确的快速增长点。
-                    
-
-                        一级市场投资热点与应用层爆款之间存在错位
-                         全球 VC 资本正涌向人形机器人、世界模型、AI 基础设施等领域，但真正符合传统定义的应用层投资（如 Coding， Legal AI）仍然稀少，这反映了技术落地周期的早期阶段。
-                    
-
-                        市场叙事与股价表现并非线性关系
-                         通过 Roblox 股价因元宇宙和 AI 叙事而暴涨、又因世界模型叙事而暴跌的案例，说明了二级市场对技术趋势的反应是复杂且情绪化的，叙事和真实的商业进展之间存在巨大鸿沟。
-                    
-💬 文章金句
-            
-全产业链的需求看起来非常的强劲，没有人在今天这个时间点，云厂商、芯片公司、半导体公司、SARS 公司，没有任何人敢下调预期。没有，但这似乎听起来很危险，不是吗？
-Dip sick flash 的起初版到 deep sik flash 的 0731 的正式版，模型能力巨幅提升，还变得更便宜了...在这个矩形里面的所母星，理论上说似乎都没有意义。
-非常 boring...这份榜单看起来是一份 top AI 初创公司的榜单，但实则可能是一份死亡名单。
-豆包付费跑了快两个月时间，付费用户数多少呢？晚点那篇文章是小几十万，那小几十万大概率就是 1‰左右，这个数字很赤裸裸。
-📊 文章信息
-            
-AI 初评：91
-精选文章：是
-来源：屠龙之术
-作者：屠龙之术
-分类：商业科技
-语言：中文
-阅读时间：3 分钟
-字数：642
-标签：
-                    
-                        AI 商业化, 市场趋势, Agent, 创投, 数据分析
-                    
-                
-            
-        
-
-        
-            收听完整播客</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://image.jido.dev/20251127045528_f3dc2e77"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">BestBlogs.dev - 精选文章</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-09"
-                      datetime="2026-08-09T15:25:36.000Z"
-                    >2026-08-09</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    AI by the numbers-23 页 PPT solo
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    📌 一句话摘要
-            
-主播明浩通过 23 页数据驱动的 PPT，深度剖析了 AI 行业在资本市场、商业落地和模型竞争中的最新趋势与残酷现实，揭示出从“斩杀线”到“一切皆 loop”的行业共识变迁。
-📝 详细摘要
-            
-本期节目是主播明浩在一场二级市场策略会上的分享，内容完全由数据驱动，旨在客观记录 AI 行业的现状而“不做判断”。分享从标普 500 屡创新高和 AI 与软件股表现巨大分化的市场图景切入，深入探讨了云厂商如何成为 AI 最直接的收入受益者，并剖析了 OpenAI 与 Anthropic 等模型公司 ARR 数据的复杂性。核心亮点在于提出了模型竞争力“斩杀线”的概念，生动展示了模型能力与价格战的动态关系。在 AI 应用层面，节目冷静地指出了国内 AI 办公智能体（Work Agent）领域用户量数据注水、付费转化率可能低至千分之一等尴尬现状，并转向探讨 AI 数据训练和强化学习环境搭建服务这一新兴蓝海市场。最后，通过 Roblox 股价的兴衰案例和“一切皆 loop”的行业共识，反思了 AI 叙事与市场预期之间的巨大鸿沟，强调一切才刚刚开始。
-💡 主要观点
-            
-“斩杀线”成为模型厂商竞争的核心标尺
-                         以 DeepSeek V4 的能力和价格为基准，其他模型要么比它强，要么比它便宜，否则将失去商业意义。所有厂商都在努力逃离这条“斩杀线”，向更优性能和更低价格的方向演进。
-                    
-
-                        AI 应用的付费转化率远低于预期，商业模式仍待验证
-                         在国内，即便是豆包这样的头部 AI 办公应用，其付费用户转化率可能仅为千分之一，与业界期待的 3%相距甚远，揭示了 AI 应用商业化变现的巨大挑战。
-                    
-
-                        为模型厂商“卖铲子”的中间层服务商正在崛起
-                         相对于直接面向用户的 AI 应用，为模型厂商提供数据训练、强化学习环境搭建等更细致执行工作的中间平台，正成为商业价值明确的快速增长点。
-                    
-
-                        一级市场投资热点与应用层爆款之间存在错位
-                         全球 VC 资本正涌向人形机器人、世界模型、AI 基础设施等领域，但真正符合传统定义的应用层投资（如 Coding， Legal AI）仍然稀少，这反映了技术落地周期的早期阶段。
-                    
-
-                        市场叙事与股价表现并非线性关系
-                         通过 Roblox 股价因元宇宙和 AI 叙事而暴涨、又因世界模型叙事而暴跌的案例，说明了二级市场对技术趋势的反应是复杂且情绪化的，叙事和真实的商业进展之间存在巨大鸿沟。
-                    
-💬 文章金句
-            
-全产业链的需求看起来非常的强劲，没有人在今天这个时间点，云厂商、芯片公司、半导体公司、SARS 公司，没有任何人敢下调预期。没有，但这似乎听起来很危险，不是吗？
-Dip sick flash 的起初版到 deep sik flash 的 0731 的正式版，模型能力巨幅提升，还变得更便宜了...在这个矩形里面的所母星，理论上说似乎都没有意义。
-非常 boring...这份榜单看起来是一份 top AI 初创公司的榜单，但实则可能是一份死亡名单。
-豆包付费跑了快两个月时间，付费用户数多少呢？晚点那篇文章是小几十万，那小几十万大概率就是 1‰左右，这个数字很赤裸裸。
-📊 文章信息
-            
-AI 初评：91
-精选文章：是
-来源：屠龙之术
-作者：屠龙之术
-分类：商业科技
-语言：中文
-阅读时间：3 分钟
-字数：642
-标签：
-                    
-                        AI 商业化, 市场趋势, Agent, 创投, 数据分析
-                    
-                
-            
-        
-
-        
-            收听完整播客
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.bestblogs.dev/podcast/3ddb802b8?utm_source&#x3D;rss&amp;utm_medium&#x3D;feed&amp;utm_campaign&#x3D;resources&amp;entry&#x3D;rss_article_item"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="RT World News"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">German journalist Michael Martens has sparked a backlash after asking Vladimir Zelensky how Europe can help Kiev “kill more Russians” 
-Read Full Article at RT.com</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://mf.b37mrtl.ru/files/2026.08/thumbnail/6a788a8820302770075e4084.jpg"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">RT World News</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-09"
-                      datetime="2026-08-09T14:27:04.000Z"
-                    >2026-08-09</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    ‘How can we help you kill more Russians?’ German reporter asks Zelensky (VIDEO)
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    German journalist Michael Martens has sparked a backlash after asking Vladimir Zelensky how Europe can help Kiev “kill more Russians” 
-Read Full Article at RT.com
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.rt.com/news/644030-kill-russians-zelensky-reporter/?utm_source&#x3D;rss&amp;utm_medium&#x3D;rss&amp;utm_campaign&#x3D;RSS"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="南方周末"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">2026-08-09 22:00:00
-
-班卓在阿富汗班达米尔湖边（图：受访者提供）
-1990年代初，南京大学南园宿舍区的开水房贴出了一张“征友启事”，征集暑期一同去三峡旅行的旅伴。这是班卓第一次尝试出门远行，她和几名旅伴从南京乘船，沿着长江一路逆流而上。白天，空中飘荡着被风扯成薄丝的云，夜晚，她铺开塑料布睡在甲板上，辨认满天繁星。
-这是班卓第一次自主规划行程出行，之后她还去了新疆，仅凭一张《中国地图册》上的全国自然保护区分布图，她踏上了去往喀纳斯的旅途。为了抵达几乎无人知晓的喀纳斯，她坐了许多天的火车去乌鲁木齐，又倒了几趟班车从阿勒泰到布尔津，再搭运木头的卡车到达贾登峪——距离喀纳斯几十公里的林场。路途没有住处，她就住在卡车的驾驶室里，住在哈萨克人家的毡房里，遇见善良的人们。
-那趟旅途在班卓的记忆中留下了闪亮的希望，掀开了美好世界的一角。她想去更遥远的地方，遇见更多的人。2002年，加入世贸组织的次年，国内试行“按需申领护照”的制度，班卓立即申请了护照。那时她已工作了几年，正脱岗攻读研究生，利用闲暇时间，她从与家乡广西接壤的越南开始，逐步游历东南亚、中亚、非洲、美洲等地域。她不期然地遇到了很多人，与他们的生命发生碰撞，通过书写记录下珍贵的瞬间。近几年，她重新整理这些文字，2024年重版《陌生的阿富汗》，2026年出版墨西哥行记《燃烧的龙舌兰》，还有一本从非洲到以色列的游记预计2027年出版。
-往日的世界在纸上重现。现在的人们很难想象，在没有手机、移动网络、电子导航的年代，如何探索陌生的国度。班卓靠网络论坛收集信息，然后，这个身材瘦弱的女人就上路了，背着一个30升的背包，带着证件、衣物、洗漱用品、相机。“我只知道，我得启程才能见到这些远方的人。”
-
-《陌生的阿富汗》
-路上的旅人
-在外旅行，班卓喜欢住在当地人家里，她总能遇到向她敞开的大门。第一次被邀请是在巴基斯坦，她在喀喇昆…</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">南方周末</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-09"
-                      datetime="2026-08-09T14:25:09.000Z"
-                    >2026-08-09</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    当一个人类学者是世界旅人
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    2026-08-09 22:00:00
-
-班卓在阿富汗班达米尔湖边（图：受访者提供）
-1990年代初，南京大学南园宿舍区的开水房贴出了一张“征友启事”，征集暑期一同去三峡旅行的旅伴。这是班卓第一次尝试出门远行，她和几名旅伴从南京乘船，沿着长江一路逆流而上。白天，空中飘荡着被风扯成薄丝的云，夜晚，她铺开塑料布睡在甲板上，辨认满天繁星。
-这是班卓第一次自主规划行程出行，之后她还去了新疆，仅凭一张《中国地图册》上的全国自然保护区分布图，她踏上了去往喀纳斯的旅途。为了抵达几乎无人知晓的喀纳斯，她坐了许多天的火车去乌鲁木齐，又倒了几趟班车从阿勒泰到布尔津，再搭运木头的卡车到达贾登峪——距离喀纳斯几十公里的林场。路途没有住处，她就住在卡车的驾驶室里，住在哈萨克人家的毡房里，遇见善良的人们。
-那趟旅途在班卓的记忆中留下了闪亮的希望，掀开了美好世界的一角。她想去更遥远的地方，遇见更多的人。2002年，加入世贸组织的次年，国内试行“按需申领护照”的制度，班卓立即申请了护照。那时她已工作了几年，正脱岗攻读研究生，利用闲暇时间，她从与家乡广西接壤的越南开始，逐步游历东南亚、中亚、非洲、美洲等地域。她不期然地遇到了很多人，与他们的生命发生碰撞，通过书写记录下珍贵的瞬间。近几年，她重新整理这些文字，2024年重版《陌生的阿富汗》，2026年出版墨西哥行记《燃烧的龙舌兰》，还有一本从非洲到以色列的游记预计2027年出版。
-往日的世界在纸上重现。现在的人们很难想象，在没有手机、移动网络、电子导航的年代，如何探索陌生的国度。班卓靠网络论坛收集信息，然后，这个身材瘦弱的女人就上路了，背着一个30升的背包，带着证件、衣物、洗漱用品、相机。“我只知道，我得启程才能见到这些远方的人。”
-
-《陌生的阿富汗》
-路上的旅人
-在外旅行，班卓喜欢住在当地人家里，她总能遇到向她敞开的大门。第一次被邀请是在巴基斯坦，她在喀喇昆…
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="http://www.infzm.com/contents/328048"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="RT World News"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">Kim Dotcom warned that AI could supercharge surveillance and give Washington access to vast databases of personal data 
-Read Full Article at RT.com</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://mf.b37mrtl.ru/files/2026.08/thumbnail/6a787fbf20302740de153603.jpg"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">RT World News</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-09"
-                      datetime="2026-08-09T14:19:04.000Z"
-                    >2026-08-09</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    ‘AI will know everything about everybody’ – Kim Dotcom
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    Kim Dotcom warned that AI could supercharge surveillance and give Washington access to vast databases of personal data 
-Read Full Article at RT.com
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.rt.com/news/644033-kim-dotcom-ai-us-surveillance/?utm_source&#x3D;rss&amp;utm_medium&#x3D;rss&amp;utm_campaign&#x3D;RSS"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="南方周末"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">2026-08-09 21:00:00</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">南方周末</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-09"
-                      datetime="2026-08-09T13:25:07.000Z"
-                    >2026-08-09</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    其名为鹏
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    2026-08-09 21:00:00
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="http://www.infzm.com/contents/328062"
                     target="_blank"
                     rel="noopener noreferrer"
                     @click.stop
