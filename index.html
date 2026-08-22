@@ -154,6 +154,24 @@
             <span class="truncate">南方周末</span>
           </button>
           <button
+            data-src="竹新社 - Telegram Channel"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">竹新社 - Telegram Channel</span>
+          </button>
+          <button
+            data-src="RT World News"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">RT World News</span>
+          </button>
+          <button
             data-src="中科院物理所"
             @click="setActive($el.dataset.src); sidebarOpen = false"
             :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
@@ -199,15 +217,6 @@
             <span class="truncate">DeepTech深科技</span>
           </button>
           <button
-            data-src="RT World News"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">RT World News</span>
-          </button>
-          <button
             data-src="China | Latest News from China Today | AP News"
             @click="setActive($el.dataset.src); sidebarOpen = false"
             :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
@@ -215,15 +224,6 @@
           >
             <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
             <span class="truncate">China | Latest News from China Today | AP News</span>
-          </button>
-          <button
-            data-src="竹新社 - Telegram Channel"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">竹新社 - Telegram Channel</span>
           </button>
           <button
             data-src="凤凰军事"
@@ -536,8 +536,8 @@
 
         <!-- Sidebar Footer -->
         <div class="px-4 py-3 border-t border-[#f5bcd8] text-[10px] text-[#b88aaa]">
-          <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/YeWeihong/myrss/actions/runs/32551832756">
-            构建于 <time datetime="2026-08-22T04:30:39.529Z">2026-08-22T04:30:39.529Z</time>
+          <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/YeWeihong/myrss/actions/runs/32562260048">
+            构建于 <time datetime="2026-08-22T08:26:57.717Z">2026-08-22T08:26:57.717Z</time>
           </a>
           <div class="mt-0.5">
             <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/osmoscraft/osmosfeed">osmosfeed 1.15.1</a>
@@ -576,6 +576,1416 @@
           <main class="flex-1 p-4 md:p-6 overflow-y-auto">
             <div class="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-4 md:gap-5">
 
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">中国上海市星期五（8月21日）举行纪念江泽民诞辰百年座谈会。中共上海市委书记陈吉宁强调，纪念江泽民，要铸牢绝对忠诚，也要进一步全面深化改革，当好改革开放排头兵。江泽民亲属和原身边工作人员代表等出席了座谈会。
+据中共上海市委机关报《解放日报》报道，陈吉宁在会上强调，要深入学习贯彻中共总书记习近平在纪念江泽民诞辰百年大会上的讲话精神，学习江泽民“坚定如磐的政治信仰、真挚深厚的为民情怀、与时俱进的创新精神、深谋远虑的战略思维、坚毅果敢的非凡胆略”，不断激发为国担当、勇为尖兵的使命意识和奋斗意志，朝着加快建成具有世界影响力的社会主义现代化国际大都市的目标阔步前进，更好在推进中国式现代化中充分发挥龙头带动和示范引领作用。
+陈吉宁说，上海是江泽民学习、工作和生活过的地方，是他“倾注大量心血、寄予深厚感情的城市”，江泽民为上海发展付出的巨大心血、打下的坚实基础，“上海人民永远铭记、永远难忘”。
+他还说，“我们纪念江泽民同志，就是要更加紧密团结在以习近平同志为核心的党中央周围，坚持以习近平新时代中国特色社会主义思想为指导，深入贯彻习近平总书记考察上海重要讲话精神和对上海工作重要指示要求，把江泽民同志的崇高精神风范传承好弘扬好”。
+陈吉宁指出，纪念江泽民，要坚定理想信念、铸牢绝对忠诚。坚决维护中共中央权威和集中统一领导，不断提高政治判断力、政治领悟力、政治执行力。
+他也提出，要进一步全面深化改革，推进自主开放，当好改革开放排头兵、创新发展先行者。以更大力度、更实举措加强基础研究，更好培育壮大新质生产力，勇当科技创新的开路先锋。要敢于斗争、善于斗争，争当敢打敢拼敢争先的“小老虎”，打开改革发展新天地。
+陈吉宁强调，要深入学习贯彻习近平党建思想，以更高标准、更实举措深化全面从严治党、抓好党的建设。发扬彻底的自我革命精神，以零容忍的态度纠“四风”、反腐败、强震慑，推动各级领导干部严于律己、严负其责、严管所辖，共同营造好、维护好风清气正的政治生态。
+8月17日是中共前总书记江泽民诞辰百年，中国官方在当天举行了纪念大会，中共总书记习近平出席大会并发表讲话，并高度评价江泽民执政时期的历史贡献。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/dc9ded75355caa063c023f2d5d87f1fe83c814f74502feca9bdcf5f43724a0a1"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-22"
+                      datetime="2026-08-22T08:26:28.394Z"
+                    >2026-08-22</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    上海举行纪念江泽民诞辰百年座谈会
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国上海市星期五（8月21日）举行纪念江泽民诞辰百年座谈会。中共上海市委书记陈吉宁强调，纪念江泽民，要铸牢绝对忠诚，也要进一步全面深化改革，当好改革开放排头兵。江泽民亲属和原身边工作人员代表等出席了座谈会。
+据中共上海市委机关报《解放日报》报道，陈吉宁在会上强调，要深入学习贯彻中共总书记习近平在纪念江泽民诞辰百年大会上的讲话精神，学习江泽民“坚定如磐的政治信仰、真挚深厚的为民情怀、与时俱进的创新精神、深谋远虑的战略思维、坚毅果敢的非凡胆略”，不断激发为国担当、勇为尖兵的使命意识和奋斗意志，朝着加快建成具有世界影响力的社会主义现代化国际大都市的目标阔步前进，更好在推进中国式现代化中充分发挥龙头带动和示范引领作用。
+陈吉宁说，上海是江泽民学习、工作和生活过的地方，是他“倾注大量心血、寄予深厚感情的城市”，江泽民为上海发展付出的巨大心血、打下的坚实基础，“上海人民永远铭记、永远难忘”。
+他还说，“我们纪念江泽民同志，就是要更加紧密团结在以习近平同志为核心的党中央周围，坚持以习近平新时代中国特色社会主义思想为指导，深入贯彻习近平总书记考察上海重要讲话精神和对上海工作重要指示要求，把江泽民同志的崇高精神风范传承好弘扬好”。
+陈吉宁指出，纪念江泽民，要坚定理想信念、铸牢绝对忠诚。坚决维护中共中央权威和集中统一领导，不断提高政治判断力、政治领悟力、政治执行力。
+他也提出，要进一步全面深化改革，推进自主开放，当好改革开放排头兵、创新发展先行者。以更大力度、更实举措加强基础研究，更好培育壮大新质生产力，勇当科技创新的开路先锋。要敢于斗争、善于斗争，争当敢打敢拼敢争先的“小老虎”，打开改革发展新天地。
+陈吉宁强调，要深入学习贯彻习近平党建思想，以更高标准、更实举措深化全面从严治党、抓好党的建设。发扬彻底的自我革命精神，以零容忍的态度纠“四风”、反腐败、强震慑，推动各级领导干部严于律己、严负其责、严管所辖，共同营造好、维护好风清气正的政治生态。
+8月17日是中共前总书记江泽民诞辰百年，中国官方在当天举行了纪念大会，中共总书记习近平出席大会并发表讲话，并高度评价江泽民执政时期的历史贡献。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260822-9557518"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">针对在网络引起巨大争议的“旅客买票占座放零食”事件，成都铁路局回应，若旅客购票后未上车，视为不行使席位使用权利，但第三方也不能占用和处置该席位，列车工作人员应根据现场情况协调处置。
+中国铁路成都局集团有限公司官方微博星期五（8月21日）发布情况说明，称相关部门针对 “旅客买票占座放零食” 网络信息组织核实，并组织法律和客运专业人员进行专题分析。
+情况说明称，视频中的列车为8月16日上海至成都西的K1156次，由成都局集团公司成都客运段担当。三名旅客当天实名制购买6号车厢005号、006号、007号三个硬座席位车票，乘车区间为上海站至南充站，其中两名旅客检票乘车并按席位号就座，将零食放置到一名未检票乘车旅客车票所对应的006号空闲席位。途中，该车厢一名持无座席号车票旅客希望在006号空闲席位就坐，并请求列车员协调，列车员在核实购票和席位情况后，建议旅客双方自行协商解决，后双方协商未果，其他旅客视频记录过程并发至网上。
+成都铁路局引述中国《民法典》、交通运输部《铁路旅客运输规程》、《铁路旅客车票实名制管理办法》，国铁集团铁路旅客运输规则等多则法律法规和相关规定称，若旅客购票后未检票上车，视为该旅客不行使期间的席位使用权利，且基于合同相对性原理和铁路旅客运输规则，第三方也不能占用和处置该席位；有特殊需求的，可以向列车工作人员说明情况。
+成都铁路局认为，此次事件中，对应006号席位的旅客未检票乘车，已放弃其本次列车正在运行区段席位使用权，另两名旅客也不能占用和处置该席位，列车工作人员应根据现场实际情况协调处置。
+铁路部门对因旅客服务工作不到位给旅客带来的不佳旅行体验表达歉意，并称将持续强化员工培训，不断完善客运规章制度，更好地满足旅客出行需求。
+中国媒体此前报道，两名女乘客购买了三张火车硬座票，并将多出的座位用来摆放零食。途中，一名持无座票的女乘客想坐，疑似被拒后找来列车员调解，乘务员看了车票后说，“座位是她们的，跟我说没用”。事件随后在网上掀起“买票占座放零食这座位能不能让”等话题讨论。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://www.zaobao.com.sg/_web2/assets/social-share.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-22"
+                      datetime="2026-08-22T08:26:28.055Z"
+                    >2026-08-22</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    成都铁路局回应买票占座：购票未上车视为不行使席位使用权
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    针对在网络引起巨大争议的“旅客买票占座放零食”事件，成都铁路局回应，若旅客购票后未上车，视为不行使席位使用权利，但第三方也不能占用和处置该席位，列车工作人员应根据现场情况协调处置。
+中国铁路成都局集团有限公司官方微博星期五（8月21日）发布情况说明，称相关部门针对 “旅客买票占座放零食” 网络信息组织核实，并组织法律和客运专业人员进行专题分析。
+情况说明称，视频中的列车为8月16日上海至成都西的K1156次，由成都局集团公司成都客运段担当。三名旅客当天实名制购买6号车厢005号、006号、007号三个硬座席位车票，乘车区间为上海站至南充站，其中两名旅客检票乘车并按席位号就座，将零食放置到一名未检票乘车旅客车票所对应的006号空闲席位。途中，该车厢一名持无座席号车票旅客希望在006号空闲席位就坐，并请求列车员协调，列车员在核实购票和席位情况后，建议旅客双方自行协商解决，后双方协商未果，其他旅客视频记录过程并发至网上。
+成都铁路局引述中国《民法典》、交通运输部《铁路旅客运输规程》、《铁路旅客车票实名制管理办法》，国铁集团铁路旅客运输规则等多则法律法规和相关规定称，若旅客购票后未检票上车，视为该旅客不行使期间的席位使用权利，且基于合同相对性原理和铁路旅客运输规则，第三方也不能占用和处置该席位；有特殊需求的，可以向列车工作人员说明情况。
+成都铁路局认为，此次事件中，对应006号席位的旅客未检票乘车，已放弃其本次列车正在运行区段席位使用权，另两名旅客也不能占用和处置该席位，列车工作人员应根据现场实际情况协调处置。
+铁路部门对因旅客服务工作不到位给旅客带来的不佳旅行体验表达歉意，并称将持续强化员工培训，不断完善客运规章制度，更好地满足旅客出行需求。
+中国媒体此前报道，两名女乘客购买了三张火车硬座票，并将多出的座位用来摆放零食。途中，一名持无座票的女乘客想坐，疑似被拒后找来列车员调解，乘务员看了车票后说，“座位是她们的，跟我说没用”。事件随后在网上掀起“买票占座放零食这座位能不能让”等话题讨论。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260822-9557337"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">中国官方部署进一步清理企业拖欠账款，要求大力整治大企业拖欠中小企业账款，加强对大企业支付行为监管，并规范管理非现金支付工具。
+据新华社报道，中国国务院总理李强星期五（8月21日）主持召开国务院常务会议，听取新一代通信网建设情况汇报，部署进一步清理拖欠企业账款工作，研究持续改善空气质量有关工作，审议通过《电力安全事故应急处置和调查处理条例（修订草案）》和《市场监督管理所条例（草案）》。
+会议指出，要实施好加快加力清理拖欠企业账款行动，压实主体责任，督促指导地方用好专项债券、专项再贷款等政策，打通“连环清”链条，切实提升清欠质量、严防新增拖欠。
+会议也要求大力整治大企业拖欠中小企业账款问题，健全行业账款支付规则，分行业明确合理账期和支付条件，细化拖欠企业账款失信行为认定标准；加强大企业支付行为监管，强化反不正当竞争执法，严格账款信息披露要求，规范管理非现金支付工具。
+会议还提到，要夯实市场监管基层基础，推动资源力量向一线下沉，强化科技赋能，提升监管和服务质效，切实维护公平竞争市场秩序。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/99755e65b1713887f141eee2a6787c03657146ea620fa0b3b999be64069f894d"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-22"
+                      datetime="2026-08-22T08:26:28.048Z"
+                    >2026-08-22</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国吁大力整治大企业拖欠中小企业账款问题
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国官方部署进一步清理企业拖欠账款，要求大力整治大企业拖欠中小企业账款，加强对大企业支付行为监管，并规范管理非现金支付工具。
+据新华社报道，中国国务院总理李强星期五（8月21日）主持召开国务院常务会议，听取新一代通信网建设情况汇报，部署进一步清理拖欠企业账款工作，研究持续改善空气质量有关工作，审议通过《电力安全事故应急处置和调查处理条例（修订草案）》和《市场监督管理所条例（草案）》。
+会议指出，要实施好加快加力清理拖欠企业账款行动，压实主体责任，督促指导地方用好专项债券、专项再贷款等政策，打通“连环清”链条，切实提升清欠质量、严防新增拖欠。
+会议也要求大力整治大企业拖欠中小企业账款问题，健全行业账款支付规则，分行业明确合理账期和支付条件，细化拖欠企业账款失信行为认定标准；加强大企业支付行为监管，强化反不正当竞争执法，严格账款信息披露要求，规范管理非现金支付工具。
+会议还提到，要夯实市场监管基层基础，推动资源力量向一线下沉，强化科技赋能，提升监管和服务质效，切实维护公平竞争市场秩序。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260822-9557617"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">台湾台南市安南区火灾爆炸事故导致15人受伤，经查与非法堆积化学废弃物有关，两名男子涉案被查。台湾总统赖清德指示相关部会全力协助，厘清事故责任。
+综合TVBS新闻网和联合新闻网报道，台南市安南区海佃路二段一处空地星期六（8月22日）凌晨约1时发生剧烈爆炸，造成15人受伤、11户透天厝受损，大火四小时后才扑灭。
+台南市政府与环保局调查发现，起火原因是不肖仲介违法堆置含镁、铝等禁水性易燃化学废弃物，遇雨引发爆炸。经追查，这批废弃物源自高雄鼓山一家无废弃物清理证照的业者，台南市政府已表明将全力协助受灾居民代偿，依法追究刑事责任。
+台湾总统府发言人郭雅慧说，赖清德第一时间致电台南市长黄伟哲表达关心，并指示相关部会全力协助地方救灾、伤者照护、居民安置及后续复原。这起事故造成公众及消防人员受伤，民宅与救灾车受损，所幸送医者都已出院。
+针对现场堆置铝材、镁等废弃物及油桶等情形，郭雅慧称，赖清德已要求相关单位尽速厘清起火、爆炸原因及相关责任。中央政府将全力协助地方善后，让受影响居民早日恢复正常生活。
+延伸阅读
+
+              台南凌晨火警爆炸 14人伤包括消防
+            
+台南警方已通知涉案的30岁杨姓男子及43岁王姓男子到案说明。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/2135e5b45da5ba51021a97202bedba193d49e47abcadc3a355bec9098a22aca5"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-22"
+                      datetime="2026-08-22T08:26:27.939Z"
+                    >2026-08-22</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    台南爆炸酿15伤 赖清德令厘清责任
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    台湾台南市安南区火灾爆炸事故导致15人受伤，经查与非法堆积化学废弃物有关，两名男子涉案被查。台湾总统赖清德指示相关部会全力协助，厘清事故责任。
+综合TVBS新闻网和联合新闻网报道，台南市安南区海佃路二段一处空地星期六（8月22日）凌晨约1时发生剧烈爆炸，造成15人受伤、11户透天厝受损，大火四小时后才扑灭。
+台南市政府与环保局调查发现，起火原因是不肖仲介违法堆置含镁、铝等禁水性易燃化学废弃物，遇雨引发爆炸。经追查，这批废弃物源自高雄鼓山一家无废弃物清理证照的业者，台南市政府已表明将全力协助受灾居民代偿，依法追究刑事责任。
+台湾总统府发言人郭雅慧说，赖清德第一时间致电台南市长黄伟哲表达关心，并指示相关部会全力协助地方救灾、伤者照护、居民安置及后续复原。这起事故造成公众及消防人员受伤，民宅与救灾车受损，所幸送医者都已出院。
+针对现场堆置铝材、镁等废弃物及油桶等情形，郭雅慧称，赖清德已要求相关单位尽速厘清起火、爆炸原因及相关责任。中央政府将全力协助地方善后，让受影响居民早日恢复正常生活。
+延伸阅读
+
+              台南凌晨火警爆炸 14人伤包括消防
+            
+台南警方已通知涉案的30岁杨姓男子及43岁王姓男子到案说明。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260822-9558084"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">香港特区政府批评，外部势力就香港支联会案发表的言论，是对香港特区毫无事实依据的诋毁抹黑，港府予以强烈谴责。
+港府星期六（8月22日）在新闻公报中指出，香港法院星期五（8月21日）就支联会煽动颠覆国家政权案作出定罪裁决，多个美西方国家、反华媒体、组织及政客对香港特区作出毫无事实根据的诋毁抹黑。港府对此表示强烈不满和坚决反对，并予以强烈谴责。
+港府发言人指出，《宪法》是香港特区宪制秩序的最重要组成部分，其序言明确了中共领导是中国宪制秩序的核心和基础。“没有任何一个国家的宪法会容许公民颠覆宪法所确立的宪制秩序和国家根本制度”。
+发言人强调，法庭的裁决指出，被告并非因其政治观点或信念受审，法庭只考虑与本案相关法律和证据，以决定控方能否把控罪证明至毫无合理疑点。案中被告一直以来都对中共及其领导的中央政府怀有敌意，在《香港国安法》实施后仍拒绝临崖勒马，一意孤行地将其抗争立场坚守到底。
+发言人说，就本案而言，被告试图透过挑起敌意和分化，使他人对中共失去信任，从而达到破坏国家根本制度的目的，其阴谋昭然若揭，必须依法惩治。
+发言人补充，《公民权利和政治权利国际公约》明订，在有必要保障国家安全、公共安全、公共秩序或他人的权利和自由等情况下，可以依法限制部分权利和自由，包括言论自由。市民不要被外部势力尝试抹黑所误导，必须明辨是非，清楚了解本案与一般正常结社、集会、言论的分别。
+发言人重申，香港市民必须认清事实，煽动颠覆国家政权是非常严重的罪行。港府会坚决打击危害国家安全的行为和活动。
+已解散的香港支联会、前主席李卓人以及两名前副主席邹幸彤与何俊仁，星期五被裁定“煽动颠覆国家政权”罪名成立。
+香港法院星期五宣判后并未即时判刑，定于8月28日再听取求情。李卓人与前副主席邹幸彤否认指控，何俊仁则在案件开审前认罪。根据《香港国安法》，“煽动颠覆国家政权”罪最高可判处10年监禁。 
+美国国务院官员谴责有关裁决，并呼吁立即释放三人。英国、法国和德国也均谴责上述裁决，并敦促北京和港府尊重所有公民权利与自由。欧盟也警告，这项裁决“进一步证实香港的言论和集会自由持续恶化，独立公民社会的空间进一步收窄”。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/44d9fdd77b0b5682d959ce8702897723389193afd8b883fd64ef4c2e472d56ca"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-22"
+                      datetime="2026-08-22T08:26:27.926Z"
+                    >2026-08-22</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    港府批外部势力涉支联会案言论诋毁抹黑
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    香港特区政府批评，外部势力就香港支联会案发表的言论，是对香港特区毫无事实依据的诋毁抹黑，港府予以强烈谴责。
+港府星期六（8月22日）在新闻公报中指出，香港法院星期五（8月21日）就支联会煽动颠覆国家政权案作出定罪裁决，多个美西方国家、反华媒体、组织及政客对香港特区作出毫无事实根据的诋毁抹黑。港府对此表示强烈不满和坚决反对，并予以强烈谴责。
+港府发言人指出，《宪法》是香港特区宪制秩序的最重要组成部分，其序言明确了中共领导是中国宪制秩序的核心和基础。“没有任何一个国家的宪法会容许公民颠覆宪法所确立的宪制秩序和国家根本制度”。
+发言人强调，法庭的裁决指出，被告并非因其政治观点或信念受审，法庭只考虑与本案相关法律和证据，以决定控方能否把控罪证明至毫无合理疑点。案中被告一直以来都对中共及其领导的中央政府怀有敌意，在《香港国安法》实施后仍拒绝临崖勒马，一意孤行地将其抗争立场坚守到底。
+发言人说，就本案而言，被告试图透过挑起敌意和分化，使他人对中共失去信任，从而达到破坏国家根本制度的目的，其阴谋昭然若揭，必须依法惩治。
+发言人补充，《公民权利和政治权利国际公约》明订，在有必要保障国家安全、公共安全、公共秩序或他人的权利和自由等情况下，可以依法限制部分权利和自由，包括言论自由。市民不要被外部势力尝试抹黑所误导，必须明辨是非，清楚了解本案与一般正常结社、集会、言论的分别。
+发言人重申，香港市民必须认清事实，煽动颠覆国家政权是非常严重的罪行。港府会坚决打击危害国家安全的行为和活动。
+已解散的香港支联会、前主席李卓人以及两名前副主席邹幸彤与何俊仁，星期五被裁定“煽动颠覆国家政权”罪名成立。
+香港法院星期五宣判后并未即时判刑，定于8月28日再听取求情。李卓人与前副主席邹幸彤否认指控，何俊仁则在案件开审前认罪。根据《香港国安法》，“煽动颠覆国家政权”罪最高可判处10年监禁。 
+美国国务院官员谴责有关裁决，并呼吁立即释放三人。英国、法国和德国也均谴责上述裁决，并敦促北京和港府尊重所有公民权利与自由。欧盟也警告，这项裁决“进一步证实香港的言论和集会自由持续恶化，独立公民社会的空间进一步收窄”。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260822-9557990"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">中国河北省涿州市官方通报，当地两村存在非法代孕所，涉案六人已被捕。
+综合掌上涿州客户端和央广网报道，涿州市联合调查组星期五（8月21日）通报，星期四（8月20日）上午，网上反映该市卢家场村、大沙坎村疑似存在非法代孕场所。市委、市政府高度重视，迅速成立由公安、卫健、市场监管等部门组成的联合调查组，全面开展核查调查工作。
+公安机关目前已依法立案侦查，抓获六名涉案人员，查封涉案场所及器械，循线深挖违法犯罪事实，案件正在进一步侦办中。对调查核查发现的违法违纪线索，一经查实将依规依纪依法严肃处理、绝不姑息。
+中国打拐志愿者上官正义星期四在微博发文指，经过半年卧底调查，掌握到河北省涿州市卢家场村厂房改造的代孕机构地下手术实验室，长期勾结三甲医院退休医生及麻醉师，大规模从事非法取卵、胚胎培育与移植手术。团伙在涿州市大沙坎村还有一处同类实验室。
+上官正义称，该机构自称“北方最大手术室”，每月手术量高达约150台，单日手术量最多17台。不是每一个接受手术取卵的女孩都会被注射麻药。未被注射麻药的女孩，取卵时的惨叫声在村头田地都能听到。甚至有女孩在取卵期间发生大出血，团伙竟不敢将其送往医院抢救，害怕送医后暴露非法手术的事实。
+上官正义指，他星期四向涿州公安举报，然而20分钟后，执法人员尚未到达，手术人员便已全部逃跑，质疑执法部门中有人向代孕机构通风报信。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://www.zaobao.com.sg/_web2/assets/social-share.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-22"
+                      datetime="2026-08-22T08:26:27.912Z"
+                    >2026-08-22</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    河北涿州两村存在非法代孕所 涉案六人被捕
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国河北省涿州市官方通报，当地两村存在非法代孕所，涉案六人已被捕。
+综合掌上涿州客户端和央广网报道，涿州市联合调查组星期五（8月21日）通报，星期四（8月20日）上午，网上反映该市卢家场村、大沙坎村疑似存在非法代孕场所。市委、市政府高度重视，迅速成立由公安、卫健、市场监管等部门组成的联合调查组，全面开展核查调查工作。
+公安机关目前已依法立案侦查，抓获六名涉案人员，查封涉案场所及器械，循线深挖违法犯罪事实，案件正在进一步侦办中。对调查核查发现的违法违纪线索，一经查实将依规依纪依法严肃处理、绝不姑息。
+中国打拐志愿者上官正义星期四在微博发文指，经过半年卧底调查，掌握到河北省涿州市卢家场村厂房改造的代孕机构地下手术实验室，长期勾结三甲医院退休医生及麻醉师，大规模从事非法取卵、胚胎培育与移植手术。团伙在涿州市大沙坎村还有一处同类实验室。
+上官正义称，该机构自称“北方最大手术室”，每月手术量高达约150台，单日手术量最多17台。不是每一个接受手术取卵的女孩都会被注射麻药。未被注射麻药的女孩，取卵时的惨叫声在村头田地都能听到。甚至有女孩在取卵期间发生大出血，团伙竟不敢将其送往医院抢救，害怕送医后暴露非法手术的事实。
+上官正义指，他星期四向涿州公安举报，然而20分钟后，执法人员尚未到达，手术人员便已全部逃跑，质疑执法部门中有人向代孕机构通风报信。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260822-9557671"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">中共中央纪律检查委员会第六次全体会议公报提出，要加强政治监督，严明换届纪律，坚定不移正风肃纪反腐。
+据央视新闻报道，中国共产党第二十届中央纪律检查委员会第六次全体会议星期六（8月22日）在北京举行，共有116名中央纪委委员出席。中共政治局常委、中央纪委书记李希在会上讲话。
+会议指出，习近平党建思想是习近平新时代中国特色社会主义思想的党建篇，博大精深、内涵丰富、思想深邃、体系严密，为管党治党、兴党强党提供了根本遵循和行动指南。纪检监察机关是推进全面从严治党的重要力量，要矢志不渝做习近平党建思想的坚定信仰者、忠实实践者，坚定走好中国特色反腐败之路，以更高标准、更实举措推进新时代新征程纪检监察工作高质量发展。
+会议总结2026年上半年纪检监察工作，并部署下一阶段任务。会议强调，要进一步强化思想引领，深刻体悟习近平党建思想的真理力量、实践伟力，准确把握精髓要义，自觉用以武装头脑、指导实践、统领纪检监察一切工作。
+会议要求，要加强政治监督，深化政治巡视，严明换届纪律，坚定不移正风肃纪反腐，持续深化群众身边不正之风和腐败问题集中整治，确保高质量完成全年任务。
+会议还要求进一步强化系统思维、底线思维，统筹推进，更好形成工作合力，坚决守牢安全底线；强化队伍建设，按照政治过硬、能力过硬、作风过硬、廉洁过硬重要要求，持续抓好“纪检监察工作规范化法治化正规化建设年”行动，锻造忠诚干净担当、敢于善于斗争的纪检监察铁军。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/305f03a1b3320a5a2844ef31bcdd0532b8931cd2034b09f2b4c640929cc4bd33"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-22"
+                      datetime="2026-08-22T08:26:27.889Z"
+                    >2026-08-22</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中纪委全会公报要求加强政治监督 严明换届纪律
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中共中央纪律检查委员会第六次全体会议公报提出，要加强政治监督，严明换届纪律，坚定不移正风肃纪反腐。
+据央视新闻报道，中国共产党第二十届中央纪律检查委员会第六次全体会议星期六（8月22日）在北京举行，共有116名中央纪委委员出席。中共政治局常委、中央纪委书记李希在会上讲话。
+会议指出，习近平党建思想是习近平新时代中国特色社会主义思想的党建篇，博大精深、内涵丰富、思想深邃、体系严密，为管党治党、兴党强党提供了根本遵循和行动指南。纪检监察机关是推进全面从严治党的重要力量，要矢志不渝做习近平党建思想的坚定信仰者、忠实实践者，坚定走好中国特色反腐败之路，以更高标准、更实举措推进新时代新征程纪检监察工作高质量发展。
+会议总结2026年上半年纪检监察工作，并部署下一阶段任务。会议强调，要进一步强化思想引领，深刻体悟习近平党建思想的真理力量、实践伟力，准确把握精髓要义，自觉用以武装头脑、指导实践、统领纪检监察一切工作。
+会议要求，要加强政治监督，深化政治巡视，严明换届纪律，坚定不移正风肃纪反腐，持续深化群众身边不正之风和腐败问题集中整治，确保高质量完成全年任务。
+会议还要求进一步强化系统思维、底线思维，统筹推进，更好形成工作合力，坚决守牢安全底线；强化队伍建设，按照政治过硬、能力过硬、作风过硬、廉洁过硬重要要求，持续抓好“纪检监察工作规范化法治化正规化建设年”行动，锻造忠诚干净担当、敢于善于斗争的纪检监察铁军。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260822-9558034"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">美国国务院认定，中国不当拘留缅甸问题美籍学者敏津。中国外交部回应称，敏津涉嫌从事危害中国国家安全的活动，案件正依法处理，并指中国不存在所谓任意拘押。
+据彭博社报道，美国国务院发表声明说，国务卿鲁比奥审查敏津6月3日在云南省被拘留一事后，作出上述认定。敏津当时应中国政府邀请，前往当地参加学术会议。
+美国助理国务卿约翰逊（Dylan Johnson）说：“美国公民的安全是国务院的首要任务。我们将继续为敏津发声，并要求释放所有在中国遭任意拘留的美国公民，以及解除对其他美国公民的出境限制。”
+中国外交部发言人林剑星期五（8月21日）在例行记者会上回应说：“中国是法治国家，不存在所谓任意拘押。”
+林剑还说，敏津涉嫌从事危害中国国家安全的活动、违反中国法律，中国司法机关正依法处理此案。中国外交部6月曾称，敏津因涉嫌从事危害国家安全的间谍活动而被采取刑事强制措施，北京已通知美国驻广州总领事馆。
+美国国务院说，除敏津外，另一名美国公民、地震学家陈有林（Youlin Chen，音译）也遭中国不当拘留。据路透社报道，陈有林去年底在中国被拘，美国国务院今年3月将他的案件认定为不当拘留。
+特朗普今年5月访问北京时，曾向中国国家主席习近平提出多起拘留案，包括北京锡安教会创办人金明日的案件。中国后来释放金明日，他在7月4日返回洛杉矶。
+习近平预计9月24日赴美与特朗普会晤。彭博社报道称，争取敏津获释将成为特朗普政府的优先事项。
+致力于协助在海外遭扣押或不当拘留的美国人，并推动记者安全的詹姆斯·W·福利传承基金会也发表声明说：“特朗普总统与习近平主席正准备于9月24日再次会晤，陈博士和敏津必须获释回家。”</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/e17c4d9e0910f3762b7208641dea171e75e9c460a22a8fdb6d0618e918473536"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-22"
+                      datetime="2026-08-22T08:26:27.882Z"
+                    >2026-08-22</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    美国认定中国不当拘留美籍学者敏津 北京否认任意拘押
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    美国国务院认定，中国不当拘留缅甸问题美籍学者敏津。中国外交部回应称，敏津涉嫌从事危害中国国家安全的活动，案件正依法处理，并指中国不存在所谓任意拘押。
+据彭博社报道，美国国务院发表声明说，国务卿鲁比奥审查敏津6月3日在云南省被拘留一事后，作出上述认定。敏津当时应中国政府邀请，前往当地参加学术会议。
+美国助理国务卿约翰逊（Dylan Johnson）说：“美国公民的安全是国务院的首要任务。我们将继续为敏津发声，并要求释放所有在中国遭任意拘留的美国公民，以及解除对其他美国公民的出境限制。”
+中国外交部发言人林剑星期五（8月21日）在例行记者会上回应说：“中国是法治国家，不存在所谓任意拘押。”
+林剑还说，敏津涉嫌从事危害中国国家安全的活动、违反中国法律，中国司法机关正依法处理此案。中国外交部6月曾称，敏津因涉嫌从事危害国家安全的间谍活动而被采取刑事强制措施，北京已通知美国驻广州总领事馆。
+美国国务院说，除敏津外，另一名美国公民、地震学家陈有林（Youlin Chen，音译）也遭中国不当拘留。据路透社报道，陈有林去年底在中国被拘，美国国务院今年3月将他的案件认定为不当拘留。
+特朗普今年5月访问北京时，曾向中国国家主席习近平提出多起拘留案，包括北京锡安教会创办人金明日的案件。中国后来释放金明日，他在7月4日返回洛杉矶。
+习近平预计9月24日赴美与特朗普会晤。彭博社报道称，争取敏津获释将成为特朗普政府的优先事项。
+致力于协助在海外遭扣押或不当拘留的美国人，并推动记者安全的詹姆斯·W·福利传承基金会也发表声明说：“特朗普总统与习近平主席正准备于9月24日再次会晤，陈博士和敏津必须获释回家。”
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260822-9557924"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">中国外交部长王毅在与印度尼西亚总统普拉博沃会面时说，面对动荡不安的世界，中国与印尼越要加强团结，应对外部严峻挑战。
+据中国外交部官网消息，普拉博沃星期五（8月21日）在雅加达官邸会见王毅和中国防长董军等一行。
+中方文稿指出，普拉博沃在会见中积极评价印尼中国全面战略对话机制和“2+2”对话机制作用和成果，并表示印尼期待同中方加强政治、经济、科技等全方位战略合作，欢迎更多中国企业来印尼投资兴业，将继续为中国企业提供良好营商环境，反对任何别有用心的挑拨和炒作。
+普拉博沃称，他期待今年11月赴深圳出席亚太经合组织领导人非正式会议，进一步密切同中方的战略沟通和协作。
+王毅指出，中国与印尼优势互补明显，中方有能力、有意愿通过和印尼深化合作，助力印尼将资源转化为发展动能，加快工业化现代化步伐，为人民带来更多实实在在的福祉。
+他说，人类社会的发展证明，开放才能不断进步，封闭只能导致落后。世界越是动荡不安，外部挑战越是复杂严峻，中国和印尼越要加强团结，相互信任、相互支持，坚持开放合作，更好维护共同利益，实现各自国家发展，并为全球南方国家树立合作典范。
+王毅表明，中方愿同印尼认真落实两国元首重要共识以及全面战略对话机制首次会议和“2+2”对话机制第二次会议成果，全面推进政治、经济、能矿、军事、安全等领域合作，不断为各自国家发展振兴提供新的动力，并为地区和平与稳定作出积极贡献。
+王毅星期五同印尼外长苏吉奥诺举行中国印尼全面战略对话机制首次会议。双方同意探讨扩大印尼主要大宗商品的市场准入，并在人工智能、通信卫星、能源和矿产领域深化合作。
+董军也一起访问印尼，与王毅共同出席中国印尼外长防长“2＋2”对话机制第二次部长级会议，并也与印尼防长夏弗里会晤。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/bc00540d3361110c13e902d73ee8a74afe1c2e8224a272e706910f90e7ad00b6"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-22"
+                      datetime="2026-08-22T08:26:27.865Z"
+                    >2026-08-22</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    会见印尼总统 王毅：中国印尼加强团结应对外部严峻挑战
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国外交部长王毅在与印度尼西亚总统普拉博沃会面时说，面对动荡不安的世界，中国与印尼越要加强团结，应对外部严峻挑战。
+据中国外交部官网消息，普拉博沃星期五（8月21日）在雅加达官邸会见王毅和中国防长董军等一行。
+中方文稿指出，普拉博沃在会见中积极评价印尼中国全面战略对话机制和“2+2”对话机制作用和成果，并表示印尼期待同中方加强政治、经济、科技等全方位战略合作，欢迎更多中国企业来印尼投资兴业，将继续为中国企业提供良好营商环境，反对任何别有用心的挑拨和炒作。
+普拉博沃称，他期待今年11月赴深圳出席亚太经合组织领导人非正式会议，进一步密切同中方的战略沟通和协作。
+王毅指出，中国与印尼优势互补明显，中方有能力、有意愿通过和印尼深化合作，助力印尼将资源转化为发展动能，加快工业化现代化步伐，为人民带来更多实实在在的福祉。
+他说，人类社会的发展证明，开放才能不断进步，封闭只能导致落后。世界越是动荡不安，外部挑战越是复杂严峻，中国和印尼越要加强团结，相互信任、相互支持，坚持开放合作，更好维护共同利益，实现各自国家发展，并为全球南方国家树立合作典范。
+王毅表明，中方愿同印尼认真落实两国元首重要共识以及全面战略对话机制首次会议和“2+2”对话机制第二次会议成果，全面推进政治、经济、能矿、军事、安全等领域合作，不断为各自国家发展振兴提供新的动力，并为地区和平与稳定作出积极贡献。
+王毅星期五同印尼外长苏吉奥诺举行中国印尼全面战略对话机制首次会议。双方同意探讨扩大印尼主要大宗商品的市场准入，并在人工智能、通信卫星、能源和矿产领域深化合作。
+董军也一起访问印尼，与王毅共同出席中国印尼外长防长“2＋2”对话机制第二次部长级会议，并也与印尼防长夏弗里会晤。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260822-9557884"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">美国财长贝森特促中国配合孤立伊朗经济，中国官媒发文称，中国不会陪美国在伊朗问题上“胡闹”，呼吁美国放下极限施压的工具，回到对话谈判的轨道。
+《环球时报》星期六（8月22日）发表题为《中国不会陪美国在伊朗问题上“胡闹”》的社评文章称，美方所谓的“经济诺曼底登陆”行动，是华盛顿想尽快止损的又一次尝试，但方向恐怕错了。
+文章认为，无论是美国加油站不断增加的账单，还是全球市场不断攀升的能源和航运成本，都清楚地说明一件事：经济制裁可以把压力集中施加于一个国家，却很难把代价锁定在一个国家。“战争解决不了问题，制裁更是火上浇油。”
+文章写道，美国盟友圈对华盛顿“豪言壮语”一片沉默的原因很简单，对这些国家而言，伊朗问题牵动着能源供应、航运安全和通胀压力。“美国自己把房子点着了，还要全世界帮着一起扇风，让火势变得更大，最后还要所有人替它买单，谁愿意当这个冤大头呢？”
+文章进一步说，美国连自己的盟友都招呼不动，更别想对中国颐指气使。中国一贯反对单边霸凌和“长臂管辖”，不是因为中国是伊朗最大贸易伙伴并与伊朗保持长期友好关系，而是因为一旦接受美国这套逻辑，国际贸易就不再是国与国之间的正常交流往来，而是由美国自行划设规则，所有商品流动都要经过美国拍板的荒唐局面。
+文章认为，美国的战略困局源于对“拳头”的迷信，继续任性施压只会套得更久、陷得更深，而单纯加大经济压力，也只会让各方损失更大。因此，“不仅中国不会陪着美国‘胡闹’，国际社会同样不会站在美国一边”。无论从道义、法律还是现实的角度，加码单边制裁都既无正当性，也没有可行性。
+文章最后强调，只有摒弃冷战对抗迷思，放下极限施压的工具，回到对话谈判的正确轨道上来，华盛顿才能及时止损、体面退出。
+贝森特星期四（20日）接受美国消费者新闻与商业频道（CNBC）访问时说，美国将对伊朗实施史上最严厉的制裁以击垮其政权，并呼吁北京与华盛顿合作。他强调，华盛顿要盟友和竞争对手都加入针对伊朗的升级行动。
+中国外交部发言人林剑星期五（21日）回应时说，中方反对没有国际法依据、未经联合国安理会授权的非法单边制裁，呼吁相关各方采取负责任举措，通过政治外交途径解决问题。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/51013c52145be5e8ab22c58a48cb33510aac9ad5865c423f04f733730999ca80"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-22"
+                      datetime="2026-08-22T08:26:27.767Z"
+                    >2026-08-22</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国官媒：中国不会陪美国在伊朗问题“胡闹”
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    美国财长贝森特促中国配合孤立伊朗经济，中国官媒发文称，中国不会陪美国在伊朗问题上“胡闹”，呼吁美国放下极限施压的工具，回到对话谈判的轨道。
+《环球时报》星期六（8月22日）发表题为《中国不会陪美国在伊朗问题上“胡闹”》的社评文章称，美方所谓的“经济诺曼底登陆”行动，是华盛顿想尽快止损的又一次尝试，但方向恐怕错了。
+文章认为，无论是美国加油站不断增加的账单，还是全球市场不断攀升的能源和航运成本，都清楚地说明一件事：经济制裁可以把压力集中施加于一个国家，却很难把代价锁定在一个国家。“战争解决不了问题，制裁更是火上浇油。”
+文章写道，美国盟友圈对华盛顿“豪言壮语”一片沉默的原因很简单，对这些国家而言，伊朗问题牵动着能源供应、航运安全和通胀压力。“美国自己把房子点着了，还要全世界帮着一起扇风，让火势变得更大，最后还要所有人替它买单，谁愿意当这个冤大头呢？”
+文章进一步说，美国连自己的盟友都招呼不动，更别想对中国颐指气使。中国一贯反对单边霸凌和“长臂管辖”，不是因为中国是伊朗最大贸易伙伴并与伊朗保持长期友好关系，而是因为一旦接受美国这套逻辑，国际贸易就不再是国与国之间的正常交流往来，而是由美国自行划设规则，所有商品流动都要经过美国拍板的荒唐局面。
+文章认为，美国的战略困局源于对“拳头”的迷信，继续任性施压只会套得更久、陷得更深，而单纯加大经济压力，也只会让各方损失更大。因此，“不仅中国不会陪着美国‘胡闹’，国际社会同样不会站在美国一边”。无论从道义、法律还是现实的角度，加码单边制裁都既无正当性，也没有可行性。
+文章最后强调，只有摒弃冷战对抗迷思，放下极限施压的工具，回到对话谈判的正确轨道上来，华盛顿才能及时止损、体面退出。
+贝森特星期四（20日）接受美国消费者新闻与商业频道（CNBC）访问时说，美国将对伊朗实施史上最严厉的制裁以击垮其政权，并呼吁北京与华盛顿合作。他强调，华盛顿要盟友和竞争对手都加入针对伊朗的升级行动。
+中国外交部发言人林剑星期五（21日）回应时说，中方反对没有国际法依据、未经联合国安理会授权的非法单边制裁，呼吁相关各方采取负责任举措，通过政治外交途径解决问题。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260822-9557958"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">中东阿提哈德航空上周由阿布扎比飞往台湾，降落时的中文广播将台湾称为“中国台湾”引起台湾旅客不满。阿提哈德航空事后作出修正，并表达歉意。
+综合中时新闻网和三立新闻网等台媒报道，有台湾旅客上星期五（8月14日）搭乘阿提哈德航空从阿布扎比返台，降落前机上英文广播说“欢迎回到台湾”，切换中文广播后变成“欢迎回中国台湾”。
+经上述旅客反映后，阿提哈德航空公司隔天立即调整广播词。该航空总公司星期五（8月21日）致函台湾民航局，针对机上广播内容造成旅客观感不佳表达歉意，并承诺持续加强内容审查及人员教育训练，以确保服务内容符合旅客期待。
+阿提哈德航空总公司在信中表示，已立即检视并修正相关广播用语，同时也将修正其他可能造成误解或不符合当地使用习惯的用语。相关部门也将全面检视涉及台湾的机上广播内容与旅客服务文件。
+针对上述事件，台湾外交部星期五在官网回应说，该部针对阿提哈德航空机上中文广播矮化台湾一事，表达强烈抗议并严正重申，“中华民国台湾是主权独立国家，与中华人民共和国互不隶属，此为客观事实与国际公认现状”。台政府和人民不接受台湾主权被矮化的做法。
+台湾外交部说，已责成台驻迪拜办事处并协调交通部民航局，向阿提哈德航空总部及在台代表提出严正交涉，要求更正不当用语、道歉并提出改进作为。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://www.zaobao.com.sg/_web2/assets/social-share.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-22"
+                      datetime="2026-08-22T08:26:27.732Z"
+                    >2026-08-22</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    “欢迎回中国台湾”广播引发不满 阿提哈德航空修正道歉
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中东阿提哈德航空上周由阿布扎比飞往台湾，降落时的中文广播将台湾称为“中国台湾”引起台湾旅客不满。阿提哈德航空事后作出修正，并表达歉意。
+综合中时新闻网和三立新闻网等台媒报道，有台湾旅客上星期五（8月14日）搭乘阿提哈德航空从阿布扎比返台，降落前机上英文广播说“欢迎回到台湾”，切换中文广播后变成“欢迎回中国台湾”。
+经上述旅客反映后，阿提哈德航空公司隔天立即调整广播词。该航空总公司星期五（8月21日）致函台湾民航局，针对机上广播内容造成旅客观感不佳表达歉意，并承诺持续加强内容审查及人员教育训练，以确保服务内容符合旅客期待。
+阿提哈德航空总公司在信中表示，已立即检视并修正相关广播用语，同时也将修正其他可能造成误解或不符合当地使用习惯的用语。相关部门也将全面检视涉及台湾的机上广播内容与旅客服务文件。
+针对上述事件，台湾外交部星期五在官网回应说，该部针对阿提哈德航空机上中文广播矮化台湾一事，表达强烈抗议并严正重申，“中华民国台湾是主权独立国家，与中华人民共和国互不隶属，此为客观事实与国际公认现状”。台政府和人民不接受台湾主权被矮化的做法。
+台湾外交部说，已责成台驻迪拜办事处并协调交通部民航局，向阿提哈德航空总部及在台代表提出严正交涉，要求更正不当用语、道歉并提出改进作为。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260822-9558229"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">在中国恒大集团创始人许家印被判刑隔天，广州法院受理恒大子公司恒大地产破产清算案，恒大人寿业务许可证也被吊销。
+综合新华社、中国央视新闻和证券时报报道，中国国家金融监督管理总局星期五（8月21日）在官网发布的行政处罚信息显示，恒大人寿保险有限公司（简称恒大人寿）业务许可证被吊销。
+金融监管总局指出，恒大人寿存在“保险资金运用严重不合规、向关联方输送利益，投后管理不合规，报送的报告报表存在虚假记载等”违法违规行为。
+深圳金融监管局星期五发布的行政处罚信息称，因关联交易、资金运用、内控管理行为存在违规，对恒大人寿保险有限公司处以176万元罚款（人民币，下同，33万新元），对曾任恒大人寿董事长的赵冬梅、彭建军分别给予警告并罚款5万元。
+深圳市中级人民法院星期四（8月20日）对恒大集团有限公司、恒大地产集团有限公司、许家印案进行一审公开宣判。其中对许家印数罪并罚，判处无期徒刑。
+广州市中级人民法院星期五在微信公众号上说明，广州农村商业银行华夏支行以恒大地产集团不能清偿到期债务，并且资产不足以清偿全部债务为由，申请对恒大地产破产清算。法院经审查认为，该申请符合中国《企业破产法》规定而裁定受理。
+另据网媒“香港01”报道，恒大集团旗下的恒大实业已在星期三（8月19日）自行入禀香港高等法院呈请清盘。香港司法机构官网信息显示，案件排期在11月4日聆讯。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://www.zaobao.com.sg/_web2/assets/social-share.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-22"
+                      datetime="2026-08-22T08:26:27.674Z"
+                    >2026-08-22</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    恒大人寿被吊销业务许可证
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    在中国恒大集团创始人许家印被判刑隔天，广州法院受理恒大子公司恒大地产破产清算案，恒大人寿业务许可证也被吊销。
+综合新华社、中国央视新闻和证券时报报道，中国国家金融监督管理总局星期五（8月21日）在官网发布的行政处罚信息显示，恒大人寿保险有限公司（简称恒大人寿）业务许可证被吊销。
+金融监管总局指出，恒大人寿存在“保险资金运用严重不合规、向关联方输送利益，投后管理不合规，报送的报告报表存在虚假记载等”违法违规行为。
+深圳金融监管局星期五发布的行政处罚信息称，因关联交易、资金运用、内控管理行为存在违规，对恒大人寿保险有限公司处以176万元罚款（人民币，下同，33万新元），对曾任恒大人寿董事长的赵冬梅、彭建军分别给予警告并罚款5万元。
+深圳市中级人民法院星期四（8月20日）对恒大集团有限公司、恒大地产集团有限公司、许家印案进行一审公开宣判。其中对许家印数罪并罚，判处无期徒刑。
+广州市中级人民法院星期五在微信公众号上说明，广州农村商业银行华夏支行以恒大地产集团不能清偿到期债务，并且资产不足以清偿全部债务为由，申请对恒大地产破产清算。法院经审查认为，该申请符合中国《企业破产法》规定而裁定受理。
+另据网媒“香港01”报道，恒大集团旗下的恒大实业已在星期三（8月19日）自行入禀香港高等法院呈请清盘。香港司法机构官网信息显示，案件排期在11月4日聆讯。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260822-9558354"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">在中菲围绕南中国海等问题关系持续紧张之际，中国官媒称，菲律宾星期六（8月22日）拉拢“域外国家”在南中国海组织联合巡航，解放军全程跟踪监视并保持警戒。
+《环球时报》引述中国军队消息人士报道，菲律宾当天“拉拢域外国家搅局南海，组织所谓‘联合巡航’，解放军对其全程跟监警戒，情况尽在掌握”。
+这是北京连续第二天公布菲律宾在南中国海的活动。中国军方此前通报，菲律宾岛人机、C-208、PA-31T等三架小型飞机星期五（8月21日）入侵黄岩岛（菲律宾称斯卡伯勒浅滩）领空，并警告菲律宾停止挑衅。
+菲律宾近年持续与美国、日本和澳洲等国在南中国海举行海上合作活动。不过，中国方面尚未说明此次参与巡航的“域外国家”具体身份，菲律宾方面也未发布相关消息。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://www.zaobao.com.sg/_web2/assets/social-share.png"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-22"
+                      datetime="2026-08-22T08:26:27.467Z"
+                    >2026-08-22</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国官媒指菲律宾拉拢域外国家在南中国海联合巡航
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    在中菲围绕南中国海等问题关系持续紧张之际，中国官媒称，菲律宾星期六（8月22日）拉拢“域外国家”在南中国海组织联合巡航，解放军全程跟踪监视并保持警戒。
+《环球时报》引述中国军队消息人士报道，菲律宾当天“拉拢域外国家搅局南海，组织所谓‘联合巡航’，解放军对其全程跟监警戒，情况尽在掌握”。
+这是北京连续第二天公布菲律宾在南中国海的活动。中国军方此前通报，菲律宾岛人机、C-208、PA-31T等三架小型飞机星期五（8月21日）入侵黄岩岛（菲律宾称斯卡伯勒浅滩）领空，并警告菲律宾停止挑衅。
+菲律宾近年持续与美国、日本和澳洲等国在南中国海举行海上合作活动。不过，中国方面尚未说明此次参与巡航的“域外国家”具体身份，菲律宾方面也未发布相关消息。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20260822-9558299"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="南方周末"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">2026-08-22 16:00:00
+
+2026年7月17日，中央考核巡查组第九组在南阳市内乡县一工地开展明查暗访。（南方周末记者粟满莺|摄）
+2026年7月18日，这是在河南省明查暗访的第四天。当地的相关工作人员并不知道中央安全生产考核巡查组第九组的具体行程和检查对象。
+上午11时，考核巡查组的车辆停在河南省南阳市镇平县中华玉博城工地门口。进入工地后，考核巡查组从基坑、临边防护到大型机械设备，现场每一个可能影响施工安全的环节，都成为检查重点。
+根据国务院安委会统一安排部署，这次考核巡查自6月开始，24个考核巡查组陆续进驻31个省（自治区、直辖市）和新疆生产建设兵团开展二、三季度明查暗访。第九组在河南省的考核巡查时间是7月15日至29日。
+与往年相比，本轮季度明查暗访时间更长、力度更大，从7天延长到15天，同时强调对典型重大事故隐患倒查责任，核实后严肃追责问责，并首次组建了监管执法问题专项检查组。
+建筑施工现场吊塔存在触电风险
+镇平县中华玉博城工地门口的塔吊很快引起考核巡查组的注意。塔吊是建筑工地上常见的大型设备。因外形巨大、受力复杂且长期高空作业，塔吊也是工地上最危险、管控最严格的设备之一。
+施工现场，3栋尚未完工的建筑前矗立着塔吊，在向外延长的吊臂下方，一组10千伏架空线路从施工区域旁经过。
+抬头望去，目测塔吊的大臂作业范围已明显覆盖了高压线。
+考核巡查组专家告诉南方周末记者，根据《建筑与市政工程施工现场临时用电安全技术标准》，塔式起重机的吊具或被吊物体端部与10kV的架空线路在垂直方向应保持3米，水平方向不小于2米。
+“如果遇到大风天气，大臂摆动容易触碰线路。”专家说，现场塔吊作业范围覆盖高压线路，但未采取有效防护措施，存在触电风险。
+随后，专家查看了塔吊的安装资料发现，安装方案中未针对附近高压线路这一特殊情况作出说明。
+“公司部门之前有检查过这个项目吗？”专家询问…</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">南方周末</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-22"
+                      datetime="2026-08-22T08:25:05.000Z"
+                    >2026-08-22</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中央安全生产考核巡查组暗访河南： 建筑施工、消防等领域问题突出
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    2026-08-22 16:00:00
+
+2026年7月17日，中央考核巡查组第九组在南阳市内乡县一工地开展明查暗访。（南方周末记者粟满莺|摄）
+2026年7月18日，这是在河南省明查暗访的第四天。当地的相关工作人员并不知道中央安全生产考核巡查组第九组的具体行程和检查对象。
+上午11时，考核巡查组的车辆停在河南省南阳市镇平县中华玉博城工地门口。进入工地后，考核巡查组从基坑、临边防护到大型机械设备，现场每一个可能影响施工安全的环节，都成为检查重点。
+根据国务院安委会统一安排部署，这次考核巡查自6月开始，24个考核巡查组陆续进驻31个省（自治区、直辖市）和新疆生产建设兵团开展二、三季度明查暗访。第九组在河南省的考核巡查时间是7月15日至29日。
+与往年相比，本轮季度明查暗访时间更长、力度更大，从7天延长到15天，同时强调对典型重大事故隐患倒查责任，核实后严肃追责问责，并首次组建了监管执法问题专项检查组。
+建筑施工现场吊塔存在触电风险
+镇平县中华玉博城工地门口的塔吊很快引起考核巡查组的注意。塔吊是建筑工地上常见的大型设备。因外形巨大、受力复杂且长期高空作业，塔吊也是工地上最危险、管控最严格的设备之一。
+施工现场，3栋尚未完工的建筑前矗立着塔吊，在向外延长的吊臂下方，一组10千伏架空线路从施工区域旁经过。
+抬头望去，目测塔吊的大臂作业范围已明显覆盖了高压线。
+考核巡查组专家告诉南方周末记者，根据《建筑与市政工程施工现场临时用电安全技术标准》，塔式起重机的吊具或被吊物体端部与10kV的架空线路在垂直方向应保持3米，水平方向不小于2米。
+“如果遇到大风天气，大臂摆动容易触碰线路。”专家说，现场塔吊作业范围覆盖高压线路，但未采取有效防护措施，存在触电风险。
+随后，专家查看了塔吊的安装资料发现，安装方案中未针对附近高压线路这一特殊情况作出说明。
+“公司部门之前有检查过这个项目吗？”专家询问…
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="http://www.infzm.com/contents/329007"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="竹新社 - Telegram Channel"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">竹新社:
+《国务院关于出境入境管理的规定》自9月15日起施行，对出入境中介服务机构实施备案管理。 禁止境外机构在境内提供出入境中介服务。 对准备前往“风险等级为最高级别”或“严重危及人身安全案件突发高发”的国家地区者，边检可劝阻其前往。 违反出口管制、技术进出口管理等规定，可能危害国家产业安全、技术安全的，可以决定不准其出境。 骗取出境入境证件、非法出境入境受到行政拘留处罚的，在境外违法犯罪、危害国家安全利益的，可以不准出境6个月~3年。 不准出境的决定，若有可能影响国家安全、刑事案件侦查等情形的，可以不告知当事人。…
+
+发改委就《对外投资管理办法》征求意见，相比现行《企业对外投资管理办法》，除《国务院关于对外投资的规定》外，还新增：
+境内居民个人对外（含港澳台）开展投资也适用本办法，需要核准备案报告，但通过QDII、港股通、跨境理财通等渠道对金融市场投资（且未取得公司控制权或10%整数倍股权）除外。
+取消“再投资3亿美元以下”不用网上备案的规定，所有再投资和返程投资都要备案。
+中方投资额1亿美元以上，或可能影响外交关系的项目，在开展重要前期工作（投资承诺、协议）10个工作日前，向发改委网上提交情况报告。
+每年3月31日前在网上向当局提交对外投资年度信息报告。
+（发改委）</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">竹新社 - Telegram Channel</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-22"
+                      datetime="2026-08-22T07:38:32.000Z"
+                    >2026-08-22</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    ↩️ 发改委就《对外投资管理办法》征求意见，相比现行《企业对外投资管理办法》，除《国务院关于对外投资的规定》外，还新增： 境内居民个人对外（含港澳台）开...
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    竹新社:
+《国务院关于出境入境管理的规定》自9月15日起施行，对出入境中介服务机构实施备案管理。 禁止境外机构在境内提供出入境中介服务。 对准备前往“风险等级为最高级别”或“严重危及人身安全案件突发高发”的国家地区者，边检可劝阻其前往。 违反出口管制、技术进出口管理等规定，可能危害国家产业安全、技术安全的，可以决定不准其出境。 骗取出境入境证件、非法出境入境受到行政拘留处罚的，在境外违法犯罪、危害国家安全利益的，可以不准出境6个月~3年。 不准出境的决定，若有可能影响国家安全、刑事案件侦查等情形的，可以不告知当事人。…
+
+发改委就《对外投资管理办法》征求意见，相比现行《企业对外投资管理办法》，除《国务院关于对外投资的规定》外，还新增：
+境内居民个人对外（含港澳台）开展投资也适用本办法，需要核准备案报告，但通过QDII、港股通、跨境理财通等渠道对金融市场投资（且未取得公司控制权或10%整数倍股权）除外。
+取消“再投资3亿美元以下”不用网上备案的规定，所有再投资和返程投资都要备案。
+中方投资额1亿美元以上，或可能影响外交关系的项目，在开展重要前期工作（投资承诺、协议）10个工作日前，向发改委网上提交情况报告。
+每年3月31日前在网上向当局提交对外投资年度信息报告。
+（发改委）
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://t.me/tnews365/35525"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="南方周末"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">2026-08-22 14:00:00
+
+广州一客运站停放的大巴与公交车。视觉中国/图
+2026年8月20日，广东省交通运输厅联合高德地图，正式推出全省网络客运聚合平台。
+近年来，广东在全国率先推出定制客运和互联网包车，将大巴与客运站解绑，放开客运企业经营自主权后，网络客运市场迅速发展，出现各类出行服务平台。（详见《客运站在消失，广东大巴却活了》）
+平台多，用户选择也多，但线路信息分散、乘客制定出行路线或比价只能在不同平台之间切换。广东推出的网络客运聚合平台，恰能解决乘客在同一平台获取完整出行方案、比价、订票的需求。
+这个平台怎么用？
+南方周末记者打开高德地图，在首页点击“火车票机票”入口，选择“汽车票”栏，输入出发地和目的地，就能查询到全省网络客运线路的班次、站点、票价等信息。
+
+想对比不同出行方式，可以直接在高德地图上输入目的地，就能看到不同出行方案的所需时间、票价等信息。如，从广州五羊邨地铁站到深圳万象城，共有以下五种出行方式。
+
+广东省交通运输厅党组成员、副厅长杨旭在聚合平台上线发布会上提到，平台将零散供给转化为规模优势，变“各自为政”为“集约共享”，实现全省网络客运平台出行服务的统一入口与高效协同发展。
+目前，聚合平台上有三类角色协作：高德地图，提供流量入口、地图导航技术、聚合及数据对接服务；广东岭南通，提供跨区域清分结算技术保障；各网络客运企业，提供运力产品。
+高德服务生态总经理王曦告诉南方周末记者，聚合平台能让市民方便购票，智能推荐最近站点，提供步行导航，确保每条线路均合规运营、真实有效。未来将按照广东省交通厅统一部署，完善提升平台功能，逐步扩大线路和站点覆盖。
+南方周末记者尝试在高德下单8月21日广州到深圳的大巴票，乘客在App内付款后就能看到大巴车牌号和票号。多趟班次的票价仅需10.8元。
+广东岭南通股份有限公司创新业务部负责人耿薇告诉南方周末记者，岭南通的核心职能是负责跨平台、跨区域的票务清分结算，相当于乘客在高德地图订票，资金收单方是岭南通，再由岭南通将费用分配给线路提供方、流量入口方及其他相关方。同时，还为各互联网客运平台提供标准化的技术接入方案，实现数据互通、业务协同。
+聚合平台上线发布会上，车盈网创始人林桔桦代表网络客运平台企业发言。她将网络客运平台定位为“线路生产者”，重点开展线路整合、智能拼单、运力统筹调配等工作。目前车盈网已上线两万多台车，联合省内八百多家客运企业，日均发送旅客超十万人次。
+“聚合平台负责‘引客’，车盈网负责‘组客’，运输企业负责‘运客’。”林桔桦对南方周末记者说，车盈网立足产业链中端，负责线路动态整合和智能运力调配，确保有足够的车和合理的线路来承接乘客的出行需求。
+广东省交通运输厅数据显示，截至2025年，广东省互联网客运累计发送249.6万班次。发送客运量4072.8万人次，日均11.16万人次，同比分别增长69.2%和69.9%。</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">南方周末</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-22"
+                      datetime="2026-08-22T06:25:08.000Z"
+                    >2026-08-22</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    广东大巴，可以在统一平台订票了
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    2026-08-22 14:00:00
+
+广州一客运站停放的大巴与公交车。视觉中国/图
+2026年8月20日，广东省交通运输厅联合高德地图，正式推出全省网络客运聚合平台。
+近年来，广东在全国率先推出定制客运和互联网包车，将大巴与客运站解绑，放开客运企业经营自主权后，网络客运市场迅速发展，出现各类出行服务平台。（详见《客运站在消失，广东大巴却活了》）
+平台多，用户选择也多，但线路信息分散、乘客制定出行路线或比价只能在不同平台之间切换。广东推出的网络客运聚合平台，恰能解决乘客在同一平台获取完整出行方案、比价、订票的需求。
+这个平台怎么用？
+南方周末记者打开高德地图，在首页点击“火车票机票”入口，选择“汽车票”栏，输入出发地和目的地，就能查询到全省网络客运线路的班次、站点、票价等信息。
+
+想对比不同出行方式，可以直接在高德地图上输入目的地，就能看到不同出行方案的所需时间、票价等信息。如，从广州五羊邨地铁站到深圳万象城，共有以下五种出行方式。
+
+广东省交通运输厅党组成员、副厅长杨旭在聚合平台上线发布会上提到，平台将零散供给转化为规模优势，变“各自为政”为“集约共享”，实现全省网络客运平台出行服务的统一入口与高效协同发展。
+目前，聚合平台上有三类角色协作：高德地图，提供流量入口、地图导航技术、聚合及数据对接服务；广东岭南通，提供跨区域清分结算技术保障；各网络客运企业，提供运力产品。
+高德服务生态总经理王曦告诉南方周末记者，聚合平台能让市民方便购票，智能推荐最近站点，提供步行导航，确保每条线路均合规运营、真实有效。未来将按照广东省交通厅统一部署，完善提升平台功能，逐步扩大线路和站点覆盖。
+南方周末记者尝试在高德下单8月21日广州到深圳的大巴票，乘客在App内付款后就能看到大巴车牌号和票号。多趟班次的票价仅需10.8元。
+广东岭南通股份有限公司创新业务部负责人耿薇告诉南方周末记者，岭南通的核心职能是负责跨平台、跨区域的票务清分结算，相当于乘客在高德地图订票，资金收单方是岭南通，再由岭南通将费用分配给线路提供方、流量入口方及其他相关方。同时，还为各互联网客运平台提供标准化的技术接入方案，实现数据互通、业务协同。
+聚合平台上线发布会上，车盈网创始人林桔桦代表网络客运平台企业发言。她将网络客运平台定位为“线路生产者”，重点开展线路整合、智能拼单、运力统筹调配等工作。目前车盈网已上线两万多台车，联合省内八百多家客运企业，日均发送旅客超十万人次。
+“聚合平台负责‘引客’，车盈网负责‘组客’，运输企业负责‘运客’。”林桔桦对南方周末记者说，车盈网立足产业链中端，负责线路动态整合和智能运力调配，确保有足够的车和合理的线路来承接乘客的出行需求。
+广东省交通运输厅数据显示，截至2025年，广东省互联网客运累计发送249.6万班次。发送客运量4072.8万人次，日均11.16万人次，同比分别增长69.2%和69.9%。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="http://www.infzm.com/contents/329097"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="南方周末"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">2026-08-22 13:00:00
+
+2026年5月14日，河南许昌，胖东来员工在商场外搬运购物车。视觉中国图
+“不一定会要我，但是万一要了呢？”
+这几天，周凯没事就打开胖东来商贸集团有限公司（以下简称胖东来）的小程序，点进人才招聘通道确认报名入口有没有开放，但岗位一栏始终显示为0。
+2026年8月14日，胖东来发布公告：胖东来郑州店拟招聘20名刑期5年以上的刑满释放人员，并设立专属报名通道。
+这一新闻引发全网热议，有人认为胖东来是为刑释人员重新融入社会提供必要帮助，也有人质疑其招聘设定的合理性，有网友直言“不想在逛超市的时候有危险”。
+这并不是胖东来第一次招聘刑释人员。2025年8月，胖东来新乡店为刑释人员设置了专属投递通道，计划录用20人，实际录用30人。
+胖东来创始人于东来在社交平台上称，2025年首批入职的30名刑释人员，进入岗位以后“没有一个离开”。
+但相比2025年的首次招聘，此次招聘条件有所调整。2026年8月19日，胖东来发布公告称，刑释人员的招聘范围已从此前的中轻度犯罪类型，逐步放宽至中重度犯罪类型。
+南方周末记者多次拨打胖东来集团客服电话，均未接通。
+“报名人太多了”
+看到招聘消息那天，周凯心情很好，“但同时也会遗憾，为什么我刚出狱找工作四处碰壁的时候，社会没有这样的机会”。
+2014年，当时23岁的周凯被法院以合同诈骗罪判处七年有期徒刑，于2019年9月10日假释出狱，服刑时间总计五年四个月。
+“收银、理货，什么岗位我都愿意干。”对周凯来说，去胖东来是顶好的工作机会。于东来曾透露，胖东来员工2025年的月平均收入达到9400元。
+河南安阳的郝文在看到招聘消息那天，也给胖东来客服打电话，说自己想应聘，对方让他等通知。
+一年前，他错过了胖东来新乡店的报名，“报名人太多了，小程序那个报名入口我打不开”。
+此前，郝文因犯故意伤害罪、诈骗罪服刑三年三个月。2…</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">南方周末</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-22"
+                      datetime="2026-08-22T05:25:06.000Z"
+                    >2026-08-22</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    求职胖东来的刑满释放人员：去年失败，今年再来
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    2026-08-22 13:00:00
+
+2026年5月14日，河南许昌，胖东来员工在商场外搬运购物车。视觉中国图
+“不一定会要我，但是万一要了呢？”
+这几天，周凯没事就打开胖东来商贸集团有限公司（以下简称胖东来）的小程序，点进人才招聘通道确认报名入口有没有开放，但岗位一栏始终显示为0。
+2026年8月14日，胖东来发布公告：胖东来郑州店拟招聘20名刑期5年以上的刑满释放人员，并设立专属报名通道。
+这一新闻引发全网热议，有人认为胖东来是为刑释人员重新融入社会提供必要帮助，也有人质疑其招聘设定的合理性，有网友直言“不想在逛超市的时候有危险”。
+这并不是胖东来第一次招聘刑释人员。2025年8月，胖东来新乡店为刑释人员设置了专属投递通道，计划录用20人，实际录用30人。
+胖东来创始人于东来在社交平台上称，2025年首批入职的30名刑释人员，进入岗位以后“没有一个离开”。
+但相比2025年的首次招聘，此次招聘条件有所调整。2026年8月19日，胖东来发布公告称，刑释人员的招聘范围已从此前的中轻度犯罪类型，逐步放宽至中重度犯罪类型。
+南方周末记者多次拨打胖东来集团客服电话，均未接通。
+“报名人太多了”
+看到招聘消息那天，周凯心情很好，“但同时也会遗憾，为什么我刚出狱找工作四处碰壁的时候，社会没有这样的机会”。
+2014年，当时23岁的周凯被法院以合同诈骗罪判处七年有期徒刑，于2019年9月10日假释出狱，服刑时间总计五年四个月。
+“收银、理货，什么岗位我都愿意干。”对周凯来说，去胖东来是顶好的工作机会。于东来曾透露，胖东来员工2025年的月平均收入达到9400元。
+河南安阳的郝文在看到招聘消息那天，也给胖东来客服打电话，说自己想应聘，对方让他等通知。
+一年前，他错过了胖东来新乡店的报名，“报名人太多了，小程序那个报名入口我打不开”。
+此前，郝文因犯故意伤害罪、诈骗罪服刑三年三个月。2…
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="http://www.infzm.com/contents/329093"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="RT World News"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">Spanish regional officials have demanded answers after a migrant boat  reached a crowded beach near Cartagena without being intercepted 
+Read Full Article at RT.com</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://mf.b37mrtl.ru/files/2026.08/thumbnail/6a8929bc85f540361a1212ec.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">RT World News</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-22"
+                      datetime="2026-08-22T04:49:59.000Z"
+                    >2026-08-22</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Spanish region demands answers after migrants land on crowded beach (VIDEOS)
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Spanish regional officials have demanded answers after a migrant boat  reached a crowded beach near Cartagena without being intercepted 
+Read Full Article at RT.com
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.rt.com/news/644506-spain-migrants-boat-beach/?utm_source&#x3D;rss&amp;utm_medium&#x3D;rss&amp;utm_campaign&#x3D;RSS"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="竹新社 - Telegram Channel"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">竹新社:
+特朗普8月18日表示，将原定于19日生效的对加拿大商品征收的50%关税推迟3天执行。特朗普表示，两国已达成协议，有待敲定最终文件。 加拿大总理卡尼确认征税推迟。他表示两国已取得实质性进展，但重要工作仍在进行。卡尼与特朗普在过去2天通话2次。 （美联社）
+
+美国计划自8月22日凌晨起，对约200亿美元的加拿大商品征收50%关税。此前双方经过最后阶段谈判，至8月21日深夜仍未能达成贸易协议。新关税将影响加拿大每年出口至美国商品的大约5%，涉及冰球杆、压舌板等多种产品。
+美国贸易代表杰米森·格里尔表示，加拿大未能按照双方此前商定的条件完成协议，并在最后阶段提出新要求、撤回部分承诺。加拿大总理马克·卡尼则发布声明表示，美方临时修改拟议条款“不公平、缺乏经济合理性”，并对任何协议的可靠性提出疑问。他表示，加拿大政府将公布对受影响工人和企业的进一步支持措施。
+关税原定于8月19日凌晨生效，但特朗普政府将期限延长3天以继续谈判，双方最终仍未达成协议。此次争端发生在美加长期贸易摩擦的背景下，包括软木和乳制品市场准入等问题。
+两国2025年商品和服务贸易额达8800亿美元，加拿大约72%的商品出口流向美国。关税成本由美国进口商承担，并可能通过涨价而部分转嫁给消费者，因此新措施也可能在美国11月中期选举前加剧对生活成本问题的关注。
+（美联社）</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">竹新社 - Telegram Channel</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-08-22"
+                      datetime="2026-08-22T04:35:26.000Z"
+                    >2026-08-22</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    ↩️ 美国计划自8月22日凌晨起，对约200亿美元的加拿大商品征收50%关税。此前双方经过最后阶段谈判，至8月21日深夜仍未能达成贸易协议。新关税将影响加拿大每年...
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    竹新社:
+特朗普8月18日表示，将原定于19日生效的对加拿大商品征收的50%关税推迟3天执行。特朗普表示，两国已达成协议，有待敲定最终文件。 加拿大总理卡尼确认征税推迟。他表示两国已取得实质性进展，但重要工作仍在进行。卡尼与特朗普在过去2天通话2次。 （美联社）
+
+美国计划自8月22日凌晨起，对约200亿美元的加拿大商品征收50%关税。此前双方经过最后阶段谈判，至8月21日深夜仍未能达成贸易协议。新关税将影响加拿大每年出口至美国商品的大约5%，涉及冰球杆、压舌板等多种产品。
+美国贸易代表杰米森·格里尔表示，加拿大未能按照双方此前商定的条件完成协议，并在最后阶段提出新要求、撤回部分承诺。加拿大总理马克·卡尼则发布声明表示，美方临时修改拟议条款“不公平、缺乏经济合理性”，并对任何协议的可靠性提出疑问。他表示，加拿大政府将公布对受影响工人和企业的进一步支持措施。
+关税原定于8月19日凌晨生效，但特朗普政府将期限延长3天以继续谈判，双方最终仍未达成协议。此次争端发生在美加长期贸易摩擦的背景下，包括软木和乳制品市场准入等问题。
+两国2025年商品和服务贸易额达8800亿美元，加拿大约72%的商品出口流向美国。关税成本由美国进口商承担，并可能通过涨价而部分转嫁给消费者，因此新措施也可能在美国11月中期选举前加剧对生活成本问题的关注。
+（美联社）
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://t.me/tnews365/35524"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
               <article
                 data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
                 x-show="active === 'all' || active === $el.dataset.src"
@@ -96626,195 +98036,6 @@ Read Full Article at RT.com
                   <!-- Read link – @click.stop so the card click doesn't also fire -->
                   <a
                     href="https://www.rt.com/news/644292-saudi-arabia-launches-maritime-coalition/?utm_source&#x3D;rss&amp;utm_medium&#x3D;rss&amp;utm_campaign&#x3D;RSS"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="RT World News"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">Elon Musk will give $100 million to Republicans in midterm elections in a move that reportedly helps revive the alliance with Donald Trump 
-Read Full Article at RT.com</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://mf.b37mrtl.ru/files/2026.08/thumbnail/6a80ab2685f5400b3a17818a.jpg"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">RT World News</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-16"
-                      datetime="2026-08-15T19:07:32.000Z"
-                    >2026-08-16</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    Musk’s $100 mn gamble helps mend rift with Trump – WSJ
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    Elon Musk will give $100 million to Republicans in midterm elections in a move that reportedly helps revive the alliance with Donald Trump 
-Read Full Article at RT.com
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.rt.com/news/644288-musk-100m-mend-rift-trump/?utm_source&#x3D;rss&amp;utm_medium&#x3D;rss&amp;utm_campaign&#x3D;RSS"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="RT World News"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">Iranian Foreign Ministry spokesman has invoked Dostoevsky to accuse Washington of basing its policies toward Tehran on “lies” 
-Read Full Article at RT.com</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://mf.b37mrtl.ru/files/2026.08/thumbnail/6a80a45120302709df7f1f44.jpg"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">RT World News</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-16"
-                      datetime="2026-08-15T17:45:22.000Z"
-                    >2026-08-16</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    Iran invokes Dostoevsky to slam US foreign policy
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    Iranian Foreign Ministry spokesman has invoked Dostoevsky to accuse Washington of basing its policies toward Tehran on “lies” 
-Read Full Article at RT.com
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.rt.com/news/644289-iran-invokes-dostoevsky-to-slam-us/?utm_source&#x3D;rss&amp;utm_medium&#x3D;rss&amp;utm_campaign&#x3D;RSS"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="RT World News"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">Biology won’t be denied, and female athletes should not be pushed aside to satisfy woke ideology, fear, or performative silence 
-Read Full Article at RT.com</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://mf.b37mrtl.ru/files/2026.08/thumbnail/6a80838a2030277596317333.jpg"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">RT World News</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-08-16"
-                      datetime="2026-08-15T16:42:52.000Z"
-                    >2026-08-16</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    Women’s sport shouldn’t have to bend to the trans delusion
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    Biology won’t be denied, and female athletes should not be pushed aside to satisfy woke ideology, fear, or performative silence 
-Read Full Article at RT.com
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.rt.com/news/644285-womens-sport-trans-delusion/?utm_source&#x3D;rss&amp;utm_medium&#x3D;rss&amp;utm_campaign&#x3D;RSS"
                     target="_blank"
                     rel="noopener noreferrer"
                     @click.stop
