@@ -136,15 +136,6 @@
 
           <!-- Sources list -->
           <button
-            data-src="知乎日报"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">知乎日报</span>
-          </button>
-          <button
             data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
             @click="setActive($el.dataset.src); sidebarOpen = false"
             :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
@@ -161,6 +152,15 @@
           >
             <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
             <span class="truncate">RT World News</span>
+          </button>
+          <button
+            data-src="知乎日报"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">知乎日报</span>
           </button>
           <button
             data-src="Latest Stories"
@@ -536,8 +536,8 @@
 
         <!-- Sidebar Footer -->
         <div class="px-4 py-3 border-t border-[#f5bcd8] text-[10px] text-[#b88aaa]">
-          <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/YeWeihong/myrss/actions/runs/40121351258">
-            构建于 <time datetime="2026-10-24T18:36:20.723Z">2026-10-24T18:36:20.723Z</time>
+          <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/YeWeihong/myrss/actions/runs/40137680144">
+            构建于 <time datetime="2026-10-24T22:15:19.209Z">2026-10-24T22:15:19.209Z</time>
           </a>
           <div class="mt-0.5">
             <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/osmoscraft/osmosfeed">osmosfeed 1.15.1</a>
@@ -576,6 +576,213 @@
           <main class="flex-1 p-4 md:p-6 overflow-y-auto">
             <div class="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-4 md:gap-5">
 
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">去年大罢免期间因《莱尔校长》而爆红的制作团队最近推出新的政治讽刺短剧，其中一集将矛头指向在今年九合一选举掀起“洋流”的民进党台北市长候选人沈伯洋。
+这支利用人工智能（AI）制作、长约一分钟的短剧中，主角“猫哥”慵懒地坐在沙发上，咳了两声后说道：“喉咙啊，该吃药了。”一名卷发、身形微胖的男子随即拿着针筒走进客厅：“我也有Drug，没这个我真的撑不过一天。”
+剧中的“疡瘤博士”影射的正是沈伯洋，“疡瘤”谐音“洋流”；英文“Drug”除了指药物，也有毒品的含义，借此讽刺沈伯洋过去涉及毒品政策的争议言论。
+这部名为《猫哥的烦恼》政治讽刺短剧，出自风向株式会社。该社总监、前国民党新媒体部主任韦淳祐接受《联合早报》访问时说，团队自发制作这部短剧，以表达对寻求连任的台北市长蒋万安的支持。
+这支团队去年推出的《莱尔校长》，以虚构校长角色影射总统赖清德，“莱尔”谐音英文“Liar”（说谎者）。影片讽刺民进党政府及大罢免运动，上线四天观看量便突破40万次。当时部分画面仍须手绘，这次《猫哥的烦恼》已完全采用AI制作。韦淳祐说，若不使用AI，要制作出同样效果的动画，成本将是AI制作的10倍。
+AI走入选战政治宣传添新招
+随着创作门槛与成本下降，AI也走入政党舆论攻防。国民党今年8月推出AI发言人“郑小文”，透过短视频评论普发现金、国防预算及食安等议题。
+2024年印度大选期间，执政党利用AI将总理莫迪的演说配音成八种地方语言，通过社交媒体传播，以接触更多选民。
+台湾文化大学新闻系教授庄伯仲认为，2026年可视为“AI选战元年”。生成式AI虽在2024年台湾总统选举时已出现，但当时技术尚未成熟，如今则已开始广泛应用于选战不同环节。
+他说，政治传播从报纸、电视发展至社交媒体和AI，“尽管科技千变万化，目的还是只有一个，就是争取选票”。
+美国卫斯理大学媒体研究项目（Wesleyan Media Proj…</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/db99e84208ec46f87afb648400b83d2dd7e03bb5197f63fbe5b7a4f1bfb04f48"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-10-25"
+                      datetime="2026-10-24T22:14:48.361Z"
+                    >2026-10-25</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    从助选到介选 AI如何改变选战？
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    去年大罢免期间因《莱尔校长》而爆红的制作团队最近推出新的政治讽刺短剧，其中一集将矛头指向在今年九合一选举掀起“洋流”的民进党台北市长候选人沈伯洋。
+这支利用人工智能（AI）制作、长约一分钟的短剧中，主角“猫哥”慵懒地坐在沙发上，咳了两声后说道：“喉咙啊，该吃药了。”一名卷发、身形微胖的男子随即拿着针筒走进客厅：“我也有Drug，没这个我真的撑不过一天。”
+剧中的“疡瘤博士”影射的正是沈伯洋，“疡瘤”谐音“洋流”；英文“Drug”除了指药物，也有毒品的含义，借此讽刺沈伯洋过去涉及毒品政策的争议言论。
+这部名为《猫哥的烦恼》政治讽刺短剧，出自风向株式会社。该社总监、前国民党新媒体部主任韦淳祐接受《联合早报》访问时说，团队自发制作这部短剧，以表达对寻求连任的台北市长蒋万安的支持。
+这支团队去年推出的《莱尔校长》，以虚构校长角色影射总统赖清德，“莱尔”谐音英文“Liar”（说谎者）。影片讽刺民进党政府及大罢免运动，上线四天观看量便突破40万次。当时部分画面仍须手绘，这次《猫哥的烦恼》已完全采用AI制作。韦淳祐说，若不使用AI，要制作出同样效果的动画，成本将是AI制作的10倍。
+AI走入选战政治宣传添新招
+随着创作门槛与成本下降，AI也走入政党舆论攻防。国民党今年8月推出AI发言人“郑小文”，透过短视频评论普发现金、国防预算及食安等议题。
+2024年印度大选期间，执政党利用AI将总理莫迪的演说配音成八种地方语言，通过社交媒体传播，以接触更多选民。
+台湾文化大学新闻系教授庄伯仲认为，2026年可视为“AI选战元年”。生成式AI虽在2024年台湾总统选举时已出现，但当时技术尚未成熟，如今则已开始广泛应用于选战不同环节。
+他说，政治传播从报纸、电视发展至社交媒体和AI，“尽管科技千变万化，目的还是只有一个，就是争取选票”。
+美国卫斯理大学媒体研究项目（Wesleyan Media Proj…
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20261025-9875315"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="RT World News"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">Democrats’ plans to kill Donald Trump’s diesel deal with Russia prove they do not care about Americans, guests have told RT 
+Read Full Article at RT.com</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://mf.b37mrtl.ru/files/2026.10/thumbnail/6adcf64b85f5404c8b33b02d.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">RT World News</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-10-25"
+                      datetime="2026-10-24T20:32:32.000Z"
+                    >2026-10-25</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Democrats ready to sacrifice Americans’ well-being for ideology – guests to RT (VIDEOS)
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Democrats’ plans to kill Donald Trump’s diesel deal with Russia prove they do not care about Americans, guests have told RT 
+Read Full Article at RT.com
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://rt-english.com/news/647620-democrats-ready-sacrifice-americans-well-being-for-ideology-guests-to-rt/?utm_source&#x3D;rss&amp;utm_medium&#x3D;rss&amp;utm_campaign&#x3D;RSS"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="RT World News"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">Europe continues to struggle with unrest triggered by student-led protests in France that have spilled over to several other nations 
+Read Full Article at RT.com</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://mf.b37mrtl.ru/files/2026.10/thumbnail/6add061920302765d96258fb.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">RT World News</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-10-25"
+                      datetime="2026-10-24T19:25:39.000Z"
+                    >2026-10-25</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Mass protests grip European countries (VIDEOS)
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Europe continues to struggle with unrest triggered by student-led protests in France that have spilled over to several other nations 
+Read Full Article at RT.com
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://rt-english.com/news/647622-europe-mass-protests-videos/?utm_source&#x3D;rss&amp;utm_medium&#x3D;rss&amp;utm_campaign&#x3D;RSS"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
               <article
                 data-src="知乎日报"
                 x-show="active === 'all' || active === $el.dataset.src"
@@ -101341,1220 +101548,6 @@ AI 让「做东西」贬值约 100 倍，卖出去反而成了稀缺能力，所
                 </div>
               </article>
               <article
-                data-src="南方周末"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">2026-10-18 17:45:00
-
-
-在社交平台上，上海家长普遍吐槽“育儿假不够用”，双职工的育儿困境引发不小关注。视觉中国/图
-继产检报销新政引发热议后，上海市又迎来一个关于生育友好的重磅话题。
-2026年9月，上海市卫生健康委在官网公示了一则对人大代表建议的回复，提到针对延长育儿假、优化成本分担等建议，反映了当前育儿家庭的现实需求，相关部门将“结合本市实际，进一步开展政策可行性研究，并适时向立法机关提出修法建议”。
-目前，上海市关于育儿假的规定是：在孩子年满3周岁前，符合规定生育的夫妻，每年各享受育儿假5天，休假期间工资照发。
-2019年，国务院发布《国务院办公厅关于促进3岁以下婴幼儿照护服务发展的指导意见》，文件中首次鼓励地方政府探索试行育儿假，但并未明确具体天数、是否必须强制落实等，只写道“鼓励地方政府探索试行与婴幼儿照护服务配套衔接的育儿假、产休假”。
-据南方周末不完全统计，与上海一样设立5天育儿假的城市是少数，更多的省份是10天育儿假，而在吉林省，夫妻每人每年可享受20天育儿假。
-
-“育儿假覆盖的是分散的、突发性的照料缺口，比如孩子生病、疫苗接种、家庭突发状况等。这类需求的特点是时间短、频率高、难以完全靠外部服务解决，假期是更有效的工具。”东北大学文法学院副院长满小欧教授向南方周末介绍。
-考虑到更广泛的综合成本问题，不少学者也提出，育儿假未来改革的方向，应当跳出企业单独承担全部成本的框架，分步建立多元共担机制。
-5天育儿假够了吗？
-“今年10月之前，我已经把5天育儿假用完了，年假也用掉了三天。”张闻野（化名）是两名孩子的父亲，最小的孩子未满三岁。
-由于夫妻俩都要上班，没有老人帮衬的张闻野夫妻，为孩子聘请了育儿嫂。可以说，育儿嫂出现后，才勉强让这个上海双职工家庭维持日常运转。
-但育儿嫂并非万能。“但凡育儿嫂有点事，还有小孩生病，父母就得请假，5天的育儿假捉襟…</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">南方周末</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-10-18"
-                      datetime="2026-10-18T09:55:06.000Z"
-                    >2026-10-18</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    上海拟改革五天育儿假，专家建议“只增天数”还不够
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    2026-10-18 17:45:00
-
-
-在社交平台上，上海家长普遍吐槽“育儿假不够用”，双职工的育儿困境引发不小关注。视觉中国/图
-继产检报销新政引发热议后，上海市又迎来一个关于生育友好的重磅话题。
-2026年9月，上海市卫生健康委在官网公示了一则对人大代表建议的回复，提到针对延长育儿假、优化成本分担等建议，反映了当前育儿家庭的现实需求，相关部门将“结合本市实际，进一步开展政策可行性研究，并适时向立法机关提出修法建议”。
-目前，上海市关于育儿假的规定是：在孩子年满3周岁前，符合规定生育的夫妻，每年各享受育儿假5天，休假期间工资照发。
-2019年，国务院发布《国务院办公厅关于促进3岁以下婴幼儿照护服务发展的指导意见》，文件中首次鼓励地方政府探索试行育儿假，但并未明确具体天数、是否必须强制落实等，只写道“鼓励地方政府探索试行与婴幼儿照护服务配套衔接的育儿假、产休假”。
-据南方周末不完全统计，与上海一样设立5天育儿假的城市是少数，更多的省份是10天育儿假，而在吉林省，夫妻每人每年可享受20天育儿假。
-
-“育儿假覆盖的是分散的、突发性的照料缺口，比如孩子生病、疫苗接种、家庭突发状况等。这类需求的特点是时间短、频率高、难以完全靠外部服务解决，假期是更有效的工具。”东北大学文法学院副院长满小欧教授向南方周末介绍。
-考虑到更广泛的综合成本问题，不少学者也提出，育儿假未来改革的方向，应当跳出企业单独承担全部成本的框架，分步建立多元共担机制。
-5天育儿假够了吗？
-“今年10月之前，我已经把5天育儿假用完了，年假也用掉了三天。”张闻野（化名）是两名孩子的父亲，最小的孩子未满三岁。
-由于夫妻俩都要上班，没有老人帮衬的张闻野夫妻，为孩子聘请了育儿嫂。可以说，育儿嫂出现后，才勉强让这个上海双职工家庭维持日常运转。
-但育儿嫂并非万能。“但凡育儿嫂有点事，还有小孩生病，父母就得请假，5天的育儿假捉襟…
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="http://www.infzm.com/contents/342853"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="竹新社 - Telegram Channel"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">加拿大阿尔伯塔省中东部的温赖特军事基地10月17日发生爆炸和火灾。据报道，事故造成至少7人死亡、数十人受伤。消息人士称，事故发生于当地时间下午4时左右，一场实弹训练击中基地内的天然气管道或气井，引发爆炸，火势随后在强风助长下迅速蔓延至训练区域以外。
-加拿大国防部长戴维·麦坚迪确认事故造成人员伤亡，但未公布具体数字。加拿大武装部队18日上午表示，事故影响仍在评估中，须待通知死伤者家属后才会确认伤亡详情。加拿大皇家骑警已参与调查。
-加拿大军方及地方应急部门赶赴现场救援，数十辆救护车抵达温赖特医疗中心，军方也增派人员协助。当地政府已设立应急协调中心，表示火势已越过基地围栏，并呼吁居民远离事发区域、保持救援通道畅通。加拿大总理卡尼及阿尔伯塔省省长史密斯表示，联邦、省级及地方部门正协调应对事故。
-（Global News，CBC）</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">竹新社 - Telegram Channel</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-10-18"
-                      datetime="2026-10-18T09:22:26.000Z"
-                    >2026-10-18</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    加拿大阿尔伯塔省中东部的温赖特军事基地10月17日发生爆炸和火灾。据报道，事故造成至少7人死亡、数十人受伤。消息人士称，事故发生于当地时间下午4时左右，一场...
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    加拿大阿尔伯塔省中东部的温赖特军事基地10月17日发生爆炸和火灾。据报道，事故造成至少7人死亡、数十人受伤。消息人士称，事故发生于当地时间下午4时左右，一场实弹训练击中基地内的天然气管道或气井，引发爆炸，火势随后在强风助长下迅速蔓延至训练区域以外。
-加拿大国防部长戴维·麦坚迪确认事故造成人员伤亡，但未公布具体数字。加拿大武装部队18日上午表示，事故影响仍在评估中，须待通知死伤者家属后才会确认伤亡详情。加拿大皇家骑警已参与调查。
-加拿大军方及地方应急部门赶赴现场救援，数十辆救护车抵达温赖特医疗中心，军方也增派人员协助。当地政府已设立应急协调中心，表示火势已越过基地围栏，并呼吁居民远离事发区域、保持救援通道畅通。加拿大总理卡尼及阿尔伯塔省省长史密斯表示，联邦、省级及地方部门正协调应对事故。
-（Global News，CBC）
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://t.me/tnews365/35707"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="喷嚏-70"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">【1】两年债务规模下降18% 柳州原市委书记撰文谈化债细节
-
-
-2023年7月一揽子化债措施推出后，城投债“网红城市”柳州所在的广西是12个化债重点省份之一，也是第一个申请央行应急流动性贷款工具的省份。近日官方披露，2025年柳州债务规模较2023年底下降18%，柳州是如何化债的？
-
-
-2024年9月至2025年10月担任柳州市委书记的广西自治区统战部部长谭丕创，近日在《学习与研究》杂志上撰文称，柳州市穷尽一切手段、排除一切困难化解债务风险，毫不手软打击金融犯罪，一体推动市本级债务、市属融资平台金融债务规模和平均利率持续下降，债券、非标规模持续压减。据他披露，2025年柳州债务规模较2023年底下降18%，金融市场对柳州的信心不断提升。
-
-
-“很多地方政府都有债务，如果负债规模与当地经济发展、财力水平相匹配，能正常还债的，债务风险就在可控范围内。” 谭丕创称，化解债务风险，不是一下子把债务还清，而是要透过现象看本质，精准找出风险点，分类施策、靶向排雷，确保风险发现在早、处置在小，牢牢掌握化债工作主动权。
-
-
-
-
-
-【2】“社保服务进万家”从口号到行动！
-
-
-
-
-
-【3】在《经济日报》原文评论区，这是目前点赞最多的精选留言。
-
-
-
-
-
-【4】17岁天才少年离开Kimi
-
-
-事实上，陈广宇的第一次出圈发生在今年3月。当时，月之暗面Kimi发布技术报告《Attention Residuals》，对大模型十年没有变化的核心结构残差连接行重新设计，这实现了OpenAI联合创始人Ilya Sutskever曾提出过的设想：把按时间先后顺序处理数据的LSTM网络“旋转90度”。用了这套新方法后，模型在计算时根据需要，自由决定去提取前面哪一层的信息。
-
-
-论文发出后，马斯克马上点评“让人印象深刻”，前OpenAI研究科学家Andrej Karpathy表示该研究真正践行了“Attentio…</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">喷嚏-70</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-10-18"
-                      datetime="2026-10-18T08:53:00.000Z"
-                    >2026-10-18</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    【喷嚏图卦20261018】社保服务进万家
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    【1】两年债务规模下降18% 柳州原市委书记撰文谈化债细节
-
-
-2023年7月一揽子化债措施推出后，城投债“网红城市”柳州所在的广西是12个化债重点省份之一，也是第一个申请央行应急流动性贷款工具的省份。近日官方披露，2025年柳州债务规模较2023年底下降18%，柳州是如何化债的？
-
-
-2024年9月至2025年10月担任柳州市委书记的广西自治区统战部部长谭丕创，近日在《学习与研究》杂志上撰文称，柳州市穷尽一切手段、排除一切困难化解债务风险，毫不手软打击金融犯罪，一体推动市本级债务、市属融资平台金融债务规模和平均利率持续下降，债券、非标规模持续压减。据他披露，2025年柳州债务规模较2023年底下降18%，金融市场对柳州的信心不断提升。
-
-
-“很多地方政府都有债务，如果负债规模与当地经济发展、财力水平相匹配，能正常还债的，债务风险就在可控范围内。” 谭丕创称，化解债务风险，不是一下子把债务还清，而是要透过现象看本质，精准找出风险点，分类施策、靶向排雷，确保风险发现在早、处置在小，牢牢掌握化债工作主动权。
-
-
-
-
-
-【2】“社保服务进万家”从口号到行动！
-
-
-
-
-
-【3】在《经济日报》原文评论区，这是目前点赞最多的精选留言。
-
-
-
-
-
-【4】17岁天才少年离开Kimi
-
-
-事实上，陈广宇的第一次出圈发生在今年3月。当时，月之暗面Kimi发布技术报告《Attention Residuals》，对大模型十年没有变化的核心结构残差连接行重新设计，这实现了OpenAI联合创始人Ilya Sutskever曾提出过的设想：把按时间先后顺序处理数据的LSTM网络“旋转90度”。用了这套新方法后，模型在计算时根据需要，自由决定去提取前面哪一层的信息。
-
-
-论文发出后，马斯克马上点评“让人印象深刻”，前OpenAI研究科学家Andrej Karpathy表示该研究真正践行了“Attentio…
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.dapenti.com/blog/more.asp?name&#x3D;xilei&amp;id&#x3D;196199"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">中国广西壮族自治区政协原副主席黄日波被查。
-中共中央纪委国家监委星期天（10月18日）在网站通报，黄日波涉嫌严重职务违法，目前正接受国家监委监察调查。
-据《新京报》旗下“政事儿”报道，公开简历显示，黄日波生于1958年7月，广西靖西壮族人，无党派人士，毕业于英国里丁大学食品科学与工程系生物工程专业，研究生学历，理学博士、教授。
-他曾任广西大学生命科学与技术学院教授、广西科学院院长、广西壮族自治区科协副主席等职，2008年任广西政协副主席，2013年任广西人民政府副主席，2018年再次担任广西政协副主席，并兼任自治区科协主席，后卸任，至此番被查。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://cassette.sphdigital.com.sg/image/zaobao/735ec96107f77d1dd1cb3dd0f378f637e6bb914941ee9ca8de34fea6b0f5fbcd"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-10-18"
-                      datetime="2026-10-18T08:32:58.467Z"
-                    >2026-10-18</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    涉嫌严重职务违法 广西政协原副主席黄日波被查
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    中国广西壮族自治区政协原副主席黄日波被查。
-中共中央纪委国家监委星期天（10月18日）在网站通报，黄日波涉嫌严重职务违法，目前正接受国家监委监察调查。
-据《新京报》旗下“政事儿”报道，公开简历显示，黄日波生于1958年7月，广西靖西壮族人，无党派人士，毕业于英国里丁大学食品科学与工程系生物工程专业，研究生学历，理学博士、教授。
-他曾任广西大学生命科学与技术学院教授、广西科学院院长、广西壮族自治区科协副主席等职，2008年任广西政协副主席，2013年任广西人民政府副主席，2018年再次担任广西政协副主席，并兼任自治区科协主席，后卸任，至此番被查。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.zaobao.com.sg/news/china/story20261018-9854896"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">朝鲜江原道政府派出友好代表团赴中国江苏省进行访问。
-中国驻朝鲜大使馆微信公号消息，江原道人民委员会委员长黄万福星期六（10月17日）率江原道友好代表团从平壤乘机启程，赴江苏省进行访问。
-据悉，有关部门干部和中国驻朝鲜特命全权大使到平壤国际机场为代表团送行。
-朝中关系持续释放改善信号，上周四（15日），连接中国辽宁省丹东市与朝鲜平安北道新义州市的新鸭绿江大桥开通。有分析指，建成近12年的大桥终于启用，不仅反映朝中关系回暖，也可能意味着双方已就贸易逆差及经济依赖等分歧达成一定妥协。
-朝鲜江原道政府派出友好代表团赴中国江苏省进行访问。
-中国驻朝鲜大使馆微信公号消息，江原道人民委员会委员长黄万福星期六（10月17日）率江原道友好代表团从平壤乘机启程，赴江苏省进行访问。
-据悉，有关部门干部和中国驻朝鲜特命全权大使到平壤国际机场为代表团送行。
-朝中关系持续释放改善信号，上周四（15日），连接中国辽宁省丹东市与朝鲜平安北道新义州市的新鸭绿江大桥开通。有分析指，建成近12年的大桥终于启用，不仅反映朝中关系回暖，也可能意味着双方已就贸易逆差及经济依赖等分歧达成一定妥协。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://www.zaobao.com.sg/_web2/assets/social-share.png"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-10-18"
-                      datetime="2026-10-18T08:32:58.450Z"
-                    >2026-10-18</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    朝鲜江原道派出友好代表团访问江苏
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    朝鲜江原道政府派出友好代表团赴中国江苏省进行访问。
-中国驻朝鲜大使馆微信公号消息，江原道人民委员会委员长黄万福星期六（10月17日）率江原道友好代表团从平壤乘机启程，赴江苏省进行访问。
-据悉，有关部门干部和中国驻朝鲜特命全权大使到平壤国际机场为代表团送行。
-朝中关系持续释放改善信号，上周四（15日），连接中国辽宁省丹东市与朝鲜平安北道新义州市的新鸭绿江大桥开通。有分析指，建成近12年的大桥终于启用，不仅反映朝中关系回暖，也可能意味着双方已就贸易逆差及经济依赖等分歧达成一定妥协。
-朝鲜江原道政府派出友好代表团赴中国江苏省进行访问。
-中国驻朝鲜大使馆微信公号消息，江原道人民委员会委员长黄万福星期六（10月17日）率江原道友好代表团从平壤乘机启程，赴江苏省进行访问。
-据悉，有关部门干部和中国驻朝鲜特命全权大使到平壤国际机场为代表团送行。
-朝中关系持续释放改善信号，上周四（15日），连接中国辽宁省丹东市与朝鲜平安北道新义州市的新鸭绿江大桥开通。有分析指，建成近12年的大桥终于启用，不仅反映朝中关系回暖，也可能意味着双方已就贸易逆差及经济依赖等分歧达成一定妥协。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.zaobao.com.sg/news/china/story20261018-9854874"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">寻求连任的国民党籍台北市长蒋万安与民进党籍对手沈伯洋将举行电视辩论，更多台北市民看好沈伯洋会在辩论中占据上风。
-据台湾《上报》报道，TVBS星期六（10月17日）公布最新民调，有41%的受访台北市民看好沈伯洋会有较佳表现，看好蒋万安的仅30%，双方差距达11个百分点。
-民调交叉分析显示，在中立选民部分，有31%看好沈伯洋的辩论表现，14%看好蒋万安，有高达55%的受访者尚未做出判断或表示不知道。在政党倾向方面，支持民进党的受访者中有92%看好沈伯洋，支持国民党者则有76%看好蒋万安，至于支持民众党的族群，有58%看好蒋万安、24%看好沈伯洋。
-从年龄层来看，30岁至39岁的市民中有53%看好沈伯洋，显著高于蒋万安的20%；在40岁至49岁与50岁至59岁的年龄区间，也是看好沈伯洋的比例居多；蒋万安则是在60岁至69岁以及70岁以上的族群占据胜势，看好度分别为39%与35%，而沈伯洋在该两个年龄层的看好度则为34%及31%。
-此民调由TVBS民意调查中心于10月12日至15日晚间执行，访查对象为设籍台北市且年满20岁的民众，最终获得1131份有效样本。采用的抽样方式为市内电话号码后四码随机抽取，由专人进行电话访问，并针对性别、年龄、居住区域及教育程度进行统计加权处理；在95%的信心水准之下，抽样误差控制在正负2.9个百分点以内，相关调查费用由TVBS独立支付。
-延伸阅读
-
-              蒋万安沈伯洋10月31日举行电视辩论
-            
-台湾“九合一”地方选举进入倒数阶段，蒋万安与沈伯洋确定将在10月31日举行首场电视辩论。辩论由政治立场亲绿的三立电视与亲蓝的TVBS联合主办，将包括交叉诘问和媒体提问环节。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://www.zaobao.com.sg/_web2/assets/social-share.png"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-10-18"
-                      datetime="2026-10-18T08:32:58.374Z"
-                    >2026-10-18</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    台北市长辩论市民更看好沈伯洋占上风
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    寻求连任的国民党籍台北市长蒋万安与民进党籍对手沈伯洋将举行电视辩论，更多台北市民看好沈伯洋会在辩论中占据上风。
-据台湾《上报》报道，TVBS星期六（10月17日）公布最新民调，有41%的受访台北市民看好沈伯洋会有较佳表现，看好蒋万安的仅30%，双方差距达11个百分点。
-民调交叉分析显示，在中立选民部分，有31%看好沈伯洋的辩论表现，14%看好蒋万安，有高达55%的受访者尚未做出判断或表示不知道。在政党倾向方面，支持民进党的受访者中有92%看好沈伯洋，支持国民党者则有76%看好蒋万安，至于支持民众党的族群，有58%看好蒋万安、24%看好沈伯洋。
-从年龄层来看，30岁至39岁的市民中有53%看好沈伯洋，显著高于蒋万安的20%；在40岁至49岁与50岁至59岁的年龄区间，也是看好沈伯洋的比例居多；蒋万安则是在60岁至69岁以及70岁以上的族群占据胜势，看好度分别为39%与35%，而沈伯洋在该两个年龄层的看好度则为34%及31%。
-此民调由TVBS民意调查中心于10月12日至15日晚间执行，访查对象为设籍台北市且年满20岁的民众，最终获得1131份有效样本。采用的抽样方式为市内电话号码后四码随机抽取，由专人进行电话访问，并针对性别、年龄、居住区域及教育程度进行统计加权处理；在95%的信心水准之下，抽样误差控制在正负2.9个百分点以内，相关调查费用由TVBS独立支付。
-延伸阅读
-
-              蒋万安沈伯洋10月31日举行电视辩论
-            
-台湾“九合一”地方选举进入倒数阶段，蒋万安与沈伯洋确定将在10月31日举行首场电视辩论。辩论由政治立场亲绿的三立电视与亲蓝的TVBS联合主办，将包括交叉诘问和媒体提问环节。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.zaobao.com.sg/news/china/story20261018-9854736"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">台湾“九合一”选战白热化，寻求连任的国民党籍台北市长蒋万安竞选总部将于本月26日成立，台中市长卢秀燕据悉将担任竞总主任委员。
-综合台湾《联合报》、东森新闻等报道，国民党（蓝）辅选人士透露，被视为蓝营中坚力量的卢秀燕，已点头出任蒋万安竞总主委。蒋万安竞选办公室证实，将于星期一（10月19日）举行记者会宣布这一消息，并公布竞选团队重要干部名单。
-蒋万安四年前首次竞选时并未设置竞总主委，此次打破惯例，邀请被称为“最强母鸡”的卢秀燕出任。蓝营人士分析，蒋万安近期在民调面临中间选民支持度滑落的考验，而卢秀燕八年来以温和稳健的“妈妈市长”形象著称，其跨越蓝绿的中间号召力，正是替蒋万安固本拓票、补足选民缺口的解方。
-据悉，卢秀燕已在松山机场迁建等诸多市政议题上与蒋万安做选战攻防推演。
-蒋万安将于10月31日与对手民进党籍台北市长参选人沈伯洋举行首场电视辩论。TVBS星期六（17日）公布最新民调显示，有41%的受访台北市民看好沈伯洋会有较佳表现，看好蒋万安的仅30%，双方差距达11个百分点。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://cassette.sphdigital.com.sg/image/zaobao/3d9def3cb900786448d0b8e268d72ba1360f067b206a9749e52d823a0e53a182"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-10-18"
-                      datetime="2026-10-18T08:32:58.339Z"
-                    >2026-10-18</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    台媒：卢秀燕将任蒋万安竞总主委
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    台湾“九合一”选战白热化，寻求连任的国民党籍台北市长蒋万安竞选总部将于本月26日成立，台中市长卢秀燕据悉将担任竞总主任委员。
-综合台湾《联合报》、东森新闻等报道，国民党（蓝）辅选人士透露，被视为蓝营中坚力量的卢秀燕，已点头出任蒋万安竞总主委。蒋万安竞选办公室证实，将于星期一（10月19日）举行记者会宣布这一消息，并公布竞选团队重要干部名单。
-蒋万安四年前首次竞选时并未设置竞总主委，此次打破惯例，邀请被称为“最强母鸡”的卢秀燕出任。蓝营人士分析，蒋万安近期在民调面临中间选民支持度滑落的考验，而卢秀燕八年来以温和稳健的“妈妈市长”形象著称，其跨越蓝绿的中间号召力，正是替蒋万安固本拓票、补足选民缺口的解方。
-据悉，卢秀燕已在松山机场迁建等诸多市政议题上与蒋万安做选战攻防推演。
-蒋万安将于10月31日与对手民进党籍台北市长参选人沈伯洋举行首场电视辩论。TVBS星期六（17日）公布最新民调显示，有41%的受访台北市民看好沈伯洋会有较佳表现，看好蒋万安的仅30%，双方差距达11个百分点。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.zaobao.com.sg/news/china/story20261018-9855205"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">日本首相高市早苗向靖国神社供奉祭品，部分内阁官员前往参拜，中国驻日本大使馆称，强烈谴责日方涉靖国神社消极动向。
-据新华社报道，中国驻日本大使馆发言人星期六（10月17日）说，所谓“靖国神社”是日本军国主义的精神工具和象征，供奉有对侵略战争负有直接罪责的14名甲级战犯。日本当政者对此顶礼膜拜，无论编造何种理由，都无法隐藏其为战犯翻案、掩盖战争罪责、歪曲历史事实，为加速“再军事化”铺路的真实企图。
-发言人说，有关错误行径是对历史正义的亵渎，对文明底线的挑战，对战后国际秩序的挑衅，国际社会一致坚决反对。
-发言人说，今年是东京审判开庭80周年。正确认识和对待历史，是日本战后重返国际社会的重要前提，是日本同周边国家发展关系的政治基础，更是检验日本能否恪守和平发展承诺的一杆标尺。
-发言人说，中方严肃敦促日方深刻反省侵略历史，正视战争罪责，在靖国神社等问题上谨言慎行，同军国主义彻底切割，以实际行动取信于亚洲邻国和国际社会。
-延伸阅读
-
-              高市早苗向靖国神社供奉祭品
-            
-据共同社及时事社报道，靖国神社星期六起举行为期三天的秋季例行大祭，高市早苗以内阁总理大臣的名义献上名为“真榊”的盆栽祭品，部分内阁官员则前往参拜。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://cassette.sphdigital.com.sg/image/zaobao/6564df3ce9e6a87736923d57bd17d334919a6c196a60042c4a0c6e56856be7f0"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-10-18"
-                      datetime="2026-10-18T08:32:58.326Z"
-                    >2026-10-18</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    中国驻日使馆：强烈谴责日方涉靖国神社消极动向
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    日本首相高市早苗向靖国神社供奉祭品，部分内阁官员前往参拜，中国驻日本大使馆称，强烈谴责日方涉靖国神社消极动向。
-据新华社报道，中国驻日本大使馆发言人星期六（10月17日）说，所谓“靖国神社”是日本军国主义的精神工具和象征，供奉有对侵略战争负有直接罪责的14名甲级战犯。日本当政者对此顶礼膜拜，无论编造何种理由，都无法隐藏其为战犯翻案、掩盖战争罪责、歪曲历史事实，为加速“再军事化”铺路的真实企图。
-发言人说，有关错误行径是对历史正义的亵渎，对文明底线的挑战，对战后国际秩序的挑衅，国际社会一致坚决反对。
-发言人说，今年是东京审判开庭80周年。正确认识和对待历史，是日本战后重返国际社会的重要前提，是日本同周边国家发展关系的政治基础，更是检验日本能否恪守和平发展承诺的一杆标尺。
-发言人说，中方严肃敦促日方深刻反省侵略历史，正视战争罪责，在靖国神社等问题上谨言慎行，同军国主义彻底切割，以实际行动取信于亚洲邻国和国际社会。
-延伸阅读
-
-              高市早苗向靖国神社供奉祭品
-            
-据共同社及时事社报道，靖国神社星期六起举行为期三天的秋季例行大祭，高市早苗以内阁总理大臣的名义献上名为“真榊”的盆栽祭品，部分内阁官员则前往参拜。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.zaobao.com.sg/news/china/story20261018-9854803"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">中国国务院总理李强说，中医讲究系统施治、固本培元，经济治理也是如此。
-据新华社报道，星期六（10月17日）上午，李强在北京出席2026世界传统医药大会开幕式并致辞。
-李强说，中国人常讲医者仁心、悬壶济世。人生病了需要调理，当世界发展出现问题、面临难题，也需要治理。
-他说，中国国家主席习近平提出的全球治理倡议，便是应对当今世界各种乱象的一剂良方。中医药治疗疾病，强调整体观、和谐观，讲究系统施治、固本培元。经济治理也是如此。
-李强说，世界各国是一个有机整体，没有哪个国家能够独善其身，没有哪种模式能够包治百病，应当多一些包容调和的智慧、少一些零和博弈的执念，多一些同舟共济的担当、少一些以邻为壑的短视，共同守护好世界的繁荣。
-世界卫生组织西太平洋区域主任皮乌卡拉致辞。各国政府官员、驻华使节、专家学者、传统医学从业者及有关国际组织负责人等约1200人出席开幕式。
-尹力、刘国中、吴政隆参加活动。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://cassette.sphdigital.com.sg/image/zaobao/cbedf4e9d87a719980a8cc979eea255e825295868c9cd19311f532961815224c"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-10-18"
-                      datetime="2026-10-18T08:32:58.289Z"
-                    >2026-10-18</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    李强：中医讲究系统施治固本培元 与治理经济相似
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    中国国务院总理李强说，中医讲究系统施治、固本培元，经济治理也是如此。
-据新华社报道，星期六（10月17日）上午，李强在北京出席2026世界传统医药大会开幕式并致辞。
-李强说，中国人常讲医者仁心、悬壶济世。人生病了需要调理，当世界发展出现问题、面临难题，也需要治理。
-他说，中国国家主席习近平提出的全球治理倡议，便是应对当今世界各种乱象的一剂良方。中医药治疗疾病，强调整体观、和谐观，讲究系统施治、固本培元。经济治理也是如此。
-李强说，世界各国是一个有机整体，没有哪个国家能够独善其身，没有哪种模式能够包治百病，应当多一些包容调和的智慧、少一些零和博弈的执念，多一些同舟共济的担当、少一些以邻为壑的短视，共同守护好世界的繁荣。
-世界卫生组织西太平洋区域主任皮乌卡拉致辞。各国政府官员、驻华使节、专家学者、传统医学从业者及有关国际组织负责人等约1200人出席开幕式。
-尹力、刘国中、吴政隆参加活动。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.zaobao.com.sg/news/china/story20261018-9855064"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">香港特区政府引进重点企业办公室主任任景信说，即将公布的新一轮重点企业引进名单中，预计有10多至20家企业在港落户，其中不少是市值超千亿元（港元，1000亿港元约为163.4亿新元）的龙头企业。
-综合“香港01”、“星岛头条”等报道，任景信星期天（10月18日）在电台节目《政好星期天》称，引进办成立近四年以来，累计已成功引进124间重点企业，预计带来730亿元投资，以及2万5000个就业职位。
-他也预告，港府本周四（22日）将公布新一轮重点企业名单并举行签署仪式，其中海内外企业比例维持各占一半。
-任景信进一步说，目前引进的首五批企业截至今年4月已实际落实225亿元投资，超出原先预期逾三成。
-引进办目前正接洽超过100家企业，任景信强调，引进办挑选企业时，不会单纯以公司规模、是否来港上市、投资额或创造就业机会多寡作决定，最重要是能否与香港产业政策对接，是否有助加速产业生态发展。
-他回顾，首四批重点企业中，中国大陆企业占逾七成，至第六批时海外企业占比已过半。另外，全球十大药厂已有五家在港落户。
-任景信重申，引进办要求企业提交五年计划列明具体投资、创造的就业职位及首个标竿项目，以便紧密跟进并配对资源。
-针对坊间关注企业会否借香港作为注册地、“借壳”套取深圳前海合作区及大陆优惠，任景信强调，引进办已建立严格跟踪机制。香港的角色清晰定位为“全球及区域总部”、“研发中心”与“财资中心”，与大湾区城市互补共赢。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://cassette.sphdigital.com.sg/image/zaobao/49ed86129c6e2d6492d2ea330457abe36303db1692f3ba9191202ff80b6d09c8"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-10-18"
-                      datetime="2026-10-18T08:32:58.261Z"
-                    >2026-10-18</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    港官员：再有10至20家企业将落户香港 包括行业龙头
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    香港特区政府引进重点企业办公室主任任景信说，即将公布的新一轮重点企业引进名单中，预计有10多至20家企业在港落户，其中不少是市值超千亿元（港元，1000亿港元约为163.4亿新元）的龙头企业。
-综合“香港01”、“星岛头条”等报道，任景信星期天（10月18日）在电台节目《政好星期天》称，引进办成立近四年以来，累计已成功引进124间重点企业，预计带来730亿元投资，以及2万5000个就业职位。
-他也预告，港府本周四（22日）将公布新一轮重点企业名单并举行签署仪式，其中海内外企业比例维持各占一半。
-任景信进一步说，目前引进的首五批企业截至今年4月已实际落实225亿元投资，超出原先预期逾三成。
-引进办目前正接洽超过100家企业，任景信强调，引进办挑选企业时，不会单纯以公司规模、是否来港上市、投资额或创造就业机会多寡作决定，最重要是能否与香港产业政策对接，是否有助加速产业生态发展。
-他回顾，首四批重点企业中，中国大陆企业占逾七成，至第六批时海外企业占比已过半。另外，全球十大药厂已有五家在港落户。
-任景信重申，引进办要求企业提交五年计划列明具体投资、创造的就业职位及首个标竿项目，以便紧密跟进并配对资源。
-针对坊间关注企业会否借香港作为注册地、“借壳”套取深圳前海合作区及大陆优惠，任景信强调，引进办已建立严格跟踪机制。香港的角色清晰定位为“全球及区域总部”、“研发中心”与“财资中心”，与大湾区城市互补共赢。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.zaobao.com.sg/news/china/story20261018-9855157"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">在中国举行的2026世界传统医药大会上，全球传统医学联盟正式成立。
-据中新社报道，全球传统医学联盟副主席兼秘书长秦怀金星期天（10月18日）在北京介绍称，全球传统医学联盟是国际上首个覆盖全球多元传统医学体系的非政府、非营利国际科技组织，联盟秘书处设在中国北京。
-秦怀金在新闻发布会上表示，全球传统医学联盟的愿景目标是引领交流合作、传承创新、融合发展，建设成为全球传统医学领域最具影响力、公信力、凝聚力的国际科技组织，让传统医学更好地造福人类健康。
-全球传统医学联盟坚持开放、创新、共赢的理念，构建相互尊重、平等对话、互学互鉴的传统医学国际共同体，促进传统医学与现代医学的交叉融合，推动传统医学现代化与国际化，倡导全球会员资源共享、优势互补，共建全球传统医学伙伴关系。
-秦怀金说，联盟肩负三大使命。一是搭建平台。联接全球传统医学领域的各类机构、专业组织与专业人员，构建开放、包容、互鉴、共享的全球性非政府交流合作网络，推动国际学术交流。
-二是拥抱科技。加强科技赋能，推动传统医学的科技创新与产业创新。推动传统医学领域国际标准和规范的制定，促进传统医学的循证研究、证据积累，将传统医学更好地转化为可验证、可推广的现代健康解决方案。
-三是推动融合。助力传统医学国际监管规则与标准交流，推动传统医学安全有效地融入卫生健康服务体系。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://cassette.sphdigital.com.sg/image/zaobao/46ba6a7892dafc90a42b42d5afb5f48322cb8c1796a19105c44fd52e8c769c74"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-10-18"
-                      datetime="2026-10-18T08:32:58.233Z"
-                    >2026-10-18</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    全球传统医学联盟在中国成立
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    在中国举行的2026世界传统医药大会上，全球传统医学联盟正式成立。
-据中新社报道，全球传统医学联盟副主席兼秘书长秦怀金星期天（10月18日）在北京介绍称，全球传统医学联盟是国际上首个覆盖全球多元传统医学体系的非政府、非营利国际科技组织，联盟秘书处设在中国北京。
-秦怀金在新闻发布会上表示，全球传统医学联盟的愿景目标是引领交流合作、传承创新、融合发展，建设成为全球传统医学领域最具影响力、公信力、凝聚力的国际科技组织，让传统医学更好地造福人类健康。
-全球传统医学联盟坚持开放、创新、共赢的理念，构建相互尊重、平等对话、互学互鉴的传统医学国际共同体，促进传统医学与现代医学的交叉融合，推动传统医学现代化与国际化，倡导全球会员资源共享、优势互补，共建全球传统医学伙伴关系。
-秦怀金说，联盟肩负三大使命。一是搭建平台。联接全球传统医学领域的各类机构、专业组织与专业人员，构建开放、包容、互鉴、共享的全球性非政府交流合作网络，推动国际学术交流。
-二是拥抱科技。加强科技赋能，推动传统医学的科技创新与产业创新。推动传统医学领域国际标准和规范的制定，促进传统医学的循证研究、证据积累，将传统医学更好地转化为可验证、可推广的现代健康解决方案。
-三是推动融合。助力传统医学国际监管规则与标准交流，推动传统医学安全有效地融入卫生健康服务体系。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.zaobao.com.sg/news/china/story20261018-9855506"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">中国电动车制造商理想汽车宣布，旗下晶片子公司上海马赫心科技签署首轮股权融资协议，认购总额达16.25亿元（人民币，下同，约3亿新元），计划进一步推动自研晶片商业化，并将业务拓展至汽车以外的领域。
-综合快科技和华尔街见闻报道，理想汽车星期五（10月16日）宣布，本轮融资由杭州经韬、蓝驰创投及华业天成领投，奇绩创坛参与投资。其中，理想汽车通过全资子公司出资10亿元，外部投资者合计出资6.25亿元。
-杭州经韬及其关联基金另获得最高5亿元的追加认购权，可在今年12月31日前行使。若全额行使，马赫心科技的投后估值最高可达171亿元。
-理想汽车也将继续控股马赫心科技。在股权激励计划全面落实、追加认购权全额行使的情况下，理想汽车预计仍持有约74.01%股权。
-理想汽车表示，此次融资将支持马赫心科技持续推进晶片研发与商业化，尤其是在非汽车领域，推动理想汽车在晶片及域控制器领域的长远发展。
-延伸阅读
-
-              理想汽车筹划今年内第三次发行熊猫债
-            
-目前，理想汽车自主研发的马赫M100晶片已搭载于旗下量产车型。该晶片采用5纳米车规级工艺，单颗算力达1280 TOPS。
-分析指出，车企自研晶片过去主要用于满足自身整车需求，但研发成本高昂。对外销售有助于扩大出货规模、分摊研发成本，并为车企开辟汽车销售以外的新收入来源。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://cassette.sphdigital.com.sg/image/zaobao/e000762588f85ab84041accba350b6cb7658ded9e89f02b9d7845430aad9b75b"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-10-18"
-                      datetime="2026-10-18T08:32:58.212Z"
-                    >2026-10-18</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    理想汽车晶片子公司融资逾16亿人民币 拟拓展非汽车市场
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    中国电动车制造商理想汽车宣布，旗下晶片子公司上海马赫心科技签署首轮股权融资协议，认购总额达16.25亿元（人民币，下同，约3亿新元），计划进一步推动自研晶片商业化，并将业务拓展至汽车以外的领域。
-综合快科技和华尔街见闻报道，理想汽车星期五（10月16日）宣布，本轮融资由杭州经韬、蓝驰创投及华业天成领投，奇绩创坛参与投资。其中，理想汽车通过全资子公司出资10亿元，外部投资者合计出资6.25亿元。
-杭州经韬及其关联基金另获得最高5亿元的追加认购权，可在今年12月31日前行使。若全额行使，马赫心科技的投后估值最高可达171亿元。
-理想汽车也将继续控股马赫心科技。在股权激励计划全面落实、追加认购权全额行使的情况下，理想汽车预计仍持有约74.01%股权。
-理想汽车表示，此次融资将支持马赫心科技持续推进晶片研发与商业化，尤其是在非汽车领域，推动理想汽车在晶片及域控制器领域的长远发展。
-延伸阅读
-
-              理想汽车筹划今年内第三次发行熊猫债
-            
-目前，理想汽车自主研发的马赫M100晶片已搭载于旗下量产车型。该晶片采用5纳米车规级工艺，单颗算力达1280 TOPS。
-分析指出，车企自研晶片过去主要用于满足自身整车需求，但研发成本高昂。对外销售有助于扩大出货规模、分摊研发成本，并为车企开辟汽车销售以外的新收入来源。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.zaobao.com.sg/news/china/story20261018-9855781"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">在伊朗战争及其他冲突限制中东和俄罗斯产量、全球成品油供应趋紧之际，中国9月成品油出口同比大增39.4%，其中柴油出口量升至三年多来最高水平。
-路透社报道，中国是亚洲主要成品油出口国。因中东局势带来供应风险，中国3月中旬限制柴油、汽油和航空煤油等成品油出口，以保障国内供应，随后于7月中旬放宽相关出口限制。
-中国海关星期天（10月18日）公布的数据显示，9月成品油出口量环比增长19%，达到716万吨，延续8月以来的强劲增长势头。成品油包括柴油、汽油、航空煤油和船用燃料。
-今年前三季度，中国成品油出口总量为4140万吨，同比下降3.7%。
-具体来看，中国汽油、柴油和航空煤油9月出口总量为441万吨，同比增加56%，高于2025年月均300万吨的水平。
-其中，航空煤油出口量同比增长16.7%，达194万吨。前三季航空煤油出口总量为1370万吨，同比下降11%。
-柴油出口量则同比大增262.3%，达到185万吨，为2023年2月以来最高水平。前三季度柴油出口总量为668万吨，同比增加31.6%。
-汽油出口则持续下滑。9月中国汽油出口量为62万吨，同比下降4.1%；今年1月至9月，汽油出口总量为304万吨，同比大减51.9%。
-海关数据也显示，中国9月液化天然气（LNG）进口量同比下降1.4%至561万吨。今年前三季度，LNG进口总量为4462万吨，同比下降5.8%。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://cassette.sphdigital.com.sg/image/zaobao/ca9e3e2af7ac175e6783a3eccb1eb7f6c872bc32af871c1c76b30f76c1af5277"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-10-18"
-                      datetime="2026-10-18T08:32:58.193Z"
-                    >2026-10-18</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    全球供应趋紧 中国9月成品油出口同比大增近40%
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    在伊朗战争及其他冲突限制中东和俄罗斯产量、全球成品油供应趋紧之际，中国9月成品油出口同比大增39.4%，其中柴油出口量升至三年多来最高水平。
-路透社报道，中国是亚洲主要成品油出口国。因中东局势带来供应风险，中国3月中旬限制柴油、汽油和航空煤油等成品油出口，以保障国内供应，随后于7月中旬放宽相关出口限制。
-中国海关星期天（10月18日）公布的数据显示，9月成品油出口量环比增长19%，达到716万吨，延续8月以来的强劲增长势头。成品油包括柴油、汽油、航空煤油和船用燃料。
-今年前三季度，中国成品油出口总量为4140万吨，同比下降3.7%。
-具体来看，中国汽油、柴油和航空煤油9月出口总量为441万吨，同比增加56%，高于2025年月均300万吨的水平。
-其中，航空煤油出口量同比增长16.7%，达194万吨。前三季航空煤油出口总量为1370万吨，同比下降11%。
-柴油出口量则同比大增262.3%，达到185万吨，为2023年2月以来最高水平。前三季度柴油出口总量为668万吨，同比增加31.6%。
-汽油出口则持续下滑。9月中国汽油出口量为62万吨，同比下降4.1%；今年1月至9月，汽油出口总量为304万吨，同比大减51.9%。
-海关数据也显示，中国9月液化天然气（LNG）进口量同比下降1.4%至561万吨。今年前三季度，LNG进口总量为4462万吨，同比下降5.8%。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.zaobao.com.sg/news/china/story20261018-9855592"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">受与中国本地车企竞争加剧、汽油价格上涨及个人消费低迷等因素影响，日系车商在中国市场陷入苦战。
-据共同社报道，日产汽车公司星期五（10月16日）公布，9月在中国市场的新车销量较上年同期减少61.6%，为2万3658辆。本田汽车同比减少53.1%，为2万5564辆。
-日产销量连续六个月同比下滑。本田受新车型投放滞后影响，更是连续32个月下滑。
-中国市场整体也陷入低迷，中国汽车工业协会12日公布的9月国内新车销量较上年同期减少26.0%，约为190万辆。
-日产汽车公司星期五（10月16日）公布，9月在中国市场的新车销量较上年同期减少61.6%，为2万3658辆。 （路透社档案照）
-受与中国本地车企竞争加剧、汽油价格上涨及个人消费低迷等因素影响，日系车商在中国市场陷入苦战。
-据共同社报道，日产汽车公司星期五（10月16日）公布，9月在中国市场的新车销量较上年同期减少61.6%，为2万3658辆。本田汽车同比减少53.1%，为2万5564辆。
-日产销量连续六个月同比下滑。本田受新车型投放滞后影响，更是连续32个月下滑。
-中国市场整体也陷入低迷，中国汽车工业协会12日公布的9月国内新车销量较上年同期减少26.0%，约为190万辆。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://cassette.sphdigital.com.sg/image/zaobao/5f4338a713e61e2d4ea98a1a771a1feca2a386cf8218dc3afa2c1a9392c8b051"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-10-18"
-                      datetime="2026-10-18T08:32:58.174Z"
-                    >2026-10-18</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    日产9月中国市场新车销量减少六成 本田减半
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    受与中国本地车企竞争加剧、汽油价格上涨及个人消费低迷等因素影响，日系车商在中国市场陷入苦战。
-据共同社报道，日产汽车公司星期五（10月16日）公布，9月在中国市场的新车销量较上年同期减少61.6%，为2万3658辆。本田汽车同比减少53.1%，为2万5564辆。
-日产销量连续六个月同比下滑。本田受新车型投放滞后影响，更是连续32个月下滑。
-中国市场整体也陷入低迷，中国汽车工业协会12日公布的9月国内新车销量较上年同期减少26.0%，约为190万辆。
-日产汽车公司星期五（10月16日）公布，9月在中国市场的新车销量较上年同期减少61.6%，为2万3658辆。 （路透社档案照）
-受与中国本地车企竞争加剧、汽油价格上涨及个人消费低迷等因素影响，日系车商在中国市场陷入苦战。
-据共同社报道，日产汽车公司星期五（10月16日）公布，9月在中国市场的新车销量较上年同期减少61.6%，为2万3658辆。本田汽车同比减少53.1%，为2万5564辆。
-日产销量连续六个月同比下滑。本田受新车型投放滞后影响，更是连续32个月下滑。
-中国市场整体也陷入低迷，中国汽车工业协会12日公布的9月国内新车销量较上年同期减少26.0%，约为190万辆。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.zaobao.com.sg/news/china/story20261018-9855764"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="南方周末"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">2026-10-18 16:00:00
-
-
-2019年9月，意大利佛罗伦萨，乌菲兹美术馆展出世界名画。视觉中国图
-有着悠久文化传统的艺术大国——这是绝大多数人对意大利的印象。但对三十年前的里卡尔多·法尔奇内利（Riccardo Falcinelli）来说，要学习艺术，必须离开他的母国。彼时的他梦想成为一位动画师，但意大利艺术院校大多只教授油画、雕塑这些传统艺术。为此，他前往伦敦中央圣马丁艺术与设计学院学习。
-
-留学期间，他几乎是立刻注意到了英国人和意大利人对待艺术的态度的不同。在英国的博物馆里，他常常能看到小学生们围坐在一幅画前临摹，等画完了，老师才会开始讲解。而在意大利的博物馆里，导游带领参观者来到一幅画前总是立刻开始讲述“这是洛伦佐·德·美第奇，他生于……”，几乎不给他们留出仔细端详画作的时间。“在意大利，人们有一种算不上完全错误的偏见，即艺术是一种文化，而文化是需要学习的，”法尔奇内利说，“但当画作被当作讲解历史的材料，很多人就会觉得艺术是无聊的。而在我看来，艺术就是当代生活的一部分，我们需要时间慢下来，观察它、思考它。”
-这样的观念是法尔奇内利从小耳濡目染形成的。他的父亲是一位建筑师，母亲是一位对艺术教育极有热情的教师。法尔奇内利记得，小时候母亲总是利用各种机会引导他们兄弟俩去留意生活中的视觉文化，“她很擅长用当代文化解释古代文化，比如我们看动画电影的时候，她会说‘这电影和某件古代作品很相似……’对我而言，她极大地启发了我如何观察世界”。
-对法尔奇内利形成自己的艺术观乃至人生观影响良多的还有他的两位祖母。他很小的时候就注意到，祖母和外祖母拿刀叉的姿势不同。再长大些，他知道了他的父母来自两个背景迥异的家庭，而在意大利，就餐时刀叉的使用手法是一种无声的阶级标识。这个事实曾让法尔奇内利感受复杂，却也以一种赤裸直观的方式让他意识到，生活中几乎一切可见的事物都是由文化传统构建…</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">南方周末</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-10-18"
-                      datetime="2026-10-18T08:25:06.000Z"
-                    >2026-10-18</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    只有内行和文青会欣赏艺术？这位意大利设计师不这么认为
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    2026-10-18 16:00:00
-
-
-2019年9月，意大利佛罗伦萨，乌菲兹美术馆展出世界名画。视觉中国图
-有着悠久文化传统的艺术大国——这是绝大多数人对意大利的印象。但对三十年前的里卡尔多·法尔奇内利（Riccardo Falcinelli）来说，要学习艺术，必须离开他的母国。彼时的他梦想成为一位动画师，但意大利艺术院校大多只教授油画、雕塑这些传统艺术。为此，他前往伦敦中央圣马丁艺术与设计学院学习。
-
-留学期间，他几乎是立刻注意到了英国人和意大利人对待艺术的态度的不同。在英国的博物馆里，他常常能看到小学生们围坐在一幅画前临摹，等画完了，老师才会开始讲解。而在意大利的博物馆里，导游带领参观者来到一幅画前总是立刻开始讲述“这是洛伦佐·德·美第奇，他生于……”，几乎不给他们留出仔细端详画作的时间。“在意大利，人们有一种算不上完全错误的偏见，即艺术是一种文化，而文化是需要学习的，”法尔奇内利说，“但当画作被当作讲解历史的材料，很多人就会觉得艺术是无聊的。而在我看来，艺术就是当代生活的一部分，我们需要时间慢下来，观察它、思考它。”
-这样的观念是法尔奇内利从小耳濡目染形成的。他的父亲是一位建筑师，母亲是一位对艺术教育极有热情的教师。法尔奇内利记得，小时候母亲总是利用各种机会引导他们兄弟俩去留意生活中的视觉文化，“她很擅长用当代文化解释古代文化，比如我们看动画电影的时候，她会说‘这电影和某件古代作品很相似……’对我而言，她极大地启发了我如何观察世界”。
-对法尔奇内利形成自己的艺术观乃至人生观影响良多的还有他的两位祖母。他很小的时候就注意到，祖母和外祖母拿刀叉的姿势不同。再长大些，他知道了他的父母来自两个背景迥异的家庭，而在意大利，就餐时刀叉的使用手法是一种无声的阶级标识。这个事实曾让法尔奇内利感受复杂，却也以一种赤裸直观的方式让他意识到，生活中几乎一切可见的事物都是由文化传统构建…
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="http://www.infzm.com/contents/342821"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="RT World News"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">A major fire at a Canadian military base in Alberta has left people dead and injured, overwhelming local hospitals 
-Read Full Article at RT.com</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://mf.b37mrtl.ru/files/2026.10/thumbnail/6ad4539885f540686909ef4c.jpg"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">RT World News</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-10-18"
-                      datetime="2026-10-18T08:22:16.000Z"
-                    >2026-10-18</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    Seven killed in blaze at Canadian base
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    A major fire at a Canadian military base in Alberta has left people dead and injured, overwhelming local hospitals 
-Read Full Article at RT.com
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://rt-english.com/news/647346-seven-killed-blaze-canadian-base/?utm_source&#x3D;rss&amp;utm_medium&#x3D;rss&amp;utm_campaign&#x3D;RSS"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
                 data-src="钛媒体：引领未来商业与生活新知"
                 x-show="active === 'all' || active === $el.dataset.src"
                 x-transition:enter="transition ease-out duration-200"
@@ -102908,119 +101901,6 @@ Read Full Article at RT.com
                   <!-- Read link – @click.stop so the card click doesn't also fire -->
                   <a
                     href="https://www.tmtpost.com/8172264.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="南方周末"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">2026-10-18 15:00:00</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">南方周末</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-10-18"
-                      datetime="2026-10-18T07:25:07.000Z"
-                    >2026-10-18</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    世界职业技术教育发展大会：“硬核教具”现场圈粉
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    2026-10-18 15:00:00
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="http://www.infzm.com/contents/342833"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="少数派"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">Matrix首页推荐Matrix是少数派的写作社区，我们主张分享真实的产品体验，有实用价值的经验与思考。我们会不定期挑选Matrix最优质的文章，展示来自用户的最真实的体验和观点。文章代表作者个人观点 ...查看全文</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://rssfile.sspai.com/2026/10/07/454ceb2bc005958f21f1d42f16b68326.jpg?imageMogr2/auto-orient/ignore-error/1"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">少数派</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-10-18"
-                      datetime="2026-10-18T07:01:02.000Z"
-                    >2026-10-18</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    Quote/0 妙用 +1，把墨水屏变成点餐助手
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    Matrix首页推荐Matrix是少数派的写作社区，我们主张分享真实的产品体验，有实用价值的经验与思考。我们会不定期挑选Matrix最优质的文章，展示来自用户的最真实的体验和观点。文章代表作者个人观点 ...查看全文
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://sspai.com/post/115241"
                     target="_blank"
                     rel="noopener noreferrer"
                     @click.stop
