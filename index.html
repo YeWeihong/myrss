@@ -145,6 +145,24 @@
             <span class="truncate">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
           </button>
           <button
+            data-src="知乎日报"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">知乎日报</span>
+          </button>
+          <button
+            data-src="校长读报 - Telegram Channel"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">校长读报 - Telegram Channel</span>
+          </button>
+          <button
             data-src="RT World News"
             @click="setActive($el.dataset.src); sidebarOpen = false"
             :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
@@ -161,6 +179,15 @@
           >
             <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
             <span class="truncate">凤凰军事</span>
+          </button>
+          <button
+            data-src="差评X.PIN"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">差评X.PIN</span>
           </button>
           <button
             data-src="南方周末"
@@ -188,6 +215,15 @@
           >
             <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
             <span class="truncate">Latest Stories</span>
+          </button>
+          <button
+            data-src="UN News - Global perspective Human stories"
+            @click="setActive($el.dataset.src); sidebarOpen = false"
+            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
+            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
+            <span class="truncate">UN News - Global perspective Human stories</span>
           </button>
           <button
             data-src="看鉴中国 OutsightChina - Telegram Channel"
@@ -244,15 +280,6 @@
             <span class="truncate">中科院物理所</span>
           </button>
           <button
-            data-src="知乎日报"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">知乎日报</span>
-          </button>
-          <button
             data-src="知识分子"
             @click="setActive($el.dataset.src); sidebarOpen = false"
             :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
@@ -260,15 +287,6 @@
           >
             <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
             <span class="truncate">知识分子</span>
-          </button>
-          <button
-            data-src="校长读报 - Telegram Channel"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">校长读报 - Telegram Channel</span>
           </button>
           <button
             data-src="BestBlogs.dev - 精选文章"
@@ -307,15 +325,6 @@
             <span class="truncate">阿司匹林42195米</span>
           </button>
           <button
-            data-src="差评X.PIN"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">差评X.PIN</span>
-          </button>
-          <button
             data-src="环球科学"
             @click="setActive($el.dataset.src); sidebarOpen = false"
             :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
@@ -332,15 +341,6 @@
           >
             <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
             <span class="truncate">纽约时报中文网</span>
-          </button>
-          <button
-            data-src="UN News - Global perspective Human stories"
-            @click="setActive($el.dataset.src); sidebarOpen = false"
-            :class="active === $el.dataset.src ? 'bg-[#ffb1c5] text-white shadow-sm' : 'text-[#555555] hover:bg-[#fdd8eb]'"
-            class="w-full text-left px-4 py-2 rounded-xl text-xs transition-colors duration-150 flex items-center gap-2.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#ffa0bf] flex-shrink-0 opacity-70"></span>
-            <span class="truncate">UN News - Global perspective Human stories</span>
           </button>
           <button
             data-src="晚点LatePost"
@@ -536,8 +536,8 @@
 
         <!-- Sidebar Footer -->
         <div class="px-4 py-3 border-t border-[#f5bcd8] text-[10px] text-[#b88aaa]">
-          <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/YeWeihong/myrss/actions/runs/43622313664">
-            构建于 <time datetime="2026-11-14T17:40:51.723Z">2026-11-14T17:40:51.723Z</time>
+          <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/YeWeihong/myrss/actions/runs/43654175514">
+            构建于 <time datetime="2026-11-14T23:38:36.424Z">2026-11-14T23:38:36.424Z</time>
           </a>
           <div class="mt-0.5">
             <a class="hover:text-[#e8649a] transition-colors" href="https://github.com/osmoscraft/osmosfeed">osmosfeed 1.15.1</a>
@@ -576,6 +576,955 @@
           <main class="flex-1 p-4 md:p-6 overflow-y-auto">
             <div class="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-4 md:gap-5">
 
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">中共阳泉市委书记鞠振任山西省副省长，朱晓东、常书铭卸任。
+综合中新社和澎湃新闻报道，山西省第十四届人民代表大会常务委员会第三十一次会议星期六（11月14日）举行第二次全体会议，表决通过了人事任免名单，决定任命鞠振为山西省副省长，决定免去朱晓东、常书铭的副省长职务。
+公开资料显示，鞠振是天津人，生于1972年4月，历史学硕士学位，1991年12月加入中国共产党，1994年7月参加工作。
+他曾任山西省政府外事侨务办副主任、党组成员，运城市委常委、河津市委书记，山西省农业农村厅党组书记、厅长，神农科技集团有限公司党委书记、董事长、广誉远中药股份有限公司党委书记、董事长，山西省市场监督管理局党组书记、局长，阳泉市委副书记、市长等职，2025年12月任阳泉市委书记。任副省长前，鞠振已任山西省政府党组成员。
+此次卸任副省长的朱晓东现为山西省委常委、大同市委书记，常书铭为山西省委常委、统战部部长。</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/984fe19ff42b8840f1bb19e805c6d2a7edf43021df6a3b296eda3850c9c7943f"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-11-15"
+                      datetime="2026-11-14T23:38:02.240Z"
+                    >2026-11-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    “70后”鞠振任山西副省长
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中共阳泉市委书记鞠振任山西省副省长，朱晓东、常书铭卸任。
+综合中新社和澎湃新闻报道，山西省第十四届人民代表大会常务委员会第三十一次会议星期六（11月14日）举行第二次全体会议，表决通过了人事任免名单，决定任命鞠振为山西省副省长，决定免去朱晓东、常书铭的副省长职务。
+公开资料显示，鞠振是天津人，生于1972年4月，历史学硕士学位，1991年12月加入中国共产党，1994年7月参加工作。
+他曾任山西省政府外事侨务办副主任、党组成员，运城市委常委、河津市委书记，山西省农业农村厅党组书记、厅长，神农科技集团有限公司党委书记、董事长、广誉远中药股份有限公司党委书记、董事长，山西省市场监督管理局党组书记、局长，阳泉市委副书记、市长等职，2025年12月任阳泉市委书记。任副省长前，鞠振已任山西省政府党组成员。
+此次卸任副省长的朱晓东现为山西省委常委、大同市委书记，常书铭为山西省委常委、统战部部长。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20261115-9999854"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">“现在是中国人做短剧给美国人看。”
+今年41岁的创业者乐乘，在美国硅谷待了两个星期后发出这样的感慨。“人工智能（AI）短剧，从应用平台到内容制作……背后挤满了中国团队。”
+乐乘2024年离开阿里巴巴，在新加坡创立公司，向东南亚和美国的内容创作者提供AI短剧制作工具TopView。他观察到，中国玩家正将国内市场练就的短剧制作方法，连同AI工具和平台一起推向海外。
+中国国内短剧市场竞争激烈，企业几年前已开始征战海外。新加坡国立大学东亚研究所今年2月的报告显示，全球收入最高的50款短剧应用中，41款来自中国开发商。
+AI模型的成熟，更加速了这一趋势。至今年9月底，中国已出海微短剧约29万部，较2025年底增长近290%，其中AI剧占比超过六成。
+近期在美国上线的AI生成短剧《Deny Me, Dragon King》（龙王，别拒绝我），累计观看次数已超过3亿次。出品方DramaBox的母公司是中国点众科技。
+故事讲述一名女子遭龙族首领抛弃，多年后带娃归来，霸总低头追妻，把恶毒女配、豪门恩怨等经典“网文”套路融入西方奇幻世界。
+乐乘说，在中国短视频市场厮杀过的玩家，对几十秒就得有一个“爽点”、每集结尾必须留下悬念的叙事套路，早已驾轻就熟。“她开头被欺负了，你知道她一定要逆袭的，但什么时候逆袭，怎么逆袭？为什么又有反转？你就会看下去。”
+借助AI技术，主角可以是龙族首领，也可以是华尔街的亿万富翁，《暮光之城》里的吸血鬼和狼人，或者《教父》式的黑手党。“美国观众看的时候不会想到所谓的‘中国短剧套路’。内核是爽文，呈现形式是本土的。”
+不过，乐乘说，大多数好莱坞编剧看不上这些模板化的内容，认为它们缺乏人文深度，是快餐式作品，不愿放下身段参与制作。“所以现在美国本土的短剧生产方和消费方，还没有真正match（对接）上”，热门作品多出自中国团队之手。
+但他指出，这种局面不会一直持续。“文化产…</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://cassette.sphdigital.com.sg/image/zaobao/8b9ec3ce67d7c040186c887316dda0259081fa6e17bfd1df79fd1744cdde9bfa"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-11-15"
+                      datetime="2026-11-14T23:38:02.230Z"
+                    >2026-11-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    中国特稿：中国出口“Ai霸总”生产线 是文化出海还是流量生意？
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    “现在是中国人做短剧给美国人看。”
+今年41岁的创业者乐乘，在美国硅谷待了两个星期后发出这样的感慨。“人工智能（AI）短剧，从应用平台到内容制作……背后挤满了中国团队。”
+乐乘2024年离开阿里巴巴，在新加坡创立公司，向东南亚和美国的内容创作者提供AI短剧制作工具TopView。他观察到，中国玩家正将国内市场练就的短剧制作方法，连同AI工具和平台一起推向海外。
+中国国内短剧市场竞争激烈，企业几年前已开始征战海外。新加坡国立大学东亚研究所今年2月的报告显示，全球收入最高的50款短剧应用中，41款来自中国开发商。
+AI模型的成熟，更加速了这一趋势。至今年9月底，中国已出海微短剧约29万部，较2025年底增长近290%，其中AI剧占比超过六成。
+近期在美国上线的AI生成短剧《Deny Me, Dragon King》（龙王，别拒绝我），累计观看次数已超过3亿次。出品方DramaBox的母公司是中国点众科技。
+故事讲述一名女子遭龙族首领抛弃，多年后带娃归来，霸总低头追妻，把恶毒女配、豪门恩怨等经典“网文”套路融入西方奇幻世界。
+乐乘说，在中国短视频市场厮杀过的玩家，对几十秒就得有一个“爽点”、每集结尾必须留下悬念的叙事套路，早已驾轻就熟。“她开头被欺负了，你知道她一定要逆袭的，但什么时候逆袭，怎么逆袭？为什么又有反转？你就会看下去。”
+借助AI技术，主角可以是龙族首领，也可以是华尔街的亿万富翁，《暮光之城》里的吸血鬼和狼人，或者《教父》式的黑手党。“美国观众看的时候不会想到所谓的‘中国短剧套路’。内核是爽文，呈现形式是本土的。”
+不过，乐乘说，大多数好莱坞编剧看不上这些模板化的内容，认为它们缺乏人文深度，是快餐式作品，不愿放下身段参与制作。“所以现在美国本土的短剧生产方和消费方，还没有真正match（对接）上”，热门作品多出自中国团队之手。
+但他指出，这种局面不会一直持续。“文化产…
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://www.zaobao.com.sg/news/china/story20261115-9982122"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="知乎日报"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">Asher，来996.ninja摸鱼？
+查看知乎原文
+
+
+
+有一个非常典型的案例：频率分析
+公元 850 年，一个阿拉伯人写了一本薄薄的小册子。
+这本书里描述了一种方法：只要统计密文中每个符号出现的次数，和目标语言的字母频率做对照，任何替换密码都会被轻松破解。
+这个方法叫频率分析。发明者是 Al-Kindi，巴格达的博学家。然后这本书消失了。
+在随后的 600 年里，整个欧洲大陆继续使用单表替换密码（凯撒密码的变体），并且深信它无法被破译。国王用它传递军令，教廷用它交换机密，商人用它保护账簿。没有人知道，600 年前就已经有人能一眼看穿这些密文。
+直到 15 世纪文艺复兴时期，意大利学者才「重新发明」了频率分析——比 Al-Kindi 晚了六个世纪。
+在线 demo
+在开始正文之前，可以先在在线 demo 中体验一下如何使用 频率分析：破解古典密码的千年技术
+
+
+一个密码能骗人多久
+问题来了：频率分析到底是怎么工作的？为什么它能破解「替换密码」？
+先看一个最简单的例子。凯撒密码的规则：把每个字母往后移动固定位数。偏移 3 位，A 变 D，B 变 E，Z 绕回变 C。
+用偏移 3 加密 “THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG”，得到：
+WKH TXLFN EURZQ IRA MXPSV RYHU WKH ODCB GRJ
+
+看起来像乱码。但字母的出现频率骗不了人。
+英文中，E 出现的频率最高（12.7%），T 其次（9.1%），A 第三（8.2%）。这组数据来自 Robert Lewand 2000 年对大量英文语料的统计（Cryptological Mathematics, MAA）。
+如果你把密文中每个字母的出现次数统计出来，画一张柱状图——你会发现这张图的形状和英文标准频率一模一样，只是整体向右平移了几格。
+
+平移了几格…</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://picx.zhimg.com/v2-f18293c2aa2e6fcc09259611dcdf9d53.jpg?source&#x3D;8673f162"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">知乎日报</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-11-15"
+                      datetime="2026-11-14T23:37:59.464Z"
+                    >2026-11-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    有哪些技术遗失后又被重复发明的例子?
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Asher，来996.ninja摸鱼？
+查看知乎原文
+
+
+
+有一个非常典型的案例：频率分析
+公元 850 年，一个阿拉伯人写了一本薄薄的小册子。
+这本书里描述了一种方法：只要统计密文中每个符号出现的次数，和目标语言的字母频率做对照，任何替换密码都会被轻松破解。
+这个方法叫频率分析。发明者是 Al-Kindi，巴格达的博学家。然后这本书消失了。
+在随后的 600 年里，整个欧洲大陆继续使用单表替换密码（凯撒密码的变体），并且深信它无法被破译。国王用它传递军令，教廷用它交换机密，商人用它保护账簿。没有人知道，600 年前就已经有人能一眼看穿这些密文。
+直到 15 世纪文艺复兴时期，意大利学者才「重新发明」了频率分析——比 Al-Kindi 晚了六个世纪。
+在线 demo
+在开始正文之前，可以先在在线 demo 中体验一下如何使用 频率分析：破解古典密码的千年技术
+
+
+一个密码能骗人多久
+问题来了：频率分析到底是怎么工作的？为什么它能破解「替换密码」？
+先看一个最简单的例子。凯撒密码的规则：把每个字母往后移动固定位数。偏移 3 位，A 变 D，B 变 E，Z 绕回变 C。
+用偏移 3 加密 “THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG”，得到：
+WKH TXLFN EURZQ IRA MXPSV RYHU WKH ODCB GRJ
+
+看起来像乱码。但字母的出现频率骗不了人。
+英文中，E 出现的频率最高（12.7%），T 其次（9.1%），A 第三（8.2%）。这组数据来自 Robert Lewand 2000 年对大量英文语料的统计（Cryptological Mathematics, MAA）。
+如果你把密文中每个字母的出现次数统计出来，画一张柱状图——你会发现这张图的形状和英文标准频率一模一样，只是整体向右平移了几格。
+
+平移了几格…
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://daily.zhihu.com/story/9794006"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="知乎日报"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">晴耕雨读的浣熊君，在知乎撂地的闲散科普创作者，争取每周双更
+查看知乎原文
+
+
+
+
+先说结论的话就是，现代电影普遍没有了幕间休息（intermission）这个环节的主要原因之一，就是成本控制与院线销售策略的改变，而这一切的一切还得从上个世纪 50 年代的电影产业说起。
+我们在之前的回答中讲过，美国社会在二战后的消费主义浪潮这件事，因为二战期间家电、娱乐业的市场需求被压制太久，而管控一放松加上返乡退伍士兵领了军饷，整个消费市场顿时陷入了勃勃生机之中。
+而人们采购的大头之一就是电视机，原因很简单，电视在 50 年代的定位就是今天的短视频，只要你投资买回来电视并安装天线，甚至你不想安装还可以蹭邻居的天线，只要附近人家有一家搜到本地电视台的信号后，那么大家只需要接上天线，看电视节目就没有什么后续成本，如果你家有天线电视信号还好，你还能白嫖邻居带来的零食。
+没错我们在猫和老鼠里看到的这玩意就是用来收电视信号的
+
+所以美国家庭的电视保有量突飞猛进，从 1950 年的约 9%，到 1955 年就已经到了约 65%，这个恐怖的增长量可能只有 17、18 年智能手机的爆炸式增长能与之匹敌，而电影行业当时就在对抗流媒体了。
+如果你要是电视都不想买也可以，带点吃的喝的去蹭领居家电视看看棒球赛也能满足日常娱乐需求，这种桥段我觉得大家在美剧中的时代剧比如《小谢尔顿》中都多少能看到。
+但对于电影行业尤其是派拉蒙、华纳这类传统电影巨头来说，这可就是灭顶之灾了，尤其是 1956 年电影反垄断法案审理时期的证据表明，1946~1954 年，全美票房收入锐减下降 33%，简单来说人们不去电影院消费去了。
+原因无疑是市场上有了替代品，娱乐成本也放在那了，一个是打开电视机直接开看，需要承担的最大成本是健康问题，只要你不怕坐在电视机前不运动胖成皮特格里芬就没事，毕竟久坐和高糖饮食就是美国肥胖问题的主要原因之一。
+另…</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://picx.zhimg.com/v2-ae95afcea3ba672873a86fa966ea4409.jpg?source&#x3D;8673f162"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">知乎日报</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-11-15"
+                      datetime="2026-11-14T23:37:59.093Z"
+                    >2026-11-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    电影放映中途为什么不暂停给上厕所的时间？
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    晴耕雨读的浣熊君，在知乎撂地的闲散科普创作者，争取每周双更
+查看知乎原文
+
+
+
+
+先说结论的话就是，现代电影普遍没有了幕间休息（intermission）这个环节的主要原因之一，就是成本控制与院线销售策略的改变，而这一切的一切还得从上个世纪 50 年代的电影产业说起。
+我们在之前的回答中讲过，美国社会在二战后的消费主义浪潮这件事，因为二战期间家电、娱乐业的市场需求被压制太久，而管控一放松加上返乡退伍士兵领了军饷，整个消费市场顿时陷入了勃勃生机之中。
+而人们采购的大头之一就是电视机，原因很简单，电视在 50 年代的定位就是今天的短视频，只要你投资买回来电视并安装天线，甚至你不想安装还可以蹭邻居的天线，只要附近人家有一家搜到本地电视台的信号后，那么大家只需要接上天线，看电视节目就没有什么后续成本，如果你家有天线电视信号还好，你还能白嫖邻居带来的零食。
+没错我们在猫和老鼠里看到的这玩意就是用来收电视信号的
+
+所以美国家庭的电视保有量突飞猛进，从 1950 年的约 9%，到 1955 年就已经到了约 65%，这个恐怖的增长量可能只有 17、18 年智能手机的爆炸式增长能与之匹敌，而电影行业当时就在对抗流媒体了。
+如果你要是电视都不想买也可以，带点吃的喝的去蹭领居家电视看看棒球赛也能满足日常娱乐需求，这种桥段我觉得大家在美剧中的时代剧比如《小谢尔顿》中都多少能看到。
+但对于电影行业尤其是派拉蒙、华纳这类传统电影巨头来说，这可就是灭顶之灾了，尤其是 1956 年电影反垄断法案审理时期的证据表明，1946~1954 年，全美票房收入锐减下降 33%，简单来说人们不去电影院消费去了。
+原因无疑是市场上有了替代品，娱乐成本也放在那了，一个是打开电视机直接开看，需要承担的最大成本是健康问题，只要你不怕坐在电视机前不运动胖成皮特格里芬就没事，毕竟久坐和高糖饮食就是美国肥胖问题的主要原因之一。
+另…
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://daily.zhihu.com/story/9793987"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="知乎日报"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">知谦，以富润屋，不如以德润身。
+查看知乎原文
+
+
+
+朋友，如果你穿越到古代大城市，估计尝一口咸苦井水的勇气都没有。
+因为你已经喝惯了自来水。
+自来水应该是现代公共卫生领域最重要的成就之一了。
+因为它用物理、化学和生物等工艺，把你能想到和想不到的水质污染指标都搞到了很低的程度，这就解决了很多人持续、稳定且相对低成本获取健康生活用水的问题。
+我国自来水水质执行《生活饮用水卫生标准》（GB 5749-2022），出厂需检测 97 项指标，光是微生物、毒理、感官等常规指标就有 43 项。
+可以说，
+现在的自来水除了来自自身消毒工艺的消毒副产物、出厂后输水管网的二次污染及某些重金属、药物代谢物、氟化物等常规水厂工艺难以有效去除的污染物之外（但健康风险总体可控），其他方面的水质指标可以说全面碾压古代的饮用水。
+首先，古人主要饮用井水，当然也有河水、溪水、湖水等地表水。
+河姆渡木构水井遗址
+洛阳烧沟汉墓出土的陶井模型
+这些水虽然没有现代工业污染，但却存在微生物、寄生虫等污染风险。
+井水：古人最主要的饮用水源
+古人取河水
+就算雨水也不例外。
+虽然古时大气污染极少，雨水本身较为清洁。但收集储藏过程同样可能染尘和接触微生物。
+尤其是古人的储水蓄水设施比较简陋，多为开放式，和现在的封闭式储水设施没法比，容易产生污染。
+古时的水缸和现代的自来水箱
+因此，一旦遇上垃圾、粪便等污染水源，尤其是遇到涨水、内涝等情况，水体里面的微生物、寄生虫、悬浮物等就会增多，轻则影响健康，重则可能导致霍乱、痢疾、伤寒等介水传染病的传播，这就严重了。
+关于这一点，大家还别不信。古代的水污染尤其是大城市的水污染，有时影响还真挺大，甚至大到可以不得不迁都的程度。
+其中一个重要原因，就是古代城市排水（排污）系统不行，主要靠各种沟渠和壕池[1][2]，尤其是在城墙外、主干道旁或大型建筑的外围。
+地下排水管道有是有，主要以陶管、暗…</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://pica.zhimg.com/v2-980d1b698957031dd83b74bbaedb3c8f.jpg?source&#x3D;8673f162"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">知乎日报</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-11-15"
+                      datetime="2026-11-14T23:37:59.078Z"
+                    >2026-11-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    古代的苦水水质口感相当于现在的自来水吗？
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    知谦，以富润屋，不如以德润身。
+查看知乎原文
+
+
+
+朋友，如果你穿越到古代大城市，估计尝一口咸苦井水的勇气都没有。
+因为你已经喝惯了自来水。
+自来水应该是现代公共卫生领域最重要的成就之一了。
+因为它用物理、化学和生物等工艺，把你能想到和想不到的水质污染指标都搞到了很低的程度，这就解决了很多人持续、稳定且相对低成本获取健康生活用水的问题。
+我国自来水水质执行《生活饮用水卫生标准》（GB 5749-2022），出厂需检测 97 项指标，光是微生物、毒理、感官等常规指标就有 43 项。
+可以说，
+现在的自来水除了来自自身消毒工艺的消毒副产物、出厂后输水管网的二次污染及某些重金属、药物代谢物、氟化物等常规水厂工艺难以有效去除的污染物之外（但健康风险总体可控），其他方面的水质指标可以说全面碾压古代的饮用水。
+首先，古人主要饮用井水，当然也有河水、溪水、湖水等地表水。
+河姆渡木构水井遗址
+洛阳烧沟汉墓出土的陶井模型
+这些水虽然没有现代工业污染，但却存在微生物、寄生虫等污染风险。
+井水：古人最主要的饮用水源
+古人取河水
+就算雨水也不例外。
+虽然古时大气污染极少，雨水本身较为清洁。但收集储藏过程同样可能染尘和接触微生物。
+尤其是古人的储水蓄水设施比较简陋，多为开放式，和现在的封闭式储水设施没法比，容易产生污染。
+古时的水缸和现代的自来水箱
+因此，一旦遇上垃圾、粪便等污染水源，尤其是遇到涨水、内涝等情况，水体里面的微生物、寄生虫、悬浮物等就会增多，轻则影响健康，重则可能导致霍乱、痢疾、伤寒等介水传染病的传播，这就严重了。
+关于这一点，大家还别不信。古代的水污染尤其是大城市的水污染，有时影响还真挺大，甚至大到可以不得不迁都的程度。
+其中一个重要原因，就是古代城市排水（排污）系统不行，主要靠各种沟渠和壕池[1][2]，尤其是在城墙外、主干道旁或大型建筑的外围。
+地下排水管道有是有，主要以陶管、暗…
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://daily.zhihu.com/story/9793817"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="知乎日报"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">知乎用户，这人很懒，懒到连介绍都不想介绍。
+查看知乎原文
+
+
+
+一句话回答：电影效果就是电影效果，现实中真要做炸弹，根本不会给你选择剪线的机会，甚至连给你移动炸弹的机会都没有。
+来，给题主展示下 1980 年的一枚定时炸弹：
+1980 年哈维斯赌场定时炸弹勒索案中勒索用的定时炸弹
+这枚炸弹产自 1980 年，制作者是 59 岁的匈牙利裔移民约翰·伯吉斯，他为了向赌场勒索 300 万美元，制造了这个经典的防拆解定时炸弹。
+这枚炸弹应用的东西全是民用设备，而且都是非常简单的机械结构，但是就是这么一堆简单结构，硬生生难翻了当时的 FBI，最后拆弹专家在最后尝试拆解时，依然触发了里面的触动装置，造成大爆炸，直接报废了哈维赌场的主建筑。
+这枚炸弹有多牛？
+1、倾斜与震动。内部就是一个非常简单的摆锤，但是就是这么个很简单的摆锤，在炸弹放稳并激活炸弹后，任何大于一定幅度的倾斜和触动，都会让摆锤触碰金属环，引爆环路接通，引爆炸弹。
+2、防拆卸螺丝。据审问和炸弹专家分析，所有的螺丝的垫片都有一张极薄的纸作为绝缘，一旦拧动螺丝，导致那张纸破裂，立刻就会接通位于炸弹箱体的电路，导致引爆环路接通，引爆炸弹。
+3、防钻孔设计。炸弹外壳分三层，内外金属壳和中间铝箔，钻头在任意位置钻进炸弹外壳，都会接通电路，同时这个机制还连接了防拆螺丝。
+4、防注水 / 注气浮球。内部有个马桶上用的浮球装置，往里面注水试图冰冻里面的机械开关一样不可能，无论注水还是注入液氮，都可能导致浮球摆动，引爆炸弹。
+5、气压开关。在多个盖板位置安置了压力开关，就算拆弹专家侥幸拆掉了盖板螺丝，盖板一松就会触发压力开关，引爆炸弹。
+6、多重定时器与开关陷阱。这玩意儿内部有 3 个计时器，28 个开关，据伯吉斯说 28 个开关必须按正确的顺序拨动才能解除引信，但是后来有分析认为作为园艺商人的伯吉斯没有弄出 28 位编程开关的能力。我个人…</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://picx.zhimg.com/v2-f388669e34ad7f57798516d5ad0c1247.jpg?source&#x3D;8673f162"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">知乎日报</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-11-15"
+                      datetime="2026-11-14T23:37:59.062Z"
+                    >2026-11-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    拆弹的时候为什么不一下把线全剪了?
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    知乎用户，这人很懒，懒到连介绍都不想介绍。
+查看知乎原文
+
+
+
+一句话回答：电影效果就是电影效果，现实中真要做炸弹，根本不会给你选择剪线的机会，甚至连给你移动炸弹的机会都没有。
+来，给题主展示下 1980 年的一枚定时炸弹：
+1980 年哈维斯赌场定时炸弹勒索案中勒索用的定时炸弹
+这枚炸弹产自 1980 年，制作者是 59 岁的匈牙利裔移民约翰·伯吉斯，他为了向赌场勒索 300 万美元，制造了这个经典的防拆解定时炸弹。
+这枚炸弹应用的东西全是民用设备，而且都是非常简单的机械结构，但是就是这么一堆简单结构，硬生生难翻了当时的 FBI，最后拆弹专家在最后尝试拆解时，依然触发了里面的触动装置，造成大爆炸，直接报废了哈维赌场的主建筑。
+这枚炸弹有多牛？
+1、倾斜与震动。内部就是一个非常简单的摆锤，但是就是这么个很简单的摆锤，在炸弹放稳并激活炸弹后，任何大于一定幅度的倾斜和触动，都会让摆锤触碰金属环，引爆环路接通，引爆炸弹。
+2、防拆卸螺丝。据审问和炸弹专家分析，所有的螺丝的垫片都有一张极薄的纸作为绝缘，一旦拧动螺丝，导致那张纸破裂，立刻就会接通位于炸弹箱体的电路，导致引爆环路接通，引爆炸弹。
+3、防钻孔设计。炸弹外壳分三层，内外金属壳和中间铝箔，钻头在任意位置钻进炸弹外壳，都会接通电路，同时这个机制还连接了防拆螺丝。
+4、防注水 / 注气浮球。内部有个马桶上用的浮球装置，往里面注水试图冰冻里面的机械开关一样不可能，无论注水还是注入液氮，都可能导致浮球摆动，引爆炸弹。
+5、气压开关。在多个盖板位置安置了压力开关，就算拆弹专家侥幸拆掉了盖板螺丝，盖板一松就会触发压力开关，引爆炸弹。
+6、多重定时器与开关陷阱。这玩意儿内部有 3 个计时器，28 个开关，据伯吉斯说 28 个开关必须按正确的顺序拨动才能解除引信，但是后来有分析认为作为园艺商人的伯吉斯没有弄出 28 位编程开关的能力。我个人…
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://daily.zhihu.com/story/9794016"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="知乎日报"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">黄河边儿，勤学善思，理性科普，热爱生活，向阳而行。
+查看知乎原文
+
+
+
+彩虹本来就是一个圆。只要位置合适，看到的就会像这样：
+圆形彩虹，图来自：https://enewstree.com/discuz/forum.php?mod&#x3D;viewthread&amp;tid&#x3D;133467
+https://x.com/mark_tarello/status/1915729420737785879/photo/1
+https://www.tumblr.com/tagged/circle
+之所以，我们看到的都是一个拱门的弧型形状，像下面这样，是因为地面挡住了圆环的下半圈。
+我拍的窗外彩虹
+但是不是所有的位置都可以看到彩虹，这里有一个关键的角度 40-42 度，那这个角度是怎么来的呢？
+彩虹形成的基本原理是光的色散，即光的不同波长在介质中的传播速度不同，从而导致折射率不同。在彩虹这个问题中，光在水中的速度会降低，不同波长的光会以不同的速度传播，短波长的蓝光和紫光在介质中的速度比长波长的红光慢。
+所以，按照 snell 定律，sinθ1/v1&#x3D;sinθ2/v2 ,红光具有更小的折射角度。
+好了，那么当雨后空气中充满了小水滴，而此时有又有阳光照射，就有可能出现彩虹。假设下图蓝圈是亿万颗小水滴中的一个，黑色虚线是此时太阳光照射来的自然光，那么太阳光就会在这颗小水滴中发生如下图所示的色散，具体说就是在 A 点发生折射，然后在 B 点发生全反射，C 点再次折射。
+值得注意的是，想要形成明显的色散，进而形成明显的彩虹，需要太阳光在 A 点的入射角和在 C 点的出射角有一定的角度才可以，过大或者过小都会导致色散变弱，进而导致彩虹不可见，理想的角度是：太阳光入射的延长线和红光出射的延长线交角在 42 度，如下图标记。
+光在一颗小水滴中发生色散：太阳光入射的延长线和红光出射的延长线交角在 42 度
+太阳光入射的延长线和紫光出射的延长线交角在 40 度，如下图[1]所示。
+光在一颗小水滴中发生色散：太阳光入射的延长线和紫光出射的延长线交角在 40 度
+那么，水滴色散后，怎么形成彩虹呢？
+要知道这样的水滴有亿万个，下图画了一个示意图，黑色是入射的平行太阳光。为了做图清晰，我只展示了赤黄青紫四个颜色，不同位置的水滴同时发生光的色散，然后聚焦在人眼处，所以，这时候人眼中看到了多种颜色的自然光。
+彩虹通常出现在太阳的对侧，也就是说，太阳在人的背后，观察者面向水滴时才能看到彩虹。
+多个水滴的色散，被人观察到多种颜色的光
+一个立体图的展示如下图。一个地面上的观测者可以在角度合适的时候（太阳光入射和小水滴散射的出射角夹角在 40-42 度之间），看到半圈的彩虹；这时候，地面把你视线以下的部分遮挡了，40–42° 光锥与雨滴幕只在地平线以上有交线，所以是一个拱形。
+太阳在身后，观测角度 40-42 度，看到拱形彩虹，图来自：https://www.amsweatherband.org/weatherband/articles/invisible-rainbows/
+但是如果观测者在高处，如下图，就可能看到整个彩虹，就像题目里描述的那样。
+这时候，人视线的下方也有大量悬空雨滴，地平线不再把圆的下半截挡住，所以整个圆形彩虹都能展示出来，当然前提是雨滴分布要足够广。图里的彩虹的边界的红光对应的观测夹角是 42 度；而紫光边界对应的观测夹角是 40 度。
+观测者在高处，人视线的下方也有大量悬空雨滴，地平线不再把圆的下半截挡住，看到整个圆形彩虹
+当然，也可以这么理解：彩虹出现的关键是观测位置符合 40-42 度的角度，当这个角度固定了，就好比，我们拿着圆规，固定角度 40 和 42 度，然后圆规的一条腿固定指向人眼，另一个条腿转圈，形成的路径就是彩虹的边界(40- 紫光边界，42- 红光边界)。如果是在地面空间有限，就只有半个圆，如果是在高空，空间充足，这样整个圆形彩虹都能展示出来。
+飞机上看到的圆形彩虹
+总结一下就是，彩虹之所以是圆的，是因为光在小水滴内经过折射和反散后，出射角和入射角满足特定夹角，以人眼为中心观测不同位置同一角度的出射光，就会看到圆形。
+最后贴一张我在尼亚加拉瀑布拍到的彩虹：
+大彩虹
+
+哦对了，还有这种双彩虹，下图是我在瀑布下面拍摄到的双彩虹。
+这种彩虹有一个特点，就是内圈主彩虹中，弧线的外部显示红色，内部显示紫色。它的形成原因桶上。
+但是，第二道彩虹，它的颜色顺序相反，弧线内侧为红色，外侧为紫色。
+我在尼亚加拉瀑布下拍摄到的双彩虹
+下图是双彩虹形成的光路径图[2]，简单说，双彩虹的第二道彩虹是由于光在离开液滴之前在液滴内部反射了两次造成的，如下图左上。
+双彩虹形成原理
+好了，就这样了...
+查看知乎讨论</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://picx.zhimg.com/v2-475de270d98502cc9c18996827023b98.jpg?source&#x3D;8673f162"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">知乎日报</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-11-15"
+                      datetime="2026-11-14T23:37:59.060Z"
+                    >2026-11-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    彩虹为什么是弧形，而不是完整的圆形，阳光经过水滴折射反射，为什么会形成固定的七彩色彩顺序？
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    黄河边儿，勤学善思，理性科普，热爱生活，向阳而行。
+查看知乎原文
+
+
+
+彩虹本来就是一个圆。只要位置合适，看到的就会像这样：
+圆形彩虹，图来自：https://enewstree.com/discuz/forum.php?mod&#x3D;viewthread&amp;tid&#x3D;133467
+https://x.com/mark_tarello/status/1915729420737785879/photo/1
+https://www.tumblr.com/tagged/circle
+之所以，我们看到的都是一个拱门的弧型形状，像下面这样，是因为地面挡住了圆环的下半圈。
+我拍的窗外彩虹
+但是不是所有的位置都可以看到彩虹，这里有一个关键的角度 40-42 度，那这个角度是怎么来的呢？
+彩虹形成的基本原理是光的色散，即光的不同波长在介质中的传播速度不同，从而导致折射率不同。在彩虹这个问题中，光在水中的速度会降低，不同波长的光会以不同的速度传播，短波长的蓝光和紫光在介质中的速度比长波长的红光慢。
+所以，按照 snell 定律，sinθ1/v1&#x3D;sinθ2/v2 ,红光具有更小的折射角度。
+好了，那么当雨后空气中充满了小水滴，而此时有又有阳光照射，就有可能出现彩虹。假设下图蓝圈是亿万颗小水滴中的一个，黑色虚线是此时太阳光照射来的自然光，那么太阳光就会在这颗小水滴中发生如下图所示的色散，具体说就是在 A 点发生折射，然后在 B 点发生全反射，C 点再次折射。
+值得注意的是，想要形成明显的色散，进而形成明显的彩虹，需要太阳光在 A 点的入射角和在 C 点的出射角有一定的角度才可以，过大或者过小都会导致色散变弱，进而导致彩虹不可见，理想的角度是：太阳光入射的延长线和红光出射的延长线交角在 42 度，如下图标记。
+光在一颗小水滴中发生色散：太阳光入射的延长线和红光出射的延长线交角在 42 度
+太阳光入射的延长线和紫光出射的延长线交角在 40 度，如下图[1]所示。
+光在一颗小水滴中发生色散：太阳光入射的延长线和紫光出射的延长线交角在 40 度
+那么，水滴色散后，怎么形成彩虹呢？
+要知道这样的水滴有亿万个，下图画了一个示意图，黑色是入射的平行太阳光。为了做图清晰，我只展示了赤黄青紫四个颜色，不同位置的水滴同时发生光的色散，然后聚焦在人眼处，所以，这时候人眼中看到了多种颜色的自然光。
+彩虹通常出现在太阳的对侧，也就是说，太阳在人的背后，观察者面向水滴时才能看到彩虹。
+多个水滴的色散，被人观察到多种颜色的光
+一个立体图的展示如下图。一个地面上的观测者可以在角度合适的时候（太阳光入射和小水滴散射的出射角夹角在 40-42 度之间），看到半圈的彩虹；这时候，地面把你视线以下的部分遮挡了，40–42° 光锥与雨滴幕只在地平线以上有交线，所以是一个拱形。
+太阳在身后，观测角度 40-42 度，看到拱形彩虹，图来自：https://www.amsweatherband.org/weatherband/articles/invisible-rainbows/
+但是如果观测者在高处，如下图，就可能看到整个彩虹，就像题目里描述的那样。
+这时候，人视线的下方也有大量悬空雨滴，地平线不再把圆的下半截挡住，所以整个圆形彩虹都能展示出来，当然前提是雨滴分布要足够广。图里的彩虹的边界的红光对应的观测夹角是 42 度；而紫光边界对应的观测夹角是 40 度。
+观测者在高处，人视线的下方也有大量悬空雨滴，地平线不再把圆的下半截挡住，看到整个圆形彩虹
+当然，也可以这么理解：彩虹出现的关键是观测位置符合 40-42 度的角度，当这个角度固定了，就好比，我们拿着圆规，固定角度 40 和 42 度，然后圆规的一条腿固定指向人眼，另一个条腿转圈，形成的路径就是彩虹的边界(40- 紫光边界，42- 红光边界)。如果是在地面空间有限，就只有半个圆，如果是在高空，空间充足，这样整个圆形彩虹都能展示出来。
+飞机上看到的圆形彩虹
+总结一下就是，彩虹之所以是圆的，是因为光在小水滴内经过折射和反散后，出射角和入射角满足特定夹角，以人眼为中心观测不同位置同一角度的出射光，就会看到圆形。
+最后贴一张我在尼亚加拉瀑布拍到的彩虹：
+大彩虹
+
+哦对了，还有这种双彩虹，下图是我在瀑布下面拍摄到的双彩虹。
+这种彩虹有一个特点，就是内圈主彩虹中，弧线的外部显示红色，内部显示紫色。它的形成原因桶上。
+但是，第二道彩虹，它的颜色顺序相反，弧线内侧为红色，外侧为紫色。
+我在尼亚加拉瀑布下拍摄到的双彩虹
+下图是双彩虹形成的光路径图[2]，简单说，双彩虹的第二道彩虹是由于光在离开液滴之前在液滴内部反射了两次造成的，如下图左上。
+双彩虹形成原理
+好了，就这样了...
+查看知乎讨论
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://daily.zhihu.com/story/9793804"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="知乎日报"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">野狸子，形而上学
+查看知乎原文
+
+
+
+先给题主吃颗定心丸，这个研究是存在的，7.5 分钟也是存在的。
+但你要是兴冲冲地就准备去下单十双珊瑚绒袜子治疗失眠，先容我们再把这篇论文过一遍。
+经查，这篇论文原文于 6 年前，也就是 2018 年发表在《J Physiol Anthropol》，论文研究是首尔国立大学的韩国团队做的。[1]
+
+目的很明确，判断床袜对冬季睡觉的影响。
+
+一个关键的细节来了，这项研究的其受试者一共 6 个人，都是 22 岁上下的年轻男性。
+
+不知道是不是研究人员选样本是作何考虑的，难道是拉了个大学男生宿舍的六人间数据？
+单从这点来看，无论这帮年轻人结果怎么样，要把结论直接推给全国人民，步子怎么看都有点大。
+
+这个实验选在在 23℃的环境舱里做，同一批人穿袜子、不穿袜子各睡一晚，自己跟自己比。
+实验检测的睡眠数据是怎么来的呢？
+原文如下：
+“The wrist-worn Actigraphy (wGT3X-BT, Actigraph, FL, USA) monitor, a tri-axial accelerometer, was worn on the non-dominant side of each subject to obtain objective sleep variable data.”
+（“腕戴式 Actigraphy（wGT3X-BT，Actigraph，佛罗里达州，美国）监视器，一台三轴加速度计，佩戴在每位受试者的非主导侧，以获取客观的睡眠变量数据。”）
+我查了下，这玩意长这样。
+Actigraphy
+你可以理解为，受试者的睡眠是用手腕上的活动记录仪测的，说白了就是根据你手动不动来猜你睡没睡着，也没用医院的专业的诸如多导睡眠图。
+紧接着，论文对“入睡潜伏期的”判定如下：
+sleep-onset latency (SOL—the amou…</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://picx.zhimg.com/v2-2fd394f9bdda1076ca5106852312583b.jpg?source&#x3D;8673f162"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">知乎日报</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-11-15"
+                      datetime="2026-11-14T23:37:59.018Z"
+                    >2026-11-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    研究称穿袜子睡觉可缩短入睡时间 7.5 分钟，是真的吗？背后的原理是啥？
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    野狸子，形而上学
+查看知乎原文
+
+
+
+先给题主吃颗定心丸，这个研究是存在的，7.5 分钟也是存在的。
+但你要是兴冲冲地就准备去下单十双珊瑚绒袜子治疗失眠，先容我们再把这篇论文过一遍。
+经查，这篇论文原文于 6 年前，也就是 2018 年发表在《J Physiol Anthropol》，论文研究是首尔国立大学的韩国团队做的。[1]
+
+目的很明确，判断床袜对冬季睡觉的影响。
+
+一个关键的细节来了，这项研究的其受试者一共 6 个人，都是 22 岁上下的年轻男性。
+
+不知道是不是研究人员选样本是作何考虑的，难道是拉了个大学男生宿舍的六人间数据？
+单从这点来看，无论这帮年轻人结果怎么样，要把结论直接推给全国人民，步子怎么看都有点大。
+
+这个实验选在在 23℃的环境舱里做，同一批人穿袜子、不穿袜子各睡一晚，自己跟自己比。
+实验检测的睡眠数据是怎么来的呢？
+原文如下：
+“The wrist-worn Actigraphy (wGT3X-BT, Actigraph, FL, USA) monitor, a tri-axial accelerometer, was worn on the non-dominant side of each subject to obtain objective sleep variable data.”
+（“腕戴式 Actigraphy（wGT3X-BT，Actigraph，佛罗里达州，美国）监视器，一台三轴加速度计，佩戴在每位受试者的非主导侧，以获取客观的睡眠变量数据。”）
+我查了下，这玩意长这样。
+Actigraphy
+你可以理解为，受试者的睡眠是用手腕上的活动记录仪测的，说白了就是根据你手动不动来猜你睡没睡着，也没用医院的专业的诸如多导睡眠图。
+紧接着，论文对“入睡潜伏期的”判定如下：
+sleep-onset latency (SOL—the amou…
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://daily.zhihu.com/story/9793997"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="校长读报 - Telegram Channel"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">2026年11月15日周日读报！一切美好从❤开始：
+1、11月14日，人社部、国家医保局联合发布2026年版医保、生育保险、工伤保险药品目录以及商业健康保险创新药品目录。这是国家医保局成立以来第9次目录调整，本次新增107种药品，其中51个为1类创新药，数量创历史新高。新增药物覆盖肿瘤、罕见病、慢性病等急需领域，同时调出34种不适宜药品，调整后目录药品总数达3331个。(财联社)
+2、近日，市场监管总局等三部门印发通知，拓展企业信息变更、注销登记等四项“一件事”集成办理事项，实现“一次申请、一窗受理、一网通办、一次办结”。(CCTV2)
+3、据商务部消息，11月13日，中美双方通过视频会议方式举行中美经贸磋商机制项下贸易理事会首次会议。双方以中美元首会晤重要共识为引领，围绕落实前期中美经贸磋商成果，就关税、“300亿对300亿”对等降税安排、农产品贸易以及各自关心的其他议题进行了坦诚、深入、建设性的交流。双方将通过贸易理事会继续加强沟通，推动解决各自经贸关切，不断拉长合作清单，压缩问题清单，助力构建基于尊重、公平、对等的中美建设性战略稳定关系。(财联社)
+4、11月14日，我国自主研制的10吨级电动商用飞机CE-25A在山东滨州完成首次有人驾驶智能飞行。CE-25A飞机搭载2名飞行员、1名试飞工程师，飞行试验57分46秒，其中空中飞行16分38秒、60.4公里。飞机状态正常，各项指标符合预期。这是继CE-25A今年2月2日无人驾驶智能首飞之后，该机研制的又一里程碑。(央视)
+5、证监会主席吴清14日在参加2026中国资本市场学术年会时表示，进一步深化市场微观结构研究。为进一步提升市场定价和发展质量，需要深入研究改善资本供给结构，加快发展壮大长期资本、耐心资本；深入研究改善预期引导机制，减少“羊群效应”“短期化”交易带来的市场波动；还要深入研究评估量化交易、股份减持等制度规则的优化和公平合理的监管安排，切实保护好投资者合法权益。(财联社)
+6、从第三批国际地质科学联合会地质遗产地中国入选地名单发布会上了解到，我国新增3处地质遗产地，分别为：重庆云阳中侏罗世恐龙化石群、四川鲜水河断裂、安徽大别山三叠纪超高压变质带。至此，我国共有13处入选。(新华社)
+7、12日，美国微软公司旗下微软365多项服务发生大范围故障，对多国政府机构、企业和个人用户造成影响。这是微软365服务今年第二次中断，引发外界对微软服务可靠性的担忧。当地时间13日，微软公司就这次全球性服务中断事件深表歉意。(CCTV13)
+8、美国中部时间13日16时48分许(北京时间14日6时48分许)，“星舰”从位于得克萨斯州南部的发射基地升空。此后，火箭一二级分离。“超级重型”助推器未按原计划返回发射场，在墨西哥湾海域受控溅落。据任务团队介绍，“星舰”飞船将继续执行飞行任务，计划进入距地球表面约275公里的轨道飞行，并将部署26颗新一代“星链”V3卫星。(新华社)
+9、据乌克兰国家通讯社14日报道，乌克兰总统泽连斯基当天对记者表示，美方曾提出让乌克兰放弃顿巴斯地区，以换取北约成员国的资格。(新华国际)
+10、当地时间11月13日，美国联邦航空管理局(FAA)宣布，地面停飞指令已取消。但是预计今明两天仍会出现大范围的航班取消或后续延误状况。当天稍早时，美国多个航路交通管制中心出现通信故障。出于安全考虑，美国联邦航空管理局自美东时间15时53分起暂停全美机场航班起飞。美国总统特朗普表示，美国空管系统故障与网络攻击或人工智能无关。(央视)
+11、日本共同社12日引述日美外交消息人士报道，美国要求日本政府，就2027年度起5年的驻日美军经费承担超过3万亿日元，约为现在的3倍。根据现行《日美特别协定》，日本平均每一年负担驻日美军经费约2110亿日元，五年合共约1万亿日元。日本政府原本已研究将每年分摊经费金额提高至3000亿日元，较目前高出大约三分一，但美国特朗普政府据报开出的增幅更大，要求提高至3倍，每年向华府支付约6330亿日元。双方正在继续协商，希望年底前可以达成新版协议。由于差距庞大，预计谈判将会极为艰难。(凤凰卫视)
+12、真正的自信，从来不是无所不知，而是明知有不懂的地方，仍愿意躬身探寻；发现判断出现偏差，也敢于及时修正。人对自我的认识，很难一蹴而就。边走边校准方向，本身就是一种成熟。成熟也不是要丢掉自信，而是越来越能坦然接纳：一个人能看到的，终究有限。承认这一点，不是看轻自己，而是离真实的自己更近一步。美好一天从“成熟”开始！</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">校长读报 - Telegram Channel</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-11-15"
+                      datetime="2026-11-14T23:22:12.000Z"
+                    >2026-11-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    2026年11月15日周日读报！一切美好从❤开始：
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    2026年11月15日周日读报！一切美好从❤开始：
+1、11月14日，人社部、国家医保局联合发布2026年版医保、生育保险、工伤保险药品目录以及商业健康保险创新药品目录。这是国家医保局成立以来第9次目录调整，本次新增107种药品，其中51个为1类创新药，数量创历史新高。新增药物覆盖肿瘤、罕见病、慢性病等急需领域，同时调出34种不适宜药品，调整后目录药品总数达3331个。(财联社)
+2、近日，市场监管总局等三部门印发通知，拓展企业信息变更、注销登记等四项“一件事”集成办理事项，实现“一次申请、一窗受理、一网通办、一次办结”。(CCTV2)
+3、据商务部消息，11月13日，中美双方通过视频会议方式举行中美经贸磋商机制项下贸易理事会首次会议。双方以中美元首会晤重要共识为引领，围绕落实前期中美经贸磋商成果，就关税、“300亿对300亿”对等降税安排、农产品贸易以及各自关心的其他议题进行了坦诚、深入、建设性的交流。双方将通过贸易理事会继续加强沟通，推动解决各自经贸关切，不断拉长合作清单，压缩问题清单，助力构建基于尊重、公平、对等的中美建设性战略稳定关系。(财联社)
+4、11月14日，我国自主研制的10吨级电动商用飞机CE-25A在山东滨州完成首次有人驾驶智能飞行。CE-25A飞机搭载2名飞行员、1名试飞工程师，飞行试验57分46秒，其中空中飞行16分38秒、60.4公里。飞机状态正常，各项指标符合预期。这是继CE-25A今年2月2日无人驾驶智能首飞之后，该机研制的又一里程碑。(央视)
+5、证监会主席吴清14日在参加2026中国资本市场学术年会时表示，进一步深化市场微观结构研究。为进一步提升市场定价和发展质量，需要深入研究改善资本供给结构，加快发展壮大长期资本、耐心资本；深入研究改善预期引导机制，减少“羊群效应”“短期化”交易带来的市场波动；还要深入研究评估量化交易、股份减持等制度规则的优化和公平合理的监管安排，切实保护好投资者合法权益。(财联社)
+6、从第三批国际地质科学联合会地质遗产地中国入选地名单发布会上了解到，我国新增3处地质遗产地，分别为：重庆云阳中侏罗世恐龙化石群、四川鲜水河断裂、安徽大别山三叠纪超高压变质带。至此，我国共有13处入选。(新华社)
+7、12日，美国微软公司旗下微软365多项服务发生大范围故障，对多国政府机构、企业和个人用户造成影响。这是微软365服务今年第二次中断，引发外界对微软服务可靠性的担忧。当地时间13日，微软公司就这次全球性服务中断事件深表歉意。(CCTV13)
+8、美国中部时间13日16时48分许(北京时间14日6时48分许)，“星舰”从位于得克萨斯州南部的发射基地升空。此后，火箭一二级分离。“超级重型”助推器未按原计划返回发射场，在墨西哥湾海域受控溅落。据任务团队介绍，“星舰”飞船将继续执行飞行任务，计划进入距地球表面约275公里的轨道飞行，并将部署26颗新一代“星链”V3卫星。(新华社)
+9、据乌克兰国家通讯社14日报道，乌克兰总统泽连斯基当天对记者表示，美方曾提出让乌克兰放弃顿巴斯地区，以换取北约成员国的资格。(新华国际)
+10、当地时间11月13日，美国联邦航空管理局(FAA)宣布，地面停飞指令已取消。但是预计今明两天仍会出现大范围的航班取消或后续延误状况。当天稍早时，美国多个航路交通管制中心出现通信故障。出于安全考虑，美国联邦航空管理局自美东时间15时53分起暂停全美机场航班起飞。美国总统特朗普表示，美国空管系统故障与网络攻击或人工智能无关。(央视)
+11、日本共同社12日引述日美外交消息人士报道，美国要求日本政府，就2027年度起5年的驻日美军经费承担超过3万亿日元，约为现在的3倍。根据现行《日美特别协定》，日本平均每一年负担驻日美军经费约2110亿日元，五年合共约1万亿日元。日本政府原本已研究将每年分摊经费金额提高至3000亿日元，较目前高出大约三分一，但美国特朗普政府据报开出的增幅更大，要求提高至3倍，每年向华府支付约6330亿日元。双方正在继续协商，希望年底前可以达成新版协议。由于差距庞大，预计谈判将会极为艰难。(凤凰卫视)
+12、真正的自信，从来不是无所不知，而是明知有不懂的地方，仍愿意躬身探寻；发现判断出现偏差，也敢于及时修正。人对自我的认识，很难一蹴而就。边走边校准方向，本身就是一种成熟。成熟也不是要丢掉自信，而是越来越能坦然接纳：一个人能看到的，终究有限。承认这一点，不是看轻自己，而是离真实的自己更近一步。美好一天从“成熟”开始！
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://t.me/XiaoZhangDuBao/2260"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="RT World News"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">SpaceX has successfully caught its Starship spacecraft returning from orbit using giant mechanical arms 
+Read Full Article at RT.com</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://mf.b37mrtl.ru/files/2026.11/thumbnail/6af8e17e20302754f3244313.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">RT World News</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-11-15"
+                      datetime="2026-11-14T22:33:00.000Z"
+                    >2026-11-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    SpaceX catches Starship spacecraft with giant mechanical arms (VIDEO)
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    SpaceX has successfully caught its Starship spacecraft returning from orbit using giant mechanical arms 
+Read Full Article at RT.com
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://rt-english.com/news/648846-spacex-spacecraft-chopsticks-catch/?utm_source&#x3D;rss&amp;utm_medium&#x3D;rss&amp;utm_campaign&#x3D;RSS"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
               <article
                 data-src="中国新闻 | 联合早报 - 享誉新加坡与国际的新闻媒体"
                 x-show="active === 'all' || active === $el.dataset.src"
@@ -1024,6 +1973,274 @@ Read Full Article at RT.com
                   <!-- Read link – @click.stop so the card click doesn't also fire -->
                   <a
                     href="https://news.ifeng.com/c/8y2HAhP91L4"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="差评X.PIN"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">今天是 11 月 14 日，农历十月初六。</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">差评X.PIN</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-11-15"
+                      datetime="2026-11-14T16:00:00.000Z"
+                    >2026-11-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    美国停飞全国航班，微软服务大面积宕机，我国保健食品追溯码正式启用，OpenAI撤销独立机器人团队，这是今天的其他大新闻！
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    今天是 11 月 14 日，农历十月初六。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://mp.weixin.qq.com/s?__biz&#x3D;MzA5NDc1NzQ4MA&#x3D;&#x3D;&amp;mid&#x3D;2654708671&amp;idx&#x3D;1&amp;sn&#x3D;927e8811b286eda0aa22ce080aba4ecb"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="差评X.PIN"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">你们都不懂Gemini的魅力</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">差评X.PIN</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-11-15"
+                      datetime="2026-11-14T16:00:00.000Z"
+                    >2026-11-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    为什么说Gemini才是目前最被低估的真神？
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    你们都不懂Gemini的魅力
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://mp.weixin.qq.com/s?__biz&#x3D;MzA5NDc1NzQ4MA&#x3D;&#x3D;&amp;mid&#x3D;2654708671&amp;idx&#x3D;2&amp;sn&#x3D;0481dca6d79daec5a106a55ab7d061d8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="差评X.PIN"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">战斗愈发激烈。</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">差评X.PIN</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-11-15"
+                      datetime="2026-11-14T16:00:00.000Z"
+                    >2026-11-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    都以为今年车市没戏，其实有车企已经开香槟了。
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    战斗愈发激烈。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://mp.weixin.qq.com/s?__biz&#x3D;MzA5NDc1NzQ4MA&#x3D;&#x3D;&amp;mid&#x3D;2654708671&amp;idx&#x3D;3&amp;sn&#x3D;b0ef6de345076c507a8808a76a50dff0"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="差评X.PIN"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">不想玩了。</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">差评X.PIN</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-11-15"
+                      datetime="2026-11-14T16:00:00.000Z"
+                    >2026-11-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    今日最佳：这双眼究竟看了多远
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    不想玩了。
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://mp.weixin.qq.com/s?__biz&#x3D;MzA5NDc1NzQ4MA&#x3D;&#x3D;&amp;mid&#x3D;2654708671&amp;idx&#x3D;4&amp;sn&#x3D;5195e8b727c1817af702fbbabd7e1151"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="差评X.PIN"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">聊一聊 2026-11-15 00:00 浙江
+
+
+
+跳转微信打开</template>
+
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">差评X.PIN</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-11-15"
+                      datetime="2026-11-14T16:00:00.000Z"
+                    >2026-11-15</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    聊一聊：这个双十一，你都买了啥？
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    聊一聊 2026-11-15 00:00 浙江
+
+
+
+跳转微信打开
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://mp.weixin.qq.com/s?__biz&#x3D;MzA5NDc1NzQ4MA&#x3D;&#x3D;&amp;mid&#x3D;2654708671&amp;idx&#x3D;5&amp;sn&#x3D;de0214545cd36fb3ed2151b17f04a08c"
                     target="_blank"
                     rel="noopener noreferrer"
                     @click.stop
@@ -1500,6 +2717,67 @@ Elegant and edgy — and offering a distinctively warm southern welcome — Mars
                   <!-- Read link – @click.stop so the card click doesn't also fire -->
                   <a
                     href="http://www.infzm.com/contents/344828"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
+                  >
+                    阅读原文
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+              <article
+                data-src="UN News - Global perspective Human stories"
+                x-show="active === 'all' || active === $el.dataset.src"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                @click="selectArticle($el)"
+                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
+                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
+                style="display:flex;"
+              >
+                <!-- Hidden description store for the detail panel -->
+                <template class="desc-data">Across Central America’s so-called Dry Corridor, farming families live at the mercy of the rains. In southwestern Honduras, Anastacio Martínez Gómez has spent most of his 73 years learning to work the land. But experience can only take him so far.</template>
+
+                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
+                  <img
+                    src="https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Graphics%20Library/2026/11/Anastacio-WFPHonduras-1.jpg/image560x340cropped.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    onerror="this.parentElement.style.display='none'"
+                  />
+                </div>
+
+                <div class="p-4 flex flex-col flex-1 gap-2">
+                  <!-- Source + Date meta -->
+                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
+                    <span class="truncate font-medium">UN News - Global perspective Human stories</span>
+                    <span class="flex-shrink-0 opacity-50">·</span>
+                    <time
+                      class="flex-shrink-0 js-offset-date"
+                      data-offset-date="2026-11-14"
+                      datetime="2026-11-14T12:00:00.000Z"
+                    >2026-11-14</time>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    When the rains fail: Preparing for drought in Central America
+                  </h3>
+
+                  <!-- Description preview -->
+                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    Across Central America’s so-called Dry Corridor, farming families live at the mercy of the rains. In southwestern Honduras, Anastacio Martínez Gómez has spent most of his 73 years learning to work the land. But experience can only take him so far.
+                  </p>
+
+                  <!-- Read link – @click.stop so the card click doesn't also fire -->
+                  <a
+                    href="https://news.un.org/feed/view/en/story/2026/11/1168776"
                     target="_blank"
                     rel="noopener noreferrer"
                     @click.stop
@@ -91366,1486 +92644,6 @@ Read Full Article at RT.com
                   <!-- Read link – @click.stop so the card click doesn't also fire -->
                   <a
                     href="https://view.inews.qq.com/a/20261108A0AZXX00"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="Latest Stories"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">Silver birch trees flank the slopes in Niseko Grand Hirafu ski resort in Hokkaido.
-With its abundant deep snow and unique apres-ski, Japan is attracting an increasing  number of skiers from overseas. Get the inside guide, from resorts to ramen.
-This article was produced by National Geographic Traveller (UK).
-Renowned for its distinctive skiing culture, Japan is the ultimate wish list destination for serious skiers and snowboarders. If you’re used to the slopes of Europe or North America, you’ll appreciate the small differences: in the menu at a mountain cafe, the particular etiquette of the onsen, or even the heated toilet seats; everything feels different in Japan. But the main claim to fame is its soft, lightweight and very consistent powder snow.
-Westerly winds whip off the Siberia…</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://i.natgeofe.com/n/456f8bc1-daa0-4cc9-a275-ca6d85fe34fe/japan_D2D97H_ukHR_16x9.jpg?w&#x3D;1200"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">Latest Stories</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-11-08"
-                      datetime="2026-11-08T11:00:00.000Z"
-                    >2026-11-08</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    The Best Ski Resorts in Japan This Season
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    Silver birch trees flank the slopes in Niseko Grand Hirafu ski resort in Hokkaido.
-With its abundant deep snow and unique apres-ski, Japan is attracting an increasing  number of skiers from overseas. Get the inside guide, from resorts to ramen.
-This article was produced by National Geographic Traveller (UK).
-Renowned for its distinctive skiing culture, Japan is the ultimate wish list destination for serious skiers and snowboarders. If you’re used to the slopes of Europe or North America, you’ll appreciate the small differences: in the menu at a mountain cafe, the particular etiquette of the onsen, or even the heated toilet seats; everything feels different in Japan. But the main claim to fame is its soft, lightweight and very consistent powder snow.
-Westerly winds whip off the Siberia…
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.nationalgeographic.com/travel/article/the-best-ski-resorts-in-japan-this-season"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="看鉴中国 OutsightChina - Telegram Channel"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">华人骑手护餐被刺死
-华人企业“熊猫外卖”丢餐赔偿制度引发众怒
-据港媒报道，墨尔本一名中国籍外卖骑手在市区被流浪汉刺死。据称，他是为阻止对方抢餐遇害。而有网民指出，骑手拼命护餐是因为他所属的“熊猫外卖”遗失外卖须骑手自掏腰包赔偿的制度。
-“熊猫外卖”由中国留学生刘科路创办，客户主要是华人群体，此前也曾因薪酬和工作条件恶劣引发罢工，更传出有骑手参与罢工后竟收到中国公安来电警告的传闻。
-命案发生后，网民随即号召抵制熊猫外卖。多名骑手称曾因餐被偷遭扣款，要求调查的请愿获逾4000人联署；熊猫外卖回应称“骑手的生命安全永远比订单重要”，将免除餐损赔偿并复查过往罚款。7日晚数百人在州立图书馆外悼念，有人要求平台问责。
-#社会 #打工人 #热搜 #澳大利亚 #看鉴
-🔗原文链接
-《香港01》中国籍外卖骑手墨尔本遇刺亡：从早做到夜供子读书 51岁疑犯落网
-《封面新闻》中国外卖骑手在墨尔本遇害：他每天从早跑到半夜，原计划再过一两年回家
-《南华早报》Chinese consulate in Melbourne demands justice after fatal stabbing of delivery worker
-《香港01》中國籍外賣員保護餐點遇刺亡 數百民眾集會哀悼 熊貓外賣遭抵制
-《维基百科》熊猫外卖</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">看鉴中国 OutsightChina - Telegram Channel</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-11-08"
-                      datetime="2026-11-08T10:47:11.000Z"
-                    >2026-11-08</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    🖼 华人骑手护餐被刺死
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    华人骑手护餐被刺死
-华人企业“熊猫外卖”丢餐赔偿制度引发众怒
-据港媒报道，墨尔本一名中国籍外卖骑手在市区被流浪汉刺死。据称，他是为阻止对方抢餐遇害。而有网民指出，骑手拼命护餐是因为他所属的“熊猫外卖”遗失外卖须骑手自掏腰包赔偿的制度。
-“熊猫外卖”由中国留学生刘科路创办，客户主要是华人群体，此前也曾因薪酬和工作条件恶劣引发罢工，更传出有骑手参与罢工后竟收到中国公安来电警告的传闻。
-命案发生后，网民随即号召抵制熊猫外卖。多名骑手称曾因餐被偷遭扣款，要求调查的请愿获逾4000人联署；熊猫外卖回应称“骑手的生命安全永远比订单重要”，将免除餐损赔偿并复查过往罚款。7日晚数百人在州立图书馆外悼念，有人要求平台问责。
-#社会 #打工人 #热搜 #澳大利亚 #看鉴
-🔗原文链接
-《香港01》中国籍外卖骑手墨尔本遇刺亡：从早做到夜供子读书 51岁疑犯落网
-《封面新闻》中国外卖骑手在墨尔本遇害：他每天从早跑到半夜，原计划再过一两年回家
-《南华早报》Chinese consulate in Melbourne demands justice after fatal stabbing of delivery worker
-《香港01》中國籍外賣員保護餐點遇刺亡 數百民眾集會哀悼 熊貓外賣遭抵制
-《维基百科》熊猫外卖
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://t.me/OutsightChina/10474"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="中科院物理所"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">非线性霍尔效应是当前凝聚态物理的重要研究前沿之一。非线性霍尔效应可突破线性霍尔的局限，为探测贝里曲率偶极矩、贝里联络极化率、量子度规等量子几何特性提供独特途径，在高频整流、太赫兹/微波探测、拓扑存储等</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">中科院物理所</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-11-08"
-                      datetime="2026-11-08T10:30:00.000Z"
-                    >2026-11-08</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    电场-磁场协同调控：双层石墨烯非线性霍尔效应的奇偶规律 | 进展
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    非线性霍尔效应是当前凝聚态物理的重要研究前沿之一。非线性霍尔效应可突破线性霍尔的局限，为探测贝里曲率偶极矩、贝里联络极化率、量子度规等量子几何特性提供独特途径，在高频整流、太赫兹/微波探测、拓扑存储等
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="http://mp.weixin.qq.com/s?__biz&#x3D;MzAwNTA5NTYxOA&#x3D;&#x3D;&amp;mid&#x3D;2651595978&amp;idx&#x3D;1&amp;sn&#x3D;9d9588de3c69baf6240a419c49f4f997&amp;chksm&#x3D;81dd0797527863ed5b245646aa1f8e5b0d3ec40b86f6e61c691f3ea844d2962bd12638595655&amp;scene&#x3D;0&amp;xtrack&#x3D;1#rd"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="DeepTech深科技"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">下一家改变行业的公司，可能还没有进入大多数人的视野。近日，硅谷科技媒体 Newcomer 联合风险投资机构 Felicis 发布了一份名为“Emergent”的创业公司榜单，邀请许多知名创始人推荐他们</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">DeepTech深科技</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-11-08"
-                      datetime="2026-11-08T10:10:56.000Z"
-                    >2026-11-08</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    29家早期公司，谁是下一个独角兽？硅谷顶级创业者给出了一个名单
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    下一家改变行业的公司，可能还没有进入大多数人的视野。近日，硅谷科技媒体 Newcomer 联合风险投资机构 Felicis 发布了一份名为“Emergent”的创业公司榜单，邀请许多知名创始人推荐他们
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="http://mp.weixin.qq.com/s?__biz&#x3D;MzA3NTIyODUzNA&#x3D;&#x3D;&amp;mid&#x3D;2649808268&amp;idx&#x3D;1&amp;sn&#x3D;abacf9f5f442fab20b711a5026af2eb7&amp;chksm&#x3D;862bb4350caafb6226e12e18717efcbe25ec371d2b55db0a60d7c54c438c2450c52443bd819f&amp;scene&#x3D;0&amp;xtrack&#x3D;1#rd"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="DeepTech深科技"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">在充满不确定性的 AI 制药领域，Alphabet 旗下的 Isomorphic Labs 传出了一笔引人关注的融资消息。11 月 8 日，据彭博社报道，这家公司正在洽谈一笔约 50 亿美元的新融资，</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">DeepTech深科技</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-11-08"
-                      datetime="2026-11-08T10:10:56.000Z"
-                    >2026-11-08</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    一款药也没有，谷歌的AI制药公司又要融50亿美元
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    在充满不确定性的 AI 制药领域，Alphabet 旗下的 Isomorphic Labs 传出了一笔引人关注的融资消息。11 月 8 日，据彭博社报道，这家公司正在洽谈一笔约 50 亿美元的新融资，
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="http://mp.weixin.qq.com/s?__biz&#x3D;MzA3NTIyODUzNA&#x3D;&#x3D;&amp;mid&#x3D;2649808268&amp;idx&#x3D;2&amp;sn&#x3D;67d79abf8e11536de33fbc9256a742e3&amp;chksm&#x3D;86dee22098f614fbb2149dec927f4510b88b471c55923d45e0f0f4dbf4f355d141ba2a0213fa&amp;scene&#x3D;0&amp;xtrack&#x3D;1#rd"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="DeepTech深科技"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">本文是专业学术论文解读，不做医疗建议。切除睾丸就能延长寿命？最近，一项来自美国高校的最新预印本论文在小鼠实验里发现，无论在小鼠青春期前、青春期后，还是它们步入相当于人类 30 岁的中年阶段进行切除睾丸</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">DeepTech深科技</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-11-08"
-                      datetime="2026-11-08T10:10:56.000Z"
-                    >2026-11-08</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    切除睾丸能延长寿命？小鼠实验揭示睾丸与寿命的隐秘关联
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    本文是专业学术论文解读，不做医疗建议。切除睾丸就能延长寿命？最近，一项来自美国高校的最新预印本论文在小鼠实验里发现，无论在小鼠青春期前、青春期后，还是它们步入相当于人类 30 岁的中年阶段进行切除睾丸
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="http://mp.weixin.qq.com/s?__biz&#x3D;MzA3NTIyODUzNA&#x3D;&#x3D;&amp;mid&#x3D;2649808268&amp;idx&#x3D;3&amp;sn&#x3D;52d88f9d0cb95503fbb6a2005dcde21b&amp;chksm&#x3D;868060f0398a477768f11b9290be331cb6e209d201ef7885d1d76144a712899d8dbb73204e41&amp;scene&#x3D;0&amp;xtrack&#x3D;1#rd"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="RT World News"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">The US has announced the creation of a new task force which will aim to disrupt land-based supply routes to Iran 
-Read Full Article at RT.com</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://mf.b37mrtl.ru/files/2026.11/thumbnail/6af026bb203027754f6123aa.jpg"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">RT World News</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-11-08"
-                      datetime="2026-11-08T10:05:38.000Z"
-                    >2026-11-08</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    US to target Iran’s land-based supply routes – CENTCOM
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    The US has announced the creation of a new task force which will aim to disrupt land-based supply routes to Iran 
-Read Full Article at RT.com
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://rt-english.com/news/648569-us-iran-land-routes/?utm_source&#x3D;rss&amp;utm_medium&#x3D;rss&amp;utm_campaign&#x3D;RSS"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="iDaily · 每日环球视野"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">欧空局公布一张「MTG-I2」气象卫星拍摄的地球照片。11月6日，欧空局发布欧洲第三代气象卫星系统第2颗成像卫星「MTG-I2」传回的首批图像。这颗新卫星搭载「闪电成像仪」和「柔性组合成像仪」，能够每2.5分钟对欧洲和北非地区天气进行一次完整扫描，主要用于长期气候监测和极端天气预警，设计使用寿命为8.5年。该卫星目前仍处于校准调试阶段，预计2027年第2季度正式投入使用。摄影师：ESA</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="http://pic.yupoo.com/fotomag/d5e6879803/9e85be59.jpg"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">iDaily · 每日环球视野</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-11-08"
-                      datetime="2026-11-08T08:59:00.000Z"
-                    >2026-11-08</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    欧洲 MTG-I2 气象卫星拍摄地球 - November 8, 2026
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    欧空局公布一张「MTG-I2」气象卫星拍摄的地球照片。11月6日，欧空局发布欧洲第三代气象卫星系统第2颗成像卫星「MTG-I2」传回的首批图像。这颗新卫星搭载「闪电成像仪」和「柔性组合成像仪」，能够每2.5分钟对欧洲和北非地区天气进行一次完整扫描，主要用于长期气候监测和极端天气预警，设计使用寿命为8.5年。该卫星目前仍处于校准调试阶段，预计2027年第2季度正式投入使用。摄影师：ESA
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://m.idai.ly/se/30eR2I"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="竹新社 - Telegram Channel"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">竹新社:
-知情人士说，中共组织审读《清史》时提出大幅度批评意见，主要集中在政治方面，认为书稿“没有体现出人民立场”，同官方观点偏离太远，要求作出修改。 去年的审读意见包括：要强调“清朝统治者管理统一的多民族国家”；着重写列强对中国社会的负面冲击，淡化西方对清朝政治改革的影响。 清史工程2002年启动，原定十年或十余年完成，2012年完成95%书稿，2018年提交审读。编纂委员会现已有十几名成员去世，戴逸主任也于今年1月逝世。上述受访者说，二十年来一些意识形态剧变，导致原本的一些理论框架已不再成立或出现政治错误，编纂…
-
-中国社科院11月6日举行仪式，在社科大设立“冷门绝学学院”，以响应习近平讲话。该院主要研究突厥文、西夏文、契丹文、女真文等民族古文字和简帛古文献，旨在服务边疆长治久安，维护文化安全，夯实文明自主阐释根基。
-（中国社会科学院大学）</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">竹新社 - Telegram Channel</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-11-08"
-                      datetime="2026-11-08T08:51:47.000Z"
-                    >2026-11-08</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    ↩️🖼 中国社科院11月6日举行仪式，在社科大设立“冷门绝学学院”，以响应习近平讲话。该院主要研究突厥文、西夏文、契丹文、女真文等民族古文字和简帛古文献...
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    竹新社:
-知情人士说，中共组织审读《清史》时提出大幅度批评意见，主要集中在政治方面，认为书稿“没有体现出人民立场”，同官方观点偏离太远，要求作出修改。 去年的审读意见包括：要强调“清朝统治者管理统一的多民族国家”；着重写列强对中国社会的负面冲击，淡化西方对清朝政治改革的影响。 清史工程2002年启动，原定十年或十余年完成，2012年完成95%书稿，2018年提交审读。编纂委员会现已有十几名成员去世，戴逸主任也于今年1月逝世。上述受访者说，二十年来一些意识形态剧变，导致原本的一些理论框架已不再成立或出现政治错误，编纂…
-
-中国社科院11月6日举行仪式，在社科大设立“冷门绝学学院”，以响应习近平讲话。该院主要研究突厥文、西夏文、契丹文、女真文等民族古文字和简帛古文献，旨在服务边疆长治久安，维护文化安全，夯实文明自主阐释根基。
-（中国社会科学院大学）
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://t.me/tnews365/35764"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="南方周末"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">2026-11-08 16:00:00
-
-获取更多RSS：
-https://feedx.net 
-https://feedx.site</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">南方周末</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-11-08"
-                      datetime="2026-11-08T08:25:12.000Z"
-                    >2026-11-08</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    看完广东人的“落叶提醒”，北方人沉默了
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    2026-11-08 16:00:00
-
-获取更多RSS：
-https://feedx.net 
-https://feedx.site
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="http://www.infzm.com/contents/344163"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="喷嚏-70"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">【1】2026年11月6日（星期五）晚，墨尔本发生一起令人痛心的恶性持刀伤人事件。
-
-
-一位在墨尔本辛勤工作多年的华人外卖骑手，不幸遇袭身亡。当地大量民众自发献花悼念。
-
-
-据当地警方通报，遇害男子身中数刀，事件中另有一名30多岁男子受伤送医。事发店铺“角落弯”随后发文称，遇害者是一位每天到店取餐的外卖骑手，事件发生在店门口。 
-
-
- 
-
-
- 
-
-
- 
-
-
-【2】11月7日，驻法国使馆发言人就法发布有关黄之锋案件的联合声明发表谈话
-
-
- 
-
-
-11月6日，美国、英国、德国、法国、澳大利亚、加拿大、意大利、日本、荷兰和新西兰对外发表联合声明，对乱港分子黄之锋因串谋勾结案被判刑予以谴责。严重干涉中国内政！
-
-
-【3】全国高校首个冷门绝学学院在北京成立
-
-
-#冷门绝学学院教些啥#11月6日，有网友晒出了一张中国社会科学院大学冷门绝学学院成立的宣传展架照片，引发众多网友好奇，纷纷询问其研究方向。7日上午，该校一名工作人员向极目新闻记者证实了该消息，并称这是全国高校首个冷门绝学学院，研究方向为古文字与中华典籍文献等方面。
- 
-
-
-【4】孙宇晨称起诉景甜已经立案了
-
-
- 
-
-
-【5】近日，一款“戴上推不倒”的智能戒指在社交媒体上火了。11月7日，蓝鲸新闻在多个电商平台检索发现，Brainkey即沃智能指环相关商品链接已经下架，此前在微信小店上架时该产品的售价为2699元，该店铺显示已售99单。
-
-
-这款神奇的戒指名为Brainkey即沃智能指环，微信小店相关链接显示其价格为2699元，相关简介中写道该戒指可“重塑平衡本能，脑科学研究转化高级复合微磁材料，辅助前庭系统平衡感知和神经信号传导，助力身体平衡协调表现”。不过该产品被不少人质疑缺乏科学依据。猎豹移动董事长傅盛发视频公开质疑该指环，并称“江湖骗术层出不穷”。
-
-
-目前相关公开信息显示，Brainkey即沃智能指环为物产中大数字安全…</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">喷嚏-70</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-11-08"
-                      datetime="2026-11-08T08:18:00.000Z"
-                    >2026-11-08</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    【喷嚏图卦20261108】星空与圆月是公平的，它会一直陪着抬头望见月亮的人
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    【1】2026年11月6日（星期五）晚，墨尔本发生一起令人痛心的恶性持刀伤人事件。
-
-
-一位在墨尔本辛勤工作多年的华人外卖骑手，不幸遇袭身亡。当地大量民众自发献花悼念。
-
-
-据当地警方通报，遇害男子身中数刀，事件中另有一名30多岁男子受伤送医。事发店铺“角落弯”随后发文称，遇害者是一位每天到店取餐的外卖骑手，事件发生在店门口。 
-
-
- 
-
-
- 
-
-
- 
-
-
-【2】11月7日，驻法国使馆发言人就法发布有关黄之锋案件的联合声明发表谈话
-
-
- 
-
-
-11月6日，美国、英国、德国、法国、澳大利亚、加拿大、意大利、日本、荷兰和新西兰对外发表联合声明，对乱港分子黄之锋因串谋勾结案被判刑予以谴责。严重干涉中国内政！
-
-
-【3】全国高校首个冷门绝学学院在北京成立
-
-
-#冷门绝学学院教些啥#11月6日，有网友晒出了一张中国社会科学院大学冷门绝学学院成立的宣传展架照片，引发众多网友好奇，纷纷询问其研究方向。7日上午，该校一名工作人员向极目新闻记者证实了该消息，并称这是全国高校首个冷门绝学学院，研究方向为古文字与中华典籍文献等方面。
- 
-
-
-【4】孙宇晨称起诉景甜已经立案了
-
-
- 
-
-
-【5】近日，一款“戴上推不倒”的智能戒指在社交媒体上火了。11月7日，蓝鲸新闻在多个电商平台检索发现，Brainkey即沃智能指环相关商品链接已经下架，此前在微信小店上架时该产品的售价为2699元，该店铺显示已售99单。
-
-
-这款神奇的戒指名为Brainkey即沃智能指环，微信小店相关链接显示其价格为2699元，相关简介中写道该戒指可“重塑平衡本能，脑科学研究转化高级复合微磁材料，辅助前庭系统平衡感知和神经信号传导，助力身体平衡协调表现”。不过该产品被不少人质疑缺乏科学依据。猎豹移动董事长傅盛发视频公开质疑该指环，并称“江湖骗术层出不穷”。
-
-
-目前相关公开信息显示，Brainkey即沃智能指环为物产中大数字安全…
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.dapenti.com/blog/more.asp?name&#x3D;xilei&amp;id&#x3D;196623"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="iDaily · 每日环球视野"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">美国纽约洛克菲勒中心，工人们竖起一棵高约23米、重约11吨的圣诞树。11月7日，洛克菲勒中心举行一年一度的圣诞树竖立活动，本年度圣诞树是一棵树龄约75年的挪威云杉，砍伐地点为纽约州的西埃德米斯顿。这棵圣诞树将装饰约5万只 LED 彩灯，顶部安装一颗重达408公斤的水晶伯利恒之星，预计12月2日举行点亮仪式。美国劳工统计局数据显示10月非农就业人数增加16.5万人，远超市场预期的6.5万人，失业率回落0.1个百分点至4.1%。摄影师：Sarah Yenesel</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="http://pic.yupoo.com/fotomag/80ba3a0d26/ca7627f0.jpg"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">iDaily · 每日环球视野</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-11-08"
-                      datetime="2026-11-08T07:59:00.000Z"
-                    >2026-11-08</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    洛克菲勒2026圣诞树竖立 - November 8, 2026
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    美国纽约洛克菲勒中心，工人们竖起一棵高约23米、重约11吨的圣诞树。11月7日，洛克菲勒中心举行一年一度的圣诞树竖立活动，本年度圣诞树是一棵树龄约75年的挪威云杉，砍伐地点为纽约州的西埃德米斯顿。这棵圣诞树将装饰约5万只 LED 彩灯，顶部安装一颗重达408公斤的水晶伯利恒之星，预计12月2日举行点亮仪式。美国劳工统计局数据显示10月非农就业人数增加16.5万人，远超市场预期的6.5万人，失业率回落0.1个百分点至4.1%。摄影师：Sarah Yenesel
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://m.idai.ly/se/c309n8"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="iDaily · 每日环球视野"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">法国年轻人在巴黎共和国广场示威现场演奏乐器。11月7日，法国连续第4个周末爆发全国抗议活动，超过14.6万人走上街头抗议生活成本上涨。法国内政部当天共部署约7万名警察和宪兵维护治安，至少360名抗议者在与警方冲突中被捕。法国工会、学生和教师团体宣布将于11月10日发起新一轮罢课罢工。法国国家统计局公布数据显示2026年第三季度 GDP 环比下降-0.1%，连续第3个季度录得负增长，预计将无法达到全年增长0.4%的目标。摄影师：Firas Abdullah</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="http://pic.yupoo.com/fotomag/c84e4ba0a7/ede327e5.jpg"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">iDaily · 每日环球视野</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-11-08"
-                      datetime="2026-11-08T07:57:00.000Z"
-                    >2026-11-08</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    法国连续第4个周末示威抗议 - November 8, 2026
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    法国年轻人在巴黎共和国广场示威现场演奏乐器。11月7日，法国连续第4个周末爆发全国抗议活动，超过14.6万人走上街头抗议生活成本上涨。法国内政部当天共部署约7万名警察和宪兵维护治安，至少360名抗议者在与警方冲突中被捕。法国工会、学生和教师团体宣布将于11月10日发起新一轮罢课罢工。法国国家统计局公布数据显示2026年第三季度 GDP 环比下降-0.1%，连续第3个季度录得负增长，预计将无法达到全年增长0.4%的目标。摄影师：Firas Abdullah
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://m.idai.ly/se/4fee70"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="iDaily · 每日环球视野"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">埃及吉萨金字塔景区举办第6届「永恒即现在」（Forever Is Now）国际艺术展，一组中国艺术家蒋琼耳创作的装置作品正在展出。11月4日，第6届「永恒即现在」国际艺术展在吉萨金字塔景区开幕，本届共展出来自埃及、中国、英国、法国、土耳其的8位当代艺术家的作品，通过当代艺术与古埃及金字塔的跨时空对话，探讨古代知识体系对现代人类社会的影响，展期持续至11月28日。摄影师：Mohamed Hossam</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="http://pic.yupoo.com/fotomag/63c9f84bc1/a893ca56.jpg"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">iDaily · 每日环球视野</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-11-08"
-                      datetime="2026-11-08T07:55:00.000Z"
-                    >2026-11-08</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    埃及金字塔当代艺术展 - November 8, 2026
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    埃及吉萨金字塔景区举办第6届「永恒即现在」（Forever Is Now）国际艺术展，一组中国艺术家蒋琼耳创作的装置作品正在展出。11月4日，第6届「永恒即现在」国际艺术展在吉萨金字塔景区开幕，本届共展出来自埃及、中国、英国、法国、土耳其的8位当代艺术家的作品，通过当代艺术与古埃及金字塔的跨时空对话，探讨古代知识体系对现代人类社会的影响，展期持续至11月28日。摄影师：Mohamed Hossam
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://m.idai.ly/se/5aeoOQ"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="iDaily · 每日环球视野"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">美国亚特兰大动物园，旅美大熊猫「福双」首次与公众见面。11月6日，旅美雄性大熊猫「平平」和雌性大熊猫「福双」结束约40天检疫隔离及环境适应期后正式与美国公众见面。这对大熊猫年龄均为6岁，目前正值青年期，它们将在亚特兰大动物园旅居10年。亚特兰大动物园已投入600万美元对大熊猫馆进行改造升级，包括扩建室内活动空间、增设攀爬设施、重新设计水池景观等。摄影师：Chen Mengtong</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="http://pic.yupoo.com/fotomag/0dd37d4340/20f09c3b.jpg"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">iDaily · 每日环球视野</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-11-08"
-                      datetime="2026-11-08T07:53:00.000Z"
-                    >2026-11-08</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    旅美大熊猫正式亮相 - November 8, 2026
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    美国亚特兰大动物园，旅美大熊猫「福双」首次与公众见面。11月6日，旅美雄性大熊猫「平平」和雌性大熊猫「福双」结束约40天检疫隔离及环境适应期后正式与美国公众见面。这对大熊猫年龄均为6岁，目前正值青年期，它们将在亚特兰大动物园旅居10年。亚特兰大动物园已投入600万美元对大熊猫馆进行改造升级，包括扩建室内活动空间、增设攀爬设施、重新设计水池景观等。摄影师：Chen Mengtong
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://m.idai.ly/se/0d3325"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="钛媒体：引领未来商业与生活新知"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">AI 基建瓶颈几经转移：从 GPU、电力、电气设备，如今落到电工等施工人力。资本可买断设备排期，却无法压缩技工数年培养周期。这场 AI 竞赛，正从资本密集转向人力密集，人力供给约束，或将决定算力扩张长期上限。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://images.tmtpost.com/uploads/images/zhaopian/nuxtpic/change_logo3/og_image.png"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">钛媒体：引领未来商业与生活新知</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-11-08"
-                      datetime="2026-11-08T06:55:09.000Z"
-                    >2026-11-08</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    从资本密集到人力密集：全球AI的瓶颈，卡在缺乏“电工”
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    AI 基建瓶颈几经转移：从 GPU、电力、电气设备，如今落到电工等施工人力。资本可买断设备排期，却无法压缩技工数年培养周期。这场 AI 竞赛，正从资本密集转向人力密集，人力供给约束，或将决定算力扩张长期上限。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.tmtpost.com/8194549.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="钛媒体：引领未来商业与生活新知"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">大众聚焦长征十号与登月时间表，但胜负手不在火箭点火。中国采用两次发射、环月对接路线，意在搭建可长期运营的地月交通体系。对比阿尔忒弥斯的商业外包困局，真正红利藏在 DRO 母港、深空测控与后端配套，兑现缓慢且分化，不构成投资建议。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://images.tmtpost.com/uploads/images/zhaopian/nuxtpic/change_logo3/og_image.png"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">钛媒体：引领未来商业与生活新知</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-11-08"
-                      datetime="2026-11-08T06:55:01.000Z"
-                    >2026-11-08</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    登月的胜负手，不在火箭点火那一刻
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    大众聚焦长征十号与登月时间表，但胜负手不在火箭点火。中国采用两次发射、环月对接路线，意在搭建可长期运营的地月交通体系。对比阿尔忒弥斯的商业外包困局，真正红利藏在 DRO 母港、深空测控与后端配套，兑现缓慢且分化，不构成投资建议。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.tmtpost.com/8194612.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="钛媒体：引领未来商业与生活新知"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">鲜货烧烤的现在和终局。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://images.tmtpost.com/uploads/images/zhaopian/nuxtpic/change_logo3/og_image.png"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">钛媒体：引领未来商业与生活新知</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-11-08"
-                      datetime="2026-11-08T06:53:09.000Z"
-                    >2026-11-08</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    鲜货烧烤热度持续上升，如何把它变成一门持续赚钱的生意？
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    鲜货烧烤的现在和终局。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.tmtpost.com/8197514.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="钛媒体：引领未来商业与生活新知"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">2026年末储能出海长协潮，大数字下需盯真实交付与适配能力。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://images.tmtpost.com/uploads/images/zhaopian/nuxtpic/change_logo3/og_image.png"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">钛媒体：引领未来商业与生活新知</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-11-08"
-                      datetime="2026-11-08T06:53:05.000Z"
-                    >2026-11-08</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    亿纬206GWh大单背后，国轩、比亚迪也在中东市场掘金，储能出海是否形成“供应商名单固化”？
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    2026年末储能出海长协潮，大数字下需盯真实交付与适配能力。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.tmtpost.com/8197534.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="钛媒体：引领未来商业与生活新知"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">3元价格带承压。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://images.tmtpost.com/uploads/images/zhaopian/nuxtpic/change_logo3/og_image.png"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">钛媒体：引领未来商业与生活新知</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-11-08"
-                      datetime="2026-11-08T06:46:55.000Z"
-                    >2026-11-08</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    年轻人疯囤平价大水，“水中贵族”百岁山不香了？
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    3元价格带承压。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.tmtpost.com/8197498.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="钛媒体：引领未来商业与生活新知"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">旧标尺已然失效。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://images.tmtpost.com/uploads/images/zhaopian/nuxtpic/change_logo3/og_image.png"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">钛媒体：引领未来商业与生活新知</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-11-08"
-                      datetime="2026-11-08T06:46:50.000Z"
-                    >2026-11-08</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    AMD的CPU时代，正在「落幕」
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    旧标尺已然失效。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.tmtpost.com/8197527.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="钛媒体：引领未来商业与生活新知"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">体验经济走到今天，已经从拼规模拼补贴，转向拼运营效率拼用户质量。</template>
-
-                <div class="h-44 overflow-hidden flex-shrink-0 bg-[#fde8f2]">
-                  <img
-                    src="https://images.tmtpost.com/uploads/images/zhaopian/nuxtpic/change_logo3/og_image.png"
-                    alt=""
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                    onerror="this.parentElement.style.display='none'"
-                  />
-                </div>
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">钛媒体：引领未来商业与生活新知</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-11-08"
-                      datetime="2026-11-08T06:46:46.000Z"
-                    >2026-11-08</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    消费入座成潮流？消费入座趋势是怎么形成的？
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    体验经济走到今天，已经从拼规模拼补贴，转向拼运营效率拼用户质量。
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="https://www.tmtpost.com/8197530.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click.stop
-                    class="read-link mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#ff8fb1] hover:text-[#e8649a] transition-colors w-fit"
-                  >
-                    阅读原文
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              <article
-                data-src="南方周末"
-                x-show="active === 'all' || active === $el.dataset.src"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                @click="selectArticle($el)"
-                :class="selectedArticle && selectedArticle.el === $el ? 'ring-2 ring-[#ffb1c5] ring-offset-1 shadow-md' : ''"
-                class="bg-white rounded-2xl border border-[#fde8f2] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col cursor-pointer"
-                style="display:flex;"
-              >
-                <!-- Hidden description store for the detail panel -->
-                <template class="desc-data">2026-11-08 14:00:00
-
-恒河边的印度瓦拉纳西市。视觉中国图
-在日常的行走和生活中，大部分人都曾见过河流甚至与之相伴，在不同文化的日常修辞中，也常常能够看到诸如“母亲河”这样的比喻，但我们却似乎很少认真思考这样一个问题：河流是否也有生命？以及，更进一步，河流是否也有属于自己的权利？
-因为家附近的一条溪流濒临枯竭，罗伯特·麦克法伦（Robert Macfarlane）花费了五年时间思考、行走和写作，并用一本以“河流是否拥有生命”（Is a River Alive）为名的书籍（中文译名《活水》）回应了如上问题。
-在麦克法伦看来，我们对河流的看法早就应该更新，河流本来就是与人类平等的生命主体。而他写作《活水》的目的，不仅仅是传播一种空泛的理念，更是要把世界各地保护河流的经验分享出来。
-作为“当代最好的行走文学作家”之一、最年轻的布克奖评委会主席，麦克法伦以“行走三部曲”为人所知。他的《念念远山》《荒野之境》《古道》《深时之旅》等书籍获得过萨默塞特·毛姆文学奖、爱德华·斯坦福旅行文学奖、英国温赖特奖、美国国家户外图书奖等奖项，还曾多次进入西方各大媒体的年度好书榜单。
-但在过去二十多年中，麦克法伦从来就不是书斋中的写作者，他以一种有机的方式践行着自己的人文理想。他不仅以学术研究和畅销书的写作去传递自己对自然环境的关切，更身体力行地用行动介入现实运动，深入世界各地的环境保护网络。
-2024年，他还在伦敦参与支持英国历史上规模最大的水资源环保游行“为净水而战”（March for Clean Water），该行动召集了超过1.5万名身着蓝衣的抗议者，唤起世人对英国水污染的重视。与此同时，他也寻求和知名音乐人、艺术家的跨界合作，通过流行歌曲或艺术展览的方式，扩大万物平等理念的影响力。
-近日，《活水》中译本出版，在和南方周末记者的对话中，麦克法伦一直强调人类需要破除某种“中心…</template>
-
-
-                <div class="p-4 flex flex-col flex-1 gap-2">
-                  <!-- Source + Date meta -->
-                  <div class="flex items-center gap-1.5 text-[11px] text-[#b88aaa] min-w-0">
-                    <span class="truncate font-medium">南方周末</span>
-                    <span class="flex-shrink-0 opacity-50">·</span>
-                    <time
-                      class="flex-shrink-0 js-offset-date"
-                      data-offset-date="2026-11-08"
-                      datetime="2026-11-08T06:25:06.000Z"
-                    >2026-11-08</time>
-                  </div>
-
-                  <!-- Title -->
-                  <h3 class="card-title font-bold text-[#2d2d2d] text-sm leading-snug" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    专访《活水》作者麦克法伦：生命是一个动词
-                  </h3>
-
-                  <!-- Description preview -->
-                  <p class="text-xs text-[#777777] leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
-                    2026-11-08 14:00:00
-
-恒河边的印度瓦拉纳西市。视觉中国图
-在日常的行走和生活中，大部分人都曾见过河流甚至与之相伴，在不同文化的日常修辞中，也常常能够看到诸如“母亲河”这样的比喻，但我们却似乎很少认真思考这样一个问题：河流是否也有生命？以及，更进一步，河流是否也有属于自己的权利？
-因为家附近的一条溪流濒临枯竭，罗伯特·麦克法伦（Robert Macfarlane）花费了五年时间思考、行走和写作，并用一本以“河流是否拥有生命”（Is a River Alive）为名的书籍（中文译名《活水》）回应了如上问题。
-在麦克法伦看来，我们对河流的看法早就应该更新，河流本来就是与人类平等的生命主体。而他写作《活水》的目的，不仅仅是传播一种空泛的理念，更是要把世界各地保护河流的经验分享出来。
-作为“当代最好的行走文学作家”之一、最年轻的布克奖评委会主席，麦克法伦以“行走三部曲”为人所知。他的《念念远山》《荒野之境》《古道》《深时之旅》等书籍获得过萨默塞特·毛姆文学奖、爱德华·斯坦福旅行文学奖、英国温赖特奖、美国国家户外图书奖等奖项，还曾多次进入西方各大媒体的年度好书榜单。
-但在过去二十多年中，麦克法伦从来就不是书斋中的写作者，他以一种有机的方式践行着自己的人文理想。他不仅以学术研究和畅销书的写作去传递自己对自然环境的关切，更身体力行地用行动介入现实运动，深入世界各地的环境保护网络。
-2024年，他还在伦敦参与支持英国历史上规模最大的水资源环保游行“为净水而战”（March for Clean Water），该行动召集了超过1.5万名身着蓝衣的抗议者，唤起世人对英国水污染的重视。与此同时，他也寻求和知名音乐人、艺术家的跨界合作，通过流行歌曲或艺术展览的方式，扩大万物平等理念的影响力。
-近日，《活水》中译本出版，在和南方周末记者的对话中，麦克法伦一直强调人类需要破除某种“中心…
-                  </p>
-
-                  <!-- Read link – @click.stop so the card click doesn't also fire -->
-                  <a
-                    href="http://www.infzm.com/contents/344251"
                     target="_blank"
                     rel="noopener noreferrer"
                     @click.stop
